@@ -17,6 +17,7 @@
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
+		39FD7DAB1BEC85BA00CCD3F9 /* SaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DAA1BEC85BA00CCD3F9 /* SaleOppViewController.m */; };
 		9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */; };
 		9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */; };
 		9678AEF31BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */; };
@@ -168,6 +169,8 @@
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		39FD7DA91BEC85BA00CCD3F9 /* SaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppViewController.h; sourceTree = "<group>"; };
+		39FD7DAA1BEC85BA00CCD3F9 /* SaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppViewController.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
@@ -416,6 +419,15 @@
 			name = GPS;
 			sourceTree = "<group>";
 		};
+		39FD7DA81BEC857B00CCD3F9 /* saleOpp */ = {
+			isa = PBXGroup;
+			children = (
+				39FD7DA91BEC85BA00CCD3F9 /* SaleOppViewController.h */,
+				39FD7DAA1BEC85BA00CCD3F9 /* SaleOppViewController.m */,
+			);
+			name = saleOpp;
+			sourceTree = "<group>";
+		};
 		697B9FD2210A177A0B37E0B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +449,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				39FD7DA81BEC857B00CCD3F9 /* saleOpp */,
 				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
 				9678AEE21BEB70D400E5B50E /* crm */,
@@ -1111,6 +1124,7 @@
 				96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */,
 				B8184A911BEC7AAF00FB0C84 /* GLReusableViewController.m in Sources */,
 				9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */,
+				39FD7DAB1BEC85BA00CCD3F9 /* SaleOppViewController.m in Sources */,
 				9678AEF41BEB71C800E5B50E /* CustomerInformationDetailViewController.m in Sources */,
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
