@@ -8,28 +8,12 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import <MAMapKit/MAMapKit.h>
-#define APIKey @"cdf41cce83fb64756ba13022997e5e74"
-
-@interface AppDelegate ()<MAMapViewDelegate>
-{
-    MAMapView *_mapView;
-}
-@end
 
 
 @implementation AppDelegate
 @synthesize sessionInfo;
 @synthesize index;
 
-- (void)initMapView
-{
-//    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds),CGRectGetHeight(self.view.bounds))];
-//    _mapView.delegate = self;
-//    _mapView.compassOrigin = CGPointMake(_mapView.compassOrigin.x, 22);
-//    _mapView.scaleOrigin = CGPointMake(_mapView.scaleOrigin.x, 22);
-//    [self.view addSubview:_mapView];
-}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [NSThread sleepForTimeInterval:1.0];
