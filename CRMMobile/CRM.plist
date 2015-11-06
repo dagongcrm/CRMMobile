@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+       
+       <dict>
+            <key>Name</key>
+            <string>客户档案</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/iapps</string>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>index</key>
+            <string>1</string>
+        </dict>
+       
+        <dict>
+            <key>Name</key>
+            <string>客户联系人</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/appleus</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>2</string>
+        </dict>
+        
+        <dict>
+            <key>Name</key>
+            <string>拜访计划</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+        <dict>
+            <key>Name</key>
+            <string>拜访记录</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+         
+        <dict>
+            <key>Name</key>
+            <string>销售线索</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+        
+        
+        <dict>
+            <key>Name</key>
+            <string>销售机会</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+        
+        <dict>
+            <key>Name</key>
+            <string>活动统计</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+       
+    </array>
+</plist>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+       
+        <dict>
+            <key>Name</key>
+            <string>待办提醒</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+        <dict>
+            <key>Name</key>
+            <string>通知</string>
+            <key>Image</key>
+            <string>home-black.png</string>
+            <key>WebSite</key>
+            <string>http://weibo.com/gx110</string>
+            <key>Favorite</key>
+            <real>3.5</real>
+            <key>Category</key>
+            <string>苹果咨询</string>
+            <key>index</key>
+            <string>3</string>
+        </dict>
+        </array>
+</plist>

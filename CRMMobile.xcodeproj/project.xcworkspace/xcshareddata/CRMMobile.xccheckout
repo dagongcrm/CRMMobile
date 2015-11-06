@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>20F259DA-AE5D-4809-A9F3-D8E2CFA786DD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CRMMobile</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>53A4B58420E2FD71F0E55D93017AC11A0544896F</key>
+		<string>https://github.com/dagongcrm/CRMMobile.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CRMMobile.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>53A4B58420E2FD71F0E55D93017AC11A0544896F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dagongcrm/CRMMobile.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>53A4B58420E2FD71F0E55D93017AC11A0544896F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>53A4B58420E2FD71F0E55D93017AC11A0544896F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CRMMobile</string>
+		</dict>
+	</array>
+</dict>
+</plist>
