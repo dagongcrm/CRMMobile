@@ -1,22 +1,21 @@
 //
-//  DailyTableViewController.m
+//  WeekTableViewController.m
 //  CRMMobile
 //
-//  Created by why on 15/11/2.
+//  Created by why on 15/11/5.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "DailyTableViewController.h"
+#import "WeekTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
-#import "TaskReportDailyEntity.h"
-#import "DailyViewController.h"
+#import "TaskReportWeekEntity.h"
+#import "ShowAndDeleteWeekViewController.h"
 #import "TaskReportTableViewController.h"
-#import "AddDailyViewController.h"
+#import "AddWeekViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
-
-@interface DailyTableViewController (){
+@interface WeekTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
 @property (strong, nonatomic) NSMutableArray *fakeData;//ribaoleixing daily
@@ -24,15 +23,14 @@
 @property (strong, nonatomic) NSMutableArray *workIdData;//ribaoid workStatementActionID
 @property (strong, nonatomic) NSMutableDictionary *wordId;//ribaoid
 @property (strong,nonatomic) NSMutableArray *dateData;//shijian time
-@property (strong,nonatomic) NSMutableArray *dailyObject;
 @property (strong,nonatomic) NSMutableArray *typeData;//type
 @property (strong,nonatomic) NSMutableArray *reportData;//report
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
 
-@implementation DailyTableViewController
 
+@implementation WeekTableViewController
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -46,9 +44,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-      [self setupRefresh];
-    self.title=@"工作日报";
-    self.dailyObject=[NSMutableArray array];
+    [self setupRefresh];
+    self.title=@"工作周报";
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     searchBar.placeholder = @"搜索";
     self.tableView.tableHeaderView = searchBar;
@@ -61,11 +58,9 @@
                                  action:@selector(addUser:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"可复用" style:UIBarButtonItemStyleDone	 target:self action:@selector(ResView)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
-    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -76,7 +71,7 @@
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-
+    
     
 }
 - (void)ResView
@@ -93,7 +88,7 @@
 
 - (IBAction)addUser:(id)sender
 {
-    AddDailyViewController *jumpController = [[AddDailyViewController alloc] init];
+    AddWeekViewController *jumpController = [[AddWeekViewController alloc] init];
     [self.navigationController pushViewController: jumpController animated:true];
 }
 
@@ -151,13 +146,12 @@
     NSError *error;
     self.fakeData = [[NSMutableArray alloc]init];//daily
     self.dateData = [[NSMutableArray alloc]init];//time
-    self.dailyObject = [[NSMutableArray alloc]init];
     self.workIdData = [[NSMutableArray alloc]init];//workid
     self.typeData = [[NSMutableArray alloc]init];//type
     self.reportData = [[NSMutableArray alloc]init];//report
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSLog(@"sid为--》%@", sid);
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportWAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -166,9 +160,9 @@
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
-    NSArray *list = [dailyDic objectForKey:@"obj"];
+    NSDictionary *weekDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    NSLog(@"weekDic字典里面的内容为--》%@", weekDic);
+    NSArray *list = [weekDic objectForKey:@"obj"];
     if([list count] ==0)
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
@@ -179,34 +173,23 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
-        [self.dailyObject addObject:listDic];
-        NSString *dailyreport = (NSString *)[listDic objectForKey:@"daily"];
+        NSString *weekreport = (NSString *)[listDic objectForKey:@"week"];
         NSString *date = (NSString*)[listDic objectForKey:@"time"];
         NSString *workId = (NSString*)[listDic objectForKey:@"workStatementActionID"];
         NSString *type = (NSString *)[listDic objectForKey:@"type"];
         NSString *report = (NSString*)[listDic objectForKey:@"report"];
-        [self.fakeData addObject:dailyreport];
+        [self.fakeData addObject:weekreport];
         [self.dateData addObject:date];
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
-        NSLog(@"dailyreport===>>%@",dailyreport);
+        NSLog(@"dailyreport===>>%@",weekreport);
         NSLog(@"wordID333444%@",self.workIdData);
     }
     return self.fakeData;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    if (tableView == self.tableView)
-//    {
-//        return self.fakeData.count;
-//        
-//    }else
-//    {
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains [cd] %@",mySearchDisplayController.searchBar.text];
-//        _searchResultsData =  [[NSMutableArray alloc] initWithArray:[self.fakeData filteredArrayUsingPredicate:predicate]];
-//        return _searchResultsData.count;
-//    }
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -217,10 +200,10 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"back"]];
+        [cell.imageView setImage:[UIImage imageNamed:@"back"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-
+    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
@@ -233,40 +216,40 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"workid为%@",self.workIdData);
-
-    if (tableView == self.tableView)
-    {
-    NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
-    NSString *time =[self.dateData objectAtIndex:indexPath.row];
-    NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
-    NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
-    NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-    TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
-    [dailydetail setLeixing:dailyreport];
-    [dailydetail setTime:time];
-    [dailydetail setZongjie:zongjie];
-    [dailydetail setMingrijihua:jihua];
-    [dailydetail setWorkID:workId];
-    DailyViewController *uc =[[DailyViewController alloc] init];
-    [uc setDailyEntity:dailydetail];
-    [self.navigationController pushViewController:uc animated:YES];
-   
-    }else
-    {
+    
+//    if (tableView == self.tableView)
+//    {
         NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
         NSString *time =[self.dateData objectAtIndex:indexPath.row];
         NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
         NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
         NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-        TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
-        [dailydetail setLeixing:dailyreport];
-        [dailydetail setTime:time];
-        [dailydetail setZongjie:zongjie];
-        [dailydetail setMingrijihua:jihua];
-        [dailydetail setWorkID:workId];
-        DailyViewController *uc =[[DailyViewController alloc] init];
-        [uc setDailyEntity:dailydetail];
-        [self.navigationController pushViewController:uc animated:YES];
-    }
+        TaskReportWeekEntity *weekdetail =[[TaskReportWeekEntity alloc] init];
+        [weekdetail setLeixing:dailyreport];
+        [weekdetail setTime:time];
+        [weekdetail setZongjie:zongjie];
+        [weekdetail setMingrijihua:jihua];
+        [weekdetail setWorkID:workId];
+        ShowAndDeleteWeekViewController *sd =[[ShowAndDeleteWeekViewController alloc] init];
+        [sd setWeekEntity:weekdetail];
+        [self.navigationController pushViewController:sd animated:YES];
+//        
+//    }else
+//    {
+//        NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
+//        NSString *time =[self.dateData objectAtIndex:indexPath.row];
+//        NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
+//        NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
+//        NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
+//        TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
+//        [dailydetail setLeixing:dailyreport];
+//        [dailydetail setTime:time];
+//        [dailydetail setZongjie:zongjie];
+//        [dailydetail setMingrijihua:jihua];
+//        [dailydetail setWorkID:workId];
+//        DailyViewController *uc =[[DailyViewController alloc] init];
+//        [uc setDailyEntity:dailydetail];
+//        [self.navigationController pushViewController:uc animated:YES];
+//    }
 }
 @end

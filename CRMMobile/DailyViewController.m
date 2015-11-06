@@ -70,13 +70,8 @@
                 NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                 NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
             if ([[dailyDic objectForKey:@"success"] boolValue] == YES) {
-                for (UIViewController *controller in self.navigationController.viewControllers)
-                {
-                    if ([controller isKindOfClass:[DailyTableViewController class]])
-                    {
-                        [self.navigationController popToViewController:controller animated:YES];
-                    }
-                }
+                DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
+                [self.navigationController pushViewController:dailytv animated:YES];
                 }
             }
 }

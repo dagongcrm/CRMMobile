@@ -9,6 +9,8 @@
 #import "TaskReportTableViewController.h"
 #import "AppDelegate.h"
 #import "DailyTableViewController.h"
+#import "WeekTableViewController.h"
+#import "MonthTableViewController.h"
 @interface TaskReportTableViewController ()
 @property (strong,nonatomic) UINavigationController *iNav;
 @end
@@ -62,7 +64,11 @@
         DailyTableViewController *fltv = [[DailyTableViewController alloc] init];
         [self.navigationController pushViewController:fltv animated:YES];
     }else if(indexPath.row==1){
-        
+        WeekTableViewController *week = [[WeekTableViewController alloc] init];
+        [self.navigationController pushViewController:week animated:YES];
+    }else if(indexPath.row==2){
+        MonthTableViewController *month = [[MonthTableViewController alloc]init];
+        [self.navigationController pushViewController:month animated:YES];
     }
 }
 
