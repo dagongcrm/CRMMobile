@@ -29,9 +29,6 @@
 		9678AEFC1BEB71F800E5B50E /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
 		9678AEFD1BEB722900E5B50E /* addTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CE1BE8A96B00149C10 /* addTaskViewController.m */; };
 		9678AEFF1BEB731600E5B50E /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEFE1BEB731600E5B50E /* 222.png */; };
-		9678AF001BEB747600E5B50E /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D179031BE8CD18006617D3 /* IndexViewController.m */; };
-		9678AF011BEB749800E5B50E /* GLReusableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A8C281BE9E8E600C67039 /* GLReusableViewController.m */; };
-		9678AF021BEB74B900E5B50E /* VisitPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EEAEBA1BEB26F0009FF63D /* VisitPlanTableViewController.m */; };
 		96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E312461BEB53BA00A1A3FF /* MJRefresh.bundle */; };
 		96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E312471BEB53BA00A1A3FF /* arrow@2x.png */; };
 		96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E3124A1BEB53BA00A1A3FF /* MJRefreshBaseView.m */; };
@@ -81,6 +78,12 @@
 		96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAE27E1BEC758500032BB3 /* AddMonthViewController.m */; };
 		96FAE2851BEC758500032BB3 /* AddMonthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAE27F1BEC758500032BB3 /* AddMonthViewController.xib */; };
 		96FAE2881BEC759E00032BB3 /* TaskReportMonthEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAE2871BEC759E00032BB3 /* TaskReportMonthEntity.m */; };
+		B8184A911BEC7AAF00FB0C84 /* GLReusableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8184A901BEC7AAF00FB0C84 /* GLReusableViewController.m */; };
+		B8184A971BEC7B0F00FB0C84 /* VisitPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8184A951BEC7B0F00FB0C84 /* VisitPlanViewController.m */; };
+		B8184A981BEC7B0F00FB0C84 /* VisitPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8184A961BEC7B0F00FB0C84 /* VisitPlanViewController.xib */; };
+		B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = B8184A9A1BEC7B1900FB0C84 /* VisitPlanNsObj.m */; };
+		B8184A9D1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8184A9C1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m */; };
+		B8184AA11BEC7BB800FB0C84 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8184AA01BEC7BB800FB0C84 /* IndexViewController.m */; };
 		B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A8C2C1BE9FCD500C67039 /* TaskRecordsTableViewController.m */; };
 		B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */ = {isa = PBXBuildFile; fileRef = B87028191BD9E52500CD2FF2 /* taskReport.plist */; };
 		B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EEAEBB1BEB26F0009FF63D /* VisitPlanTableViewController.xib */; };
@@ -263,16 +266,21 @@
 		96FAE27F1BEC758500032BB3 /* AddMonthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMonthViewController.xib; sourceTree = "<group>"; };
 		96FAE2861BEC759E00032BB3 /* TaskReportMonthEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskReportMonthEntity.h; sourceTree = "<group>"; };
 		96FAE2871BEC759E00032BB3 /* TaskReportMonthEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskReportMonthEntity.m; sourceTree = "<group>"; };
-		B84A8C271BE9E8E600C67039 /* GLReusableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLReusableViewController.h; sourceTree = "<group>"; };
-		B84A8C281BE9E8E600C67039 /* GLReusableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLReusableViewController.m; sourceTree = "<group>"; };
+		B8184A901BEC7AAF00FB0C84 /* GLReusableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLReusableViewController.m; sourceTree = "<group>"; };
+		B8184A941BEC7B0F00FB0C84 /* VisitPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitPlanViewController.h; sourceTree = "<group>"; };
+		B8184A951BEC7B0F00FB0C84 /* VisitPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanViewController.m; sourceTree = "<group>"; };
+		B8184A961BEC7B0F00FB0C84 /* VisitPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitPlanViewController.xib; sourceTree = "<group>"; };
+		B8184A991BEC7B1900FB0C84 /* VisitPlanNsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitPlanNsObj.h; sourceTree = "<group>"; };
+		B8184A9A1BEC7B1900FB0C84 /* VisitPlanNsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanNsObj.m; sourceTree = "<group>"; };
+		B8184A9C1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanTableViewController.m; sourceTree = "<group>"; };
+		B8184A9E1BEC7BB800FB0C84 /* GLReusableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLReusableViewController.h; sourceTree = "<group>"; };
+		B8184A9F1BEC7BB800FB0C84 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		B8184AA01BEC7BB800FB0C84 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		B84A8C2B1BE9FCD500C67039 /* TaskRecordsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRecordsTableViewController.h; sourceTree = "<group>"; };
 		B84A8C2C1BE9FCD500C67039 /* TaskRecordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRecordsTableViewController.m; sourceTree = "<group>"; };
 		B84A8C2D1BE9FCD500C67039 /* TaskRecordsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskRecordsTableViewController.xib; sourceTree = "<group>"; };
 		B87028191BD9E52500CD2FF2 /* taskReport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = taskReport.plist; sourceTree = "<group>"; };
-		B8D179021BE8CD18006617D3 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
-		B8D179031BE8CD18006617D3 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		B8EEAEB91BEB26F0009FF63D /* VisitPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitPlanTableViewController.h; sourceTree = "<group>"; };
-		B8EEAEBA1BEB26F0009FF63D /* VisitPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanTableViewController.m; sourceTree = "<group>"; };
 		B8EEAEBB1BEB26F0009FF63D /* VisitPlanTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitPlanTableViewController.xib; sourceTree = "<group>"; };
 		C0D3CD3B1BDF0CEF00C23FB3 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		C0D3CD3C1BDF0CEF00C23FB3 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -582,6 +590,25 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		B8184A921BEC7AF000FB0C84 /* visitPlanView */ = {
+			isa = PBXGroup;
+			children = (
+				B8184A941BEC7B0F00FB0C84 /* VisitPlanViewController.h */,
+				B8184A951BEC7B0F00FB0C84 /* VisitPlanViewController.m */,
+				B8184A961BEC7B0F00FB0C84 /* VisitPlanViewController.xib */,
+			);
+			name = visitPlanView;
+			sourceTree = "<group>";
+		};
+		B8184A931BEC7B0200FB0C84 /* visitEntity */ = {
+			isa = PBXGroup;
+			children = (
+				B8184A991BEC7B1900FB0C84 /* VisitPlanNsObj.h */,
+				B8184A9A1BEC7B1900FB0C84 /* VisitPlanNsObj.m */,
+			);
+			name = visitEntity;
+			sourceTree = "<group>";
+		};
 		B84A8C2A1BE9FC4A00C67039 /* taskVisitRecords */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,8 +636,10 @@
 		B8EEAEB81BEB2538009FF63D /* taskVisitPlan */ = {
 			isa = PBXGroup;
 			children = (
+				B8184A9C1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m */,
+				B8184A931BEC7B0200FB0C84 /* visitEntity */,
+				B8184A921BEC7AF000FB0C84 /* visitPlanView */,
 				B8EEAEB91BEB26F0009FF63D /* VisitPlanTableViewController.h */,
-				B8EEAEBA1BEB26F0009FF63D /* VisitPlanTableViewController.m */,
 				B8EEAEBB1BEB26F0009FF63D /* VisitPlanTableViewController.xib */,
 			);
 			name = taskVisitPlan;
@@ -704,12 +733,12 @@
 		C0D569331BD9B70A00860B33 /* Index */ = {
 			isa = PBXGroup;
 			children = (
+				B8184A9E1BEC7BB800FB0C84 /* GLReusableViewController.h */,
+				B8184A9F1BEC7BB800FB0C84 /* IndexViewController.h */,
+				B8184AA01BEC7BB800FB0C84 /* IndexViewController.m */,
+				B8184A901BEC7AAF00FB0C84 /* GLReusableViewController.m */,
 				B8EEAEB81BEB2538009FF63D /* taskVisitPlan */,
 				B84A8C2A1BE9FC4A00C67039 /* taskVisitRecords */,
-				B84A8C271BE9E8E600C67039 /* GLReusableViewController.h */,
-				B84A8C281BE9E8E600C67039 /* GLReusableViewController.m */,
-				B8D179021BE8CD18006617D3 /* IndexViewController.h */,
-				B8D179031BE8CD18006617D3 /* IndexViewController.m */,
 			);
 			name = Index;
 			sourceTree = "<group>";
@@ -957,6 +986,7 @@
 				96EDBEB01BE8832100824AE2 /* LianViewController.xib in Resources */,
 				C0D3CD6C1BDF0CEF00C23FB3 /* 17.png in Resources */,
 				C0D3CD6B1BDF0CEF00C23FB3 /* 16.png in Resources */,
+				B8184A981BEC7B0F00FB0C84 /* VisitPlanViewController.xib in Resources */,
 				1FE529D11BE8A96B00149C10 /* addTaskViewController.xib in Resources */,
 				C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */,
 				39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */,
@@ -1072,16 +1102,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FAE26F1BEC750800032BB3 /* AddWeekViewController.m in Sources */,
-				9678AF021BEB74B900E5B50E /* VisitPlanTableViewController.m in Sources */,
 				96FAE2821BEC758500032BB3 /* ShowAndDeleteViewController.m in Sources */,
-				9678AF011BEB749800E5B50E /* GLReusableViewController.m in Sources */,
 				96FAE2881BEC759E00032BB3 /* TaskReportMonthEntity.m in Sources */,
-				9678AF001BEB747600E5B50E /* IndexViewController.m in Sources */,
 				96FAE26D1BEC750800032BB3 /* WeekTableViewController.m in Sources */,
 				9678AEFD1BEB722900E5B50E /* addTaskViewController.m in Sources */,
 				C0D68C401BD8EA20009CEC23 /* AppDelegate.m in Sources */,
 				1FE529C91BE8A7CA00149C10 /* SubmitTableViewController.m in Sources */,
 				96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */,
+				B8184A911BEC7AAF00FB0C84 /* GLReusableViewController.m in Sources */,
 				9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */,
 				9678AEF41BEB71C800E5B50E /* CustomerInformationDetailViewController.m in Sources */,
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
@@ -1108,6 +1136,7 @@
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96EDBEAB1BE8832100824AE2 /* SettingViewController.m in Sources */,
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,
+				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
 				96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */,
 				96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */,
 				96FAE2611BEC73C800032BB3 /* TaskReportTableViewController.m in Sources */,
@@ -1122,10 +1151,13 @@
 				96E3125B1BEB53BA00A1A3FF /* MJRefreshFooterView.m in Sources */,
 				96FAE2511BEC736800032BB3 /* AddDailyViewController.m in Sources */,
 				C0D569401BD9C51100860B33 /* WorkTableViewController.m in Sources */,
+				B8184A971BEC7B0F00FB0C84 /* VisitPlanViewController.m in Sources */,
 				96FAE2801BEC758500032BB3 /* MonthTableViewController.m in Sources */,
 				96EDBEAD1BE8832100824AE2 /* GuanyuViewController.m in Sources */,
+				B8184AA11BEC7BB800FB0C84 /* IndexViewController.m in Sources */,
 				96EDBEB71BE8835E00824AE2 /* MeUser.m in Sources */,
 				96EDBEAF1BE8832100824AE2 /* LianViewController.m in Sources */,
+				B8184A9D1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

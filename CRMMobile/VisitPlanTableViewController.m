@@ -5,7 +5,8 @@
 //  Created by peng on 15/11/4.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-
+#import "VisitPlanViewController.h"
+#import "VisitPlanNsObj.h"
 #import "VisitPlanTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
@@ -59,18 +60,18 @@
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
-    for (int i = 0; i<[list count]; i++) {
-        
-        NSDictionary *listDic =[list objectAtIndex:i];
-        [self.userName addObject:listDic];
-        NSString *teamname = (NSString *)[listDic objectForKey:@"customerNameStr"];
+//    for (int i = 0; i<[list count]; i++) {
+//        
+//        NSDictionary *listDic =[list objectAtIndex:i];
+//        [self.userName addObject:listDic];
+//        NSString *teamname = (NSString *)[listDic objectForKey:@"customerNameStr"];
 //        NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
 //        NSString *teamname3 = (NSString *)[listDic objectForKey:@"orgName"];
-        NSLog(@"%@",teamname);
-        [self.fakeData addObject:teamname];
-//        [self.fakeData addObject:teamname2];
-//        [self.fakeData addObject:teamname3];
-    }
+//        NSLog(@"%@",teamname);
+//        [self.fakeData addObject:teamname];
+//        [self.visitDate addObject:teamname2];
+//        [self.orgName addObject:teamname3];
+//    }
     
     return self.fakeData;
 }
@@ -113,13 +114,15 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    cell.textLabel.text = self.fakeData[indexPath.row];
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
+    [cell.detailTextLabel setText:testDetail];
     return cell;
     
 }
-
-
 - (void)setupRefresh
 {
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
@@ -161,6 +164,34 @@
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
-    
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.tableView)
+    {
+        NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
+        NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
+        NSString *orgName =[self.orgName objectAtIndex:indexPath.row];;
+        VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
+        [visitPlan setCustomerNameStr:customerNameStr];
+        [visitPlan setVisitDate:visitDate];
+        [visitPlan setOrgName:orgName];
+        VisitPlanViewController *uc =[[VisitPlanViewController alloc] init];
+        [uc setDailyEntity:visitPlan];
+        [self.navigationController pushViewController:uc animated:YES];
+        
+    }else
+    {
+        NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
+        NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
+        NSString *orgName =[self.orgName objectAtIndex:indexPath.row];;
+        VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
+        [visitPlan setCustomerNameStr:customerNameStr];
+        [visitPlan setVisitDate:visitDate];
+        [visitPlan setOrgName:orgName];
+        VisitPlanViewController *uc =[[VisitPlanViewController alloc] init];
+        [uc setDailyEntity:visitPlan];
+        [self.navigationController pushViewController:uc animated:YES];
+    }
 }
 @end
