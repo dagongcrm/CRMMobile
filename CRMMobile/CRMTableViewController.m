@@ -8,6 +8,7 @@
 
 #import "CRMTableViewController.h"
 #import "CustomerInformationTableViewController.h"
+#import "SaleOppViewController.h"
 
 @interface CRMTableViewController ()
 
@@ -65,6 +66,17 @@
         CustomerInformationTableViewController *fltv= [[CustomerInformationTableViewController alloc] init];
         [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==1){
+        
+    }else if(indexPath.row==2){
+        
+    }else if(indexPath.row==3){
+        
+    }else if(indexPath.row==4){
+        
+    }else if(indexPath.row==5){
+        SaleOppViewController *saleopp= [[SaleOppViewController alloc] init];
+        [self.navigationController pushViewController: saleopp animated:YES];
+    }else if(indexPath.row==6){
         
     }
 }
