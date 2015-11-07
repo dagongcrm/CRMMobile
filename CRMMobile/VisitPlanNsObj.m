@@ -11,5 +11,6 @@
 @implementation VisitPlanNsObj
 @synthesize customerNameStr=_customerNameStr;
 @synthesize visitDate=_visitDate;
-@synthesize orgName=_orgName;
+@synthesize theme=_theme;
+@synthesize customerCallPlanID=_customerCallPlanID;
 @end

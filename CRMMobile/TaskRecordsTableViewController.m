@@ -3,10 +3,25 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "MJRefresh.h"
-@interface TaskRecordsTableViewController ()
-@property (strong, nonatomic) NSMutableArray *fakeData;
-@property (strong, nonatomic) NSMutableArray *userIdData;
-@property (strong, nonatomic) NSMutableArray *uid;
+#import "UIImage+Tint.h"
+@interface TaskRecordsTableViewController (){
+    UISearchDisplayController *mySearchDisplayController;
+}
+@property (strong, nonatomic) NSMutableArray *fakeData;//客户名称
+@property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
+@property (strong, nonatomic) NSMutableArray *theme;//主题
+@property (strong, nonatomic) NSMutableArray *accessMethodStr;//访问方式
+@property (strong, nonatomic) NSMutableArray *mainContent;//主要内容
+@property (strong, nonatomic) NSMutableArray *respondentPhone;//受访人电话
+@property (strong, nonatomic) NSMutableArray *respondent;//受访人员
+@property (strong, nonatomic) NSMutableArray *address;//地址
+@property (strong, nonatomic) NSMutableArray *visitProfile;//拜访概要
+@property (strong, nonatomic) NSMutableArray *result;//达成结果
+@property (strong, nonatomic) NSMutableArray *customerRequirements;//客户需求
+@property (strong, nonatomic) NSMutableArray *customerChange;//客户变更
+@property (strong, nonatomic) NSMutableArray *visitorAttributionStr;//拜访人归属
+@property (strong, nonatomic) NSMutableArray *visitorStr;//拜访人
+
 @property (nonatomic, strong) NSMutableArray *userName;
 @property  NSInteger index;//
 @end
@@ -24,11 +39,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];    //上拉刷新下拉加在方法
+    self.title=@"拜访记录";
+   
   }
 
 -(NSMutableArray *) faker: (NSString *) page{
    
     self.fakeData = [[NSMutableArray alloc]init];
+    self.visitDate = [[NSMutableArray alloc]init];
+    self.theme = [[NSMutableArray alloc]init];
+    self.accessMethodStr = [[NSMutableArray alloc]init];
+    self.mainContent = [[NSMutableArray alloc]init];
+    self.respondentPhone = [[NSMutableArray alloc]init];
+    self.respondent= [[NSMutableArray alloc]init];
+    self.address = [[NSMutableArray alloc]init];
+    self.visitProfile = [[NSMutableArray alloc]init];
+    self.result = [[NSMutableArray alloc]init];
+    self.customerRequirements = [[NSMutableArray alloc]init];
+    self.customerChange = [[NSMutableArray alloc]init];
+    self.visitorStr = [[NSMutableArray alloc]init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallRecordsAction!mDatagrid.action"]];

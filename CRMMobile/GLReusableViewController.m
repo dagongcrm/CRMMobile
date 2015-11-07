@@ -92,12 +92,12 @@
     }
     if([self.page integerValue]==2)
     {
-//        TaskRecordsTableViewController *nav = [[TaskRecordsTableViewController alloc] init];
-//        nav.view.autoresizingMask = UIViewAutoresizingNone;
-//        [self addChildViewController:nav];
-//        nav.view.frame =  CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);
-//        [self.view addSubview:nav.view];
-//        [nav didMoveToParentViewController:self];
+        TaskRecordsTableViewController *nav = [[TaskRecordsTableViewController alloc] init];
+        nav.view.autoresizingMask = UIViewAutoresizingNone;
+        [self addChildViewController:nav];
+        nav.view.frame =  CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);
+        [self.view addSubview:nav.view];
+        [nav didMoveToParentViewController:self];
     }
 }
 

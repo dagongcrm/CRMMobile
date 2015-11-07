@@ -5,16 +5,24 @@
 //  Created by peng on 15/11/4.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-#import "VisitPlanViewController.h"
+
+#import "AddPlanViewController.h"
+#import "GLReusableViewController.h"
+#import "PlanDetalViewController.h"
 #import "VisitPlanNsObj.h"
 #import "VisitPlanTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "UIImage+Tint.h"
 #import "MJRefresh.h"
-@interface VisitPlanTableViewController ()
+
+@interface VisitPlanTableViewController (){
+    UISearchDisplayController *mySearchDisplayController;
+}
+@property (strong, nonatomic) NSMutableArray *customerCallPlanID;//id
 @property (strong, nonatomic) NSMutableArray *fakeData;//客户名称
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
-@property (strong, nonatomic) NSMutableArray *orgName;//主题
+@property (strong, nonatomic) NSMutableArray *theme;//主题
 @property (nonatomic, strong) NSMutableArray *userName;
 @property  NSInteger index;
 @end
@@ -32,25 +40,70 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];    //上拉刷新下拉加在方法
+    self.title=@"拜访计划";
+    self.userName=[NSMutableArray array];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    searchBar.placeholder = @"搜索";
+    self.tableView.tableHeaderView = searchBar;
+    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    mySearchDisplayController.searchResultsDataSource = self;
+    mySearchDisplayController.searchResultsDelegate = self;
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addUser:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
+    [self setExtraCellLineHidden:self.tableView];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"可复用" style:UIBarButtonItemStyleDone	 target:self action:@selector(ResView)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
 }
-
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[GLReusableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
+- (IBAction)addUser:(id)sender
+{
+    AddPlanViewController *jumpController = [[AddPlanViewController alloc] init];
+    [self.navigationController pushViewController: jumpController animated:true];
+}
 -(NSMutableArray *) faker: (NSString *) page{
-    
+    self.customerCallPlanID = [[NSMutableArray alloc]init];
     self.fakeData = [[NSMutableArray alloc]init];
     self.visitDate = [[NSMutableArray alloc]init];
-    self.orgName = [[NSMutableArray alloc]init];
+    self.theme = [[NSMutableArray alloc]init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!datagrid.action"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
+    NSString *order = @"desc";
+    NSString *sort = @"time";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
+    NSLog(@"tytytytytyty=====>>>>>>%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
     if(![list count] ==0)//
     {
@@ -60,18 +113,22 @@
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
-//    for (int i = 0; i<[list count]; i++) {
-//        
-//        NSDictionary *listDic =[list objectAtIndex:i];
-//        [self.userName addObject:listDic];
-//        NSString *teamname = (NSString *)[listDic objectForKey:@"customerNameStr"];
-//        NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
-//        NSString *teamname3 = (NSString *)[listDic objectForKey:@"orgName"];
-//        NSLog(@"%@",teamname);
-//        [self.fakeData addObject:teamname];
-//        [self.visitDate addObject:teamname2];
-//        [self.orgName addObject:teamname3];
-//    }
+    for (int i = 0; i<[list count]; i++) {
+        
+        NSDictionary *listDic =[list objectAtIndex:i];
+        [self.userName addObject:listDic];
+        
+        NSString *teamname = (NSString *)[listDic objectForKey:@"customerNameStr"];
+        NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerCallPlanID"];
+        NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
+        NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
+        NSLog(@"%@",teamname);
+        [self.fakeData addObject:teamname];
+        [self.customerCallPlanID addObject:teamname1];
+        [self.visitDate addObject:teamname2];
+        [self.theme addObject:teamname3];
+        
+    }
     
     return self.fakeData;
 }
@@ -167,31 +224,18 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.tableView)
-    {
-        NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
-        NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-        NSString *orgName =[self.orgName objectAtIndex:indexPath.row];;
-        VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
-        [visitPlan setCustomerNameStr:customerNameStr];
-        [visitPlan setVisitDate:visitDate];
-        [visitPlan setOrgName:orgName];
-        VisitPlanViewController *uc =[[VisitPlanViewController alloc] init];
-        [uc setDailyEntity:visitPlan];
-        [self.navigationController pushViewController:uc animated:YES];
-        
-    }else
-    {
-        NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
-        NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-        NSString *orgName =[self.orgName objectAtIndex:indexPath.row];;
-        VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
-        [visitPlan setCustomerNameStr:customerNameStr];
-        [visitPlan setVisitDate:visitDate];
-        [visitPlan setOrgName:orgName];
-        VisitPlanViewController *uc =[[VisitPlanViewController alloc] init];
-        [uc setDailyEntity:visitPlan];
-        [self.navigationController pushViewController:uc animated:YES];
-    }
+    NSString *customerCallPlanID =[self.customerCallPlanID objectAtIndex:indexPath.row];
+    NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
+    NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
+    NSString *theme =[self.theme objectAtIndex:indexPath.row];;
+    VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
+    [visitPlan setCustomerNameStr:customerNameStr];
+    [visitPlan setCustomerCallPlanID:customerCallPlanID];
+    [visitPlan setVisitDate:visitDate];
+    [visitPlan setTheme:theme];
+    PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
+    [uc setDailyEntity:visitPlan];
+    [self.navigationController pushViewController:uc animated:YES];
+
 }
 @end

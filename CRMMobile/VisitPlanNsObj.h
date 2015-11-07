@@ -13,5 +13,6 @@
 
 @property (strong,nonatomic) NSString *visitDate;//
 
-@property (strong,nonatomic) NSString *orgName;
+@property (strong,nonatomic) NSString *theme;
+@property (strong,nonatomic) NSString *customerCallPlanID;
 @end
