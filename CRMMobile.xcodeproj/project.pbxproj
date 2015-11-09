@@ -17,7 +17,6 @@
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
-		39FD7DBF1BF080CD00CCD3F9 /* saleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DBE1BF080CD00CCD3F9 /* saleOppTableViewController.m */; };
 		9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */; };
 		9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */; };
 		9678AEF31BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */; };
@@ -171,8 +170,6 @@
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
-		39FD7DBD1BF080CD00CCD3F9 /* saleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleOppTableViewController.h; sourceTree = "<group>"; };
-		39FD7DBE1BF080CD00CCD3F9 /* saleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saleOppTableViewController.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
@@ -427,8 +424,6 @@
 		39FD7DB01BF0346000CCD3F9 /* saleOpp */ = {
 			isa = PBXGroup;
 			children = (
-				39FD7DBD1BF080CD00CCD3F9 /* saleOppTableViewController.h */,
-				39FD7DBE1BF080CD00CCD3F9 /* saleOppTableViewController.m */,
 			);
 			name = saleOpp;
 			sourceTree = "<group>";
@@ -1137,7 +1132,6 @@
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				96FAE2751BEC753100032BB3 /* TaskReportWeekEntity.m in Sources */,
-				39FD7DBF1BF080CD00CCD3F9 /* saleOppTableViewController.m in Sources */,
 				9678AEF81BEB71C800E5B50E /* CustomerInformationEditViewController.m in Sources */,
 				96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */,
 				C0D5693A1BD9B7BB00860B33 /* NotificationTableViewController.m in Sources */,

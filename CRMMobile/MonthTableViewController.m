@@ -13,18 +13,19 @@
 #import "ShowAndDeleteViewController.h"
 #import "TaskReportTableViewController.h"
 #import "AddMonthViewController.h"
-#import "UIImage+Tint.h"
+//#import "UIImage+Tint.h"
 #import "MJRefresh.h"
-@interface MonthTableViewController (){
-    UISearchDisplayController *mySearchDisplayController;
-}
-@property (strong, nonatomic) NSMutableArray *fakeData;//ribaoleixing daily
-@property (strong, nonatomic) NSMutableArray *searchResultsData;
-@property (strong, nonatomic) NSMutableArray *workIdData;//ribaoid workStatementActionID
-@property (strong, nonatomic) NSMutableDictionary *wordId;//ribaoid
+@interface MonthTableViewController ()
+//{
+//    UISearchDisplayController *mySearchDisplayController;
+//}
+@property (strong, nonatomic) NSMutableArray *fakeData;//ribaoleixing daily //月报
+//@property (strong, nonatomic) NSMutableArray *searchResultsData;
+@property (strong, nonatomic) NSMutableArray *workIdData;//ribaoid workStatementActionID //时间
+@property (strong, nonatomic) NSMutableDictionary *wordId;//ribaoid //id
 @property (strong,nonatomic) NSMutableArray *dateData;//shijian time
-@property (strong,nonatomic) NSMutableArray *typeData;//type
-@property (strong,nonatomic) NSMutableArray *reportData;//report
+@property (strong,nonatomic) NSMutableArray *typeData;//type //今日总结
+@property (strong,nonatomic) NSMutableArray *reportData;//report //明日计划
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
@@ -37,52 +38,70 @@
         self.fakeData   = [NSMutableArray array];
         [self faker:@"1"];
         [self faker:@"2"];
-
+        
     }
     return _fakeData;
 }
 - (void)viewDidLoad {
+    //    self.uid=[NSMutableArray array];
+    //    //添加
+    //    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+    //                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    //                                 target:self
+    //                                 action:@selector(addCustomerInfomation:)];
+    //    self.navigationItem.rightBarButtonItem = rightAdd;
+    //    [self setExtraCellLineHidden:self.tableView];
+    //
+    //    self.tableView.delegate=self;
+    //    self.tableView.dataSource=self;
+    
+    
     [super viewDidLoad];
     [self setupRefresh];
-    self.title=@"工作月报";
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    searchBar.placeholder = @"搜索";
-    self.tableView.tableHeaderView = searchBar;
-    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    mySearchDisplayController.searchResultsDataSource = self;
-    mySearchDisplayController.searchResultsDelegate = self;
+    
+    //    self.title=@"工作月报";
+    
+    //    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    //    searchBar.placeholder = @"搜索";
+    //    self.tableView.tableHeaderView = searchBar;
+    //    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    //    mySearchDisplayController.searchResultsDataSource = self;
+    //    mySearchDisplayController.searchResultsDelegate = self;
+    
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
                                  action:@selector(addUser:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    
+    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
+    //    button.frame = CGRectMake(0, 0, 20, 20);
+    //    [button setImage:image forState:UIControlStateNormal];
+    //    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    //    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    //    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    //    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+    //                                                                                   target:nil action:nil];
+    //    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     
     
 }
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[TaskReportTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[TaskReportTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
 
 
 - (IBAction)addUser:(id)sender
@@ -143,11 +162,11 @@
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    self.fakeData = [[NSMutableArray alloc]init];//daily
-    self.dateData = [[NSMutableArray alloc]init];//time
-    self.workIdData = [[NSMutableArray alloc]init];//workid
-    self.typeData = [[NSMutableArray alloc]init];//type
-    self.reportData = [[NSMutableArray alloc]init];//report
+    self.fakeData = [[NSMutableArray alloc]init];//daily //月报
+    self.dateData = [[NSMutableArray alloc]init];//time //时间
+    self.workIdData = [[NSMutableArray alloc]init];//workid //id
+    self.typeData = [[NSMutableArray alloc]init];//type //今日总结
+    self.reportData = [[NSMutableArray alloc]init];//report //明日计划
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSLog(@"sid为--》%@", sid);
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportMAction!datagrid.action?"]];
@@ -177,11 +196,11 @@
         NSString *workId = (NSString*)[listDic objectForKey:@"workStatementActionID"];
         NSString *type = (NSString *)[listDic objectForKey:@"type"];
         NSString *report = (NSString*)[listDic objectForKey:@"report"];
-        [self.fakeData addObject:monthreport];
-        [self.dateData addObject:date];
-        [self.workIdData addObject:workId];
-        [self.typeData addObject:type];
-        [self.reportData addObject:report];
+        [self.fakeData addObject:monthreport];//月报
+        [self.dateData addObject:date]; //时间
+        [self.workIdData addObject:workId];//id
+        [self.typeData addObject:type];  //fa 今日总结
+        [self.reportData addObject:report]; //fs 明日计划
         NSLog(@"dailyreport===>>%@",monthreport);
         NSLog(@"wordID333444%@",self.workIdData);
     }
