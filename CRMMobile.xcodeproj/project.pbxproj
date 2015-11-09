@@ -18,6 +18,7 @@
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		39FD7DB31BF0348900CCD3F9 /* SaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DB21BF0348900CCD3F9 /* SaleOppViewController.m */; };
+		39FD7DB61BF03AC400CCD3F9 /* 11ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DB51BF03AC400CCD3F9 /* 11ViewController.m */; };
 		9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */; };
 		9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */; };
 		9678AEF31BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */; };
@@ -173,6 +174,8 @@
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		39FD7DB11BF0348900CCD3F9 /* SaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppViewController.h; sourceTree = "<group>"; };
 		39FD7DB21BF0348900CCD3F9 /* SaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppViewController.m; sourceTree = "<group>"; };
+		39FD7DB41BF03AC400CCD3F9 /* 11ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 11ViewController.h; sourceTree = "<group>"; };
+		39FD7DB51BF03AC400CCD3F9 /* 11ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = 11ViewController.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
 				9678AEE21BEB70D400E5B50E /* crm */,
+				39FD7DB41BF03AC400CCD3F9 /* 11ViewController.h */,
+				39FD7DB51BF03AC400CCD3F9 /* 11ViewController.m */,
 			);
 			name = CRM;
 			sourceTree = "<group>";
@@ -1163,6 +1168,7 @@
 				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
 				B8F28B861BEDDF2C00177C9C /* AddPlanViewController.m in Sources */,
 				96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */,
+				39FD7DB61BF03AC400CCD3F9 /* 11ViewController.m in Sources */,
 				96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */,
 				96FAE2611BEC73C800032BB3 /* TaskReportTableViewController.m in Sources */,
 				96FAE2551BEC738C00032BB3 /* TaskReportDailyEntity.m in Sources */,
