@@ -8,7 +8,7 @@
 
 #import "CRMTableViewController.h"
 #import "CustomerInformationTableViewController.h"
-#import "SaleOppViewController.h"
+#import "SaleOppTableViewController.h"
 
 @interface CRMTableViewController ()
 
@@ -74,7 +74,7 @@
     }else if(indexPath.row==4){
         
     }else if(indexPath.row==5){
-        SaleOppViewController *saleopp= [[SaleOppViewController alloc] init];
+        SaleOppTableViewController *saleopp= [[SaleOppTableViewController alloc] init];
         [self.navigationController pushViewController: saleopp animated:YES];
     }else if(indexPath.row==6){
         

@@ -7,6 +7,7 @@
 //
 
 #import "SaleOppTableViewController.h"
+#import "AddSaleOppViewController.h"
 
 @interface SaleOppTableViewController ()
 
@@ -16,12 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addSaleOpp:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
+    [self setExtraCellLineHidden:self.tableView];
+}
+
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
+- (IBAction)addSaleOpp:(id)sender
+{
+    AddSaleOppViewController *addSaleOpp= [[AddSaleOppViewController alloc] init];
+    [self.navigationController pushViewController: addSaleOpp animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
