@@ -83,15 +83,40 @@
        
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
-        NSString *teamname = (NSString *)[listDic objectForKey:@"customerName"];
-        NSLog(@"%@",teamname);
-        [self.fakeData addObject:teamname];
+        NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerName"];
+        NSString *teamname2= (NSString *)[listDic objectForKey:@"visitDate"];
+//        NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
+//        NSString *teamname4 = (NSString *)[listDic objectForKey:@"accessMethodStr"];
+//        NSString *teamname5 = (NSString *)[listDic objectForKey:@"mainContent"];
+//        NSString *teamname6 = (NSString *)[listDic objectForKey:@"respondentPhone"];
+//        NSString *teamname7 = (NSString *)[listDic objectForKey:@"respondent"];
+//        NSString *teamname8 = (NSString *)[listDic objectForKey:@"address"];
+//        NSString *teamname9 = (NSString *)[listDic objectForKey:@"visitProfile"];
+//        NSString *teamname10 = (NSString *)[listDic objectForKey:@"result"];
+        NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
+        NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
+        NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorAttributionStr"];
+        NSString *teamname14 = (NSString *)[listDic objectForKey:@"visitorStr"];
+
+        [self.fakeData addObject:teamname1];
+        [self.visitDate addObject:teamname2];
+//        [self.theme addObject:teamname3];
+//        [self.accessMethodStr addObject:teamname4];
+//        [self.mainContent addObject:teamname5];
+//        [self.respondentPhone addObject:teamname6];
+//        [self.respondent addObject:teamname7];
+//        [self.address addObject:teamname8];
+//        [self.visitProfile addObject:teamname9];
+//        [self.result addObject:teamname10];
+//        [self.customerRequirements addObject:teamname11];
+//        [self.customerChange addObject:teamname12];
+//        [self.visitorAttributionStr addObject:teamname13];
+//        [self.visitorStr addObject:teamname14];
+       
     }
     
     return self.fakeData;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,8 +155,12 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    cell.textLabel.text = self.fakeData[indexPath.row];
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
+    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 
@@ -179,4 +208,21 @@
     });
     
 }
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSString *customerCallPlanID =[self.customerCallPlanID objectAtIndex:indexPath.row];
+//    NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
+//    NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
+//    NSString *theme =[self.theme objectAtIndex:indexPath.row];;
+//    VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
+//    [visitPlan setCustomerNameStr:customerNameStr];
+//    [visitPlan setCustomerCallPlanID:customerCallPlanID];
+//    [visitPlan setVisitDate:visitDate];
+//    [visitPlan setTheme:theme];
+//    PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
+//    [uc setDailyEntity:visitPlan];
+//    [self.navigationController pushViewController:uc animated:YES];
+//    
+//}
 @end
