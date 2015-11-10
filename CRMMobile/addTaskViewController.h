@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZSYPopoverListView.h"
 
-@interface addTaskViewController : UIViewController
+@interface addTaskViewController : UIViewController<ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
+    NSArray *nextArray;
+}
 
+@property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
+@property (strong,nonatomic) IBOutlet UIPickerView *selectPickerQiYe;
 @end
