@@ -12,14 +12,22 @@
 #import "UIImage+Tint.h"
 #import "WorkTableViewController.h"
 #import "addTaskViewController.h"
+#import "submitTaskEntity.h"
+#import "submitTaskDetailViewController.h"
 
 @interface SubmitTableViewController ()
 
+@property (strong, nonatomic) NSMutableArray *bianHao;
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
 @property (strong, nonatomic) NSMutableArray *dataing;
 @property (strong, nonatomic) NSMutableArray *time;
 @property (strong, nonatomic) NSMutableArray *uid;
+@property (strong, nonatomic) NSMutableArray *searchResultsData;
+
+@property (strong, nonatomic) NSMutableDictionary *uSubmitId;
+
+//@property (strong, nonatomic) NSMutableArray *yeWuZLBH;
 
 @end
 
@@ -32,9 +40,12 @@
 }
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
+    self.bianHao=[[NSMutableArray alloc] init];
     self.fakeData=[[NSMutableArray alloc] init];
     self.dataing=[[NSMutableArray alloc] init];
     self.time=[[NSMutableArray alloc] init];
+    self.uid=[[NSMutableArray alloc] init];
+    //self.yeWuZLBH=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXTJDatagrid.action?"]];
@@ -49,18 +60,28 @@
     NSArray *list = [weatherDic objectForKey:@"obj"];
         for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
+            NSLog(@"%@",listdic);
         [self.uid addObject:listdic];
-            NSString *submitID = (NSString *)[listdic objectForKey:@""];
+        NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
+        NSLog(@"%@",submitID);
         NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
         NSLog(@"%@",teamname);
         NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
         NSLog(@"%@",userId);
-        NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];       [self.fakeData     addObject:teamname];
+        NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
+        NSString *yeWuZLBH   = (NSString *)[listdic objectForKey:@"yeWuZLBH"];
+        [self.fakeData     addObject:teamname];
         [self.time   addObject:time];
         [self.dataing   addObject:userId];
+        [self.bianHao addObject:submitID];
+        //[self.yeWuZLBH addObject:yeWuZLBH];
     }
-    //[self userIdReturn:self.userId];
+    [self submitIDReturn:self.bianHao];
     return self.fakeData;
+}
+-(NSMutableArray *) submitIDReturn: (NSMutableArray *) uidArr
+{
+    return self.bianHao;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,6 +151,69 @@
         {
             [self.navigationController popToViewController:controller animated:YES];
         }
+    }
+}
+-(void) submitIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)submitID{
+    _uSubmitId = [[NSMutableDictionary alloc] init];
+    for(int i=0;i<[utestname count];i++)
+    {
+        [_uSubmitId setObject:[submitID objectAtIndex:i] forKey:[utestname objectAtIndex:i]];
+    }
+}
+-(NSDictionary *) singleUserInfo :(NSString *) submitIDIn{
+    NSLog(@"%@",self.uid);
+    for (int z = 0; z<[self.uid count]; z++) {
+        NSDictionary *listdic = [self.uid objectAtIndex:z];
+        NSString     *submitID  = (NSString *)[listdic objectForKey:@"bianHao"];
+        if([submitID isEqualToString: submitIDIn])
+        {
+            return listdic;
+        }
+    }
+    return  nil;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self submitIDuserName:self.fakeData :self.bianHao];
+    NSLog(@"%@",self.fakeData);
+    NSLog(@"%@",self.bianHao);
+    
+    if (tableView == self.tableView)
+    {
+        
+        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uSubmitId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
+        NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
+        NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
+        NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
+        NSLog(@"ftn_ID%@",ftn_ID);
+        NSLog(@"yeWuZLBH%@",yeWuZLBH);
+        submitTaskEntity *udetail =[[submitTaskEntity alloc] init];
+        [udetail setSubmitName:submitName];
+        [udetail setSubmitID:submitID];
+        [udetail setYeWuZL:yeWuZL];
+        [udetail setYeWuZLBH:yeWuZLBH];
+        [udetail setFtn_ID:ftn_ID];
+        submitTaskDetailViewController *uc =[[submitTaskDetailViewController alloc] init];
+        [uc setSubmitTaskEntity:udetail];
+        [self.navigationController pushViewController:uc animated:YES];
+        
+        
+    }else
+    {
+        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uSubmitId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
+        
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
+        
+        submitTaskEntity *udetail =[[submitTaskEntity alloc] init];
+        [udetail setSubmitName:submitName];
+        [udetail setSubmitID:submitID];
+        submitTaskDetailViewController*uc =[[submitTaskDetailViewController alloc] init];
+        [uc setSubmitTaskEntity:udetail];
+        [self.navigationController pushViewController:uc animated:YES];
+        
     }
 }
 /*
