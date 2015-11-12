@@ -148,6 +148,9 @@
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
         NSString *loginName = (NSString *) [nc objectForKey:@"loginName"];
+        NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSLog(@"%@",userID);
+
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
         NSLog(@"loginName%@",loginName);
@@ -157,6 +160,7 @@
         [udetail setYeWuZL:yeWuZL];
         [udetail setYeWuZLBH:yeWuZLBH];
         [udetail setFtn_ID:ftn_ID];
+        [udetail setUserID:userID];
         auditDetailViewController *uc =[[auditDetailViewController alloc] init];
         [uc setAuditEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];

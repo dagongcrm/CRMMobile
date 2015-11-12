@@ -187,6 +187,8 @@
         NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
+        NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSLog(@"%@",userID);
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
         submitTaskEntity *udetail =[[submitTaskEntity alloc] init];

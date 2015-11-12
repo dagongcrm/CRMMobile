@@ -15,5 +15,6 @@
 @synthesize yeWuZL=_yeWuZL;
 @synthesize yeWuZLBH=_yeWuZLBH;
 @synthesize ftn_ID=_ftn_ID;
+@synthesize userID=userID;
 
 @end
