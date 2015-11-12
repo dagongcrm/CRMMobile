@@ -36,6 +36,7 @@
     self.fakeData=[[NSMutableArray alloc] init];
     self.dataing=[[NSMutableArray alloc] init];
     self.time=[[NSMutableArray alloc] init];
+    self.uid=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mWebFlowTaskNodeAction!mDatagrid.action?"]];
@@ -50,9 +51,14 @@
     NSArray *list = [weatherDic objectForKey:@"obj"];
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
+        NSLog(@"%@",listdic);
         [self.uid addObject:listdic];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"ftn_Name_cn"];
-        NSLog(@"%@",teamname);
+        NSArray *keys = [listdic allKeys];
+        NSLog(@"%@",keys);
+        NSString *teamname = @"";
+        if ( [keys containsObject:@"qiYeMC"]){
+            teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
+        }
         NSString *userId   = (NSString *)[listdic objectForKey:@"ftn_Name_cn"];
         NSLog(@"%@",userId);
         NSString *time   = (NSString *)[listdic objectForKey:@"ftn_Name_cn"];

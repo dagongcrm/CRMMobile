@@ -23,6 +23,8 @@
 		1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */; };
+		1FF16FCF1BF338F700B2E2DA /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF16FCD1BF338F700B2E2DA /* editTaskViewController.m */; };
+		1FF16FD01BF338F700B2E2DA /* editTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF16FCE1BF338F700B2E2DA /* editTaskViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
@@ -192,6 +194,9 @@
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FE529D71BE8BA4A00149C10 /* trackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackingTableViewController.h; sourceTree = "<group>"; };
 		1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trackingTableViewController.m; sourceTree = "<group>"; };
+		1FF16FCC1BF338F700B2E2DA /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
+		1FF16FCD1BF338F700B2E2DA /* editTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editTaskViewController.m; sourceTree = "<group>"; };
+		1FF16FCE1BF338F700B2E2DA /* editTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = editTaskViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -430,6 +435,9 @@
 				1F93AACC1BF1FE9A0099C57E /* submitTaskDetailViewController.xib */,
 				1F93AABF1BF1FE840099C57E /* options.h */,
 				1F93AAC01BF1FE840099C57E /* options.m */,
+				1FF16FCC1BF338F700B2E2DA /* editTaskViewController.h */,
+				1FF16FCD1BF338F700B2E2DA /* editTaskViewController.m */,
+				1FF16FCE1BF338F700B2E2DA /* editTaskViewController.xib */,
 			);
 			name = submit;
 			sourceTree = "<group>";
@@ -1111,6 +1119,7 @@
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
 				1F93AAD11BF1FE9A0099C57E /* submitTaskEntity.xib in Resources */,
+				1FF16FD01BF338F700B2E2DA /* editTaskViewController.xib in Resources */,
 				C0D3CD771BDF0CEF00C23FB3 /* 28.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
@@ -1225,6 +1234,7 @@
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,
 				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
 				1F93AAD21BF1FE9A0099C57E /* submitTaskDetailViewController.m in Sources */,
+				1FF16FCF1BF338F700B2E2DA /* editTaskViewController.m in Sources */,
 				B8F28B861BEDDF2C00177C9C /* AddPlanViewController.m in Sources */,
 				96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */,
 				96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */,

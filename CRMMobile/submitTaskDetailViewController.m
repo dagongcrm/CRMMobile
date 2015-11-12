@@ -11,8 +11,11 @@
 #import "AppDelegate.h"
 #import "SubmitTableViewController.h"
 #import "config.h"
+#import "editTaskViewController.h"
 
 @interface submitTaskDetailViewController ()
+- (IBAction)delete:(id)sender;
+- (IBAction)edit:(id)sender;
 - (IBAction)Commit:(id)sender;
 - (IBAction)selectKind:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *qiYeMC1;
@@ -48,6 +51,43 @@
 }
 */
 
+
+- (IBAction)delete:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [alertView show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger *)buttonIndex{
+           NSLog(@"buttonIndex= %i",buttonIndex);
+    if (buttonIndex==1) {
+        NSError *error;
+        NSString *workId = _submitTaskEntity.submitID;
+        NSLog(@"ididididiid>>>%@",workId);
+        NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
+        NSLog(@"sid为--》%@", sid);
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!delete.action?"]];
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        NSString *param=[NSString stringWithFormat:@"ids=%@&MOBILE_SID=%@",workId,sid];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
+        if ([[dailyDic objectForKey:@"success"] boolValue] == YES) {
+            SubmitTableViewController *dailytv = [[SubmitTableViewController alloc]init];
+            [self.navigationController pushViewController:dailytv animated:YES];
+        }
+    }
+}
+
+- (IBAction)edit:(id)sender {
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    myDelegate.judgeSubmitID = _submitTaskEntity.submitID;
+    NSLog(@"%@",myDelegate.judgeSubmitID);
+    editTaskViewController *la = [[editTaskViewController alloc] init];
+    [self.navigationController pushViewController:la animated:YES];
+}
 
 - (IBAction)Commit:(id)sender {
     NSError *error;

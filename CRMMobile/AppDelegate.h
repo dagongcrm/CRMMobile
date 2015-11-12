@@ -19,5 +19,6 @@
 @property  NSInteger  index;
 @property  (strong ,nonatomic) options    *options;
 @property  NSInteger    *judge;
+@property  NSString    *judgeSubmitID;
 @end
 

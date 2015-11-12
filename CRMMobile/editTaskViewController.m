@@ -1,18 +1,19 @@
 //
-//  addTaskViewController.m
+//  editTaskViewController.m
 //  CRMMobile
 //
-//  Created by zhang on 15/11/2.
+//  Created by zhang on 15/11/11.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "addTaskViewController.h"
+#import "editTaskViewController.h"
 #import "ZSYPopoverListView.h"
 #import "AppDelegate.h"
 #import "config.h"
 #import "SubmitTableViewController.h"
+#import "submitTaskEntity.h"
 
-@interface addTaskViewController ()
+@interface editTaskViewController ()
 - (IBAction)cancel:(id)sender;
 - (IBAction)selectQiYe:(id)sender;
 - (IBAction)save:(id)sender;
@@ -36,10 +37,9 @@
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
 
-
 @end
 
-@implementation addTaskViewController
+@implementation editTaskViewController
 
 @synthesize selectedIndexPath = _selectedIndexPath;
 @synthesize selectUser=_selectUser;
@@ -58,7 +58,7 @@
 - (IBAction)cancel:(id)sender {
     SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
     [self.navigationController pushViewController:mj animated:YES];
-
+    
 }
 
 - (IBAction)selectQiYe:(id)sender {
@@ -88,7 +88,7 @@
 }
 
 - (void)viewDidLoad {
-     _judge=@"";
+    _judge=@"";
     [super viewDidLoad];
     //self.nextArray  = self.nextArray;
     
@@ -136,12 +136,12 @@
         [nextFlowUserName     addObject:teamname];
         [nextFlowUserId  addObject:submitID];
     }
-//    for(NSDictionary *key in nextFlow)
-//    {
-//        NSLog(@"%@",key);
-//        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
-//        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
-//    }
+    //    for(NSDictionary *key in nextFlow)
+    //    {
+    //        NSLog(@"%@",key);
+    //        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
+    //        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
+    //    }
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
 }
@@ -180,17 +180,17 @@
     
     _selectUserQiYe= [nextFlowUserNameQiYe copy];
     _selectUserIdQiYe=[nextFlowUserIdQiYe copy];
-
-   }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -207,8 +207,8 @@
     if ([self.judge isEqualToString:@"1"]) {
         return [_selectUser count];
     }
-        return [_selectUserQiYe count];
-
+    return [_selectUserQiYe count];
+    
 }
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -241,7 +241,7 @@
     if ([self.judge isEqualToString:@"2"]) {
         [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
         [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
-
+        
     }
     [self buttonInputLabel:tableView];
 }
@@ -310,17 +310,20 @@
             NSLog(@"chooseUserIDs%@",APPDELEGATE.options.chooseUserIDs);
         }
     }
-
-    }
+    
+}
 
 
 
 - (IBAction)save:(id)sender {
     NSError *error;
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *workId = myDelegate.judgeSubmitID;
+    NSLog(@"%@",workId);
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     //NSURL *URL=[NSURL URLWithString:@"http://172.16.21.49:8080/dagongcrm/mJobSubmissionAction!add.action?"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!add.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!edit.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -339,7 +342,7 @@
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
-    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",workId,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
