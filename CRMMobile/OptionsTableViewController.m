@@ -212,7 +212,7 @@
     [self.imgpathData addObject:fullPath];
     self.Image.tag = 100;
     NSLog(@"cccc===>>>%@",fullPath);
-     [self pickerImg];
+    
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -228,11 +228,11 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     // 将图片写入文件
     [imageData writeToFile:fullPath atomically:NO];
+    [self pickerImg:fullPath];
    
 }
 
--(void)pickerImg{
-    NSString *path  = self.imgpathData;
+-(void)pickerImg:(NSString *)path{
 //    [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
     NSString *fileName = @"currentImage.png";
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
@@ -250,7 +250,8 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *imgDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"imgDic字典里面的内容为--》%@", imgDic);
- 
+    NSLog(@"//////////1%@",path);
+    NSLog(@"//////////2%@",fileName);
 }
 //xiugaimima
 - (IBAction)editpass:(id)sender {

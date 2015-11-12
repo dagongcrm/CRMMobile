@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
+    self.title = @"工作报告";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.timeArray = [[NSMutableArray alloc]init];
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"taskReport.plist" ofType:nil];

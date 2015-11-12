@@ -230,8 +230,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-//    if (tableView == self.tableView)
-//    {
+
         NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
         NSString *time =[self.dateData objectAtIndex:indexPath.row];
         NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
@@ -246,23 +245,5 @@
         DailyViewController *uc =[[DailyViewController alloc] init];
         [uc setDailyEntity:dailydetail];
         [self.navigationController pushViewController:uc animated:YES];
-        
-//    }else
-//    {
-//        NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
-//        NSString *time =[self.dateData objectAtIndex:indexPath.row];
-//        NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
-//        NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
-//        NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-//        TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
-//        [dailydetail setLeixing:dailyreport];
-//        [dailydetail setTime:time];
-//        [dailydetail setZongjie:zongjie];
-//        [dailydetail setMingrijihua:jihua];
-//        [dailydetail setWorkID:workId];
-//        DailyViewController *uc =[[DailyViewController alloc] init];
-//        [uc setDailyEntity:dailydetail];
-//        [self.navigationController pushViewController:uc animated:YES];
-//    }
 }
 @end
