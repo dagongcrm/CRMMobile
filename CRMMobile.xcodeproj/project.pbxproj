@@ -52,6 +52,8 @@
 		96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E312561BEB53BA00A1A3FF /* UIScrollView+MJExtension.m */; };
 		96E41F7A1BF4421D00A2DA37 /* addTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAC31BF1FE9A0099C57E /* addTaskViewController.m */; };
 		96E41F7B1BF4424400A2DA37 /* submitTaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAC81BF1FE9A0099C57E /* submitTaskEntity.m */; };
+		96E41F7F1BF46BD400A2DA37 /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */; };
+		96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */; };
 		96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBE961BE8832100824AE2 /* OptionsTableViewController.m */; };
 		96EDBEA71BE8832100824AE2 /* TXLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBE981BE8832100824AE2 /* TXLTableViewController.m */; };
 		96EDBEA81BE8832100824AE2 /* TXLTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBE991BE8832100824AE2 /* TXLTableViewController.xib */; };
@@ -245,6 +247,9 @@
 		96E312541BEB53BA00A1A3FF /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		96E312551BEB53BA00A1A3FF /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		96E312561BEB53BA00A1A3FF /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		96E41F7C1BF46BD400A2DA37 /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
+		96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editTaskViewController.m; sourceTree = "<group>"; };
+		96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = editTaskViewController.xib; sourceTree = "<group>"; };
 		96EDBE951BE8832100824AE2 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewController.h; sourceTree = "<group>"; };
 		96EDBE961BE8832100824AE2 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewController.m; sourceTree = "<group>"; };
 		96EDBE971BE8832100824AE2 /* TXLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLTableViewController.h; sourceTree = "<group>"; };
@@ -430,6 +435,9 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
+				96E41F7C1BF46BD400A2DA37 /* editTaskViewController.h */,
+				96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */,
+				96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */,
 				1F93AAC21BF1FE9A0099C57E /* addTaskViewController.h */,
 				1F93AAC31BF1FE9A0099C57E /* addTaskViewController.m */,
 				1F93AAC41BF1FE9A0099C57E /* addTaskViewController.xib */,
@@ -1074,6 +1082,7 @@
 				C0D3CD6D1BDF0CEF00C23FB3 /* 18.png in Resources */,
 				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
+				96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
 				96AEF19D1BF1FDAC00EDE5CE /* arrow-left.png in Resources */,
 				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
@@ -1232,6 +1241,7 @@
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				96FAE2751BEC753100032BB3 /* TaskReportWeekEntity.m in Sources */,
+				96E41F7F1BF46BD400A2DA37 /* editTaskViewController.m in Sources */,
 				9678AEF81BEB71C800E5B50E /* CustomerInformationEditViewController.m in Sources */,
 				96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */,
 				1F93AAC11BF1FE840099C57E /* options.m in Sources */,
