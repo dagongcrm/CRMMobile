@@ -10,9 +10,11 @@
 #import "LianViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "UploadViewController.h"
 @interface SettingViewController ()
 - (IBAction)Output:(id)sender;//退出登录
 - (IBAction)lianxi:(id)sender;//联系我们
+- (IBAction)upload:(id)sender;//上传文件
 
 @end
 
@@ -40,5 +42,10 @@
 - (IBAction)lianxi:(id)sender {
     LianViewController  *lianView = [[LianViewController alloc] init];
     [self.navigationController pushViewController:lianView animated:YES];
+}
+//上传文件
+- (IBAction)upload:(id)sender {
+    UploadViewController *upload = [[UploadViewController alloc]init];
+    [self.navigationController pushViewController:upload animated:NO];
 }
 @end

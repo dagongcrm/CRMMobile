@@ -30,7 +30,7 @@
         <scene sceneID="I1x-1q-qmX">
             <objects>
                 <navigationController id="mZK-N3-ZNg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="hgg-pd-cIY"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="shouye" id="hgg-pd-cIY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G9R-5k-WiN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -132,7 +132,7 @@
         <scene sceneID="r2l-PZ-Kv3">
             <objects>
                 <navigationController id="eDv-rs-Bfu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="办公" id="ZSh-mZ-MHK"/>
+                    <tabBarItem key="tabBarItem" title="办公" image="work" id="ZSh-mZ-MHK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V1O-5s-Ifv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -150,7 +150,7 @@
         <scene sceneID="Et2-9j-RB2">
             <objects>
                 <navigationController id="l07-cw-yDb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CRM" id="bii-Ay-VEJ"/>
+                    <tabBarItem key="tabBarItem" title="CRM" image="crm" id="bii-Ay-VEJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RDb-e5-Tja">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -168,7 +168,7 @@
         <scene sceneID="e39-qO-xnq">
             <objects>
                 <navigationController id="hVw-SK-LtX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" id="Hm0-6z-R38"/>
+                    <tabBarItem key="tabBarItem" title="消息" image="notice" id="Hm0-6z-R38"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="efx-yU-CQq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -186,7 +186,7 @@
         <scene sceneID="Fcb-gQ-2d0">
             <objects>
                 <navigationController id="2om-s8-PKb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" id="bHT-fA-oUy"/>
+                    <tabBarItem key="tabBarItem" title="我" image="me" id="bHT-fA-oUy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mSV-oQ-Xxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -277,7 +277,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="37" id="Kxz-6q-91O"/>
                                                     </constraints>
-                                                    <color key="pageIndicatorTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pageControl>
                                             </subviews>
@@ -346,12 +346,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-SJ-AnL" userLabel="user">
-                                <rect key="frame" x="205" y="218" width="150" height="30"/>
+                                <rect key="frame" x="209" y="218" width="150" height="30"/>
+                                <color key="textColor" red="0.011764707040000001" green="0.0" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAp-b2-7HB">
-                                <rect key="frame" x="142" y="222" width="80" height="21"/>
+                                <rect key="frame" x="145" y="222" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -411,7 +412,8 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAg-PX-5W0" userLabel="org">
-                                <rect key="frame" x="205" y="275" width="150" height="30"/>
+                                <rect key="frame" x="209" y="275" width="150" height="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -462,6 +464,11 @@
     </scenes>
     <resources>
         <image name="10001" width="375" height="134"/>
+        <image name="crm" width="20" height="20"/>
         <image name="hhhh" width="100" height="100"/>
+        <image name="me" width="20" height="20"/>
+        <image name="notice" width="20" height="20"/>
+        <image name="shouye" width="20" height="20"/>
+        <image name="work" width="20" height="20"/>
     </resources>
 </document>

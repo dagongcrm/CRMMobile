@@ -29,6 +29,7 @@
 @property (strong,nonatomic) NSMutableArray *reportData;//report
 @property  NSInteger index;
 @property  UIViewController *uiview;
+
 @end
 
 @implementation DailyTableViewController
@@ -37,18 +38,26 @@
 {
     if (!_fakeData) {
         self.fakeData   = [NSMutableArray array];
+        self.dateData = [[NSMutableArray alloc]init];//time
+        self.dailyObject = [[NSMutableArray alloc]init];
+        self.workIdData = [[NSMutableArray alloc]init];//workid
+        self.typeData = [[NSMutableArray alloc]init];//type
+        self.reportData = [[NSMutableArray alloc]init];//report
         [self faker:@"1"];
         [self faker:@"2"];
-        NSLog(@"22222222");
+       
     }
     return _fakeData;
 }
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-      [self setupRefresh];
+    [self setupRefresh];
     self.title=@"工作日报";
-    self.dailyObject=[NSMutableArray array];
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
+    
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     searchBar.placeholder = @"搜索";
     self.tableView.tableHeaderView = searchBar;
@@ -61,11 +70,11 @@
                                  action:@selector(addUser:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"可复用" style:UIBarButtonItemStyleDone	 target:self action:@selector(ResView)];
+
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
-    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
+   
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -76,7 +85,7 @@
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-
+    
     
 }
 - (void)ResView
@@ -97,23 +106,9 @@
     [self.navigationController pushViewController: jumpController animated:true];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-// hide the extraLine
--(void)setExtraCellLineHidden: (UITableView *)tableView
-{
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-}
-
 - (void)setupRefresh
 {
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
-    //[self.tableView headerBeginRefreshing]; //自动刷新
     [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
     self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
     self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
@@ -129,6 +124,7 @@
     myDelegate.index =3;
     [self faker:@"1"];
     [self faker:@"2"];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -138,6 +134,9 @@
 - (void)footerRereshing
 {
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    if(myDelegate.index==0){
+        myDelegate.index=3;
+    }
     self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
@@ -145,16 +144,24 @@
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
+    
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+// hide the extraLine
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    self.fakeData = [[NSMutableArray alloc]init];//daily
-    self.dateData = [[NSMutableArray alloc]init];//time
-    self.dailyObject = [[NSMutableArray alloc]init];
-    self.workIdData = [[NSMutableArray alloc]init];//workid
-    self.typeData = [[NSMutableArray alloc]init];//type
-    self.reportData = [[NSMutableArray alloc]init];//report
+    
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSLog(@"sid为--》%@", sid);
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportAction!datagrid.action?"]];
@@ -163,20 +170,23 @@
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
     NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&order=%@&sort=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
+//    NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
+    
     NSArray *list = [dailyDic objectForKey:@"obj"];
-    if([list count] ==0)
-    {
-        self.tableView.footerRefreshingText = @"没有更多数据";
-        
-    }else
+    NSLog(@"page:%@",page);
+    NSLog(@"..........%ld",[list count]);
+    if(![list count] ==0)
     {
         self.tableView.footerRefreshingText=@"加载中";
+    }else
+    {
+        self.tableView.footerRefreshingText = @"没有更多数据";
     }
+
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.dailyObject addObject:listDic];
@@ -190,37 +200,25 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
-        NSLog(@"dailyreport===>>%@",dailyreport);
-        NSLog(@"wordID333444%@",self.workIdData);
     }
     return self.fakeData;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    if (tableView == self.tableView)
-//    {
-//        return self.fakeData.count;
-//        
-//    }else
-//    {
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains [cd] %@",mySearchDisplayController.searchBar.text];
-//        _searchResultsData =  [[NSMutableArray alloc] initWithArray:[self.fakeData filteredArrayUsingPredicate:predicate]];
-//        return _searchResultsData.count;
-//    }
+ 
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"333333333");
     static NSString *cellId = @"mycell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"back"]];
+        [cell.imageView setImage:[UIImage imageNamed:@"arrow-left"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-
+    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
@@ -231,28 +229,9 @@
     return [self.fakeData count];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"workid为%@",self.workIdData);
-
-    if (tableView == self.tableView)
-    {
-    NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
-    NSString *time =[self.dateData objectAtIndex:indexPath.row];
-    NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
-    NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
-    NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-    TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
-    [dailydetail setLeixing:dailyreport];
-    [dailydetail setTime:time];
-    [dailydetail setZongjie:zongjie];
-    [dailydetail setMingrijihua:jihua];
-    [dailydetail setWorkID:workId];
-    DailyViewController *uc =[[DailyViewController alloc] init];
-    [uc setDailyEntity:dailydetail];
-    [self.navigationController pushViewController:uc animated:YES];
-   
-    }else
-    {
+{    
+//    if (tableView == self.tableView)
+//    {
         NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
         NSString *time =[self.dateData objectAtIndex:indexPath.row];
         NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
@@ -267,6 +246,23 @@
         DailyViewController *uc =[[DailyViewController alloc] init];
         [uc setDailyEntity:dailydetail];
         [self.navigationController pushViewController:uc animated:YES];
-    }
+        
+//    }else
+//    {
+//        NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
+//        NSString *time =[self.dateData objectAtIndex:indexPath.row];
+//        NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
+//        NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
+//        NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
+//        TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
+//        [dailydetail setLeixing:dailyreport];
+//        [dailydetail setTime:time];
+//        [dailydetail setZongjie:zongjie];
+//        [dailydetail setMingrijihua:jihua];
+//        [dailydetail setWorkID:workId];
+//        DailyViewController *uc =[[DailyViewController alloc] init];
+//        [uc setDailyEntity:dailydetail];
+//        [self.navigationController pushViewController:uc animated:YES];
+//    }
 }
 @end

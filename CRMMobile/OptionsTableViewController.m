@@ -44,6 +44,12 @@
 - (void)viewDidLoad {
     NAVCOLOR;
     [super viewDidLoad];
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     _mMeUser = [[MeUser alloc] init];
     //顶部的图片区域
     //把图片添加到动态数组
@@ -76,15 +82,23 @@
     [self.txtOrg setEnabled:NO];
     if ([loginName isEqualToString:@"admin"]) {
         self.txtname.text = @"超级管理员";
-//        self.txtname.text =loginName;
-        self.txtOrg.text = orgName;
+        self.txtOrg.text =@"管理员（权限）";
     }else{
         //普通用户
         self.txtname.text =loginName;
         self.txtOrg.text = orgName;
     }
+    //必须在uiimageview加载之后设置
+    
+    //设置图片为圆角的
+    CALayer *lay  = self.Image.layer;//获取ImageView的层
+    [lay setMasksToBounds:YES];
+    [lay setCornerRadius:6.0];
+    lay.borderWidth=1.0;
+    lay.borderColor=[[UIColor grayColor] CGColor];
+
     [self faker];
-//    [self showImg];
+
 }
 //获取数据
 -(NSMutableArray *)faker{
@@ -93,7 +107,9 @@
     NSString *imgFile = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"imageFile"];
     NSLog(@"%@",imgFile);
     if(imgFile!=nil){
-    NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
+        //http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/
+   NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
+//        NSString *path = @"http://172.16.21.114:8080/dagongcrm/common/style/uploadImages/";
     NSString *path1 = [path stringByAppendingString:imgFile];
     NSString *imgpath = [path1 stringByAppendingString:@".jpg"];
     NSURL *url = [NSURL URLWithString:imgpath];
@@ -102,6 +118,7 @@
     [self.Image setImage:image];
     }else{
         NSLog(@"暂无头像");
+        
     }
     return 0;
 }
@@ -167,8 +184,6 @@
         imagePickerController.sourceType = sourceType;
         
         [self presentViewController:imagePickerController animated:YES completion:^{}];
-        
-        //        [imagePickerController release];
     }
 }
 
@@ -216,50 +231,19 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
    
 }
 
-//-(MKNetworkOperation*) uploadImageFromFile:(NSString*) file
-//                         completionHandler:(IDBlock) completionBlock
-//                              errorHandler:(MKNKErrorBlock) errorBlock {
-//    
-//    MKNetworkOperation *op = [self operationWithPath:@"upload.php"
-//                                              params:@{@"Submit": @"YES"}
-//                                          httpMethod:@"POST"];
-//    
-//    [op addFile:file forKey:@"image"];
-//    
-//    // setFreezable uploads your images after connection is restored!
-//    [op setFreezable:YES];
-//    
-//    [op addCompletionHandler:^(MKNetworkOperation* completedOperation) {
-//        
-//        NSString *xmlString = [completedOperation responseString];
-//        
-//        DLog(@"%@", xmlString);
-//        completionBlock(xmlString);
-//    }
-//                errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
-//                    
-//                    errorBlock(error);
-//                }];
-//    
-//    [self enqueueOperation:op];
-//    
-//    
-//    return op;
-//}
 -(void)pickerImg{
-    UIImage *img = self.ImageData;
-    NSString *path  = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    NSString *path  = self.imgpathData;
+//    [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
     NSString *fileName = @"currentImage.png";
-//    NSLog(@"nozuonodiediediex%@",path);
-//    NSDictionary *dic = [[NSDictionary alloc]init];
-//    dic = APPDELEGATE.sessionInfo;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"UploadAction!upload.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"uploadAction!upload.action?"]];
+//    NSURL *URL=[NSURL URLWithString:@"http://172.16.21.114:8080/dagongcrm/uploadAction!upload.action?"];
+    
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
 
-    NSString *param=[NSString stringWithFormat:@"file=%@MOBILE_SID=%@fileName=%@",path,sid,fileName];
+    NSString *param=[NSString stringWithFormat:@"file=%@&MOBILE_SID=%@&fileName=%@",path,sid,fileName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
@@ -291,48 +275,6 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
 }
 - (IBAction)moveImg:(id)sender {
     NSLog(@"准备换背景图片");
-//    UIImage *image ;
-    //创建imageView
-    
-//   self.index = 1;
-//    switch (self.index) {
-//        case 1:
-//            image = [UIImage imageNamed:@"10002"];
-//            break;
-//        case 2:
-//            image = [UIImage imageNamed:@"10003"];
-//            break;
-//        case 3:
-//            image = [UIImage imageNamed:@"10004"];
-//            break;
-//        case 4:
-//            image = [UIImage imageNamed:@"10001"];
-//            break;
-//        default:
-//            break;
-//    }
-//       [self.beijingImg setImage:image];
-//    self.index++;
-//    if (index>=4) {
-//        index==1;
-//    }
-
-    //把图片添加到动态数组
-//        NSMutableArray * animateArray = [[NSMutableArray alloc]initWithCapacity:4];
-//            [animateArray addObject:[UIImage imageNamed:@"10001.png"]];
-//            [animateArray addObject:[UIImage imageNamed:@"10002.png"]];
-//            [animateArray addObject:[UIImage imageNamed:@"10003.png"]];
-//            [animateArray addObject:[UIImage imageNamed:@"10004.png"]];
-//    	           	    //为图片设置动态
-//    	    self.beijingImg.animationImages = animateArray;
-//    	    //为动画设置持续时间
-//    	    self.beijingImg.animationDuration = 3.0;
-//    	    //为默认的无限循环
-//    	    self.beijingImg.animationRepeatCount = 0;
-//    
-//    	    //开始播放动画
-//            [self.beijingImg startAnimating];
-//    	    [self.view addSubview:self.beijingImg];
 }
 - (IBAction)location:(id)sender {
     LocationViewController *locationView=[[LocationViewController alloc] init];
