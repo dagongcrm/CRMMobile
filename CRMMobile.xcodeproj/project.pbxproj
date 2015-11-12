@@ -32,6 +32,8 @@
 		9678AEFC1BEB71F800E5B50E /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
 		9678AEFD1BEB722900E5B50E /* addTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CE1BE8A96B00149C10 /* addTaskViewController.m */; };
 		9678AEFF1BEB731600E5B50E /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEFE1BEB731600E5B50E /* 222.png */; };
+		96AEF19D1BF1FDAC00EDE5CE /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */; };
+		96AEF19E1BF1FDAC00EDE5CE /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AEF19C1BF1FDAC00EDE5CE /* back.png */; };
 		96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E312461BEB53BA00A1A3FF /* MJRefresh.bundle */; };
 		96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E312471BEB53BA00A1A3FF /* arrow@2x.png */; };
 		96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E3124A1BEB53BA00A1A3FF /* MJRefreshBaseView.m */; };
@@ -55,6 +57,10 @@
 		96EDBEB61BE8835E00824AE2 /* MeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBEB31BE8835E00824AE2 /* MeEntity.m */; };
 		96EDBEB71BE8835E00824AE2 /* MeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBEB51BE8835E00824AE2 /* MeUser.m */; };
 		96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBEB81BE8838300824AE2 /* Main.storyboard */; };
+		96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */; };
+		96F408741BF2C63800AA4AD5 /* back002.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408731BF2C63800AA4AD5 /* back002.png */; };
+		96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F408761BF2E32E00AA4AD5 /* UploadViewController.m */; };
+		96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */; };
 		96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAE2451BEC736800032BB3 /* DailyViewController.m */; };
 		96FAE24E1BEC736800032BB3 /* DailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAE2461BEC736800032BB3 /* DailyViewController.xib */; };
 		96FAE24F1BEC736800032BB3 /* DailyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAE2481BEC736800032BB3 /* DailyTableViewController.m */; };
@@ -196,6 +202,8 @@
 		9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
 		9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		9678AEFE1BEB731600E5B50E /* 222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 222.png; sourceTree = "<group>"; };
+		96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-left.png"; path = "../../../MAC/Image/arrow-left.png"; sourceTree = "<group>"; };
+		96AEF19C1BF1FDAC00EDE5CE /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../MAC/Image/back.png; sourceTree = "<group>"; };
 		96E312461BEB53BA00A1A3FF /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		96E312471BEB53BA00A1A3FF /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		96E312481BEB53BA00A1A3FF /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -235,6 +243,11 @@
 		96EDBEB41BE8835E00824AE2 /* MeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeUser.h; sourceTree = "<group>"; };
 		96EDBEB51BE8835E00824AE2 /* MeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeUser.m; sourceTree = "<group>"; };
 		96EDBEB81BE8838300824AE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon_1x.png; sourceTree = "<group>"; };
+		96F408731BF2C63800AA4AD5 /* back002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back002.png; sourceTree = "<group>"; };
+		96F408751BF2E32E00AA4AD5 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		96F408761BF2E32E00AA4AD5 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
 		96FAE2441BEC736800032BB3 /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyViewController.h; sourceTree = "<group>"; };
 		96FAE2451BEC736800032BB3 /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyViewController.m; sourceTree = "<group>"; };
 		96FAE2461BEC736800032BB3 /* DailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyViewController.xib; sourceTree = "<group>"; };
@@ -491,6 +504,18 @@
 			name = crm;
 			sourceTree = "<group>";
 		};
+		96AEF19A1BF1FD5700EDE5CE /* work */ = {
+			isa = PBXGroup;
+			children = (
+				96F408731BF2C63800AA4AD5 /* back002.png */,
+				96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */,
+				96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */,
+				96AEF19C1BF1FDAC00EDE5CE /* back.png */,
+				9678AEFE1BEB731600E5B50E /* 222.png */,
+			);
+			name = work;
+			sourceTree = "<group>";
+		};
 		96E312451BEB538F00A1A3FF /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,7 +702,7 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
-				9678AEFE1BEB731600E5B50E /* 222.png */,
+				96AEF19A1BF1FD5700EDE5CE /* work */,
 				39F1F1B31BE3A24000EA3133 /* GPS */,
 				C0D3CD3A1BDF0C9700C23FB3 /* weatherImg */,
 			);
@@ -817,6 +842,9 @@
 				96EDBEA31BE8832100824AE2 /* LianViewController.h */,
 				96EDBEA41BE8832100824AE2 /* LianViewController.m */,
 				96EDBEA51BE8832100824AE2 /* LianViewController.xib */,
+				96F408751BF2E32E00AA4AD5 /* UploadViewController.h */,
+				96F408761BF2E32E00AA4AD5 /* UploadViewController.m */,
+				96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -1000,6 +1028,8 @@
 				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
+				96AEF19D1BF1FDAC00EDE5CE /* arrow-left.png in Resources */,
+				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
 				B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
@@ -1045,7 +1075,9 @@
 				96FAE2501BEC736800032BB3 /* DailyTableViewController.xib in Resources */,
 				C0D569301BD9B69100860B33 /* Work.plist in Resources */,
 				C0D3CD731BDF0CEF00C23FB3 /* 24.png in Resources */,
+				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
 				C0D3CD751BDF0CEF00C23FB3 /* 26.png in Resources */,
+				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
 				C0D3CD651BDF0CEF00C23FB3 /* 10.png in Resources */,
 				C0D3CD611BDF0CEF00C23FB3 /* 6.png in Resources */,
@@ -1065,6 +1097,7 @@
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
 				9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */,
+				96AEF19E1BF1FDAC00EDE5CE /* back.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
 			);
@@ -1167,6 +1200,7 @@
 				1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
 				96EDBEB61BE8835E00824AE2 /* MeEntity.m in Sources */,
+				96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */,
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96EDBEAB1BE8832100824AE2 /* SettingViewController.m in Sources */,
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,

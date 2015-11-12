@@ -10,6 +10,7 @@
 #import "config.h"
 #import "AppDelegate.h"
 #import "SettingViewController.h"
+#import "MJRefresh.h"
 @interface TXLTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -19,14 +20,29 @@
 @property (nonatomic, strong) NSMutableArray *phoneData;//电话数据
 @property (nonatomic, strong) NSMutableArray *userName;
 @property (nonatomic, strong) NSMutableArray *orgName;
-
+@property  NSInteger index;
+@property  UIViewController *uiview;
 @end
 
 @implementation TXLTableViewController
+- (NSMutableArray *)fakeData
+{
+    if (!_fakeData) {
+        self.fakeData = [[NSMutableArray alloc]init];
+        self.contactData = [[NSMutableArray alloc]init];
+        self.customerNameStrData = [[NSMutableArray alloc]init];
+        self.phoneData = [[NSMutableArray alloc]init];
+        [self faker:@"1"];
+        [self faker:@"2"];
+        
+    }
+    return _fakeData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.title=@"通讯录";
+    [self setupRefresh];
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     searchBar.placeholder = @"搜索";
     self.tableView.tableHeaderView = searchBar;
@@ -34,24 +50,6 @@
     mySearchDisplayController.searchResultsDataSource = self;
     mySearchDisplayController.searchResultsDelegate = self;
      [self setExtraCellLineHidden:self.tableView];
-    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-////    UIImage *image = [[UIImage imageNamed:@"back001.png"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
-////    [button setImage:image forState:UIControlStateNormal];
-////    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    self.tableView.delegate=self;
-//    self.tableView.dataSource=self;
-    [self faker:@"1"];
-    [self faker:@"2"];
-    [self faker:@"3"];
     }
 // hide the extraLine隐藏分割线
 -(void)setExtraCellLineHidden: (UITableView *)tableView
@@ -60,21 +58,57 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
+- (void)setupRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    //[self.tableView headerBeginRefreshing]; //自动刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+}
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    myDelegate.index =3;
+    [self faker:@"1"];
+    [self faker:@"2"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    if(myDelegate.index==0){
+        myDelegate.index==3;
+    }
+    self.index=myDelegate.index++;
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
+}
 
 //获取数据
 -(NSMutableArray *)faker:()page{
-    self.fakeData = [[NSMutableArray alloc]init];
-    self.contactData = [[NSMutableArray alloc]init];
-    self.customerNameStrData = [[NSMutableArray alloc]init];
-    self.phoneData = [[NSMutableArray alloc]init];
-    NSDictionary *dic = [[NSDictionary alloc]init];
-    dic = APPDELEGATE.sessionInfo;
-    NSString *sid = [[dic objectForKey:@"obj"]objectForKey:@"sid"];
+    
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@",sid];
+//    NSString *order = @"desc";
+//    NSString *sort = @"time";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
@@ -126,8 +160,8 @@
     }
     NSLog(@"8888888%@",self.phoneData);
 
-    [cell.imageView setImage:[UIImage imageNamed:@"dianhua"]];
-        cell.textLabel.text = self.fakeData[indexPath.row];
+    [cell.imageView setImage:[UIImage imageNamed:@"back"]];
+        cell.textLabel.text = self.customerNameStrData[indexPath.row];
         [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
 //        [cell.detailTextLabel setNumberOfLines:2];
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
