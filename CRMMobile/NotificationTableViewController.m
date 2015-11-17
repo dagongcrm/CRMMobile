@@ -8,6 +8,7 @@
 
 #import "NotificationTableViewController.h"
 #import "NoticeTableViewController.h"
+#import "taskReminderTableViewController.h"
 
 @interface NotificationTableViewController ()
 
@@ -61,7 +62,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == 0){
         NSLog(@"fffffffff");
-        //[self indexAndJudge:@"aa"];
+        taskReminderTableViewController *tr = [[taskReminderTableViewController alloc] init];
+        [self.navigationController pushViewController:tr animated:YES];
     }else if(indexPath.row == 1){
         NSLog(@"ffffffffferji");
         NoticeTableViewController *view = [[NoticeTableViewController alloc]init];

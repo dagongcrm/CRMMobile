@@ -21,6 +21,12 @@
 		1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */; };
+		1FE824741BF474F400D8A46A /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE824731BF474F400D8A46A /* arrow-left.png */; };
+		1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */; };
+		1FE824791BF4806400D8A46A /* taskReminderTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */; };
+		1FF4D4941BFAF99900F84401 /* marketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D4931BFAF99900F84401 /* marketActivity.m */; };
+		1FF4D4981BFAF9C400F84401 /* activityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D4961BFAF9C400F84401 /* activityDetailViewController.m */; };
+		1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
@@ -39,8 +45,6 @@
 		9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */; };
 		9678AEFC1BEB71F800E5B50E /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
 		9678AEFF1BEB731600E5B50E /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEFE1BEB731600E5B50E /* 222.png */; };
-		96AEF19D1BF1FDAC00EDE5CE /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */; };
-		96AEF19E1BF1FDAC00EDE5CE /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AEF19C1BF1FDAC00EDE5CE /* back.png */; };
 		96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E312461BEB53BA00A1A3FF /* MJRefresh.bundle */; };
 		96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E312471BEB53BA00A1A3FF /* arrow@2x.png */; };
 		96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E3124A1BEB53BA00A1A3FF /* MJRefreshBaseView.m */; };
@@ -200,6 +204,15 @@
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FE529D71BE8BA4A00149C10 /* trackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackingTableViewController.h; sourceTree = "<group>"; };
 		1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trackingTableViewController.m; sourceTree = "<group>"; };
+		1FE824731BF474F400D8A46A /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
+		1FE824751BF4806400D8A46A /* taskReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskReminderTableViewController.h; sourceTree = "<group>"; };
+		1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskReminderTableViewController.m; sourceTree = "<group>"; };
+		1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskReminderTableViewController.xib; sourceTree = "<group>"; };
+		1FF4D4921BFAF99900F84401 /* marketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marketActivity.h; sourceTree = "<group>"; };
+		1FF4D4931BFAF99900F84401 /* marketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = marketActivity.m; sourceTree = "<group>"; };
+		1FF4D4951BFAF9C400F84401 /* activityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityDetailViewController.h; sourceTree = "<group>"; };
+		1FF4D4961BFAF9C400F84401 /* activityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityDetailViewController.m; sourceTree = "<group>"; };
+		1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activityDetailViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -228,8 +241,6 @@
 		9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
 		9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		9678AEFE1BEB731600E5B50E /* 222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 222.png; sourceTree = "<group>"; };
-		96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-left.png"; path = "../../../MAC/Image/arrow-left.png"; sourceTree = "<group>"; };
-		96AEF19C1BF1FDAC00EDE5CE /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../MAC/Image/back.png; sourceTree = "<group>"; };
 		96E312461BEB53BA00A1A3FF /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		96E312471BEB53BA00A1A3FF /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		96E312481BEB53BA00A1A3FF /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -561,10 +572,9 @@
 		96AEF19A1BF1FD5700EDE5CE /* work */ = {
 			isa = PBXGroup;
 			children = (
+				1FE824731BF474F400D8A46A /* arrow-left.png */,
 				96F408731BF2C63800AA4AD5 /* back002.png */,
 				96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */,
-				96AEF19B1BF1FDAC00EDE5CE /* arrow-left.png */,
-				96AEF19C1BF1FDAC00EDE5CE /* back.png */,
 				9678AEFE1BEB731600E5B50E /* 222.png */,
 			);
 			name = work;
@@ -858,6 +868,14 @@
 				C0D569391BD9B7BB00860B33 /* NotificationTableViewController.m */,
 				1FE529C31BE8A55300149C10 /* NoticeTableViewController.h */,
 				1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */,
+				1FE824751BF4806400D8A46A /* taskReminderTableViewController.h */,
+				1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */,
+				1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */,
+				1FF4D4921BFAF99900F84401 /* marketActivity.h */,
+				1FF4D4931BFAF99900F84401 /* marketActivity.m */,
+				1FF4D4951BFAF9C400F84401 /* activityDetailViewController.h */,
+				1FF4D4961BFAF9C400F84401 /* activityDetailViewController.m */,
+				1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -1084,13 +1102,13 @@
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
 				96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
-				96AEF19D1BF1FDAC00EDE5CE /* arrow-left.png in Resources */,
 				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
 				B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
 				96FAE2521BEC736800032BB3 /* AddDailyViewController.xib in Resources */,
 				C0D3CD631BDF0CEF00C23FB3 /* 8.png in Resources */,
+				1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */,
 				96EDBEAA1BE8832100824AE2 /* XGViewController.xib in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
@@ -1136,6 +1154,7 @@
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
 				C0D3CD651BDF0CEF00C23FB3 /* 10.png in Resources */,
+				1FE824741BF474F400D8A46A /* arrow-left.png in Resources */,
 				C0D3CD611BDF0CEF00C23FB3 /* 6.png in Resources */,
 				C0D569451BD9C65100860B33 /* Options.plist in Resources */,
 				C0D3CD5F1BDF0CEF00C23FB3 /* 4.png in Resources */,
@@ -1147,6 +1166,7 @@
 				C0D3CD791BDF0CEF00C23FB3 /* 30.png in Resources */,
 				9678AEF71BEB71C800E5B50E /* AddCustomerInformationViewController.xib in Resources */,
 				39FD7DD41BF0844200CCD3F9 /* AddSaleOppViewController.xib in Resources */,
+				1FE824791BF4806400D8A46A /* taskReminderTableViewController.xib in Resources */,
 				9678AEFF1BEB731600E5B50E /* 222.png in Resources */,
 				C0D68C4E1BD8EA20009CEC23 /* LaunchScreen.xib in Resources */,
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
@@ -1156,7 +1176,6 @@
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
 				9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */,
-				96AEF19E1BF1FDAC00EDE5CE /* back.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
 			);
@@ -1266,6 +1285,7 @@
 				96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */,
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96EDBEAB1BE8832100824AE2 /* SettingViewController.m in Sources */,
+				1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */,
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,
 				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
 				1F93AAD21BF1FE9A0099C57E /* submitTaskDetailViewController.m in Sources */,
@@ -1279,6 +1299,7 @@
 				39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,
+				1FF4D4981BFAF9C400F84401 /* activityDetailViewController.m in Sources */,
 				96FAE24F1BEC736800032BB3 /* DailyTableViewController.m in Sources */,
 				1F93AADB1BF1FEDF0099C57E /* auditTableViewController.m in Sources */,
 				96EDBEA71BE8832100824AE2 /* TXLTableViewController.m in Sources */,
@@ -1290,6 +1311,7 @@
 				96EDBEAD1BE8832100824AE2 /* GuanyuViewController.m in Sources */,
 				B8184AA11BEC7BB800FB0C84 /* IndexViewController.m in Sources */,
 				96EDBEB71BE8835E00824AE2 /* MeUser.m in Sources */,
+				1FF4D4941BFAF99900F84401 /* marketActivity.m in Sources */,
 				96EDBEAF1BE8832100824AE2 /* LianViewController.m in Sources */,
 				B8184A9D1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,
