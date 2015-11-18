@@ -26,6 +26,7 @@
     [super viewDidLoad];
     NSString *s= _auditEntity.submitName;
     NSString *y= _auditEntity.yeWuZL;
+    self.title=@"任务审核";
     self.qiYeMC.text = _auditEntity.submitName;
     self.yeWuZL.text = _auditEntity.yeWuZL;
     NSLog(@"s%@",s);

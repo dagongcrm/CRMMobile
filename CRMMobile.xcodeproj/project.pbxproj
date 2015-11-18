@@ -18,9 +18,13 @@
 		1F93AADD1BF1FEDF0099C57E /* auditDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAD91BF1FEDF0099C57E /* auditDetailViewController.m */; };
 		1F93AADE1BF1FEDF0099C57E /* auditDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F93AADA1BF1FEDF0099C57E /* auditDetailViewController.xib */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
+		1FE514E31BFC2415005C3BBD /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE514E11BFC2415005C3BBD /* NoticeViewController.m */; };
+		1FE514E41BFC2415005C3BBD /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE514E21BFC2415005C3BBD /* NoticeViewController.xib */; };
 		1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */; };
+		1FE549C11BFC62B600BDAF6B /* publicNoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE549BF1BFC62B600BDAF6B /* publicNoticeTableViewController.m */; };
+		1FE549C21BFC62B600BDAF6B /* publicNoticeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE549C01BFC62B600BDAF6B /* publicNoticeTableViewController.xib */; };
 		1FE824741BF474F400D8A46A /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE824731BF474F400D8A46A /* arrow-left.png */; };
 		1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */; };
 		1FE824791BF4806400D8A46A /* taskReminderTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */; };
@@ -198,12 +202,18 @@
 		1F93AADA1BF1FEDF0099C57E /* auditDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = auditDetailViewController.xib; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
+		1FE514E01BFC2415005C3BBD /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		1FE514E11BFC2415005C3BBD /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		1FE514E21BFC2415005C3BBD /* NoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		1FE529C31BE8A55300149C10 /* NoticeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewController.h; sourceTree = "<group>"; };
 		1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewController.m; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FE529D71BE8BA4A00149C10 /* trackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackingTableViewController.h; sourceTree = "<group>"; };
 		1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trackingTableViewController.m; sourceTree = "<group>"; };
+		1FE549BE1BFC62B600BDAF6B /* publicNoticeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publicNoticeTableViewController.h; sourceTree = "<group>"; };
+		1FE549BF1BFC62B600BDAF6B /* publicNoticeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = publicNoticeTableViewController.m; sourceTree = "<group>"; };
+		1FE549C01BFC62B600BDAF6B /* publicNoticeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = publicNoticeTableViewController.xib; sourceTree = "<group>"; };
 		1FE824731BF474F400D8A46A /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		1FE824751BF4806400D8A46A /* taskReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskReminderTableViewController.h; sourceTree = "<group>"; };
 		1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskReminderTableViewController.m; sourceTree = "<group>"; };
@@ -876,6 +886,12 @@
 				1FF4D4951BFAF9C400F84401 /* activityDetailViewController.h */,
 				1FF4D4961BFAF9C400F84401 /* activityDetailViewController.m */,
 				1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */,
+				1FE514E01BFC2415005C3BBD /* NoticeViewController.h */,
+				1FE514E11BFC2415005C3BBD /* NoticeViewController.m */,
+				1FE514E21BFC2415005C3BBD /* NoticeViewController.xib */,
+				1FE549BE1BFC62B600BDAF6B /* publicNoticeTableViewController.h */,
+				1FE549BF1BFC62B600BDAF6B /* publicNoticeTableViewController.m */,
+				1FE549C01BFC62B600BDAF6B /* publicNoticeTableViewController.xib */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -1127,8 +1143,10 @@
 				96FAE2621BEC73C800032BB3 /* TaskReportTableViewController.xib in Resources */,
 				96FAE2831BEC758500032BB3 /* ShowAndDeleteViewController.xib in Resources */,
 				1F93AAD31BF1FE9A0099C57E /* submitTaskDetailViewController.xib in Resources */,
+				1FE549C21BFC62B600BDAF6B /* publicNoticeTableViewController.xib in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
+				1FE514E41BFC2415005C3BBD /* NoticeViewController.xib in Resources */,
 				96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */,
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
 				C0D3CD601BDF0CEF00C23FB3 /* 5.png in Resources */,
@@ -1254,10 +1272,12 @@
 				C0D68C401BD8EA20009CEC23 /* AppDelegate.m in Sources */,
 				1F93AADD1BF1FEDF0099C57E /* auditDetailViewController.m in Sources */,
 				96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */,
+				1FE514E31BFC2415005C3BBD /* NoticeViewController.m in Sources */,
 				B8184A911BEC7AAF00FB0C84 /* GLReusableViewController.m in Sources */,
 				9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */,
 				9678AEF41BEB71C800E5B50E /* CustomerInformationDetailViewController.m in Sources */,
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
+				1FE549C11BFC62B600BDAF6B /* publicNoticeTableViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				96FAE2751BEC753100032BB3 /* TaskReportWeekEntity.m in Sources */,
 				96E41F7F1BF46BD400A2DA37 /* editTaskViewController.m in Sources */,
