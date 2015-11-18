@@ -110,7 +110,9 @@
                 }
             }
         }else if(i==1){
-            if ([listi count] != 0) {
+            
+        }else if (i==2){
+            if ([listi count] != 0) {if ([listi count] != 0) {
                 for (int i = 0; i<[listi count]; i++) {
                     listdic = [listi objectAtIndex:i];
                     [self.uid addObject:listdic];
@@ -124,8 +126,6 @@
                     
                 }
             }
-        }else if (i==2){
-            if ([listi count] != 0) {
                 for (int i = 0; i<[listi count]; i++) {
                     listdic = [listi objectAtIndex:i];
                     [self.uid addObject:listdic];
@@ -272,13 +272,11 @@
     if (key != nil) {
         NSString *customerCallPlanID =[self.customerID objectAtIndex:indexPath.row];
         NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
-        //NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-        //NSString *theme =[self.theme objectAtIndex:indexPath.row];;
+       
         auditEntity *ae =[[auditEntity alloc] init];
         [ae setSubmitName:customerNameStr];
         [ae setSubmitID:customerCallPlanID];
-        //[ae setVisitDate:visitDate];
-        //[visitPlan setTheme:theme];
+       
         auditDetailViewController *adc =[[auditDetailViewController alloc] init];
         [adc setAuditEntity:ae];
         [self.navigationController pushViewController:adc animated:YES];
@@ -309,63 +307,7 @@
     [uc setDailyEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:YES];
    }
-//    [self customerIDuserName :self.fakeData :self.customerID];    
-//    if (tableView == self.tableView)
-//    {
-//       
-//        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-//        NSArray *key = [nc allKeys];
-//        NSLog(@"%@",key);
-//        if ( [key containsObject:@"qiYeMC"]){
-//        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
-//        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
-//        NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
-//        NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
-//        NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
-//        NSString *userID = (NSString *) [nc objectForKey:@"userID"];
-//        NSLog(@"%@",userID);
-//        NSLog(@"ftn_ID%@",ftn_ID);
-//        NSLog(@"yeWuZLBH%@",yeWuZLBH);
-//        auditEntity *udetail =[[auditEntity alloc] init];
-//        [udetail setSubmitName:submitName];
-//        [udetail setSubmitID:submitID];
-//        [udetail setYeWuZL:yeWuZL];
-//        [udetail setYeWuZLBH:yeWuZLBH];
-//        [udetail setFtn_ID:ftn_ID];
-//        auditDetailViewController *uc =[[auditDetailViewController alloc] init];
-//        [uc setAuditEntity:udetail];
-//        [self.navigationController pushViewController:uc animated:YES];
-//        }else if([key containsObject:@"customerNameStr"]){
-//        NSString *customerCallPlanID =[self.customerID objectAtIndex:indexPath.row];
-//        NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
-//        NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-//        //NSString *theme =[self.theme objectAtIndex:indexPath.row];;
-//        VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
-//        [visitPlan setCustomerNameStr:customerNameStr];
-//        [visitPlan setCustomerCallPlanID:customerCallPlanID];
-//        [visitPlan setVisitDate:visitDate];
-//        //[visitPlan setTheme:theme];
-//        PlanDetalViewController *pvc =[[PlanDetalViewController alloc] init];
-//        [pvc setDailyEntity:visitPlan];
-//            [self.navigationController pushViewController:pvc animated:YES];
-//        }else{
-//            NSLog(@"%@","ffdf");
-//        }
-//    }else
-//    {
-//        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
-//        
-//        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
-//        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
-//        
-//        submitTaskEntity *udetail =[[submitTaskEntity alloc] init];
-//        [udetail setSubmitName:submitName];
-//        [udetail setSubmitID:submitID];
-//        auditDetailViewController *uc =[[auditDetailViewController alloc] init];
-//        [uc setAuditEntity:udetail];
-//        [self.navigationController pushViewController:uc animated:YES];
-//        
-//    }
+
 }
 
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
