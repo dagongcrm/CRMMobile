@@ -35,7 +35,10 @@
 @implementation SubmitTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"任务提交";
+
     [self faker:@"1"];
+//    [self faker:@"2"];
     [self leftButtonInit];
 }
 -(NSMutableArray *) faker: (NSString *) page{
@@ -132,7 +135,7 @@
                                  action:@selector(addFlow:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001.png"] imageWithTintColor:[UIColor whiteColor]];
+    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
@@ -183,12 +186,18 @@
     {
         
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uSubmitId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];//
         NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
         NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
         NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSString *hangYeFLMC =(NSString *) [nc objectForKey:@"hangYeFLMC_cn"];
+        NSString *heTongJEStr =(NSString *) [nc objectForKey:@"heTongJEStr"];
+        NSString *genZongSFJEStr =(NSString *) [nc objectForKey:@"genZongSFJEStr"];
+        NSString *zhuChengXS =(NSString *) [nc objectForKey:@"zhuChengXS"];
+        NSString *userName =(NSString *) [nc objectForKey:@"userName_cn"];
+        NSString *lianXiFS =(NSString *) [nc objectForKey:@"lianXiFS"];
         NSLog(@"%@",userID);
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
@@ -198,6 +207,12 @@
         [udetail setYeWuZL:yeWuZL];
         [udetail setYeWuZLBH:yeWuZLBH];
         [udetail setFtn_ID:ftn_ID];
+        [udetail setHangYeFLMC:hangYeFLMC];
+        [udetail setHeTongJE:heTongJEStr];
+        [udetail setGenZongSFJE:genZongSFJEStr];
+        [udetail setZhuChengXS:zhuChengXS];
+        [udetail setUserName:userName];
+        [udetail setLianXiFS:lianXiFS];
         submitTaskDetailViewController *uc =[[submitTaskDetailViewController alloc] init];
         [uc setSubmitTaskEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
