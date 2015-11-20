@@ -5,6 +5,7 @@
 //  Created by Allen Hsu on 12/14/14.
 //  Copyright (c) 2014 Glow, Inc. All rights reserved.
 //
+#import "ReminderTableViewController.h"
 #import "VisitPlanTableViewController.h"
 #import "CustomerInformationTableViewController.h"
 #import "TaskRecordsTableViewController.h"
@@ -72,12 +73,12 @@
         //imageView.image=weatherimg;
         //[self.view addSubview:imageView];
         
-//        CustomerInformationTableViewController *nav = [[CustomerInformationTableViewController alloc] init];
-//        nav.view.autoresizingMask = UIViewAutoresizingNone;
-//        [self addChildViewController:nav];
-//        nav.view.frame =  CGRectMake(0, 150, self.view.bounds.size.width, self.view.bounds.size.height);
-//        [self.view addSubview:nav.view];
-//        [nav didMoveToParentViewController:self];
+                ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
+                nav.view.autoresizingMask = UIViewAutoresizingNone;
+                [self addChildViewController:nav];
+                nav.view.frame =  CGRectMake(0, 150, self.view.bounds.size.width, self.view.bounds.size.height);
+                [self.view addSubview:nav.view];
+                [nav didMoveToParentViewController:self];
     }
     if([self.page integerValue]==1)
     {
@@ -88,7 +89,6 @@
         [self.view addSubview:nav.view];
         [nav didMoveToParentViewController:self];
        
-        
     }
     if([self.page integerValue]==2)
     {

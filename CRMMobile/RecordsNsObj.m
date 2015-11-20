@@ -1,19 +1,19 @@
 //
-//  visitPlanNsObj.m
+//  RecordsNsObj.m
 //  CRMMobile
 //
-//  Created by peng on 15/11/5.
+//  Created by peng on 15/11/8.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "VisitPlanNsObj.h"
+#import "RecordsNsObj.h"
 
-@implementation VisitPlanNsObj
+@implementation RecordsNsObj
 @synthesize customerNameStr=_customerNameStr;
 @synthesize visitDate=_visitDate;
 @synthesize theme=_theme;
-@synthesize customerCallPlanID=_customerCallPlanID;
-@synthesize accessMethod=_accessMethod;
+@synthesize accessMethodStr=_accessMethodStr;
+@synthesize callRecordsID=_callRecordsID;
 @synthesize mainContent=_mainContent;
 @synthesize respondentPhone=_respondentPhone;
 @synthesize respondent=_respondent;
@@ -22,5 +22,6 @@
 @synthesize result=_result;
 @synthesize customerChange=_customerChange;
 @synthesize customerRequirements=_customerRequirements;
-@synthesize visitorStr=_visitorStr;
+@synthesize visitorAttributionStr=_visitorAttributionStr;
+@synthesize visitor=_visitor;
 @end

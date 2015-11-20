@@ -77,7 +77,7 @@
         CGRect frame  = CGRectMake(x, 0.0, self.navScrollView.frame.size.width, self.navScrollView.frame.size.height - 10.0);
         UILabel *title = [[UILabel alloc] initWithFrame:frame];
         if (i==0) {
-            title.text =@"首页";
+            title.text =@"待办提醒";
         }
         if (i==1) {
             title.text =@"拜访计划";
