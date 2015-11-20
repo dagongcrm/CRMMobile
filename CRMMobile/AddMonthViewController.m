@@ -21,6 +21,7 @@
 - (IBAction)choiceTime:(id)sender;
 - (IBAction)cancle:(id)sender;
 - (IBAction)Submit:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll1;
 
 @end
 
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加工作月报";
+    self.scroll1.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"月报";
     [self.bumen setEnabled:NO];
@@ -66,6 +68,10 @@
     NSString *jhua = self.jihua.text;
     NSString *lxing = self.leixing.text;
     NSString *bmen = self.bumen.text;
+    if(date.length==0||zjie.length==0||jhua.length==0){
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"添加信息的文本不能为空？" delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alertView show];
+    }else{
     NSError *error;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSLog(@"sid为--》%@", sid);
@@ -81,6 +87,7 @@
     if ([[AddDic objectForKey:@"success"] boolValue] == YES) {
         MonthTableViewController *monthtv = [[MonthTableViewController alloc]init];
         [self.navigationController pushViewController:monthtv animated:YES];
+    }
     }
 }
 @end

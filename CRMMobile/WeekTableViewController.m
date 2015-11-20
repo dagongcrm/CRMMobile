@@ -35,17 +35,23 @@
 {
     if (!_fakeData) {
         self.fakeData   = [NSMutableArray array];
+        self.dateData = [[NSMutableArray alloc]init];//time
+        self.workIdData = [[NSMutableArray alloc]init];//workid
+        self.typeData = [[NSMutableArray alloc]init];//type
+        self.reportData = [[NSMutableArray alloc]init];//report
+        
         [self faker:@"1"];
         [self faker:@"2"];
-        NSLog(@"22222222");
     }
     return _fakeData;
 }
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     [self setupRefresh];
     self.title=@"工作周报";
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     searchBar.placeholder = @"搜索";
     self.tableView.tableHeaderView = searchBar;
@@ -59,7 +65,7 @@
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +139,9 @@
 - (void)footerRereshing
 {
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    if(myDelegate.index==0){
+        myDelegate.index==3;
+    }
     self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
@@ -144,11 +153,7 @@
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    self.fakeData = [[NSMutableArray alloc]init];//daily
-    self.dateData = [[NSMutableArray alloc]init];//time
-    self.workIdData = [[NSMutableArray alloc]init];//workid
-    self.typeData = [[NSMutableArray alloc]init];//type
-    self.reportData = [[NSMutableArray alloc]init];//report
+ 
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSLog(@"sid为--》%@", sid);
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportWAction!datagrid.action?"]];
@@ -157,20 +162,22 @@
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
     NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weekDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"weekDic字典里面的内容为--》%@", weekDic);
     NSArray *list = [weekDic objectForKey:@"obj"];
-    if([list count] ==0)
-    {
-        self.tableView.footerRefreshingText = @"没有更多数据";
-        
-    }else
+    NSLog(@"page:%@",page);
+    NSLog(@"....week......%ld",[list count]);
+    if(![list count] ==0)
     {
         self.tableView.footerRefreshingText=@"加载中";
+    }else
+    {
+        self.tableView.footerRefreshingText = @"没有更多数据";
     }
+    
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         NSString *weekreport = (NSString *)[listDic objectForKey:@"week"];
@@ -183,8 +190,6 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
-        NSLog(@"dailyreport===>>%@",weekreport);
-        NSLog(@"wordID333444%@",self.workIdData);
     }
     return self.fakeData;
 }
@@ -193,14 +198,13 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"333333333");
     static NSString *cellId = @"mycell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-        [cell.imageView setImage:[UIImage imageNamed:@"back"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"arrow-left"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     
@@ -214,42 +218,23 @@
     return [self.fakeData count];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"workid为%@",self.workIdData);
-    
-//    if (tableView == self.tableView)
-//    {
-        NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
-        NSString *time =[self.dateData objectAtIndex:indexPath.row];
-        NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
-        NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
-        NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-        TaskReportWeekEntity *weekdetail =[[TaskReportWeekEntity alloc] init];
-        [weekdetail setLeixing:dailyreport];
-        [weekdetail setTime:time];
-        [weekdetail setZongjie:zongjie];
-        [weekdetail setMingrijihua:jihua];
-        [weekdetail setWorkID:workId];
-        ShowAndDeleteWeekViewController *sd =[[ShowAndDeleteWeekViewController alloc] init];
-        [sd setWeekEntity:weekdetail];
-        [self.navigationController pushViewController:sd animated:YES];
-//        
-//    }else
-//    {
-//        NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
-//        NSString *time =[self.dateData objectAtIndex:indexPath.row];
-//        NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
-//        NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
-//        NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
-//        TaskReportDailyEntity *dailydetail =[[TaskReportDailyEntity alloc] init];
-//        [dailydetail setLeixing:dailyreport];
-//        [dailydetail setTime:time];
-//        [dailydetail setZongjie:zongjie];
-//        [dailydetail setMingrijihua:jihua];
-//        [dailydetail setWorkID:workId];
-//        DailyViewController *uc =[[DailyViewController alloc] init];
-//        [uc setDailyEntity:dailydetail];
-//        [self.navigationController pushViewController:uc animated:YES];
-//    }
-}
+{    
+    //    if (tableView == self.tableView)
+    //    {
+    NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
+    NSString *time =[self.dateData objectAtIndex:indexPath.row];
+    NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;
+    NSString *zongjie      =[self.reportData objectAtIndex:indexPath.row];
+    NSString *workId      =[self.workIdData objectAtIndex:indexPath.row];
+    TaskReportWeekEntity *weekdetail =[[TaskReportWeekEntity alloc] init];
+    [weekdetail setLeixing:dailyreport];
+    [weekdetail setTime:time];
+    [weekdetail setZongjie:zongjie];
+    [weekdetail setMingrijihua:jihua];
+    [weekdetail setWorkID:workId];
+    ShowAndDeleteWeekViewController *sd =[[ShowAndDeleteWeekViewController alloc] init];
+    [sd setWeekEntity:weekdetail];
+    sd.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:sd animated:YES];
+    }
 @end

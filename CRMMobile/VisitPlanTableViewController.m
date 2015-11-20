@@ -23,6 +23,16 @@
 @property (strong, nonatomic) NSMutableArray *fakeData;//客户名称
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
 @property (strong, nonatomic) NSMutableArray *theme;//主题
+@property (strong, nonatomic) NSMutableArray *accessMethod;//访问方式
+@property (strong, nonatomic) NSMutableArray *mainContent;//主要内容
+@property (strong, nonatomic) NSMutableArray *respondentPhone;//受访人电话
+@property (strong, nonatomic) NSMutableArray *respondent;//受访人员
+@property (strong, nonatomic) NSMutableArray *address;//地址
+@property (strong, nonatomic) NSMutableArray *visitProfile;//拜访概要
+@property (strong, nonatomic) NSMutableArray *result;//达成结果
+@property (strong, nonatomic) NSMutableArray *customerRequirements;//客户需求
+@property (strong, nonatomic) NSMutableArray *customerChange;//客户变更
+@property (strong, nonatomic) NSMutableArray *visitorStr;//拜访人
 @property (nonatomic, strong) NSMutableArray *userName;
 @property  NSInteger index;
 @end
@@ -33,7 +43,22 @@
 {
     if (!_fakeData) {
         self.fakeData   = [NSMutableArray array];
+        self.customerCallPlanID = [[NSMutableArray alloc]init];
+        self.fakeData = [[NSMutableArray alloc]init];
+        self.visitDate = [[NSMutableArray alloc]init];
+        self.theme = [[NSMutableArray alloc]init];
+        self.accessMethod = [[NSMutableArray alloc]init];
+        self.mainContent = [[NSMutableArray alloc]init];
+        self.respondentPhone = [[NSMutableArray alloc]init];
+        self.respondent= [[NSMutableArray alloc]init];
+        self.address = [[NSMutableArray alloc]init];
+        self.visitProfile = [[NSMutableArray alloc]init];
+        self.result = [[NSMutableArray alloc]init];
+        self.customerRequirements = [[NSMutableArray alloc]init];
+        self.customerChange = [[NSMutableArray alloc]init];
+        self.visitorStr = [[NSMutableArray alloc]init];
         [self faker:@"1"];
+        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -42,33 +67,33 @@
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.title=@"拜访计划";
     self.userName=[NSMutableArray array];
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    searchBar.placeholder = @"搜索";
-    self.tableView.tableHeaderView = searchBar;
-    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    mySearchDisplayController.searchResultsDataSource = self;
-    mySearchDisplayController.searchResultsDelegate = self;
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addUser:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
-    [self setExtraCellLineHidden:self.tableView];
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"可复用" style:UIBarButtonItemStyleDone	 target:self action:@selector(ResView)];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
+//    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+//    searchBar.placeholder = @"搜索";
+//    self.tableView.tableHeaderView = searchBar;
+//    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+//    mySearchDisplayController.searchResultsDataSource = self;
+//    mySearchDisplayController.searchResultsDelegate = self;
+//    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+//                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+//                                 target:self
+//                                 action:@selector(addUser:)];
+//    self.navigationItem.rightBarButtonItem = rightAdd;
+//    [self setExtraCellLineHidden:self.tableView];
+//    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"可复用" style:UIBarButtonItemStyleDone	 target:self action:@selector(ResView)];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back001"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    //[button setImageEdgeInsets:UIEdgeInsetsMake(-10, -30, -6, -30)];
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                                                   target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    self.tableView.delegate=self;
+//    self.tableView.dataSource=self;
 }
 - (void)ResView
 {
@@ -86,10 +111,7 @@
     [self.navigationController pushViewController: jumpController animated:true];
 }
 -(NSMutableArray *) faker: (NSString *) page{
-    self.customerCallPlanID = [[NSMutableArray alloc]init];
-    self.fakeData = [[NSMutableArray alloc]init];
-    self.visitDate = [[NSMutableArray alloc]init];
-    self.theme = [[NSMutableArray alloc]init];
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!datagrid.action"]];
@@ -97,7 +119,7 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"time";
+    NSString *sort = @"visitDate";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
@@ -122,12 +144,74 @@
         NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerCallPlanID"];
         NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
         NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
+        NSString *teamname4 = (NSString *)[listDic objectForKey:@"accessMethod"];
+        NSString *teamname5 = (NSString *)[listDic objectForKey:@"mainContent"];
+        NSString *teamname6 = (NSString *)[listDic objectForKey:@"respondentPhone"];
+        NSString *teamname7 = (NSString *)[listDic objectForKey:@"respondent"];
+        NSString *teamname8 = (NSString *)[listDic objectForKey:@"address"];
+        NSString *teamname9 = (NSString *)[listDic objectForKey:@"visitProfile"];
+        NSString *teamname10 = (NSString *)[listDic objectForKey:@"result"];
+        NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
+        NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
+        NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorStr"];
         NSLog(@"%@",teamname);
+//        if (teamname1.length==0) {
+//            teamname1=@"暂无数据";
+//        }
+//        if (teamname2.length==0) {
+//            teamname2=@"暂无数据";
+//        }
+//        if (teamname3.length==0) {
+//            teamname3=@"暂无数据";
+//        }
+//        if (teamname4.length==0) {
+//            teamname4=@"暂无数据";
+//        }
+//        if (teamname5.length==0) {
+//            teamname5=@"暂无数据";
+//        }
+//        if (teamname6.length==0) {
+//            teamname6=@"暂无数据";
+//        }
+//        if (teamname7.length==0) {
+//            teamname7=@"暂无数据";
+//        }
+//        if (teamname8.length==0) {
+//            teamname8=@"暂无数据";
+//        }
+//        if (teamname9.length==0) {
+//            teamname9=@"暂无数据";
+//        }
+//        if (teamname10.length==0) {
+//            teamname10=@"暂无数据";
+//        }
+//        if (teamname11.length==0) {
+//            teamname11=@"暂无数据";
+//        }
+//        if (teamname12.length==0) {
+//            teamname12=@"暂无数据";
+//        }
+//        if (teamname13.length==0) {
+//            teamname13=@"暂无数据";
+//        }
+        if(teamname.length==0){
+        teamname=@"";
+        }
         [self.fakeData addObject:teamname];
         [self.customerCallPlanID addObject:teamname1];
         [self.visitDate addObject:teamname2];
         [self.theme addObject:teamname3];
-        
+        [self.accessMethod addObject:teamname4];
+        [self.mainContent addObject:teamname5];
+        [self.respondentPhone addObject:teamname6];
+        [self.respondent addObject:teamname7];
+        [self.address addObject:teamname8];
+        [self.visitProfile addObject:teamname9];
+        [self.result addObject:teamname10];
+        [self.customerRequirements addObject:teamname11];
+        [self.customerChange addObject:teamname12];
+//        [self.visitorAttributionStr addObject:teamname13];
+        [self.visitorStr addObject:teamname13];
     }
     
     return self.fakeData;
@@ -227,12 +311,71 @@
     NSString *customerCallPlanID =[self.customerCallPlanID objectAtIndex:indexPath.row];
     NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
     NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-    NSString *theme =[self.theme objectAtIndex:indexPath.row];;
+    NSString *theme =[self.theme objectAtIndex:indexPath.row];
+    NSString *accessMethod =[self.accessMethod objectAtIndex:indexPath.row];
+    NSString *mainContent  =[self.mainContent objectAtIndex:indexPath.row];
+    NSString *respondentPhone =[self.respondentPhone objectAtIndex:indexPath.row];
+    NSString *respondent =[self.respondent objectAtIndex:indexPath.row];
+    NSString *address =[self.address objectAtIndex:indexPath.row];
+    NSString *visitProfile  =[self.visitProfile objectAtIndex:indexPath.row];
+    NSString *result =[self.result objectAtIndex:indexPath.row];
+    NSString *customerRequirements =[self.customerRequirements objectAtIndex:indexPath.row];
+    NSString *customerChange =[self.customerChange objectAtIndex:indexPath.row];
+    NSString *visitorStr =[self.visitorStr objectAtIndex:indexPath.row];
+    if (customerNameStr.length==0) {
+        customerNameStr=@"暂无数据";
+    }
+    if (visitDate.length==0) {
+        visitDate=@"暂无数据";
+    }
+    if (theme.length==0) {
+        theme=@"暂无数据";
+    }
+    if (accessMethod.length==0) {
+        accessMethod=@"暂无数据";
+    }
+    if (mainContent.length==0) {
+        mainContent=@"暂无数据";
+    }
+    if (respondentPhone.length==0) {
+        respondentPhone=@"暂无数据";
+    }
+    if (respondent.length==0) {
+        respondent=@"暂无数据";
+    }
+    if (address.length==0) {
+        address=@"暂无数据";
+    }
+    if (visitProfile.length==0) {
+        visitProfile=@"暂无数据";
+    }
+    if (result.length==0) {
+        result=@"暂无数据";
+    }
+    if (customerRequirements.length==0) {
+        customerRequirements=@"暂无数据";
+    }
+    if (customerChange.length==0) {
+        customerChange=@"暂无数据";
+    }
+    if (visitorStr.length==0) {
+        visitorStr=@"暂无数据";
+    }
     VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
     [visitPlan setCustomerCallPlanID:customerCallPlanID];
     [visitPlan setVisitDate:visitDate];
     [visitPlan setTheme:theme];
+    [visitPlan setAccessMethod:accessMethod];
+    [visitPlan setMainContent:mainContent];
+    [visitPlan setRespondent:respondent];
+    [visitPlan setRespondentPhone:respondentPhone];
+    [visitPlan setAddress:address];
+    [visitPlan setVisitProfile:visitProfile];
+    [visitPlan setResult:result];
+    [visitPlan setCustomerRequirements:customerRequirements];
+    [visitPlan setCustomerChange:customerChange];
+    [visitPlan setVisitorStr:visitorStr];
     PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:YES];

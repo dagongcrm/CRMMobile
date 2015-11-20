@@ -11,10 +11,7 @@
 #import "HZQDatePickerView.h"
 #import "config.h"
 #import "AppDelegate.h"
-// 屏幕尺寸 ScreenRect
-#define ScreenRect [UIScreen mainScreen].applicationFrame
-#define ScreenRectHeight [UIScreen mainScreen].applicationFrame.size.height
-#define ScreenRectWidth [UIScreen mainScreen].applicationFrame.size.width
+
 @interface AddDailyViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *time;
 @property (weak, nonatomic) IBOutlet UITextField *jihua;
@@ -26,6 +23,7 @@
 
 - (IBAction)cancle:(id)sender;
 - (IBAction)Add:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -34,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加工作日报";
+        self.scroll.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"日报";
     [self.bumen setEnabled:NO];
@@ -73,9 +72,14 @@
     NSString *jhua = self.jihua.text;
     NSString *lxing = self.leixing.text;
     NSString *bmen = self.bumen.text;
+    if(date.length==0||zjie.length==0||jhua.length==0){
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"添加信息的文本不能为空？" delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alertView show];
+    }else{
     NSError *error;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
-    NSLog(@"sid为--》%@", sid);
+//    NSLog(@"sid为--》%@", sid);
+  
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"taskReportAction!add.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
@@ -88,5 +92,6 @@
     if ([[AddDic objectForKey:@"success"] boolValue] == YES) {
         DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
         [self.navigationController pushViewController:dailytv animated:YES];    }
+    }
 }
 @end

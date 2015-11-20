@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
+    self.title = @"工作报告";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.timeArray = [[NSMutableArray alloc]init];
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"taskReport.plist" ofType:nil];
     taskReportListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
@@ -50,6 +52,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [taskReportListData objectAtIndex:indexPath.row];
+    [cell.imageView setImage:[UIImage imageNamed:@"checkmark_icon_1x"]];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;

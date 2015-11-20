@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.h
 //  CRMMobile
@@ -7,13 +8,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "options.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     NSDictionary  *sessionInfo;
 }
-
+@property  (strong ,nonatomic) NSString  *controllerJudge;
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) NSDictionary *sessionInfo;
 @property  NSInteger  index;
+@property  (strong ,nonatomic) options    *options;
+@property  NSInteger    *judge;
+@property  NSString    *judgeSubmitID;
+
+@property  NSString    *submitName;
+@property  NSString    *yeWuZL;
+@property  NSString    *yeWuZLBH;
 @end
 

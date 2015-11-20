@@ -10,9 +10,12 @@
 #import "LianViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "config.h"
+//#import "OptionsTableViewController.h"
 @interface SettingViewController ()
 - (IBAction)Output:(id)sender;//退出登录
 - (IBAction)lianxi:(id)sender;//联系我们
+- (IBAction)upload:(id)sender;//上传文件
 
 @end
 
@@ -40,5 +43,16 @@
 - (IBAction)lianxi:(id)sender {
     LianViewController  *lianView = [[LianViewController alloc] init];
     [self.navigationController pushViewController:lianView animated:YES];
+}
+//清除垃圾
+- (IBAction)upload:(id)sender {
+//    UploadViewController *upload = [[UploadViewController alloc]init];
+//    [self.navigationController pushViewController:upload animated:NO];
+    NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
+    NSString *imagePath = [userName stringByAppendingString:@".png"];
+    // 获取沙盒目录
+    NSString *imageFile = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imagePath];
+    NSFileManager * fileManager = [[NSFileManager alloc]init];
+    [fileManager removeItemAtPath:imageFile error:nil];
 }
 @end

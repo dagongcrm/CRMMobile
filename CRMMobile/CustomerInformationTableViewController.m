@@ -10,9 +10,9 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "MJRefresh.h"
-#import "CustomerInfermationDetailMessageEntity.h";
-#import "CustomerInformationDetailViewController.h";
-#import "AddCustomerInformationViewController.h";
+#import "CustomerInfermationDetailMessageEntity.h"
+#import "CustomerInformationDetailViewController.h"
+#import "AddCustomerInformationViewController.h"
 
 @interface CustomerInformationTableViewController ()
 
@@ -26,6 +26,7 @@
 
 @implementation CustomerInformationTableViewController
 @synthesize CRMListData;
+
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {

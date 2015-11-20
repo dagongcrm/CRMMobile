@@ -9,14 +9,21 @@
 #import "auditTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "auditEntity.h"
+#import "auditDetailViewController.h"
 
 @interface auditTableViewController ()
 
+@property (strong, nonatomic) NSMutableArray *bianHao;
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
 @property (strong, nonatomic) NSMutableArray *dataing;
 @property (strong, nonatomic) NSMutableArray *time;
 @property (strong, nonatomic) NSMutableArray *uid;
+
+@property (strong, nonatomic) NSMutableArray *searchResultsData;
+
+@property (strong, nonatomic) NSMutableDictionary *uAuditId;
 
 @end
 
@@ -34,9 +41,11 @@
 }
 -(void) faker: (NSString *) page{
     NSError *error;
+    self.bianHao=[[NSMutableArray alloc] init];
     self.fakeData=[[NSMutableArray alloc] init];
     self.dataing=[[NSMutableArray alloc] init];
     self.time=[[NSMutableArray alloc] init];
+    self.uid=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
@@ -52,6 +61,7 @@
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         [self.uid addObject:listdic];
+        NSString *bianHao = (NSString *)[listdic objectForKey:@"bianHao"];
         NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
         NSLog(@"%@",teamname);
         NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
@@ -60,6 +70,7 @@
         [self.fakeData     addObject:teamname];
         [self.time   addObject:time];
         [self.dataing   addObject:userId];
+        [self.bianHao addObject:bianHao];
     }
     //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
     //return self.fakeData;
@@ -101,6 +112,76 @@
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 
+}
+-(void) auditIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)auditID{
+    _uAuditId = [[NSMutableDictionary alloc] init];
+    for(int i=0;i<[utestname count];i++)
+    {
+        [_uAuditId setObject:[auditID objectAtIndex:i] forKey:[utestname objectAtIndex:i]];
+    }
+}
+-(NSDictionary *) singleUserInfo :(NSString *) auditIDIn{
+    NSLog(@"%@",self.uid);
+    for (int z = 0; z<[self.uid count]; z++) {
+        NSDictionary *listdic = [self.uid objectAtIndex:z];
+        NSString     *auditID  = (NSString *)[listdic objectForKey:@"bianHao"];
+        if([auditID isEqualToString: auditIDIn])
+        {
+            return listdic;
+        }
+    }
+    return  nil;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self auditIDuserName:self.fakeData :self.bianHao];
+    NSLog(@"%@",self.fakeData);
+    NSLog(@"%@",self.bianHao);
+    
+    if (tableView == self.tableView)
+    {
+        
+        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uAuditId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+        NSLog(@"%@",nc);
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
+        NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
+        NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
+        NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
+        NSString *loginName = (NSString *) [nc objectForKey:@"loginName"];
+        NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSLog(@"%@",userID);
+
+        NSLog(@"ftn_ID%@",ftn_ID);
+        NSLog(@"yeWuZLBH%@",yeWuZLBH);
+        NSLog(@"loginName%@",loginName);
+        auditEntity *udetail =[[auditEntity alloc] init];
+        [udetail setSubmitName:submitName];
+        [udetail setSubmitID:submitID];
+        [udetail setYeWuZL:yeWuZL];
+        [udetail setYeWuZLBH:yeWuZLBH];
+        [udetail setFtn_ID:ftn_ID];
+        [udetail setUserID:userID];
+        auditDetailViewController *uc =[[auditDetailViewController alloc] init];
+        [uc setAuditEntity:udetail];
+        [self.navigationController pushViewController:uc animated:YES];
+        
+        
+    }else
+    {
+        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uAuditId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
+        
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
+        
+        auditEntity *udetail =[[auditEntity alloc] init];
+        [udetail setSubmitName:submitName];
+        [udetail setSubmitID:submitID];
+        auditDetailViewController*uc =[[auditDetailViewController alloc] init];
+        [uc setAuditEntity:udetail];
+        [self.navigationController pushViewController:uc animated:YES];
+        
+    }
 }
 
 

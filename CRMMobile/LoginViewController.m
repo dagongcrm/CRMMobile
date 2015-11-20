@@ -23,6 +23,17 @@
     accountField.placeholder    = @"用户名";
     passwdField.placeholder     = @"密码";
     passwdField.secureTextEntry = YES;
+    [self loadValue];
+    
+}
+-(void)loadValue{
+    NSUserDefaults *ud1 = [NSUserDefaults standardUserDefaults];
+//    NSString *useName = [ud1 objectForKey:"userName"];
+//    NSString *usePass = [ud1 objectForKey:"password"];
+    if([ud1 objectForKey:@"userName"]!=nil){
+        accountField.text = [ud1 objectForKey:@"userName"];
+        passwdField.text = [ud1 objectForKey:@"password"];
+    }
 }
 
 - (void)viewDidUnload
@@ -52,7 +63,11 @@
     NSLog(@"weatherInfo字典里面的内容为--》%@", myDelegate.sessionInfo);
     if([[loginDic objectForKey:@"success"] boolValue] == YES)
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:accountField.text forKey:@"userName"];
+        [ud setObject:passwdField.text forKey:@"password"];
+        [ud synchronize];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
     }else
     {
