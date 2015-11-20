@@ -31,7 +31,6 @@
 		9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA491BFC58C8001A6D0D /* AddCustomerContactController.m */; };
 		9618AA4C1BFC58C9001A6D0D /* AddCustomerContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA4A1BFC58C8001A6D0D /* AddCustomerContactController.xib */; };
 		9618AA4F1BFC7AD7001A6D0D /* AddCustomerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA4E1BFC7AD7001A6D0D /* AddCustomerEntity.m */; };
-		9618AA511BFC82AE001A6D0D /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA501BFC82AE001A6D0D /* arrow-left.png */; };
 		9618AA531BFC82D1001A6D0D /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA521BFC82D1001A6D0D /* back.png */; };
 		9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */; };
 		9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */; };
@@ -230,7 +229,6 @@
 		9618AA4A1BFC58C8001A6D0D /* AddCustomerContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerContactController.xib; sourceTree = "<group>"; };
 		9618AA4D1BFC7AD7001A6D0D /* AddCustomerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerEntity.h; sourceTree = "<group>"; };
 		9618AA4E1BFC7AD7001A6D0D /* AddCustomerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerEntity.m; sourceTree = "<group>"; };
-		9618AA501BFC82AE001A6D0D /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		9618AA521BFC82D1001A6D0D /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
@@ -598,7 +596,6 @@
 			isa = PBXGroup;
 			children = (
 				9618AA521BFC82D1001A6D0D /* back.png */,
-				9618AA501BFC82AE001A6D0D /* arrow-left.png */,
 				96F408731BF2C63800AA4AD5 /* back002.png */,
 				96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */,
 				9678AEFE1BEB731600E5B50E /* 222.png */,
@@ -1218,7 +1215,6 @@
 				C0D3CD5F1BDF0CEF00C23FB3 /* 4.png in Resources */,
 				96FF733D1BFC1A0E00472D33 /* CustomerContactListViewController.xib in Resources */,
 				C0D3CD681BDF0CEF00C23FB3 /* 13.png in Resources */,
-				9618AA511BFC82AE001A6D0D /* arrow-left.png in Resources */,
 				C0D3CD6F1BDF0CEF00C23FB3 /* 20.png in Resources */,
 				1F93AACE1BF1FE9A0099C57E /* addTaskViewController.xib in Resources */,
 				9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */,
