@@ -73,12 +73,12 @@
         //imageView.image=weatherimg;
         //[self.view addSubview:imageView];
         
-                ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
-                nav.view.autoresizingMask = UIViewAutoresizingNone;
-                [self addChildViewController:nav];
-                nav.view.frame =  CGRectMake(0, 150, self.view.bounds.size.width, self.view.bounds.size.height);
-                [self.view addSubview:nav.view];
-                [nav didMoveToParentViewController:self];
+//                ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
+//                nav.view.autoresizingMask = UIViewAutoresizingNone;
+//                [self addChildViewController:nav];
+//                nav.view.frame =  CGRectMake(0, 150, self.view.bounds.size.width, self.view.bounds.size.height);
+//                [self.view addSubview:nav.view];
+//                [nav didMoveToParentViewController:self];
     }
     if([self.page integerValue]==1)
     {

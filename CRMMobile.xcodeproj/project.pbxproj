@@ -1051,11 +1051,11 @@
 		C0D569331BD9B70A00860B33 /* Index */ = {
 			isa = PBXGroup;
 			children = (
-				B82EB4021BFEEB8E001249F5 /* taskReminder */,
 				B82EB3D61BFEEA8A001249F5 /* GLReusableViewController.m */,
 				B82EB3D71BFEEA8A001249F5 /* GLReusableViewController.h */,
 				B82EB3D81BFEEA8A001249F5 /* IndexViewController.h */,
 				B82EB3D91BFEEA8A001249F5 /* IndexViewController.m */,
+				B82EB4021BFEEB8E001249F5 /* taskReminder */,
 				B8EEAEB81BEB2538009FF63D /* taskVisitPlan */,
 				B84A8C2A1BE9FC4A00C67039 /* taskVisitRecords */,
 			);

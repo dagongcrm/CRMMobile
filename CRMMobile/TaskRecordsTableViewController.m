@@ -103,6 +103,48 @@
         NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
         NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorAttributionStr"];
         NSString *teamname14 = (NSString *)[listDic objectForKey:@"visitor"];
+        if(teamname.length==0){
+            teamname=@"";
+        }
+                if (teamname1.length==0) {
+                    teamname1=@"暂无数据";
+                }
+                if (teamname2.length==0) {
+                    teamname2=@"暂无数据";
+                }
+                if (teamname3.length==0) {
+                    teamname3=@"暂无数据";
+                }
+                if (teamname4.length==0) {
+                    teamname4=@"暂无数据";
+                }
+                if (teamname5.length==0) {
+                    teamname5=@"暂无数据";
+                }
+                if (teamname6.length==0) {
+                    teamname6=@"暂无数据";
+                }
+                if (teamname7.length==0) {
+                    teamname7=@"暂无数据";
+                }
+                if (teamname8.length==0) {
+                    teamname8=@"暂无数据";
+                }
+                if (teamname9.length==0) {
+                    teamname9=@"暂无数据";
+                }
+                if (teamname10.length==0) {
+                    teamname10=@"暂无数据";
+                }
+                if (teamname11.length==0) {
+                    teamname11=@"暂无数据";
+                }
+                if (teamname12.length==0) {
+                    teamname12=@"暂无数据";
+                }
+                if (teamname13.length==0) {
+                    teamname13=@"暂无数据";
+                }
         [self.callRecordsID addObject:teamname];
         [self.fakeData addObject:teamname1];
         [self.visitDate addObject:teamname2];
