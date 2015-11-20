@@ -13,10 +13,16 @@
 		1FE529D11BE8A96B00149C10 /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE529CF1BE8A96B00149C10 /* addTaskViewController.xib */; };
 		1FE529D51BE8AE7C00149C10 /* auditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529D41BE8AE7C00149C10 /* auditTableViewController.m */; };
 		1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */; };
+		39E1237A1BFB01C000A74FB9 /* SaleOppEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E123791BFB01C000A74FB9 /* SaleOppEntity.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
+		39E86B5C1BFF1A1C00BDB6C7 /* EditSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E86B5A1BFF1A1C00BDB6C7 /* EditSaleOppViewController.m */; };
+		39E86B5D1BFF1A1C00BDB6C7 /* EditSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E86B5B1BFF1A1C00BDB6C7 /* EditSaleOppViewController.xib */; };
+		39F0FB921BFDD41000B3B74A /* EntityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0FB911BFDD41000B3B74A /* EntityHelper.m */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
+		39F9E6FE1BFC72320074425F /* DetailSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F9E6FC1BFC72320074425F /* DetailSaleOppViewController.m */; };
+		39F9E6FF1BFC72320074425F /* DetailSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F9E6FD1BFC72320074425F /* DetailSaleOppViewController.xib */; };
 		39FD7DCF1BF0842100CCD3F9 /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DCE1BF0842100CCD3F9 /* SaleOppTableViewController.m */; };
 		39FD7DD31BF0844200CCD3F9 /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD7DD11BF0844200CCD3F9 /* AddSaleOppViewController.m */; };
 		39FD7DD41BF0844200CCD3F9 /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FD7DD21BF0844200CCD3F9 /* AddSaleOppViewController.xib */; };
@@ -168,11 +174,21 @@
 		1FE529D41BE8AE7C00149C10 /* auditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = auditTableViewController.m; sourceTree = "<group>"; };
 		1FE529D71BE8BA4A00149C10 /* trackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackingTableViewController.h; sourceTree = "<group>"; };
 		1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trackingTableViewController.m; sourceTree = "<group>"; };
+		39E123781BFB01C000A74FB9 /* SaleOppEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppEntity.h; sourceTree = "<group>"; };
+		39E123791BFB01C000A74FB9 /* SaleOppEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppEntity.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
+		39E86B591BFF1A1C00BDB6C7 /* EditSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSaleOppViewController.h; sourceTree = "<group>"; };
+		39E86B5A1BFF1A1C00BDB6C7 /* EditSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSaleOppViewController.m; sourceTree = "<group>"; };
+		39E86B5B1BFF1A1C00BDB6C7 /* EditSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditSaleOppViewController.xib; sourceTree = "<group>"; };
+		39F0FB901BFDD41000B3B74A /* EntityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityHelper.h; sourceTree = "<group>"; };
+		39F0FB911BFDD41000B3B74A /* EntityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityHelper.m; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		39F9E6FB1BFC72320074425F /* DetailSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSaleOppViewController.h; sourceTree = "<group>"; };
+		39F9E6FC1BFC72320074425F /* DetailSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSaleOppViewController.m; sourceTree = "<group>"; };
+		39F9E6FD1BFC72320074425F /* DetailSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailSaleOppViewController.xib; sourceTree = "<group>"; };
 		39FD7DCD1BF0842100CCD3F9 /* SaleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppTableViewController.h; sourceTree = "<group>"; };
 		39FD7DCE1BF0842100CCD3F9 /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
 		39FD7DD01BF0844200CCD3F9 /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
@@ -411,6 +427,24 @@
 			name = tracking;
 			sourceTree = "<group>";
 		};
+		39E123771BFB016D00A74FB9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39E123781BFB01C000A74FB9 /* SaleOppEntity.h */,
+				39E123791BFB01C000A74FB9 /* SaleOppEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		39F0FB8F1BFDD34300B3B74A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39F0FB901BFDD41000B3B74A /* EntityHelper.h */,
+				39F0FB911BFDD41000B3B74A /* EntityHelper.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
 		39F1F1711BE31A9700EA3133 /* GPS */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,11 +466,18 @@
 		39FD7DB01BF0346000CCD3F9 /* saleOpp */ = {
 			isa = PBXGroup;
 			children = (
+				39E123771BFB016D00A74FB9 /* Entity */,
 				39FD7DCD1BF0842100CCD3F9 /* SaleOppTableViewController.h */,
 				39FD7DCE1BF0842100CCD3F9 /* SaleOppTableViewController.m */,
 				39FD7DD01BF0844200CCD3F9 /* AddSaleOppViewController.h */,
 				39FD7DD11BF0844200CCD3F9 /* AddSaleOppViewController.m */,
 				39FD7DD21BF0844200CCD3F9 /* AddSaleOppViewController.xib */,
+				39F9E6FB1BFC72320074425F /* DetailSaleOppViewController.h */,
+				39F9E6FC1BFC72320074425F /* DetailSaleOppViewController.m */,
+				39F9E6FD1BFC72320074425F /* DetailSaleOppViewController.xib */,
+				39E86B591BFF1A1C00BDB6C7 /* EditSaleOppViewController.h */,
+				39E86B5A1BFF1A1C00BDB6C7 /* EditSaleOppViewController.m */,
+				39E86B5B1BFF1A1C00BDB6C7 /* EditSaleOppViewController.xib */,
 			);
 			name = saleOpp;
 			sourceTree = "<group>";
@@ -726,6 +767,7 @@
 		C0D3CD7B1BDF0E1000C23FB3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				39F0FB8F1BFDD34300B3B74A /* Entity */,
 				C0D3CD7C1BDF0E2C00C23FB3 /* PureLayout */,
 			);
 			name = Util;
@@ -1042,6 +1084,8 @@
 				C0D3CD5C1BDF0CEF00C23FB3 /* 1.png in Resources */,
 				C0D3CD671BDF0CEF00C23FB3 /* 12.png in Resources */,
 				96EDBEAE1BE8832100824AE2 /* GuanyuViewController.xib in Resources */,
+				39E86B5D1BFF1A1C00BDB6C7 /* EditSaleOppViewController.xib in Resources */,
+				39F9E6FF1BFC72320074425F /* DetailSaleOppViewController.xib in Resources */,
 				96FAE2501BEC736800032BB3 /* DailyTableViewController.xib in Resources */,
 				C0D569301BD9B69100860B33 /* Work.plist in Resources */,
 				C0D3CD731BDF0CEF00C23FB3 /* 24.png in Resources */,
@@ -1132,12 +1176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E86B5C1BFF1A1C00BDB6C7 /* EditSaleOppViewController.m in Sources */,
 				39FD7DD31BF0844200CCD3F9 /* AddSaleOppViewController.m in Sources */,
 				96FAE26F1BEC750800032BB3 /* AddWeekViewController.m in Sources */,
 				96FAE2821BEC758500032BB3 /* ShowAndDeleteViewController.m in Sources */,
 				39FD7DCF1BF0842100CCD3F9 /* SaleOppTableViewController.m in Sources */,
 				96FAE2881BEC759E00032BB3 /* TaskReportMonthEntity.m in Sources */,
 				96FAE26D1BEC750800032BB3 /* WeekTableViewController.m in Sources */,
+				39F0FB921BFDD41000B3B74A /* EntityHelper.m in Sources */,
 				9678AEFD1BEB722900E5B50E /* addTaskViewController.m in Sources */,
 				C0D68C401BD8EA20009CEC23 /* AppDelegate.m in Sources */,
 				1FE529C91BE8A7CA00149C10 /* SubmitTableViewController.m in Sources */,
@@ -1163,6 +1209,7 @@
 				96EDBEA91BE8832100824AE2 /* XGViewController.m in Sources */,
 				9678AEF61BEB71C800E5B50E /* AddCustomerInformationViewController.m in Sources */,
 				B8F28B811BEDD3A400177C9C /* PlanDetalViewController.m in Sources */,
+				39E1237A1BFB01C000A74FB9 /* SaleOppEntity.m in Sources */,
 				1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */,
 				1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
@@ -1182,6 +1229,7 @@
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,
 				96FAE24F1BEC736800032BB3 /* DailyTableViewController.m in Sources */,
+				39F9E6FE1BFC72320074425F /* DetailSaleOppViewController.m in Sources */,
 				96EDBEA71BE8832100824AE2 /* TXLTableViewController.m in Sources */,
 				96E3125B1BEB53BA00A1A3FF /* MJRefreshFooterView.m in Sources */,
 				96FAE2511BEC736800032BB3 /* AddDailyViewController.m in Sources */,
@@ -1243,6 +1291,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (QM84W4496D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1286,6 +1335,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (QM84W4496D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1311,6 +1361,7 @@
 			baseConfigurationReference = CD134ED4DFD99B2775F88026 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (QM84W4496D)";
 				INFOPLIST_FILE = CRMMobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1327,6 +1378,7 @@
 			baseConfigurationReference = 102A51D7D859922F2889B12A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (QM84W4496D)";
 				INFOPLIST_FILE = CRMMobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
