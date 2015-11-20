@@ -41,11 +41,17 @@
 - (IBAction)Summit:(id)sender {
     NSString *op = self.txtOPass.text;
     NSString *np = self.txtNPass.text;
+    
     NSLog(@"1111111111=======:%@",op);
     NSLog(@"2222222222=======:%@",np);
-    NSDictionary *dic = [[NSDictionary alloc]init];
-    dic = APPDELEGATE.sessionInfo;
-    NSString *sid = [[dic objectForKey:@"obj"]objectForKey:@"sid"];
+    if ([np isEqualToString:op]){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示通知" message:@"新密码与原始密码不能一样！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        self.txtNPass.text=@"";
+    }else{
+//    NSDictionary *dic = [[NSDictionary alloc]init];
+//    dic = APPDELEGATE.sessionInfo;
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!editUserInfo.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
@@ -72,6 +78,6 @@
         [alert show];
     }
 
-    
+    }
 }
 @end

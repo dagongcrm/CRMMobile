@@ -195,6 +195,15 @@
         NSString *workId = (NSString*)[listDic objectForKey:@"workStatementActionID"];
         NSString *type = (NSString *)[listDic objectForKey:@"type"];
         NSString *report = (NSString*)[listDic objectForKey:@"report"];
+        if(dailyreport.length==0){
+        dailyreport=@"暂无数据";
+        }else if(date.length==0){
+        date=@"暂无数据";
+        }else if(type.length==0){
+        type=@"暂无数据";
+        }else if(report.length==0){
+        report=@"暂无数据";
+        }
         [self.fakeData addObject:dailyreport];
         [self.dateData addObject:date];
         [self.workIdData addObject:workId];
@@ -244,6 +253,7 @@
         [dailydetail setWorkID:workId];
         DailyViewController *uc =[[DailyViewController alloc] init];
         [uc setDailyEntity:dailydetail];
+        uc.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:uc animated:YES];
 }
 @end

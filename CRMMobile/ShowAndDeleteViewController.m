@@ -19,6 +19,7 @@
 @property (strong ,nonatomic)NSMutableArray *wordIdData;
 - (IBAction)deleteMonth:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @end
 
 @implementation ShowAndDeleteViewController
@@ -27,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"月报详情";
+    self.scroll.contentSize = CGSizeMake(375, 700);
     self.wordIdData = [[NSMutableArray alloc]init];
     self.date.text =_monthEntity.time;
     self.zongjie.text =_monthEntity.zongjie;

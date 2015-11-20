@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtOrg;//组织
 @property (weak, nonatomic) IBOutlet UIImageView *Image;//头像
 @property (strong,nonatomic) NSMutableArray *imgpathData;
+@property (strong,nonatomic) NSMutableArray *imageNamesData;
 @property  NSInteger index;
 - (IBAction)ImgButton:(id)sender;//头像按钮
 
@@ -37,6 +38,7 @@
 - (IBAction)location:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *beijingImg;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -49,7 +51,7 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
+    self.scroll.contentSize = CGSizeMake(375, 700);
     _mMeUser = [[MeUser alloc] init];
     //顶部的图片区域
     //把图片添加到动态数组
@@ -82,7 +84,7 @@
     [self.txtOrg setEnabled:NO];
     if ([loginName isEqualToString:@"admin"]) {
         self.txtname.text = @"超级管理员";
-        self.txtOrg.text =@"管理员（权限）";
+        self.txtOrg.text =@"管理员";
     }else{
         //普通用户
         self.txtname.text =loginName;
@@ -96,9 +98,32 @@
     [lay setCornerRadius:6.0];
     lay.borderWidth=1.0;
     lay.borderColor=[[UIColor grayColor] CGColor];
+    [self loadImageqq];
+}
+//获取头像判断
+-(void)loadImageqq{
+    NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
+    NSString *imgNames = [userName stringByAppendingString:@".png"];
+   NSString *dataPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imgNames];
+    NSLog(@"/././././././././.%@",dataPath);
+    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:dataPath];
+    NSData *_data = UIImageJPEGRepresentation(savedImage, 1.0f);
+    NSString *image64 = [_data base64Encoding];
+    if (image64.length==0) {
+        NSLog(@"本地没有照片");
+        [self faker];
+    }else{
+        //取头像
+        UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:dataPath];
+        //    self.isFullScreen = NO;
+        [self.Image setImage:savedImage];
+//        NSMutableArray *imgsData= [NSMutableArray arrayWithContentsOfFile:dataPath];
+//        NSString *img3 = [imgsData objectAtIndex:1];
+//        NSData *_decodedImageData   = [[NSData alloc] initWithBase64Encoding:img3];
+//        UIImage *youImage = [UIImage imageWithData:_decodedImageData];
+//        [self.Image setImage:youImage];
 
-    [self faker];
-
+    }
 }
 //获取数据
 -(NSMutableArray *)faker{
@@ -106,23 +131,26 @@
     DicImg= APPDELEGATE.sessionInfo;
     NSString *imgFile = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"imageFile"];
     NSLog(@"%@",imgFile);
-    if(imgFile!=nil){
-        //http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/
+        if(imgFile!=nil){
    NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
-//        NSString *path = @"http://172.16.21.114:8080/dagongcrm/common/style/uploadImages/";
     NSString *path1 = [path stringByAppendingString:imgFile];
     NSString *imgpath = [path1 stringByAppendingString:@".jpg"];
     NSURL *url = [NSURL URLWithString:imgpath];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     [self.Image setImage:image];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    // 获取沙盒目录
+    NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
+    NSString *imgNames = [userName stringByAppendingString:@".png"];
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imgNames];
+    // 将图片写入文件
+    [imageData writeToFile:fullPath atomically:NO];
     }else{
         NSLog(@"暂无头像");
-        
     }
     return 0;
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -202,17 +230,20 @@
      * UIImagePickerControllerMediaMetadata    // an NSDictionary containing metadata from a captured photo
      */
     // 保存图片至本地，方法见下文
-    [self saveImage:image withName:@"currentImage.png"];
+    NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
+    NSString *imgNames = [userName stringByAppendingString:@".png"];
+    [self saveImage:image withName:imgNames];
     
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imgNames];
     
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
     //    self.isFullScreen = NO;
     [self.Image setImage:savedImage];
-    [self.imgpathData addObject:fullPath];
+    self.imageNamesData=[[NSMutableArray alloc]init];
+    [self.imageNamesData addObject:imgNames];
     self.Image.tag = 100;
-    NSLog(@"cccc===>>>%@",fullPath);
-    
+//    NSLog(@"cccc===>>>%@",fullPath);
+//    
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -222,23 +253,21 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
 
 #pragma mark - 保存图片至沙盒
 - (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName{
-    NSLog(@"aaaaa");
     NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
     // 获取沙盒目录
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     // 将图片写入文件
     [imageData writeToFile:fullPath atomically:NO];
-    [self pickerImg:fullPath];
-   
+    NSString *path = [imageData base64Encoding];
+    [self.imgpathData addObject:path] ;
+    [self pickerImg:path];
 }
 
 -(void)pickerImg:(NSString *)path{
-//    [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-    NSString *fileName = @"currentImage.png";
+    NSLog(@"///////222222/////3333////%@", path);
+    NSString *fileName = [self.imageNamesData objectAtIndex:1];
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"uploadAction!upload.action?"]];
-//    NSURL *URL=[NSURL URLWithString:@"http://172.16.21.114:8080/dagongcrm/uploadAction!upload.action?"];
-    
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -267,6 +296,7 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
 //通讯录
 - (IBAction)tongxun:(id)sender {
     TXLTableViewController *txlView = [[TXLTableViewController alloc] init];
+    txlView.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:txlView animated:YES];
 }
 //关于

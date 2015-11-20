@@ -21,6 +21,7 @@
 - (IBAction)choiceTime:(id)sender;
 - (IBAction)cancle:(id)sender;
 - (IBAction)Submit:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll1;
 
 @end
 
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加工作月报";
+    self.scroll1.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"月报";
     [self.bumen setEnabled:NO];
