@@ -142,6 +142,7 @@
     {
         
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uAuditId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+        NSLog(@"%@",nc);
         NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
         NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
         NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];

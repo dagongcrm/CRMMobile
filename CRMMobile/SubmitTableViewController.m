@@ -114,6 +114,7 @@
     NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
     NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
+    NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
     [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;

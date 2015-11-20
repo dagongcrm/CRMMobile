@@ -26,6 +26,7 @@
 
 @implementation CustomerInformationTableViewController
 @synthesize CRMListData;
+
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {

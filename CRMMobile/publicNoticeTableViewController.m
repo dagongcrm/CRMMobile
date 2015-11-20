@@ -1,20 +1,16 @@
 //
-//  NoticeTableViewController.m
+//  publicNoticeTableViewController.m
 //  CRMMobile
 //
-//  Created by zhang on 15/10/27.
+//  Created by zhang on 15/11/17.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
+
+#import "publicNoticeTableViewController.h"
 #import "AppDelegate.h"
-#import "NoticeTableViewController.h"
 #import "config.h"
-#import "GLReusableViewController.h"
-#import "PureLayout.h"
 
-@interface NoticeTableViewController ()
-
-
-
+@interface publicNoticeTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
 @property (strong, nonatomic) NSMutableArray *dataing;
@@ -32,22 +28,12 @@
 @property (strong, nonatomic) NSNumber *currentPage;
 @property (strong, nonatomic) NSMutableArray *reusableViewControllers;
 @property (strong, nonatomic) NSMutableArray *visibleViewControllers;
-
-
 @end
 
-@implementation NoticeTableViewController
-@synthesize leftSwipe;
-@synthesize rightSwipe;
+@implementation publicNoticeTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-
-    NSLog(@"1112");
     [self faker:@"1"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -55,28 +41,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-- (void)handleSwipe:(UISwipeGestureRecognizer *)sender{
-    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"%@","err");
-//        NoticeTableViewController *view = [[NoticeTableViewController alloc] init];
-//        [self.navigationController pushViewController:view animated:YES];
-        
-        
-        //        CGPoint labelPosition = CGPointMake(self.swipeLabel.frame.origin.x - 100.0, self.swipeLabel.frame.origin.y);
-        //        self.swipeLabel.frame = CGRectMake( labelPosition.x , labelPosition.y , self.swipeLabel.frame.size.width, self.swipeLabel.frame.size.height);
-        //        self.swipeLabel.text = @"尼玛的, 你在往左边跑啊....";
-    }
-    
-    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-         NSLog(@"%@","rre");
-//        CGPoint labelPosition = CGPointMake(self.swipeLabel.frame.origin.x + 100.0, self.swipeLabel.frame.origin.y);
-//        self.swipeLabel.frame = CGRectMake( labelPosition.x , labelPosition.y , self.swipeLabel.frame.size.width, self.swipeLabel.frame.size.height);
-//        self.swipeLabel.text = @"尼玛的, 你在往右边跑啊....";
-    }
-}
-
-
 
 -(void) faker: (NSString *) page{
     NSError *error;
@@ -88,7 +52,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@&publishType=tonggao",page,sid];
+    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@&publishType=gonggao",page,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -201,6 +165,22 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+*/
+
+/*
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 
