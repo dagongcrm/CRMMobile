@@ -20,4 +20,9 @@
 @synthesize handlePrompt;
 @synthesize userName;
 @synthesize reason;
+
+@synthesize submitID;
+@synthesize submitName;
+@synthesize yeWuZL;
+@synthesize yeWuZLBH;
 @end

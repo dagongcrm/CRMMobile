@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ZSYPopoverListView.h"
+#import "selectEntity.h"
 
 @interface addTaskViewController : UIViewController<ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
     NSArray *nextArray;
 }
-
+@property (retain ,nonatomic)       selectEntity *roleEntity;
 @property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
 @property (strong,nonatomic) IBOutlet UIPickerView *selectPickerQiYe;
 @end

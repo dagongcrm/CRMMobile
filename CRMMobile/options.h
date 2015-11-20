@@ -28,4 +28,9 @@
 @property (strong,nonatomic) NSString *userName;
 @property (strong,nonatomic) NSString *reason;
 
+@property (strong,nonatomic) NSString *submitID;
+@property (strong,nonatomic) NSString *submitName;
+@property (strong,nonatomic) NSString *yeWuZLBH;
+@property (strong,nonatomic) NSString *yeWuZL;
+
 @end

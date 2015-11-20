@@ -14,6 +14,7 @@
 #import "addTaskViewController.h"
 #import "submitTaskEntity.h"
 #import "submitTaskDetailViewController.h"
+#import "selectEntity.h"
 
 @interface SubmitTableViewController ()
 
@@ -32,7 +33,6 @@
 @end
 
 @implementation SubmitTableViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self faker:@"1"];

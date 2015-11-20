@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "SubmitTableViewController.h"
+#import "selectListTableViewController.h"
+#import "selectEntity.h"
 
 @interface addTaskViewController ()
 - (IBAction)cancel:(id)sender;
@@ -40,7 +42,7 @@
 @end
 
 @implementation addTaskViewController
-
+@synthesize roleEntity=_roleEntity;
 @synthesize selectedIndexPath = _selectedIndexPath;
 @synthesize selectUser=_selectUser;
 @synthesize selectUserId=_selectUserId;
@@ -62,15 +64,19 @@
 }
 
 - (IBAction)selectQiYe:(id)sender {
-    _judge=@"2";
-    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"企业选择";
-    listView.backgroundColor=[UIColor blueColor];
-    listView.datasource = self;
-    listView.delegate = self;
-    [listView show];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.controllerJudge  = @"addUser";
+    selectListTableViewController *role = [[selectListTableViewController alloc] init];
+    [self.navigationController pushViewController: role animated:true];
+    //    _judge=@"2";
+//    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+//    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    listView.titleName.text = @"企业选择";
+//    listView.backgroundColor=[UIColor blueColor];
+//    listView.datasource = self;
+//    listView.delegate = self;
+//    [listView show];
 }
 
 
@@ -88,14 +94,31 @@
 }
 
 - (void)viewDidLoad {
+    NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
+    NSLog(@"%@", title);
      _judge=@"";
     [super viewDidLoad];
     //self.nextArray  = self.nextArray;
-    
+    NSString *roleTitle;
+    if(_roleEntity.strChoose==nil)
+    {
+        roleTitle =@"请点击选取角色";
+    }
+    else
+    {
+        NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
+        roleTitle =title;
+        
+    }
+    [self.chooseUserButtonQiYe setTitle:roleTitle forState:UIControlStateNormal];
+//    self.pickerArray        = self.fakeData;
+//    selectPicker.delegate   = self;
+//    selectPicker.dataSource = self;
+
     [self selectUserArray];
     //selectPicker.delegate   = self;
     //selectPicker.dataSource = self;
-    [self selectUserArrayQiYe];
+    //[self selectUserArrayQiYe];
     //selectPickerQiYe.delegate = self;
     //selectPickerQiYe.dataSource = self;
     // Do any additional setup after loading the view from its nib.
@@ -324,14 +347,14 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *qiYeBH=@"";
+    NSString *qiYeBH    = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
+    
     NSString *yeWuZLBH=@"";
-    NSString *qiYeMC=@"";
+    NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
     NSString *yeWuZLMC=@"";
     for(int i=0;i<[self.selectUserForShow count];i++){
         yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
-        qiYeBH = [self.selectUserIdForParamQiYe objectAtIndex:i];
-        qiYeMC = [self.selectUserForShowQiYe objectAtIndex:i];
+
         yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
         
     }

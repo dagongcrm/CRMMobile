@@ -84,7 +84,9 @@
 - (IBAction)edit:(id)sender {
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     myDelegate.judgeSubmitID = _submitTaskEntity.submitID;
-    NSLog(@"%@",myDelegate.judgeSubmitID);
+    myDelegate.submitName = _submitTaskEntity.submitName;
+    myDelegate.yeWuZLBH = _submitTaskEntity.yeWuZLBH;
+    myDelegate.yeWuZL =_submitTaskEntity.yeWuZL;
     editTaskViewController *la = [[editTaskViewController alloc] init];
     [self.navigationController pushViewController:la animated:YES];
 }

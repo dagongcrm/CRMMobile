@@ -122,7 +122,10 @@
         NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerCallPlanID"];
         NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
         NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
-        NSLog(@"%@",teamname);
+        //NSLog(@"%@",teamname);
+        if (teamname == nil) {
+            teamname = @"fff";
+        }
         [self.fakeData addObject:teamname];
         [self.customerCallPlanID addObject:teamname1];
         [self.visitDate addObject:teamname2];

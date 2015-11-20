@@ -1,30 +1,34 @@
 //
-//  CustomerInformationTableViewController.m
+//  selectListTableViewController.m
 //  CRMMobile
 //
-//  Created by yd on 15/10/27.
+//  Created by zhang on 15/11/18.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "CustomerInformationTableViewController.h"
+#import "selectListTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
 #import "MJRefresh.h"
 #import "CustomerInfermationDetailMessageEntity.h"
 #import "CustomerInformationDetailViewController.h"
 #import "AddCustomerInformationViewController.h"
+#import "selectEntity.h"
+#import "addTaskViewController.h"
+#import "editTaskViewController.h"
 
-@interface CustomerInformationTableViewController ()
-
+@interface selectListTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *customerID;
 @property (strong, nonatomic) NSMutableArray *uid;
 @property  NSInteger index;
 @property (strong, nonatomic) NSMutableDictionary *uCustomerId;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
+
 @end
 
-@implementation CustomerInformationTableViewController
+@implementation selectListTableViewController
+@synthesize roleEntity=_roleEntity;
 @synthesize CRMListData;
 
 - (NSMutableArray *)fakeData
@@ -44,24 +48,71 @@
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
     //添加
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addCustomerInfomation:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
-    [self setExtraCellLineHidden:self.tableView];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"确定"
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(roleChoose)];
+    [self.navigationItem setRightBarButtonItem:rightButton];
+}
+-(void)roleChoose
+{
+    NSArray *indexPaths = [self.tableView indexPathsForSelectedRows];
+    NSLog(@"%@",indexPaths);
+    selectEntity *rp=[[selectEntity alloc]init];
+    NSMutableArray *rolePick = [NSMutableArray array];
+    NSMutableArray *roleIdPick = [NSMutableArray array];
     
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
+    NSString *string   = @"";
+    NSString *IdString = @"";
+    
+    for (NSIndexPath *path in indexPaths)
+    {
+        [rolePick addObject:_fakeData[path.row]];
+        [roleIdPick addObject:_customerID[path.row]];
+    }
+    
+    for (NSString *str in rolePick)
+    {
+        string = [string stringByAppendingFormat:@"%@,",str];
+    }
+    
+    for (NSString *str in roleIdPick)
+    {
+        IdString = [IdString stringByAppendingFormat:@"%@,",str];
+    }
+    
+    [rp setStrChoose:string];
+    [rp setRoleIdChoose:IdString];
+    NSLog(@"%@",string);
+    NSLog(@"%@",IdString);
+    
+//    addTaskViewController *addRole = [[addTaskViewController alloc] init];
+//    [addRole setRoleEntity:rp];
+//    [self.navigationController pushViewController: addRole animated:YES];
+    
+    if([appDelegate.controllerJudge isEqualToString:@"editUser"])
+    {
+        editTaskViewController *editUser = [[editTaskViewController alloc] init];
+        [editUser setRoleEntity:rp];
+        [self.navigationController pushViewController: editUser animated:YES];
+    }else if([appDelegate.controllerJudge isEqualToString:@"addUser"])
+    {
+        addTaskViewController *addRole = [[addTaskViewController alloc] init];
+        [addRole setRoleEntity:rp];
+        [self.navigationController pushViewController: addRole animated:YES];
+    }
+
 }
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-   
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mqiYeJBXXAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -71,19 +122,19 @@
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
-        if(![list count] ==0)
-        {
-            
-             self.tableView.footerRefreshingText=@"加载中";
-        }else
-        {
-           self.tableView.footerRefreshingText = @"没有更多数据";
-        }
+    if(![list count] ==0)
+    {
+        
+        self.tableView.footerRefreshingText=@"加载中";
+    }else
+    {
+        self.tableView.footerRefreshingText = @"没有更多数据";
+    }
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         [self.uid addObject:listdic];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"customerName"];//获取客户名称
-        NSString *customerID=(NSString *)[listdic objectForKey:@"customerID"];//获取客户id        NSLog(@"%@",teamname);
+        NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];//获取客户名称
+        NSString *customerID=(NSString *)[listdic objectForKey:@"bianHao"];//获取客户id        NSLog(@"%@",teamname);
         [self.fakeData     addObject:teamname];
         [self.customerID     addObject:customerID];
     }
@@ -96,12 +147,6 @@
     return self.customerID;
 }
 
-
-
-
-
-
-/////
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -158,7 +203,7 @@
     myDelegate.index =3;
     [self faker:@"1"];
     [self faker:@"2"];
-
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -182,41 +227,41 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self customerIDuserName:self.fakeData :self.customerID];
-    
-    if (tableView == self.tableView)
-    {
-        
-        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
-        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
-        
-        CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
-        [udetail setCustomerName:customerName];
-        [udetail setCustomerID:customerID];
-        CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
-        [uc setCustomerInformationEntity:udetail];
-        [self.navigationController pushViewController:uc animated:YES];
-        
-        
-    }else
-    {
-        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
-        
-        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
-         NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
-        
-        CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
-        [udetail setCustomerName:customerName];
-        [udetail setCustomerID:customerID];
-        CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
-        [uc setCustomerInformationEntity:udetail];
-        [self.navigationController pushViewController:uc animated:YES];
-        
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [self customerIDuserName:self.fakeData :self.customerID];
+//    
+//    if (tableView == self.tableView)
+//    {
+//        
+//        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+//        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
+//        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
+//        
+//        CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
+//        [udetail setCustomerName:customerName];
+//        [udetail setCustomerID:customerID];
+//        CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
+//        [uc setCustomerInformationEntity:udetail];
+//        [self.navigationController pushViewController:uc animated:YES];
+//        
+//        
+//    }else
+//    {
+//        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
+//        
+//        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
+//        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
+//        
+//        CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
+//        [udetail setCustomerName:customerName];
+//        [udetail setCustomerID:customerID];
+//        CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
+//        [uc setCustomerInformationEntity:udetail];
+//        [self.navigationController pushViewController:uc animated:YES];
+//        
+//    }
+//}
 
 // delcare id and index
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
@@ -248,8 +293,4 @@
     [self.navigationController pushViewController: jumpController animated:true];
     
 }
-
-
-
-
 @end

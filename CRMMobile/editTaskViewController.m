@@ -12,6 +12,7 @@
 #import "config.h"
 #import "SubmitTableViewController.h"
 #import "submitTaskEntity.h"
+#import "selectListTableViewController.h"
 
 @interface editTaskViewController ()
 - (IBAction)cancel:(id)sender;
@@ -40,7 +41,7 @@
 @end
 
 @implementation editTaskViewController
-
+@synthesize roleEntity=_roleEntity;
 @synthesize selectedIndexPath = _selectedIndexPath;
 @synthesize selectUser=_selectUser;
 @synthesize selectUserId=_selectUserId;
@@ -62,15 +63,16 @@
 }
 
 - (IBAction)selectQiYe:(id)sender {
-    _judge=@"2";
-    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"企业选择";
-    listView.backgroundColor=[UIColor blueColor];
-    listView.datasource = self;
-    listView.delegate = self;
-    [listView show];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.controllerJudge  = @"editUser";
+    selectListTableViewController *role = [[selectListTableViewController alloc] init];
+    [self.navigationController pushViewController: role animated:true];
+//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    listView.titleName.text = @"企业选择";
+//    listView.backgroundColor=[UIColor blueColor];
+//    listView.datasource = self;
+//    listView.delegate = self;
+//    [listView show];
 }
 
 
@@ -88,8 +90,17 @@
 }
 
 - (void)viewDidLoad {
-    _judge=@"";
+    NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
+    NSLog(@"%@", title);
     [super viewDidLoad];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *yeWuZL = myDelegate.yeWuZL;
+    NSString *submitName = myDelegate.submitName;
+    NSLog(@"%@",yeWuZL);
+    [self.chooseUserButtonQiYe setTitle:submitName forState:UIControlStateNormal];
+    [self.chooseUserButton setTitle:yeWuZL forState:UIControlStateNormal];
+    _judge=@"";
+    
     //self.nextArray  = self.nextArray;
     
     [self selectUserArray];
@@ -327,22 +338,27 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *qiYeBH=@"";
+    NSString *qiYeBH1  = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
+    
     NSString *yeWuZLBH=@"";
-    NSString *qiYeMC=@"";
+    NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
     NSString *yeWuZLMC=@"";
     for(int i=0;i<[self.selectUserForShow count];i++){
         yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
-        qiYeBH = [self.selectUserIdForParamQiYe objectAtIndex:i];
-        qiYeMC = [self.selectUserForShowQiYe objectAtIndex:i];
+//        qiYeBH = [self.selectUserIdForParamQiYe objectAtIndex:i];
+//        qiYeMC = [self.selectUserForShowQiYe objectAtIndex:i];
         yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
         
     }
-    NSLog(@"%@",qiYeBH);
-    NSLog(@"%@",qiYeMC);
+    
+    if (yeWuZLBH == @"") {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        yeWuZLBH = appDelegate.yeWuZLBH;
+        yeWuZLMC = appDelegate.yeWuZL;
+    }
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
-    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",workId,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
