@@ -23,6 +23,7 @@
 
 - (IBAction)cancle:(id)sender;
 - (IBAction)Add:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加工作日报";
+        self.scroll.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"日报";
     [self.bumen setEnabled:NO];

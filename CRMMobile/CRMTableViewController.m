@@ -9,7 +9,7 @@
 #import "CRMTableViewController.h"
 #import "CustomerInformationTableViewController.h"
 #import "SaleOppTableViewController.h"
-
+#import "CustomercontactTableViewController.h"
 @interface CRMTableViewController ()
 
 @end
@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
+    
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"CRM.plist" ofType:nil];
     CRMListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
     [self setExtraCellLineHidden:self.tableView];
@@ -66,7 +67,9 @@
         CustomerInformationTableViewController *fltv= [[CustomerInformationTableViewController alloc] init];
         [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==1){
-        
+        CustomercontactTableViewController *customercontact = [[CustomercontactTableViewController alloc]init];
+         customercontact.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController: customercontact animated:YES];
     }else if(indexPath.row==2){
         
     }else if(indexPath.row==3){

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *jihua;
 @property (weak, nonatomic) IBOutlet UITextField *bumen;
 @property (weak, nonatomic) IBOutlet UITextField *leixing;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll1;
 
 - (IBAction)deleteWeek:(id)sender;
 
@@ -28,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"周报详情";
+    self.scroll1.contentSize = CGSizeMake(375, 1000);
     self.wordIdData = [[NSMutableArray alloc]init];
     self.time.text =_weekEntity.time;
     self.zongjie.text =_weekEntity.zongjie;

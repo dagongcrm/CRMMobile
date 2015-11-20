@@ -43,6 +43,9 @@
     [super viewDidLoad];
      self.title=@"通讯录";
     [self setupRefresh];
+//    //隐藏顶部的导航栏
+//    self.hidesBottomBarWhenPushed = true;    
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     searchBar.placeholder = @"搜索";
     self.tableView.tableHeaderView = searchBar;
@@ -106,9 +109,9 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    NSString *order = @"desc";
-//    NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
+    NSString *order = @"desc";
+    NSString *sort = @"time";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
@@ -116,23 +119,36 @@
     NSDictionary *contactDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"contactDic字典里面的内容为--》%@", contactDic);
     NSArray *list = [contactDic objectForKey:@"obj"];
+    if(![list count] ==0)
+    {
+        self.tableView.footerRefreshingText=@"加载中";
+    }else
+    {
+        self.tableView.footerRefreshingText = @"没有更多数据";
+    }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
         NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];
         NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
+        NSString *callphone = (NSString *)[listDic objectForKey:@"cellPhone"];
         NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
         NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
-        NSLog(@"%@",teamname);
+        NSLog(@"电话为多少。。。%@",callphone);
         if (phoneTime  == nil || phoneTime == NULL) {
             [self.phoneData addObject:@"暂无通话记录"];
         }else{
             [self.phoneData addObject:phoneTime];
         }
-        NSLog(@"柯南回来了%@",phoneTime);
         
+//        if (callphone == nil || callphone == NULL) {
+//            [self.contactData addObject:telePhone];
+//        }else{
+//            
+//            [self.contactData addObject:callphone];
+//        }
+//        
         [self.fakeData addObject:teamname];
-        
         [self.contactData addObject:telePhone];
         [self.customerNameStrData addObject:customerNameStr];
 //        [self.phoneData addObject:telePhone];
@@ -177,23 +193,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"ggggggggggggg%@",self.phoneData);
-    [self bodadianhua];
+     NSString * phone = [self.contactData objectAtIndex:indexPath.row];
+    //NSLog(@"ggggggggggggg%@",self.phoneData);
+    //[self bodadianhua];
 //    SettingViewController *fl= [[SettingViewController alloc] init];
 //    [self.navigationController pushViewController:fl animated:NO];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.phoneData]];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://self.phoneData"]];
-//    UIWebView *callWebview =[[UIWebView alloc] init];
-//    NSURL *telURL =[NSURL URLWithString:@"tel://10086"];
-//    // 貌似tel:// 或者 tel: 都行
-//    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-//    //记得添加到view上
-//    [self.view addSubview:callWebview];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
+    NSString *str = @"tel://";
+    NSString *telephone = [str stringByAppendingString:phone];
+    UIWebView *callWebview =[[UIWebView alloc] init];
+    NSURL *telURL =[NSURL URLWithString:telephone];
+    // 貌似tel:// 或者 tel: 都行
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //记得添加到view上
+    [self.view addSubview:callWebview];
+    
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
+    NSLog(@"我们一起拨打电话吧%@",phone);
 }
--(void)bodadianhua{
- [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
-}
+//-(void)bodadianhua{
+// [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fakeData count];

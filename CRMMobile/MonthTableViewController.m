@@ -234,6 +234,7 @@
     [monthdetail setWorkID:workId];
     ShowAndDeleteViewController *sd =[[ShowAndDeleteViewController alloc] init];
     [sd setMonthEntity:monthdetail];
+    sd.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:sd animated:YES];
    
 }

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *bumen;//bumen
 @property (weak, nonatomic) IBOutlet UITextField *leixing;
 - (IBAction)deleteReport:(id)sender;//shangchubaogao
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+
 @end
 
 @implementation DailyViewController
@@ -27,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"日报详情";
+    self.scroll.contentSize = CGSizeMake(375, 700);
     self.wordIdData = [[NSMutableArray alloc]init];
     self.time.text =_dailyEntity.time;
     self.zongjie.text =_dailyEntity.zongjie;

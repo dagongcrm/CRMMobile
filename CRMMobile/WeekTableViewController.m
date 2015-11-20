@@ -234,6 +234,7 @@
     [weekdetail setWorkID:workId];
     ShowAndDeleteWeekViewController *sd =[[ShowAndDeleteWeekViewController alloc] init];
     [sd setWeekEntity:weekdetail];
+    sd.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:sd animated:YES];
     }
 @end

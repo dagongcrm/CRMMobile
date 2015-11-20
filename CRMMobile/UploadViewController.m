@@ -9,6 +9,8 @@
 #import "UploadViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
+//#import "ASIHTTPRequest.h"
+//#import "ASIFormDataRequest.h"
 
 @interface UploadViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *Image;
@@ -21,7 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    //设置图片为圆角的
+    CALayer *lay  = self.Image.layer;//获取ImageView的层
+    [lay setMasksToBounds:YES];
+    [lay setCornerRadius:6.0];
+    lay.borderWidth=1.0;
+    lay.borderColor=[[UIColor grayColor] CGColor];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,8 +92,6 @@
         imagePickerController.sourceType = sourceType;
         
         [self presentViewController:imagePickerController animated:YES completion:^{}];
-        
-        //        [imagePickerController release];
     }
 }
 
@@ -94,28 +100,14 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     NSLog(@"bbbbb");
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    /* 此处info 有六个值
-     * UIImagePickerControllerMediaType; // an NSString UTTypeImage)
-     * UIImagePickerControllerOriginalImage;  // a UIImage 原始图片
-     * UIImagePickerControllerEditedImage;    // a UIImage 裁剪后图片
-     * UIImagePickerControllerCropRect;       // an NSValue (CGRect)
-     * UIImagePickerControllerMediaURL;       // an NSURL
-     * UIImagePickerControllerReferenceURL    // an NSURL that references an asset in the AssetsLibrary framework
-     * UIImagePickerControllerMediaMetadata    // an NSDictionary containing metadata from a captured photo
-     */
-    // 保存图片至本地，方法见下文
+       // 保存图片至本地，方法见下文
     [self saveImage:image withName:@"currentImage.png"];
-    
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-    
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-    //    self.isFullScreen = NO;
     [self.Image setImage:savedImage];
     [self.imgpathData addObject:fullPath];
     self.Image.tag = 100;
-    NSLog(@"cccc===>>>%@",fullPath);
-    [self pickerImg];
-}
+    }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
@@ -130,28 +122,28 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     // 将图片写入文件
     [imageData writeToFile:fullPath atomically:NO];
-    
+    [self pickerImg:fullPath];
+    NSLog(@"cccc===>>>%@",fullPath);
 }
--(void)pickerImg{
-    NSString *path  = self.imgpathData;
-    NSString *fileljName = @"currentImage.png";
+-(void)pickerImg:(NSString *)path{
     NSString *fileName = @"currentImage";
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSLog(@"/////////////////////%@",sid);
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"uploadAction!upload.action?"]];
-//    NSURL *URL=[NSURL URLWithString:@"http://172.16.21.114:8080/dagongcrm/uploadAction!upload2.action?"];
-    
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"uploadAction!upload.action"]];
+//    ASIFormDataRequest * request = [ASIFormDataRequest requestWithURL:URL];
+//    [request setPostValue:sid forKey:@"MOBILE_SID"];
+////    [request setValue:path forKey:@"file"];
+//    [request setValue:fileName forKey:@"fileName"];
+//    [request setFile:path withFileName:[NSString stringWithFormat:@"%@.png",fileName] andContentType:@"image/png" forKey:@"file"];
+//    [request setCompletionBlock:^{
+//        NSString *responseString = [request responseString];
+//        [[[UIAlertView alloc]initWithTitle:@"上传成功" message:responseString delegate:self cancelButtonTitle:@"" otherButtonTitles:<#(NSString *), ...#>, nil]];
+////    }];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    UIImage *image = [UIImage imageWithContentsOfFile:path];//从本地文件读图片到内存
-//    NSData *data = UIImagePNGRepresentation(image);//转为nsdata对象
-    //private String fileLJ;//文件路径
-//    private String fileLJFileName;//文件路径名称
-//    private String fileName;//文档名称
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&fileLJ=%@&fileLJFileName=%@&fileName=%@",sid,path,fileljName,fileName];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&file=%@&fileName=%@",sid,path,fileName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *imgDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
