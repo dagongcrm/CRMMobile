@@ -8,6 +8,9 @@
             <connections>
                 <outlet property="chooseUserButton" destination="ZRz-FE-2kw" id="hoi-ya-dtD"/>
                 <outlet property="chooseUserButtonQiYe" destination="dwx-ab-ZCZ" id="Q7d-da-fAr"/>
+                <outlet property="genZongSFJE" destination="wlC-OL-PPC" id="SpP-nJ-Jyc"/>
+                <outlet property="heTongJE" destination="vKL-6l-oeX" id="FzK-Ng-39u"/>
+                <outlet property="lianXiFS" destination="C9Y-OU-Nb5" id="fLx-V1-BlE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="h8c-G6-XCY"/>
             </connections>
         </placeholder>
@@ -87,11 +90,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vKL-6l-oeX" userLabel="htje">
-                            <rect key="frame" x="48" y="327" width="262" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="跟踪收费：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOl-ck-UTW">
                             <rect key="frame" x="48" y="371" width="120" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -136,6 +134,11 @@
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="iRt-IJ-wil"/>
                             </connections>
                         </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vKL-6l-oeX" userLabel="htje">
+                            <rect key="frame" x="48" y="328" width="262" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                 </scrollView>
             </subviews>

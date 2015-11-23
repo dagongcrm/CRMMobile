@@ -15,6 +15,9 @@
 #import "selectEntity.h"
 
 @interface addTaskViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
+@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
+@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
 - (IBAction)cancel:(id)sender;
 - (IBAction)selectQiYe:(id)sender;
 - (IBAction)save:(id)sender;
@@ -102,7 +105,7 @@
     NSString *roleTitle;
     if(_roleEntity.strChoose==nil)
     {
-        roleTitle =@"请点击选取角色";
+        roleTitle =@"请点击选取企业";
     }
     else
     {

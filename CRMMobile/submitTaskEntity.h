@@ -18,4 +18,9 @@
 @property (strong,nonatomic) NSString *yeWuZLBH;
 
 @property (strong,nonatomic) NSString *ftn_ID;
+
+@property (strong,nonatomic) NSString *heTongJE;
+@property (strong,nonatomic) NSString *genZongSFJE;
+@property (strong,nonatomic) NSString *lianXiFS;
+
 @end
