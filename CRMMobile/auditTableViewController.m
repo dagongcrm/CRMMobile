@@ -11,6 +11,8 @@
 #import "config.h"
 #import "auditEntity.h"
 #import "auditDetailViewController.h"
+#import "UIImage+Tint.h"
+#import "MJRefresh.h"
 
 @interface auditTableViewController ()
 
@@ -24,14 +26,31 @@
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 
 @property (strong, nonatomic) NSMutableDictionary *uAuditId;
+@property  NSInteger index;
 
 @end
 
 @implementation auditTableViewController
+- (NSMutableArray *)fakeData
+{
+    if (!_fakeData) {
+        self.bianHao=[[NSMutableArray alloc] init];
+        self.fakeData=[[NSMutableArray alloc] init];
+        self.dataing=[[NSMutableArray alloc] init];
+        self.time=[[NSMutableArray alloc] init];
+        self.uid=[[NSMutableArray alloc] init];
 
+        [self faker:@"1"];
+        [self faker:@"2"];
+        
+    }
+    return _fakeData;
+}
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    [self faker:@"1"];
+    [self setupRefresh];
+    //[self faker:@"1"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,11 +60,6 @@
 }
 -(void) faker: (NSString *) page{
     NSError *error;
-    self.bianHao=[[NSMutableArray alloc] init];
-    self.fakeData=[[NSMutableArray alloc] init];
-    self.dataing=[[NSMutableArray alloc] init];
-    self.time=[[NSMutableArray alloc] init];
-    self.uid=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
@@ -75,10 +89,65 @@
     //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
     //return self.fakeData;
 }
+- (void)setupRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+}
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    myDelegate.index =3;
+    [self faker:@"1"];
+    [self faker:@"2"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    if(myDelegate.index==0){
+        myDelegate.index=3;
+    }
+    self.index=myDelegate.index++;
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// hide the extraLine
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+-(NSMutableArray *) submitIDReturn: (NSMutableArray *) uidArr
+{
+    return self.bianHao;
+}
+
+
 
 #pragma mark - Table view data source
 
@@ -150,18 +219,67 @@
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
         NSString *loginName = (NSString *) [nc objectForKey:@"loginName"];
         NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSString *hangYeFLMC =  (NSString *)[nc objectForKey:@"hangYeFLMC_cn"];
+        NSString *heTongJE = (NSString *)[nc objectForKey:@"heTongJEStr"];
+        NSString *genZongSF = (NSString *)[nc objectForKey:@"genZongSF"];
+        NSString *genZongSFJE = (NSString *)[nc objectForKey:@"genZongSFJEStr"];
+        NSString *zhuChengXS = (NSString *)[nc objectForKey:@"zhuChengXS"];
+        NSString *userName = (NSString *)[nc objectForKey:@"userName_cn"];
+        NSString *lianXiFS = (NSString *)[nc objectForKey:@"lianXiFS"];
         NSLog(@"%@",userID);
 
-        NSLog(@"ftn_ID%@",ftn_ID);
-        NSLog(@"yeWuZLBH%@",yeWuZLBH);
-        NSLog(@"loginName%@",loginName);
+        NSLog(@"heTongJE%@",heTongJE);
+        NSLog(@"lianXiFS%@",lianXiFS);
+        NSLog(@"userName%@",userName);
+        NSLog(@"heTongJE%@",zhuChengXS);
+        //NSLog(@"lianXiFS%@",genZongSFJE);
+        NSLog(@"userName%@",hangYeFLMC);
         auditEntity *udetail =[[auditEntity alloc] init];
-        [udetail setSubmitName:submitName];
+        if (submitName != nil) {
+            [udetail setSubmitName:submitName];
+        }else{
+        [udetail setSubmitName:@" "];
+        }
+        
         [udetail setSubmitID:submitID];
         [udetail setYeWuZL:yeWuZL];
         [udetail setYeWuZLBH:yeWuZLBH];
         [udetail setFtn_ID:ftn_ID];
         [udetail setUserID:userID];
+        [udetail setGenZongSF:genZongSF];
+        [udetail setGenZongSFJE:genZongSFJE];
+        if (hangYeFLMC != nil) {
+            [udetail setHangYeFLMC:hangYeFLMC];
+        }else{
+            [udetail setHangYeFLMC:@" "];
+        }
+        if (heTongJE != nil) {
+            [udetail setHeTongJE:heTongJE];
+        }else{
+            [udetail setHeTongJE:@" "];
+        }
+//        if (genZongSFJE != nil) {
+//            [udetail setGenZongSFJE: genZongSFJE];
+//        }else{
+//            [udetail setGenZongSFJE: @"genZongSFJE"];
+//        }
+        if (zhuChengXS != nil) {
+            [udetail setZhuChengXS:zhuChengXS];
+        }else{
+            [udetail setZhuChengXS:@"zhuChengXS"];
+        }
+        if (userName != nil) {
+            [udetail setUserName:userName];
+        }else{
+            [udetail setUserName:@"userName"];
+        }
+        if (lianXiFS != nil) {
+            [udetail setLianXiFS:lianXiFS];
+        }else{
+            [udetail setLianXiFS:@" "];
+        }
+
+        
         auditDetailViewController *uc =[[auditDetailViewController alloc] init];
         [uc setAuditEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];

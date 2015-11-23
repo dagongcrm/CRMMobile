@@ -13,24 +13,35 @@
 #import "AppDelegate.h"
 
 @interface auditDetailViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
+@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
+@property (weak, nonatomic) IBOutlet UITextField *genZongSF;
+@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
+@property (weak, nonatomic) IBOutlet UITextField *suoShuHY;
 - (IBAction)quit:(id)sender;
 
 - (IBAction)auditCommit:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *qiYeMC;
 @property (weak, nonatomic) IBOutlet UITextField *yeWuZL;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+
 @end
 
 @implementation auditDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *s= _auditEntity.submitName;
+    self.scroll.contentSize = CGSizeMake(375, 1000);
+    NSString *s= _auditEntity.lianXiFS;
     NSString *y= _auditEntity.yeWuZL;
     self.title=@"任务审核";
     self.qiYeMC.text = _auditEntity.submitName;
     self.yeWuZL.text = _auditEntity.yeWuZL;
-    NSLog(@"s%@",s);
-    
+    self.suoShuHY.text = _auditEntity.hangYeFLMC;
+    self.heTongJE.text = _auditEntity.heTongJE;
+    NSLog(@"%@",_auditEntity.genZongSFJE);
+    self.genZongSFJE.text = _auditEntity.genZongSFJE;
+    self.lianXiFS.text = _auditEntity.lianXiFS;
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -45,6 +56,11 @@
     NSString *qiYeMC = _auditEntity.submitName;
     NSString *yeWuZLMC = _auditEntity.yeWuZL;
     NSString *ftn_ID = _auditEntity.ftn_ID;
+    
+    NSString *hangYeFLMC = _auditEntity.hangYeFLMC;
+    NSString *heTongJE = _auditEntity.heTongJE;
+    NSString *genZongSFJE = _auditEntity.genZongSFJE;
+    NSString *lianXiFS = _auditEntity.lianXiFS;
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
@@ -52,7 +68,7 @@
     NSLog(@"%@",ftn_ID);
     
     
-        NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+        NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeFLMC,heTongJE,genZongSFJE,lianXiFS];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];

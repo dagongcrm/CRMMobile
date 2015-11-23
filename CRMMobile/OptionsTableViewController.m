@@ -46,12 +46,15 @@
 - (void)viewDidLoad {
     NAVCOLOR;
     [super viewDidLoad];
+    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
+    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
+    NSLog(@"jjjdjdjdjdjdjdjjdjd");
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.scroll.contentSize = CGSizeMake(375, 700);
+//    self.scroll.contentSize = CGSizeMake(375, 1000);
     _mMeUser = [[MeUser alloc] init];
     //顶部的图片区域
     //把图片添加到动态数组
