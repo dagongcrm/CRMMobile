@@ -15,6 +15,11 @@
 @interface CustomerInformationEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *customerNAME;
 
+@property (weak, nonatomic) IBOutlet UITextField *customerAddress;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
+
+
+
 @end
 
 @implementation CustomerInformationEditViewController
@@ -24,6 +29,8 @@
 - (IBAction)edit:(id)sender {
     NSString *ci=_customerInformationEntity.customerID;
     NSString *cn=[_customerNAME text];
+    NSString *ca=[_customerAddress text];
+    NSString *p=[_phone text];
     
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -33,7 +40,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"customerID=%@&customerName=%@&MOBILE_SID=%@",ci,cn,sid];
+    NSString *param=[NSString stringWithFormat:@"customerID=%@&customerName=%@&customerAddress=%@&phone=%@&MOBILE_SID=%@",ci,cn,ca,p,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -61,10 +68,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _customerNAME.text=_customerInformationEntity.customerName;
-
+    
+    //赋值
+    [self valuation];
+    
     
 }
+
+- (void) valuation {
+    _customerNAME.text=_customerInformationEntity.customerName;
+    _customerAddress.text=_customerInformationEntity.customerAddress;
+    _phone.text=_customerInformationEntity.phone;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

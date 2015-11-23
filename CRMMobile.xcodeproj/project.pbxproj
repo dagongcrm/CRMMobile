@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F93AAC11BF1FE840099C57E /* options.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAC01BF1FE840099C57E /* options.m */; };
 		1F93AACE1BF1FE9A0099C57E /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F93AAC41BF1FE9A0099C57E /* addTaskViewController.xib */; };
 		1F93AACF1BF1FE9A0099C57E /* SubmitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAC61BF1FE9A0099C57E /* SubmitTableViewController.m */; };
 		1F93AAD11BF1FE9A0099C57E /* submitTaskEntity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F93AAC91BF1FE9A0099C57E /* submitTaskEntity.xib */; };
@@ -18,7 +17,6 @@
 		1F93AADD1BF1FEDF0099C57E /* auditDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAD91BF1FEDF0099C57E /* auditDetailViewController.m */; };
 		1F93AADE1BF1FEDF0099C57E /* auditDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F93AADA1BF1FEDF0099C57E /* auditDetailViewController.xib */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
-		1FDC1B6D1BFD9B4D008B50A3 /* selectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC1B6C1BFD9B4D008B50A3 /* selectEntity.m */; };
 		1FE514E31BFC2415005C3BBD /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE514E11BFC2415005C3BBD /* NoticeViewController.m */; };
 		1FE514E41BFC2415005C3BBD /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE514E21BFC2415005C3BBD /* NoticeViewController.xib */; };
 		1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529C41BE8A55300149C10 /* NoticeTableViewController.m */; };
@@ -28,14 +26,32 @@
 		1FE549C21BFC62B600BDAF6B /* publicNoticeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE549C01BFC62B600BDAF6B /* publicNoticeTableViewController.xib */; };
 		1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */; };
 		1FE824791BF4806400D8A46A /* taskReminderTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */; };
-		1FF039CA1BFD643B0031BFE3 /* selectListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */; };
-		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
 		1FF4D4941BFAF99900F84401 /* marketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D4931BFAF99900F84401 /* marketActivity.m */; };
 		1FF4D4981BFAF9C400F84401 /* activityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D4961BFAF9C400F84401 /* activityDetailViewController.m */; };
 		1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E876581C02F99700BF6808 /* CustomerSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876571C02F99700BF6808 /* CustomerSelectTableViewController.m */; };
+		39E876711C0302C600BF6808 /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876641C0302C600BF6808 /* CustomerInformationTableViewController.m */; };
+		39E876721C0302C600BF6808 /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E876651C0302C600BF6808 /* CustomerInformationTableViewController.xib */; };
+		39E876731C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876671C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.m */; };
+		39E876741C0302C600BF6808 /* CustomerInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876691C0302C600BF6808 /* CustomerInformationDetailViewController.m */; };
+		39E876751C0302C600BF6808 /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E8766A1C0302C600BF6808 /* CustomerInformationDetailViewController.xib */; };
+		39E876761C0302C600BF6808 /* AddCustomerInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8766C1C0302C600BF6808 /* AddCustomerInformationViewController.m */; };
+		39E876771C0302C600BF6808 /* AddCustomerInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E8766D1C0302C600BF6808 /* AddCustomerInformationViewController.xib */; };
+		39E876781C0302C600BF6808 /* CustomerInformationEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8766F1C0302C600BF6808 /* CustomerInformationEditViewController.m */; };
+		39E876791C0302C600BF6808 /* CustomerInformationEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E876701C0302C600BF6808 /* CustomerInformationEditViewController.xib */; };
+		39E8767C1C03034C00BF6808 /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8767B1C03034C00BF6808 /* CRMTableViewController.m */; };
+		39E8768C1C03038100BF6808 /* CustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8767F1C03038100BF6808 /* CustomerCallPlanViewController.m */; };
+		39E8768D1C03038100BF6808 /* CustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E876801C03038100BF6808 /* CustomerCallPlanViewController.xib */; };
+		39E8768E1C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876821C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.m */; };
+		39E8768F1C03038100BF6808 /* CustomerCallPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876841C03038100BF6808 /* CustomerCallPlanDetailViewController.m */; };
+		39E876901C03038100BF6808 /* CustomerCallPlanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E876851C03038100BF6808 /* CustomerCallPlanDetailViewController.xib */; };
+		39E876911C03038100BF6808 /* AddCustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876871C03038100BF6808 /* AddCustomerCallPlanViewController.m */; };
+		39E876921C03038100BF6808 /* AddCustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E876881C03038100BF6808 /* AddCustomerCallPlanViewController.xib */; };
+		39E876931C03038100BF6808 /* CustomerCallPlanEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8768A1C03038100BF6808 /* CustomerCallPlanEditViewController.m */; };
+		39E876941C03038100BF6808 /* CustomerCallPlanEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E8768B1C03038100BF6808 /* CustomerCallPlanEditViewController.xib */; };
+		39E876971C03049E00BF6808 /* options.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876961C03049E00BF6808 /* options.m */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA491BFC58C8001A6D0D /* AddCustomerContactController.m */; };
@@ -56,16 +72,6 @@
 		96332E9D1BFF334100BBEB85 /* RecordsDetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96332E9B1BFF334100BBEB85 /* RecordsDetalViewController.m */; };
 		96332E9E1BFF334100BBEB85 /* RecordsDetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96332E9C1BFF334100BBEB85 /* RecordsDetalViewController.xib */; };
 		96332EA11BFF336500BBEB85 /* RecordsNsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 96332EA01BFF336500BBEB85 /* RecordsNsObj.m */; };
-		9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */; };
-		9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */; };
-		9678AEF31BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */; };
-		9678AEF41BEB71C800E5B50E /* CustomerInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEE91BEB71C800E5B50E /* CustomerInformationDetailViewController.m */; };
-		9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */; };
-		9678AEF61BEB71C800E5B50E /* AddCustomerInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEEC1BEB71C800E5B50E /* AddCustomerInformationViewController.m */; };
-		9678AEF71BEB71C800E5B50E /* AddCustomerInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEED1BEB71C800E5B50E /* AddCustomerInformationViewController.xib */; };
-		9678AEF81BEB71C800E5B50E /* CustomerInformationEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEEF1BEB71C800E5B50E /* CustomerInformationEditViewController.m */; };
-		9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */; };
-		9678AEFC1BEB71F800E5B50E /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
 		9678AEFF1BEB731600E5B50E /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEFE1BEB731600E5B50E /* 222.png */; };
 		96A695BA1BF5DE8900ADAC98 /* Image.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96A695B91BF5DE8900ADAC98 /* Image.plist */; };
 		96D58D041BFED22200159E09 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D58D031BFED22200159E09 /* arrow-left.png */; };
@@ -210,8 +216,6 @@
 
 /* Begin PBXFileReference section */
 		102A51D7D859922F2889B12A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		1F93AABF1BF1FE840099C57E /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
-		1F93AAC01BF1FE840099C57E /* options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = options.m; sourceTree = "<group>"; };
 		1F93AAC21BF1FE9A0099C57E /* addTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addTaskViewController.h; sourceTree = "<group>"; };
 		1F93AAC31BF1FE9A0099C57E /* addTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addTaskViewController.m; sourceTree = "<group>"; };
 		1F93AAC41BF1FE9A0099C57E /* addTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
@@ -232,8 +236,6 @@
 		1F93AADA1BF1FEDF0099C57E /* auditDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = auditDetailViewController.xib; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
-		1FDC1B6B1BFD9B4D008B50A3 /* selectEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectEntity.h; sourceTree = "<group>"; };
-		1FDC1B6C1BFD9B4D008B50A3 /* selectEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectEntity.m; sourceTree = "<group>"; };
 		1FE514E01BFC2415005C3BBD /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		1FE514E11BFC2415005C3BBD /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 		1FE514E21BFC2415005C3BBD /* NoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
@@ -249,9 +251,6 @@
 		1FE824751BF4806400D8A46A /* taskReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskReminderTableViewController.h; sourceTree = "<group>"; };
 		1FE824761BF4806400D8A46A /* taskReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskReminderTableViewController.m; sourceTree = "<group>"; };
 		1FE824771BF4806400D8A46A /* taskReminderTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskReminderTableViewController.xib; sourceTree = "<group>"; };
-		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
-		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
-		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
 		1FF4D4921BFAF99900F84401 /* marketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marketActivity.h; sourceTree = "<group>"; };
 		1FF4D4931BFAF99900F84401 /* marketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = marketActivity.m; sourceTree = "<group>"; };
 		1FF4D4951BFAF9C400F84401 /* activityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityDetailViewController.h; sourceTree = "<group>"; };
@@ -261,6 +260,38 @@
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E876561C02F99700BF6808 /* CustomerSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerSelectTableViewController.h; sourceTree = "<group>"; };
 		39E876571C02F99700BF6808 /* CustomerSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerSelectTableViewController.m; sourceTree = "<group>"; };
+		39E876631C0302C600BF6808 /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
+		39E876641C0302C600BF6808 /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
+		39E876651C0302C600BF6808 /* CustomerInformationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationTableViewController.xib; sourceTree = "<group>"; };
+		39E876661C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfermationDetailMessageEntity.h; sourceTree = "<group>"; };
+		39E876671C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfermationDetailMessageEntity.m; sourceTree = "<group>"; };
+		39E876681C0302C600BF6808 /* CustomerInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationDetailViewController.h; sourceTree = "<group>"; };
+		39E876691C0302C600BF6808 /* CustomerInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationDetailViewController.m; sourceTree = "<group>"; };
+		39E8766A1C0302C600BF6808 /* CustomerInformationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationDetailViewController.xib; sourceTree = "<group>"; };
+		39E8766B1C0302C600BF6808 /* AddCustomerInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerInformationViewController.h; sourceTree = "<group>"; };
+		39E8766C1C0302C600BF6808 /* AddCustomerInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerInformationViewController.m; sourceTree = "<group>"; };
+		39E8766D1C0302C600BF6808 /* AddCustomerInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerInformationViewController.xib; sourceTree = "<group>"; };
+		39E8766E1C0302C600BF6808 /* CustomerInformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationEditViewController.h; sourceTree = "<group>"; };
+		39E8766F1C0302C600BF6808 /* CustomerInformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationEditViewController.m; sourceTree = "<group>"; };
+		39E876701C0302C600BF6808 /* CustomerInformationEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationEditViewController.xib; sourceTree = "<group>"; };
+		39E8767A1C03034C00BF6808 /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
+		39E8767B1C03034C00BF6808 /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
+		39E8767E1C03038100BF6808 /* CustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanViewController.h; sourceTree = "<group>"; };
+		39E8767F1C03038100BF6808 /* CustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanViewController.m; sourceTree = "<group>"; };
+		39E876801C03038100BF6808 /* CustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanViewController.xib; sourceTree = "<group>"; };
+		39E876811C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailMessageEntity.h; sourceTree = "<group>"; };
+		39E876821C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailMessageEntity.m; sourceTree = "<group>"; };
+		39E876831C03038100BF6808 /* CustomerCallPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailViewController.h; sourceTree = "<group>"; };
+		39E876841C03038100BF6808 /* CustomerCallPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailViewController.m; sourceTree = "<group>"; };
+		39E876851C03038100BF6808 /* CustomerCallPlanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanDetailViewController.xib; sourceTree = "<group>"; };
+		39E876861C03038100BF6808 /* AddCustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerCallPlanViewController.h; sourceTree = "<group>"; };
+		39E876871C03038100BF6808 /* AddCustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerCallPlanViewController.m; sourceTree = "<group>"; };
+		39E876881C03038100BF6808 /* AddCustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerCallPlanViewController.xib; sourceTree = "<group>"; };
+		39E876891C03038100BF6808 /* CustomerCallPlanEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanEditViewController.h; sourceTree = "<group>"; };
+		39E8768A1C03038100BF6808 /* CustomerCallPlanEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanEditViewController.m; sourceTree = "<group>"; };
+		39E8768B1C03038100BF6808 /* CustomerCallPlanEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanEditViewController.xib; sourceTree = "<group>"; };
+		39E876951C03049E00BF6808 /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
+		39E876961C03049E00BF6808 /* options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = options.m; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
@@ -294,22 +325,6 @@
 		96332E9C1BFF334100BBEB85 /* RecordsDetalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordsDetalViewController.xib; sourceTree = "<group>"; };
 		96332E9F1BFF336500BBEB85 /* RecordsNsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsNsObj.h; sourceTree = "<group>"; };
 		96332EA01BFF336500BBEB85 /* RecordsNsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsNsObj.m; sourceTree = "<group>"; };
-		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
-		9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
-		9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationTableViewController.xib; sourceTree = "<group>"; };
-		9678AEE61BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfermationDetailMessageEntity.h; sourceTree = "<group>"; };
-		9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfermationDetailMessageEntity.m; sourceTree = "<group>"; };
-		9678AEE81BEB71C800E5B50E /* CustomerInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationDetailViewController.h; sourceTree = "<group>"; };
-		9678AEE91BEB71C800E5B50E /* CustomerInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationDetailViewController.m; sourceTree = "<group>"; };
-		9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationDetailViewController.xib; sourceTree = "<group>"; };
-		9678AEEB1BEB71C800E5B50E /* AddCustomerInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerInformationViewController.h; sourceTree = "<group>"; };
-		9678AEEC1BEB71C800E5B50E /* AddCustomerInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerInformationViewController.m; sourceTree = "<group>"; };
-		9678AEED1BEB71C800E5B50E /* AddCustomerInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerInformationViewController.xib; sourceTree = "<group>"; };
-		9678AEEE1BEB71C800E5B50E /* CustomerInformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationEditViewController.h; sourceTree = "<group>"; };
-		9678AEEF1BEB71C800E5B50E /* CustomerInformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationEditViewController.m; sourceTree = "<group>"; };
-		9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationEditViewController.xib; sourceTree = "<group>"; };
-		9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
-		9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		9678AEFE1BEB731600E5B50E /* 222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 222.png; sourceTree = "<group>"; };
 		96A695B91BF5DE8900ADAC98 /* Image.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Image.plist; sourceTree = "<group>"; };
 		96D58D031BFED22200159E09 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
@@ -533,6 +548,8 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
+				39E876951C03049E00BF6808 /* options.h */,
+				39E876961C03049E00BF6808 /* options.m */,
 				96E41F7C1BF46BD400A2DA37 /* editTaskViewController.h */,
 				96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */,
 				96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */,
@@ -547,8 +564,6 @@
 				1F93AACA1BF1FE9A0099C57E /* submitTaskDetailViewController.h */,
 				1F93AACB1BF1FE9A0099C57E /* submitTaskDetailViewController.m */,
 				1F93AACC1BF1FE9A0099C57E /* submitTaskDetailViewController.xib */,
-				1F93AABF1BF1FE840099C57E /* options.h */,
-				1F93AAC01BF1FE840099C57E /* options.m */,
 			);
 			name = submit;
 			sourceTree = "<group>";
@@ -574,6 +589,48 @@
 				1FE529D81BE8BA4A00149C10 /* trackingTableViewController.m */,
 			);
 			name = tracking;
+			sourceTree = "<group>";
+		};
+		39E8765F1C02FF0B00BF6808 /* crm */ = {
+			isa = PBXGroup;
+			children = (
+				39E876631C0302C600BF6808 /* CustomerInformationTableViewController.h */,
+				39E876641C0302C600BF6808 /* CustomerInformationTableViewController.m */,
+				39E876651C0302C600BF6808 /* CustomerInformationTableViewController.xib */,
+				39E876661C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.h */,
+				39E876671C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.m */,
+				39E876681C0302C600BF6808 /* CustomerInformationDetailViewController.h */,
+				39E876691C0302C600BF6808 /* CustomerInformationDetailViewController.m */,
+				39E8766A1C0302C600BF6808 /* CustomerInformationDetailViewController.xib */,
+				39E8766B1C0302C600BF6808 /* AddCustomerInformationViewController.h */,
+				39E8766C1C0302C600BF6808 /* AddCustomerInformationViewController.m */,
+				39E8766D1C0302C600BF6808 /* AddCustomerInformationViewController.xib */,
+				39E8766E1C0302C600BF6808 /* CustomerInformationEditViewController.h */,
+				39E8766F1C0302C600BF6808 /* CustomerInformationEditViewController.m */,
+				39E876701C0302C600BF6808 /* CustomerInformationEditViewController.xib */,
+			);
+			name = crm;
+			sourceTree = "<group>";
+		};
+		39E8767D1C03036E00BF6808 /* customerCallPlan */ = {
+			isa = PBXGroup;
+			children = (
+				39E8767E1C03038100BF6808 /* CustomerCallPlanViewController.h */,
+				39E8767F1C03038100BF6808 /* CustomerCallPlanViewController.m */,
+				39E876801C03038100BF6808 /* CustomerCallPlanViewController.xib */,
+				39E876811C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.h */,
+				39E876821C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.m */,
+				39E876831C03038100BF6808 /* CustomerCallPlanDetailViewController.h */,
+				39E876841C03038100BF6808 /* CustomerCallPlanDetailViewController.m */,
+				39E876851C03038100BF6808 /* CustomerCallPlanDetailViewController.xib */,
+				39E876861C03038100BF6808 /* AddCustomerCallPlanViewController.h */,
+				39E876871C03038100BF6808 /* AddCustomerCallPlanViewController.m */,
+				39E876881C03038100BF6808 /* AddCustomerCallPlanViewController.xib */,
+				39E876891C03038100BF6808 /* CustomerCallPlanEditViewController.h */,
+				39E8768A1C03038100BF6808 /* CustomerCallPlanEditViewController.m */,
+				39E8768B1C03038100BF6808 /* CustomerCallPlanEditViewController.xib */,
+			);
+			name = customerCallPlan;
 			sourceTree = "<group>";
 		};
 		39F1F1711BE31A9700EA3133 /* GPS */ = {
@@ -673,39 +730,14 @@
 		9678AEE11BEB70CA00E5B50E /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				39E8767A1C03034C00BF6808 /* CRMTableViewController.h */,
+				39E8767B1C03034C00BF6808 /* CRMTableViewController.m */,
+				39E8767D1C03036E00BF6808 /* customerCallPlan */,
+				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
-				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
-				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
-				9678AEE21BEB70D400E5B50E /* crm */,
 			);
 			name = CRM;
-			sourceTree = "<group>";
-		};
-		9678AEE21BEB70D400E5B50E /* crm */ = {
-			isa = PBXGroup;
-			children = (
-				9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */,
-				9678AEE41BEB71C800E5B50E /* CustomerInformationTableViewController.m */,
-				9678AEE51BEB71C800E5B50E /* CustomerInformationTableViewController.xib */,
-				9678AEE61BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.h */,
-				9678AEE71BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m */,
-				9678AEE81BEB71C800E5B50E /* CustomerInformationDetailViewController.h */,
-				9678AEE91BEB71C800E5B50E /* CustomerInformationDetailViewController.m */,
-				9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */,
-				9678AEEB1BEB71C800E5B50E /* AddCustomerInformationViewController.h */,
-				9678AEEC1BEB71C800E5B50E /* AddCustomerInformationViewController.m */,
-				9678AEED1BEB71C800E5B50E /* AddCustomerInformationViewController.xib */,
-				9678AEEE1BEB71C800E5B50E /* CustomerInformationEditViewController.h */,
-				9678AEEF1BEB71C800E5B50E /* CustomerInformationEditViewController.m */,
-				9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */,
-				1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */,
-				1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */,
-				1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */,
-				1FDC1B6B1BFD9B4D008B50A3 /* selectEntity.h */,
-				1FDC1B6C1BFD9B4D008B50A3 /* selectEntity.m */,
-			);
-			name = crm;
 			sourceTree = "<group>";
 		};
 		96AEF19A1BF1FD5700EDE5CE /* work */ = {
@@ -1286,17 +1318,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D3CD6D1BDF0CEF00C23FB3 /* 18.png in Resources */,
-				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
 				96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
 				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
+				39E876721C0302C600BF6808 /* CustomerInformationTableViewController.xib in Resources */,
+				39E876941C03038100BF6808 /* CustomerCallPlanEditViewController.xib in Resources */,
 				B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
 				96FAE2521BEC736800032BB3 /* AddDailyViewController.xib in Resources */,
 				C0D3CD631BDF0CEF00C23FB3 /* 8.png in Resources */,
-				1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */,
 				1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */,
 				96EDBEAA1BE8832100824AE2 /* XGViewController.xib in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
@@ -1325,6 +1357,7 @@
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
 				96F694711BFAD38F00FC98FA /* CustomercontactTableViewController.xib in Resources */,
 				96FA0D391BFBFADE00B87341 /* EditCustomerContactController.xib in Resources */,
+				39E876771C0302C600BF6808 /* AddCustomerInformationViewController.xib in Resources */,
 				C0D3CD601BDF0CEF00C23FB3 /* 5.png in Resources */,
 				C0D3CD741BDF0CEF00C23FB3 /* 25.png in Resources */,
 				96332E9E1BFF334100BBEB85 /* RecordsDetalViewController.xib in Resources */,
@@ -1332,6 +1365,7 @@
 				96FAE2701BEC750800032BB3 /* AddWeekViewController.xib in Resources */,
 				96332E931BFF326400BBEB85 /* EditPlanViewController.xib in Resources */,
 				96FF05771BF80C7F00EA5457 /* crm.png in Resources */,
+				39E876921C03038100BF6808 /* AddCustomerCallPlanViewController.xib in Resources */,
 				96FAE24E1BEC736800032BB3 /* DailyViewController.xib in Resources */,
 				96FAE2851BEC758500032BB3 /* AddMonthViewController.xib in Resources */,
 				96FAE2721BEC750800032BB3 /* ShowAndDeleteWeekViewController.xib in Resources */,
@@ -1360,11 +1394,11 @@
 				96FF733D1BFC1A0E00472D33 /* CustomerContactListViewController.xib in Resources */,
 				C0D3CD681BDF0CEF00C23FB3 /* 13.png in Resources */,
 				C0D3CD6F1BDF0CEF00C23FB3 /* 20.png in Resources */,
+				39E876751C0302C600BF6808 /* CustomerInformationDetailViewController.xib in Resources */,
 				1F93AACE1BF1FE9A0099C57E /* addTaskViewController.xib in Resources */,
-				9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */,
 				1F93AADE1BF1FEDF0099C57E /* auditDetailViewController.xib in Resources */,
+				39E876901C03038100BF6808 /* CustomerCallPlanDetailViewController.xib in Resources */,
 				C0D3CD791BDF0CEF00C23FB3 /* 30.png in Resources */,
-				9678AEF71BEB71C800E5B50E /* AddCustomerInformationViewController.xib in Resources */,
 				1FE824791BF4806400D8A46A /* taskReminderTableViewController.xib in Resources */,
 				9678AEFF1BEB731600E5B50E /* 222.png in Resources */,
 				C0D68C4E1BD8EA20009CEC23 /* LaunchScreen.xib in Resources */,
@@ -1373,14 +1407,15 @@
 				96332E861BFF31C100BBEB85 /* EditSaleOppViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
 				1F93AAD11BF1FE9A0099C57E /* submitTaskEntity.xib in Resources */,
+				39E8768D1C03038100BF6808 /* CustomerCallPlanViewController.xib in Resources */,
 				C0D3CD771BDF0CEF00C23FB3 /* 28.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				96332E8E1BFF31F400BBEB85 /* DetailSaleOppViewController.xib in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
-				9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
+				39E876791C0302C600BF6808 /* CustomerInformationEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1448,22 +1483,24 @@
 			files = (
 				96E41F7B1BF4424400A2DA37 /* submitTaskEntity.m in Sources */,
 				96E41F7A1BF4421D00A2DA37 /* addTaskViewController.m in Sources */,
-				1FF039CA1BFD643B0031BFE3 /* selectListTableViewController.m in Sources */,
+				39E876971C03049E00BF6808 /* options.m in Sources */,
 				96FAE26F1BEC750800032BB3 /* AddWeekViewController.m in Sources */,
+				39E8768F1C03038100BF6808 /* CustomerCallPlanDetailViewController.m in Sources */,
 				96FAE2821BEC758500032BB3 /* ShowAndDeleteViewController.m in Sources */,
 				96FF733C1BFC1A0E00472D33 /* CustomerContactListViewController.m in Sources */,
 				96F694751BFAFAC400FC98FA /* CustomercontactInfoController.m in Sources */,
+				39E876741C0302C600BF6808 /* CustomerInformationDetailViewController.m in Sources */,
 				96FAE2881BEC759E00032BB3 /* TaskReportMonthEntity.m in Sources */,
 				96FAE26D1BEC750800032BB3 /* WeekTableViewController.m in Sources */,
 				C0D68C401BD8EA20009CEC23 /* AppDelegate.m in Sources */,
+				39E8768E1C03038100BF6808 /* CustomerCallPlanDetailMessageEntity.m in Sources */,
+				39E876761C0302C600BF6808 /* AddCustomerInformationViewController.m in Sources */,
 				1F93AADD1BF1FEDF0099C57E /* auditDetailViewController.m in Sources */,
 				96332E851BFF31C100BBEB85 /* EditSaleOppViewController.m in Sources */,
 				96332E8D1BFF31F400BBEB85 /* DetailSaleOppViewController.m in Sources */,
 				96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */,
 				1FE514E31BFC2415005C3BBD /* NoticeViewController.m in Sources */,
 				B8184A911BEC7AAF00FB0C84 /* GLReusableViewController.m in Sources */,
-				9678AEF11BEB71C800E5B50E /* CustomerInformationTableViewController.m in Sources */,
-				9678AEF41BEB71C800E5B50E /* CustomerInformationDetailViewController.m in Sources */,
 				96332E801BFF31B000BBEB85 /* AddSaleOppViewController.m in Sources */,
 				96F694701BFAD38F00FC98FA /* CustomercontactTableViewController.m in Sources */,
 				1FE529D91BE8BA4A00149C10 /* trackingTableViewController.m in Sources */,
@@ -1471,10 +1508,9 @@
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				96332E9D1BFF334100BBEB85 /* RecordsDetalViewController.m in Sources */,
 				96FAE2751BEC753100032BB3 /* TaskReportWeekEntity.m in Sources */,
+				39E876911C03038100BF6808 /* AddCustomerCallPlanViewController.m in Sources */,
 				96E41F7F1BF46BD400A2DA37 /* editTaskViewController.m in Sources */,
-				9678AEF81BEB71C800E5B50E /* CustomerInformationEditViewController.m in Sources */,
 				96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */,
-				1F93AAC11BF1FE840099C57E /* options.m in Sources */,
 				C0D5693A1BD9B7BB00860B33 /* NotificationTableViewController.m in Sources */,
 				96E3125C1BEB53BA00A1A3FF /* MJRefreshHeaderView.m in Sources */,
 				96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */,
@@ -1484,13 +1520,10 @@
 				C0D68C6B1BD8ED98009CEC23 /* config.m in Sources */,
 				96332E891BFF31E700BBEB85 /* SaleOppTableViewController.m in Sources */,
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,
-				9678AEFC1BEB71F800E5B50E /* CRMTableViewController.m in Sources */,
-				9678AEF31BEB71C800E5B50E /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */,
 				C0D3CD871BDF0E8B00C23FB3 /* NSArray+PureLayout.m in Sources */,
 				1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */,
 				96EDBEA91BE8832100824AE2 /* XGViewController.m in Sources */,
-				9678AEF61BEB71C800E5B50E /* AddCustomerInformationViewController.m in Sources */,
 				B8F28B811BEDD3A400177C9C /* PlanDetalViewController.m in Sources */,
 				1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */,
 				1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */,
@@ -1501,14 +1534,16 @@
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96332E921BFF326400BBEB85 /* EditPlanViewController.m in Sources */,
 				9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */,
+				39E876711C0302C600BF6808 /* CustomerInformationTableViewController.m in Sources */,
 				96EDBEAB1BE8832100824AE2 /* SettingViewController.m in Sources */,
 				1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */,
+				39E876931C03038100BF6808 /* CustomerCallPlanEditViewController.m in Sources */,
 				96332E7C1BFF30F200BBEB85 /* SaleOppEntity.m in Sources */,
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,
 				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
+				39E876731C0302C600BF6808 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				1F93AAD21BF1FE9A0099C57E /* submitTaskDetailViewController.m in Sources */,
 				B8F28B861BEDDF2C00177C9C /* AddPlanViewController.m in Sources */,
-				1FDC1B6D1BFD9B4D008B50A3 /* selectEntity.m in Sources */,
 				96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */,
 				96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */,
 				96FAE2611BEC73C800032BB3 /* TaskReportTableViewController.m in Sources */,
@@ -1519,6 +1554,7 @@
 				96F6947C1BFB20DC00FC98FA /* CostomerContactEntity.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				96332EA11BFF336500BBEB85 /* RecordsNsObj.m in Sources */,
+				39E876781C0302C600BF6808 /* CustomerInformationEditViewController.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,
 				1FF4D4981BFAF9C400F84401 /* activityDetailViewController.m in Sources */,
 				96FAE24F1BEC736800032BB3 /* DailyTableViewController.m in Sources */,
@@ -1530,11 +1566,13 @@
 				C0D569401BD9C51100860B33 /* WorkTableViewController.m in Sources */,
 				96FAE2801BEC758500032BB3 /* MonthTableViewController.m in Sources */,
 				1F93AACF1BF1FE9A0099C57E /* SubmitTableViewController.m in Sources */,
+				39E8767C1C03034C00BF6808 /* CRMTableViewController.m in Sources */,
 				96EDBEAD1BE8832100824AE2 /* GuanyuViewController.m in Sources */,
 				B8184AA11BEC7BB800FB0C84 /* IndexViewController.m in Sources */,
 				96EDBEB71BE8835E00824AE2 /* MeUser.m in Sources */,
 				1FF4D4941BFAF99900F84401 /* marketActivity.m in Sources */,
 				96EDBEAF1BE8832100824AE2 /* LianViewController.m in Sources */,
+				39E8768C1C03038100BF6808 /* CustomerCallPlanViewController.m in Sources */,
 				B8184A9D1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,
 			);

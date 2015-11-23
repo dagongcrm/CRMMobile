@@ -10,7 +10,16 @@
 
 
 @implementation CustomerInfermationDetailMessageEntity
-@synthesize customerName=_customerName;
 @synthesize customerID=_customerID;
+@synthesize customerName=_customerName;
+@synthesize industryIDStr=_industryIDStr;
+@synthesize companyTypeStr=_companyTypeStr;
+@synthesize customerClassStr=_customerClassStr;
+@synthesize provinceStr=_provinceStr;
+@synthesize shiChangXQFL=_shiChangXQFL;
+@synthesize customerAddress=_customerAddress;
+@synthesize phone=_phone;
+@synthesize receptionPersonnel=_receptionPersonnel;
+@synthesize createTime=_createTime;
 
 @end
