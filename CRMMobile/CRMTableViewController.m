@@ -10,6 +10,7 @@
 #import "CustomerInformationTableViewController.h"
 #import "CustomerCallPlanViewController.h"
 #import "SaleOppTableViewController.h"
+#import "CustomercontactTableViewController.h"
 
 @interface CRMTableViewController ()
 
@@ -68,7 +69,9 @@
         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==1){
-        
+        CustomercontactTableViewController *customercontact = [[CustomercontactTableViewController alloc]init];
+        customercontact.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController: customercontact animated:YES];
     }else if(indexPath.row==2){
         CustomerCallPlanViewController *fltv=[[CustomerCallPlanViewController alloc] init];
         fltv.hidesBottomBarWhenPushed=YES;

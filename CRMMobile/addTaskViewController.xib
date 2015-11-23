@@ -16,6 +16,7 @@
                 <outlet property="genZongSFJE" destination="wlC-OL-PPC" id="SpP-nJ-Jyc"/>
                 <outlet property="heTongJE" destination="vKL-6l-oeX" id="FzK-Ng-39u"/>
                 <outlet property="lianXiFS" destination="C9Y-OU-Nb5" id="fLx-V1-BlE"/>
+                <outlet property="scroll" destination="OGC-Lr-y7u" id="Rj2-eE-VAD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="h8c-G6-XCY"/>
             </connections>
         </placeholder>

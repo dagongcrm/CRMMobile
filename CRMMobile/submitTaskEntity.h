@@ -19,5 +19,7 @@
 @property (strong,nonatomic) NSString *heTongJE;
 @property (strong,nonatomic) NSString *genZongSFJE;
 @property (strong,nonatomic) NSString *lianXiFS;
-
+@property (strong,nonatomic) NSString *hangYeFLMC;
+@property (strong,nonatomic) NSString *zhuChengXS;
+@property (strong,nonatomic) NSString *userName;
 @end
