@@ -530,6 +530,7 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
+				96F2ABEB1C02E73E001F4FFD /* Entity */,
 				96E41F7C1BF46BD400A2DA37 /* editTaskViewController.h */,
 				96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */,
 				96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */,
@@ -538,9 +539,6 @@
 				1F93AAC41BF1FE9A0099C57E /* addTaskViewController.xib */,
 				1F93AAC51BF1FE9A0099C57E /* SubmitTableViewController.h */,
 				1F93AAC61BF1FE9A0099C57E /* SubmitTableViewController.m */,
-				1F93AAC71BF1FE9A0099C57E /* submitTaskEntity.h */,
-				1F93AAC81BF1FE9A0099C57E /* submitTaskEntity.m */,
-				1F93AAC91BF1FE9A0099C57E /* submitTaskEntity.xib */,
 				1F93AACA1BF1FE9A0099C57E /* submitTaskDetailViewController.h */,
 				1F93AACB1BF1FE9A0099C57E /* submitTaskDetailViewController.m */,
 				1F93AACC1BF1FE9A0099C57E /* submitTaskDetailViewController.xib */,
@@ -746,6 +744,16 @@
 				96EDBEB31BE8835E00824AE2 /* MeEntity.m */,
 				96EDBEB41BE8835E00824AE2 /* MeUser.h */,
 				96EDBEB51BE8835E00824AE2 /* MeUser.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		96F2ABEB1C02E73E001F4FFD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1F93AAC71BF1FE9A0099C57E /* submitTaskEntity.h */,
+				1F93AAC81BF1FE9A0099C57E /* submitTaskEntity.m */,
+				1F93AAC91BF1FE9A0099C57E /* submitTaskEntity.xib */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
