@@ -41,6 +41,14 @@
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *HangYeGS;
+@property (weak, nonatomic) IBOutlet UITextField *HeTongJE;
+@property (weak, nonatomic) IBOutlet UITextField *GenZongSF;
+@property (weak, nonatomic) IBOutlet UITextField *GenZongSFJE;
+
+@property (weak, nonatomic) IBOutlet UITextField *LianXiFS;
+
 
 @end
 
@@ -97,6 +105,7 @@
 }
 
 - (void)viewDidLoad {
+    self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
      _judge=@"";
@@ -342,6 +351,15 @@
 
 
 - (IBAction)save:(id)sender {
+//    NSString *hangyeGS = self.HangYeGS.text;
+    NSString *hetongJE = self.HeTongJE.text;
+    NSString *gezongSF = self.GenZongSF.text;
+    NSString *gezongSFJE = self.GenZongSFJE.text;
+    NSString *lianxiFS = self.LianXiFS.text;
+    NSLog(@"hetongJE===>%@",hetongJE);
+    NSLog(@"gezongSF===>%@",gezongSF);
+    NSLog(@"gezongSFJE===>%@",gezongSFJE);
+    NSLog(@"lianxiFS===>%@",lianxiFS);
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -365,16 +383,20 @@
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
-    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    
+//    heTongJE
+    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
+    NSLog(@"111111%@",weatherDic);
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
         [alert show];
+        
+        
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

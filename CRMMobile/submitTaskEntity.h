@@ -11,12 +11,9 @@
 @interface submitTaskEntity : NSObject{
 }
 @property (strong,nonatomic) NSString *submitName;
-
 @property (strong,nonatomic) NSString *submitID;
-
 @property (strong,nonatomic) NSString *yeWuZL;
 @property (strong,nonatomic) NSString *yeWuZLBH;
-
 @property (strong,nonatomic) NSString *ftn_ID;
 
 @property (strong,nonatomic) NSString *heTongJE;

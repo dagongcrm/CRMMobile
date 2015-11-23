@@ -37,6 +37,7 @@
 
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -90,6 +91,7 @@
 }
 
 - (void)viewDidLoad {
+    self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
     [super viewDidLoad];

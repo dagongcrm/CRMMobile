@@ -18,10 +18,18 @@
 - (IBAction)edit:(id)sender;
 - (IBAction)Commit:(id)sender;
 - (IBAction)selectKind:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *qiYeMC1;
-@property (weak, nonatomic) IBOutlet UITextField *yeWuZL;
+@property (weak, nonatomic) IBOutlet UITextField *qiYeMC1;//企业名称
+@property (weak, nonatomic) IBOutlet UITextField *yeWuZL;//业务种类
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeBH;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZLBH;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *suosuhy;//所属行业
+@property (weak, nonatomic) IBOutlet UITextField *hetongje;//合同金额
+@property (weak, nonatomic) IBOutlet UITextField *genzongshoufeije;//跟踪收费金额
+@property (weak, nonatomic) IBOutlet UITextField *zhuchengxc;//主承销商
+@property (weak, nonatomic) IBOutlet UITextField *lianxifs;//联系方式
+@property (weak, nonatomic) IBOutlet UITextField *yewucbr;//业务承办人
+
 
 @end
 
@@ -29,10 +37,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"任务基本信息";
+    self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString *s= _submitTaskEntity.submitName;
     NSString *y= _submitTaskEntity.yeWuZL;
     self.qiYeMC1.text = _submitTaskEntity.submitName;
     self.yeWuZL.text = _submitTaskEntity.yeWuZL;
+    self.suosuhy.text = _submitTaskEntity.hangYeFLMC;
+    self.hetongje.text=_submitTaskEntity.heTongJE;
+    self.genzongshoufeije.text=_submitTaskEntity.genZongSFJE;
+    self.zhuchengxc.text=_submitTaskEntity.zhuChengXS;
+    self.lianxifs.text=_submitTaskEntity.lianXiFS;
+    self.yewucbr.text=_submitTaskEntity.userName;
+    [self.qiYeMC1 setEnabled:NO];
+    [self.yeWuZL setEnabled:NO];
+    [self.suosuhy setEnabled:NO];
+    [self.hetongje setEnabled:NO];
+    [self.genzongshoufeije setEnabled:NO];
+    [self.zhuchengxc setEnabled:NO];
+    [self.lianxifs setEnabled:NO];
+    [self.yewucbr setEnabled:NO];
     // Do any additional setup after loading the view from its nib.
 }
 
