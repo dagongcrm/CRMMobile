@@ -15,6 +15,13 @@
 @synthesize yeWuZL=_yeWuZL;
 @synthesize yeWuZLBH=_yeWuZLBH;
 @synthesize ftn_ID=_ftn_ID;
-@synthesize userID=userID;
+@synthesize userID=_userID;
+@synthesize hangYeFLMC=_hangYeFLMC;
+@synthesize heTongJE = _heTongJE;
+@synthesize genZongSFJE = _genZongSFJE;
+@synthesize genZongSF = _genZongSF;
+@synthesize zhuChengXS = _zhuChengXS;
+@synthesize userName = _userName;
+@synthesize lianXiFS = _lianXiFS;
 
 @end

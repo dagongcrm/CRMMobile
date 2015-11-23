@@ -15,11 +15,9 @@
 @property (strong,nonatomic) NSString *yeWuZL;
 @property (strong,nonatomic) NSString *yeWuZLBH;
 @property (strong,nonatomic) NSString *ftn_ID;
-@property (strong,nonatomic) NSString *hangYeFLMC;//行业归属
-@property (strong,nonatomic) NSString *heTongJE;//合同金额
-@property (strong,nonatomic) NSString *genZongSFJE;//跟踪收费金额
-@property (strong,nonatomic) NSString *zhuChengXS;//主承销商
-@property (strong,nonatomic) NSString *userName;//业务承办人
-@property (strong,nonatomic) NSString *lianXiFS;//联系方式
+
+@property (strong,nonatomic) NSString *heTongJE;
+@property (strong,nonatomic) NSString *genZongSFJE;
+@property (strong,nonatomic) NSString *lianXiFS;
 
 @end
