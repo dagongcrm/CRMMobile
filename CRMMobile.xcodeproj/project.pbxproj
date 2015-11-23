@@ -35,6 +35,7 @@
 		1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
+		39E876581C02F99700BF6808 /* CustomerSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E876571C02F99700BF6808 /* CustomerSelectTableViewController.m */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA491BFC58C8001A6D0D /* AddCustomerContactController.m */; };
@@ -258,6 +259,8 @@
 		1FF4D4971BFAF9C400F84401 /* activityDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activityDetailViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
+		39E876561C02F99700BF6808 /* CustomerSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerSelectTableViewController.h; sourceTree = "<group>"; };
+		39E876571C02F99700BF6808 /* CustomerSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerSelectTableViewController.m; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
@@ -594,6 +597,8 @@
 		39FD7DB01BF0346000CCD3F9 /* saleOpp */ = {
 			isa = PBXGroup;
 			children = (
+				39E876561C02F99700BF6808 /* CustomerSelectTableViewController.h */,
+				39E876571C02F99700BF6808 /* CustomerSelectTableViewController.m */,
 				96332E8A1BFF31F400BBEB85 /* DetailSaleOppViewController.h */,
 				96332E8B1BFF31F400BBEB85 /* DetailSaleOppViewController.m */,
 				96332E8C1BFF31F400BBEB85 /* DetailSaleOppViewController.xib */,
@@ -1475,6 +1480,7 @@
 				96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */,
 				9618AA4F1BFC7AD7001A6D0D /* AddCustomerEntity.m in Sources */,
 				C0D3CD881BDF0E8B00C23FB3 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				39E876581C02F99700BF6808 /* CustomerSelectTableViewController.m in Sources */,
 				C0D68C6B1BD8ED98009CEC23 /* config.m in Sources */,
 				96332E891BFF31E700BBEB85 /* SaleOppTableViewController.m in Sources */,
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,

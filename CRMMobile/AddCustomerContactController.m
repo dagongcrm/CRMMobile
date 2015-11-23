@@ -33,14 +33,14 @@
 @synthesize addCustomerEntity = _addCustomerEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"添加联系人信息";
+//    self.title=@"添加联系人信息";
     self.scroll.contentSize = CGSizeMake(375, 1000);
-    //设置导航栏返回
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
-    //设置返回键的颜色
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    NSLog(@"mmmmmmmmmmmmm%@",_addCustomerEntity.customerID);
+//    //设置导航栏返回
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.backBarButtonItem = item;
+//    //设置返回键的颜色
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    NSLog(@"mmmmmmmmmmmmm%@",_addCustomerEntity.customerID);
     NSString *customerName= _context;
     if (customerName.length==0) {
         self.khmc.text=@"";
@@ -72,9 +72,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 - (IBAction)cancleForAdd:(id)sender {
     
 }

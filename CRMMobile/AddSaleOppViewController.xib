@@ -6,6 +6,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSaleOppViewController">
             <connections>
+                <outlet property="contact" destination="qbz-h2-Crw" id="6a4-N4-7XG"/>
+                <outlet property="contactTel" destination="6gI-7j-G9d" id="gvc-fj-DWz"/>
+                <outlet property="customerNameStr" destination="QN7-RY-nKh" id="X25-cm-Q7c"/>
+                <outlet property="oppState" destination="Awj-ps-F3b" id="2bE-bs-tf0"/>
+                <outlet property="saleOppDescription" destination="RuT-sT-qkf" id="uIW-hf-1P8"/>
+                <outlet property="saleOppSrc" destination="wwJ-sZ-FQV" id="uYy-Kx-oLm"/>
+                <outlet property="scroll" destination="d8z-uX-PdI" id="hak-CY-2aX"/>
+                <outlet property="successProbability" destination="9fz-I9-wIR" id="qxf-Mf-TlK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -96,6 +104,9 @@
                             <state key="normal" title="取消">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="Tin-WX-laI"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="6gI-7j-G9d" userLabel="联系人电话">
                             <rect key="frame" x="46" y="508" width="282" height="30"/>
@@ -109,6 +120,9 @@
                             <state key="normal" title="保存">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="save:" destination="-1" eventType="touchUpInside" id="4LY-3L-eEH"/>
+                            </connections>
                         </button>
                     </subviews>
                 </scrollView>
