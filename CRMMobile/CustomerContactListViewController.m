@@ -12,6 +12,8 @@
 #import "MJRefresh.h"
 #import "EditCustomerContactController.h"
 #import "AddCustomerContactController.h"
+#import "AddCustomerCallPlanViewController.h"
+#import "CustomerCallPlanEditViewController.h"
 
 @interface CustomerContactListViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
@@ -24,6 +26,8 @@
 @implementation CustomerContactListViewController
 @synthesize customerEntity=_customerEntity;
 @synthesize addCustomerEntity =_addCustomerEntity;
+@synthesize CustomerCallPlanEntity =_customerCallPlanEntity;   //客户拜访计划
+
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -159,7 +163,7 @@
         //    _customerEntity.customerName = customerName;
         [editCustomer setContactEntity:_customerEntity];
         [self.navigationController pushViewController:editCustomer animated:YES];
-    }else{
+    }else if([index isEqualToString:@"2"]){
         AddCustomerContactController *AddCustomer =[[AddCustomerContactController alloc]init];
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSLog(@"sxccxcxcxcccxcxcxc%@",customerName1);
@@ -170,7 +174,25 @@
         [AddCustomer setContext:customerName1];
         [AddCustomer setAddCustomerEntity:_addCustomerEntity];
         [self.navigationController pushViewController:AddCustomer animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        AddCustomerCallPlanViewController *addCustomerCallPlan=[[AddCustomerCallPlanViewController alloc]init];
+        [addCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:addCustomerCallPlan animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"editCustomerCallPlan"]){   //修改客户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        CustomerCallPlanEditViewController *editCustomerCallPlan=[[CustomerCallPlanEditViewController alloc]init];
+        [editCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:editCustomerCallPlan animated:YES];
     }
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
