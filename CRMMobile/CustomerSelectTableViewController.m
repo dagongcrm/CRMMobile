@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "EntityHelper.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 
 @interface CustomerSelectTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
@@ -53,9 +54,9 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
-//        SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
-//        [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
-//        [self.entities addObject:saleOpp];
+        CustomerCallPlanDetailMessageEntity *customer =[[CustomerCallPlanDetailMessageEntity alloc] init];
+        [EntityHelper dictionaryToEntity:listDic entity:customer];
+        [self.entities addObject:customer];
     }
     return self.entities;
 }
@@ -64,11 +65,6 @@
     [super viewDidLoad];
     [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addSaleOpp:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
 }
 
@@ -77,12 +73,6 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
-}
-
-- (IBAction)addSaleOpp:(id)sender
-{
-//    AddSaleOppViewController *addSaleOpp= [[AddSaleOppViewController alloc] init];
-//    [self.navigationController pushViewController: addSaleOpp animated:YES];
 }
 
 - (void)setupRefresh
@@ -130,7 +120,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
+    CustomerCallPlanDetailMessageEntity *customer =[self.entities objectAtIndex:indexPath.row];
+    
 //    DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
 //    [detailSallOpp setSaleOppEntity:saleOppEntity];
 //    [self.navigationController pushViewController:detailSallOpp animated:YES];
@@ -154,7 +145,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-//    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
     return cell;
 }
 

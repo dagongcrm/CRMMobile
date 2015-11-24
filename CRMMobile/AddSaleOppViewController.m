@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"修改销售机会";
+    self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
 
 }
