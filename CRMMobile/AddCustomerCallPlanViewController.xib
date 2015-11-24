@@ -10,6 +10,7 @@
                 <outlet property="address" destination="C87-RZ-xPg" id="4nu-sb-Hdd"/>
                 <outlet property="customerChange" destination="3qp-xA-Tk2" id="oLX-qx-p9u"/>
                 <outlet property="customerRequirements" destination="kGS-qB-io9" id="eT1-us-7Qg"/>
+                <outlet property="khmc" destination="72X-3N-0VR" id="ZG2-HT-EqM"/>
                 <outlet property="respondent" destination="UzY-2P-eir" id="YkC-Z4-y3E"/>
                 <outlet property="respondentPhone" destination="lsT-hO-DWM" id="asO-yv-Gc9"/>
                 <outlet property="result" destination="sHk-Y7-y1p" id="oJp-z1-7XR"/>
@@ -155,6 +156,20 @@
                             </state>
                             <connections>
                                 <action selector="accessMethod:" destination="-1" eventType="touchUpInside" id="cxO-4A-471"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72X-3N-0VR">
+                            <rect key="frame" x="120" y="34" width="200" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gta-s9-lSW">
+                            <rect key="frame" x="120" y="34" width="200" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addCustomer:" destination="-1" eventType="touchUpInside" id="yvZ-og-EOp"/>
                             </connections>
                         </button>
                     </subviews>

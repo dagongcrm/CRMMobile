@@ -11,6 +11,7 @@
 #import "config.h"
 #import "CustomerCallPlanViewController.h"
 #import "ZSYPopoverListView.h"
+#import "CustomerContactListViewController.h"
 
 @interface CustomerCallPlanEditViewController ()
 
@@ -33,6 +34,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;   //客户需求
 
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;   //客户变故
+
+@property (weak, nonatomic) IBOutlet UITextField *khmc;    //客户名称
+
+
+
+
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
 
 
@@ -58,6 +65,43 @@
 @synthesize nextArray;
 @synthesize selectPicker;
 @synthesize selectedIndexPath = _selectedIndexPath;
+
+//选择客户名称
+- (IBAction)addCustomer:(id)sender {
+    
+//    NSString *theme=_theme.text;
+//    NSString *visitDate=_visitDate.text;
+//    NSString *respondentPhone=_respondentPhone.text;
+//    NSString *respondent=_respondent.text;
+//    NSString *address=_address.text;
+//    NSString *visitProfile=_visitProfile.text;
+//    NSString *result=_result.text;
+//    NSString *customerRequirements=_customerRequirements.text;
+//    NSString *customerChange=_customerChange.text;
+
+//    _customerCallPlanEntity=[[CustomerCallPlanDetailMessageEntity alloc] init];
+//    
+//    [_customerCallPlanEntity setTheme:theme];
+//    [_customerCallPlanEntity setAccessMethod:accessMethodID];
+//    [_customerCallPlanEntity setRespondentPhone:respondentPhone];
+//    [_customerCallPlanEntity setRespondent:respondent];
+//    [_customerCallPlanEntity setAddress:address];
+//    [_customerCallPlanEntity setVisitProfile:visitProfile];
+//    [_customerCallPlanEntity setVisitDate:visitDate];
+//    [_customerCallPlanEntity setResult:result];
+//    [_customerCallPlanEntity setCustomerRequirements:customerRequirements];
+//    [_customerCallPlanEntity setCustomerChange:customerChange];
+    
+    [_customerCallPlanEntity setIndex:@"editCustomerCallPlan"];
+    CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
+    [list setCustomerCallPlanEntity:_customerCallPlanEntity];
+    
+    [self.navigationController pushViewController:list animated:YES];
+    
+}
+
+
+
 
 
 //选择访问方式
@@ -192,7 +236,9 @@
     NSString *customerCallPlanID=_customerCallPlanEntity.customerCallPlanID;
     
     NSString *customerID=_customerCallPlanEntity.customerID;
-    
+    NSLog(@"-----------------------------%@",customerID);
+    NSString *customerName=_customerCallPlanEntity.customerNameStr;
+    NSLog(@"-----------------------------%@",customerName);
     NSString *visitDate=_visitDate.text;
     NSString *theme=_theme.text;
     NSString *respondentPhone=_respondentPhone.text;
@@ -218,7 +264,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&customerID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@",sid,customerCallPlanID,customerID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethodID];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethodID,customerID,customerName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -252,6 +298,7 @@
 
 //赋值方法
 - (void) valuation {
+    _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
     _respondentPhone.text=_customerCallPlanEntity.respondentPhone;

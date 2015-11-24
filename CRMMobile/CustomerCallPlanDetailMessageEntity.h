@@ -31,4 +31,6 @@
 @property (strong,nonatomic) NSString *baiFangRen;
 @property (strong,nonatomic) NSString *baiFangRenStr;
 
+@property (strong,nonatomic) NSString *index;
+
 @end

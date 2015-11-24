@@ -11,6 +11,8 @@
 #import "config.h"
 #import "CustomerCallPlanViewController.h"
 #import "ZSYPopoverListView.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
+#import "CustomerContactListViewController.h"
 
 @interface AddCustomerCallPlanViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -33,6 +35,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;  //客户需求
 
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;  //客户变故
+
+@property (weak, nonatomic) IBOutlet UITextField *khmc;
+
+
+
 
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
 
@@ -57,6 +64,47 @@
 @synthesize nextArray;
 @synthesize selectPicker;
 @synthesize selectedIndexPath = _selectedIndexPath;
+@synthesize customerCallPlanEntity = _customerCallPlanEntity;
+
+
+//选择客户名称
+- (IBAction)addCustomer:(id)sender {
+    
+    NSString *theme=_theme.text;
+    NSString *visitDate=_visitDate.text;
+    NSString *respondentPhone=_respondentPhone.text;
+    NSString *respondent=_respondent.text;
+    NSString *address=_address.text;
+    NSString *visitProfile=_visitProfile.text;
+    NSString *result=_result.text;
+    NSString *customerRequirements=_customerRequirements.text;
+    NSString *customerChange=_customerChange.text;
+    NSString *accessMethodID=@"";//拜访方式
+    for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
+        accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
+    }
+    
+    _customerCallPlanEntity=[[CustomerCallPlanDetailMessageEntity alloc] init];
+    
+    [_customerCallPlanEntity setTheme:theme];
+    [_customerCallPlanEntity setAccessMethod:accessMethodID];
+    [_customerCallPlanEntity setRespondentPhone:respondentPhone];
+    [_customerCallPlanEntity setRespondent:respondent];
+    [_customerCallPlanEntity setAddress:address];
+    [_customerCallPlanEntity setVisitProfile:visitProfile];
+    [_customerCallPlanEntity setVisitDate:visitDate];
+    [_customerCallPlanEntity setResult:result];
+    [_customerCallPlanEntity setCustomerRequirements:customerRequirements];
+    [_customerCallPlanEntity setCustomerChange:customerChange];
+    
+    [_customerCallPlanEntity setIndex:@"addCustomerCallPlan"];
+    CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
+    [list setCustomerCallPlanEntity:_customerCallPlanEntity];
+    
+    [self.navigationController pushViewController:list animated:YES];
+    
+}
+
 
 
 
@@ -194,8 +242,7 @@
 
 //添加
 - (IBAction)add:(id)sender {
-    NSString *customerID=@"CRMQYJBXX_2015110300001";  //指定假数据
-    
+    NSString *customerID=_customerCallPlanEntity.customerID;
     NSString *theme=_theme.text;
     NSString *visitDate=_visitDate.text;
     NSString *respondentPhone=_respondentPhone.text;
@@ -244,10 +291,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //赋值
+    [self valuation];
     //调节scroll宽度和高度
     self.scroll.contentSize=CGSizeMake(375, 800);
     
 }
+
+//赋值方法
+- (void) valuation {
+    _khmc.text=_customerCallPlanEntity.customerNameStr;
+    _visitDate.text=_customerCallPlanEntity.visitDate;
+    _theme.text=_customerCallPlanEntity.theme;
+    _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
+    _respondent.text=_customerCallPlanEntity.respondent;
+    _address.text=_customerCallPlanEntity.address;
+    _visitProfile.text=_customerCallPlanEntity.visitProfile;
+    _result.text=_customerCallPlanEntity.result;
+    _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
+    _customerChange.text=_customerCallPlanEntity.customerChange;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

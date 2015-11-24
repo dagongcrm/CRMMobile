@@ -33,5 +33,6 @@
 @synthesize baiFangRen=baiFangRen;
 @synthesize baiFangRenStr=_baiFangRenStr;
 
+@synthesize index=_index;
 
 @end
