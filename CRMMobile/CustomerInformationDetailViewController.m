@@ -15,6 +15,17 @@
 
 @interface CustomerInformationDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *CustomerNAME;
+@property (weak, nonatomic) IBOutlet UITextField *IndustryIDStr;
+@property (weak, nonatomic) IBOutlet UITextField *CompanyTypeStr;
+@property (weak, nonatomic) IBOutlet UITextField *CustomerClassStr;
+@property (weak, nonatomic) IBOutlet UITextField *ProvinceStr;
+@property (weak, nonatomic) IBOutlet UITextField *ShiChangXQFL;
+@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
+@property (weak, nonatomic) IBOutlet UITextField *Phone;
+@property (weak, nonatomic) IBOutlet UITextField *ReceptionPersonnel;
+
+
+
 
 @end
 
@@ -58,7 +69,7 @@
     
 }
 
-//修改
+//跳转至修改页面
 - (IBAction)edit:(id)sender {
     CustomerInformationEditViewController *uc =[[CustomerInformationEditViewController alloc] init];
     [uc setCustomerInformationEntity:_customerInformationEntity];
@@ -68,12 +79,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *ci= _customerInformationEntity.customerID;
-    NSString *cn= _customerInformationEntity.customerName;
-    self.CustomerNAME.text  =cn;
+    //赋值
+    [self valuation];
     
-    // Do any additional setup after loading the view from its nib.
 }
+
+- (void) valuation {
+    self.CustomerNAME.text  =_customerInformationEntity.customerName;
+    self.IndustryIDStr.text  =_customerInformationEntity.industryIDStr;
+    self.CompanyTypeStr.text  =_customerInformationEntity.companyTypeStr;
+    self.CustomerClassStr.text  =_customerInformationEntity.customerClassStr;
+    self.ProvinceStr.text  =_customerInformationEntity.provinceStr;
+    self.ShiChangXQFL.text  =_customerInformationEntity.shiChangXQFL;
+    self.CustomerAddress.text  =_customerInformationEntity.customerAddress;
+    self.Phone.text  =_customerInformationEntity.phone;
+    self.ReceptionPersonnel.text  =_customerInformationEntity.receptionPersonnel;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

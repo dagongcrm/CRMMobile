@@ -40,7 +40,7 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 1300);
     self.khmj.text = _contactEntity.customerNameStr;
     self.lxxm.text = _contactEntity.contactName;
     self.lxdh.text = _contactEntity.telePhone;

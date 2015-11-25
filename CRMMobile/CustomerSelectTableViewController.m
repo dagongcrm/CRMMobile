@@ -1,28 +1,25 @@
 //
-//  SaleOppTableViewController.m
+//  CustomerSelectTableViewController.m
 //  CRMMobile
 //
-//  Created by jam on 15/11/9.
+//  Created by jam on 15/11/23.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "SaleOppTableViewController.h"
-#import "AddSaleOppViewController.h"
+#import "CustomerSelectTableViewController.h"
 #import "MJRefresh.h"
 #import "AppDelegate.h"
 #import "config.h"
-#import "SaleOppEntity.h"
-#import "DetailSaleOppViewController.h"
 #import "EntityHelper.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 
-@interface SaleOppTableViewController ()
-
+@interface CustomerSelectTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
 
 @end
 
-@implementation SaleOppTableViewController
+@implementation CustomerSelectTableViewController
 - (NSMutableArray *)fakeData
 {
     if (!_entities) {
@@ -36,12 +33,12 @@
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleOpportunityAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    NSString *order = @"desc";
-//    NSString *sort = @"time";
+    //    NSString *order = @"desc";
+    //    NSString *sort = @"time";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -57,9 +54,9 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
-        SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
-        [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
-        [self.entities addObject:saleOpp];
+        CustomerCallPlanDetailMessageEntity *customer =[[CustomerCallPlanDetailMessageEntity alloc] init];
+        [EntityHelper dictionaryToEntity:listDic entity:customer];
+        [self.entities addObject:customer];
     }
     return self.entities;
 }
@@ -68,11 +65,6 @@
     [super viewDidLoad];
     [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addSaleOpp:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
 }
 
@@ -81,12 +73,6 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
-}
-
-- (IBAction)addSaleOpp:(id)sender
-{
-    AddSaleOppViewController *addSaleOpp= [[AddSaleOppViewController alloc] init];
-    [self.navigationController pushViewController: addSaleOpp animated:YES];
 }
 
 - (void)setupRefresh
@@ -125,7 +111,7 @@
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,10 +120,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
-    DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
-    [detailSallOpp setSaleOppEntity:saleOppEntity];
-    [self.navigationController pushViewController:detailSallOpp animated:YES];
+    CustomerCallPlanDetailMessageEntity *customer =[self.entities objectAtIndex:indexPath.row];
+    
+//    DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
+//    [detailSallOpp setSaleOppEntity:saleOppEntity];
+//    [self.navigationController pushViewController:detailSallOpp animated:YES];
 }
 
 

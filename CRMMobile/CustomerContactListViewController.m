@@ -14,6 +14,8 @@
 #import "MJRefresh.h"
 #import "EditCustomerContactController.h"
 #import "AddCustomerContactController.h"
+#import "AddCustomerCallPlanViewController.h"
+#import "CustomerCallPlanEditViewController.h"
 
 @interface CustomerContactListViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
@@ -175,6 +177,22 @@
         [AddCustomer setContext:customerName1];
         [AddCustomer setAddCustomerEntity:_addCustomerEntity];
         [self.navigationController pushViewController:AddCustomer animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        AddCustomerCallPlanViewController *addCustomerCallPlan=[[AddCustomerCallPlanViewController alloc]init];
+        [addCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:addCustomerCallPlan animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"editCustomerCallPlan"]){   //修改客户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        CustomerCallPlanEditViewController *editCustomerCallPlan=[[CustomerCallPlanEditViewController alloc]init];
+        [editCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:editCustomerCallPlan animated:YES];
     }
     if ([index isEqualToString:@"3"]) {
         EditPlanViewController *editCustomer3 = [[EditPlanViewController alloc]init];

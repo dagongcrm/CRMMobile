@@ -1,14 +1,15 @@
 //
-//  AddSaleOppViewController.m
+//  EditSaleOppViewController.m
 //  CRMMobile
 //
-//  Created by jam on 15/11/9.
+//  Created by jam on 15/11/20.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "AddSaleOppViewController.h"
+#import "EditSaleOppViewController.h"
 
-@interface AddSaleOppViewController ()
+@interface EditSaleOppViewController ()
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
@@ -22,20 +23,23 @@
 
 @end
 
-@implementation AddSaleOppViewController
+@implementation EditSaleOppViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"添加销售机会";
-    self.scroll.contentSize = CGSizeMake(375, 700);
-
+    self.title=@"修改销售机会";
+    self.scroll.contentSize = CGSizeMake(375, 600);
+    self.customerNameStr.text=_saleOppEntity.customerNameStr;
+    self.saleOppSrc.text=_saleOppEntity.saleOppSrc;
+    self.successProbability.text=_saleOppEntity.successProbability;
+    self.saleOppDescription.text=_saleOppEntity.saleOppDescription;
+    self.oppState.text=_saleOppEntity.oppState;
+    self.contact.text=_saleOppEntity.contact;
+    self.contactTel.text=_saleOppEntity.contactTel;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
 - (IBAction)cancel:(id)sender {
+    
 }
 
 - (IBAction)save:(id)sender {

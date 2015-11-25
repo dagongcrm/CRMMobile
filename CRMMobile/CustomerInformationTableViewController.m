@@ -10,14 +10,16 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "MJRefresh.h"
-#import "CustomerInfermationDetailMessageEntity.h"
-#import "CustomerInformationDetailViewController.h"
-#import "AddCustomerInformationViewController.h"
+#import "CustomerInfermationDetailMessageEntity.h";
+#import "CustomerInformationDetailViewController.h";
+#import "AddCustomerInformationViewController.h";
 
 @interface CustomerInformationTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *fakeData;
-@property (strong, nonatomic) NSMutableArray *customerID;
+@property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
+@property (strong, nonatomic) NSMutableArray *customerID;   //客户id数组
+@property (strong, nonatomic) NSMutableArray *industryIDStr;  //所属行业数组
+
 @property (strong, nonatomic) NSMutableArray *uid;
 @property  NSInteger index;
 @property (strong, nonatomic) NSMutableDictionary *uCustomerId;
@@ -26,7 +28,6 @@
 
 @implementation CustomerInformationTableViewController
 @synthesize CRMListData;
-
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -43,14 +44,13 @@
     [super viewDidLoad];
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
-    //添加
+    //添加图标
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
                                  action:@selector(addCustomerInfomation:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     
@@ -83,9 +83,13 @@
         NSDictionary *listdic = [list objectAtIndex:i];
         [self.uid addObject:listdic];
         NSString *teamname = (NSString *)[listdic objectForKey:@"customerName"];//获取客户名称
-        NSString *customerID=(NSString *)[listdic objectForKey:@"customerID"];//获取客户id        NSLog(@"%@",teamname);
-        [self.fakeData     addObject:teamname];
+        NSString *customerID=(NSString *)[listdic objectForKey:@"customerID"];//获取客户id
+        NSString *industryIDStr=(NSString *)[listdic objectForKey:@"industryIDStr"];  //所属行业
+        
+        
         [self.customerID     addObject:customerID];
+        [self.fakeData     addObject:teamname];
+        [self.industryIDStr addObject:industryIDStr];
     }
     [self customerIDReturn:self.customerID];
     return self.fakeData;
@@ -189,13 +193,32 @@
     if (tableView == self.tableView)
     {
         
-        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
-        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
-        
+        NSDictionary *nc =[self singleCustomerInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+        NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];  //客户名称
+        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];  // 客户id
+        NSString *industryIDStr  =(NSString *) [nc objectForKey:@"industryIDStr"];  //所属行业
+        NSString *companyTypeStr =(NSString *) [nc objectForKey:@"companyTypeStr"]; // 企业类型
+        NSString *customerClassStr =(NSString *) [nc objectForKey:@"customerClassStr"]; //客户类别
+        NSString *provinceStr =(NSString *) [nc objectForKey:@"provinceStr"];  //省份
+        NSString *shiChangXQFL =(NSString *) [nc objectForKey:@"shiChangXQFL"];  //市场需求分累
+        NSString *customerAddress =(NSString *) [nc objectForKey:@"customerAddress"];  //客户地址
+        NSString *phone =(NSString *) [nc objectForKey:@"phone"];  //联系电话
+        NSString *receptionPersonnel =(NSString *) [nc objectForKey:@"receptionPersonnel"];  //客户主维护人
+        NSString *createTime =(NSString *) [nc objectForKey:@"createTime"];  //创建时间
+ 
         CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
-        [udetail setCustomerName:customerName];
         [udetail setCustomerID:customerID];
+        [udetail setCustomerName:customerName];
+        [udetail setIndustryIDStr:industryIDStr];
+        [udetail setCompanyTypeStr:companyTypeStr];
+        [udetail setCustomerClassStr:customerClassStr];
+        [udetail setProvinceStr:provinceStr];
+        [udetail setShiChangXQFL:shiChangXQFL];
+        [udetail setCustomerAddress:customerAddress];
+        [udetail setPhone:phone];
+        [udetail setReceptionPersonnel:receptionPersonnel];
+        [udetail setCreateTime:createTime];
+  
         CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
         [uc setCustomerInformationEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
@@ -203,7 +226,7 @@
         
     }else
     {
-        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
+        NSDictionary *nc =[self singleCustomerInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
         
         NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
          NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
@@ -228,7 +251,7 @@
 }
 
 // get a single user all message
--(NSDictionary *) singleUserInfo :(NSString *) customerIDIn{
+-(NSDictionary *) singleCustomerInfo :(NSString *) customerIDIn{
     
     for (int z = 0; z<[self.uid count]; z++) {
         NSDictionary *listdic = [self.uid objectAtIndex:z];
@@ -241,7 +264,7 @@
     return  nil;
 }
 
-//tianjia
+//跳转至添加页面
 - (IBAction)addCustomerInfomation:(id)sender
 {
     AddCustomerInformationViewController *jumpController = [[AddCustomerInformationViewController alloc] init];
