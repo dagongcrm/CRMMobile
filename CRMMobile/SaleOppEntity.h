@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 //customerName  customerNameStr saleOppSrc successProbability saleOppDescription oppState contact contactTel
 @interface SaleOppEntity : NSObject
-    @property (strong,nonatomic) NSString *customerName;//riqi
+    @property (strong,nonatomic) NSString *saleOppID;
 
-    @property (strong,nonatomic) NSString *customerNameStr;//
+    @property (strong,nonatomic) NSString *customerName;
+
+    @property (strong,nonatomic) NSString *customerNameStr;
 
     @property (strong,nonatomic) NSString *saleOppSrc;
 

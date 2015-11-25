@@ -10,6 +10,8 @@
 //customerName  customerNameStr saleOppSrc successProbability saleOppDescription oppState contact contactTel
 @implementation SaleOppEntity
 
+    @synthesize saleOppID;
+
     @synthesize customerName;
 
     @synthesize customerNameStr;

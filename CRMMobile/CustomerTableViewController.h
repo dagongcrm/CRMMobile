@@ -1,19 +1,16 @@
 //
-//  CustomerContactListViewController.h
+//  CustomerTableViewController.h
 //  CRMMobile
 //
-//  Created by why on 15/11/17.
+//  Created by peng on 15/11/22.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "CostomerContactEntity.h"
 #import "VisitPlanNsObj.h"
 #import "AddCustomerEntity.h"
-#import "CustomerCallPlanDetailMessageEntity.h"
+@interface CustomerTableViewController : UITableViewController
 
-@interface CustomerContactListViewController : UITableViewController
-@property(strong,nonatomic)CostomerContactEntity *customerEntity;
 @property(strong,nonatomic)AddCustomerEntity *addCustomerEntity;
 @property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
 @end

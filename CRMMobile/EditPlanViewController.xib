@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditPlanViewController">
             <connections>
-                <outlet property="accessMethod" destination="qqi-e5-DNT" id="oOD-xb-OdY"/>
+                <outlet property="access" destination="QwJ-7y-0XT" id="AQr-sV-qgI"/>
                 <outlet property="address" destination="3Qo-qE-CyW" id="XZn-Ob-dhD"/>
                 <outlet property="customerChange" destination="GoB-wR-UEH" id="ofF-JM-xjd"/>
                 <outlet property="customerNameStr" destination="kqm-vx-HG7" id="nfC-bf-2Ky"/>
@@ -203,6 +203,15 @@
                             </state>
                             <connections>
                                 <action selector="goback:" destination="-1" eventType="touchUpInside" id="DQn-IG-kzp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwJ-7y-0XT">
+                            <rect key="frame" x="17" y="266" width="302" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="access:" destination="-1" eventType="touchUpInside" id="tY5-Fh-jCa"/>
                             </connections>
                         </button>
                     </subviews>

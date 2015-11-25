@@ -8,6 +8,9 @@
 
 #import "DetailSaleOppViewController.h"
 #import "EditSaleOppViewController.h"
+#import "SaleOppTableViewController.h"
+#import "config.h"
+#import "AppDelegate.h"
 
 @interface DetailSaleOppViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -27,8 +30,8 @@
 @synthesize saleOppEntity=_saleOppEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.title=@"销售机会详情";
-     self.scroll.contentSize = CGSizeMake(375, 600);
+    self.title=@"销售机会详情";
+    self.scroll.contentSize = CGSizeMake(375, 600);
     self.customerNameStr.text=_saleOppEntity.customerNameStr;
     self.saleOppSrc.text=_saleOppEntity.saleOppSrc;
     self.successProbability.text=_saleOppEntity.successProbability;
@@ -44,7 +47,25 @@
                               initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
     [alertView show];
 }
-
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleOpportunityAction!delete.action?"]];
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&ids=%@",sid,_saleOppEntity.saleOppID];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error;
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
+        if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
+            SaleOppTableViewController *saleOppTable = [[SaleOppTableViewController alloc]init];
+            [self.navigationController pushViewController:saleOppTable animated:YES];
+        }
+    }
+}
 - (IBAction)edit:(id)sender {
     EditSaleOppViewController *editSaleOpp = [[EditSaleOppViewController alloc]init];
     [editSaleOpp setSaleOppEntity:self.saleOppEntity];
