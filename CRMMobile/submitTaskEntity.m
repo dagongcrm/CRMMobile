@@ -25,9 +25,7 @@
 @synthesize genZongSFJE=_genZongSFJE;
 @synthesize lianXiFS=_lianXiFS;
 @synthesize hangYeFLBH = _hangYeFLBH;
-@synthesize hangYeFLMC = _hangYeFLMC;
-@synthesize zhuChengXS = _zhuChengXS;
-@synthesize userName = _userName;
+
 
 @end
 
