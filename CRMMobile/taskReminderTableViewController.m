@@ -110,9 +110,7 @@
                 }
             }
         }else if(i==1){
-            
-        }else if (i==2){
-            if ([listi count] != 0) {if ([listi count] != 0) {
+            if ([listi count] != 0) {
                 for (int i = 0; i<[listi count]; i++) {
                     listdic = [listi objectAtIndex:i];
                     [self.uid addObject:listdic];
@@ -126,6 +124,9 @@
                     
                 }
             }
+
+        }else if (i==2){
+            if ([listi count] != 0) {
                 for (int i = 0; i<[listi count]; i++) {
                     listdic = [listi objectAtIndex:i];
                     [self.uid addObject:listdic];
@@ -138,7 +139,7 @@
                         yeWuZLMC = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
                     }
 
-                   // NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];//获取客户名称
+//                    NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];//获取客户名称
 //                    NSString *customerID=(NSString *)[listdic objectForKey:@"bianHao"];//获取客户id
 //                    
 //                    NSString *yeWuZLMC = (NSString *)[listdic objectForKey:@"yeWuZLMC"];
@@ -258,6 +259,18 @@
 {
     [self customerIDuserName :self.fakeData :self.customerID];
     NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
+    NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
+    NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
+    NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+    NSString *hangYeFLBH =(NSString *) [nc objectForKey:@"hangYeFLBH"];
+    NSString *hangYeFLMC =(NSString *) [nc objectForKey:@"hangYeFLMC_cn"];
+    NSString *heTongJEStr =(NSString *) [nc objectForKey:@"heTongJEStr"];
+    
+    NSString *genZongSFJEStr =(NSString *) [nc objectForKey:@"genZongSFJEStr"];
+    NSString *zhuChengXS =(NSString *) [nc objectForKey:@"zhuChengXS"];
+    NSString *userName =(NSString *) [nc objectForKey:@"userName_cn"];
+    NSString *lianXiFS =(NSString *) [nc objectForKey:@"lianXiFS"];
     NSArray *key = [nc allKeys];
     NSLog(@"%@",key);
     
@@ -276,6 +289,15 @@
         auditEntity *ae =[[auditEntity alloc] init];
         [ae setSubmitName:customerNameStr];
         [ae setSubmitID:customerCallPlanID];
+        [ae setYeWuZL:yeWuZL];
+        [ae setFtn_ID:ftn_ID];
+        [ae setHangYeFLMC:hangYeFLMC];
+        [ae setHeTongJE:heTongJEStr];
+        [ae setGenZongSFJE:genZongSFJEStr];
+        [ae setZhuChengXS:zhuChengXS];
+        [ae setUserName:userName];
+        [ae setLianXiFS:lianXiFS];
+        
        
         auditDetailViewController *adc =[[auditDetailViewController alloc] init];
         [adc setAuditEntity:ae];
@@ -286,7 +308,7 @@
         NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
         //NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
         //NSString *theme =[self.theme objectAtIndex:indexPath.row];;
-         marketActivity *ma =[[marketActivity alloc] init];
+        marketActivity *ma =[[marketActivity alloc] init];
         [ma setActivityName:customerNameStr];
         activityDetailViewController *avc =[[activityDetailViewController alloc] init];
         [avc setMarketActivity:ma];

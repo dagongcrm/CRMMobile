@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
+#import "GLReusableViewController.h"
 #import "ReminderTableViewController.h"
 #import "ReminderDetailViewController.h"
 #import "config.h"
@@ -31,6 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务审核";
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.scroll.contentSize = CGSizeMake(375, 1050);
     self.listData = [[NSMutableArray alloc]init];
     
@@ -40,11 +46,33 @@
     self.heTongJE.text = _reminderEntity.heTongJEStr;
     self.genZongSFJE.text = _reminderEntity.genZongSFJEStr;
     self.zhuChengXS.text = _reminderEntity.zhuChengXS;
-    self.userName.text = @"于莎莎";
+//    self.userName.text = @"于莎莎";
+    self.userName.text = _reminderEntity.userName;
     self.lianXiFS.text = _reminderEntity.lianXiFS;
-  
     NSString *reminders =_reminderEntity.bianHao;
     [self.listData addObject:reminders];
+    NSError *error;
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mRenWuSH_DGGJAction!renWuSH_DGGJForm1.action?flag=2&step=1"]];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+    request.timeoutInterval=10.0;
+    request.HTTPMethod=@"POST";
+    NSString *bianHao = _reminderEntity.bianHao;
+    NSString *qiYeMC = _reminderEntity.qiYeMC;
+    NSString *yeWuZLMC_cn = _reminderEntity.yeWuZLMC_cn;
+    NSString *userID = _reminderEntity.userID;
+    NSString *hangYeFLMC= _reminderEntity.hangYeFLMC;
+    NSString *heTongJE = _reminderEntity.heTongJEStr;
+    NSString *genZongSFJE= _reminderEntity.genZongSFJEStr;
+    NSString *zhuChengXS = _reminderEntity.zhuChengXS;
+    NSString *userName = _reminderEntity.userName;
+    NSString *lianXiFS = _reminderEntity.lianXiFS;
+    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeMC=%@&yeWuZLMC_cn=%@&hangYeFLMC=%@&heTongJEStr=%@&genZongSFJEStr=%@&zhuChengXS=%@&userName=%@&lianXiFS=%@&MOBILE_SID=%@",bianHao,qiYeMC,yeWuZLMC_cn,hangYeFLMC,heTongJE,genZongSFJE,zhuChengXS,userName,lianXiFS,sid];
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +105,7 @@
     NSLog(@"%@",loginName);
     NSString *flowId1=@"";
     NSString *fln_UserCode1=@"";
-    NSString *nextParticipants=@"";
+//    NSString *nextParticipants=@"";
     //NSString *userID=@"";
     if (loginName == nil||[loginName isEqualToString:@"yushasha"]) {
         NSLog(@"%@",@"1");
@@ -98,7 +126,7 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
+        GLReusableViewController *mj = [[GLReusableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
         [alert show];
     }else{
@@ -155,7 +183,7 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
+        GLReusableViewController *mj = [[GLReusableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
         [alert show];
     }else{

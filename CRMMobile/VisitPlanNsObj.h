@@ -12,7 +12,7 @@
 @property (strong,nonatomic) NSString *customerNameStr;//riqi
 
 @property (strong,nonatomic) NSString *visitDate;//
-
+@property (strong,nonatomic) NSString *index;
 @property (strong,nonatomic) NSString *theme;
 @property (strong,nonatomic) NSString *customerCallPlanID;
 @property (strong, nonatomic) NSString *accessMethod;//访问方式
@@ -25,4 +25,5 @@
 @property (strong, nonatomic) NSString *customerRequirements;//客户需求
 @property (strong, nonatomic) NSString *customerChange;//客户变更
 @property (strong, nonatomic) NSString *visitorStr;//拜访人
+@property (strong,nonatomic) NSString *contactID;
 @end

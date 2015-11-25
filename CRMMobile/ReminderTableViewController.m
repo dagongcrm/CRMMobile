@@ -97,6 +97,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
+    
     NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -112,7 +113,6 @@
         NSLog(@"%@",listi);
          if(i==1){
              NSLog(@"aaaaaaaaaa");
-             
              if ([listi count] != 0) {
                  for (int i = 0; i<[listi count]; i++) {
                      listdic = [listi objectAtIndex:i];
@@ -132,6 +132,7 @@
                     NSLog(@"bbbbbbbby%@",activityCost);
                      NSLog(@"aaaaaaaaay%@",activityDateStr);
                      NSLog(@"%@",teamname);
+                     
                      [self.fakeData       addObject:teamname];
                      [self.customerID     addObject:customerID];
                      [self.detail addObject:activityDateStr];
@@ -165,7 +166,30 @@
                     NSString *renWuTJSJStr = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
                    
                     self.str = @"业务种类： ";
-                   
+                    if (teamname==nil||teamname==NULL) {
+                        teamname = @"";
+                    }
+                    if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
+                        genZongSFJEStr = @"";
+                    }
+                    if (customerID==nil||customerID==NULL) {
+                        customerID = @"";
+                    }
+                    if (hangYeFLMC==nil||hangYeFLMC==NULL) {
+                        hangYeFLMC = @"";
+                    }
+                    if (yeWuZLMC==nil||yeWuZLMC==NULL) {
+                        yeWuZLMC= @"";
+                    }
+                    if (zhuChengXS==nil||zhuChengXS==NULL) {
+                        zhuChengXS = @"";
+                    }
+                    if (heTongJE==nil||heTongJE==NULL) {
+                        heTongJE = @"";
+                    }
+                    if (lianXiFS==nil||lianXiFS==NULL) {
+                        lianXiFS= @"";
+                    }
                     NSLog(@"yyyyyyyy%@",zhuChengXS);
                     [self.fakeData       addObject:teamname];
                     [self.customerID     addObject:customerID];
@@ -183,6 +207,7 @@
                     [self.zhuChengXS   addObject:zhuChengXS];
                     [self.userName         addObject:userName];
                     [self.lianXiFS   addObject:lianXiFS];
+                    
                 }
                 
             }
@@ -305,16 +330,31 @@
                 NSString *heTongJE  =(NSString *) [nc objectForKey:@"heTongJEStr"];
                 NSString *genZongSFJEStr = (NSString *) [nc objectForKey:@"genZongSFJEStr"];
                 NSString *zhuChengXS = (NSString *) [nc objectForKey:@"zhuChengXS"];
+                NSString *userName = (NSString *) [nc objectForKey:@"userName"];
                 NSString *lianXiFS = (NSString *) [nc objectForKey:@"lianXiFS"];
-
+        if (qiYeMC==nil||qiYeMC==NULL) {
+            qiYeMC = @"";
+        }
         if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
             genZongSFJEStr = @"";
+        }
+        if (bianHao==nil||bianHao==NULL) {
+            bianHao = @"";
+        }
+        if (hangYeFLMC==nil||hangYeFLMC==NULL) {
+            hangYeFLMC = @"";
+        }
+        if (yeWuZLMC_cn==nil||yeWuZLMC_cn==NULL) {
+            yeWuZLMC_cn = @"";
         }
         if (zhuChengXS==nil||zhuChengXS==NULL) {
             zhuChengXS = @"";
         }
-        if (hangYeFLMC==nil||hangYeFLMC==NULL) {
-            hangYeFLMC = @"";
+        if (heTongJE==nil||heTongJE==NULL) {
+            heTongJE = @"";
+        }
+        if (lianXiFS==nil||lianXiFS==NULL) {
+            lianXiFS= @"";
         }
        
                 ReminderEntity *udetail =[[ReminderEntity alloc] init];
@@ -322,7 +362,7 @@
                 [udetail setBianHao:bianHao];
                 [udetail setYeWuZLMC_cn:yeWuZLMC_cn];
 
-        
+                [udetail setUserName:userName];
                 [udetail setHangYeFLMC:hangYeFLMC];
                 [udetail setHeTongJEStr:heTongJE];
                 [udetail setGenZongSFJEStr:genZongSFJEStr];

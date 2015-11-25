@@ -150,9 +150,9 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    NSString *order = @"desc";
-//    NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
+    NSString *order = @"desc";
+    NSString *sort = @"tianjiaSJ";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&order=%@&sort=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -215,7 +215,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self userIduserName:self.fakeData :self.contactIDData];
-        NSDictionary *nc =[self singleUserInfo:(NSString *)[_uNameId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    
+    NSDictionary *nc =[self singleUserInfo:(NSString *)[_uNameId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSLog(@"ncncncncncncncncncnc//////%@",nc);
     NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];
     NSString *contactName =(NSString *) [nc objectForKey:@"contactName"];

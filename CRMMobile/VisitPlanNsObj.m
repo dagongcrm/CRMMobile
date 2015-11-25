@@ -23,4 +23,6 @@
 @synthesize customerChange=_customerChange;
 @synthesize customerRequirements=_customerRequirements;
 @synthesize visitorStr=_visitorStr;
+@synthesize index=_index;
+@synthesize contactID=_contactID;
 @end

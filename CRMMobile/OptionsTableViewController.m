@@ -49,12 +49,27 @@
     CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
     NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
     NSLog(@"jjjdjdjdjdjdjdjjdjd");
+    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
+        if (iosDeviceScreenSize.height==568) {
+            //IPHONE5/5s/5c
+            NSLog(@"IPHONE5/5s/5c");
+        }else if(iosDeviceScreenSize.height==667){
+            //iphone6
+            NSLog(@"iphone 6");
+        }else if(iosDeviceScreenSize.height==736){
+            //iphone6plus
+            NSLog(@"iphone6plus");
+        }else{
+            //iphone 4等其他设备
+            NSLog(@"iphone 4等其他设备");
+        }
+    }
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 1300);
     _mMeUser = [[MeUser alloc] init];
     //顶部的图片区域
     //把图片添加到动态数组
@@ -134,7 +149,7 @@
     DicImg= APPDELEGATE.sessionInfo;
     NSString *imgFile = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"imageFile"];
     NSLog(@"%@",imgFile);
-        if(imgFile!=nil){
+    if(imgFile!=nil||imgFile!=NULL){
    NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
     NSString *path1 = [path stringByAppendingString:imgFile];
     NSString *imgpath = [path1 stringByAppendingString:@".jpg"];
@@ -164,11 +179,11 @@
     //        // 判断是否支持相机
             if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
             {
-    sheet  = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
+    sheet  = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
     
             }else{
     
-                sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
+                sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
             }
     sheet.tag = 255;
     [sheet showInView:self.view];
@@ -177,6 +192,7 @@
 
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSLog(@"mmmmmmklklklklkl%lu",buttonIndex);
     if (actionSheet.tag == 255) {
         
         NSUInteger sourceType = 0;
@@ -199,10 +215,10 @@
         }
         else {
             if (buttonIndex == 0) {
+                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            } else {
                 
                 return;
-            } else {
-                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
             }
         }
         // 跳转到相机或相册页面

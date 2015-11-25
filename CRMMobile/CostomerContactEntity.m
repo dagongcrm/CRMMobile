@@ -23,4 +23,5 @@
 @synthesize customerName=_customerName;
 @synthesize customerNameAdd=_customerNameAdd;
 @synthesize index=_index;
+@synthesize customerID=_customerID;
 @end

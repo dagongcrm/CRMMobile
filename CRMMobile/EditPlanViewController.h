@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "VisitPlanNsObj.h"
 #import "CostomerContactEntity.h"
+#import "AddCustomerEntity.h"
+#import "CostomerContactEntity.h"
 @interface EditPlanViewController : UIViewController
 @property (strong,nonatomic) VisitPlanNsObj *DailyEntity;
-@property(strong,nonatomic) CostomerContactEntity *contactEntity;
+@property (strong,nonatomic)AddCustomerEntity *addCustomerEntity;
+@property CostomerContactEntity *customerEntity;
+@property (strong,nonatomic) NSArray *nextArray;
+@property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
 @end
