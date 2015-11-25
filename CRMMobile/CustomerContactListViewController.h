@@ -21,4 +21,5 @@
 
 @property(strong,nonatomic)SaleOppEntity *saleOppEntity;//销售机会
 
+@property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
 @end

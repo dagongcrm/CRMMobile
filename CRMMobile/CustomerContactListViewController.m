@@ -32,6 +32,7 @@
 @synthesize addCustomerEntity =_addCustomerEntity;
 @synthesize CustomerCallPlanEntity =_customerCallPlanEntity;   //客户拜访计划
 @synthesize saleOppEntity =_saleOppEntity;   //销售机会
+@synthesize dailyEntity =_dailyEntity;
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -181,6 +182,14 @@
         [AddCustomer setContext:customerName1];
         [AddCustomer setAddCustomerEntity:_addCustomerEntity];
         [self.navigationController pushViewController:AddCustomer animated:YES];
+    }
+    if ([index isEqualToString:@"3"]) {
+        EditPlanViewController *editCustomer3 = [[EditPlanViewController alloc]init];
+        NSString *customerName3=[self.fakeData objectAtIndex:indexPath.row];
+        [_dailyEntity setCustomerNameStr:customerName3];
+        //    _customerEntity.customerName = customerName;
+        [editCustomer3 setDailyEntity:_dailyEntity];
+        [self.navigationController pushViewController:editCustomer3 animated:YES];
     }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
@@ -213,9 +222,8 @@
         EditSaleOppViewController *editSaleOpp=[[EditSaleOppViewController alloc]init];
         [editSaleOpp setSaleOppEntity:_saleOppEntity];
         [self.navigationController pushViewController:editSaleOpp animated:YES];    }
-    
-    
-}
+    }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fakeData count];
