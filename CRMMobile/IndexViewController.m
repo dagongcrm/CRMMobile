@@ -160,7 +160,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetX=scrollView.contentOffset.x;
-    offsetX=offsetX+(scrollView.frame.size.width*0.5);
+    offsetX=offsetX+(scrollView.frame.size.width);
     int page=offsetX/scrollView.frame.size.width;
     page = MAX(page, 0);
     page = MIN(page, TOTAL_PAGES - 1);
@@ -171,6 +171,14 @@
         NSInteger page = roundf(scrollView.contentOffset.x / scrollView.frame.size.width);
     }
     self.pageControl.currentPage=page;
-   
+//
+//    if (scrollView == self.scrollView) {
+//        CGFloat navX = scrollView.contentOffset.x / scrollView.frame.size.width * self.navScrollView.frame.size.width;
+//        self.navScrollView.contentOffset = CGPointMake(navX, 0.0);
+//        NSInteger page = roundf(scrollView.contentOffset.x / scrollView.frame.size.width);
+//        page = MAX(page, 0);
+//        page = MIN(page, TOTAL_PAGES - 1);
+//        [self loadPage:page];
+//    }
 }
 @end

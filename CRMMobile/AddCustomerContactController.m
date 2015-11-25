@@ -119,6 +119,7 @@
     NSString *position=self.zhiwu.text;
     NSString *evaluationOfTheSalesman=self.xsypj.text;
     _addCustomerEntity =[[AddCustomerEntity alloc]init];
+    _customerEntity = [[CostomerContactEntity alloc]init];
         [_addCustomerEntity setCustomerName:customerName];
 
         [_addCustomerEntity setContactName:contactName];

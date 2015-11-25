@@ -1,7 +1,7 @@
 //
 //  submitTaskEntity.m
 //  CRMMobile
-//
+//22223333
 //  Created by zhang on 15/11/3.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
@@ -18,4 +18,12 @@
 @synthesize yeWuZLBH=_yeWuZLBH;
 @synthesize ftn_ID=_ftn_ID;
 
+@synthesize heTongJE=_heTongJE;
+@synthesize genZongSFJE=_genZongSFJE;
+@synthesize lianXiFS=_lianXiFS;
+@synthesize hangYeFLMC = _hangYeFLMC;
+@synthesize zhuChengXS = _zhuChengXS;
+@synthesize userName = _userName;
+
 @end
+

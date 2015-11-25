@@ -15,6 +15,7 @@
 #import "submitTaskEntity.h"
 #import "submitTaskDetailViewController.h"
 #import "selectEntity.h"
+#import "MJRefresh.h"
 
 @interface SubmitTableViewController ()
 
@@ -27,24 +28,35 @@
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 
 @property (strong, nonatomic) NSMutableDictionary *uSubmitId;
+@property  NSInteger index;
 
 //@property (strong, nonatomic) NSMutableArray *yeWuZLBH;
 
 @end
 
 @implementation SubmitTableViewController
+- (NSMutableArray *)fakeData
+{
+    if (!_fakeData) {
+        self.bianHao=[[NSMutableArray alloc] init];
+        self.fakeData=[[NSMutableArray alloc] init];
+        self.dataing=[[NSMutableArray alloc] init];
+        self.time=[[NSMutableArray alloc] init];
+        self.uid=[[NSMutableArray alloc] init];
+        [self faker:@"1"];
+        [self faker:@"2"];
+        
+    }
+    return _fakeData;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self faker:@"1"];
+    [self setupRefresh];
     [self leftButtonInit];
 }
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    self.bianHao=[[NSMutableArray alloc] init];
-    self.fakeData=[[NSMutableArray alloc] init];
-    self.dataing=[[NSMutableArray alloc] init];
-    self.time=[[NSMutableArray alloc] init];
-    self.uid=[[NSMutableArray alloc] init];
+   
     //self.yeWuZLBH=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -60,14 +72,13 @@
     NSArray *list = [weatherDic objectForKey:@"obj"];
         for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
-            NSLog(@"%@",listdic);
+        NSLog(@"%@",listdic);
         [self.uid addObject:listdic];
         NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
-        NSLog(@"%@",submitID);
         NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
         NSLog(@"%@",teamname);
         NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
-        NSLog(@"%@",userId);
+        
         NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
         NSString *yeWuZLBH   = (NSString *)[listdic objectForKey:@"yeWuZLBH"];
         [self.fakeData     addObject:teamname];
@@ -79,14 +90,67 @@
     [self submitIDReturn:self.bianHao];
     return self.fakeData;
 }
--(NSMutableArray *) submitIDReturn: (NSMutableArray *) uidArr
+- (void)setupRefresh
 {
-    return self.bianHao;
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
 }
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    myDelegate.index =3;
+    [self faker:@"1"];
+    [self faker:@"2"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    if(myDelegate.index==0){
+        myDelegate.index=3;
+    }
+    self.index=myDelegate.index++;
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// hide the extraLine
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+-(NSMutableArray *) submitIDReturn: (NSMutableArray *) uidArr
+{
+    return self.bianHao;
+}
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
 
 #pragma mark - Table view data source
 
@@ -132,7 +196,7 @@
                                  action:@selector(addFlow:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back001.png"] imageWithTintColor:[UIColor whiteColor]];
+    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
@@ -183,12 +247,18 @@
     {
         
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uSubmitId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];
+        NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];//
         NSString *submitID  =(NSString *) [nc objectForKey:@"bianHao"];
         NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
         NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSString *hangYeFLMC =(NSString *) [nc objectForKey:@"hangYeFLMC_cn"];
+        NSString *heTongJEStr =(NSString *) [nc objectForKey:@"heTongJEStr"];
+        NSString *genZongSFJEStr =(NSString *) [nc objectForKey:@"genZongSFJEStr"];
+        NSString *zhuChengXS =(NSString *) [nc objectForKey:@"zhuChengXS"];
+        NSString *userName =(NSString *) [nc objectForKey:@"userName_cn"];
+        NSString *lianXiFS =(NSString *) [nc objectForKey:@"lianXiFS"];
         NSLog(@"%@",userID);
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
@@ -198,6 +268,12 @@
         [udetail setYeWuZL:yeWuZL];
         [udetail setYeWuZLBH:yeWuZLBH];
         [udetail setFtn_ID:ftn_ID];
+        [udetail setHangYeFLMC:hangYeFLMC];
+        [udetail setHeTongJE:heTongJEStr];
+        [udetail setGenZongSFJE:genZongSFJEStr];
+        [udetail setZhuChengXS:zhuChengXS];
+        [udetail setUserName:userName];
+        [udetail setLianXiFS:lianXiFS];
         submitTaskDetailViewController *uc =[[submitTaskDetailViewController alloc] init];
         [uc setSubmitTaskEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
