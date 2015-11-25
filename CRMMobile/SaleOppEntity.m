@@ -27,5 +27,7 @@
     @synthesize contact;
 
     @synthesize contactTel;
+
+    @synthesize index;
 @end
 

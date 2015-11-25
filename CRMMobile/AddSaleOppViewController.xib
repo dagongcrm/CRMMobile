@@ -124,6 +124,15 @@
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="4LY-3L-eEH"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoJ-fg-bGT">
+                            <rect key="frame" x="51" y="71" width="277" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="customerNameSelect:" destination="-1" eventType="touchUpInside" id="zEo-Zv-T9y"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>

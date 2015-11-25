@@ -19,25 +19,38 @@
 @property (weak, nonatomic) IBOutlet UITextField *contactTel;
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
+- (IBAction)customerNameSelect:(id)sender;
 
 @end
 
 @implementation AddSaleOppViewController
-
+@synthesize saleOppEntity=_saleOppEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
 
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+//赋值方法
+- (void) valuation {
+    
+//    _khmc.text=_customerCallPlanEntity.customerNameStr;
+//    _visitDate.text=_customerCallPlanEntity.visitDate;
+//    _theme.text=_customerCallPlanEntity.theme;
+//    _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
+//    _respondent.text=_customerCallPlanEntity.respondent;
+//    _address.text=_customerCallPlanEntity.address;
+//    _visitProfile.text=_customerCallPlanEntity.visitProfile;
+//    _result.text=_customerCallPlanEntity.result;
+//    _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
+//    _customerChange.text=_customerCallPlanEntity.customerChange;
 }
 - (IBAction)cancel:(id)sender {
 }
 
 - (IBAction)save:(id)sender {
+}
+
+- (IBAction)customerNameSelect:(id)sender {
 }
 @end

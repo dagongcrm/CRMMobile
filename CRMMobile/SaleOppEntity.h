@@ -26,4 +26,6 @@
     @property (strong,nonatomic) NSString *contact;
 
     @property (strong,nonatomic) NSString *contactTel;
+
+    @property (strong,nonatomic) NSString *index;
 @end

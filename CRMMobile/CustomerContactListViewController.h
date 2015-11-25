@@ -10,11 +10,14 @@
 #import "CostomerContactEntity.h"
 #import "AddCustomerEntity.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
+#import "SaleOppEntity.h"
 
 @interface CustomerContactListViewController : UITableViewController
 @property(strong,nonatomic)CostomerContactEntity *customerEntity;
 @property(strong,nonatomic)AddCustomerEntity *addCustomerEntity;
 
 @property(strong,nonatomic)CustomerCallPlanDetailMessageEntity *CustomerCallPlanEntity;//客户拜访计划
+
+@property(strong,nonatomic)SaleOppEntity *saleOppEntity;//销售机会
 
 @end

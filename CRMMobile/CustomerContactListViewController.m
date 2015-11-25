@@ -14,6 +14,8 @@
 #import "AddCustomerContactController.h"
 #import "AddCustomerCallPlanViewController.h"
 #import "CustomerCallPlanEditViewController.h"
+#import "AddSaleOppViewController.h"
+#import "EditSaleOppViewController.h"
 
 @interface CustomerContactListViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
@@ -27,7 +29,7 @@
 @synthesize customerEntity=_customerEntity;
 @synthesize addCustomerEntity =_addCustomerEntity;
 @synthesize CustomerCallPlanEntity =_customerCallPlanEntity;   //客户拜访计划
-
+@synthesize saleOppEntity =_saleOppEntity;   //销售机会
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -190,7 +192,22 @@
         CustomerCallPlanEditViewController *editCustomerCallPlan=[[CustomerCallPlanEditViewController alloc]init];
         [editCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
         [self.navigationController pushViewController:editCustomerCallPlan animated:YES];
-    }
+    }else if([_saleOppEntity.index isEqualToString:@"addSaleOpp"]){   //添加销售机会中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_saleOppEntity setCustomerName:customerID ];
+        [_saleOppEntity setCustomerNameStr:customerName1 ];
+        AddSaleOppViewController *addSaleOpp=[[AddSaleOppViewController alloc]init];
+        [addSaleOpp setSaleOppEntity:_saleOppEntity];
+        [self.navigationController pushViewController:addSaleOpp animated:YES];
+    }else if([_saleOppEntity.index isEqualToString:@"editSaleOpp"]){   //修改销售机会中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_saleOppEntity setCustomerName:customerID ];
+        [_saleOppEntity setCustomerNameStr:customerName1 ];
+        EditSaleOppViewController *editSaleOpp=[[EditSaleOppViewController alloc]init];
+        [editSaleOpp setSaleOppEntity:_saleOppEntity];
+        [self.navigationController pushViewController:editSaleOpp animated:YES];    }
     
     
 }
