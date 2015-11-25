@@ -58,7 +58,7 @@
         self.customerChange = [[NSMutableArray alloc]init];
         self.visitorStr = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -140,7 +140,7 @@
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
         
-        NSString *teamname = (NSString *)[listDic objectForKey:@"customerNameStr"];
+        NSString *teamname = (NSString *)[listDic objectForKey:@"customerName"];
         NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerCallPlanID"];
         NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
         NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];

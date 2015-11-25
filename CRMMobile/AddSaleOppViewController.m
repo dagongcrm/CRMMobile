@@ -9,6 +9,16 @@
 #import "AddSaleOppViewController.h"
 
 @interface AddSaleOppViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
+@property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
+@property (weak, nonatomic) IBOutlet UITextField *successProbability;
+@property (weak, nonatomic) IBOutlet UITextField *saleOppDescription;
+@property (weak, nonatomic) IBOutlet UITextField *oppState;
+@property (weak, nonatomic) IBOutlet UITextField *contact;
+@property (weak, nonatomic) IBOutlet UITextField *contactTel;
+- (IBAction)cancel:(id)sender;
+- (IBAction)save:(id)sender;
 
 @end
 
@@ -16,22 +26,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title=@"添加销售机会";
+    self.scroll.contentSize = CGSizeMake(375, 700);
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+}
+- (IBAction)cancel:(id)sender {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)save:(id)sender {
 }
-*/
-
 @end

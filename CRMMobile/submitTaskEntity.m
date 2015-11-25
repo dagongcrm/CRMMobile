@@ -17,7 +17,9 @@
 @synthesize yeWuZL=_yeWuZL;
 @synthesize yeWuZLBH=_yeWuZLBH;
 @synthesize ftn_ID=_ftn_ID;
-
+@synthesize hangYeFLMC=_hangYeFLMC;
+@synthesize userName=_userName;
+@synthesize zhuChengXS=_zhuChengXS;
 @synthesize heTongJE=_heTongJE;
 @synthesize genZongSF=_genZongSF;
 @synthesize genZongSFJE=_genZongSFJE;

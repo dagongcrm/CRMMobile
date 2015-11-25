@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CostomerContactEntity.h"
+#import "VisitPlanNsObj.h"
 #import "AddCustomerEntity.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
+
 @interface CustomerContactListViewController : UITableViewController
 @property(strong,nonatomic)CostomerContactEntity *customerEntity;
 @property(strong,nonatomic)AddCustomerEntity *addCustomerEntity;
+@property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
 @end

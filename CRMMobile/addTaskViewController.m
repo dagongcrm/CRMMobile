@@ -167,7 +167,7 @@
     NSString *roleTitle;
     if(_roleEntity.strChoose==nil)
     {
-        roleTitle =@"请点击选取企业";
+        roleTitle =@"请点击选取角色";
     }
     else
     {

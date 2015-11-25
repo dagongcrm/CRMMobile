@@ -6,12 +6,16 @@
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
+#import "PlanButViewController.h"
+#import "EditPlanViewController.h"
 #import "CustomerContactListViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
 #import "MJRefresh.h"
 #import "EditCustomerContactController.h"
 #import "AddCustomerContactController.h"
+#import "AddCustomerCallPlanViewController.h"
+#import "CustomerCallPlanEditViewController.h"
 
 @interface CustomerContactListViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
@@ -24,6 +28,7 @@
 @implementation CustomerContactListViewController
 @synthesize customerEntity=_customerEntity;
 @synthesize addCustomerEntity =_addCustomerEntity;
+@synthesize dailyEntity =_dailyEntity;
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -152,25 +157,53 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *index = _customerEntity.index;
+    NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
     if ([index isEqualToString:@"1"]) {
         EditCustomerContactController *editCustomer = [[EditCustomerContactController alloc]init];
         NSString *customerName=[self.fakeData objectAtIndex:indexPath.row];
         [_customerEntity setCustomerName:customerName];
+        [_customerEntity setCustomerID:customerID];
         //    _customerEntity.customerName = customerName;
         [editCustomer setContactEntity:_customerEntity];
         [self.navigationController pushViewController:editCustomer animated:YES];
-    }else{
+    }
+    if ([index isEqualToString:@"2"]){
         AddCustomerContactController *AddCustomer =[[AddCustomerContactController alloc]init];
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSLog(@"sxccxcxcxcccxcxcxc%@",customerName1);
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+//        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
 //        _addCustomerEntity = [[AddCustomerEntity alloc]init];
         [_addCustomerEntity setCustomerID:customerID];
         NSLog(@"777777777%@",_addCustomerEntity.contactName);
         [AddCustomer setContext:customerName1];
         [AddCustomer setAddCustomerEntity:_addCustomerEntity];
         [self.navigationController pushViewController:AddCustomer animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        AddCustomerCallPlanViewController *addCustomerCallPlan=[[AddCustomerCallPlanViewController alloc]init];
+        [addCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:addCustomerCallPlan animated:YES];
+    }else if([_customerCallPlanEntity.index isEqualToString:@"editCustomerCallPlan"]){   //修改客户拜访纪录中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_customerCallPlanEntity setCustomerID:customerID ];
+        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
+        CustomerCallPlanEditViewController *editCustomerCallPlan=[[CustomerCallPlanEditViewController alloc]init];
+        [editCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
+        [self.navigationController pushViewController:editCustomerCallPlan animated:YES];
     }
+    if ([index isEqualToString:@"3"]) {
+        EditPlanViewController *editCustomer3 = [[EditPlanViewController alloc]init];
+        NSString *customerName3=[self.fakeData objectAtIndex:indexPath.row];
+        [_dailyEntity setCustomerNameStr:customerName3];
+        //    _customerEntity.customerName = customerName;
+        [editCustomer3 setDailyEntity:_dailyEntity];
+        [self.navigationController pushViewController:editCustomer3 animated:YES];
+    }
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -117,6 +117,10 @@
     NSLog(@"%@", title);
     [super viewDidLoad];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    self.suoshuHY.text = myDelegate.hangYeFLMC;
+    self.hetongJE.text = myDelegate.heTongJE;
+    self.genzongSFJE.text = myDelegate.genZongSFJE;
+    self.lianxiFS.text =myDelegate.lianXiFS;
     NSString *yeWuZL = myDelegate.yeWuZL;
     NSString *submitName = myDelegate.submitName;
     NSLog(@"%@",yeWuZL);
@@ -345,6 +349,10 @@
 
 
 - (IBAction)save:(id)sender {
+//    NSString *suoshuHY = self.suoshuHY.text;
+    NSString *hetongJE = self.hetongJE.text;
+    NSString *genzongSFJE = self.genzongSFJE.text;
+    NSString *lianxiFS = self.lianxiFS.text;
     NSError *error;
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
