@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CostomerContactEntity.h"
+#import "VisitPlanNsObj.h"
 #import "AddCustomerEntity.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "SaleOppEntity.h"

@@ -6,18 +6,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addTaskViewController">
             <connections>
-                <outlet property="GenZongSF" destination="pKG-A7-H4A" id="NlE-gM-69h"/>
                 <outlet property="GenZongSFJE" destination="wlC-OL-PPC" id="Rjz-9b-c7g"/>
                 <outlet property="HangYeGS" destination="cnT-vH-wio" id="XW8-WW-RMF"/>
-                <outlet property="HeTongJE" destination="vKL-6l-oeX" id="zTC-AE-Lbp"/>
-                <outlet property="LianXiFS" destination="C9Y-OU-Nb5" id="oda-id-Uvc"/>
+                <outlet property="HeTongJE" destination="vKL-6l-oeX" id="VZC-Ax-Wkv"/>
+                <outlet property="Lable" destination="dPS-HB-cXY" id="Ghj-Z2-CMk"/>
+                <outlet property="LianXiFS" destination="C9Y-OU-Nb5" id="qQb-tc-4wV"/>
                 <outlet property="chooseUserButton" destination="ZRz-FE-2kw" id="hoi-ya-dtD"/>
-                <outlet property="chooseUserButtonQiYe" destination="dwx-ab-ZCZ" id="Q7d-da-fAr"/>
+                <outlet property="chooseUserButtonHY" destination="LOq-RV-yEP" id="myP-1K-nyR"/>
+                <outlet property="chooseUserButtonQiYe" destination="dwx-ab-ZCZ" id="mU1-AL-c3w"/>
                 <outlet property="genZongSFJE" destination="wlC-OL-PPC" id="SpP-nJ-Jyc"/>
                 <outlet property="heTongJE" destination="vKL-6l-oeX" id="FzK-Ng-39u"/>
                 <outlet property="lianXiFS" destination="C9Y-OU-Nb5" id="fLx-V1-BlE"/>
+                <outlet property="qiYeMC" destination="Nf2-dM-bQX" id="Tjc-MJ-sY0"/>
                 <outlet property="scroll" destination="OGC-Lr-y7u" id="Rj2-eE-VAD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="h8c-G6-XCY"/>
+                <outlet property="yeWuZL" destination="zbn-wm-ITJ" id="7mS-PV-qOn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OGC-Lr-y7u">
-                    <rect key="frame" x="0.0" y="-7" width="618" height="800"/>
+                    <rect key="frame" x="0.0" y="-10" width="618" height="800"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-dM-bQX" userLabel="qymc">
                             <rect key="frame" x="43" y="92" width="262" height="30"/>
@@ -44,15 +47,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-ab-ZCZ">
-                            <rect key="frame" x="42" y="92" width="262" height="30"/>
-                            <state key="normal" title="请选择企业">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="Sgu-lW-qdD"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="业务种类:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbR-0y-Di4">
                             <rect key="frame" x="44" y="135" width="120" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -97,35 +91,30 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="跟踪收费：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOl-ck-UTW">
-                            <rect key="frame" x="48" y="371" width="120" height="21"/>
+                            <rect key="frame" x="42" y="454" width="120" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pKG-A7-H4A" userLabel="gzsf">
-                            <rect key="frame" x="48" y="405" width="262" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="跟踪收费金额（元）：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPS-HB-cXY">
-                            <rect key="frame" x="44" y="456" width="200" height="21"/>
+                            <rect key="frame" x="48" y="524" width="200" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="wlC-OL-PPC" userLabel="gzsfje">
-                            <rect key="frame" x="44" y="490" width="262" height="30"/>
+                            <rect key="frame" x="43" y="553" width="262" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="联系方式：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-aC-5dn">
-                            <rect key="frame" x="48" y="528" width="120" height="21"/>
+                            <rect key="frame" x="44" y="389" width="120" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="C9Y-OU-Nb5" userLabel="lxfs">
-                            <rect key="frame" x="48" y="562" width="262" height="30"/>
+                            <rect key="frame" x="42" y="411" width="262" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -141,10 +130,38 @@
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vKL-6l-oeX" userLabel="htje">
-                            <rect key="frame" x="48" y="328" width="262" height="30"/>
+                            <rect key="frame" x="44" y="333" width="262" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOq-RV-yEP">
+                            <rect key="frame" x="43" y="246" width="262" height="30"/>
+                            <state key="normal" title="请选择所属行业">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectHY:" destination="-1" eventType="touchUpInside" id="ir8-x3-h8B"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-ab-ZCZ">
+                            <rect key="frame" x="42" y="92" width="262" height="30"/>
+                            <state key="normal" title="请选择企业">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="9Gb-p2-Ovl"/>
+                            </connections>
+                        </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zT3-qU-pnC">
+                            <rect key="frame" x="42" y="483" width="123" height="29"/>
+                            <segments>
+                                <segment title="是"/>
+                                <segment title="否"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentControl:" destination="-1" eventType="valueChanged" id="KdJ-6f-nJG"/>
+                            </connections>
+                        </segmentedControl>
                     </subviews>
                 </scrollView>
             </subviews>

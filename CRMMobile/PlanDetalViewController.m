@@ -44,6 +44,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划";
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.scroll.contentSize = CGSizeMake(375, 1300);
 //    self.listData = [[NSMutableArray alloc]init];
     self.customerNameStr.text =_dailyEntity.customerNameStr;
