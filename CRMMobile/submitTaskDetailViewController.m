@@ -111,6 +111,12 @@
     myDelegate.submitName = _submitTaskEntity.submitName;
     myDelegate.yeWuZLBH = _submitTaskEntity.yeWuZLBH;
     myDelegate.yeWuZL =_submitTaskEntity.yeWuZL;
+    myDelegate.hangYeFLBH = _submitTaskEntity.hangYeFLBH;
+    myDelegate.hangYeFLMC = _submitTaskEntity.hangYeFLMC;
+    myDelegate.heTongJE = _submitTaskEntity.heTongJE;
+    myDelegate.gezongSF = _submitTaskEntity.genZongSF;
+    myDelegate.genZongSFJE = _submitTaskEntity.genZongSFJE;
+    myDelegate.lianxiFS = _submitTaskEntity.lianXiFS;
     editTaskViewController *la = [[editTaskViewController alloc] init];
     [self.navigationController pushViewController:la animated:YES];
 }
@@ -130,12 +136,13 @@
     NSString *qiYeMC = _submitTaskEntity.submitName;
     NSString *yeWuZLMC = _submitTaskEntity.yeWuZL;
     NSString *ftn_ID = _submitTaskEntity.ftn_ID;
+    NSString *hangYeFLMC = _submitTaskEntity.hangYeFLMC;
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
     NSLog(@"%@",ftn_ID);
-        
+    NSLog(@"hangYeFLMC%@",hangYeFLMC);
    
     NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];

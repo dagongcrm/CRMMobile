@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="genzongshoufeije" destination="2Ql-6W-ZNo" id="eG2-04-nRU"/>
                 <outlet property="hetongje" destination="Nc9-23-RE3" id="UjS-aU-DFY"/>
-                <outlet property="lianxifs" destination="wSW-fT-o8A" id="DZ3-qK-oeL"/>
+                <outlet property="lianxifs" destination="wSW-fT-o8A" id="j0E-2R-sHs"/>
                 <outlet property="qiYeMC1" destination="cER-1Q-xYg" id="5ol-a6-b6l"/>
                 <outlet property="scroll" destination="17I-ix-bQ7" id="VgW-th-bx2"/>
                 <outlet property="suosuhy" destination="K1Z-Qq-ril" id="hkA-JK-BHQ"/>
@@ -92,11 +92,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSW-fT-o8A" userLabel="lxfs">
-                            <rect key="frame" x="44" y="642" width="262" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-qp-MkP">
                             <rect key="frame" x="229" y="709" width="60" height="30"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
@@ -116,7 +111,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="quq-9q-866"/>
+                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="w4K-jf-xrN"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXK-UQ-1wj">
@@ -147,10 +142,16 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSW-fT-o8A" userLabel="lxfs">
+                            <rect key="frame" x="44" y="637" width="262" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="190" y="314"/>
         </view>
     </objects>
 </document>
