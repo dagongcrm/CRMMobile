@@ -38,6 +38,11 @@
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *suoshuHY;//所属行业
+@property (weak, nonatomic) IBOutlet UITextField *hetongJE;//合同金额
+@property (weak, nonatomic) IBOutlet UITextField *genzongSFJE;//跟踪收费金额
+@property (weak, nonatomic) IBOutlet UITextField *lianxiFS;//联系方式
+
 
 @end
 
@@ -96,6 +101,10 @@
     NSLog(@"%@", title);
     [super viewDidLoad];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    self.suoshuHY.text = myDelegate.hangYeFLMC;
+    self.hetongJE.text = myDelegate.heTongJE;
+    self.genzongSFJE.text = myDelegate.genZongSFJE;
+    self.lianxiFS.text =myDelegate.lianXiFS;
     NSString *yeWuZL = myDelegate.yeWuZL;
     NSString *submitName = myDelegate.submitName;
     NSLog(@"%@",yeWuZL);
@@ -329,6 +338,10 @@
 
 
 - (IBAction)save:(id)sender {
+//    NSString *suoshuHY = self.suoshuHY.text;
+    NSString *hetongJE = self.hetongJE.text;
+    NSString *genzongSFJE = self.genzongSFJE.text;
+    NSString *lianxiFS = self.lianxiFS.text;
     NSError *error;
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -360,7 +373,7 @@
     }
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
-    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hetongJE=%@&genZongSFJE=%@&lianXiFS=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hetongJE,genzongSFJE,lianxiFS];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];

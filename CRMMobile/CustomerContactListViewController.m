@@ -152,18 +152,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *index = _customerEntity.index;
+    NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
     if ([index isEqualToString:@"1"]) {
         EditCustomerContactController *editCustomer = [[EditCustomerContactController alloc]init];
         NSString *customerName=[self.fakeData objectAtIndex:indexPath.row];
         [_customerEntity setCustomerName:customerName];
+        [_customerEntity setCustomerID:customerID];
         //    _customerEntity.customerName = customerName;
         [editCustomer setContactEntity:_customerEntity];
         [self.navigationController pushViewController:editCustomer animated:YES];
-    }else{
+    }
+    if ([index isEqualToString:@"2"]){
         AddCustomerContactController *AddCustomer =[[AddCustomerContactController alloc]init];
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSLog(@"sxccxcxcxcccxcxcxc%@",customerName1);
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+//        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
 //        _addCustomerEntity = [[AddCustomerEntity alloc]init];
         [_addCustomerEntity setCustomerID:customerID];
         NSLog(@"777777777%@",_addCustomerEntity.contactName);

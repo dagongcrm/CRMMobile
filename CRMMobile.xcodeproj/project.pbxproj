@@ -97,8 +97,6 @@
 		96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBEB81BE8838300824AE2 /* Main.storyboard */; };
 		96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */; };
 		96F408741BF2C63800AA4AD5 /* back002.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408731BF2C63800AA4AD5 /* back002.png */; };
-		96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F408761BF2E32E00AA4AD5 /* UploadViewController.m */; };
-		96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */; };
 		96F694701BFAD38F00FC98FA /* CustomercontactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F6946E1BFAD38F00FC98FA /* CustomercontactTableViewController.m */; };
 		96F694711BFAD38F00FC98FA /* CustomercontactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F6946F1BFAD38F00FC98FA /* CustomercontactTableViewController.xib */; };
 		96F694751BFAFAC400FC98FA /* CustomercontactInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F694731BFAFAC400FC98FA /* CustomercontactInfoController.m */; };
@@ -354,9 +352,6 @@
 		96EDBEB81BE8838300824AE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon_1x.png; sourceTree = "<group>"; };
 		96F408731BF2C63800AA4AD5 /* back002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back002.png; sourceTree = "<group>"; };
-		96F408751BF2E32E00AA4AD5 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
-		96F408761BF2E32E00AA4AD5 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
-		96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
 		96F6946D1BFAD38F00FC98FA /* CustomercontactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomercontactTableViewController.h; sourceTree = "<group>"; };
 		96F6946E1BFAD38F00FC98FA /* CustomercontactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomercontactTableViewController.m; sourceTree = "<group>"; };
 		96F6946F1BFAD38F00FC98FA /* CustomercontactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomercontactTableViewController.xib; sourceTree = "<group>"; };
@@ -1104,9 +1099,6 @@
 				96EDBEA31BE8832100824AE2 /* LianViewController.h */,
 				96EDBEA41BE8832100824AE2 /* LianViewController.m */,
 				96EDBEA51BE8832100824AE2 /* LianViewController.xib */,
-				96F408751BF2E32E00AA4AD5 /* UploadViewController.h */,
-				96F408761BF2E32E00AA4AD5 /* UploadViewController.m */,
-				96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -1293,7 +1285,6 @@
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
 				96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
-				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
 				B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
@@ -1499,7 +1490,6 @@
 				1F93AADC1BF1FEDF0099C57E /* auditEntity.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
 				96EDBEB61BE8835E00824AE2 /* MeEntity.m in Sources */,
-				96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */,
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96332E921BFF326400BBEB85 /* EditPlanViewController.m in Sources */,
 				9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */,

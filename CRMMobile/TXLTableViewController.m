@@ -15,11 +15,17 @@
     UISearchDisplayController *mySearchDisplayController;
 }
 @property (nonatomic, strong) NSMutableArray *fakeData;//
-@property (nonatomic, strong) NSMutableArray *contactData;//联系方式
-@property (nonatomic, strong) NSMutableArray *customerNameStrData;//联系人
+@property (nonatomic, strong) NSMutableArray *contactData;//联系方式2
+@property (nonatomic, strong) NSMutableArray *customerNameStrData;//联系人1
 @property (nonatomic, strong) NSMutableArray *phoneData;//电话数据
 @property (nonatomic, strong) NSMutableArray *userName;
 @property (nonatomic, strong) NSMutableArray *orgName;
+@property (nonatomic, strong) NSMutableArray *contactIDData;//3
+@property (nonatomic, strong) NSMutableArray *customerIDData;//4
+@property (nonatomic,strong) NSString *contactName;
+@property (nonatomic,strong) NSString *phone;
+@property (nonatomic,strong) NSString *contactID;
+@property (nonatomic,strong) NSString *customerID;
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
@@ -32,6 +38,8 @@
         self.contactData = [[NSMutableArray alloc]init];
         self.customerNameStrData = [[NSMutableArray alloc]init];
         self.phoneData = [[NSMutableArray alloc]init];
+        self.contactIDData = [[NSMutableArray alloc]init];
+        self.customerIDData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
         [self faker:@"2"];
         
@@ -46,12 +54,12 @@
 //    //隐藏顶部的导航栏
 //    self.hidesBottomBarWhenPushed = true;    
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    searchBar.placeholder = @"搜索";
-    self.tableView.tableHeaderView = searchBar;
-    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    mySearchDisplayController.searchResultsDataSource = self;
-    mySearchDisplayController.searchResultsDelegate = self;
+//    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+//    searchBar.placeholder = @"搜索";
+//    self.tableView.tableHeaderView = searchBar;
+//    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+//    mySearchDisplayController.searchResultsDataSource = self;
+//    mySearchDisplayController.searchResultsDelegate = self;
      [self setExtraCellLineHidden:self.tableView];
     }
 // hide the extraLine隐藏分割线
@@ -129,9 +137,11 @@
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
-        NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];
-        NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
-        NSString *callphone = (NSString *)[listDic objectForKey:@"cellPhone"];
+        NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];//1
+        NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];//2
+        NSString *callphone = (NSString *)[listDic objectForKey:@"cellPhone"];//2-
+        NSString *contactID = (NSString *)[listDic objectForKey:@"contactID"];//3
+        NSString *customerID = (NSString *)[listDic objectForKey:@"customerID"];//4
         NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
         NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
         NSLog(@"电话为多少。。。%@",callphone);
@@ -148,10 +158,11 @@
 //            [self.contactData addObject:callphone];
 //        }
 //        
-        [self.fakeData addObject:teamname];
-        [self.contactData addObject:telePhone];
+        [self.fakeData addObject:teamname];//1
+        [self.contactData addObject:telePhone];//2
+        [self.contactIDData addObject:contactID];//3
+        [self.customerIDData addObject:customerID];//4
         [self.customerNameStrData addObject:customerNameStr];
-//        [self.phoneData addObject:telePhone];
         NSLog(@"33333333333%@",customerNameStr);
     }
     return self.fakeData;
@@ -159,7 +170,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -179,21 +189,21 @@
     [cell.imageView setImage:[UIImage imageNamed:@"back"]];
         cell.textLabel.text = self.customerNameStrData[indexPath.row];
         [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//        [cell.detailTextLabel setNumberOfLines:2];
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         NSString *testDetail =[@"联系电话:" stringByAppendingString:(NSString *)[self.contactData objectAtIndex:indexPath.row]];
     NSString *phoneT= [@"通话记录:" stringByAppendingString:(NSString *)[self.phoneData objectAtIndex:indexPath.row]];
     NSString *Tdetail1 = [testDetail stringByAppendingString:@"   "];
     NSString *Tdetail= [Tdetail1 stringByAppendingString:phoneT];
         [cell.detailTextLabel setText:Tdetail];
-//    cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap; //如何换行
-//        [cell.detailTextLabel setText:customerName];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     NSString * phone = [self.contactData objectAtIndex:indexPath.row];
+     self.contactName = [self.fakeData objectAtIndex:indexPath.row];
+    self.phone= [self.contactData objectAtIndex:indexPath.row];
+     self.contactID = [self.contactIDData objectAtIndex:indexPath.row];
+    self.customerID = [self.customerIDData objectAtIndex:indexPath.row];
     //NSLog(@"ggggggggggggg%@",self.phoneData);
     //[self bodadianhua];
 //    SettingViewController *fl= [[SettingViewController alloc] init];
@@ -201,7 +211,7 @@
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.phoneData]];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://self.phoneData"]];
     NSString *str = @"tel://";
-    NSString *telephone = [str stringByAppendingString:phone];
+    NSString *telephone = [str stringByAppendingString:self.phone];
     UIWebView *callWebview =[[UIWebView alloc] init];
     NSURL *telURL =[NSURL URLWithString:telephone];
     // 貌似tel:// 或者 tel: 都行
@@ -210,11 +220,32 @@
     [self.view addSubview:callWebview];
     
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
-    NSLog(@"我们一起拨打电话吧%@",phone);
+    NSLog(@"我们一起拨打电话吧%@",self.phone);
+    
+    [self  callLog];
 }
-//-(void)bodadianhua{
-// [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
-//}
+-(void)callLog{
+
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"callLogAction!add.action?"]];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+    request.timeoutInterval=10.0;
+    request.HTTPMethod=@"POST";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactName=%@&phone=%@&userID=%@&customerID=%@",sid,self.contactName,self.phone,self.contactID,self.customerID];
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *shipDIC  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
+//        [self setupRefresh];
+//    }
+    NSLog(@"通讯录拨打的记录--》%@", shipDIC);
+    NSLog(@"self.contactName==>>%@",self.contactName);
+     NSLog(@"self.phone==>>%@",self.phone);
+     NSLog(@"self.contactID==>>%@",self.contactID);
+     NSLog(@"self.customerID==>>%@",self.customerID);
+
+   }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fakeData count];

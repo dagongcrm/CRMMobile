@@ -12,6 +12,7 @@
 #import "config.h"
 #import "CustomercontactTableViewController.h"
 #import "CustomerContactListViewController.h"
+#import "UIImage+Tint.h"
 @interface EditCustomerContactController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *khmc;//客户名称
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *bmen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
 @property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
+
 - (IBAction)cancle:(id)sender;//取消
 
 - (IBAction)saveForEdit:(id)sender;//保存修改
@@ -41,7 +43,19 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.scroll.contentSize = CGSizeMake(375, 800);
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.scroll.contentSize = CGSizeMake(375, 1100);
     self.khmc.text = _contactEntity.customerNameStr;
     self.lxrenxm.text = _contactEntity.contactName;
     self.lxrendh.text = _contactEntity.telePhone;
@@ -54,7 +68,16 @@
         self.khmc.text=_contactEntity.customerName;
     }
 }
-
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CustomercontactInfoController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -76,7 +99,10 @@
     NSString *department=self.bmen.text;
     NSString *position=self.zhiwu.text;
     NSString *contactID = _contactEntity.contactID;
-    
+    NSString *customerID = _contactEntity.customerID;
+    NSString *tianjiaSJ = _contactEntity.tianjiaSJ;
+    NSLog(@"tianjiaSJtianjiaSJ%@",tianjiaSJ);
+    NSLog(@"whywhywhwyhwyu%@",customerID);
     NSString *evaluationOfTheSalesman=self.xsypj.text;
     if (customerName.length==0||contactName.length==0||telePhone.length==0||department.length==0||position.length==0||evaluationOfTheSalesman.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -88,16 +114,27 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&evaluationOfTheSalesman=%@&",sid,contactID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&evaluationOfTheSalesman=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *saveDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"saveDic字典里面的内容为--》%@", saveDic);
-        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
+//        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
+//            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
+//            [self.navigationController pushViewController:contant animated:YES];
+//        }
+        if([[saveDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
             CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
             [self.navigationController pushViewController:contant animated:YES];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
         }
+
     }
 }
 - (IBAction)Test:(id)sender {

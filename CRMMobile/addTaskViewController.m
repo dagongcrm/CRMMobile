@@ -15,9 +15,6 @@
 #import "selectEntity.h"
 
 @interface addTaskViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
-@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
-@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
 - (IBAction)cancel:(id)sender;
 - (IBAction)selectQiYe:(id)sender;
 - (IBAction)save:(id)sender;
@@ -71,7 +68,7 @@
 - (IBAction)cancel:(id)sender {
     SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
     [self.navigationController pushViewController:mj animated:YES];
-
+    
 }
 
 - (IBAction)selectQiYe:(id)sender {
@@ -80,14 +77,14 @@
     selectListTableViewController *role = [[selectListTableViewController alloc] init];
     [self.navigationController pushViewController: role animated:true];
     //    _judge=@"2";
-//    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-//    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    listView.titleName.text = @"企业选择";
-//    listView.backgroundColor=[UIColor blueColor];
-//    listView.datasource = self;
-//    listView.delegate = self;
-//    [listView show];
+    //    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+    //    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+    //    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    //    listView.titleName.text = @"企业选择";
+    //    listView.backgroundColor=[UIColor blueColor];
+    //    listView.datasource = self;
+    //    listView.delegate = self;
+    //    [listView show];
 }
 
 
@@ -108,13 +105,13 @@
     self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
-     _judge=@"";
+    _judge=@"";
     [super viewDidLoad];
     //self.nextArray  = self.nextArray;
     NSString *roleTitle;
     if(_roleEntity.strChoose==nil)
     {
-        roleTitle =@"请点击选取企业";
+        roleTitle =@"请点击选取角色";
     }
     else
     {
@@ -123,10 +120,10 @@
         
     }
     [self.chooseUserButtonQiYe setTitle:roleTitle forState:UIControlStateNormal];
-//    self.pickerArray        = self.fakeData;
-//    selectPicker.delegate   = self;
-//    selectPicker.dataSource = self;
-
+    //    self.pickerArray        = self.fakeData;
+    //    selectPicker.delegate   = self;
+    //    selectPicker.dataSource = self;
+    
     [self selectUserArray];
     //selectPicker.delegate   = self;
     //selectPicker.dataSource = self;
@@ -171,12 +168,12 @@
         [nextFlowUserName     addObject:teamname];
         [nextFlowUserId  addObject:submitID];
     }
-//    for(NSDictionary *key in nextFlow)
-//    {
-//        NSLog(@"%@",key);
-//        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
-//        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
-//    }
+    //    for(NSDictionary *key in nextFlow)
+    //    {
+    //        NSLog(@"%@",key);
+    //        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
+    //        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
+    //    }
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
 }
@@ -215,17 +212,17 @@
     
     _selectUserQiYe= [nextFlowUserNameQiYe copy];
     _selectUserIdQiYe=[nextFlowUserIdQiYe copy];
-
-   }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -242,8 +239,8 @@
     if ([self.judge isEqualToString:@"1"]) {
         return [_selectUser count];
     }
-        return [_selectUserQiYe count];
-
+    return [_selectUserQiYe count];
+    
 }
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,7 +273,7 @@
     if ([self.judge isEqualToString:@"2"]) {
         [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
         [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
-
+        
     }
     [self buttonInputLabel:tableView];
 }
@@ -345,13 +342,13 @@
             NSLog(@"chooseUserIDs%@",APPDELEGATE.options.chooseUserIDs);
         }
     }
-
-    }
+    
+}
 
 
 
 - (IBAction)save:(id)sender {
-//    NSString *hangyeGS = self.HangYeGS.text;
+    //    NSString *hangyeGS = self.HangYeGS.text;
     NSString *hetongJE = self.HeTongJE.text;
     NSString *gezongSF = self.GenZongSF.text;
     NSString *gezongSFJE = self.GenZongSFJE.text;
@@ -375,7 +372,7 @@
     NSString *yeWuZLMC=@"";
     for(int i=0;i<[self.selectUserForShow count];i++){
         yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
-
+        
         yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
         
     }
@@ -384,7 +381,7 @@
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
     
-//    heTongJE
+    //    heTongJE
     NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

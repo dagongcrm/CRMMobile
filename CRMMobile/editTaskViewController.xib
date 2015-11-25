@@ -8,8 +8,14 @@
             <connections>
                 <outlet property="chooseUserButton" destination="OLX-nc-HPu" id="GVf-iz-KIO"/>
                 <outlet property="chooseUserButtonQiYe" destination="hdo-dj-c5D" id="NUF-Kf-vLg"/>
+                <outlet property="genzongSFJE" destination="Hzn-ll-Wed" id="GA0-9u-zxZ"/>
+                <outlet property="hetongJE" destination="aa0-dj-bLp" id="JWT-Qi-Soy"/>
+                <outlet property="lianxiFS" destination="FEP-9N-l1n" id="fMP-Sf-G8h"/>
+                <outlet property="qiYeMC" destination="W06-9k-xa6" id="acm-WU-iz6"/>
                 <outlet property="scroll" destination="GUC-wv-GLg" id="fD5-w6-DzP"/>
+                <outlet property="suoshuHY" destination="fNe-i7-eqy" id="8oc-Wg-sq1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="gx4-2d-V2v"/>
+                <outlet property="yeWuZL" destination="BDk-l9-e0j" id="2cp-hL-2wB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

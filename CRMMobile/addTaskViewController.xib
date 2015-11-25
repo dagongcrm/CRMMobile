@@ -16,7 +16,10 @@
                 <outlet property="genZongSFJE" destination="wlC-OL-PPC" id="SpP-nJ-Jyc"/>
                 <outlet property="heTongJE" destination="vKL-6l-oeX" id="FzK-Ng-39u"/>
                 <outlet property="lianXiFS" destination="C9Y-OU-Nb5" id="fLx-V1-BlE"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="h8c-G6-XCY"/>
+                <outlet property="qiYeMC" destination="Nf2-dM-bQX" id="MYM-Ka-Yhc"/>
+                <outlet property="scroll" destination="OGC-Lr-y7u" id="rk4-aB-3h0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="tWJ-6l-wjg"/>
+                <outlet property="yeWuZL" destination="zbn-wm-ITJ" id="xt0-tD-Blq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

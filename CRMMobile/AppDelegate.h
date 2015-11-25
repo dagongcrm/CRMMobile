@@ -24,5 +24,12 @@
 @property  NSString    *submitName;
 @property  NSString    *yeWuZL;
 @property  NSString    *yeWuZLBH;
+@property  NSString *hangYeFLMC;
+@property  NSString *heTongJE;
+@property  NSString *genZongSFJE;
+@property  NSString *zhuChengXS;
+@property  NSString *lianXiFS;
+@property  NSString *userName;
+
 @end
 

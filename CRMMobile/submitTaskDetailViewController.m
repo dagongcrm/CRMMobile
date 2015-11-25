@@ -111,6 +111,10 @@
     myDelegate.submitName = _submitTaskEntity.submitName;
     myDelegate.yeWuZLBH = _submitTaskEntity.yeWuZLBH;
     myDelegate.yeWuZL =_submitTaskEntity.yeWuZL;
+    myDelegate.hangYeFLMC = _submitTaskEntity.hangYeFLMC;
+    myDelegate.heTongJE = _submitTaskEntity.heTongJE;
+    myDelegate.genZongSFJE=_submitTaskEntity.genZongSFJE;
+    myDelegate.lianXiFS = _submitTaskEntity.lianXiFS;
     editTaskViewController *la = [[editTaskViewController alloc] init];
     [self.navigationController pushViewController:la animated:YES];
 }
