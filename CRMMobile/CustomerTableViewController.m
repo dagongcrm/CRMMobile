@@ -1,11 +1,12 @@
 //
-//  CustomerContactListViewController.m
+//  CustomerTableViewController.m
 //  CRMMobile
 //
-//  Created by why on 15/11/17.
+//  Created by peng on 15/11/22.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
+#import "CustomerTableViewController.h"
 #import "PlanButViewController.h"
 #import "EditPlanViewController.h"
 #import "CustomerContactListViewController.h"
@@ -14,25 +15,17 @@
 #import "MJRefresh.h"
 #import "EditCustomerContactController.h"
 #import "AddCustomerContactController.h"
-#import "AddCustomerCallPlanViewController.h"
-#import "CustomerCallPlanEditViewController.h"
-#import "AddSaleOppViewController.h"
-#import "EditSaleOppViewController.h"
-
-@interface CustomerContactListViewController ()
+@interface CustomerTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
 @property (strong, nonatomic) NSMutableArray *customerIDData;
-@property (strong, nonatomic) NSMutableArray *industryIDStrData;//用户联系人名称
+@property (strong, nonatomic) NSMutableArray *industryIDStrData;//用户联系人
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
 
-@implementation CustomerContactListViewController
-@synthesize customerEntity=_customerEntity;
+@implementation CustomerTableViewController
+@synthesize dailyEntity=_dailyEntity;
 @synthesize addCustomerEntity =_addCustomerEntity;
-@synthesize CustomerCallPlanEntity =_customerCallPlanEntity;   //客户拜访计划
-@synthesize saleOppEntity =_saleOppEntity;   //销售机会
-@synthesize dailyEntity =_dailyEntity;
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -44,19 +37,11 @@
     }
     return _fakeData;
 }
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.title=@"客户列表";
     [self setupRefresh];
-    NSLog(@"123123123123123132%@",_addCustomerEntity.contactName);
- 
-//    [self faker:@"1"];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
 }
 //刷新
 - (void)setupRefresh
@@ -99,15 +84,14 @@
     });
     
 }
-
 -(NSMutableArray *) faker: (NSString *) page{
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    NSString *order = @"desc";
-//    NSString *sort = @"time";
+    //    NSString *order = @"desc";
+    //    NSString *sort = @"time";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
@@ -122,7 +106,7 @@
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
-
+    
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         NSString *customerName = (NSString *)[listDic objectForKey:@"customerName"];
@@ -138,9 +122,12 @@
     }
     return self.fakeData;
 }
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -160,70 +147,16 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *index = _customerEntity.index;
-    NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+    NSString *index = _dailyEntity.index;
+    NSLog(@"pppppppppppp%@",index);
     if ([index isEqualToString:@"1"]) {
-        EditCustomerContactController *editCustomer = [[EditCustomerContactController alloc]init];
-        NSString *customerName=[self.fakeData objectAtIndex:indexPath.row];
-        [_customerEntity setCustomerName:customerName];
-        [_customerEntity setCustomerID:customerID];
-        //    _customerEntity.customerName = customerName;
-        [editCustomer setContactEntity:_customerEntity];
+        EditPlanViewController *editCustomer = [[EditPlanViewController alloc]init];
+        NSString *customerNameStr=[self.fakeData objectAtIndex:indexPath.row];
+        [_dailyEntity setCustomerNameStr:customerNameStr];
+        [editCustomer setDailyEntity:_dailyEntity];
         [self.navigationController pushViewController:editCustomer animated:YES];
     }
-    if ([index isEqualToString:@"2"]){
-        AddCustomerContactController *AddCustomer =[[AddCustomerContactController alloc]init];
-        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
-        NSLog(@"sxccxcxcxcccxcxcxc%@",customerName1);
-//        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-//        _addCustomerEntity = [[AddCustomerEntity alloc]init];
-        [_addCustomerEntity setCustomerID:customerID];
-        NSLog(@"777777777%@",_addCustomerEntity.contactName);
-        [AddCustomer setContext:customerName1];
-        [AddCustomer setAddCustomerEntity:_addCustomerEntity];
-        [self.navigationController pushViewController:AddCustomer animated:YES];
-    }
-    if ([index isEqualToString:@"3"]) {
-        EditPlanViewController *editCustomer3 = [[EditPlanViewController alloc]init];
-        NSString *customerName3=[self.fakeData objectAtIndex:indexPath.row];
-        [_dailyEntity setCustomerNameStr:customerName3];
-        //    _customerEntity.customerName = customerName;
-        [editCustomer3 setDailyEntity:_dailyEntity];
-        [self.navigationController pushViewController:editCustomer3 animated:YES];
-    }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
-        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-        [_customerCallPlanEntity setCustomerID:customerID ];
-        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
-        AddCustomerCallPlanViewController *addCustomerCallPlan=[[AddCustomerCallPlanViewController alloc]init];
-        [addCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
-        [self.navigationController pushViewController:addCustomerCallPlan animated:YES];
-    }else if([_customerCallPlanEntity.index isEqualToString:@"editCustomerCallPlan"]){   //修改客户拜访纪录中添加客户名称
-        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-        [_customerCallPlanEntity setCustomerID:customerID ];
-        [_customerCallPlanEntity setCustomerNameStr:customerName1 ];
-        CustomerCallPlanEditViewController *editCustomerCallPlan=[[CustomerCallPlanEditViewController alloc]init];
-        [editCustomerCallPlan setCustomerCallPlanEntity:_customerCallPlanEntity];
-        [self.navigationController pushViewController:editCustomerCallPlan animated:YES];
-    }else if([_saleOppEntity.index isEqualToString:@"addSaleOpp"]){   //添加销售机会中添加客户名称
-        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-        [_saleOppEntity setCustomerName:customerID ];
-        [_saleOppEntity setCustomerNameStr:customerName1 ];
-        AddSaleOppViewController *addSaleOpp=[[AddSaleOppViewController alloc]init];
-        [addSaleOpp setSaleOppEntity:_saleOppEntity];
-        [self.navigationController pushViewController:addSaleOpp animated:YES];
-    }else if([_saleOppEntity.index isEqualToString:@"editSaleOpp"]){   //修改销售机会中添加客户名称
-        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
-        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-        [_saleOppEntity setCustomerName:customerID ];
-        [_saleOppEntity setCustomerNameStr:customerName1 ];
-        EditSaleOppViewController *editSaleOpp=[[EditSaleOppViewController alloc]init];
-        [editSaleOpp setSaleOppEntity:_saleOppEntity];
-        [self.navigationController pushViewController:editSaleOpp animated:YES];    }
-    }
-
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fakeData count];

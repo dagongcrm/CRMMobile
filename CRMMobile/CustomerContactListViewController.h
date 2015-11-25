@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CostomerContactEntity.h"
+#import "VisitPlanNsObj.h"
 #import "AddCustomerEntity.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "SaleOppEntity.h"
@@ -20,4 +21,5 @@
 
 @property(strong,nonatomic)SaleOppEntity *saleOppEntity;//销售机会
 
+@property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
 @end

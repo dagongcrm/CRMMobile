@@ -10,7 +10,7 @@
 #import "activityEntity.h"
 #import "auditDetailViewController.h"
 #import "activityEntity.h"
-//#import "auditTableViewController.h"
+#import "submitTaskDetailViewController.h"
 #import "marketActivity.h"
 #import "activityDetailViewController.h"
 #import "ReminderDetailViewController.h"
@@ -371,8 +371,8 @@
 
         
         
-                ReminderDetailViewController *uc =[[ReminderDetailViewController alloc] init];
-                [uc setReminderEntity:udetail];
+                submitTaskDetailViewController *uc =[[submitTaskDetailViewController alloc] init];
+                [uc setSubmitTaskEntity:udetail];
                 [self.navigationController pushViewController:uc animated:YES];
 //        auditDetailViewController *uc =[[auditDetailViewController alloc] init];
 //        [uc setAuditEntity:udetail];
