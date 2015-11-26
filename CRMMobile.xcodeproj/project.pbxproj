@@ -35,6 +35,8 @@
 		39E72A281C069AC30050D77F /* activityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A271C069AC30050D77F /* activityDetailViewController.xib */; };
 		39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C4C1BD8EA20009CEC23 /* LaunchScreen.xib */; };
 		39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */; };
+		39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */; };
+		39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		39F797161C05CC50000D9A20 /* CustomerContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797081C05CC50000D9A20 /* CustomerContactListViewController.m */; };
@@ -280,6 +282,8 @@
 		39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
 		39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppTableViewController.h; sourceTree = "<group>"; };
 		39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
+		39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
+		39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
@@ -780,6 +784,8 @@
 		39FD7DB01BF0346000CCD3F9 /* saleOpp */ = {
 			isa = PBXGroup;
 			children = (
+				39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */,
+				39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */,
 				39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */,
 				39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */,
 				39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */,
@@ -1565,6 +1571,7 @@
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
 				39F7980E1C05D15A000D9A20 /* ShowAndDeleteViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
+				39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */,
 				C0D3CD771BDF0CEF00C23FB3 /* 28.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
@@ -1643,6 +1650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */,
+				39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
