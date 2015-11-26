@@ -155,8 +155,8 @@
                         <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zT3-qU-pnC">
                             <rect key="frame" x="42" y="483" width="123" height="29"/>
                             <segments>
-                                <segment title="是"/>
-                                <segment title="否"/>
+                                <segment title="不包含"/>
+                                <segment title="包含"/>
                             </segments>
                             <connections>
                                 <action selector="segmentControl:" destination="-1" eventType="valueChanged" id="KdJ-6f-nJG"/>
