@@ -34,6 +34,9 @@
 		39E72A251C069A0C0050D77F /* activityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A231C069A0C0050D77F /* activityDetailViewController.m */; };
 		39E72A281C069AC30050D77F /* activityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A271C069AC30050D77F /* activityDetailViewController.xib */; };
 		39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C4C1BD8EA20009CEC23 /* LaunchScreen.xib */; };
+		39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */; };
+		39E72A361C06A5290050D77F /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A341C06A5290050D77F /* AddSaleOppViewController.m */; };
+		39E72A371C06A5290050D77F /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A351C06A5290050D77F /* AddSaleOppViewController.xib */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		39F797161C05CC50000D9A20 /* CustomerContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797081C05CC50000D9A20 /* CustomerContactListViewController.m */; };
@@ -48,7 +51,6 @@
 		39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797151C05CC50000D9A20 /* AddCustomerContactController.xib */; };
 		39F797241C05CCB7000D9A20 /* CostomerContactEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797211C05CCB7000D9A20 /* CostomerContactEntity.m */; };
 		39F797251C05CCB7000D9A20 /* AddCustomerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797231C05CCB7000D9A20 /* AddCustomerEntity.m */; };
-		39F797331C05CCE4000D9A20 /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797271C05CCE4000D9A20 /* SaleOppTableViewController.m */; };
 		39F797341C05CCE4000D9A20 /* EditSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797291C05CCE4000D9A20 /* EditSaleOppViewController.m */; };
 		39F797351C05CCE4000D9A20 /* EditSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7972A1C05CCE4000D9A20 /* EditSaleOppViewController.xib */; };
 		39F797381C05CCE4000D9A20 /* CustomerSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7972F1C05CCE4000D9A20 /* CustomerSelectTableViewController.m */; };
@@ -277,7 +279,11 @@
 		39E72A221C069A0C0050D77F /* activityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityDetailViewController.h; sourceTree = "<group>"; };
 		39E72A231C069A0C0050D77F /* activityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityDetailViewController.m; sourceTree = "<group>"; };
 		39E72A271C069AC30050D77F /* activityDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activityDetailViewController.xib; sourceTree = "<group>"; };
-		39E72A2F1C06A3820050D77F /* AddSaleOppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
+		39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
+		39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppTableViewController.h; sourceTree = "<group>"; };
+		39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
+		39E72A341C06A5290050D77F /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
+		39E72A351C06A5290050D77F /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
@@ -300,8 +306,6 @@
 		39F797211C05CCB7000D9A20 /* CostomerContactEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomerContactEntity.m; sourceTree = "<group>"; };
 		39F797221C05CCB7000D9A20 /* AddCustomerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerEntity.h; sourceTree = "<group>"; };
 		39F797231C05CCB7000D9A20 /* AddCustomerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerEntity.m; sourceTree = "<group>"; };
-		39F797261C05CCE4000D9A20 /* SaleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppTableViewController.h; sourceTree = "<group>"; };
-		39F797271C05CCE4000D9A20 /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
 		39F797281C05CCE4000D9A20 /* EditSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSaleOppViewController.h; sourceTree = "<group>"; };
 		39F797291C05CCE4000D9A20 /* EditSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSaleOppViewController.m; sourceTree = "<group>"; };
 		39F7972A1C05CCE4000D9A20 /* EditSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditSaleOppViewController.xib; sourceTree = "<group>"; };
@@ -780,9 +784,11 @@
 		39FD7DB01BF0346000CCD3F9 /* saleOpp */ = {
 			isa = PBXGroup;
 			children = (
-				39E72A2F1C06A3820050D77F /* AddSaleOppViewController.h */,
-				39F797261C05CCE4000D9A20 /* SaleOppTableViewController.h */,
-				39F797271C05CCE4000D9A20 /* SaleOppTableViewController.m */,
+				39E72A341C06A5290050D77F /* AddSaleOppViewController.m */,
+				39E72A351C06A5290050D77F /* AddSaleOppViewController.xib */,
+				39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */,
+				39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */,
+				39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */,
 				39F797281C05CCE4000D9A20 /* EditSaleOppViewController.h */,
 				39F797291C05CCE4000D9A20 /* EditSaleOppViewController.m */,
 				39F7972A1C05CCE4000D9A20 /* EditSaleOppViewController.xib */,
@@ -1565,6 +1571,7 @@
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
 				39F7980E1C05D15A000D9A20 /* ShowAndDeleteViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
+				39E72A371C06A5290050D77F /* AddSaleOppViewController.xib in Resources */,
 				C0D3CD771BDF0CEF00C23FB3 /* 28.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
@@ -1643,6 +1650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */,
+				39E72A361C06A5290050D77F /* AddSaleOppViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
@@ -1673,7 +1681,6 @@
 				39F798591C05D322000D9A20 /* VisitPlanTableViewController.m in Sources */,
 				39F798491C05D306000D9A20 /* ActivityViewController.m in Sources */,
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,
-				39F797331C05CCE4000D9A20 /* SaleOppTableViewController.m in Sources */,
 				39F7984E1C05D30D000D9A20 /* ReminderDetailViewController.m in Sources */,
 				96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */,
 				C0D3CD871BDF0E8B00C23FB3 /* NSArray+PureLayout.m in Sources */,
@@ -1711,6 +1718,7 @@
 				39F798131C05D167000D9A20 /* TaskReportMonthEntity.m in Sources */,
 				39F797A21C05CFB2000D9A20 /* SettingViewController.m in Sources */,
 				39E72A181C06996D0050D77F /* NoticeTableViewController.m in Sources */,
+				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
 				39F7987B1C05D35E000D9A20 /* TaskRecordsTableViewController.m in Sources */,
 				96E3125A1BEB53BA00A1A3FF /* MJRefreshConst.m in Sources */,
 				39F7985D1C05D32A000D9A20 /* VisitPlanNsObj.m in Sources */,
