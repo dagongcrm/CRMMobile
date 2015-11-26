@@ -9,19 +9,21 @@
 #import "AddSaleOppViewController.h"
 #import "SaleOppEntity.h"
 #import "CustomerContactListViewController.h"
+#import "AppDelegate.h"
+#import "config.h"
+#import "ZSYPopoverListView.h"
 
 @interface AddSaleOppViewController ()
 
 @property (strong,nonatomic)  NSString    *select;//用于判断下拉选
 
 //选择  销售机会来源
-@property (strong,nonatomic)  NSMutableArray    *selectSrcArray;
-@property (strong,nonatomic)  NSMutableArray    *selectSrcIdArray;
+@property (strong,nonatomic)  NSMutableArray *selectSrcArray;
+@property (strong,nonatomic)  NSMutableArray *selectSrcIdArray;
 @property (strong, nonatomic) NSMutableArray *uid;
-@property (strong,nonatomic)  NSArray           *selectSrc;
-@property (strong,nonatomic)  NSArray           *selectSrcId;
-@property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
-@property (weak, nonatomic) IBOutlet UIButton *chooseSrcButton;
+@property (strong,nonatomic)  NSArray *selectSrc;
+@property (strong,nonatomic)  NSArray *selectSrcId;
+@property (nonatomic, retain) NSIndexPath *selectedIndexPath;
 @property (strong,nonatomic) NSString  *chooseSrcID;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -35,8 +37,8 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)customerNameSelect:(id)sender;
-- (IBAction)saleOppSrcSelect:(id)sender;
 - (IBAction)oppStateSelect:(id)sender;
+- (IBAction)saleOppSrcSelect:(id)sender;
 
 @end
 
@@ -65,7 +67,6 @@
 }
 
 - (IBAction)customerNameSelect:(id)sender {
-    
     NSString *customerNameStr= _customerNameStr.text;
     NSString *saleOppSrc=_saleOppSrc.text;
     NSString *successProbability=_successProbability.text;
@@ -94,46 +95,10 @@
     [self.navigationController pushViewController:list animated:YES];
 }
 
-- (IBAction)saleOppSrcSelect:(id)sender {
-    _select=@"saleOppSrc";
-    [self saleOppSrcSelectArray];
-    
-//    self.selectSFForShow=[[NSMutableArray alloc] init];
-//    self.selectSFIdForParam=[[NSMutableArray alloc] init];
-//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    listView.titleName.text = @"所属行业选择";
-//    listView.backgroundColor=[UIColor blueColor];
-//    listView.datasource = self;
-//    listView.delegate = self;
-//    [listView show];
-}
-//为 省份赋值
--(void) saleOppSrcSelectArray
-{
-//    NSError *error;
-//    NSMutableArray *nextFlowSrcName=[[NSMutableArray alloc] init];
-//    NSMutableArray *nextFlowSrcId=[[NSMutableArray alloc] init];
-//    _uid=[[NSMutableArray alloc] init];
-//    NSString *typeID = @"('SaleOppSrc')";
-//    NSArray *list = [self list:typeID];
-//    
-//    for (int i = 0; i<[list count]; i++) {
-//        NSDictionary *listdic = [list objectAtIndex:i];
-//        NSLog(@"%@",listdic);
-//        NSString *submitID = (NSString *)[listdic objectForKey:@"detailID"];
-//        NSLog(@"%@",submitID);
-//        NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
-//        NSLog(@"%@",teamname);
-//        
-//        [nextFlowSFName     addObject:teamname];
-//        [nextFlowSFId  addObject:submitID];
-//    }
-//    _selectSF= [nextFlowSFName copy];
-//    _selectSFId=[nextFlowSFId copy];
-}
-
-
 - (IBAction)oppStateSelect:(id)sender {
+}
+
+- (IBAction)saleOppSrcSelect:(id)sender {
 }
 
 @end
