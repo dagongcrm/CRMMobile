@@ -59,24 +59,33 @@
         [self.view addSubview:timeForShow];
         [timeForShow sizeToFit];
         timeForShow.center = CGPointMake(self.view.bounds.size.width/2,100);
+    
         NSString *weatherDetail=[self getWeather];
-        //NSString *imagekey=[self getWeatherImg];
-        //UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(50, 100, 30, 30)];
-        //imageView.center=CGPointMake(self.view.bounds.size.width/2-50,130);
-        //UIImage  *weatherimg=[UIImage imageNamed:[imagekey stringByAppendingString:@".png"]];
         UILabel  *weatherDetailText = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 30, 30)];
         weatherDetailText.text=weatherDetail;
         weatherDetailText.textColor=[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0];
         [self.view addSubview:weatherDetailText];
         [weatherDetailText sizeToFit];
         weatherDetailText.center = CGPointMake(self.view.bounds.size.width/2,130);
-        //imageView.image=weatherimg;
-        //[self.view addSubview:imageView];
-        
+    
+    
+    
+        UILabel  *todolabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 160, 20, 10)];
+        todolabel.text=@"今日工作";
+        todolabel.font  = [UIFont boldSystemFontOfSize:13.0];
+        todolabel.textColor=[UIColor lightGrayColor];
+        [self.view addSubview:todolabel];
+        [todolabel sizeToFit];
+    
+        UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,179,self.view.bounds.size.width,1)];
+        navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [navDividingLine sizeToFit];
+        [self.view addSubview:navDividingLine];
+    
         ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
         [self addChildViewController:nav];
-        nav.view.frame =  CGRectMake(0, 150, self.view.bounds.size.width, self.view.bounds.size.height);
+        nav.view.frame =  CGRectMake(0, 180, self.view.bounds.size.width, self.view.bounds.size.height);
         [self.view addSubview:nav.view];
         [nav didMoveToParentViewController:self];
     }
@@ -156,6 +165,7 @@
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *Dic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSString *weatherDic =[Dic objectForKey:@"text"];
+    
     //format weatherdetail
     NSRange  range1= [weatherDic rangeOfString:@":"];
     NSRange  range2= [weatherDic rangeOfString:@";"];
@@ -163,10 +173,13 @@
     weatherDic = [weatherDic substringToIndex:range2.location+1];
     NSRange range3=[weatherDic rangeOfString:@" "];
     weatherDic = [weatherDic substringFromIndex:range3.location+1];
-    NSString *temp= [weatherDic substringToIndex:range3.location+1];
-    NSRange rangeother=[weatherDic rangeOfString:@","];
+    
+    NSRange rangex=[weatherDic rangeOfString:@"°"];
+    NSString *temp= [weatherDic substringToIndex:rangex.location+1];
+    NSRange rangeother=[temp rangeOfString:@","];
     temp= [temp substringFromIndex:rangeother.location+1];
-    temp=[temp stringByAppendingString:@"°"];
+//    temp=[temp stringByAppendingString:@"°"];
+    
     NSRange range4=[weatherDic rangeOfString:@" "];
     weatherDic = [weatherDic substringFromIndex:range4.location+1];
     NSRange range5=[weatherDic rangeOfString:@" "];
@@ -175,8 +188,10 @@
     weatherDic = [weatherDic substringToIndex:range6.location+1];
     
     return [[weatherDic stringByAppendingString:@" "] stringByAppendingString:temp];
-//    return false;
 }
+
+
+
 
 //-(NSString *)getWeatherImg{
 //    NSURL *URL=[NSURL URLWithString:@"http://www.weather.com.cn/adat/cityinfo/101010100.html"];

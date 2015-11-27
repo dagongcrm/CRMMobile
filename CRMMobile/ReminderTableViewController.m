@@ -22,9 +22,7 @@
 #import "MJRefresh.h"
 #import "UIImage+Tint.h"
 @interface ReminderTableViewController ()
-{
-    UISearchDisplayController *mySearchDisplayController;
-}
+
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *customerID;
@@ -34,6 +32,7 @@
 @property (strong, nonatomic) NSMutableArray *uid;
 @property  NSInteger index;
 @property NSString *str;
+
 //任务审核
 @property (strong,nonatomic) NSMutableArray *yeWuZLMC;
 @property (strong,nonatomic) NSMutableArray *hangYeFLMC;
@@ -42,6 +41,7 @@
 @property (strong,nonatomic) NSMutableArray *zhuChengXS;
 @property (strong,nonatomic) NSMutableArray *userName;
 @property (strong,nonatomic) NSMutableArray *lianXiFS;
+
 //活动
 @property (strong,nonatomic) NSMutableArray *activityDateStr;
 @property (strong,nonatomic) NSMutableArray *activityAddress;
@@ -81,16 +81,14 @@
         self.responsibleDepartmentPersonStr = [NSMutableArray array];
         self.activitySketch = [NSMutableArray array];
         self.activityCost = [NSMutableArray array];
-        
+    
         [self faker:@"1"];
-//        [self faker:@"2"];
     }
     return _fakeData;
 }
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    NSLog(@"1111111111");
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mTaskReminderAction!datagrid.action?"]];
@@ -129,7 +127,7 @@
                      NSString *responsibleDepartmentStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentStr"];
                      NSString *responsibleDepartmentPersonStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentPersonStr"];
                      NSString *activitySketch = (NSString *)[listdic objectForKey:@"activitySketch"];
-                    NSLog(@"bbbbbbbby%@",activityCost);
+                     NSLog(@"bbbbbbbby%@",activityCost);
                      NSLog(@"aaaaaaaaay%@",activityDateStr);
                      NSLog(@"%@",teamname);
                      
@@ -205,8 +203,8 @@
                         zhuChengXS = @"";
                     }
                     [self.zhuChengXS   addObject:zhuChengXS];
-                    [self.userName         addObject:userName];
-                    [self.lianXiFS   addObject:lianXiFS];
+                    [self.userName     addObject:userName];
+                    [self.lianXiFS     addObject:lianXiFS];
                     
                 }
                 
@@ -225,25 +223,24 @@
     //    [self setupRefresh];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+    self.tableView.tableFooterView=[[UIView alloc] init];
+    self.tableView.separatorStyle = NO;
+    
+
     
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-//
-//#pragma mark - Table view data source
-//
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
-//
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.fakeData count];
 }
+
 //刷新
 - (void)setupRefresh
 {
@@ -292,13 +289,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    cell.textLabel.textColor=NAVBLUECOLOR;
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[self.str stringByAppendingString:self.detail[indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.imageView setImage:[UIImage imageNamed:@"business.png"]];
     return cell;
 }
 
@@ -308,21 +305,19 @@
     [self customerIDuserName :self.fakeData :self.customerID];
     NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key = [nc allKeys];
-    NSLog(@"1111111111%@",key);
+
     
     NSDictionary *nc1 =[self singleUserInfo1:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key1 = [nc1 allKeys];
-    NSLog(@"2222222222%@",key1);
     
     NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key2 = [nc2 allKeys];
-    NSLog(@"33333333333%@",key2);
     
     if (key != nil) {
 
         
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-                NSLog(@"555555555%@",nc);
+        
                 NSString *qiYeMC  =(NSString *) [nc objectForKey:@"qiYeMC"];
                 NSString *bianHao =(NSString *) [nc objectForKey:@"bianHao"];
                 NSString *yeWuZLMC_cn = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
