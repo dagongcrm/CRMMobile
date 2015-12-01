@@ -244,10 +244,7 @@
     }
     self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    NSLog(@"%@************",p);
-    //NSLog(p);
     [self faker:p];
-    //    [self faker:@"1"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];

@@ -49,6 +49,14 @@
     return _visibleViewControllers;
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self setupPages];
+    [self loadPage:0];
+    
+}
+
+
 - (void)viewDidLoad {
     NAVCOLOR;
     [super viewDidLoad];

@@ -11,8 +11,8 @@
 @implementation ReminderEntity
 @synthesize bianHao=_bianHao;
 @synthesize qiYeMC=_qiYeMC;
-//@synthesize yeWuZL=_yeWuZL;
-//@synthesize yeWuZLBH=_yeWuZLBH;
+@synthesize yeWuZL=_yeWuZL;
+@synthesize yeWuZLBH=_yeWuZLBH;
 @synthesize ftn_ID=_ftn_ID;
 @synthesize userID=userID;
 @synthesize heTongJEStr=_heTongJEStr;
@@ -22,4 +22,12 @@
 @synthesize userName=_userName;
 @synthesize lianXiFS=lianXiFS;
 @synthesize yeWuZLMC_cn=yeWuZLMC_cn;
+
+@synthesize submitName=_submitName;
+@synthesize submitID=_submitID;
+@synthesize heTongJE = _heTongJE;
+
+@synthesize genZongSFJE = _genZongSFJE;
+@synthesize genZongSF = _genZongSF;
+
 @end

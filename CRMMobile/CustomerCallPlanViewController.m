@@ -43,8 +43,6 @@
     [super viewDidLoad];
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
-    
-    //添加图标
     [self addPage];
     
     }
@@ -156,7 +154,6 @@
     }
     self.index=self.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    NSLog(@"%@************",p);
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -193,8 +190,8 @@
         NSString *customerChange =(NSString *) [nc objectForKey:@"customerChange"];  //客户变故
         NSString *visitorAttribution =(NSString *) [nc objectForKey:@"visitorAttribution"];  //拜访人归属
         NSString *visitorAttributionStr =(NSString *) [nc objectForKey:@"visitorAttributionStr"];  //拜访人归属显示
-         NSString *baiFangRen =(NSString *) [nc objectForKey:@"visitor"];  //拜访人
-         NSString *baiFangRenStr =(NSString *) [nc objectForKey:@"visitorStr"];  //拜访人显示
+        NSString *baiFangRen =(NSString *) [nc objectForKey:@"visitor"];  //拜访人
+        NSString *baiFangRenStr =(NSString *) [nc objectForKey:@"visitorStr"];  //拜访人显示
         
         CustomerCallPlanDetailMessageEntity *udetail =[[CustomerCallPlanDetailMessageEntity alloc] init];
         

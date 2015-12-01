@@ -1,6 +1,8 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "HttpHelper.h"
+#import "GLReusableViewController.h"
 @interface LoginViewController ()
 @end
 
@@ -8,6 +10,17 @@
 @implementation LoginViewController
 @synthesize accountField;
 @synthesize passwdField;
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    accountField.placeholder    = @"用户名";
+    passwdField.placeholder     = @"密码";
+    passwdField.secureTextEntry = YES;
+    [self loadValue];    
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -17,19 +30,9 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    accountField.placeholder    = @"用户名";
-    passwdField.placeholder     = @"密码";
-    passwdField.secureTextEntry = YES;
-    [self loadValue];
-    
-}
+
 -(void)loadValue{
     NSUserDefaults *ud1 = [NSUserDefaults standardUserDefaults];
-//    NSString *useName = [ud1 objectForKey:"userName"];
-//    NSString *usePass = [ud1 objectForKey:"password"];
     if([ud1 objectForKey:@"userName"]!=nil){
         accountField.text = [ud1 objectForKey:@"userName"];
         passwdField.text = [ud1 objectForKey:@"password"];
@@ -40,13 +43,6 @@
 {
     [super viewDidUnload];
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
 
 - (IBAction)loginBtnClicked:(id)sender {
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!login.action?"]];
@@ -60,7 +56,6 @@
     NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     myDelegate.sessionInfo  = loginDic;
-    NSLog(@"weatherInfo字典里面的内容为--》%@", myDelegate.sessionInfo);
     if([[loginDic objectForKey:@"success"] boolValue] == YES)
     {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];

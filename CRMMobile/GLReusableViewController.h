@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GLReusableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
-    NSArray *CRMListData;
-}
+@interface GLReusableViewController : UIViewController
 @property (assign, nonatomic) NSInteger numberOfInstance;
 @property (assign, nonatomic) NSNumber *page;
-@property (nonatomic,retain) NSArray *CRMListData;
-
 - (void)reloadData;
 + (instancetype)viewControllerFromStoryboard;
 

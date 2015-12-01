@@ -221,6 +221,8 @@
 		C0D68C5A1BD8EA20009CEC23 /* CRMMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D68C591BD8EA20009CEC23 /* CRMMobileTests.m */; };
 		C0D68C661BD8ED44009CEC23 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D68C641BD8ED44009CEC23 /* LoginViewController.m */; };
 		C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C651BD8ED44009CEC23 /* LoginViewController.xib */; };
+		C0E013151C0C2D57006BBF97 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013141C0C2D57006BBF97 /* HttpHelper.m */; };
+		C0E013191C0C2DCA006BBF97 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013171C0C2DCA006BBF97 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -576,6 +578,10 @@
 		C0D68C631BD8ED44009CEC23 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C0D68C641BD8ED44009CEC23 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C0D68C651BD8ED44009CEC23 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C0E013131C0C2D57006BBF97 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
+		C0E013141C0C2D57006BBF97 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
+		C0E013171C0C2DCA006BBF97 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C0E013181C0C2DCA006BBF97 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CD134ED4DFD99B2775F88026 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1080,11 +1086,11 @@
 				39F7985E1C05D335000D9A20 /* PlanDetalViewController.h */,
 				39F7985F1C05D335000D9A20 /* PlanDetalViewController.m */,
 				39F798601C05D335000D9A20 /* AddPlanViewController.h */,
-				39F798611C05D335000D9A20 /* PlanDetalViewController.xib */,
 				39F798621C05D335000D9A20 /* AddPlanViewController.m */,
-				39F798631C05D335000D9A20 /* AddPlanViewController.xib */,
 				39F798641C05D335000D9A20 /* EditPlanViewController.h */,
 				39F798651C05D335000D9A20 /* EditPlanViewController.m */,
+				39F798631C05D335000D9A20 /* AddPlanViewController.xib */,
+				39F798611C05D335000D9A20 /* PlanDetalViewController.xib */,
 				39F798661C05D335000D9A20 /* EditPlanViewController.xib */,
 			);
 			name = visitPlanView;
@@ -1128,8 +1134,8 @@
 		B8EEAEB81BEB2538009FF63D /* taskVisitPlan */ = {
 			isa = PBXGroup;
 			children = (
-				39F798561C05D322000D9A20 /* VisitPlanTableViewController.m */,
 				39F798571C05D322000D9A20 /* VisitPlanTableViewController.h */,
+				39F798561C05D322000D9A20 /* VisitPlanTableViewController.m */,
 				39F798581C05D322000D9A20 /* VisitPlanTableViewController.xib */,
 				B8184A931BEC7B0200FB0C84 /* visitEntity */,
 				B8184A921BEC7AF000FB0C84 /* visitPlanView */,
@@ -1189,6 +1195,7 @@
 		C0D3CD7B1BDF0E1000C23FB3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C0E013161C0C2D88006BBF97 /* Http */,
 				96332E941BFF32B200BBEB85 /* Entity */,
 				C0D3CD7C1BDF0E2C00C23FB3 /* PureLayout */,
 			);
@@ -1227,8 +1234,8 @@
 		C0D569331BD9B70A00860B33 /* Index */ = {
 			isa = PBXGroup;
 			children = (
-				39F7983B1C05D29B000D9A20 /* GLReusableViewController.m */,
 				39F7983C1C05D29B000D9A20 /* GLReusableViewController.h */,
+				39F7983B1C05D29B000D9A20 /* GLReusableViewController.m */,
 				39F7983D1C05D29B000D9A20 /* IndexViewController.h */,
 				39F7983E1C05D29B000D9A20 /* IndexViewController.m */,
 				39F798371C05D245000D9A20 /* taskReminder */,
@@ -1393,6 +1400,17 @@
 				C0D5692C1BD9B65100860B33 /* Date */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		C0E013161C0C2D88006BBF97 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				C0E013171C0C2DCA006BBF97 /* Reachability.m */,
+				C0E013181C0C2DCA006BBF97 /* Reachability.h */,
+				C0E013131C0C2D57006BBF97 /* HttpHelper.h */,
+				C0E013141C0C2D57006BBF97 /* HttpHelper.m */,
+			);
+			name = Http;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1679,6 +1697,7 @@
 				96E3125C1BEB53BA00A1A3FF /* MJRefreshHeaderView.m in Sources */,
 				96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */,
 				39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */,
+				C0E013191C0C2DCA006BBF97 /* Reachability.m in Sources */,
 				C0D3CD881BDF0E8B00C23FB3 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				39F797F91C05D147000D9A20 /* WeekTableViewController.m in Sources */,
 				39F797FB1C05D147000D9A20 /* AddWeekViewController.m in Sources */,
@@ -1710,6 +1729,7 @@
 				39F797E91C05D12F000D9A20 /* DailyTableViewController.m in Sources */,
 				39F797241C05CCB7000D9A20 /* CostomerContactEntity.m in Sources */,
 				39F797EB1C05D12F000D9A20 /* AddDailyViewController.m in Sources */,
+				C0E013151C0C2D57006BBF97 /* HttpHelper.m in Sources */,
 				39F798541C05D314000D9A20 /* ReminderEntity.m in Sources */,
 				39F797341C05CCE4000D9A20 /* EditSaleOppViewController.m in Sources */,
 				39F797DC1C05D125000D9A20 /* TaskReportTableViewController.m in Sources */,
