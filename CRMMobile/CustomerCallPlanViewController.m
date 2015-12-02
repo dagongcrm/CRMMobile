@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *customerCallPlanID;   //客户id数组
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableDictionary *uCustomerCallPlanID;
-
+@property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
 @property  NSInteger  index;
 
 @end
@@ -31,6 +31,7 @@
     if (!_fakeData) {
         self.fakeData   = [NSMutableArray array];
         self.customerCallPlanID = [NSMutableArray array];
+        self.visitDate = [[NSMutableArray alloc]init];
         [self faker:@"1"];
         [self faker:@"2"];
     }
@@ -43,9 +44,11 @@
     [super viewDidLoad];
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
+    
+    //添加图标
     [self addPage];
     
-    }
+}
 
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
@@ -76,15 +79,16 @@
         [self.uid addObject:listdic];
         NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
         NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
+        NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
         if(teamname.length==0){   //若客户名称问null，将其赋值
             teamname=@"没有数据";
         }
         
         [self.customerCallPlanID     addObject:customerCallPlanID];
         [self.fakeData     addObject:teamname];
-        
+        [self.visitDate     addObject:teamname2];
     }
-//    [self customerIDReturn:self.customerCallPlanID];
+    //    [self customerIDReturn:self.customerCallPlanID];
     return self.fakeData;
 }
 
@@ -113,15 +117,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    static NSString *cellId = @"mycell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    }
+    cell.textLabel.text = self.fakeData[indexPath.row];
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
+    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
-
 
 //上拉刷新下拉加载
 - (void)setupRefresh

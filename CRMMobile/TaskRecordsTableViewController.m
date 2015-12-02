@@ -318,8 +318,9 @@
     [visitPlan setTheme:theme];
     [visitPlan setAccessMethodStr:accessMethodStr];
     [visitPlan setMainContent:mainContent];
-    [visitPlan setRespondent:respondent];
+    
     [visitPlan setRespondentPhone:respondentPhone];
+    [visitPlan setRespondent:respondent];
     [visitPlan setAddress:address];
     [visitPlan setVisitProfile:visitProfile];
     [visitPlan setResult:result];

@@ -104,7 +104,9 @@
     }
     if([self.page integerValue]==1)
     {
-        VisitPlanTableViewController *nav = [[VisitPlanTableViewController alloc] init];
+        CustomerCallPlanViewController *nav = [[CustomerCallPlanViewController alloc] init];
+    
+//        VisitPlanTableViewController *nav = [[VisitPlanTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
         [self addChildViewController:nav];
         nav.view.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);

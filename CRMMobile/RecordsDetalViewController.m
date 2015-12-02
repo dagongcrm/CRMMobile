@@ -18,8 +18,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *accessMethodStr;
 @property (weak, nonatomic) IBOutlet UITextField *mainContent;
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
+
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 @property (weak, nonatomic) IBOutlet UITextField *address;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
@@ -102,7 +105,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@",callRecordsID,sid];
+        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@&customerNameStr=%@&visitDate=%@&theme=%@&accessMethodStr=%@&mainContent=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttributionStr=%@&visitor=%@",callRecordsID,sid];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];

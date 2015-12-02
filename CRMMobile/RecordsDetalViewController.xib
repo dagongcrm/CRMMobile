@@ -7,13 +7,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordsDetalViewController">
             <connections>
                 <outlet property="accessMethodStr" destination="3CA-2F-YPU" id="NxO-WI-gTQ"/>
-                <outlet property="address" destination="4mz-jN-Bbp" id="JKE-hK-IAT"/>
+                <outlet property="address" destination="qYm-b6-UJ5" id="tQ3-au-Hni"/>
                 <outlet property="customerChange" destination="dDn-wm-Axv" id="9MZ-Eg-Fh1"/>
                 <outlet property="customerNameStr" destination="Mjd-ZS-Sjb" id="JJR-yM-i4u"/>
                 <outlet property="customerRequirements" destination="QUu-fd-O8R" id="3Vm-U8-flt"/>
                 <outlet property="mainContent" destination="lY7-Ph-C7W" id="rf3-PA-L5p"/>
-                <outlet property="respondent" destination="qYm-b6-UJ5" id="UMm-Zq-ytw"/>
-                <outlet property="respondentPhone" destination="aQy-cS-cg6" id="oQp-2r-4gL"/>
+                <outlet property="respondent" destination="6aI-Li-loy" id="76n-oA-C0U"/>
+                <outlet property="respondentPhone" destination="aQy-cS-cg6" id="qPL-6z-jUD"/>
                 <outlet property="result" destination="uRb-Qt-LY1" id="Z2S-9Z-hZo"/>
                 <outlet property="scroll" destination="NGo-UK-lIM" id="UCc-CD-uo6"/>
                 <outlet property="theme" destination="kzg-CZ-Kg3" id="6Qg-SU-IFM"/>
