@@ -31,7 +31,6 @@
 @implementation ReminderDetailViewController
 @synthesize reminderEntity = _reminderEntity;
 - (void)viewDidLoad {
-    NSLog(@"sssssssss%@",[self.navigationController class]);
     [super viewDidLoad];
     self.scroll.contentSize = CGSizeMake(375, 1050);
     self.listData = [[NSMutableArray alloc]init];
@@ -114,7 +113,6 @@
     NSString *lianXiFS = _reminderEntity.lianXiFS;
     AppDelegate *ad = [[UIApplication sharedApplication] delegate];
     NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-    NSLog(@"%@",loginName);
     NSString *flowId1=@"";
     NSString *fln_UserCode1=@"";
     //    NSString *nextParticipants=@"";
@@ -162,14 +160,8 @@
     NSString *qiYeMC = _reminderEntity.submitName;
     NSString *yeWuZLMC = _reminderEntity.yeWuZL;
     NSString *ftn_ID = _reminderEntity.ftn_ID;
-    NSLog(@"%@",qiYeBH);
-    NSLog(@"%@",qiYeMC);
-    NSLog(@"%@",yeWuZLBH);
-    NSLog(@"%@",yeWuZLMC);
-    NSLog(@"%@",ftn_ID);
     AppDelegate *ad = [[UIApplication sharedApplication] delegate];
     NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-    NSLog(@"%@",loginName);
     NSString *flowId=@"";
     NSString *fln_UserCode=@"";
     NSString *nextParticipants=@"";

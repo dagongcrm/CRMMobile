@@ -97,7 +97,7 @@
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *listDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"listDic字典里面的内容为--》%@", listDic);
+    //NSLog(@"listDic字典里面的内容为--》%@", listDic);
     NSArray *list = [listDic objectForKey:@"obj"];
     if(![list count] ==0)
     {
@@ -118,7 +118,7 @@
         [self.fakeData addObject:customerName];
         [self.customerIDData addObject:customerID];
         [self.industryIDStrData addObject:industryIDStr];
-        NSLog(@"industryIDStr////////%@",industryIDStr);
+        //NSLog(@"industryIDStr////////%@",industryIDStr);
     }
     return self.fakeData;
 }
@@ -148,7 +148,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *index = _dailyEntity.index;
-    NSLog(@"pppppppppppp%@",index);
+    //NSLog(@"pppppppppppp%@",index);
     if ([index isEqualToString:@"1"]) {
         EditPlanViewController *editCustomer = [[EditPlanViewController alloc]init];
         NSString *customerNameStr=[self.fakeData objectAtIndex:indexPath.row];

@@ -146,7 +146,7 @@
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
+        //NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
         if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
             VisitPlanTableViewController *contant = [[VisitPlanTableViewController alloc]init];
             [self.navigationController pushViewController:contant animated:YES];

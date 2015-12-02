@@ -33,11 +33,13 @@
 
 @implementation RecordsDetalViewController
 @synthesize DailyEntity=_dailyEntity;
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.title=@"拜访记录";
     self.scroll.contentSize = CGSizeMake(375, 1300);    
     self.listData = [[NSMutableArray alloc]init];
     self.customerNameStr.text =_dailyEntity.customerNameStr;

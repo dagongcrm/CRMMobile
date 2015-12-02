@@ -110,7 +110,8 @@
     if (self.currentPage && page == [self.currentPage integerValue]) {
         return;
     }
-    NSMutableArray *pagesToLoad = [@[@(page), @(page - 1), @(page + 1)] mutableCopy];
+    // NSMutableArray *pagesToLoad = [@[@(page), @(page - 1), @(page + 1)]  mutableCopy];
+    NSMutableArray *pagesToLoad = [@[@0, @1, @2]  mutableCopy];
     NSMutableArray *vcsToEnqueue = [NSMutableArray array];
     for (GLReusableViewController *vc in self.visibleViewControllers) {
         if (!vc.page || ![pagesToLoad containsObject:vc.page]) {

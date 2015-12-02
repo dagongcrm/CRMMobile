@@ -42,7 +42,7 @@
         keyValueFormat = [NSString stringWithFormat:@"%@=%@&",key,[params valueForKey:key]];
         [result appendString:keyValueFormat];
     }
-     NSLog(@"post()方法参数解析结果：%@",[result substringToIndex:result.length-1]);
+//     NSLog(@"post()方法参数解析结果：%@",[result substringToIndex:result.length-1]);
     
     return [result substringToIndex:result.length-1];
 }

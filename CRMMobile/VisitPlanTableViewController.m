@@ -15,6 +15,7 @@
 #import "config.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
+#import "HttpHelper.h"
 
 @interface VisitPlanTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
@@ -33,14 +34,49 @@
 @property (strong, nonatomic) NSMutableArray *customerRequirements;//客户需求
 @property (strong, nonatomic) NSMutableArray *customerChange;//客户变更
 @property (strong, nonatomic) NSMutableArray *visitorStr;//拜访人
-@property (nonatomic, strong) NSMutableArray *userName;
+@property (strong, nonatomic) NSMutableArray *userName;
+@property (strong, nonatomic) NSString       *refreshOrNot;
+
 @property  NSInteger index;
 @end
 
 @implementation VisitPlanTableViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+    if([ud objectForKey:@"visitTableDateSource"]){
+        self.refreshOrNot=@"NO";
+    }
+    else{
+        self.refreshOrNot=@"YES";
+    }
+   
+}
+
 - (NSMutableArray *)fakeData
 {
+    
+    if([self.refreshOrNot isEqualToString:@"NO"]){
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        NSDictionary *ds=[ud objectForKey:@"visitTableDateSource"];
+        self.fakeData =[ds objectForKey:@"fakeDate"];
+        self.customerCallPlanID =[ds objectForKey:@"customerCallPlanID"];
+        self.visitDate =[ds objectForKey:@"visitDate"];
+        self.theme =[ds objectForKey:@"theme"];
+        self.accessMethod =[ds objectForKey:@"accessMethod"];
+        self.mainContent =[ds objectForKey:@"mainContent"];
+        self.respondentPhone =[ds objectForKey:@"respondentPhone"];
+        self.respondent=[ds objectForKey:@"respondent"];
+        self.address =[ds objectForKey:@"address"];
+        self.visitProfile =[ds objectForKey:@"visitProfile"];
+        self.result =[ds objectForKey:@"result"];
+        self.customerRequirements =[ds objectForKey:@"customerRequirements"];
+        self.customerChange =[ds objectForKey:@"customerChange"];
+        self.visitorStr =[ds objectForKey:@"visitorStr"];
+        self.userName=[[NSMutableArray alloc]init];
+    }
+    
+    if ([self.refreshOrNot isEqualToString:@"YES"]) {
     if (!_fakeData) {
         self.fakeData   = [[NSMutableArray alloc] init];
         self.customerCallPlanID = [[NSMutableArray alloc]init];
@@ -59,9 +95,9 @@
         self.userName=[[NSMutableArray alloc]init];
         [self faker:@"1"];
     }
+    }
     return _fakeData;
 }
-
 
 
 - (void)viewDidLoad {
@@ -70,22 +106,13 @@
     self.tableView.tableFooterView=[[UIView alloc]init];
 }
 
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[GLReusableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
 
 - (IBAction)addUser:(id)sender
 {
     AddPlanViewController *jumpController = [[AddPlanViewController alloc] init];
     [self.navigationController pushViewController: jumpController animated:true];
 }
+
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -94,12 +121,13 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"visitDate";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
+    NSString *sort  = @"visitDate";
+    NSString *param =[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError  *error;
+    NSData         *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    
     NSArray *list = [weatherDic objectForKey:@"obj"];
     if(![list count] ==0)
     {
@@ -111,16 +139,16 @@
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
-        NSString *teamname = (NSString *)[listDic objectForKey:@"customerName"];
-        NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerCallPlanID"];
-        NSString *teamname2 = (NSString *)[listDic objectForKey:@"visitDate"];
-        NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
-        NSString *teamname4 = (NSString *)[listDic objectForKey:@"accessMethod"];
-        NSString *teamname5 = (NSString *)[listDic objectForKey:@"mainContent"];
-        NSString *teamname6 = (NSString *)[listDic objectForKey:@"respondentPhone"];
-        NSString *teamname7 = (NSString *)[listDic objectForKey:@"respondent"];
-        NSString *teamname8 = (NSString *)[listDic objectForKey:@"address"];
-        NSString *teamname9 = (NSString *)[listDic objectForKey:@"visitProfile"];
+        NSString *teamname =   (NSString *)[listDic objectForKey:@"customerName"];
+        NSString *teamname1 =  (NSString *)[listDic objectForKey:@"customerCallPlanID"];
+        NSString *teamname2 =  (NSString *)[listDic objectForKey:@"visitDate"];
+        NSString *teamname3 =  (NSString *)[listDic objectForKey:@"theme"];
+        NSString *teamname4 =  (NSString *)[listDic objectForKey:@"accessMethod"];
+        NSString *teamname5 =  (NSString *)[listDic objectForKey:@"mainContent"];
+        NSString *teamname6 =  (NSString *)[listDic objectForKey:@"respondentPhone"];
+        NSString *teamname7 =  (NSString *)[listDic objectForKey:@"respondent"];
+        NSString *teamname8 =  (NSString *)[listDic objectForKey:@"address"];
+        NSString *teamname9 =  (NSString *)[listDic objectForKey:@"visitProfile"];
         NSString *teamname10 = (NSString *)[listDic objectForKey:@"result"];
         NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
         NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
@@ -143,6 +171,24 @@
         [self.customerChange addObject:teamname12];
         [self.visitorStr addObject:teamname13];
     }
+    NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     self.fakeData,@"fakeDate",
+                                     self.customerCallPlanID,@"customerCallPlanID",
+                                     self.visitDate,@"visitDate",
+                                     self.theme,@"theme",
+                                     self.accessMethod,@"accessMethod",
+                                     self.mainContent,@"mainContent",
+                                     self.respondentPhone,@"respondentPhone",
+                                     self.address,@"address",
+                                     self.visitProfile,@"visitProfile",
+                                     self.result,@"result",
+                                     self.customerRequirements,@"customerRequirements",
+                                     self.customerChange,@"customerChange",
+                                     self.visitorStr,@"visitorStr",
+                                     nil];
+     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+     [ud setObject:visitTableDate forKey:@"visitTableDateSource"];
+    
     return self.fakeData;
 }
 
@@ -153,12 +199,10 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return [self.fakeData count];
 }
 
@@ -194,6 +238,7 @@
 
 - (void)headerRereshing
 {
+    self.refreshOrNot =@"YES";
     [self.fakeData removeAllObjects];
     APPDELEGATE.index =2;
     [self faker:@"1"];
@@ -216,6 +261,7 @@
         [self.tableView footerEndRefreshing];
     });
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *customerCallPlanID =[self.customerCallPlanID objectAtIndex:indexPath.row];

@@ -44,7 +44,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self reloadData];
+      [self reloadData];
 }
 
 -(void)weatherInfo{
@@ -68,7 +68,6 @@
 {
     if([self.page integerValue]==0)
     {
-
         UILabel *timeForShow = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, self.view.bounds.size.width, 100)];
         timeForShow.text=[self getTimeNow];
         timeForShow.textColor=[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0];
@@ -111,7 +110,6 @@
         nav.view.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);
         [self.view addSubview:nav.view];
         [nav didMoveToParentViewController:self];
-       
     }
     if([self.page integerValue]==2)
     {
@@ -167,5 +165,4 @@
     weatherDic = [weatherDic substringToIndex:range6.location+1];
     return [[weatherDic stringByAppendingString:@" "] stringByAppendingString:temp];
 }
-
 @end

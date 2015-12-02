@@ -13,6 +13,7 @@
 @implementation AppDelegate
 @synthesize sessionInfo;
 @synthesize index;
+@synthesize indexPageForLoad;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
