@@ -50,6 +50,15 @@
     [super viewDidLoad];
      self.title=@"通讯录";
     [self setupRefresh];
+//    //隐藏顶部的导航栏
+//    self.hidesBottomBarWhenPushed = true;    
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+//    searchBar.placeholder = @"搜索";
+//    self.tableView.tableHeaderView = searchBar;
+//    mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+//    mySearchDisplayController.searchResultsDataSource = self;
+//    mySearchDisplayController.searchResultsDelegate = self;
      [self setExtraCellLineHidden:self.tableView];
     }
 // hide the extraLine隐藏分割线
@@ -137,11 +146,19 @@
             [self.phoneData addObject:phoneTime];
         }
         
+//        if (callphone == nil || callphone == NULL) {
+//            [self.contactData addObject:telePhone];
+//        }else{
+//            
+//            [self.contactData addObject:callphone];
+//        }
+//        
         [self.fakeData addObject:teamname];//1
         [self.contactData addObject:telePhone];//2
         [self.contactIDData addObject:contactID];//3
         [self.customerIDData addObject:customerID];//4
         [self.customerNameStrData addObject:customerNameStr];
+        NSLog(@"33333333333%@",customerNameStr);
     }
     return self.fakeData;
 }
@@ -186,6 +203,12 @@
     self.phone= [self.contactData objectAtIndex:indexPath.row];
      self.contactID = [self.contactIDData objectAtIndex:indexPath.row];
     self.customerID = [self.customerIDData objectAtIndex:indexPath.row];
+    //NSLog(@"ggggggggggggg%@",self.phoneData);
+    //[self bodadianhua];
+//    SettingViewController *fl= [[SettingViewController alloc] init];
+//    [self.navigationController pushViewController:fl animated:NO];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.phoneData]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://self.phoneData"]];
     NSString *str = @"tel://";
     NSString *telephone = [str stringByAppendingString:self.phone];
     UIWebView *callWebview =[[UIWebView alloc] init];
@@ -194,6 +217,10 @@
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     //记得添加到view上
     [self.view addSubview:callWebview];
+    
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
+    NSLog(@"我们一起拨打电话吧%@",self.phone);
+    
     [self  callLog];
 }
 -(void)callLog{
@@ -216,6 +243,10 @@
 //     NSLog(@"self.phone==>>%@",self.phone);
 //     NSLog(@"self.contactID==>>%@",self.contactID);
 //     NSLog(@"self.customerID==>>%@",self.customerID);
+
+//    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
+//        [self setupRefresh];
+// 
 
    }
 
