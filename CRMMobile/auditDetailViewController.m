@@ -11,6 +11,7 @@
 #import "auditTableViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
+#import "taskReminderTableViewController.h"
 
 @interface auditDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
@@ -138,8 +139,15 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        auditTableViewController *mj = [[auditTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+        
+        if (APPDELEGATE.page!=@"") {
+            taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
+            [self.navigationController pushViewController:tvc animated:YES];
+        }else{
+            auditTableViewController *mj = [[auditTableViewController alloc] init];
+            [self.navigationController pushViewController:mj animated:YES];
+        }
+
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -195,8 +203,15 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        auditTableViewController *mj = [[auditTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+        
+        if (APPDELEGATE.page!=@"") {
+            taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
+            [self.navigationController pushViewController:tvc animated:YES];
+        }else{ 
+            auditTableViewController *mj = [[auditTableViewController alloc] init];
+            [self.navigationController pushViewController:mj animated:YES];
+        }
+       
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
