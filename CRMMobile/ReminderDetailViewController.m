@@ -150,7 +150,14 @@
             ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
             [self.navigationController pushViewController:mj animated:YES];
         }
-        
+
+//        for (UIViewController *controller in self.navigationController.viewControllers)
+//        {
+//            if ([controller isKindOfClass:[GLReusableViewController class]])
+//            {
+//                [self.navigationController popToViewController:controller animated:YES];
+//            }
+//        }
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -174,6 +181,7 @@
     NSString *qiYeMC = _auditEntity.submitName;
     NSString *yeWuZLMC = _auditEntity.yeWuZL;
     NSString *ftn_ID = _auditEntity.ftn_ID;
+    NSString*userID=_auditEntity.userID;
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
