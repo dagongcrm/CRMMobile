@@ -65,7 +65,7 @@
     
     [super viewDidLoad];
     [self valuation];
-//    [self BackButton];
+    [self BackButton];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
     
