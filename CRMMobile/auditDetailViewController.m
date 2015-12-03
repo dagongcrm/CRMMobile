@@ -16,12 +16,15 @@
 @interface auditDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
 @property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
-@property (weak, nonatomic) IBOutlet UITextField *genZongSF;
+
 @property (weak, nonatomic) IBOutlet UITextField *heTongJE;
 @property (weak, nonatomic) IBOutlet UITextField *suoShuHY;
 - (IBAction)quit:(id)sender;
 
 - (IBAction)auditCommit:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *zhuChengXS;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+
 @property (weak, nonatomic) IBOutlet UITextField *qiYeMC;
 @property (weak, nonatomic) IBOutlet UITextField *yeWuZL;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -33,8 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scroll.contentSize = CGSizeMake(375, 1000);
-    NSString *s= _auditEntity.lianXiFS;
-    NSString *y= _auditEntity.yeWuZL;
+//    NSString *s= _auditEntity.lianXiFS;
+//    NSString *y= _auditEntity.yeWuZL;
     self.title=@"任务审核";
     self.qiYeMC.text = _auditEntity.submitName;
     self.yeWuZL.text = _auditEntity.yeWuZL;
@@ -42,6 +45,8 @@
     self.heTongJE.text = _auditEntity.heTongJE;
     NSLog(@"%@",_auditEntity.genZongSFJE);
     self.genZongSFJE.text = _auditEntity.genZongSFJE;
+    self.zhuChengXS.text=_auditEntity.zhuChengXS;
+    self.userName.text=_auditEntity.userName;
     self.lianXiFS.text = _auditEntity.lianXiFS;
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -61,6 +66,8 @@
     NSString *hangYeFLMC = _auditEntity.hangYeFLMC;
     NSString *heTongJE = _auditEntity.heTongJE;
     NSString *genZongSFJE = _auditEntity.genZongSFJE;
+    NSString *zhuChengXS= _auditEntity.zhuChengXS;
+    NSString *userName = _auditEntity.userName;
     NSString *lianXiFS = _auditEntity.lianXiFS;
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
@@ -69,7 +76,7 @@
     NSLog(@"%@",ftn_ID);
     
     
-        NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeFLMC,heTongJE,genZongSFJE,lianXiFS];
+        NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&genZongSFJE=%@&zhuChengXS=%@&userName=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeFLMC,heTongJE,genZongSFJE,zhuChengXS,userName,lianXiFS];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
