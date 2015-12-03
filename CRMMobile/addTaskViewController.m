@@ -15,11 +15,12 @@
 #import "selectEntity.h"
 
 @interface addTaskViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
-@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
-@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
-- (IBAction)cancel:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *Lable;
+- (IBAction)segmentControl:(id)sender;
+
+- (IBAction)selectHY:(id)sender;
 - (IBAction)selectQiYe:(id)sender;
+- (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 @property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
 @property (strong,nonatomic)  NSArray           *selectUser;
@@ -35,6 +36,8 @@
 @property (strong,nonatomic)  NSMutableArray    *selectUserForShowQiYe;
 @property (strong,nonatomic)  NSMutableArray    *selectUserIdForParamQiYe;
 @property (strong,nonatomic)  IBOutlet UIButton *chooseUserButtonQiYe;
+
+@property (strong,nonatomic)  IBOutlet UIButton *chooseUserButtonHY;
 
 @property (strong, nonatomic) NSString *judge;
 
@@ -68,10 +71,33 @@
 @synthesize selectUserIdForParamQiYe=_selectUserIdForParamQiYe;
 @synthesize selectPickerQiYe;
 
-- (IBAction)cancel:(id)sender {
-    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-    [self.navigationController pushViewController:mj animated:YES];
+- (IBAction)segmentControl:(id)sender {
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    int x = control.selectedSegmentIndex;
+        /*添加代码，对片段变化做出响应*/
+    if (x == 0) {
+        self.GenZongSFJE.hidden = NO;
+        self.Lable.hidden = NO;
+    }else{
+        
+        self.GenZongSFJE.hidden = YES;
+        self.Lable.hidden = YES;
+        
+    }
+   
+}
 
+- (IBAction)selectHY:(id)sender {
+  
+    _judge=@"2";
+    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    listView.titleName.text = @"行业选择";
+    listView.backgroundColor=[UIColor blueColor];
+    listView.datasource = self;
+    listView.delegate = self;
+    [listView show];
 }
 
 - (IBAction)selectQiYe:(id)sender {
@@ -79,17 +105,44 @@
     appDelegate.controllerJudge  = @"addUser";
     selectListTableViewController *role = [[selectListTableViewController alloc] init];
     [self.navigationController pushViewController: role animated:true];
-    //    _judge=@"2";
-//    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-//    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    listView.titleName.text = @"企业选择";
-//    listView.backgroundColor=[UIColor blueColor];
-//    listView.datasource = self;
-//    listView.delegate = self;
-//    [listView show];
 }
 
+- (IBAction)cancel:(id)sender {
+    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+    [self.navigationController pushViewController:mj animated:YES];
+    
+}
+
+//- (IBAction)selectQiYe:(id)sender {
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    appDelegate.controllerJudge  = @"addUser";
+//    selectListTableViewController *role = [[selectListTableViewController alloc] init];
+//    [self.navigationController pushViewController: role animated:true];
+//    //    _judge=@"2";
+//    //    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+//    //    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+//    //    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    //    listView.titleName.text = @"企业选择";
+//    //    listView.backgroundColor=[UIColor blueColor];
+//    //    listView.datasource = self;
+//    //    listView.delegate = self;
+//    //    [listView show];
+//}
+//- (IBAction)selectHY:(id)sender {
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    appDelegate.controllerJudge  = @"addUser";
+//    selectListTableViewController *role = [[selectListTableViewController alloc] init];
+//    [self.navigationController pushViewController: role animated:true];
+//        _judge=@"2";
+//        self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+//        self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+//        ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//        listView.titleName.text = @"行业选择";
+//        listView.backgroundColor=[UIColor blueColor];
+//        listView.datasource = self;
+//        listView.delegate = self;
+//        [listView show];
+//}
 
 - (IBAction)selectKind:(id)sender {
     _judge=@"1";
@@ -108,7 +161,7 @@
     self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
-     _judge=@"";
+    _judge=@"";
     [super viewDidLoad];
     //self.nextArray  = self.nextArray;
     NSString *roleTitle;
@@ -123,14 +176,14 @@
         
     }
     [self.chooseUserButtonQiYe setTitle:roleTitle forState:UIControlStateNormal];
-//    self.pickerArray        = self.fakeData;
-//    selectPicker.delegate   = self;
-//    selectPicker.dataSource = self;
-
+    //    self.pickerArray        = self.fakeData;
+    //    selectPicker.delegate   = self;
+    //    selectPicker.dataSource = self;
+    
     [self selectUserArray];
     //selectPicker.delegate   = self;
     //selectPicker.dataSource = self;
-    //[self selectUserArrayQiYe];
+    [self selectUserArrayQiYe];
     //selectPickerQiYe.delegate = self;
     //selectPickerQiYe.dataSource = self;
     // Do any additional setup after loading the view from its nib.
@@ -171,12 +224,12 @@
         [nextFlowUserName     addObject:teamname];
         [nextFlowUserId  addObject:submitID];
     }
-//    for(NSDictionary *key in nextFlow)
-//    {
-//        NSLog(@"%@",key);
-//        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
-//        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
-//    }
+    //    for(NSDictionary *key in nextFlow)
+    //    {
+    //        NSLog(@"%@",key);
+    //        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
+    //        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
+    //    }
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
 }
@@ -190,7 +243,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mqiYeJBXXAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mhangYeFLWHAction!select.action?rows=30&isLeaf=1&isVisible=11&order=asc&sort=fenLeiPX"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -206,7 +259,7 @@
         [self.uidQiYe addObject:listdic];
         NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
         NSLog(@"%@",submitID);
-        NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeZWMC"];
+        NSString *teamname = (NSString *)[listdic objectForKey:@"fenLeiMC"];
         NSLog(@"%@",teamname);
         
         [nextFlowUserNameQiYe     addObject:teamname];
@@ -215,17 +268,17 @@
     
     _selectUserQiYe= [nextFlowUserNameQiYe copy];
     _selectUserIdQiYe=[nextFlowUserIdQiYe copy];
-
-   }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -242,8 +295,8 @@
     if ([self.judge isEqualToString:@"1"]) {
         return [_selectUser count];
     }
-        return [_selectUserQiYe count];
-
+    return [_selectUserQiYe count];
+    
 }
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,7 +329,7 @@
     if ([self.judge isEqualToString:@"2"]) {
         [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
         [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
-
+        
     }
     [self buttonInputLabel:tableView];
 }
@@ -305,14 +358,14 @@
     if ([self.judge isEqualToString:@"2"]) {
         if([self.selectUserForShowQiYe count]==0){
             [tableView dismiss];
-            [self.chooseUserButtonQiYe setTitle:@"plese choose again" forState:UIControlStateNormal];
+            [self.chooseUserButtonHY setTitle:@"plese choose again" forState:UIControlStateNormal];
         }else{
             for (NSString *str in self.selectUserForShowQiYe)
             {
                 string = [string stringByAppendingFormat:@"%@,",str];
             }
             NSString * title = [string substringWithRange:NSMakeRange(0,[string length] - 1)];
-            [self.chooseUserButtonQiYe setTitle:title forState:UIControlStateNormal];
+            [self.chooseUserButtonHY setTitle:title forState:UIControlStateNormal];
             NSString *selectUserIdForParam =@"";
             for (NSString *ztr in self.selectUserIdForParamQiYe)
             {
@@ -345,13 +398,13 @@
             NSLog(@"chooseUserIDs%@",APPDELEGATE.options.chooseUserIDs);
         }
     }
-
-    }
+    
+}
 
 
 
 - (IBAction)save:(id)sender {
-//    NSString *hangyeGS = self.HangYeGS.text;
+    //    NSString *hangyeGS = self.HangYeGS.text;
     NSString *hetongJE = self.HeTongJE.text;
     NSString *gezongSF = self.GenZongSF.text;
     NSString *gezongSFJE = self.GenZongSFJE.text;
@@ -373,19 +426,28 @@
     NSString *yeWuZLBH=@"";
     NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
     NSString *yeWuZLMC=@"";
+    NSString *hangYeFLMC=@"";
+    NSString *hangYeBH = @"";
     for(int i=0;i<[self.selectUserForShow count];i++){
         yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
-
+        
         yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
+        
+    }
+    for(int i=0;i<[self.selectUserForShowQiYe count];i++){
+        hangYeBH= [self.selectUserIdForParamQiYe objectAtIndex:i];
+        
+        hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
         
     }
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
     NSLog(@"%@",yeWuZLMC);
-    
-//    heTongJE
-    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE];
+    NSLog(@"%@",hangYeBH);
+    NSLog(@"%@",hangYeFLMC);
+    //    heTongJE
+    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -406,3 +468,4 @@
 
 
 @end
+

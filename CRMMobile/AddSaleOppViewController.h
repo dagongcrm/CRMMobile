@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SaleOppEntity.h"
 
 @interface AddSaleOppViewController : UIViewController
-
+@property (strong, nonatomic) SaleOppEntity *saleOppEntity;
 @end

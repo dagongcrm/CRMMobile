@@ -24,5 +24,13 @@
 @property  NSString    *submitName;
 @property  NSString    *yeWuZL;
 @property  NSString    *yeWuZLBH;
+@property  NSString    *hangYeFLBH;
+@property  NSString    *hangYeFLMC;
+@property  NSString    *heTongJE;
+@property  NSString    *gezongSF;
+@property  NSString    *genZongSFJE;
+@property  NSString    *lianxiFS;
+@property  NSString    *page;
+@property  (nonatomic,retain) NSMutableArray *indexPageForLoad;
 @end
 

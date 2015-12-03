@@ -253,8 +253,10 @@
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
         NSString *userID = (NSString *) [nc objectForKey:@"userID"];
+        NSString *hangYeFLBH =(NSString *) [nc objectForKey:@"hangYeFLBH"];
         NSString *hangYeFLMC =(NSString *) [nc objectForKey:@"hangYeFLMC_cn"];
         NSString *heTongJEStr =(NSString *) [nc objectForKey:@"heTongJEStr"];
+        
         NSString *genZongSFJEStr =(NSString *) [nc objectForKey:@"genZongSFJEStr"];
         NSString *zhuChengXS =(NSString *) [nc objectForKey:@"zhuChengXS"];
         NSString *userName =(NSString *) [nc objectForKey:@"userName_cn"];
@@ -262,18 +264,21 @@
         NSLog(@"%@",userID);
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
+        NSLog(@"yeWuZLBH%@",hangYeFLMC);
         submitTaskEntity *udetail =[[submitTaskEntity alloc] init];
         [udetail setSubmitName:submitName];
         [udetail setSubmitID:submitID];
         [udetail setYeWuZL:yeWuZL];
         [udetail setYeWuZLBH:yeWuZLBH];
         [udetail setFtn_ID:ftn_ID];
+        [udetail setHangYeFLBH:hangYeFLBH];
         [udetail setHangYeFLMC:hangYeFLMC];
         [udetail setHeTongJE:heTongJEStr];
         [udetail setGenZongSFJE:genZongSFJEStr];
         [udetail setZhuChengXS:zhuChengXS];
         [udetail setUserName:userName];
         [udetail setLianXiFS:lianXiFS];
+        
         submitTaskDetailViewController *uc =[[submitTaskDetailViewController alloc] init];
         [uc setSubmitTaskEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];

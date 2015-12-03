@@ -43,9 +43,9 @@
 @synthesize DailyEntity=_dailyEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"拜访计划";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     self.scroll.contentSize = CGSizeMake(375, 1300);
-//    self.listData = [[NSMutableArray alloc]init];
     self.customerNameStr.text =_dailyEntity.customerNameStr;
     self.visitDate.text =_dailyEntity.visitDate;
     self.theme.text =_dailyEntity.theme;
@@ -74,19 +74,25 @@
     [self.visitProfile setEnabled:NO];
     [self.result setEnabled:NO];
     [self.customerRequirements setEnabled:NO];
-//    NSString *customerCallPlanIDs =_dailyEntity.customerCallPlanID;
-//    [self.listData addObject:customerCallPlanIDs];
+}
+
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)edit:(id)sender {
-//    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-//    myDelegate.judgeSubmitID = _dailyEntity.customerCallPlanID;
     EditPlanViewController *uc1 =[[EditPlanViewController alloc] init];
     [uc1 setDailyEntity:_dailyEntity];
     [self.navigationController pushViewController:uc1 animated:YES];
@@ -140,7 +146,7 @@
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
+        //NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
         if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
             VisitPlanTableViewController *contant = [[VisitPlanTableViewController alloc]init];
             [self.navigationController pushViewController:contant animated:YES];

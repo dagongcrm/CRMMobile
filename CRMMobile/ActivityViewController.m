@@ -28,8 +28,15 @@
 @implementation ActivityViewController
 @synthesize activityEntity = _activityEntity;
 - (void)viewDidLoad {
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     self.title=@"任务审核";
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.scroll.contentSize = CGSizeMake(375, 1050);
     self.listData = [[NSMutableArray alloc]init];
     self.activityName.text = _activityEntity.activityName;
@@ -56,8 +63,26 @@
     [self.listData addObject:reminders];
 }
 
+
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
+
 
 @end

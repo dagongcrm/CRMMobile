@@ -33,7 +33,7 @@
 @synthesize addCustomerEntity = _addCustomerEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"添加联系人信息";
+//    self.title=@"添加联系人信息";
     self.scroll.contentSize = CGSizeMake(375, 1000);
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];

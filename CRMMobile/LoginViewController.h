@@ -11,5 +11,4 @@
 @interface LoginViewController : UIViewController
 @property (strong,nonatomic)  IBOutlet UITextField *accountField;
 @property (strong,nonatomic)  IBOutlet UITextField *passwdField;
- 
 @end

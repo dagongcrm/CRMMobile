@@ -29,8 +29,9 @@
 @property (strong, nonatomic) NSMutableArray *visibleViewControllers;
 @end
 
-@implementation IndexViewController
 
+
+@implementation IndexViewController
 
 - (NSMutableArray *)reusableViewControllers
 {
@@ -48,6 +49,14 @@
     return _visibleViewControllers;
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self setupPages];
+    [self loadPage:0];
+    
+}
+
+
 - (void)viewDidLoad {
     NAVCOLOR;
     [super viewDidLoad];
@@ -57,11 +66,12 @@
 
 - (void)setupPages
 {
-    
     [self.contentWidthConstraint autoRemove];
     self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:TOTAL_PAGES];
+    
     [self.navContentWidthConstraint autoRemove];
     self.navContentWidthConstraint = [self.navContentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.navScrollView withMultiplier:TOTAL_PAGES];
+    
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
     
@@ -77,7 +87,7 @@
         CGRect frame  = CGRectMake(x, 0.0, self.navScrollView.frame.size.width, self.navScrollView.frame.size.height - 10.0);
         UILabel *title = [[UILabel alloc] initWithFrame:frame];
         if (i==0) {
-            title.text =@"待办提醒";
+            title.text =@"今天";
         }
         if (i==1) {
             title.text =@"拜访计划";
@@ -96,11 +106,12 @@
 
 - (void)loadPage:(NSInteger)page
 {
-    self.pageControl.currentPage=page;
+     self.pageControl.currentPage=page;
     if (self.currentPage && page == [self.currentPage integerValue]) {
         return;
     }
-    NSMutableArray *pagesToLoad = [@[@(page), @(page - 1), @(page + 1)] mutableCopy];
+    // NSMutableArray *pagesToLoad = [@[@(page), @(page - 1), @(page + 1)]  mutableCopy];
+    NSMutableArray *pagesToLoad = [@[@0, @1, @2]  mutableCopy];
     NSMutableArray *vcsToEnqueue = [NSMutableArray array];
     for (GLReusableViewController *vc in self.visibleViewControllers) {
         if (!vc.page || ![pagesToLoad containsObject:vc.page]) {
@@ -156,21 +167,29 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-//滚动
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetX=scrollView.contentOffset.x;
-    offsetX=offsetX+(scrollView.frame.size.width*0.5);
+    offsetX=offsetX+(scrollView.frame.size.width);
     int page=offsetX/scrollView.frame.size.width;
     page = MAX(page, 0);
-    page = MIN(page, TOTAL_PAGES - 1);
+    page = MIN(page, TOTAL_PAGES-1);
     [self loadPage:page];
     if (scrollView == self.scrollView) {
         CGFloat navX = scrollView.contentOffset.x / scrollView.frame.size.width * self.navScrollView.frame.size.width;
         self.navScrollView.contentOffset = CGPointMake(navX, 0.0);
-        NSInteger page = roundf(scrollView.contentOffset.x / scrollView.frame.size.width);
     }
-    self.pageControl.currentPage=page;
-   
 }
+
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat offsetX=scrollView.contentOffset.x;
+    offsetX=offsetX+(scrollView.frame.size.width);
+    int page=offsetX/scrollView.frame.size.width;
+    self.pageControl.currentPage=page-1;
+}
+
 @end

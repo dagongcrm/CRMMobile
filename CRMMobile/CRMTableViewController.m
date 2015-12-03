@@ -5,9 +5,10 @@
 //  Created by gwb on 15/10/23.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-
+#import "TaskRecordsTableViewController.h"
 #import "CRMTableViewController.h"
 #import "CustomerInformationTableViewController.h"
+#import "CustomerCallPlanViewController.h"
 #import "SaleOppTableViewController.h"
 #import "CustomercontactTableViewController.h"
 #import "MarketManagementViewController.h"
@@ -68,15 +69,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){
         CustomerInformationTableViewController *fltv= [[CustomerInformationTableViewController alloc] init];
+        fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==1){
         CustomercontactTableViewController *customercontact = [[CustomercontactTableViewController alloc]init];
-         customercontact.hidesBottomBarWhenPushed=YES;
+        customercontact.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: customercontact animated:YES];
     }else if(indexPath.row==2){
+        CustomerCallPlanViewController *fltv=[[CustomerCallPlanViewController alloc] init];
+        fltv.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController: fltv animated:YES];
         
     }else if(indexPath.row==3){
-        
+        TaskRecordsTableViewController *fltv=[[TaskRecordsTableViewController alloc] init];
+        fltv.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==4){
         
     }else if(indexPath.row==5){

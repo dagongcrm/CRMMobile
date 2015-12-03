@@ -7,31 +7,98 @@
 //
 
 #import "AddSaleOppViewController.h"
+#import "SaleOppEntity.h"
+#import "CustomerContactListViewController.h"
+#import "AppDelegate.h"
+#import "config.h"
+#import "ZSYPopoverListView.h"
 
 @interface AddSaleOppViewController ()
+
+@property (strong,nonatomic)  NSString    *select;//用于判断下拉选
+
+//选择  销售机会来源
+@property (strong,nonatomic)  NSMutableArray *selectSrcArray;
+@property (strong,nonatomic)  NSMutableArray *selectSrcIdArray;
+@property (strong, nonatomic) NSMutableArray *uid;
+@property (strong,nonatomic)  NSArray *selectSrc;
+@property (strong,nonatomic)  NSArray *selectSrcId;
+@property (nonatomic, retain) NSIndexPath *selectedIndexPath;
+@property (strong,nonatomic) NSString  *chooseSrcID;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
+@property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
+@property (weak, nonatomic) IBOutlet UITextField *successProbability;
+@property (weak, nonatomic) IBOutlet UITextField *saleOppDescription;
+@property (weak, nonatomic) IBOutlet UITextField *oppState;
+@property (weak, nonatomic) IBOutlet UITextField *contact;
+@property (weak, nonatomic) IBOutlet UITextField *contactTel;
+- (IBAction)cancel:(id)sender;
+- (IBAction)save:(id)sender;
+- (IBAction)customerNameSelect:(id)sender;
+- (IBAction)oppStateSelect:(id)sender;
+- (IBAction)saleOppSrcSelect:(id)sender;
 
 @end
 
 @implementation AddSaleOppViewController
-
+@synthesize saleOppEntity=_saleOppEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self valuation];
+    self.title=@"添加销售机会";
+    self.scroll.contentSize = CGSizeMake(375, 700);
+}
+//赋值方法
+- (void) valuation {
+    _customerNameStr.text=_saleOppEntity.customerNameStr;
+    _saleOppSrc.text=_saleOppEntity.saleOppSrc;
+    _successProbability.text=_saleOppEntity.successProbability;
+    _saleOppDescription.text=_saleOppEntity.saleOppDescription;
+    _oppState.text=_saleOppEntity.oppState;
+    _contact.text=_saleOppEntity.contact;
+    _contactTel.text=_saleOppEntity.contactTel;
+}
+- (IBAction)cancel:(id)sender {
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)save:(id)sender {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)customerNameSelect:(id)sender {
+    NSString *customerNameStr= _customerNameStr.text;
+    NSString *saleOppSrc=_saleOppSrc.text;
+    NSString *successProbability=_successProbability.text;
+    NSString *saleOppDescription=_saleOppDescription.text;
+    NSString *oppState=_oppState.text;
+    NSString *contact=_contact.text;
+    NSString *contactTel=_contactTel.text;
+    NSString *saleOppID=@"";//销售机会
+//    for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
+//        accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
+//    }
+    
+    _saleOppEntity=[[SaleOppEntity alloc] init];
+    
+    [_saleOppEntity setCustomerNameStr:customerNameStr];
+    [_saleOppEntity setSaleOppSrc:saleOppSrc];
+    [_saleOppEntity setSuccessProbability:successProbability];
+    [_saleOppEntity setSaleOppDescription:saleOppDescription];
+    [_saleOppEntity setOppState:oppState];
+    [_saleOppEntity setContact:contact];
+    [_saleOppEntity setContactTel:contactTel];
+    
+    [_saleOppEntity setIndex:@"addSaleOpp"];
+    CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
+    [list setSaleOppEntity:_saleOppEntity];
+    [self.navigationController pushViewController:list animated:YES];
 }
-*/
+
+- (IBAction)oppStateSelect:(id)sender {
+}
+
+- (IBAction)saleOppSrcSelect:(id)sender {
+}
 
 @end

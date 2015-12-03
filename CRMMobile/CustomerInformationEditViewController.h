@@ -11,4 +11,7 @@
 
 @interface CustomerInformationEditViewController : UIViewController
 @property ( retain , nonatomic ) CustomerInfermationDetailMessageEntity *customerInformationEntity;
+@property (strong,nonatomic) NSArray *nextArray;
+@property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
+
 @end

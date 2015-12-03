@@ -15,6 +15,11 @@
 #import "selectListTableViewController.h"
 
 @interface editTaskViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UILabel *Label;
+- (IBAction)segmentControl:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *chooseHY;
+- (IBAction)selectHY:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)selectQiYe:(id)sender;
 - (IBAction)save:(id)sender;
@@ -37,7 +42,11 @@
 
 @property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
-@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *HeTongJE;
+@property (weak, nonatomic) IBOutlet UITextField *GenZongSF;
+@property (weak, nonatomic) IBOutlet UITextField *GenZongSFJE;
+
+@property (weak, nonatomic) IBOutlet UITextField *LianXiFS;
 
 @end
 
@@ -56,6 +65,19 @@
 @synthesize selectUserForShowQiYe= _selectUserForShowQiYe;
 @synthesize selectUserIdForParamQiYe=_selectUserIdForParamQiYe;
 @synthesize selectPickerQiYe;
+
+- (IBAction)selectHY:(id)sender {
+    _judge=@"2";
+    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
+    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
+    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    listView.titleName.text = @"行业选择";
+    listView.backgroundColor=[UIColor blueColor];
+    listView.datasource = self;
+    listView.delegate = self;
+    [listView show];
+
+}
 
 - (IBAction)cancel:(id)sender {
     SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
@@ -98,21 +120,18 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *yeWuZL = myDelegate.yeWuZL;
     NSString *submitName = myDelegate.submitName;
+    NSString *hangYeFLMC = myDelegate.hangYeFLMC;
     NSLog(@"%@",yeWuZL);
+    self.HeTongJE.text = myDelegate.heTongJE;
+    self.GenZongSFJE.text = myDelegate.genZongSFJE;
+    self.LianXiFS.text = myDelegate.lianxiFS;
     [self.chooseUserButtonQiYe setTitle:submitName forState:UIControlStateNormal];
     [self.chooseUserButton setTitle:yeWuZL forState:UIControlStateNormal];
+    [self.chooseHY setTitle:hangYeFLMC forState:UIControlStateNormal];
     _judge=@"";
-    
-    //self.nextArray  = self.nextArray;
-    
-    [self selectUserArray];
-    //selectPicker.delegate   = self;
-    //selectPicker.dataSource = self;
-    [self selectUserArrayQiYe];
-    //selectPickerQiYe.delegate = self;
-    //selectPickerQiYe.dataSource = self;
-    // Do any additional setup after loading the view from its nib.
-}
+        [self selectUserArray];
+        [self selectUserArrayQiYe];
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -168,7 +187,7 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mqiYeJBXXAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mhangYeFLWHAction!select.action?rows=30&isLeaf=1&isVisible=11&order=asc&sort=fenLeiPX"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -184,7 +203,7 @@
         [self.uidQiYe addObject:listdic];
         NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
         NSLog(@"%@",submitID);
-        NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeZWMC"];
+        NSString *teamname = (NSString *)[listdic objectForKey:@"fenLeiMC"];
         NSLog(@"%@",teamname);
         
         [nextFlowUserNameQiYe     addObject:teamname];
@@ -283,14 +302,14 @@
     if ([self.judge isEqualToString:@"2"]) {
         if([self.selectUserForShowQiYe count]==0){
             [tableView dismiss];
-            [self.chooseUserButtonQiYe setTitle:@"plese choose again" forState:UIControlStateNormal];
+            [self.chooseHY setTitle:@"plese choose again" forState:UIControlStateNormal];
         }else{
             for (NSString *str in self.selectUserForShowQiYe)
             {
                 string = [string stringByAppendingFormat:@"%@,",str];
             }
             NSString * title = [string substringWithRange:NSMakeRange(0,[string length] - 1)];
-            [self.chooseUserButtonQiYe setTitle:title forState:UIControlStateNormal];
+            [self.chooseHY setTitle:title forState:UIControlStateNormal];
             NSString *selectUserIdForParam =@"";
             for (NSString *ztr in self.selectUserIdForParamQiYe)
             {
@@ -345,6 +364,8 @@
     NSString *yeWuZLBH=@"";
     NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
     NSString *yeWuZLMC=@"";
+    NSString *hangYeFLMC=@"";
+    NSString *hangYeBH = @"";
     for(int i=0;i<[self.selectUserForShow count];i++){
         yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
 //        qiYeBH = [self.selectUserIdForParamQiYe objectAtIndex:i];
@@ -358,9 +379,29 @@
         yeWuZLBH = appDelegate.yeWuZLBH;
         yeWuZLMC = appDelegate.yeWuZL;
     }
-    NSLog(@"%@",yeWuZLBH);
-    NSLog(@"%@",yeWuZLMC);
-    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    for(int i=0;i<[self.selectUserForShowQiYe count];i++){
+        hangYeBH= [self.selectUserIdForParamQiYe objectAtIndex:i];
+        
+        hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
+        
+    }
+    if (hangYeBH == @"") {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        hangYeBH = appDelegate.hangYeFLBH;
+        hangYeFLMC = appDelegate.hangYeFLMC;
+    }
+    if (qiYeBH1 == nil) {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        qiYeBH1 = appDelegate.judgeSubmitID;
+        qiYeMC = appDelegate.submitName;
+    }
+    NSLog(@"workId%@",workId);
+    NSLog(@"qiyebh%@",qiYeBH1);
+    NSString *heTongJE = self.HeTongJE.text;
+    NSString *genZongSFJE = self.GenZongSFJE.text;
+    NSString *lianXiFS = self.LianXiFS.text;
+    
+    NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLBH=%@&hangYeFLMC=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeBH,hangYeFLMC,lianXiFS,genZongSFJE,genZongSFJE,heTongJE];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -378,4 +419,19 @@
 }
 
 
+- (IBAction)segmentControl:(id)sender {
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    int x = control.selectedSegmentIndex;
+    /*添加代码，对片段变化做出响应*/
+    if (x == 0) {
+        self.GenZongSFJE.hidden = NO;
+        self.Label.hidden = NO;
+    }else{
+        
+        self.GenZongSFJE.hidden = YES;
+        self.Label.hidden = YES;
+        
+    }
+
+}
 @end

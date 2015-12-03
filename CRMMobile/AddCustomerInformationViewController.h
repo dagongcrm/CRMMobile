@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZSYPopoverListView.h"
 
 @interface AddCustomerInformationViewController : UIViewController
+
+
+//@property (strong,nonatomic) options *options;
+@property (strong,nonatomic) NSArray *nextArray;
+@property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
 
 @end

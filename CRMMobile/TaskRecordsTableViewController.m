@@ -6,6 +6,8 @@
 #import "MJRefresh.h"
 #import "UIImage+Tint.h"
 #import "RecordsNsObj.h"
+#import "ReminderTableViewController.h"
+
 @interface TaskRecordsTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -25,13 +27,45 @@
 @property (strong, nonatomic) NSMutableArray *visitor;//拜访人
 @property (strong, nonatomic) NSMutableArray *callRecordsID;//id
 @property (nonatomic, strong) NSMutableArray *userName;
-@property  NSInteger index;//
+@property (strong, nonatomic) NSString       *refreshOrNot;
+@property  NSInteger index;
 @end
 
 @implementation TaskRecordsTableViewController
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    if([[[NSUserDefaults alloc] init] objectForKey:@"taskTableDateSource"]){
+    self.refreshOrNot=@"NO";
+    }else{
+    self.refreshOrNot=@"YES";
+    }
+}
+
+
 - (NSMutableArray *)fakeData
 {
+    if([self.refreshOrNot isEqualToString:@"NO"]){
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        NSDictionary *ds=[ud objectForKey:@"taskTableDateSource"];
+        self.callRecordsID=[ds objectForKey:@"callRecordsID"],
+        self.fakeData=[ds objectForKey:@"fakeData"],
+        self.visitDate=[ds objectForKey:@"visitDate"],
+        self.theme=[ds objectForKey:@"theme"],
+        self.accessMethodStr=[ds objectForKey:@"accessMethodStr"],
+        self.mainContent=[ds objectForKey:@"mainContent"],
+        self.respondentPhone=[ds objectForKey:@"respondentPhone"],
+        self.respondent=[ds objectForKey:@"respondent"],
+        self.address=[ds objectForKey:@"address"],
+        self.visitProfile=[ds objectForKey:@"visitProfile"],
+        self.result=[ds objectForKey:@"result"],
+        self.customerRequirements=[ds objectForKey:@"customerRequirements"],
+        self.customerChange=[ds objectForKey:@"customerChange"],
+        self.visitorAttributionStr=[ds objectForKey:@"visitorAttributionStr"],
+        self.visitor=[ds objectForKey:@"visitor"];
+    }
+    
+    if([self.refreshOrNot isEqualToString:@"YES"]){
     if (!_fakeData) {
         self.callRecordsID = [[NSMutableArray alloc]init];
         self.fakeData = [[NSMutableArray alloc]init];
@@ -50,19 +84,16 @@
         [self faker:@"1"];
         [self faker:@"2"];
     }
+    }
     return _fakeData;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupRefresh];    //上拉刷新下拉加在方法
-    self.title=@"拜访记录";
-   
+    [self setupRefresh];
   }
 
 -(NSMutableArray *) faker: (NSString *) page{
-   
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallRecordsAction!mDatagrid.action"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
@@ -74,30 +105,27 @@
      NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
     if(![list count] ==0)
     {
-        
         self.tableView.footerRefreshingText=@"加载中";
     }else
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
     for (int i = 0; i<[list count]; i++) {
-       
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
-        NSString *teamname = (NSString *)[listDic objectForKey:@"callRecordsID"];
-        NSString *teamname1 = (NSString *)[listDic objectForKey:@"customerName"];
-        NSString *teamname2= (NSString *)[listDic objectForKey:@"visitDate"];
-        NSString *teamname3 = (NSString *)[listDic objectForKey:@"theme"];
-        NSString *teamname4 = (NSString *)[listDic objectForKey:@"accessMethodStr"];
-        NSString *teamname5 = (NSString *)[listDic objectForKey:@"mainContent"];
-        NSString *teamname6 = (NSString *)[listDic objectForKey:@"respondentPhone"];
-        NSString *teamname7 = (NSString *)[listDic objectForKey:@"respondent"];
-        NSString *teamname8 = (NSString *)[listDic objectForKey:@"address"];
-        NSString *teamname9 = (NSString *)[listDic objectForKey:@"visitProfile"];
+        NSString *teamname  = (NSString *)[listDic  objectForKey:@"callRecordsID"];
+        NSString *teamname1 = (NSString *)[listDic  objectForKey:@"customerName"];
+        NSString *teamname2 = (NSString *)[listDic  objectForKey:@"visitDate"];
+        NSString *teamname3 = (NSString *)[listDic  objectForKey:@"theme"];
+        NSString *teamname4 = (NSString *)[listDic  objectForKey:@"accessMethodStr"];
+        NSString *teamname5 = (NSString *)[listDic  objectForKey:@"mainContent"];
+        NSString *teamname6 = (NSString *)[listDic  objectForKey:@"respondentPhone"];
+        NSString *teamname7 = (NSString *)[listDic  objectForKey:@"respondent"];
+        NSString *teamname8 = (NSString *)[listDic  objectForKey:@"address"];
+        NSString *teamname9 = (NSString *)[listDic  objectForKey:@"visitProfile"];
         NSString *teamname10 = (NSString *)[listDic objectForKey:@"result"];
         NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
         NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
@@ -107,43 +135,43 @@
             teamname=@"";
         }
                 if (teamname1.length==0) {
-                    teamname1=@"暂无数据";
+                    teamname1=@" ";
                 }
                 if (teamname2.length==0) {
-                    teamname2=@"暂无数据";
+                    teamname2=@" ";
                 }
                 if (teamname3.length==0) {
-                    teamname3=@"暂无数据";
+                    teamname3=@" ";
                 }
                 if (teamname4.length==0) {
-                    teamname4=@"暂无数据";
+                    teamname4=@" ";
                 }
                 if (teamname5.length==0) {
-                    teamname5=@"暂无数据";
+                    teamname5=@" ";
                 }
                 if (teamname6.length==0) {
-                    teamname6=@"暂无数据";
+                    teamname6=@" ";
                 }
                 if (teamname7.length==0) {
-                    teamname7=@"暂无数据";
+                    teamname7=@" ";
                 }
                 if (teamname8.length==0) {
-                    teamname8=@"暂无数据";
+                    teamname8=@" ";
                 }
                 if (teamname9.length==0) {
-                    teamname9=@"暂无数据";
+                    teamname9=@" ";
                 }
                 if (teamname10.length==0) {
-                    teamname10=@"暂无数据";
+                    teamname10=@" ";
                 }
                 if (teamname11.length==0) {
-                    teamname11=@"暂无数据";
+                    teamname11=@" ";
                 }
                 if (teamname12.length==0) {
-                    teamname12=@"暂无数据";
+                    teamname12=@" ";
                 }
                 if (teamname13.length==0) {
-                    teamname13=@"暂无数据";
+                    teamname13=@" ";
                 }
         [self.callRecordsID addObject:teamname];
         [self.fakeData addObject:teamname1];
@@ -160,15 +188,32 @@
         [self.customerChange addObject:teamname12];
         [self.visitorAttributionStr addObject:teamname13];
         [self.visitor addObject:teamname14];
-       
     }
-    
+
+    NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     self.callRecordsID,@"callRecordsID",
+                                     self.fakeData,@"fakeData",
+                                     self.visitDate,@"visitDate",
+                                     self.theme,@"theme",
+                                     self.accessMethodStr,@"accessMethodStr",
+                                     self.mainContent,@"mainContent",
+                                     self.respondentPhone,@"respondentPhone",
+                                     self.respondent,@"respondent",
+                                     self.address,@"address",
+                                     self.visitProfile,@"visitProfile",
+                                     self.result,@"result",
+                                     self.customerRequirements,@"customerRequirements",
+                                     self.customerChange,@"customerChange",
+                                     self.visitorAttributionStr,@"visitorAttributionStr",
+                                     self.visitor,@"visitor",
+                                     nil];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:visitTableDate forKey:@"taskTableDateSource"];
     return self.fakeData;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)setExtraCellLineHidden: (UITableView *)tableView
@@ -179,17 +224,12 @@
 }
 
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.fakeData count];
 }
 
@@ -197,7 +237,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"mycell";
+    static NSString *cellId = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
@@ -225,6 +265,7 @@
 }
 - (void)headerRereshing
 {
+    self.refreshOrNot =@"YES";
     [self.fakeData removeAllObjects];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     myDelegate.index =3;
@@ -244,10 +285,7 @@
     }
     self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    NSLog(@"%@************",p);
-    //NSLog(p);
     [self faker:p];
-    //    [self faker:@"1"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
@@ -280,8 +318,9 @@
     [visitPlan setTheme:theme];
     [visitPlan setAccessMethodStr:accessMethodStr];
     [visitPlan setMainContent:mainContent];
-    [visitPlan setRespondent:respondent];
+    
     [visitPlan setRespondentPhone:respondentPhone];
+    [visitPlan setRespondent:respondent];
     [visitPlan setAddress:address];
     [visitPlan setVisitProfile:visitProfile];
     [visitPlan setResult:result];
@@ -289,9 +328,9 @@
     [visitPlan setCustomerChange:customerChange];
     [visitPlan setVisitorAttributionStr:visitorAttributionStr];
     [visitPlan setVisitor:visitor];
+    
     RecordsDetalViewController *uc =[[RecordsDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
-    [self.navigationController pushViewController:uc animated:YES];
-    
+    [self.navigationController pushViewController:uc animated:NO];
 }
 @end
