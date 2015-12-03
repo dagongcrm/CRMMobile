@@ -32,22 +32,18 @@
 @synthesize reminderEntity = _reminderEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scroll.contentSize = CGSizeMake(375, 1050);
-    self.listData = [[NSMutableArray alloc]init];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    self.scroll.contentSize = CGSizeMake(375, 1100);
 
-    
-    self.qiYeMC.text = _reminderEntity.submitName;
-    self.yeWuZL.text = _reminderEntity.yeWuZLMC_cn;
-    self.hangYeFLMC.text = _reminderEntity.hangYeFLMC;
-    self.heTongJE.text = _reminderEntity.heTongJEStr;
-    self.genZongSFJE.text = _reminderEntity.genZongSFJEStr;
-    self.zhuChengXS.text = _reminderEntity.zhuChengXS;
-   
-    self.userName.text = _reminderEntity.userName;
-    self.lianXiFS.text = _reminderEntity.lianXiFS;
-    
+    self.title=@"任务审核";
+    self.qiYeMC.text = _auditEntity.submitName;
+    self.yeWuZL.text = _auditEntity.yeWuZL;
+    self.hangYeFLMC.text = _auditEntity.hangYeFLMC;
+    self.heTongJE.text = _auditEntity.heTongJE;
+    NSLog(@"%@",_auditEntity.genZongSFJE);
+    self.genZongSFJE.text = _auditEntity.genZongSFJE;
+    self.zhuChengXS.text=_auditEntity.zhuChengXS;
+    self.userName.text=_auditEntity.userName;
+    self.lianXiFS.text = _auditEntity.lianXiFS;
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -57,24 +53,32 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
  
-    NSString *qiYeBH = _reminderEntity.submitID;
-    NSString *qiYeMC = _reminderEntity.submitName;
-    NSString *yeWuZLMC_cn = _reminderEntity.yeWuZLMC_cn;
-    NSString *yeWuZLBH= _reminderEntity.yeWuZLBH;
-   
-    NSString *ftn_ID = _reminderEntity.ftn_ID;
-    NSString *hangYeFLMC= _reminderEntity.hangYeFLMC;
-    NSString *heTongJE = _reminderEntity.heTongJEStr;
-    NSString *genZongSFJE= _reminderEntity.genZongSFJEStr;
-    NSString *zhuChengXS = _reminderEntity.zhuChengXS;
-    NSString *userName = _reminderEntity.userName;
-    NSString *lianXiFS = _reminderEntity.lianXiFS;
+    NSString *yeWuZLBH= _auditEntity.yeWuZLBH;
+    NSString *qiYeBH = _auditEntity.submitID;
+    NSString *qiYeMC = _auditEntity.submitName;
+    NSString *yeWuZLMC = _auditEntity.yeWuZL;
+    NSString *ftn_ID = _auditEntity.ftn_ID;
     
-    NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC_cn=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&=%@&zhuChengXS=%@&userName=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC_cn,sid,hangYeFLMC,heTongJE,genZongSFJE,zhuChengXS,userName,lianXiFS];
+    NSString *hangYeFLMC = _auditEntity.hangYeFLMC;
+    NSString *heTongJE = _auditEntity.heTongJE;
+    NSString *genZongSFJE = _auditEntity.genZongSFJE;
+    NSString *zhuChengXS= _auditEntity.zhuChengXS;
+    NSString *userName = _auditEntity.userName;
+    NSString *lianXiFS = _auditEntity.lianXiFS;
+    NSLog(@"%@",qiYeBH);
+    NSLog(@"%@",qiYeMC);
+    NSLog(@"%@",yeWuZLBH);
+    NSLog(@"%@",yeWuZLMC);
+    NSLog(@"%@",ftn_ID);
+    
+    
+    NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&genZongSFJE=%@&zhuChengXS=%@&userName=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeFLMC,heTongJE,genZongSFJE,zhuChengXS,userName,lianXiFS];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    // Do any additional setup after loading the view from its nib.
 }
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -142,8 +146,8 @@
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
     }
+
 }
 - (IBAction)del:(id)sender {
     NSError *error;
@@ -160,38 +164,41 @@
     NSString *qiYeMC = _reminderEntity.submitName;
     NSString *yeWuZLMC = _reminderEntity.yeWuZL;
     NSString *ftn_ID = _reminderEntity.ftn_ID;
+    NSString *userID = _reminderEntity.userID;
     AppDelegate *ad = [[UIApplication sharedApplication] delegate];
     NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-    NSString *flowId=@"";
-    NSString *fln_UserCode=@"";
+    NSLog(@"%@",loginName);
+    NSString *flowId1=@"";
+    NSString *fln_UserCode1=@"";
     NSString *nextParticipants=@"";
-    NSString *userID=@"";
     if (loginName == nil||[loginName isEqualToString:@"yushasha"]) {
         NSLog(@"%@",@"1");
-        flowId=@"FTL_T2013081300001.003";
-        fln_UserCode=@"XTYH20120510007";
-        nextParticipants=@"USER_2014121700012";
-        userID=@"USER_2014121700012";
+        flowId1=@"FTL_T2013081300001.begin";
+        fln_UserCode1=userID;
+        
     }else{
         NSLog(@"%@",@"2");
-        flowId=@"FTL_T2013081300001.005";
-        fln_UserCode=@"YongHu2015042000001";
+        flowId1=@"FTL_T2013081300001.003";
+        fln_UserCode1=@"YongHu2013092200006";
     }
     
-    NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+    
+    NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId1,fln_UserCode1,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     
-   if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-       [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0] animated:NO];       
-       [alert show];
+        GLReusableViewController *mj = [[GLReusableViewController alloc] init];
+        [self.navigationController pushViewController:mj animated:YES];
+        [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         
     }
+
     
 }
 @end
