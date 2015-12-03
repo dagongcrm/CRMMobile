@@ -28,6 +28,8 @@
 @implementation ActivityViewController
 @synthesize activityEntity = _activityEntity;
 - (void)viewDidLoad {
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     self.title=@"任务审核";
     //设置导航栏返回
@@ -61,8 +63,26 @@
     [self.listData addObject:reminders];
 }
 
+
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
+
 
 @end

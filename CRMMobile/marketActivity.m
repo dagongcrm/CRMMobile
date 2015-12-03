@@ -10,4 +10,12 @@
 
 @implementation marketActivity
 @synthesize activityName=_activityName;
+@synthesize activityAddress = _activityAddress;
+@synthesize activityContent = _activityContent;
+@synthesize activityCost = _activityCost;
+@synthesize activityDate = _activityDate;
+@synthesize activitySketch = _activitySketch;
+@synthesize responsibleDepartmentPersonStr =_responsibleDepartmentPersonStr;
+@synthesize responsibleDepartmentStr = _responsibleDepartmentStr;
+
 @end

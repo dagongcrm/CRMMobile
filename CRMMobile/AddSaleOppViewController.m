@@ -51,6 +51,8 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)customerNameSelect:(id)sender;
+- (IBAction)oppStateSelect:(id)sender;
+- (IBAction)saleOppSrcSelect:(id)sender;
 
 - (IBAction)saleOppSrcSelect:(id)sender;
 

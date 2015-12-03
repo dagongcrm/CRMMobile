@@ -15,6 +15,7 @@
 #import "selectListTableViewController.h"
 
 @interface editTaskViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *Label;
 - (IBAction)segmentControl:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *chooseHY;
@@ -112,23 +113,21 @@
 }
 
 - (void)viewDidLoad {
-    
+    self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
     [super viewDidLoad];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    self.suoshuHY.text = myDelegate.hangYeFLMC;
-    self.hetongJE.text = myDelegate.heTongJE;
-    self.genzongSFJE.text = myDelegate.genZongSFJE;
-    self.lianxiFS.text =myDelegate.lianXiFS;
     NSString *yeWuZL = myDelegate.yeWuZL;
     NSString *submitName = myDelegate.submitName;
+    NSString *hangYeFLMC = myDelegate.hangYeFLMC;
     NSLog(@"%@",yeWuZL);
     self.HeTongJE.text = myDelegate.heTongJE;
     self.GenZongSFJE.text = myDelegate.genZongSFJE;
     self.LianXiFS.text = myDelegate.lianxiFS;
     [self.chooseUserButtonQiYe setTitle:submitName forState:UIControlStateNormal];
     [self.chooseUserButton setTitle:yeWuZL forState:UIControlStateNormal];
+    [self.chooseHY setTitle:hangYeFLMC forState:UIControlStateNormal];
     _judge=@"";
         [self selectUserArray];
         [self selectUserArrayQiYe];
@@ -349,10 +348,6 @@
 
 
 - (IBAction)save:(id)sender {
-//    NSString *suoshuHY = self.suoshuHY.text;
-    NSString *hetongJE = self.hetongJE.text;
-    NSString *genzongSFJE = self.genzongSFJE.text;
-    NSString *lianxiFS = self.lianxiFS.text;
     NSError *error;
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -390,7 +385,18 @@
         hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
         
     }
-    
+    if (hangYeBH == @"") {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        hangYeBH = appDelegate.hangYeFLBH;
+        hangYeFLMC = appDelegate.hangYeFLMC;
+    }
+    if (qiYeBH1 == nil) {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        qiYeBH1 = appDelegate.judgeSubmitID;
+        qiYeMC = appDelegate.submitName;
+    }
+    NSLog(@"workId%@",workId);
+    NSLog(@"qiyebh%@",qiYeBH1);
     NSString *heTongJE = self.HeTongJE.text;
     NSString *genZongSFJE = self.GenZongSFJE.text;
     NSString *lianXiFS = self.LianXiFS.text;

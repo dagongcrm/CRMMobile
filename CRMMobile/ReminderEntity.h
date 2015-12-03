@@ -26,4 +26,16 @@
 @property (strong,nonatomic) NSString *zhuChengXS;
 @property (strong,nonatomic) NSString *userName;
 @property (strong,nonatomic) NSString *lianXiFS;
+
+@property (strong,nonatomic) NSString *submitName;
+
+@property (strong,nonatomic) NSString *submitID;
+
+@property (strong,nonatomic) NSString *yeWuZL;
+@property (strong,nonatomic) NSString *yeWuZLBH;
+
+@property (strong,nonatomic) NSString *heTongJE;
+@property (strong,nonatomic) NSString *genZongSFJE;
+@property (strong,nonatomic) NSString *genZongSF;
+
 @end

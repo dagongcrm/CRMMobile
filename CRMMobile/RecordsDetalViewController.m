@@ -18,8 +18,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *accessMethodStr;
 @property (weak, nonatomic) IBOutlet UITextField *mainContent;
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
+
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 @property (weak, nonatomic) IBOutlet UITextField *address;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
@@ -33,9 +36,13 @@
 
 @implementation RecordsDetalViewController
 @synthesize DailyEntity=_dailyEntity;
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"拜访记录";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     self.scroll.contentSize = CGSizeMake(375, 1300);    
     self.listData = [[NSMutableArray alloc]init];
     self.customerNameStr.text =_dailyEntity.customerNameStr;
@@ -72,10 +79,17 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
 
 - (IBAction)del:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc]
@@ -83,21 +97,18 @@
     [alertView show];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //       NSLog(@"buttonIndex= %i",buttonIndex);
     if (buttonIndex==1) {
         NSError *error;
         NSString *callRecordsID = _dailyEntity.callRecordsID;
         NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
-        NSLog(@"sid为--》%@", sid);
         NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallRecordsAction!delete.action?"]];
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@",callRecordsID,sid];
+        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@&customerNameStr=%@&visitDate=%@&theme=%@&accessMethodStr=%@&mainContent=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttributionStr=%@&visitor=%@",callRecordsID,sid];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
         if ([[dailyDic objectForKey:@"success"] boolValue] == YES) {
             TaskRecordsTableViewController *dailytv = [[TaskRecordsTableViewController alloc]init];
             [self.navigationController pushViewController:dailytv animated:YES];

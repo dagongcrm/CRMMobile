@@ -275,14 +275,39 @@
     NSLog(@"%@",key);
     
     NSDictionary *nc1 =[self singleUserInfo1:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    NSString *activityAddress = (NSString *)[nc1 objectForKey:@"activityAddress"];
+    NSString *activityContent = (NSString *)[nc1 objectForKey:@"activityContent"];
+//    NSString *activityCost = (NSString *)[nc1 objectForKey:@"activityCost"];
+     NSString *activityCost =[NSString stringWithFormat:@"%@", [nc1 objectForKey:@"activityCost"]];
+
+    NSString *activityDate = (NSString *)[nc1 objectForKey:@"activityDateStr"];
+    NSString *activitySketch = (NSString *)[nc1 objectForKey:@"activitySketch"];
+    NSString *responsibleDepartmentPersonStr = (NSString *)[nc1 objectForKey:@"responsibleDepartmentPersonStr"];
+    NSString *responsibleDepartmentStr = (NSString *)[nc1 objectForKey:@"responsibleDepartmentStr"];
     NSArray *key1 = [nc1 allKeys];
-    NSLog(@"%@",key1);
-    
+    NSLog(@"%@",activityCost);
+    //NSString *b = [NSString stringWithFormat:@"%f", activityCost];
+    NSLog(@"%@",[activityCost substringFromIndex:1]);
     NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    NSString *customerName = (NSString *) [nc2 objectForKey:@"customerNameStr"];
+    NSString *visitDate= (NSString *) [nc2 objectForKey:@"visitDate"];
+    NSString *theme = (NSString *) [nc2 objectForKey:@"theme"];
+    NSString *accessMethod = (NSString *) [nc2 objectForKey:@"accessMethodStr"];
+    NSString *mainContent =(NSString *) [nc2 objectForKey:@"mainContent"];
+    NSString *respondent =(NSString *) [nc2 objectForKey:@"respondent"];
+    NSString *respondentPhone =(NSString *) [nc2 objectForKey:@"respondentPhone"];
+    NSString *address= (NSString *) [nc2 objectForKey:@"address"];
+    NSString *visitProfile = (NSString *) [nc2 objectForKey:@"visitProfile"];
+    NSString *result = (NSString *) [nc2 objectForKey:@"result"];
+    NSString *customerRequirements =(NSString *) [nc2 objectForKey:@"customerRequirements"];
+    NSString *customerChange =(NSString *) [nc2 objectForKey:@"customerChange"];
+    NSString *visitorAttribution =(NSString *) [nc2 objectForKey:@"visitorAttributionStr"];
+    NSString *visitorStr =(NSString *) [nc2 objectForKey:@"visitorStr"];
     NSArray *key2 = [nc2 allKeys];
     NSLog(@"%@",key2);
     
     if (key != nil) {
+        APPDELEGATE.page=@"1";
         NSString *customerCallPlanID =[self.customerID objectAtIndex:indexPath.row];
         NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
        
@@ -310,6 +335,13 @@
         //NSString *theme =[self.theme objectAtIndex:indexPath.row];;
         marketActivity *ma =[[marketActivity alloc] init];
         [ma setActivityName:customerNameStr];
+        [ma setActivityAddress:activityAddress];
+        [ma setActivityContent:activityContent];
+        [ma setActivityCost:activityCost];
+        [ma setActivityDate:activityDate];
+        [ma setActivitySketch:activitySketch];
+        [ma setResponsibleDepartmentPersonStr:responsibleDepartmentPersonStr];
+        [ma setResponsibleDepartmentStr:responsibleDepartmentStr];
         activityDetailViewController *avc =[[activityDetailViewController alloc] init];
         [avc setMarketActivity:ma];
         NSLog(@"%@",ma);
@@ -324,6 +356,16 @@
     [visitPlan setCustomerNameStr:customerNameStr];
     [visitPlan setCustomerCallPlanID:customerCallPlanID];
     [visitPlan setVisitDate:visitDate];
+    [visitPlan setAccessMethod:accessMethod];
+    [visitPlan setMainContent:mainContent];
+    [visitPlan setRespondentPhone:respondentPhone];
+    [visitPlan setRespondent:respondent];
+    [visitPlan setAddress:address];
+    [visitPlan setVisitProfile:visitProfile];
+    [visitPlan setResult:result];
+    [visitPlan setCustomerRequirements:customerRequirements];
+    [visitPlan setCustomerChange:customerChange];
+    [visitPlan setVisitorStr:visitorStr];
     //[visitPlan setTheme:theme];
     PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];

@@ -39,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *addCustomer;
 
 
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
@@ -66,6 +67,8 @@
 @synthesize selectedIndexPath = _selectedIndexPath;
 @synthesize customerCallPlanEntity = _customerCallPlanEntity;
 
+//- (IBAction)addCustomer:(id)sender {
+//}
 
 //选择客户名称
 - (IBAction)addCustomer:(id)sender {
@@ -294,7 +297,7 @@
     //赋值
     [self valuation];
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 800);
+    self.scroll.contentSize=CGSizeMake(375, 1300);
     
 }
 
