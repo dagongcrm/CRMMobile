@@ -539,8 +539,6 @@
 		9678AEEE1BEB71C800E5B50E /* CustomerInformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationEditViewController.h; sourceTree = "<group>"; };
 		9678AEEF1BEB71C800E5B50E /* CustomerInformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationEditViewController.m; sourceTree = "<group>"; };
 		9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationEditViewController.xib; sourceTree = "<group>"; };
-		9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
-		9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		9678AEFE1BEB731600E5B50E /* 222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 222.png; sourceTree = "<group>"; };
 		96A695B91BF5DE8900ADAC98 /* Image.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Image.plist; sourceTree = "<group>"; };
 		96D58D031BFED22200159E09 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
@@ -973,8 +971,6 @@
 				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
-				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
-				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
 				9678AEE21BEB70D400E5B50E /* crm */,
 			);
 			name = CRM;
