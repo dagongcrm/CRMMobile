@@ -25,4 +25,5 @@
 @property (strong,nonatomic) NSString *tianjiaSJ;
 @property (strong,nonatomic) NSString *contactID;
 @property (strong,nonatomic) NSString *index;
+@property (strong,nonatomic) NSString *customerID;
 @end

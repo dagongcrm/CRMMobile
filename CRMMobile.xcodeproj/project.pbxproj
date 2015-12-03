@@ -37,6 +37,24 @@
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
+		960067D31C0FC58B003B7C0B /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067D11C0FC58B003B7C0B /* MarketManagementViewController.m */; };
+		960067D41C0FC58B003B7C0B /* MarketManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960067D21C0FC58B003B7C0B /* MarketManagementViewController.xib */; };
+		960067EA1C0FCBBE003B7C0B /* PNChartDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 960067E81C0FCBBE003B7C0B /* PNChartDemo-Info.plist */; };
+		960067F71C0FCFE3003B7C0B /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067EC1C0FCFE3003B7C0B /* PNChartLabel.m */; };
+		960067F81C0FCFE3003B7C0B /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067EE1C0FCFE3003B7C0B /* PNColor.m */; };
+		960067F91C0FCFE3003B7C0B /* PNChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067F01C0FCFE3003B7C0B /* PNChart.m */; };
+		960067FA1C0FCFE3003B7C0B /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067F21C0FCFE3003B7C0B /* PNLineChart.m */; };
+		960067FB1C0FCFE3003B7C0B /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067F41C0FCFE3003B7C0B /* PNBarChart.m */; };
+		960067FC1C0FCFE3003B7C0B /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 960067F61C0FCFE3003B7C0B /* PNBar.m */; };
+		960068391C10222A003B7C0B /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960068361C10222A003B7C0B /* MyViewController.m */; };
+		9600683A1C10222A003B7C0B /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 960068381C10222A003B7C0B /* UIViewAdditions.m */; };
+		9600683D1C102385003B7C0B /* 11.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9600683C1C102385003B7C0B /* 11.JPG */; };
+		9600683F1C1023A0003B7C0B /* 14.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9600683E1C1023A0003B7C0B /* 14.JPG */; };
+		960068411C1023B7003B7C0B /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 960068401C1023B7003B7C0B /* 16.JPG */; };
+		960068431C1023C0003B7C0B /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 960068421C1023C0003B7C0B /* 15.JPG */; };
+		960068451C1023CF003B7C0B /* 12.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 960068441C1023CF003B7C0B /* 12.JPG */; };
+		960068471C1023DA003B7C0B /* 13.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 960068461C1023DA003B7C0B /* 13.JPG */; };
+		960068491C10371A003B7C0B /* 121.png in Resources */ = {isa = PBXBuildFile; fileRef = 960068481C10371A003B7C0B /* 121.png */; };
 		9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA491BFC58C8001A6D0D /* AddCustomerContactController.m */; };
 		9618AA4C1BFC58C9001A6D0D /* AddCustomerContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA4A1BFC58C8001A6D0D /* AddCustomerContactController.xib */; };
 		9618AA4F1BFC7AD7001A6D0D /* AddCustomerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618AA4E1BFC7AD7001A6D0D /* AddCustomerEntity.m */; };
@@ -81,6 +99,7 @@
 		96E41F7B1BF4424400A2DA37 /* submitTaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAC81BF1FE9A0099C57E /* submitTaskEntity.m */; };
 		96E41F7F1BF46BD400A2DA37 /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */; };
 		96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */; };
+		96ED05FF1C05AD29003C0BD2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ED05FE1C05AD29003C0BD2 /* AVFoundation.framework */; };
 		96EDBEA61BE8832100824AE2 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBE961BE8832100824AE2 /* OptionsTableViewController.m */; };
 		96EDBEA71BE8832100824AE2 /* TXLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDBE981BE8832100824AE2 /* TXLTableViewController.m */; };
 		96EDBEA81BE8832100824AE2 /* TXLTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBE991BE8832100824AE2 /* TXLTableViewController.xib */; };
@@ -97,13 +116,16 @@
 		96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBEB81BE8838300824AE2 /* Main.storyboard */; };
 		96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */; };
 		96F408741BF2C63800AA4AD5 /* back002.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408731BF2C63800AA4AD5 /* back002.png */; };
-		96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F408761BF2E32E00AA4AD5 /* UploadViewController.m */; };
-		96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */; };
 		96F694701BFAD38F00FC98FA /* CustomercontactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F6946E1BFAD38F00FC98FA /* CustomercontactTableViewController.m */; };
 		96F694711BFAD38F00FC98FA /* CustomercontactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F6946F1BFAD38F00FC98FA /* CustomercontactTableViewController.xib */; };
 		96F694751BFAFAC400FC98FA /* CustomercontactInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F694731BFAFAC400FC98FA /* CustomercontactInfoController.m */; };
 		96F694781BFB00BD00FC98FA /* CustomercontactInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F694771BFB00BD00FC98FA /* CustomercontactInfoController.xib */; };
 		96F6947C1BFB20DC00FC98FA /* CostomerContactEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F6947B1BFB20DC00FC98FA /* CostomerContactEntity.m */; };
+		96F6958A1C08356C00783215 /* MZGuidePages.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F695891C08356C00783215 /* MZGuidePages.m */; };
+		96F6958F1C0835F600783215 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96F6958B1C0835F600783215 /* 1.jpg */; };
+		96F695901C0835F600783215 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96F6958C1C0835F600783215 /* 2.jpg */; };
+		96F695911C0835F600783215 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96F6958D1C0835F600783215 /* 3.jpg */; };
+		96F695921C0835F600783215 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96F6958E1C0835F600783215 /* 4.jpg */; };
 		96FA0D381BFBFADE00B87341 /* EditCustomerContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FA0D361BFBFADE00B87341 /* EditCustomerContactController.m */; };
 		96FA0D391BFBFADE00B87341 /* EditCustomerContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FA0D371BFBFADE00B87341 /* EditCustomerContactController.xib */; };
 		96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAE2451BEC736800032BB3 /* DailyViewController.m */; };
@@ -262,6 +284,34 @@
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		960067D01C0FC58B003B7C0B /* MarketManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketManagementViewController.h; sourceTree = "<group>"; };
+		960067D11C0FC58B003B7C0B /* MarketManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketManagementViewController.m; sourceTree = "<group>"; };
+		960067D21C0FC58B003B7C0B /* MarketManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketManagementViewController.xib; sourceTree = "<group>"; };
+		960067E81C0FCBBE003B7C0B /* PNChartDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PNChartDemo-Info.plist"; sourceTree = "<group>"; };
+		960067E91C0FCBBE003B7C0B /* PNChartDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PNChartDemo-Prefix.pch"; sourceTree = "<group>"; };
+		960067EB1C0FCFE3003B7C0B /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
+		960067EC1C0FCFE3003B7C0B /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
+		960067ED1C0FCFE3003B7C0B /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
+		960067EE1C0FCFE3003B7C0B /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
+		960067EF1C0FCFE3003B7C0B /* PNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		960067F01C0FCFE3003B7C0B /* PNChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChart.m; sourceTree = "<group>"; };
+		960067F11C0FCFE3003B7C0B /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
+		960067F21C0FCFE3003B7C0B /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
+		960067F31C0FCFE3003B7C0B /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
+		960067F41C0FCFE3003B7C0B /* PNBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBarChart.m; sourceTree = "<group>"; };
+		960067F51C0FCFE3003B7C0B /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
+		960067F61C0FCFE3003B7C0B /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
+		960068351C10222A003B7C0B /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		960068361C10222A003B7C0B /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		960068371C10222A003B7C0B /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		960068381C10222A003B7C0B /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		9600683C1C102385003B7C0B /* 11.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.JPG; sourceTree = "<group>"; };
+		9600683E1C1023A0003B7C0B /* 14.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.JPG; sourceTree = "<group>"; };
+		960068401C1023B7003B7C0B /* 16.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.JPG; sourceTree = "<group>"; };
+		960068421C1023C0003B7C0B /* 15.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.JPG; sourceTree = "<group>"; };
+		960068441C1023CF003B7C0B /* 12.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.JPG; sourceTree = "<group>"; };
+		960068461C1023DA003B7C0B /* 13.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.JPG; sourceTree = "<group>"; };
+		960068481C10371A003B7C0B /* 121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 121.png; sourceTree = "<group>"; };
 		9618AA481BFC58C8001A6D0D /* AddCustomerContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerContactController.h; sourceTree = "<group>"; };
 		9618AA491BFC58C8001A6D0D /* AddCustomerContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerContactController.m; sourceTree = "<group>"; };
 		9618AA4A1BFC58C8001A6D0D /* AddCustomerContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerContactController.xib; sourceTree = "<group>"; };
@@ -330,6 +380,7 @@
 		96E41F7C1BF46BD400A2DA37 /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
 		96E41F7D1BF46BD400A2DA37 /* editTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editTaskViewController.m; sourceTree = "<group>"; };
 		96E41F7E1BF46BD400A2DA37 /* editTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = editTaskViewController.xib; sourceTree = "<group>"; };
+		96ED05FE1C05AD29003C0BD2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		96EDBE951BE8832100824AE2 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewController.h; sourceTree = "<group>"; };
 		96EDBE961BE8832100824AE2 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewController.m; sourceTree = "<group>"; };
 		96EDBE971BE8832100824AE2 /* TXLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLTableViewController.h; sourceTree = "<group>"; };
@@ -354,9 +405,6 @@
 		96EDBEB81BE8838300824AE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon_1x.png; sourceTree = "<group>"; };
 		96F408731BF2C63800AA4AD5 /* back002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back002.png; sourceTree = "<group>"; };
-		96F408751BF2E32E00AA4AD5 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
-		96F408761BF2E32E00AA4AD5 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
-		96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
 		96F6946D1BFAD38F00FC98FA /* CustomercontactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomercontactTableViewController.h; sourceTree = "<group>"; };
 		96F6946E1BFAD38F00FC98FA /* CustomercontactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomercontactTableViewController.m; sourceTree = "<group>"; };
 		96F6946F1BFAD38F00FC98FA /* CustomercontactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomercontactTableViewController.xib; sourceTree = "<group>"; };
@@ -365,6 +413,12 @@
 		96F694771BFB00BD00FC98FA /* CustomercontactInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomercontactInfoController.xib; sourceTree = "<group>"; };
 		96F6947A1BFB20DC00FC98FA /* CostomerContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomerContactEntity.h; sourceTree = "<group>"; };
 		96F6947B1BFB20DC00FC98FA /* CostomerContactEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomerContactEntity.m; sourceTree = "<group>"; };
+		96F695881C08356C00783215 /* MZGuidePages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGuidePages.h; sourceTree = "<group>"; };
+		96F695891C08356C00783215 /* MZGuidePages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGuidePages.m; sourceTree = "<group>"; };
+		96F6958B1C0835F600783215 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		96F6958C1C0835F600783215 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		96F6958D1C0835F600783215 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		96F6958E1C0835F600783215 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		96FA0D351BFBFADE00B87341 /* EditCustomerContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCustomerContactController.h; sourceTree = "<group>"; };
 		96FA0D361BFBFADE00B87341 /* EditCustomerContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCustomerContactController.m; sourceTree = "<group>"; };
 		96FA0D371BFBFADE00B87341 /* EditCustomerContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCustomerContactController.xib; sourceTree = "<group>"; };
@@ -504,6 +558,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96ED05FF1C05AD29003C0BD2 /* AVFoundation.framework in Frameworks */,
 				39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +666,7 @@
 		697B9FD2210A177A0B37E0B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96ED05FE1C05AD29003C0BD2 /* AVFoundation.framework */,
 				39F1F1721BE34F1700EA3133 /* libPods.a */,
 				82C7E133320381C359BF81B5 /* libPods.a */,
 			);
@@ -624,6 +680,49 @@
 				102A51D7D859922F2889B12A /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		960067CF1C0FC515003B7C0B /* MarketManagement */ = {
+			isa = PBXGroup;
+			children = (
+				960067D51C0FC594003B7C0B /* PNChart */,
+				960067D01C0FC58B003B7C0B /* MarketManagementViewController.h */,
+				960067D11C0FC58B003B7C0B /* MarketManagementViewController.m */,
+				960067D21C0FC58B003B7C0B /* MarketManagementViewController.xib */,
+			);
+			name = MarketManagement;
+			sourceTree = "<group>";
+		};
+		960067D51C0FC594003B7C0B /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				960067EB1C0FCFE3003B7C0B /* PNChartLabel.h */,
+				960067EC1C0FCFE3003B7C0B /* PNChartLabel.m */,
+				960067ED1C0FCFE3003B7C0B /* PNColor.h */,
+				960067EE1C0FCFE3003B7C0B /* PNColor.m */,
+				960067EF1C0FCFE3003B7C0B /* PNChart.h */,
+				960067F01C0FCFE3003B7C0B /* PNChart.m */,
+				960067F11C0FCFE3003B7C0B /* PNLineChart.h */,
+				960067F21C0FCFE3003B7C0B /* PNLineChart.m */,
+				960067F31C0FCFE3003B7C0B /* PNBarChart.h */,
+				960067F41C0FCFE3003B7C0B /* PNBarChart.m */,
+				960067F51C0FCFE3003B7C0B /* PNBar.h */,
+				960067F61C0FCFE3003B7C0B /* PNBar.m */,
+			);
+			name = PNChart;
+			sourceTree = "<group>";
+		};
+		9600683B1C10231B003B7C0B /* lunbo */ = {
+			isa = PBXGroup;
+			children = (
+				960068421C1023C0003B7C0B /* 15.JPG */,
+				960068441C1023CF003B7C0B /* 12.JPG */,
+				960068401C1023B7003B7C0B /* 16.JPG */,
+				960068461C1023DA003B7C0B /* 13.JPG */,
+				9600683E1C1023A0003B7C0B /* 14.JPG */,
+				9600683C1C102385003B7C0B /* 11.JPG */,
+			);
+			name = lunbo;
 			sourceTree = "<group>";
 		};
 		96332E791BFF306E00BBEB85 /* Entity */ = {
@@ -666,6 +765,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				960067CF1C0FC515003B7C0B /* MarketManagement */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
 				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
@@ -704,6 +804,7 @@
 		96AEF19A1BF1FD5700EDE5CE /* work */ = {
 			isa = PBXGroup;
 			children = (
+				960068481C10371A003B7C0B /* 121.png */,
 				96D58D031BFED22200159E09 /* arrow-left.png */,
 				9618AA521BFC82D1001A6D0D /* back.png */,
 				96F408731BF2C63800AA4AD5 /* back002.png */,
@@ -790,6 +891,17 @@
 				9618AA4E1BFC7AD7001A6D0D /* AddCustomerEntity.m */,
 			);
 			name = Entity;
+			sourceTree = "<group>";
+		};
+		96F695631C07F04200783215 /* options */ = {
+			isa = PBXGroup;
+			children = (
+				96F6958B1C0835F600783215 /* 1.jpg */,
+				96F6958C1C0835F600783215 /* 2.jpg */,
+				96F6958D1C0835F600783215 /* 3.jpg */,
+				96F6958E1C0835F600783215 /* 4.jpg */,
+			);
+			name = options;
 			sourceTree = "<group>";
 		};
 		96FAE23E1BEC644D00032BB3 /* month */ = {
@@ -948,6 +1060,8 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				9600683B1C10231B003B7C0B /* lunbo */,
+				96F695631C07F04200783215 /* options */,
 				96AEF19A1BF1FD5700EDE5CE /* work */,
 				39F1F1B31BE3A24000EA3133 /* GPS */,
 				C0D3CD3A1BDF0C9700C23FB3 /* weatherImg */,
@@ -1086,6 +1200,12 @@
 		C0D569371BD9B74700860B33 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				960068351C10222A003B7C0B /* MyViewController.h */,
+				960068361C10222A003B7C0B /* MyViewController.m */,
+				960068371C10222A003B7C0B /* UIViewAdditions.h */,
+				960068381C10222A003B7C0B /* UIViewAdditions.m */,
+				96F695881C08356C00783215 /* MZGuidePages.h */,
+				96F695891C08356C00783215 /* MZGuidePages.m */,
 				96EDBEB11BE8834200824AE2 /* Entity */,
 				96EDBE951BE8832100824AE2 /* OptionsTableViewController.h */,
 				96EDBE961BE8832100824AE2 /* OptionsTableViewController.m */,
@@ -1104,9 +1224,6 @@
 				96EDBEA31BE8832100824AE2 /* LianViewController.h */,
 				96EDBEA41BE8832100824AE2 /* LianViewController.m */,
 				96EDBEA51BE8832100824AE2 /* LianViewController.xib */,
-				96F408751BF2E32E00AA4AD5 /* UploadViewController.h */,
-				96F408761BF2E32E00AA4AD5 /* UploadViewController.m */,
-				96F408771BF2E32E00AA4AD5 /* UploadViewController.xib */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -1171,6 +1288,8 @@
 		C0D68C3A1BD8EA20009CEC23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				960067E81C0FCBBE003B7C0B /* PNChartDemo-Info.plist */,
+				960067E91C0FCBBE003B7C0B /* PNChartDemo-Prefix.pch */,
 				96FF05761BF80C7F00EA5457 /* crm.png */,
 				C0D68C3B1BD8EA20009CEC23 /* Info.plist */,
 				C0D68C3C1BD8EA20009CEC23 /* main.m */,
@@ -1288,12 +1407,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960068431C1023C0003B7C0B /* 15.JPG in Resources */,
 				C0D3CD6D1BDF0CEF00C23FB3 /* 18.png in Resources */,
 				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
 				96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */,
 				96E41F801BF46BD400A2DA37 /* editTaskViewController.xib in Resources */,
 				B8F28B871BEDDF2C00177C9C /* AddPlanViewController.xib in Resources */,
-				96F408791BF2E32E00AA4AD5 /* UploadViewController.xib in Resources */,
+				960068491C10371A003B7C0B /* 121.png in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
 				B8EEAEBD1BEB26F0009FF63D /* VisitPlanTableViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
@@ -1303,6 +1423,7 @@
 				1FF4D4991BFAF9C400F84401 /* activityDetailViewController.xib in Resources */,
 				96EDBEAA1BE8832100824AE2 /* XGViewController.xib in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
+				96F695901C0835F600783215 /* 2.jpg in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
 				96EDBEAC1BE8832100824AE2 /* SettingViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
@@ -1318,9 +1439,11 @@
 				39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */,
 				96EDBEA81BE8832100824AE2 /* TXLTableViewController.xib in Resources */,
 				96FAE2621BEC73C800032BB3 /* TaskReportTableViewController.xib in Resources */,
+				9600683D1C102385003B7C0B /* 11.JPG in Resources */,
 				96FAE2831BEC758500032BB3 /* ShowAndDeleteViewController.xib in Resources */,
 				1F93AAD31BF1FE9A0099C57E /* submitTaskDetailViewController.xib in Resources */,
 				1FE549C21BFC62B600BDAF6B /* publicNoticeTableViewController.xib in Resources */,
+				96F695921C0835F600783215 /* 4.jpg in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
 				1FE514E41BFC2415005C3BBD /* NoticeViewController.xib in Resources */,
@@ -1333,14 +1456,17 @@
 				96332E9E1BFF334100BBEB85 /* RecordsDetalViewController.xib in Resources */,
 				9618AA4C1BFC58C9001A6D0D /* AddCustomerContactController.xib in Resources */,
 				96FAE2701BEC750800032BB3 /* AddWeekViewController.xib in Resources */,
+				960068411C1023B7003B7C0B /* 16.JPG in Resources */,
 				96332E931BFF326400BBEB85 /* EditPlanViewController.xib in Resources */,
 				96FF05771BF80C7F00EA5457 /* crm.png in Resources */,
+				96F695911C0835F600783215 /* 3.jpg in Resources */,
 				96FAE24E1BEC736800032BB3 /* DailyViewController.xib in Resources */,
 				96FAE2851BEC758500032BB3 /* AddMonthViewController.xib in Resources */,
 				96FAE2721BEC750800032BB3 /* ShowAndDeleteWeekViewController.xib in Resources */,
 				B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */,
 				96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */,
 				C0D3CD661BDF0CEF00C23FB3 /* 11.png in Resources */,
+				960068471C1023DA003B7C0B /* 13.JPG in Resources */,
 				96D58D041BFED22200159E09 /* arrow-left.png in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				C0D3CD641BDF0CEF00C23FB3 /* 9.png in Resources */,
@@ -1358,11 +1484,13 @@
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
 				C0D3CD651BDF0CEF00C23FB3 /* 10.png in Resources */,
 				C0D3CD611BDF0CEF00C23FB3 /* 6.png in Resources */,
+				96F6958F1C0835F600783215 /* 1.jpg in Resources */,
 				C0D569451BD9C65100860B33 /* Options.plist in Resources */,
 				C0D3CD5F1BDF0CEF00C23FB3 /* 4.png in Resources */,
 				96FF733D1BFC1A0E00472D33 /* CustomerContactListViewController.xib in Resources */,
 				C0D3CD681BDF0CEF00C23FB3 /* 13.png in Resources */,
 				C0D3CD6F1BDF0CEF00C23FB3 /* 20.png in Resources */,
+				9600683F1C1023A0003B7C0B /* 14.JPG in Resources */,
 				1F93AACE1BF1FE9A0099C57E /* addTaskViewController.xib in Resources */,
 				9678AEF21BEB71C800E5B50E /* CustomerInformationTableViewController.xib in Resources */,
 				1F93AADE1BF1FEDF0099C57E /* auditDetailViewController.xib in Resources */,
@@ -1372,6 +1500,8 @@
 				9678AEFF1BEB731600E5B50E /* 222.png in Resources */,
 				C0D68C4E1BD8EA20009CEC23 /* LaunchScreen.xib in Resources */,
 				96332E811BFF31B000BBEB85 /* AddSaleOppViewController.xib in Resources */,
+				960067EA1C0FCBBE003B7C0B /* PNChartDemo-Info.plist in Resources */,
+				960067D41C0FC58B003B7C0B /* MarketManagementViewController.xib in Resources */,
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
 				96332E861BFF31C100BBEB85 /* EditSaleOppViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
@@ -1384,6 +1514,7 @@
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
+				960068451C1023CF003B7C0B /* 12.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1459,8 +1590,10 @@
 				96FAE2881BEC759E00032BB3 /* TaskReportMonthEntity.m in Sources */,
 				96FAE26D1BEC750800032BB3 /* WeekTableViewController.m in Sources */,
 				C0D68C401BD8EA20009CEC23 /* AppDelegate.m in Sources */,
+				960067FA1C0FCFE3003B7C0B /* PNLineChart.m in Sources */,
 				1F93AADD1BF1FEDF0099C57E /* auditDetailViewController.m in Sources */,
 				96332E851BFF31C100BBEB85 /* EditSaleOppViewController.m in Sources */,
+				960067D31C0FC58B003B7C0B /* MarketManagementViewController.m in Sources */,
 				96332E8D1BFF31F400BBEB85 /* DetailSaleOppViewController.m in Sources */,
 				96FAE24D1BEC736800032BB3 /* DailyViewController.m in Sources */,
 				1FE514E31BFC2415005C3BBD /* NoticeViewController.m in Sources */,
@@ -1494,21 +1627,23 @@
 				96EDBEA91BE8832100824AE2 /* XGViewController.m in Sources */,
 				9678AEF61BEB71C800E5B50E /* AddCustomerInformationViewController.m in Sources */,
 				B8F28B811BEDD3A400177C9C /* PlanDetalViewController.m in Sources */,
+				9600683A1C10222A003B7C0B /* UIViewAdditions.m in Sources */,
 				1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */,
 				1FE529C51BE8A55300149C10 /* NoticeTableViewController.m in Sources */,
 				1F93AADC1BF1FEDF0099C57E /* auditEntity.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
 				96EDBEB61BE8835E00824AE2 /* MeEntity.m in Sources */,
-				96F408781BF2E32E00AA4AD5 /* UploadViewController.m in Sources */,
 				96FAE2711BEC750800032BB3 /* ShowAndDeleteWeekViewController.m in Sources */,
 				96332E921BFF326400BBEB85 /* EditPlanViewController.m in Sources */,
 				9618AA4B1BFC58C9001A6D0D /* AddCustomerContactController.m in Sources */,
 				96EDBEAB1BE8832100824AE2 /* SettingViewController.m in Sources */,
 				1FE824781BF4806400D8A46A /* taskReminderTableViewController.m in Sources */,
 				96332E7C1BFF30F200BBEB85 /* SaleOppEntity.m in Sources */,
+				960067F71C0FCFE3003B7C0B /* PNChartLabel.m in Sources */,
 				B84A8C2E1BE9FCD500C67039 /* TaskRecordsTableViewController.m in Sources */,
 				B8184A9B1BEC7B1A00FB0C84 /* VisitPlanNsObj.m in Sources */,
 				1F93AAD21BF1FE9A0099C57E /* submitTaskDetailViewController.m in Sources */,
+				960067F81C0FCFE3003B7C0B /* PNColor.m in Sources */,
 				B8F28B861BEDDF2C00177C9C /* AddPlanViewController.m in Sources */,
 				1FDC1B6D1BFD9B4D008B50A3 /* selectEntity.m in Sources */,
 				96FAE2841BEC758500032BB3 /* AddMonthViewController.m in Sources */,
@@ -1518,9 +1653,12 @@
 				96E3125A1BEB53BA00A1A3FF /* MJRefreshConst.m in Sources */,
 				C0D68C661BD8ED44009CEC23 /* LoginViewController.m in Sources */,
 				39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */,
+				96F6958A1C08356C00783215 /* MZGuidePages.m in Sources */,
 				96F6947C1BFB20DC00FC98FA /* CostomerContactEntity.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				96332EA11BFF336500BBEB85 /* RecordsNsObj.m in Sources */,
+				960068391C10222A003B7C0B /* MyViewController.m in Sources */,
+				960067FB1C0FCFE3003B7C0B /* PNBarChart.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,
 				1FF4D4981BFAF9C400F84401 /* activityDetailViewController.m in Sources */,
 				96FAE24F1BEC736800032BB3 /* DailyTableViewController.m in Sources */,
@@ -1530,12 +1668,14 @@
 				96E3125B1BEB53BA00A1A3FF /* MJRefreshFooterView.m in Sources */,
 				96FAE2511BEC736800032BB3 /* AddDailyViewController.m in Sources */,
 				C0D569401BD9C51100860B33 /* WorkTableViewController.m in Sources */,
+				960067FC1C0FCFE3003B7C0B /* PNBar.m in Sources */,
 				96FAE2801BEC758500032BB3 /* MonthTableViewController.m in Sources */,
 				1F93AACF1BF1FE9A0099C57E /* SubmitTableViewController.m in Sources */,
 				96EDBEAD1BE8832100824AE2 /* GuanyuViewController.m in Sources */,
 				B8184AA11BEC7BB800FB0C84 /* IndexViewController.m in Sources */,
 				96EDBEB71BE8835E00824AE2 /* MeUser.m in Sources */,
 				1FF4D4941BFAF99900F84401 /* marketActivity.m in Sources */,
+				960067F91C0FCFE3003B7C0B /* PNChart.m in Sources */,
 				96EDBEAF1BE8832100824AE2 /* LianViewController.m in Sources */,
 				B8184A9D1BEC7B4B00FB0C84 /* VisitPlanTableViewController.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,
@@ -1657,6 +1797,7 @@
 			baseConfigurationReference = CD134ED4DFD99B2775F88026 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CRMMobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1673,6 +1814,7 @@
 			baseConfigurationReference = 102A51D7D859922F2889B12A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CRMMobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
