@@ -33,10 +33,10 @@
     self.title=@"销售机会详情";
     self.scroll.contentSize = CGSizeMake(375, 600);
     self.customerNameStr.text=_saleOppEntity.customerNameStr;
-    self.saleOppSrc.text=_saleOppEntity.saleOppSrc;
+    self.saleOppSrc.text=_saleOppEntity.saleOppSrcStr;
     self.successProbability.text=_saleOppEntity.successProbability;
     self.saleOppDescription.text=_saleOppEntity.saleOppDescription;
-    self.oppState.text=_saleOppEntity.oppState;
+    self.oppState.text=_saleOppEntity.oppStateStr;
     self.contact.text=_saleOppEntity.contact;
     self.contactTel.text=_saleOppEntity.contactTel;
 }

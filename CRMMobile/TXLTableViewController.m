@@ -41,7 +41,6 @@
         self.contactIDData = [[NSMutableArray alloc]init];
         self.customerIDData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
         
     }
     return _fakeData;
@@ -84,10 +83,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    myDelegate.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -96,11 +93,11 @@
 
 - (void)footerRereshing
 {
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    if(myDelegate.index==0){
-        myDelegate.index==3;
+    if(self.index==0){
+        self.index=2;
+    }else{
+        self.index++;
     }
-    self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -110,23 +107,22 @@
 }
 
 //获取数据
--(NSMutableArray *)faker:()page{
-    
+-(NSMutableArray *)faker:(NSString *)page{
+    NSLog(@"page==>%@",page);
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *order = @"desc";
-    NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page,order,sort];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *contactDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"contactDic字典里面的内容为--》%@", contactDic);
     NSArray *list = [contactDic objectForKey:@"obj"];
+    NSLog(@"pagecountpagecountpagecountpagecount==>>%lu",[list count]);
+
     if(![list count] ==0)
     {
         self.tableView.footerRefreshingText=@"加载中";
@@ -144,7 +140,6 @@
         NSString *customerID = (NSString *)[listDic objectForKey:@"customerID"];//4
         NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
         NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
-        NSLog(@"电话为多少。。。%@",callphone);
         if (phoneTime  == nil || phoneTime == NULL) {
             [self.phoneData addObject:@"暂无通话记录"];
         }else{
@@ -184,20 +179,24 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    NSLog(@"8888888%@",self.phoneData);
-
-    [cell.imageView setImage:[UIImage imageNamed:@"back"]];
+//    NSLog(@"8888888%@",self.phoneData);
+    
+    [cell.imageView setImage:[UIImage imageNamed:@"lianxiren"]];
         cell.textLabel.text = self.customerNameStrData[indexPath.row];
         [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         NSString *testDetail =[@"联系电话:" stringByAppendingString:(NSString *)[self.contactData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setText:testDetail];
     NSString *phoneT= [@"通话记录:" stringByAppendingString:(NSString *)[self.phoneData objectAtIndex:indexPath.row]];
-    NSString *Tdetail1 = [testDetail stringByAppendingString:@"   "];
+    NSString *Tdetail1 = [testDetail stringByAppendingString:@"\n"];
     NSString *Tdetail= [Tdetail1 stringByAppendingString:phoneT];
-        [cell.detailTextLabel setText:Tdetail];
+    [cell.detailTextLabel setNumberOfLines:3];//可以显示3行
+    cell.detailTextLabel.text = [NSString stringWithFormat:Tdetail,indexPath.row + 1];// \n ，可以在这里实现换行
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
      self.contactName = [self.fakeData objectAtIndex:indexPath.row];
@@ -225,7 +224,7 @@
     [self  callLog];
 }
 -(void)callLog{
-
+//    [self.tableView reloadData];//重新加载数据
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"callLogAction!add.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
@@ -239,11 +238,15 @@
 //    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
 //        [self setupRefresh];
 //    }
-    NSLog(@"通讯录拨打的记录--》%@", shipDIC);
-    NSLog(@"self.contactName==>>%@",self.contactName);
-     NSLog(@"self.phone==>>%@",self.phone);
-     NSLog(@"self.contactID==>>%@",self.contactID);
-     NSLog(@"self.customerID==>>%@",self.customerID);
+//    NSLog(@"通讯录拨打的记录--》%@", shipDIC);
+//    NSLog(@"self.contactName==>>%@",self.contactName);
+//     NSLog(@"self.phone==>>%@",self.phone);
+//     NSLog(@"self.contactID==>>%@",self.contactID);
+//     NSLog(@"self.customerID==>>%@",self.customerID);
+
+//    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
+//        [self setupRefresh];
+// 
 
    }
 
