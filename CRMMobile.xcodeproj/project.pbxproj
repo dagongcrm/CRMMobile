@@ -57,7 +57,6 @@
 		39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797311C05CCE4000D9A20 /* DetailSaleOppViewController.m */; };
 		39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */; };
 		39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */; };
-		39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */; };
 		39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */; };
 		39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */; };
 		39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797711C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m */; };
@@ -176,6 +175,7 @@
 		96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAE25A1BEC73A900032BB3 /* HZQDatePickerView.xib */; };
 		96FF05771BF80C7F00EA5457 /* crm.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FF05761BF80C7F00EA5457 /* crm.png */; };
 		B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */ = {isa = PBXBuildFile; fileRef = B87028191BD9E52500CD2FF2 /* taskReport.plist */; };
+		B8F4F7121C1024EB00FF47C4 /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F4F7111C1024EB00FF47C4 /* CRMTableViewController.m */; };
 		C0B8D6951C06F2A20051367D /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = C0B8D6941C06F2A20051367D /* business.png */; };
 		C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D3CD3B1BDF0CEF00C23FB3 /* 0.png */; };
 		C0D3CD5C1BDF0CEF00C23FB3 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D3CD3C1BDF0CEF00C23FB3 /* 1.png */; };
@@ -319,8 +319,6 @@
 		39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F7973B1C05CCEF000D9A20 /* SaleOppEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppEntity.h; sourceTree = "<group>"; };
 		39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppEntity.m; sourceTree = "<group>"; };
-		39F7975D1C05CD3D000D9A20 /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
-		39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		39F7976D1C05CF58000D9A20 /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
 		39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationTableViewController.xib; sourceTree = "<group>"; };
@@ -489,8 +487,6 @@
 		9678AEEE1BEB71C800E5B50E /* CustomerInformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationEditViewController.h; sourceTree = "<group>"; };
 		9678AEEF1BEB71C800E5B50E /* CustomerInformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationEditViewController.m; sourceTree = "<group>"; };
 		9678AEF01BEB71C800E5B50E /* CustomerInformationEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationEditViewController.xib; sourceTree = "<group>"; };
-		9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
-		9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		9678AEFE1BEB731600E5B50E /* 222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 222.png; sourceTree = "<group>"; };
 		96A695B91BF5DE8900ADAC98 /* Image.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Image.plist; sourceTree = "<group>"; };
 		96D58D031BFED22200159E09 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
@@ -521,6 +517,8 @@
 		96FAE25A1BEC73A900032BB3 /* HZQDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZQDatePickerView.xib; sourceTree = "<group>"; };
 		96FF05761BF80C7F00EA5457 /* crm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crm.png; sourceTree = "<group>"; };
 		B87028191BD9E52500CD2FF2 /* taskReport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = taskReport.plist; sourceTree = "<group>"; };
+		B8F4F7101C1024EB00FF47C4 /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
+		B8F4F7111C1024EB00FF47C4 /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		C0B8D6941C06F2A20051367D /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
 		C0D3CD3B1BDF0CEF00C23FB3 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		C0D3CD3C1BDF0CEF00C23FB3 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -868,14 +866,12 @@
 		9678AEE11BEB70CA00E5B50E /* CRM */ = {
 			isa = PBXGroup;
 			children = (
-				39F7975D1C05CD3D000D9A20 /* CRMTableViewController.h */,
-				39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */,
+				B8F4F7101C1024EB00FF47C4 /* CRMTableViewController.h */,
+				B8F4F7111C1024EB00FF47C4 /* CRMTableViewController.m */,
 				39E8767D1C03036E00BF6808 /* customerCallPlan */,
 				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
-				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
-				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
 				9678AEE21BEB70D400E5B50E /* crm */,
 			);
 			name = CRM;
@@ -1671,7 +1667,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */,
 				39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
@@ -1772,6 +1767,7 @@
 				39F798841C05D36D000D9A20 /* RecordsNsObj.m in Sources */,
 				39F798871C05D386000D9A20 /* config.m in Sources */,
 				39F7971A1C05CC50000D9A20 /* CustomercontactTableViewController.m in Sources */,
+				B8F4F7121C1024EB00FF47C4 /* CRMTableViewController.m in Sources */,
 				39F798551C05D314000D9A20 /* activityEntity.m in Sources */,
 				39F797AD1C05D03C000D9A20 /* MeUser.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,

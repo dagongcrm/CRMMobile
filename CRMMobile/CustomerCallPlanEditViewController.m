@@ -68,29 +68,7 @@
 
 //选择客户名称
 - (IBAction)addCustomer:(id)sender {
-    
-//    NSString *theme=_theme.text;
-//    NSString *visitDate=_visitDate.text;
-//    NSString *respondentPhone=_respondentPhone.text;
-//    NSString *respondent=_respondent.text;
-//    NSString *address=_address.text;
-//    NSString *visitProfile=_visitProfile.text;
-//    NSString *result=_result.text;
-//    NSString *customerRequirements=_customerRequirements.text;
-//    NSString *customerChange=_customerChange.text;
 
-//    _customerCallPlanEntity=[[CustomerCallPlanDetailMessageEntity alloc] init];
-//    
-//    [_customerCallPlanEntity setTheme:theme];
-//    [_customerCallPlanEntity setAccessMethod:accessMethodID];
-//    [_customerCallPlanEntity setRespondentPhone:respondentPhone];
-//    [_customerCallPlanEntity setRespondent:respondent];
-//    [_customerCallPlanEntity setAddress:address];
-//    [_customerCallPlanEntity setVisitProfile:visitProfile];
-//    [_customerCallPlanEntity setVisitDate:visitDate];
-//    [_customerCallPlanEntity setResult:result];
-//    [_customerCallPlanEntity setCustomerRequirements:customerRequirements];
-//    [_customerCallPlanEntity setCustomerChange:customerChange];
     
     [_customerCallPlanEntity setIndex:@"editCustomerCallPlan"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];

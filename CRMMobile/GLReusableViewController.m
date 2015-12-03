@@ -40,6 +40,9 @@
     [super viewDidLoad];
     [self  weatherInfo];
     [self  reloadData];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

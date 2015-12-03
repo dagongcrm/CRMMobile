@@ -5,7 +5,7 @@
 //  Created by gwb on 15/10/23.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-
+#import "TaskRecordsTableViewController.h"
 #import "CRMTableViewController.h"
 #import "CustomerInformationTableViewController.h"
 #import "CustomerCallPlanViewController.h"
@@ -78,7 +78,9 @@
         [self.navigationController pushViewController: fltv animated:YES];
         
     }else if(indexPath.row==3){
-        
+        TaskRecordsTableViewController *fltv=[[TaskRecordsTableViewController alloc] init];
+        fltv.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==4){
         
     }else if(indexPath.row==5){
