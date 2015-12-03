@@ -174,6 +174,7 @@
     NSString *qiYeMC = _auditEntity.submitName;
     NSString *yeWuZLMC = _auditEntity.yeWuZL;
     NSString *ftn_ID = _auditEntity.ftn_ID;
+    NSString *userID = _auditEntity.userID;
     NSLog(@"%@",qiYeBH);
     NSLog(@"%@",qiYeMC);
     NSLog(@"%@",yeWuZLBH);
