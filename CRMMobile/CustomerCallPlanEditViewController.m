@@ -15,6 +15,7 @@
 
 @interface CustomerCallPlanEditViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;  //拜访时间
 
 @property (weak, nonatomic) IBOutlet UITextField *theme;    //主题
@@ -268,6 +269,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scroll.contentSize=CGSizeMake(375, 1200);
     //赋值
     [self valuation];
     

@@ -135,43 +135,43 @@
             teamname=@"";
         }
                 if (teamname1.length==0) {
-                    teamname1=@"暂无数据";
+                    teamname1=@" ";
                 }
                 if (teamname2.length==0) {
-                    teamname2=@"暂无数据";
+                    teamname2=@" ";
                 }
                 if (teamname3.length==0) {
-                    teamname3=@"暂无数据";
+                    teamname3=@" ";
                 }
                 if (teamname4.length==0) {
-                    teamname4=@"暂无数据";
+                    teamname4=@" ";
                 }
                 if (teamname5.length==0) {
-                    teamname5=@"暂无数据";
+                    teamname5=@" ";
                 }
                 if (teamname6.length==0) {
-                    teamname6=@"暂无数据";
+                    teamname6=@" ";
                 }
                 if (teamname7.length==0) {
-                    teamname7=@"暂无数据";
+                    teamname7=@" ";
                 }
                 if (teamname8.length==0) {
-                    teamname8=@"暂无数据";
+                    teamname8=@" ";
                 }
                 if (teamname9.length==0) {
-                    teamname9=@"暂无数据";
+                    teamname9=@" ";
                 }
                 if (teamname10.length==0) {
-                    teamname10=@"暂无数据";
+                    teamname10=@" ";
                 }
                 if (teamname11.length==0) {
-                    teamname11=@"暂无数据";
+                    teamname11=@" ";
                 }
                 if (teamname12.length==0) {
-                    teamname12=@"暂无数据";
+                    teamname12=@" ";
                 }
                 if (teamname13.length==0) {
-                    teamname13=@"暂无数据";
+                    teamname13=@" ";
                 }
         [self.callRecordsID addObject:teamname];
         [self.fakeData addObject:teamname1];

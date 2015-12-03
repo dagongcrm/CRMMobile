@@ -155,7 +155,6 @@
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
     }
     
 
@@ -186,17 +185,15 @@
     NSString *flowId=@"";
     NSString *fln_UserCode=@"";
     NSString *nextParticipants=@"";
-    NSString *userID=@"";
     if (loginName == nil||[loginName isEqualToString:@"yushasha"]) {
         NSLog(@"%@",@"1");
-        flowId=@"FTL_T2013081300001.003";
-        fln_UserCode=@"XTYH20120510007";
-        nextParticipants=@"USER_2014121700012";
-        userID=@"USER_2014121700012";
+        flowId1=@"FTL_T2013081300001.begin";
+        fln_UserCode1=userID;
+        
     }else{
         NSLog(@"%@",@"2");
-        flowId=@"FTL_T2013081300001.005";
-        fln_UserCode=@"YongHu2015042000001";
+        flowId1=@"FTL_T2013081300001.003";
+        fln_UserCode1=@"YongHu2013092200006";
     }
     
     
