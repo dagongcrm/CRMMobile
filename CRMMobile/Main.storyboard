@@ -436,12 +436,6 @@
                                             <action selector="guanyu:" destination="RCS-ag-jvy" eventType="touchUpInside" id="3yF-7W-c3J"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8u-lz-Oon">
-                                        <rect key="frame" x="258" y="81" width="46" height="30"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAg-PX-5W0" userLabel="org">
                                         <rect key="frame" x="214" y="129" width="118" height="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
@@ -460,7 +454,6 @@
                         <outlet property="beijingImg" destination="wHR-eL-TFb" id="zgR-uC-BOs"/>
                         <outlet property="scroll" destination="e5e-w2-lpE" id="I8U-mt-5RQ"/>
                         <outlet property="txtOrg" destination="VAg-PX-5W0" id="X7q-R4-AZZ"/>
-                        <outlet property="txtname" destination="i1h-SJ-AnL" id="dnP-Ub-ILf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdT-Ia-xES" userLabel="First Responder" sceneMemberID="firstResponder"/>
