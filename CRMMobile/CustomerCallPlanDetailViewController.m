@@ -11,6 +11,9 @@
 #import "config.h"
 #import "CustomerCallPlanViewController.h"
 #import "CustomerCallPlanEditViewController.h"
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchAPI.h>
+#define APIKey @"cdf41cce83fb64756ba13022997e5e74"
 
 
 @interface CustomerCallPlanDetailViewController ()
@@ -48,17 +51,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *baiFangRen;  //拜访人
 
-
-
-
-
-
-
-
 @end
 
 @implementation CustomerCallPlanDetailViewController
 @synthesize customerCallPlanEntity=_customerCallPlanEntity;
+//@synthesize locationManager=_locationManager;
 
 - (IBAction)delete:(id)sender {
     NSString *ci= _customerCallPlanEntity.customerCallPlanID;
@@ -94,6 +91,39 @@
     [uc setCustomerCallPlanEntity:_customerCallPlanEntity];
     [self.navigationController pushViewController:uc animated:YES];
 }
+
+//定位功能
+-(Boolean)Location{
+//    [AMapLocationServices sharedServices].apiKey =@"您的key";
+//    self.locationManager = [[AMapLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+//    NSError *error;
+//    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+//    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+//    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!addCallRecords.action?"]];
+//    
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+//    request.timeoutInterval=10.0;
+//    request.HTTPMethod=@"POST";
+//    NSString *param=[NSString stringWithFormat:@"customerCallPlanID=%@&MOBILE_SID=%@",ci,sid];
+//    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+//    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//    
+//    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+//        [alert show];
+//    }else{
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        [alert show];
+//        
+//    }
+
+    return false;
+}
+
 
 
 //确认拜访
