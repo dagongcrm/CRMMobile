@@ -235,6 +235,7 @@
 		C0D68C5A1BD8EA20009CEC23 /* CRMMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D68C591BD8EA20009CEC23 /* CRMMobileTests.m */; };
 		C0D68C661BD8ED44009CEC23 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D68C641BD8ED44009CEC23 /* LoginViewController.m */; };
 		C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C651BD8ED44009CEC23 /* LoginViewController.xib */; };
+		F405A266A63938E9FE1282AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C7E133320381C359BF81B5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -607,6 +608,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F405A266A63938E9FE1282AC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
