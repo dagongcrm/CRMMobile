@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
+		1FE08B571C11840E00CBEBDB /* saleLeads.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE08B561C11840E00CBEBDB /* saleLeads.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
+		1FE5448B1C113E6E00742F1F /* saleLeadsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE544891C113E6E00742F1F /* saleLeadsTableViewController.m */; };
+		1FE5448C1C113E6E00742F1F /* saleLeadsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5448A1C113E6E00742F1F /* saleLeadsTableViewController.xib */; };
+		1FE544901C11411F00742F1F /* addSaleLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5448E1C11411F00742F1F /* addSaleLeadsViewController.m */; };
+		1FE544911C11411F00742F1F /* addSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5448F1C11411F00742F1F /* addSaleLeadsViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -251,8 +256,16 @@
 		102A51D7D859922F2889B12A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
+		1FE08B551C11840E00CBEBDB /* saleLeads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleLeads.h; sourceTree = "<group>"; };
+		1FE08B561C11840E00CBEBDB /* saleLeads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saleLeads.m; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		1FE544881C113E6E00742F1F /* saleLeadsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleLeadsTableViewController.h; sourceTree = "<group>"; };
+		1FE544891C113E6E00742F1F /* saleLeadsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saleLeadsTableViewController.m; sourceTree = "<group>"; };
+		1FE5448A1C113E6E00742F1F /* saleLeadsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = saleLeadsTableViewController.xib; sourceTree = "<group>"; };
+		1FE5448D1C11411F00742F1F /* addSaleLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addSaleLeadsViewController.h; sourceTree = "<group>"; };
+		1FE5448E1C11411F00742F1F /* addSaleLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addSaleLeadsViewController.m; sourceTree = "<group>"; };
+		1FE5448F1C11411F00742F1F /* addSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addSaleLeadsViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -629,6 +642,15 @@
 			name = TableViewForSeleteUser;
 			sourceTree = "<group>";
 		};
+		1FE08B541C1183A200CBEBDB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1FE08B551C11840E00CBEBDB /* saleLeads.h */,
+				1FE08B561C11840E00CBEBDB /* saleLeads.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +693,20 @@
 				39F797B21C05D0DF000D9A20 /* trackingTableViewController.m */,
 			);
 			name = tracking;
+			sourceTree = "<group>";
+		};
+		1FE544871C113E3300742F1F /* saleLeads */ = {
+			isa = PBXGroup;
+			children = (
+				1FE08B541C1183A200CBEBDB /* Entity */,
+				1FE544881C113E6E00742F1F /* saleLeadsTableViewController.h */,
+				1FE544891C113E6E00742F1F /* saleLeadsTableViewController.m */,
+				1FE5448A1C113E6E00742F1F /* saleLeadsTableViewController.xib */,
+				1FE5448D1C11411F00742F1F /* addSaleLeadsViewController.h */,
+				1FE5448E1C11411F00742F1F /* addSaleLeadsViewController.m */,
+				1FE5448F1C11411F00742F1F /* addSaleLeadsViewController.xib */,
+			);
+			name = saleLeads;
 			sourceTree = "<group>";
 		};
 		39E8765F1C02FF0B00BF6808 /* crm */ = {
@@ -937,6 +973,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				1FE544871C113E3300742F1F /* saleLeads */,
 				9600684B1C1043B1003B7C0B /* MarketManagement */,
 				39F7975D1C05CD3D000D9A20 /* CRMTableViewController.h */,
 				39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */,
@@ -1563,6 +1600,7 @@
 				960068A61C104B3A003B7C0B /* 12.JPG in Resources */,
 				C0D3CD6B1BDF0CEF00C23FB3 /* 16.png in Resources */,
 				39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */,
+				1FE5448C1C113E6E00742F1F /* saleLeadsTableViewController.xib in Resources */,
 				9600687E1C10458C003B7C0B /* TXLTableViewController.xib in Resources */,
 				960068801C10458C003B7C0B /* XGViewController.xib in Resources */,
 				C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */,
@@ -1590,6 +1628,7 @@
 				B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */,
 				96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */,
 				39F797BE1C05D0E7000D9A20 /* auditDetailViewController.xib in Resources */,
+				1FE544911C11411F00742F1F /* addSaleLeadsViewController.xib in Resources */,
 				9600689D1C104B0D003B7C0B /* 121.png in Resources */,
 				960068A91C104B3A003B7C0B /* 15.JPG in Resources */,
 				39F797FE1C05D147000D9A20 /* ShowAndDeleteWeekViewController.xib in Resources */,
@@ -1718,6 +1757,7 @@
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
 				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
 				39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */,
+				1FE5448B1C113E6E00742F1F /* saleLeadsTableViewController.m in Sources */,
 				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
 				39F7978B1C05CF58000D9A20 /* selectEntity.m in Sources */,
 				39E72D371C07488E0050D77F /* AddSaleOppViewController.m in Sources */,
@@ -1780,6 +1820,7 @@
 				39F798541C05D314000D9A20 /* ReminderEntity.m in Sources */,
 				39F797341C05CCE4000D9A20 /* EditSaleOppViewController.m in Sources */,
 				9600687C1C10458C003B7C0B /* OptionsTableViewController.m in Sources */,
+				1FE08B571C11840E00CBEBDB /* saleLeads.m in Sources */,
 				39F797DC1C05D125000D9A20 /* TaskReportTableViewController.m in Sources */,
 				39F797EF1C05D138000D9A20 /* TaskReportDailyEntity.m in Sources */,
 				960068951C104601003B7C0B /* MeUser.m in Sources */,
@@ -1803,6 +1844,7 @@
 				39E729F01C0697A50050D77F /* addTaskViewController.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				39F7971C1C05CC50000D9A20 /* EditCustomerContactController.m in Sources */,
+				1FE544901C11411F00742F1F /* addSaleLeadsViewController.m in Sources */,
 				39F798BC1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m in Sources */,
 				39F7980D1C05D15A000D9A20 /* ShowAndDeleteViewController.m in Sources */,
 				960068611C10441B003B7C0B /* PNBarChart.m in Sources */,
