@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
 		1FE08B571C11840E00CBEBDB /* saleLeads.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE08B561C11840E00CBEBDB /* saleLeads.m */; };
+		1FE44E981C15782F005AD4FE /* noticeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE44E971C15782F005AD4FE /* noticeEntity.m */; };
+		1FE44E9C1C1578A9005AD4FE /* noticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE44E9A1C1578A9005AD4FE /* noticeDetailViewController.m */; };
+		1FE44E9D1C1578A9005AD4FE /* noticeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE44E9B1C1578A9005AD4FE /* noticeDetailViewController.xib */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FE5448B1C113E6E00742F1F /* saleLeadsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE544891C113E6E00742F1F /* saleLeadsTableViewController.m */; };
 		1FE5448C1C113E6E00742F1F /* saleLeadsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5448A1C113E6E00742F1F /* saleLeadsTableViewController.xib */; };
@@ -258,6 +261,11 @@
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
 		1FE08B551C11840E00CBEBDB /* saleLeads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleLeads.h; sourceTree = "<group>"; };
 		1FE08B561C11840E00CBEBDB /* saleLeads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saleLeads.m; sourceTree = "<group>"; };
+		1FE44E961C15782F005AD4FE /* noticeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noticeEntity.h; sourceTree = "<group>"; };
+		1FE44E971C15782F005AD4FE /* noticeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noticeEntity.m; sourceTree = "<group>"; };
+		1FE44E991C1578A9005AD4FE /* noticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noticeDetailViewController.h; sourceTree = "<group>"; };
+		1FE44E9A1C1578A9005AD4FE /* noticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noticeDetailViewController.m; sourceTree = "<group>"; };
+		1FE44E9B1C1578A9005AD4FE /* noticeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = noticeDetailViewController.xib; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FE544881C113E6E00742F1F /* saleLeadsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleLeadsTableViewController.h; sourceTree = "<group>"; };
@@ -647,6 +655,15 @@
 			children = (
 				1FE08B551C11840E00CBEBDB /* saleLeads.h */,
 				1FE08B561C11840E00CBEBDB /* saleLeads.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1FE44E951C1577FF005AD4FE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1FE44E961C15782F005AD4FE /* noticeEntity.h */,
+				1FE44E971C15782F005AD4FE /* noticeEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -1327,6 +1344,7 @@
 		C0D569341BD9B71800860B33 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				1FE44E951C1577FF005AD4FE /* Entity */,
 				39E72A271C069AC30050D77F /* activityDetailViewController.xib */,
 				39E72A221C069A0C0050D77F /* activityDetailViewController.h */,
 				39E72A231C069A0C0050D77F /* activityDetailViewController.m */,
@@ -1345,6 +1363,9 @@
 				39E72A141C06996D0050D77F /* publicNoticeTableViewController.h */,
 				39E72A151C06996D0050D77F /* publicNoticeTableViewController.m */,
 				39E72A161C06996D0050D77F /* publicNoticeTableViewController.xib */,
+				1FE44E991C1578A9005AD4FE /* noticeDetailViewController.h */,
+				1FE44E9A1C1578A9005AD4FE /* noticeDetailViewController.m */,
+				1FE44E9B1C1578A9005AD4FE /* noticeDetailViewController.xib */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -1589,6 +1610,7 @@
 				9600688B1C1045BE003B7C0B /* SettingViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
 				96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */,
+				1FE44E9D1C1578A9005AD4FE /* noticeDetailViewController.xib in Resources */,
 				C0D3CD781BDF0CEF00C23FB3 /* 29.png in Resources */,
 				39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */,
 				960068A51C104B3A003B7C0B /* 11.JPG in Resources */,
@@ -1778,6 +1800,7 @@
 				39E72A201C06996D0050D77F /* publicNoticeTableViewController.m in Sources */,
 				96E3125C1BEB53BA00A1A3FF /* MJRefreshHeaderView.m in Sources */,
 				96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */,
+				1FE44E981C15782F005AD4FE /* noticeEntity.m in Sources */,
 				39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */,
 				C0D3CD881BDF0E8B00C23FB3 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				39F797F91C05D147000D9A20 /* WeekTableViewController.m in Sources */,
@@ -1839,6 +1862,7 @@
 				39F798801C05D365000D9A20 /* RecordsDetalViewController.m in Sources */,
 				39F797BB1C05D0E7000D9A20 /* auditTableViewController.m in Sources */,
 				39F797B31C05D0DF000D9A20 /* trackingTableViewController.m in Sources */,
+				1FE44E9C1C1578A9005AD4FE /* noticeDetailViewController.m in Sources */,
 				C0D68C661BD8ED44009CEC23 /* LoginViewController.m in Sources */,
 				39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */,
 				39E729F01C0697A50050D77F /* addTaskViewController.m in Sources */,
