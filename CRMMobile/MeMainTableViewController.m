@@ -51,7 +51,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [_optionListData objectAtIndex:indexPath.row];
-//        [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
+        [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;

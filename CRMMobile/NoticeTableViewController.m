@@ -13,10 +13,12 @@
 #import "noticeEntity.h"
 #import "noticeDetailViewController.h"
 #import "EntityHelper.h"
+#import "UIScrollView+MJRefresh.h"
 
 @interface NoticeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *entities;
+@property  NSInteger index;
 
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
@@ -42,9 +44,18 @@
 @implementation NoticeTableViewController
 @synthesize leftSwipe;
 @synthesize rightSwipe;
-
+- (NSMutableArray *)fakeData
+{
+    if (!_entities) {
+        self.entities = [[NSMutableArray alloc]init];
+        [self faker:@"1"];
+        [self faker:@"2"];
+    }
+    return _entities;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self setupRefresh];
     self.entities = [[NSMutableArray alloc]init];
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
