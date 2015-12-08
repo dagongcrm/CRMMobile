@@ -12,6 +12,7 @@
 #import "SaleOppTableViewController.h"
 #import "CustomercontactTableViewController.h"
 #import "MarketManagementViewController.h"
+#import "saleLeadsTableViewController.h"
 @interface CRMTableViewController ()
 
 @end
@@ -85,6 +86,8 @@
         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
     }else if(indexPath.row==4){
+        saleLeadsTableViewController *saleLeads = [[saleLeadsTableViewController alloc] init];
+        [self.navigationController pushViewController:saleLeads animated:YES];
         
     }else if(indexPath.row==5){
         SaleOppTableViewController *saleopp= [[SaleOppTableViewController alloc] init];

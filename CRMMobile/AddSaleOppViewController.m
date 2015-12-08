@@ -51,11 +51,6 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)customerNameSelect:(id)sender;
-- (IBAction)oppStateSelect:(id)sender;
-- (IBAction)saleOppSrcSelect:(id)sender;
-
-- (IBAction)saleOppSrcSelect:(id)sender;
-
 @end
 
 @implementation AddSaleOppViewController
@@ -65,7 +60,7 @@
     
     [super viewDidLoad];
     [self valuation];
-//    [self BackButton];
+    [self BackButton];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
     
