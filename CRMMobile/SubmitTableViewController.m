@@ -51,6 +51,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"任务提交";
     [self setupRefresh];
     [self leftButtonInit];
 }

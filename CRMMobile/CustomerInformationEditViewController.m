@@ -15,7 +15,11 @@
 @interface CustomerInformationEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *customerNAME;
 
-@property (weak, nonatomic) IBOutlet UITextField *customerAddress;
+//@property (weak, nonatomic) IBOutlet UITextField *customerAddress;
+@property (weak, nonatomic) IBOutlet UITextView *customerAddress;
+
+
+
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 
 
@@ -57,9 +61,7 @@
 @property (strong,nonatomic)  NSArray           *selectSFId; //选择的 省份ID
 @property (strong,nonatomic) NSString  *chooseSFID;//选择的 省份ID 用于提交
 @property (weak, nonatomic) IBOutlet UIButton *chooseSFButton;
-
-
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -522,7 +524,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=@"修改客户档案";
+    self.scroll.contentSize = CGSizeMake(375,800);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.customerAddress.layer setBorderColor:color];
+    self.customerAddress.layer.borderWidth = 1;
+    self.customerAddress.layer.cornerRadius = 6;
+    self.customerAddress.layer.masksToBounds = YES;
     //赋值
     [self valuation];
     

@@ -67,7 +67,7 @@
      NSString *d3 = [NSString stringWithFormat:@"%d",_index3];
      NSString *d4 = [NSString stringWithFormat:@"%d",_index4];
      NSString *d5 = [NSString stringWithFormat:@"%d",_index5];
-    [lineChart setXLabels:@[_date1,_date2,_date3,_date4,_date5]];
+    [lineChart setXLabels:@[[_date1 substringFromIndex:5],[_date2 substringFromIndex:5],[_date3 substringFromIndex:5],[_date4 substringFromIndex:5],[_date5 substringFromIndex:5]]];
     [lineChart setYValues:@[d1,d2,d3,d4,d5]];
     [lineChart strokeChart];
     [self.scrollView addSubview:lineChartLabel];

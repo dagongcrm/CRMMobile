@@ -21,17 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"信息详情";
     self.view.backgroundColor = [UIColor whiteColor];
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 300)];
-    label.backgroundColor = [UIColor yellowColor];
-    label.text = self.tapID;
+//    label.backgroundColor = [UIColor yellowColor];
+//    label.text = self.tapID;
+    label.text =@"暂无信息";
     label.font = [UIFont systemFontOfSize:30];
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
     
     UIButton * butn = [UIButton buttonWithType:UIButtonTypeCustom];
-    butn.frame = CGRectMake(self.view.centerX- 50, label.bottom + 30, 100, 30);
+    butn.frame = CGRectMake(self.view.centerX- 50, label.bottom + 100, 100, 30);
     [butn setTitle:@"返回" forState:UIControlStateNormal];
     butn.backgroundColor = [UIColor redColor];
     [butn addTarget:self action:@selector(backLastVC) forControlEvents:UIControlEventTouchUpInside];

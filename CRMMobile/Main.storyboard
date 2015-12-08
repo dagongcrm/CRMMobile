@@ -320,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="-2182.5" y="737.5"/>
         </scene>
-        <!--我-->
+        <!--个人中心-->
         <scene sceneID="Bg1-zs-ODW">
             <objects>
                 <viewController id="RCS-ag-jvy" customClass="OptionsTableViewController" sceneMemberID="viewController">
@@ -376,68 +376,14 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qJ-AC-bUO">
-                                        <rect key="frame" x="17" y="179" width="340" height="45"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="通讯录">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tongxun:" destination="RCS-ag-jvy" eventType="touchUpInside" id="XEn-c3-IY8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwy-gb-0LM">
-                                        <rect key="frame" x="17" y="232" width="340" height="45"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="我的位置">
-                                            <color key="titleColor" red="0.97254908080000002" green="0.99215692280000001" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="location:" destination="RCS-ag-jvy" eventType="touchUpInside" id="xJL-4r-TMj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVW-rZ-2aD">
-                                        <rect key="frame" x="17" y="282" width="340" height="45"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="修改密码">
-                                            <color key="titleColor" red="0.97254908080000002" green="0.99215692280000001" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="editpass:" destination="RCS-ag-jvy" eventType="touchUpInside" id="Zvg-yO-kpF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-lL-tlx">
-                                        <rect key="frame" x="17" y="332" width="340" height="45"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="设置">
-                                            <color key="titleColor" red="0.96470594409999999" green="0.98039221759999995" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setting:" destination="RCS-ag-jvy" eventType="touchUpInside" id="Efu-kp-UYv"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwl-It-iOm">
-                                        <rect key="frame" x="17" y="382" width="340" height="45"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="关于">
-                                            <color key="titleColor" red="0.97254908080000002" green="0.99215692280000001" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="guanyu:" destination="RCS-ag-jvy" eventType="touchUpInside" id="3yF-7W-c3J"/>
-                                        </connections>
-                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aL7-6X-5S4" userLabel="user">
+                                        <rect key="frame" x="214" y="77" width="118" height="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAg-PX-5W0" userLabel="org">
-                                        <rect key="frame" x="214" y="129" width="118" height="30"/>
+                                        <rect key="frame" x="214" y="134" width="118" height="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -447,13 +393,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96470594409999999" green="0.98039221759999995" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="我" id="egC-4Q-N9O"/>
+                    <navigationItem key="navigationItem" title="个人中心" id="egC-4Q-N9O"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Image" destination="7cD-oI-Ar1" id="cVb-9x-LXO"/>
                         <outlet property="beijingImg" destination="wHR-eL-TFb" id="zgR-uC-BOs"/>
                         <outlet property="scroll" destination="e5e-w2-lpE" id="I8U-mt-5RQ"/>
                         <outlet property="txtOrg" destination="VAg-PX-5W0" id="X7q-R4-AZZ"/>
+                        <outlet property="txtname" destination="aL7-6X-5S4" id="hGX-hR-xKK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdT-Ia-xES" userLabel="First Responder" sceneMemberID="firstResponder"/>

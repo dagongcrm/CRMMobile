@@ -97,6 +97,8 @@
         [self.navigationController pushViewController: marketManagement animated:YES];
     }
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
 
 @end
