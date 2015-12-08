@@ -55,7 +55,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setupRefresh];
+    [self setupRefresh];
     self.entities = [[NSMutableArray alloc]init];
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -141,6 +141,48 @@
     //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
     return self.entities;
 }
+
+- (void)setupRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+}
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    self.index =3;
+    [self faker:@"1"];
+    [self faker:@"2"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    if(self.index==0){
+        self.index=3;
+    }else{
+        self.index++;
+    }
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
+    
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
