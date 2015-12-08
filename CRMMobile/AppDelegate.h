@@ -30,7 +30,7 @@
 @property  NSString    *gezongSF;
 @property  NSString    *genZongSFJE;
 @property  NSString    *lianxiFS;
-
+@property  NSString    *page;
 @property  (nonatomic,retain) NSMutableArray *indexPageForLoad;
 @end
 

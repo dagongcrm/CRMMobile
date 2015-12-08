@@ -13,20 +13,19 @@
 #import "AppDelegate.h"
 
 @interface auditDetailViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
-@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
-
-@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
-@property (weak, nonatomic) IBOutlet UITextField *suoShuHY;
-- (IBAction)quit:(id)sender;
-
-- (IBAction)auditCommit:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *zhuChengXS;
-@property (weak, nonatomic) IBOutlet UITextField *userName;
 
 @property (weak, nonatomic) IBOutlet UITextField *qiYeMC;
 @property (weak, nonatomic) IBOutlet UITextField *yeWuZL;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UITextField *suoShuHY;
+@property (weak, nonatomic) IBOutlet UITextField *heTongJE;
+@property (weak, nonatomic) IBOutlet UITextField *genZongSFJE;
+@property (weak, nonatomic) IBOutlet UITextField *zhuChengXS;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *lianXiFS;
+- (IBAction)quit:(id)sender;
+
+- (IBAction)auditCommit:(id)sender;
 
 @end
 
@@ -34,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"任务审核";
     self.scroll.contentSize = CGSizeMake(375, 1000);
 //    NSString *s= _auditEntity.lianXiFS;
 //    NSString *y= _auditEntity.yeWuZL;
@@ -212,4 +212,5 @@
     }
 
 }
+
 @end

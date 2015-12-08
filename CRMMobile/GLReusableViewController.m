@@ -93,10 +93,6 @@
         [self.view addSubview:todolabel];
         [todolabel sizeToFit];
     
-        UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,179,self.view.bounds.size.width,1)];
-        navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [navDividingLine sizeToFit];
-        [self.view addSubview:navDividingLine];
     
         ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
@@ -107,9 +103,9 @@
     }
     if([self.page integerValue]==1)
     {
-        CustomerCallPlanViewController *nav = [[CustomerCallPlanViewController alloc] init];
+//        CustomerCallPlanViewController *nav = [[CustomerCallPlanViewController alloc] init];
     
-//        VisitPlanTableViewController *nav = [[VisitPlanTableViewController alloc] init];
+        VisitPlanTableViewController *nav = [[VisitPlanTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
         [self addChildViewController:nav];
         nav.view.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);

@@ -17,21 +17,21 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
+@property (weak, nonatomic) IBOutlet UITextView *mainContent;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *customerName;
 
-@property (weak, nonatomic) IBOutlet UITextField *theme;
+
+@property (weak, nonatomic) IBOutlet UITextView *theme;
 
 @property (weak, nonatomic) IBOutlet UITextField *accessMethodStr;   //访问方式
-
-@property (weak, nonatomic) IBOutlet UITextField *mainContent;   //重要内容
 
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;   //受访人电话
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;   //受访人员
 
-@property (weak, nonatomic) IBOutlet UITextField *address;   //受访人地址
+@property (weak, nonatomic) IBOutlet UITextView *address;
 
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;   //拜访概要
 
@@ -126,16 +126,13 @@
     
 }
 
-
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 1450);
+    self.title=@"拜访计划";
+    self.scroll.contentSize=CGSizeMake(375, 1060);
     
+
     //赋值
     [self valuation];
     
@@ -144,6 +141,28 @@
 
 //赋值
 - (void) valuation {
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+    self.theme.editable = NO;
+    
+    [self.mainContent.layer setBorderColor:color];
+    self.mainContent.layer.borderWidth = 1;
+    self.mainContent.layer.cornerRadius = 6;
+    self.mainContent.layer.masksToBounds = YES;
+    self.mainContent.editable = NO;
+    
+    [self.address.layer setBorderColor:color];
+    self.address.layer.borderWidth = 1;
+    self.address.layer.cornerRadius = 6;
+    self.address.layer.masksToBounds = YES;
+    self.address.editable = NO;
+    
     self.customerName.text  =_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
@@ -158,6 +177,21 @@
     _visitorAttributionStr.text=_customerCallPlanEntity.visitorAttributionStr;
     _baiFangRen.text=_customerCallPlanEntity.baiFangRenStr;
     _mainContent.text=_customerCallPlanEntity.mainContent;
+    
+    [self.customerName setEnabled:NO];
+    [self.visitDate setEnabled:NO];
+//    [self.theme setEnabled:NO];
+    [self.customerChange setEnabled:NO];
+    [self.baiFangRen setEnabled:NO];
+    [self.accessMethodStr setEnabled:NO];
+//    [self.mainContent setEnabled:NO];
+    [self.respondentPhone setEnabled:NO];
+    [self.respondent setEnabled:NO];
+//    [self.address setEnabled:NO];
+    [self.visitProfile setEnabled:NO];
+    [self.result setEnabled:NO];
+    [self.customerRequirements setEnabled:NO];
+    [self.visitorAttributionStr setEnabled:NO];
 }
 
 

@@ -6,10 +6,11 @@
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
 
-#import "AddPlanViewController.h"
+#import "IndexViewController.h"
 #import "GLReusableViewController.h"
 #import "PlanDetalViewController.h"
 #import "VisitPlanNsObj.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 #import "VisitPlanTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
@@ -17,192 +18,133 @@
 #import "MJRefresh.h"
 #import "HttpHelper.h"
 
-@interface VisitPlanTableViewController (){
-    UISearchDisplayController *mySearchDisplayController;
-}
-@property (strong, nonatomic) NSMutableArray *customerCallPlanID;//id
-@property (strong, nonatomic) NSMutableArray *fakeData;//客户名称
+@interface VisitPlanTableViewController ()
+@property (strong, nonatomic) NSMutableArray *fakeData;  //拜访计划数组
+@property (strong, nonatomic) NSMutableArray *customerCallPlanID;   //客户id数组
+@property (strong, nonatomic) NSMutableArray *uid;
+@property (strong, nonatomic) NSMutableDictionary *uCustomerCallPlanID;
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
-@property (strong, nonatomic) NSMutableArray *theme;//主题
-@property (strong, nonatomic) NSMutableArray *accessMethod;//访问方式
-@property (strong, nonatomic) NSMutableArray *mainContent;//主要内容
-@property (strong, nonatomic) NSMutableArray *respondentPhone;//受访人电话
-@property (strong, nonatomic) NSMutableArray *respondent;//受访人员
-@property (strong, nonatomic) NSMutableArray *address;//地址
-@property (strong, nonatomic) NSMutableArray *visitProfile;//拜访概要
-@property (strong, nonatomic) NSMutableArray *result;//达成结果
-@property (strong, nonatomic) NSMutableArray *customerRequirements;//客户需求
-@property (strong, nonatomic) NSMutableArray *customerChange;//客户变更
-@property (strong, nonatomic) NSMutableArray *visitorStr;//拜访人
-@property (strong, nonatomic) NSMutableArray *userName;
-@property (strong, nonatomic) NSString       *refreshOrNot;
+@property (strong, nonatomic) NSMutableArray *respondent;
+@property  NSInteger  index;
 
-@property  NSInteger index;
+
 @end
 
 @implementation VisitPlanTableViewController
-
--(void)viewWillAppear:(BOOL)animated{
-    NSUserDefaults *ud = [[NSUserDefaults alloc] init];
-    if([ud objectForKey:@"visitTableDateSource"]){
-        self.refreshOrNot=@"NO";
-    }
-    else{
-        self.refreshOrNot=@"YES";
-    }
-   
-}
-
 - (NSMutableArray *)fakeData
 {
-    
-    if([self.refreshOrNot isEqualToString:@"NO"]){
-        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
-        NSDictionary *ds=[ud objectForKey:@"visitTableDateSource"];
-        self.fakeData =[ds objectForKey:@"fakeDate"];
-        self.customerCallPlanID =[ds objectForKey:@"customerCallPlanID"];
-        self.visitDate =[ds objectForKey:@"visitDate"];
-        self.theme =[ds objectForKey:@"theme"];
-        self.accessMethod =[ds objectForKey:@"accessMethod"];
-        self.mainContent =[ds objectForKey:@"mainContent"];
-        self.respondentPhone =[ds objectForKey:@"respondentPhone"];
-        self.respondent=[ds objectForKey:@"respondent"];
-        self.address =[ds objectForKey:@"address"];
-        self.visitProfile =[ds objectForKey:@"visitProfile"];
-        self.result =[ds objectForKey:@"result"];
-        self.customerRequirements =[ds objectForKey:@"customerRequirements"];
-        self.customerChange =[ds objectForKey:@"customerChange"];
-        self.visitorStr =[ds objectForKey:@"visitorStr"];
-        self.userName=[[NSMutableArray alloc]init];
-    }
-    
-    if ([self.refreshOrNot isEqualToString:@"YES"]) {
     if (!_fakeData) {
-        self.fakeData   = [[NSMutableArray alloc] init];
-        self.customerCallPlanID = [[NSMutableArray alloc]init];
+        self.fakeData   = [NSMutableArray array];
+        self.customerCallPlanID = [NSMutableArray array];
         self.visitDate = [[NSMutableArray alloc]init];
-        self.theme = [[NSMutableArray alloc]init];
-        self.accessMethod = [[NSMutableArray alloc]init];
-        self.mainContent = [[NSMutableArray alloc]init];
-        self.respondentPhone = [[NSMutableArray alloc]init];
-        self.respondent= [[NSMutableArray alloc]init];
-        self.address = [[NSMutableArray alloc]init];
-        self.visitProfile = [[NSMutableArray alloc]init];
-        self.result = [[NSMutableArray alloc]init];
-        self.customerRequirements = [[NSMutableArray alloc]init];
-        self.customerChange = [[NSMutableArray alloc]init];
-        self.visitorStr = [[NSMutableArray alloc]init];
-        self.userName=[[NSMutableArray alloc]init];
+        self.respondent=[[NSMutableArray alloc]init];
         [self faker:@"1"];
-    }
+        [self faker:@"2"];
     }
     return _fakeData;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupRefresh];
-    self.tableView.tableFooterView=[[UIView alloc]init];
+    self.title=@"拜访计划";
+    [self setupRefresh];    //上拉刷新下拉加在方法
+    self.uid=[NSMutableArray array];
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
 }
-
-
-- (IBAction)addUser:(id)sender
+- (void)ResView
 {
-    AddPlanViewController *jumpController = [[AddPlanViewController alloc] init];
-    [self.navigationController pushViewController: jumpController animated:true];
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[IndexViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
 }
+    
 
 
+//向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
-    NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!datagrid.action"]];
+    NSError *error;
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *order = @"desc";
-    NSString *sort  = @"visitDate";
-    NSString *param =[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
+    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSError  *error;
-    NSData         *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
+    NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
     if(![list count] ==0)
     {
-         self.tableView.footerRefreshingText=@"加载中";
+        
+        self.tableView.footerRefreshingText=@"加载中";
     }else
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
     for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listDic =[list objectAtIndex:i];
-        [self.userName addObject:listDic];
-        NSString *teamname =   (NSString *)[listDic objectForKey:@"customerName"];
-        NSString *teamname1 =  (NSString *)[listDic objectForKey:@"customerCallPlanID"];
-        NSString *teamname2 =  (NSString *)[listDic objectForKey:@"visitDate"];
-        NSString *teamname3 =  (NSString *)[listDic objectForKey:@"theme"];
-        NSString *teamname4 =  (NSString *)[listDic objectForKey:@"accessMethod"];
-        NSString *teamname5 =  (NSString *)[listDic objectForKey:@"mainContent"];
-        NSString *teamname6 =  (NSString *)[listDic objectForKey:@"respondentPhone"];
-        NSString *teamname7 =  (NSString *)[listDic objectForKey:@"respondent"];
-        NSString *teamname8 =  (NSString *)[listDic objectForKey:@"address"];
-        NSString *teamname9 =  (NSString *)[listDic objectForKey:@"visitProfile"];
-        NSString *teamname10 = (NSString *)[listDic objectForKey:@"result"];
-        NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
-        NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
-        NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorStr"];
-        if(teamname.length==0){
-        teamname=@"";
+        NSDictionary *listdic = [list objectAtIndex:i];
+        [self.uid addObject:listdic];
+        NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
+        NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
+        NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
+        NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
+        if(teamname.length==0){   //若客户名称问null，将其赋值
+            teamname=@"没有数据";
         }
-        [self.fakeData addObject:teamname];
-        [self.customerCallPlanID addObject:teamname1];
-        [self.visitDate addObject:teamname2];
-        [self.theme addObject:teamname3];
-        [self.accessMethod addObject:teamname4];
-        [self.mainContent addObject:teamname5];
-        [self.respondentPhone addObject:teamname6];
-        [self.respondent addObject:teamname7];
-        [self.address addObject:teamname8];
-        [self.visitProfile addObject:teamname9];
-        [self.result addObject:teamname10];
-        [self.customerRequirements addObject:teamname11];
-        [self.customerChange addObject:teamname12];
-        [self.visitorStr addObject:teamname13];
+        
+        [self.customerCallPlanID     addObject:customerCallPlanID];
+        [self.fakeData     addObject:teamname];
+        [self.visitDate     addObject:teamname2];
+        [self.respondent    addObject:teamname3];
     }
-    NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     self.fakeData,@"fakeDate",
-                                     self.customerCallPlanID,@"customerCallPlanID",
-                                     self.visitDate,@"visitDate",
-                                     self.theme,@"theme",
-                                     self.accessMethod,@"accessMethod",
-                                     self.mainContent,@"mainContent",
-                                     self.respondentPhone,@"respondentPhone",
-                                     self.address,@"address",
-                                     self.visitProfile,@"visitProfile",
-                                     self.result,@"result",
-                                     self.customerRequirements,@"customerRequirements",
-                                     self.customerChange,@"customerChange",
-                                     self.visitorStr,@"visitorStr",
-                                     nil];
-     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-     [ud setObject:visitTableDate forKey:@"visitTableDateSource"];
-    
+    //    [self customerIDReturn:self.customerCallPlanID];
     return self.fakeData;
 }
 
 
+//-(NSMutableArray *) customerIDReturn: (NSMutableArray *) uidArr
+//{
+//    return self.customerCallPlanID;
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
     return [self.fakeData count];
 }
 
@@ -210,38 +152,42 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = self.fakeData[indexPath.row];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    NSString *testDetail1 =[@"  受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    NSLog(@"%@",str);
+    [cell.detailTextLabel setText:str];
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
-    
 }
+
+//上拉刷新下拉加载
 - (void)setupRefresh
 {
-    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
-    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
     self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
     self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
     self.tableView.headerRefreshingText = @"正在刷新中";
     self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
     self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
 }
-
 - (void)headerRereshing
 {
-    self.refreshOrNot =@"YES";
     [self.fakeData removeAllObjects];
-    APPDELEGATE.index =2;
+    self.index=3;
     [self faker:@"1"];
+    [self faker:@"2"];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -250,91 +196,112 @@
 
 - (void)footerRereshing
 {
-    if(APPDELEGATE.index==0){
-       APPDELEGATE.index=2;
+    if(self.index==0){
+        self.index=3;
     }
-    self.index=APPDELEGATE.index++;
+    self.index=self.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
+    
 }
 
+
+
+//点击列表信息进入详情页面并传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *customerCallPlanID =[self.customerCallPlanID objectAtIndex:indexPath.row];
-    NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
-    NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
-    NSString *theme =[self.theme objectAtIndex:indexPath.row];
-    NSString *accessMethod =[self.accessMethod objectAtIndex:indexPath.row];
-    NSString *mainContent  =[self.mainContent objectAtIndex:indexPath.row];
-    NSString *respondentPhone =[self.respondentPhone objectAtIndex:indexPath.row];
-    NSString *respondent =[self.respondent objectAtIndex:indexPath.row];
-    NSString *address =[self.address objectAtIndex:indexPath.row];
-    NSString *visitProfile  =[self.visitProfile objectAtIndex:indexPath.row];
-    NSString *result =[self.result objectAtIndex:indexPath.row];
-    NSString *customerRequirements =[self.customerRequirements objectAtIndex:indexPath.row];
-    NSString *customerChange =[self.customerChange objectAtIndex:indexPath.row];
-    NSString *visitorStr =[self.visitorStr objectAtIndex:indexPath.row];
-    if (customerNameStr.length==0) {
-        customerNameStr=@"暂无数据";
-    }
-    if (visitDate.length==0) {
-        visitDate=@"暂无数据";
-    }
-    if (theme.length==0) {
-        theme=@"暂无数据";
-    }
-    if (accessMethod.length==0) {
-        accessMethod=@"暂无数据";
-    }
-    if (mainContent.length==0) {
-        mainContent=@"暂无数据";
-    }
-    if (respondentPhone.length==0) {
-        respondentPhone=@"暂无数据";
-    }
-    if (respondent.length==0) {
-        respondent=@"暂无数据";
-    }
-    if (address.length==0) {
-        address=@"暂无数据";
-    }
-    if (visitProfile.length==0) {
-        visitProfile=@"暂无数据";
-    }
-    if (result.length==0) {
-        result=@"暂无数据";
-    }
-    if (customerRequirements.length==0) {
-        customerRequirements=@"暂无数据";
-    }
-    if (customerChange.length==0) {
-        customerChange=@"暂无数据";
-    }
-    if (visitorStr.length==0) {
-        visitorStr=@"暂无数据";
-    }
+    [self customerCallPlanForName:self.fakeData :self.customerCallPlanID];
     
-    VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
-    [visitPlan setCustomerNameStr:customerNameStr];
-    [visitPlan setCustomerCallPlanID:customerCallPlanID];
-    [visitPlan setVisitDate:visitDate];
-    [visitPlan setTheme:theme];
-    [visitPlan setAccessMethod:accessMethod];
-    [visitPlan setMainContent:mainContent];
-    [visitPlan setRespondent:respondent];
-    [visitPlan setRespondentPhone:respondentPhone];
-    [visitPlan setAddress:address];
-    [visitPlan setVisitProfile:visitProfile];
-    [visitPlan setResult:result];
-    [visitPlan setCustomerRequirements:customerRequirements];
-    [visitPlan setCustomerChange:customerChange];
-    [visitPlan setVisitorStr:visitorStr];
-    PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
-    [uc setDailyEntity:visitPlan];
-    [self.navigationController pushViewController:uc animated:YES];
+    if (tableView == self.tableView)
+    {
+        
+        NSDictionary *nc =[self singlecustomerCallPlan:(NSString *)[_uCustomerCallPlanID objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+        NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];  //客户名称
+        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];  //客户ID
+        NSString *customerCallPlanID  =(NSString *) [nc objectForKey:@"customerCallPlanID"];  // 拜访计划id
+        NSString *theme  =(NSString *) [nc objectForKey:@"theme"];  //主题
+        NSString *accessMethod =(NSString *) [nc objectForKey:@"accessMethod"]; // 访问方式
+        NSString *accessMethodStr =(NSString *) [nc objectForKey:@"accessMethodStr"]; // 访问方式显示
+        NSString *mainContent =(NSString *) [nc objectForKey:@"mainContent"]; //主要内容
+        NSString *respondentPhone =(NSString *) [nc objectForKey:@"respondentPhone"];  //受访人电话
+        NSString *respondent =(NSString *) [nc objectForKey:@"respondent"];  //受访人员
+        NSString *address =(NSString *) [nc objectForKey:@"address"];  //受访人地址
+        NSString *visitProfile =(NSString *) [nc objectForKey:@"visitProfile"];  //拜访概要
+        NSString *visitDate =(NSString *) [nc objectForKey:@"visitDate"];  //拜访时间
+        NSString *result =(NSString *) [nc objectForKey:@"result"];  //拜访结果
+        NSString *customerRequirements =(NSString *) [nc objectForKey:@"customerRequirements"];  //客户需求
+        NSString *customerChange =(NSString *) [nc objectForKey:@"customerChange"];  //客户变故
+        NSString *visitorAttribution =(NSString *) [nc objectForKey:@"visitorAttribution"];  //拜访人归属
+        NSString *visitorAttributionStr =(NSString *) [nc objectForKey:@"visitorAttributionStr"];  //拜访人归属显示
+        NSString *baiFangRen =(NSString *) [nc objectForKey:@"visitor"];  //拜访人
+        NSString *baiFangRenStr =(NSString *) [nc objectForKey:@"visitorStr"];  //拜访人显示
+        
+        CustomerCallPlanDetailMessageEntity *udetail =[[CustomerCallPlanDetailMessageEntity alloc] init];
+        
+        [udetail setCustomerNameStr:customerNameStr];
+        [udetail setCustomerID:customerID];
+        [udetail setCustomerCallPlanID:customerCallPlanID];
+        [udetail setTheme:theme];
+        [udetail setAccessMethod:accessMethod];
+        [udetail setAccessMethodStr:accessMethodStr];
+        [udetail setMainContent:mainContent];
+        [udetail setRespondentPhone:respondentPhone];
+        [udetail setRespondent:respondent];
+        [udetail setAddress:address];
+        [udetail setVisitProfile:visitProfile];
+        [udetail setVisitDate:visitDate];
+        [udetail setResult:result];
+        [udetail setCustomerRequirements:customerRequirements];
+        [udetail setCustomerChange:customerChange];
+        [udetail setVisitorAttribution:visitorAttribution];
+        [udetail setVisitorAttributionStr:visitorAttributionStr];
+        [udetail setBaiFangRen:baiFangRen];
+        [udetail setBaiFangRenStr:baiFangRenStr];
+        
+        PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
+        [uc setCustomerCallPlanEntity:udetail];
+        [self.navigationController pushViewController:uc animated:YES];
+        
+        
+    }else
+    {
+        
+        
+    }
 }
+
+// delcare id and index
+-(void) customerCallPlanForName:(NSMutableArray *)utestname :(NSMutableArray *)customerCallPlanID{
+    _uCustomerCallPlanID = [[NSMutableDictionary alloc] init];
+    for(int i=0;i<[utestname count];i++)
+    {
+        [_uCustomerCallPlanID setObject:[customerCallPlanID objectAtIndex:i] forKey:[utestname objectAtIndex:i]];
+    }
+}
+
+// get a single user all message
+-(NSDictionary *) singlecustomerCallPlan :(NSString *) customerCallPlanIDIn{
+    for (int z = 0; z<[self.uid count]; z++) {
+        NSDictionary *listdic = [self.uid objectAtIndex:z];
+        NSString     *customerCallPlanID  = (NSString *)[listdic objectForKey:@"customerCallPlanID"];
+        if([customerCallPlanID isEqualToString: customerCallPlanIDIn])
+        {
+            return listdic;
+        }
+    }
+    return  nil;
+}
+
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
+
 @end

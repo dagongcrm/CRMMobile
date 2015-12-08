@@ -188,7 +188,7 @@
         NSString *customerName3=[self.fakeData objectAtIndex:indexPath.row];
         [_dailyEntity setCustomerNameStr:customerName3];
         //    _customerEntity.customerName = customerName;
-        [editCustomer3 setDailyEntity:_dailyEntity];
+        [editCustomer3 setCustomerCallPlanEntity:_customerCallPlanEntity];
         [self.navigationController pushViewController:editCustomer3 animated:YES];
     }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
