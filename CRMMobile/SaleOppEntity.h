@@ -17,15 +17,22 @@
 
     @property (strong,nonatomic) NSString *saleOppSrc;
 
+    @property (strong,nonatomic) NSString *saleOppSrcStr;
+
     @property (strong,nonatomic) NSString *successProbability;
 
     @property (strong,nonatomic) NSString *saleOppDescription;
 
     @property (strong,nonatomic) NSString *oppState;
 
+    @property (strong,nonatomic) NSString *oppStateStr;
+
     @property (strong,nonatomic) NSString *contact;
 
     @property (strong,nonatomic) NSString *contactTel;
 
+    @property (strong,nonatomic) NSString *saleLeadsAdd;
+
     @property (strong,nonatomic) NSString *index;
 @end
+

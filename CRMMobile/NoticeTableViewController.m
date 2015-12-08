@@ -10,10 +10,13 @@
 #import "config.h"
 #import "GLReusableViewController.h"
 #import "PureLayout.h"
+#import "noticeEntity.h"
+#import "noticeDetailViewController.h"
+#import "EntityHelper.h"
 
 @interface NoticeTableViewController ()
 
-
+@property (strong, nonatomic) NSMutableArray *entities;
 
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
@@ -42,6 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.entities = [[NSMutableArray alloc]init];
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -58,7 +62,7 @@
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender{
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"%@","err");
+   
 //        NoticeTableViewController *view = [[NoticeTableViewController alloc] init];
 //        [self.navigationController pushViewController:view animated:YES];
         
@@ -78,7 +82,7 @@
 
 
 
--(void) faker: (NSString *) page{
+-(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
     self.fakeData=[[NSMutableArray alloc] init];
     self.dataing=[[NSMutableArray alloc] init];
@@ -107,18 +111,24 @@
     //        self.tableView.footerRefreshingText=@"加载中";
     //    }
     for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        [self.uid addObject:listdic];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"publishContent"];
-        NSLog(@"%@",teamname);
-        NSString *userId   = (NSString *)[listdic objectForKey:@"publishTimeStr"];
-        NSLog(@"%@",userId);
-        [self.fakeData     addObject:teamname];
-        [self.userIdData   addObject:userId];
-        [self.dataing   addObject:userId];
+        NSDictionary *listDic =[list objectAtIndex:i];
+        noticeEntity *notice =[[noticeEntity alloc] init];
+        [EntityHelper dictionaryToEntity:listDic entity:notice];
+        [self.entities addObject:notice];
+        NSLog(@"%@",self.entities);
+
+//        NSDictionary *listdic = [list objectAtIndex:i];
+//        [self.uid addObject:listdic];
+//        NSString *teamname = (NSString *)[listdic objectForKey:@"publishContent"];
+//        NSLog(@"%@",teamname);
+//        NSString *userId   = (NSString *)[listdic objectForKey:@"publishTimeStr"];
+//        NSLog(@"%@",userId);
+//        [self.fakeData     addObject:teamname];
+//        [self.userIdData   addObject:userId];
+//        [self.dataing   addObject:userId];
     }
     //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
-    //return self.fakeData;
+    return self.entities;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -141,25 +151,30 @@
     static NSString *simpleTableIdentifier = @"SimpleTableCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"提交人:" stringByAppendingString:self.fakeData[indexPath.row]];
-    NSString *testDetail1 =[@"提交人:" stringByAppendingString:self.dataing[indexPath.row]];
-    NSString *str =[testDetail1 stringByAppendingString:testDetail];
+    NSString *str = @"fsfdsfd";
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"image.png"]];
-    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fakeData count];
+    return [self.entities count];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    noticeEntity *notice =[self.entities objectAtIndex:indexPath.row];
+    noticeDetailViewController *detail =[[noticeDetailViewController alloc] init];
+    [detail setNoticeEntity:notice];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

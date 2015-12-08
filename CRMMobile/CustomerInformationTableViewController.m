@@ -10,9 +10,9 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "MJRefresh.h"
-#import "CustomerInfermationDetailMessageEntity.h";
-#import "CustomerInformationDetailViewController.h";
-#import "AddCustomerInformationViewController.h";
+#import "CustomerInfermationDetailMessageEntity.h"
+#import "CustomerInformationDetailViewController.h"
+#import "AddCustomerInformationViewController.h"
 
 @interface CustomerInformationTableViewController ()
 
@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"客户档案管理";
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
     //添加图标
@@ -99,12 +100,6 @@
 {
     return self.customerID;
 }
-
-
-
-
-
-
 /////
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -139,6 +134,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
+    [cell.imageView setImage:[UIImage imageNamed:@"kee11"]];
     NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     return cell;

@@ -17,7 +17,12 @@
 
 @interface AddCustomerInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *customerName;
-@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
+//@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
+
+@property (weak, nonatomic) IBOutlet UITextView *CustomerAddress;
+
+
+
 @property (weak, nonatomic) IBOutlet UITextField *Phone;
 
 //用于判断下拉选
@@ -77,8 +82,8 @@
     
     self.selectSFForShow=[[NSMutableArray alloc] init];
     self.selectSFIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"所属行业选择";
+    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
+    listView.titleName.text = @"请选择对应的省份";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
     listView.delegate = self;
@@ -158,7 +163,7 @@
     
     self.selectHYForShow=[[NSMutableArray alloc] init];
     self.selectHYIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -565,6 +570,14 @@
     selectPicker.dataSource = self;
 
     [super viewDidLoad];
+    self.title=@"添加客户档案";
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.CustomerAddress.layer setBorderColor:color];
+    self.CustomerAddress.layer.borderWidth = 1;
+    self.CustomerAddress.layer.cornerRadius = 6;
+    self.CustomerAddress.layer.masksToBounds = YES;
+
    
 }
 

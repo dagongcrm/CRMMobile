@@ -7,7 +7,6 @@
 //
 
 #import "SaleOppEntity.h"
-//customerName  customerNameStr saleOppSrc successProbability saleOppDescription oppState contact contactTel
 @implementation SaleOppEntity
 
     @synthesize saleOppID;
@@ -18,15 +17,21 @@
 
     @synthesize saleOppSrc;
 
+    @synthesize saleOppSrcStr;
+
     @synthesize successProbability;
 
     @synthesize saleOppDescription;
 
     @synthesize oppState;
 
+    @synthesize oppStateStr;
+
     @synthesize contact;
 
     @synthesize contactTel;
+
+    @synthesize saleLeadsAdd;
 
     @synthesize index;
 @end

@@ -12,7 +12,9 @@
                 <outlet property="oppState" destination="Awj-ps-F3b" id="2bE-bs-tf0"/>
                 <outlet property="saleOppDescription" destination="RuT-sT-qkf" id="uIW-hf-1P8"/>
                 <outlet property="saleOppSrc" destination="wwJ-sZ-FQV" id="uYy-Kx-oLm"/>
+                <outlet property="saleOppSrcSelect" destination="tYg-Vf-V4n" id="kTO-N2-xl0"/>
                 <outlet property="scroll" destination="d8z-uX-PdI" id="hak-CY-2aX"/>
+                <outlet property="selectOppStateSelectButton" destination="KGj-Ch-zkL" id="7wW-Zf-rWB"/>
                 <outlet property="successProbability" destination="9fz-I9-wIR" id="qxf-Mf-TlK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -124,6 +126,24 @@
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="4LY-3L-eEH"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-Ch-zkL">
+                            <rect key="frame" x="51" y="364" width="277" height="29"/>
+                            <state key="normal" title="请选择机会状态">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="oppStateSelectButton:" destination="-1" eventType="touchUpInside" id="7aW-yQ-F8o"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-Vf-V4n">
+                            <rect key="frame" x="46" y="144" width="282" height="30"/>
+                            <state key="normal" title="请选择销售机会来源">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="saleOppSrcSelect:" destination="-1" eventType="touchUpInside" id="izX-mf-1yS"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoJ-fg-bGT">
                             <rect key="frame" x="51" y="71" width="277" height="30"/>
                             <state key="normal">
@@ -131,25 +151,6 @@
                             </state>
                             <connections>
                                 <action selector="customerNameSelect:" destination="-1" eventType="touchUpInside" id="zEo-Zv-T9y"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-Pu-ArW">
-                            <rect key="frame" x="51" y="143" width="277" height="30"/>
-                            <state key="normal" title="请选择销售机会来源">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="saleOppSrc:" destination="-1" eventType="touchUpInside" id="eUH-55-KDn"/>
-                                <action selector="saleOppSrcSelect:" destination="-1" eventType="touchUpInside" id="kKV-8k-Is1"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-Ch-zkL">
-                            <rect key="frame" x="51" y="364" width="277" height="29"/>
-                            <state key="normal" title="请选择机会状态">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="oppStateSelect:" destination="-1" eventType="touchUpInside" id="rAc-3Q-xm1"/>
                             </connections>
                         </button>
                     </subviews>

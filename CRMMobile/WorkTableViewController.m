@@ -23,6 +23,9 @@
 - (void)viewDidLoad {
      [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"Work.plist" ofType:nil];
     WorkListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
     [self setExtraCellLineHidden:self.tableView];
@@ -77,5 +80,8 @@
         [self.navigationController pushViewController:track animated:YES];
 
     }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 @end

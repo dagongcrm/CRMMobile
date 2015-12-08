@@ -51,6 +51,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"任务提交";
     [self setupRefresh];
     [self leftButtonInit];
 }
@@ -180,7 +181,7 @@
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

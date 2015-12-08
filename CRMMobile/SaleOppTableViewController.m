@@ -60,12 +60,21 @@
         SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
         [self.entities addObject:saleOpp];
-    }
+            }
     return self.entities;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+
     [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
