@@ -32,5 +32,6 @@
 @property  NSString    *lianxiFS;
 
 @property  (nonatomic,retain) NSMutableArray *indexPageForLoad;
+@property  (nonatomic,retain) NSDictionary   *roleAuthority;
 @end
 

@@ -223,6 +223,7 @@
 		C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C651BD8ED44009CEC23 /* LoginViewController.xib */; };
 		C0E013151C0C2D57006BBF97 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013141C0C2D57006BBF97 /* HttpHelper.m */; };
 		C0E013191C0C2DCA006BBF97 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013171C0C2DCA006BBF97 /* Reachability.m */; };
+		C0E26C221C153678002DDA65 /* AuthorityDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0E26C211C153678002DDA65 /* AuthorityDictionary.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -582,6 +583,7 @@
 		C0E013141C0C2D57006BBF97 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
 		C0E013171C0C2DCA006BBF97 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C0E013181C0C2DCA006BBF97 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C0E26C211C153678002DDA65 /* AuthorityDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthorityDictionary.plist; sourceTree = "<group>"; };
 		CD134ED4DFD99B2775F88026 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1227,6 +1229,7 @@
 				C0D5692F1BD9B69100860B33 /* Notification.plist */,
 				B87028191BD9E52500CD2FF2 /* taskReport.plist */,
 				96A695B91BF5DE8900ADAC98 /* Image.plist */,
+				C0E26C211C153678002DDA65 /* AuthorityDictionary.plist */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -1544,6 +1547,7 @@
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
 				39E72A281C069AC30050D77F /* activityDetailViewController.xib in Resources */,
 				C0D3CD741BDF0CEF00C23FB3 /* 25.png in Resources */,
+				C0E26C221C153678002DDA65 /* AuthorityDictionary.plist in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
 				39F797FC1C05D147000D9A20 /* AddWeekViewController.xib in Resources */,
 				39F798811C05D365000D9A20 /* RecordsDetalViewController.xib in Resources */,

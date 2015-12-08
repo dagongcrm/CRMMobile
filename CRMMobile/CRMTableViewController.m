@@ -11,57 +11,65 @@
 #import "CustomerCallPlanViewController.h"
 #import "SaleOppTableViewController.h"
 #import "CustomercontactTableViewController.h"
+#import "AppDelegate.h"
+#import "config.h"
 
 @interface CRMTableViewController ()
-
+@property (strong,nonatomic) NSArray        *authTableDataCount;
 @end
 
 @implementation CRMTableViewController
 @synthesize CRMListData;
 
+
+-(NSArray *)authTableDataCount{
+    if(!_authTableDataCount){
+        NSMutableArray  *tablecount  = [[NSMutableArray alloc] init];
+        NSString        *path        = [[NSBundle mainBundle]pathForResource:@"CRM.plist" ofType:nil];
+        NSMutableArray  *data        = [NSMutableArray arrayWithContentsOfFile:path];
+        for(int i=0;i<[data count];i++){
+            NSString *indexName=[[data objectAtIndex:i] objectForKey:@"authorityname"];
+            if(![[APPDELEGATE.roleAuthority objectForKey:indexName]rangeOfString:@"N"].length>0){
+                [tablecount addObject:[data objectAtIndex:i]];
+            }
+        }
+        _authTableDataCount=[tablecount copy];
+    }
+    return  _authTableDataCount;
+}
+
 - (void)viewDidLoad {
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
-    NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"CRM.plist" ofType:nil];
-    CRMListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
-    [self setExtraCellLineHidden:self.tableView];
-    
+    [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
+    self.tableView.tableFooterView=[[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
--(void)setExtraCellLineHidden: (UITableView *)tableView
-{
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [CRMListData count];
+    return [self.authTableDataCount count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [CRMListData objectAtIndex:indexPath.row];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){

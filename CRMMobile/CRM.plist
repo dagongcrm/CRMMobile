@@ -2,7 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <array>
-       
        <dict>
             <key>Name</key>
             <string>客户档案</string>
@@ -16,8 +15,9 @@
             <real>3.5</real>
             <key>index</key>
             <string>1</string>
+            <key>authorityname</key>
+            <string>kehudangan</string>
         </dict>
-       
         <dict>
             <key>Name</key>
             <string>客户联系人</string>
@@ -31,8 +31,9 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>2</string>
+            <key>authorityname</key>
+            <string>kehulianxiren</string>
         </dict>
-        
         <dict>
             <key>Name</key>
             <string>拜访计划</string>
@@ -46,6 +47,8 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>3</string>
+            <key>authorityname</key>
+            <string>baifangjihua</string>
         </dict>
         <dict>
             <key>Name</key>
@@ -60,8 +63,9 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>3</string>
+            <key>authorityname</key>
+            <string>baifangjilu</string>
         </dict>
-         
         <dict>
             <key>Name</key>
             <string>销售线索</string>
@@ -75,9 +79,9 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>3</string>
+            <key>authorityname</key>
+            <string>xiaoshouxiansuo</string>
         </dict>
-        
-        
         <dict>
             <key>Name</key>
             <string>销售机会</string>
@@ -91,8 +95,9 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>3</string>
+            <key>authorityname</key>
+            <string>xiaoshoujihui</string>
         </dict>
-        
         <dict>
             <key>Name</key>
             <string>活动统计</string>
@@ -106,6 +111,8 @@
             <string>苹果咨询</string>
             <key>index</key>
             <string>3</string>
+            <key>authorityname</key>
+            <string>huodongtongji</string>
         </dict>
        
     </array>

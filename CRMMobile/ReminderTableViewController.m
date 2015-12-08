@@ -200,10 +200,11 @@
                     [self.userName         addObject:userName];
                     [self.lianXiFS   addObject:lianXiFS];
                 }
-            }
             }else{
                 [self.fakeData  addObject: @"null"];
             }
+
+            }        
         }
     }
 
@@ -240,6 +241,8 @@
         return 0 ;
         }
     return  [self.fakeData count];
+    
+    
 }
 
 //刷新
@@ -279,7 +282,6 @@
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
-    
 }
 
 

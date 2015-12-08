@@ -12,34 +12,47 @@
 #import "SubmitTableViewController.h"
 #import "auditTableViewController.h"
 #import "trackingTableViewController.h"
+#import "AppDelegate.h"
+#import "config.h"
 
 @interface WorkTableViewController ()
 @property (strong,nonatomic) UINavigationController *iNav;
+@property (strong,nonatomic) NSArray        *authTableDataCount;
 @end
 
 @implementation WorkTableViewController
 @synthesize WorkListData;
 
+
+-(NSArray *)authTableDataCount{
+    if(!_authTableDataCount){
+        NSMutableArray  *tablecount  = [[NSMutableArray alloc] init];
+        NSString        *path        = [[NSBundle mainBundle]pathForResource:@"Work.plist" ofType:nil];
+        NSMutableArray  *data        = [NSMutableArray arrayWithContentsOfFile:path];
+        for(int i=0;i<[data count];i++){
+            NSString *indexName=[[data objectAtIndex:i] objectForKey:@"authorityname"];
+            if(![[APPDELEGATE.roleAuthority objectForKey:indexName]rangeOfString:@"N"].length>0){
+                [tablecount addObject:[data objectAtIndex:i]];
+            }
+        }
+        _authTableDataCount=[tablecount copy];
+    }
+    return  _authTableDataCount;
+}
+
+
+
 - (void)viewDidLoad {
-     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"Work.plist" ofType:nil];
     WorkListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
-    [self setExtraCellLineHidden:self.tableView];
+    self.tableView.tableFooterView=[[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
--(void)setExtraCellLineHidden: (UITableView *)tableView
-{
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -53,15 +66,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [WorkListData objectAtIndex:indexPath.row];
+    NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    return [self.WorkListData count];
+//    return [self.WorkListData count];
+    return [self.authTableDataCount count];
 }
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){
         TaskReportTableViewController *fltv = [[TaskReportTableViewController alloc] init];

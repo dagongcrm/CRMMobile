@@ -78,7 +78,7 @@ static const char * const kZSYPopoverListButtonClickForDone   = "kZSYPopoverList
     
     CGRect tableFrame = CGRectMake(0, 32.0f, xWidth, self.bounds.size.height-32.0f);
     _mainPopoverListView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
-    _mainPopoverListView.allowsMultipleSelectionDuringEditing=YES;
+    _mainPopoverListView.allowsMultipleSelectionDuringEditing=NO;
     [_mainPopoverListView setEditing:YES];
     self.mainPopoverListView.dataSource = self;
     self.mainPopoverListView.delegate = self;
