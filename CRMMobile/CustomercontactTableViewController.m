@@ -166,7 +166,7 @@
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
     }
-
+    if ([list count]!=0) {
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.CustomerArr addObject:listDic];
@@ -175,13 +175,24 @@
         NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
 //        NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
         NSString *contactID =(NSString *)[listDic objectForKey:@"contactID"];
-        if (contactName.length==0) {
-            contactName=@"暂无数据";
+        if (contactName==nil||contactName==NULL) {
+            contactName=@"null";
+        }
+        if (telePhone==nil||telePhone==NULL) {
+            telePhone=@"null";
+        }
+        if (customerNameStr==nil||customerNameStr==NULL) {
+            customerNameStr=@"null";
+        }
+        if (contactID==nil||contactID==NULL) {
+            contactID=@"null";
         }
         [self.fakeData addObject:contactName];
         [self.contactData addObject:telePhone];
         [self.customerNameStrData addObject:customerNameStr];
         [self.contactIDData addObject:contactID];
+    }
+        
     }
     return self.fakeData;
 }
@@ -203,7 +214,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"arrow-left"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"lianxiren"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     

@@ -13,8 +13,11 @@
 #import "AppDelegate.h"
 @interface AddMonthViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *date;
-@property (weak, nonatomic) IBOutlet UITextField *zongjie;
-@property (weak, nonatomic) IBOutlet UITextField *jihua;
+//@property (weak, nonatomic) IBOutlet UITextField *zongjie;
+//@property (weak, nonatomic) IBOutlet UITextField *jihua;
+@property (weak, nonatomic) IBOutlet UITextView *zongjie;
+@property (weak, nonatomic) IBOutlet UITextView *jihua;
+
 @property (weak, nonatomic) IBOutlet UITextField *leixing;
 @property (weak, nonatomic) IBOutlet UITextField *bumen;
 @property (strong, nonatomic) HZQDatePickerView *pikerView;
@@ -33,6 +36,18 @@
     self.scroll1.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"月报";
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.jihua.layer setBorderColor:color];
+    self.jihua.layer.borderWidth = 1;
+    self.jihua.layer.cornerRadius = 6;
+    self.jihua.layer.masksToBounds = YES;
+    [self.zongjie.layer setBorderColor:color];
+    self.zongjie.layer.borderWidth = 1;
+    self.zongjie.layer.cornerRadius = 6;
+    self.zongjie.layer.masksToBounds = YES;
+
+    
     [self.bumen setEnabled:NO];
     [self.leixing setEnabled:NO];
 }

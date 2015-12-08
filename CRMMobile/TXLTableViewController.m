@@ -9,7 +9,6 @@
 #import "TXLTableViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
-#import "SettingViewController.h"
 #import "MJRefresh.h"
 @interface TXLTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
@@ -145,14 +144,19 @@
         }else{
             [self.phoneData addObject:phoneTime];
         }
-        
-//        if (callphone == nil || callphone == NULL) {
-//            [self.contactData addObject:telePhone];
-//        }else{
-//            
-//            [self.contactData addObject:callphone];
-//        }
-//        
+        if (teamname==nil||teamname==NULL) {
+            teamname=@"暂无该联系人姓名";
+        }
+        if (telePhone==nil||telePhone==NULL) {
+            telePhone=@"暂无该联系人电话";
+        }
+        if (customerNameStr==nil||customerNameStr==NULL) {
+            customerNameStr=@"暂无企业信息";
+        }
+        if (contactID==nil||contactID==NULL) {
+            contactID=@"null";
+        }
+
         [self.fakeData addObject:teamname];//1
         [self.contactData addObject:telePhone];//2
         [self.contactIDData addObject:contactID];//3
@@ -182,10 +186,14 @@
 //    NSLog(@"8888888%@",self.phoneData);
     
     [cell.imageView setImage:[UIImage imageNamed:@"lianxiren"]];
-        cell.textLabel.text = self.customerNameStrData[indexPath.row];
+    
+    NSString *name =  self.fakeData[indexPath.row];
+    NSString *phone = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+    NSString *text1 =[[name stringByAppendingString:@" "]stringByAppendingString:phone];
+    cell.textLabel.text =text1;
         [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        NSString *testDetail =[@"联系电话:" stringByAppendingString:(NSString *)[self.contactData objectAtIndex:indexPath.row]];
+    NSString *testDetail = [self.customerNameStrData objectAtIndex:indexPath.row];
 //    [cell.detailTextLabel setText:testDetail];
     NSString *phoneT= [@"通话记录:" stringByAppendingString:(NSString *)[self.phoneData objectAtIndex:indexPath.row]];
     NSString *Tdetail1 = [testDetail stringByAppendingString:@"\n"];
@@ -195,7 +203,7 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    return 60;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -238,11 +246,11 @@
 //    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
 //        [self setupRefresh];
 //    }
-//    NSLog(@"通讯录拨打的记录--》%@", shipDIC);
-//    NSLog(@"self.contactName==>>%@",self.contactName);
-//     NSLog(@"self.phone==>>%@",self.phone);
-//     NSLog(@"self.contactID==>>%@",self.contactID);
-//     NSLog(@"self.customerID==>>%@",self.customerID);
+    NSLog(@"通讯录拨打的记录--》%@", shipDIC);
+    NSLog(@"self.contactName==>>%@",self.contactName);
+     NSLog(@"self.phone==>>%@",self.phone);
+     NSLog(@"self.contactID==>>%@",self.contactID);
+     NSLog(@"self.customerID==>>%@",self.customerID);
 
 //    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
 //        [self setupRefresh];
