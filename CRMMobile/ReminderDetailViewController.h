@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "auditEntity.h"
 #import "ReminderEntity.h"
 @interface ReminderDetailViewController : UIViewController
 @property (strong,nonatomic) ReminderEntity *reminderEntity;
+@property ( retain , nonatomic ) auditEntity *auditEntity;
 @end

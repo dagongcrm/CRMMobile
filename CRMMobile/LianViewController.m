@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.title = @"联系我们";
-    self.mail.text = @"(01051087768)";
+    self.mail.text = @"010-51087768";
     self.phone.text=@"zhangyidg@dagongcredit.com";
     [self.mail setEnabled:NO];
     [self.phone setEnabled:NO];

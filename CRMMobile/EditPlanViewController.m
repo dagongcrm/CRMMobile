@@ -5,6 +5,7 @@
 //  Created by peng on 15/11/9.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
+#import "VisitPlanTableViewController.h"
 #import "ZSYPopoverListView.h"
 #import "CustomerTableViewController.h"
 #import "PlanDetalViewController.h"
@@ -14,188 +15,157 @@
 #import "AppDelegate.h"
 #import "config.h"
 @interface EditPlanViewController ()
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-@property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;
-@property (weak, nonatomic) IBOutlet UITextField *theme;
-@property (weak, nonatomic) IBOutlet UITextField *accessMethod;
-@property (weak, nonatomic) IBOutlet UITextField *mainContent;
+@property (weak, nonatomic) IBOutlet UITextView *theme;
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
-@property (weak, nonatomic) IBOutlet UITextField *address;
+
+@property (weak, nonatomic) IBOutlet UITextView *address;
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
-
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;
-@property (weak, nonatomic) IBOutlet UITextField *visitorStr;
-@property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
-@property (weak, nonatomic) IBOutlet UIButton *access;
 
-
-- (IBAction)save:(id)sender;
-- (IBAction)customerName:(id)sender;
-- (IBAction)goback:(id)sender;
-
-@property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
+@property (weak, nonatomic) IBOutlet UITextField *khmc;
+@property (weak, nonatomic) IBOutlet UIButton *accessMethod;
 @property (strong, nonatomic) NSMutableArray *uid;
-//@property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
+@property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
 @property (strong,nonatomic)  NSArray           *selectBFFS;  //选择的 拜访方式名称
 @property (strong,nonatomic)  NSArray           *selectBFFSId; //选择的 拜访方式ID
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSForShow; // 拜访方式
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSIdForParam;//拜访方式编号
-@property (strong,nonatomic)NSMutableArray *listData;
+@property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
 @end
 
 @implementation EditPlanViewController
-@synthesize selectedIndexPath = _selectedIndexPath;
-@synthesize DailyEntity=_dailyEntity;
-@synthesize addCustomerEntity = _addCustomerEntity;
+@synthesize customerCallPlanEntity=_customerCallPlanEntity;
 @synthesize nextArray;
 @synthesize selectPicker;
-//@synthesize selectedIndexPath = _selectedIndexPath;
+@synthesize selectedIndexPath = _selectedIndexPath;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"修改信息";
-    //设置导航栏返回
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
-    //设置返回键的颜色
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.scroll.contentSize = CGSizeMake(375, 1300);
-//    self.listData = [[NSMutableArray alloc]init];
-    self.customerNameStr.text =_dailyEntity.customerNameStr;
-    self.visitDate.text =_dailyEntity.visitDate;
-    self.theme.text =_dailyEntity.theme;
-    self.accessMethod.text =_dailyEntity.accessMethod;
-    self.mainContent.text =_dailyEntity.mainContent;
-    self.respondentPhone.text =_dailyEntity.respondentPhone;
-    self.respondent.text =_dailyEntity.respondent;
-    self.address.text =_dailyEntity.address;
-    self.visitProfile.text =_dailyEntity.visitProfile;
-    self.result.text =_dailyEntity.result;
-    self.customerRequirements.text =_dailyEntity.customerRequirements;
-    self.customerChange.text =_dailyEntity.customerChange;
-    self.visitorStr.text =_dailyEntity.visitorStr;
-    if (_dailyEntity.customerNameStr.length==0) {
-        self.customerNameStr.text=_dailyEntity.customerNameStr;
-    }else{
-        self.customerNameStr.text=_dailyEntity.customerNameStr;
-    }
-//    NSString *customerCallPlanIDs =_dailyEntity.customerCallPlanID;
-//    [self.listData addObject:customerCallPlanIDs];
+    self.title=@"计划修改";
+    self.scroll.contentSize=CGSizeMake(375, 750);
+    //赋值
+    [self valuation];
+}
 
+//赋值方法
+- (void) valuation {
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+    //    self.theme.editable = NO;
+    
+    [self.address.layer setBorderColor:color];
+    self.address.layer.borderWidth = 1;
+    self.address.layer.cornerRadius = 6;
+    self.address.layer.masksToBounds = YES;
+    //    self.address.editable = NO;
+    _khmc.text=_customerCallPlanEntity.customerNameStr;
+    _visitDate.text=_customerCallPlanEntity.visitDate;
+    _theme.text=_customerCallPlanEntity.theme;
+    _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
+    _respondent.text=_customerCallPlanEntity.respondent;
+    _address.text=_customerCallPlanEntity.address;
+    _visitProfile.text=_customerCallPlanEntity.visitProfile;
+    _result.text=_customerCallPlanEntity.result;
+    _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
+    _customerChange.text=_customerCallPlanEntity.customerChange;
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (IBAction)addCustomer:(id)sender {
+    [_customerCallPlanEntity setIndex:@"editCustomerCallPlan"];
+    CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
+    [list setCustomerCallPlanEntity:_customerCallPlanEntity];
     
-}
-
-
-- (IBAction)save:(id)sender {
-        NSString *c1=self.customerNameStr.text;
-        NSString *c2=self.visitDate.text;
-        NSString *c3=self.theme.text;
-        NSString *c4=self.accessMethod.text;
-        NSString *c5=self.mainContent.text;
-        NSString *c6=self.respondentPhone.text;
-        NSString *c7=self.respondent.text;
-        NSString *c8=self.address.text;
-        NSString *c9=self.visitProfile.text;
-        NSString *c10=self.result.text;
-        NSString *c11=self.customerRequirements.text;
-        NSString *c12=self.customerChange.text;
-        NSString *c13=self.visitorStr.text;
-        NSString *customerCallPlanID =_dailyEntity.customerCallPlanID;
-     NSLog(@"//////////////c1%@",c1);
-     NSLog(@"c2%@",c2);
-    NSLog(@"c3%@",c3);
-    NSLog(@"c4%@",c4);
-    NSLog(@"c5%@",c5);
-    NSLog(@"c6%@",c6);
-    NSLog(@"c7%@",c7);
-    NSLog(@"c8%@",c8);
-    if (c1.length==0||c2.length==0||c3.length==0||c4.length==0||c5.length==0||c6.length==0||c7.length==0||c8.length==0||c9.length==0||c10.length==0||c11.length==0||c12.length==0||c13.length==0) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-    }else{
-        NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!edit.action?"]];
-        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-        request.timeoutInterval=10.0;
-        request.HTTPMethod=@"POST";
-         NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&customerName=%@&visitDate=%@&theme=%@&accessMethod=%@&mainContent=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorStr=%@",sid,customerCallPlanID,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13];
-        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error;
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        NSDictionary *saveDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"saveDic字典里面的内容为--》%@", saveDic);
-        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
-            VisitPlanTableViewController *contant = [[VisitPlanTableViewController alloc]init];
-            [self.navigationController pushViewController:contant animated:YES];
-        }
-    }
-}
-
-- (IBAction)customerName:(id)sender {
-    NSString *customerName1 = self.customerNameStr.text;
-    NSString *visitDate =self.visitDate.text;
-    NSString *telePhone1 =self.theme.text;
-    NSString *department1=self.accessMethod.text;
-    NSString *position1=self.mainContent.text;
-    NSString *respondentPhone = self.respondentPhone.text;
-    NSString *respondent =self.respondent.text;
-    NSString *address =self.address.text;
-    NSString *visitProfile=self.visitProfile.text;
-    NSString *result=self.result.text;
-    NSString *customerRequirements = self.customerRequirements.text;
-    NSString *customerChange =self.customerChange.text;
-    NSString *visitorStr =self.visitorStr.text;
-
-    [_dailyEntity setCustomerNameStr:customerName1];
-    [_dailyEntity setVisitDate:visitDate];
-    [_dailyEntity setTheme:telePhone1];
-    [_dailyEntity setAccessMethod:department1];
-    [_dailyEntity setMainContent:position1];
-    [_dailyEntity setRespondentPhone:respondentPhone];
-    [_dailyEntity setRespondent:respondent];
-    [_dailyEntity setAddress:address];
-    [_dailyEntity setVisitProfile:visitProfile];
-    [_dailyEntity setResult:result];
-    [_dailyEntity setCustomerRequirements:customerRequirements];
-    [_dailyEntity setCustomerChange:customerChange];
-    [_dailyEntity setVisitorStr:visitorStr];
-
-    CustomerTableViewController *list = [[CustomerTableViewController alloc]init];
-    [_dailyEntity setIndex:@"1"];
-    [list setDailyEntity:_dailyEntity];
     [self.navigationController pushViewController:list animated:YES];
 }
 
-- (IBAction)goback:(id)sender {
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[PlanDetalViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
+
+
+- (IBAction)save:(id)sender {
+    NSString *customerCallPlanID=_customerCallPlanEntity.customerCallPlanID;
+    
+    NSString *customerID=_customerCallPlanEntity.customerID;
+    NSLog(@"-----------------------------%@",customerID);
+    NSString *customerName=_customerCallPlanEntity.customerNameStr;
+    NSLog(@"-----------------------------%@",customerName);
+    NSString *visitDate=_visitDate.text;
+    NSString *theme=_theme.text;
+    NSString *respondentPhone=_respondentPhone.text;
+    NSString *respondent=_respondent.text;
+    NSString *address=_address.text;
+    NSString *visitProfile=_visitProfile.text;
+    NSString *result=_result.text;
+    NSString *customerRequirements=_customerRequirements.text;
+    NSString *customerChange=_customerChange.text;
+    NSString *visitorAttribution=_customerCallPlanEntity.visitorAttribution; //拜访人归属
+    NSString *visitor=_customerCallPlanEntity.baiFangRen;   //拜访人
+    NSString *accessMethodID=@"";//拜访方式
+    for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
+        accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
+    
+    
+    NSError *error;
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!edit.action?"]];
+    
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+    request.timeoutInterval=10.0;
+    request.HTTPMethod=@"POST";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethodID,customerID,customerName];
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    
+    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"更新成功！"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
+        [self.navigationController pushViewController:mj animated:YES];
+        //        for (UIViewController *controller in self.navigationController.viewControllers)
+        //        {
+        //            if ([controller isKindOfClass:[CustomerCallPlanEditViewController class]])
+        //            {
+        //                [self.navigationController popToViewController:controller animated:YES];
+        //            }
+        //        }
+        [alert show];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+    }
+    
+    
+    
 }
-- (IBAction)access:(id)sender {
+
+- (IBAction)accessMethod:(id)sender {
     [self selectBFFSArray];
     
     self.selectBFFSForShow=[[NSMutableArray alloc] init];
     self.selectBFFSIdForParam=[[NSMutableArray alloc] init];
     ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"所属行业选择";
+    listView.titleName.text = @"访问方式选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
     listView.delegate = self;
     [listView show];
-
 }
 //为所属行业赋值
 -(void) selectBFFSArray
@@ -241,6 +211,8 @@
     
     return list;
 }
+
+
 - (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_selectBFFS count];
@@ -273,26 +245,26 @@
 //取消选择时的操作
 - (void)popoverListView:(ZSYPopoverListView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
+ 
     self.selectedIndexPath = indexPath;
     [self.selectBFFSForShow    removeObject:[self.selectBFFS   objectAtIndex:indexPath.row]];
     [self.selectBFFSIdForParam removeObject:[self.selectBFFSId objectAtIndex:indexPath.row]];
     [self buttonInputLabel:tableView];
 }
+
 -(void)buttonInputLabel:(ZSYPopoverListView *)tableView
 {
     NSString *string =@"";
     if([self.selectBFFSForShow count]==0){
         [tableView dismiss];
-        [self.access setTitle:@"plese choose again" forState:UIControlStateNormal];
+        [self.accessMethod setTitle:@"plese choose again" forState:UIControlStateNormal];
     }else{
         for (NSString *str in self.selectBFFSForShow)
         {
             string = [string stringByAppendingFormat:@"%@,",str];
         }
         NSString * title = [string substringWithRange:NSMakeRange(0,[string length] - 1)];
-        [self.access setTitle:title forState:UIControlStateNormal];
+        [self.accessMethod setTitle:title forState:UIControlStateNormal];
         NSString *selectBFFSIdForParam =@"";
         for (NSString *ztr in self.selectBFFSIdForParam)
         {
@@ -304,7 +276,6 @@
     }
     
 }
-
 
 @end
 

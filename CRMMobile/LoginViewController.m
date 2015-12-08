@@ -16,6 +16,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];  
     accountField.placeholder    = @"用户名";
     passwdField.placeholder     = @"密码";
     passwdField.secureTextEntry = YES;

@@ -10,7 +10,7 @@
 #import "activityEntity.h"
 #import "auditDetailViewController.h"
 #import "activityEntity.h"
-//#import "auditTableViewController.h"
+#import "auditTableViewController.h"
 #import "marketActivity.h"
 #import "activityDetailViewController.h"
 #import "ReminderDetailViewController.h"
@@ -324,7 +324,6 @@
         NSString *yeWuZL = (NSString *) [nc objectForKey:@"yeWuZLMC_cn"];
         NSString *yeWuZLBH = (NSString *) [nc objectForKey:@"yeWuZLBH"];
         NSString *ftn_ID = (NSString *) [nc objectForKey:@"ftn_ID"];
-        NSString *loginName = (NSString *) [nc objectForKey:@"loginName"];
         NSString *userID = (NSString *) [nc objectForKey:@"userID"];
         NSString *hangYeFLMC =  (NSString *)[nc objectForKey:@"hangYeFLMC_cn"];
         NSString *heTongJE = (NSString *)[nc objectForKey:@"heTongJEStr"];
@@ -333,6 +332,7 @@
         NSString *zhuChengXS = (NSString *)[nc objectForKey:@"zhuChengXS"];
         NSString *userName = (NSString *)[nc objectForKey:@"userName_cn"];
         NSString *lianXiFS = (NSString *)[nc objectForKey:@"lianXiFS"];
+        
         
         if (submitName==nil||submitName==NULL) {
             submitName = @"";
@@ -359,7 +359,7 @@
             lianXiFS= @"";
         }
         
-        ReminderEntity *udetail =[[ReminderEntity alloc] init];
+        auditEntity *udetail =[[auditEntity alloc] init];
         if (submitName != nil) {
             [udetail setSubmitName:submitName];
         }else{
@@ -385,17 +385,17 @@
         if (genZongSFJE != nil) {
             [udetail setGenZongSFJE: genZongSFJE];
         }else{
-            [udetail setGenZongSFJE: @"genZongSFJE"];
+            [udetail setGenZongSFJE: @" "];
         }
         if (zhuChengXS != nil) {
             [udetail setZhuChengXS:zhuChengXS];
         }else{
-            [udetail setZhuChengXS:@"zhuChengXS"];
+            [udetail setZhuChengXS:@" "];
         }
         if (userName != nil) {
             [udetail setUserName:userName];
         }else{
-            [udetail setUserName:@"userName"];
+            [udetail setUserName:@" "];
         }
         if (lianXiFS != nil) {
             [udetail setLianXiFS:lianXiFS];
@@ -404,7 +404,7 @@
         }
         
          ReminderDetailViewController *uc =[[ReminderDetailViewController alloc] init];
-        [uc setReminderEntity:udetail];
+        [uc setAuditEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
         
         

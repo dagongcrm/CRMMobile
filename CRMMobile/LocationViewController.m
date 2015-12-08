@@ -14,6 +14,8 @@
 {
     MAMapView *_mapView;
     UIButton *_locationButton;
+    AMapSearchAPI *_search;
+    CLLocation *_currentLocation;
 }
 @end
 
@@ -41,10 +43,21 @@
     }
 }
 
+- (void)initSearch
+{
+    _search = [[AMapSearchAPI alloc] init];
+}
+
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
+{
+    NSLog(@"userLocation: %@", userLocation.location);
+    _currentLocation = [userLocation.location copy];
+}
+
 - (void)initMapView {
     
     [MAMapServices sharedServices].apiKey = APIKey;
-    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 50, CGRectGetWidth(self.view.bounds),CGRectGetHeight(self.view.bounds))];
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 50, CGRectGetWidth(self.view.bounds),CGRectGetHeight(self.view.bounds)*0.9)];
     _mapView.delegate = self;
     _mapView.compassOrigin = CGPointMake(_mapView.compassOrigin.x, 22);
     _mapView.scaleOrigin = CGPointMake(_mapView.scaleOrigin.x, 22);

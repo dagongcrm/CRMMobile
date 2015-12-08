@@ -9,8 +9,16 @@
 #import "publicNoticeTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "noticeEntity.h"
+#import "EntityHelper.h"
+#import "noticeDetailViewController.h"
+#import "UIScrollView+MJRefresh.h"
 
 @interface publicNoticeTableViewController ()
+
+@property (strong, nonatomic) NSMutableArray *entities;
+@property  NSInteger index;
+
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
 @property (strong, nonatomic) NSMutableArray *dataing;
@@ -31,9 +39,20 @@
 @end
 
 @implementation publicNoticeTableViewController
+- (NSMutableArray *)fakeData
+{
+    if (!_entities) {
+        self.entities = [[NSMutableArray alloc]init];
+        [self faker:@"1"];
+        [self faker:@"2"];
+    }
+    return _entities;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupRefresh];
+    self.entities = [[NSMutableArray alloc]init];
     [self faker:@"1"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,7 +61,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void) faker: (NSString *) page{
+-(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
     self.fakeData=[[NSMutableArray alloc] init];
     self.dataing=[[NSMutableArray alloc] init];
@@ -71,19 +90,57 @@
     //        self.tableView.footerRefreshingText=@"加载中";
     //    }
     for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        [self.uid addObject:listdic];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"publishContent"];
-        NSLog(@"%@",teamname);
-        NSString *userId   = (NSString *)[listdic objectForKey:@"publishTimeStr"];
-        NSLog(@"%@",userId);
-        [self.fakeData     addObject:teamname];
-        [self.userIdData   addObject:userId];
-        [self.dataing   addObject:userId];
+        NSDictionary *listDic =[list objectAtIndex:i];
+        noticeEntity *notice =[[noticeEntity alloc] init];
+        [EntityHelper dictionaryToEntity:listDic entity:notice];
+        [self.entities addObject:notice];
+        NSLog(@"%@",self.entities);
+
     }
     //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
-    //return self.fakeData;
+    return self.entities;
 }
+
+- (void)setupRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+}
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    self.index =3;
+    [self faker:@"1"];
+    [self faker:@"2"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    if(self.index==0){
+        self.index=3;
+    }else{
+        self.index++;
+    }
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -105,25 +162,29 @@
     static NSString *simpleTableIdentifier = @"SimpleTableCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"提交人:" stringByAppendingString:self.fakeData[indexPath.row]];
-    NSString *testDetail1 =[@"提交人:" stringByAppendingString:self.dataing[indexPath.row]];
-    NSString *str =[testDetail1 stringByAppendingString:testDetail];
+    NSString *str = @"fsfdsfd";
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"image.png"]];
-    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fakeData count];
+    return [self.entities count];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    noticeEntity *notice =[self.entities objectAtIndex:indexPath.row];
+    noticeDetailViewController *detail =[[noticeDetailViewController alloc] init];
+    [detail setNoticeEntity:notice];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

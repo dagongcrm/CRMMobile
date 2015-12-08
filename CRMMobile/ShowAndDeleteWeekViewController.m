@@ -13,8 +13,11 @@
 @interface ShowAndDeleteWeekViewController ()
 @property (strong,nonatomic)NSMutableArray *wordIdData;
 @property (weak, nonatomic) IBOutlet UITextField *time;
-@property (weak, nonatomic) IBOutlet UITextField *zongjie;
-@property (weak, nonatomic) IBOutlet UITextField *jihua;
+//@property (weak, nonatomic) IBOutlet UITextField *zongjie;
+@property (weak, nonatomic) IBOutlet UITextView *zongjie;
+
+@property (weak, nonatomic) IBOutlet UITextView *jihua;
+//@property (weak, nonatomic) IBOutlet UITextField *jihua;
 @property (weak, nonatomic) IBOutlet UITextField *bumen;
 @property (weak, nonatomic) IBOutlet UITextField *leixing;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll1;
@@ -29,7 +32,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"周报详情";
-    self.scroll1.contentSize = CGSizeMake(375, 1000);
+    
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+//    self.jihua.layer.borderColor = UIColor.color.CGColor;
+    [self.jihua.layer setBorderColor:color];
+    self.jihua.layer.borderWidth = 1;
+     self.jihua.layer.cornerRadius = 6;
+     self.jihua.layer.masksToBounds = YES;
+     self.jihua.editable = NO;
+    
+//    self.zongjie.layer.borderColor = UIColor.grayColor.CGColor;
+     [self.zongjie.layer setBorderColor:color];
+     self.zongjie.layer.borderWidth = 1;
+    self.zongjie.layer.cornerRadius = 6;
+     self.zongjie.layer.masksToBounds = YES;
+     self.zongjie.editable = NO;
+    
+    
+    self.scroll1.contentSize = CGSizeMake(375, 800);
     self.wordIdData = [[NSMutableArray alloc]init];
     self.time.text =_weekEntity.time;
     self.zongjie.text =_weekEntity.zongjie;
@@ -37,14 +59,14 @@
     self.leixing.text = _weekEntity.leixing;
     self.bumen.text = @"销售部";
     [self.time setEnabled:NO];
-    [self.zongjie setEnabled:NO];
-    [self.jihua setEnabled:NO];
+//    [self.zongjie setEnabled:NO];
+//    [self.jihua setEnabled:NO];
     [self.leixing setEnabled:NO];
     [self.bumen setEnabled:NO];
     NSString *workId =_weekEntity.workID;
     [self.wordIdData addObject:workId];
-
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    

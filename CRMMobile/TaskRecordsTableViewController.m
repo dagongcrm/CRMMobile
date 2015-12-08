@@ -89,6 +89,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"拜访记录";
     [self setupRefresh];
   }
 
@@ -135,43 +136,43 @@
             teamname=@"";
         }
                 if (teamname1.length==0) {
-                    teamname1=@"暂无数据";
+                    teamname1=@" ";
                 }
                 if (teamname2.length==0) {
-                    teamname2=@"暂无数据";
+                    teamname2=@" ";
                 }
                 if (teamname3.length==0) {
-                    teamname3=@"暂无数据";
+                    teamname3=@" ";
                 }
                 if (teamname4.length==0) {
-                    teamname4=@"暂无数据";
+                    teamname4=@" ";
                 }
                 if (teamname5.length==0) {
-                    teamname5=@"暂无数据";
+                    teamname5=@" ";
                 }
                 if (teamname6.length==0) {
-                    teamname6=@"暂无数据";
+                    teamname6=@" ";
                 }
                 if (teamname7.length==0) {
-                    teamname7=@"暂无数据";
+                    teamname7=@" ";
                 }
                 if (teamname8.length==0) {
-                    teamname8=@"暂无数据";
+                    teamname8=@" ";
                 }
                 if (teamname9.length==0) {
-                    teamname9=@"暂无数据";
+                    teamname9=@" ";
                 }
                 if (teamname10.length==0) {
-                    teamname10=@"暂无数据";
+                    teamname10=@" ";
                 }
                 if (teamname11.length==0) {
-                    teamname11=@"暂无数据";
+                    teamname11=@" ";
                 }
                 if (teamname12.length==0) {
-                    teamname12=@"暂无数据";
+                    teamname12=@" ";
                 }
                 if (teamname13.length==0) {
-                    teamname13=@"暂无数据";
+                    teamname13=@" ";
                 }
         [self.callRecordsID addObject:teamname];
         [self.fakeData addObject:teamname1];
@@ -237,18 +238,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = self.fakeData[indexPath.row];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    NSString *testDetail1 =[@"  受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    NSLog(@"%@",str);
+    [cell.detailTextLabel setText:str];
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -318,8 +322,9 @@
     [visitPlan setTheme:theme];
     [visitPlan setAccessMethodStr:accessMethodStr];
     [visitPlan setMainContent:mainContent];
-    [visitPlan setRespondent:respondent];
+    
     [visitPlan setRespondentPhone:respondentPhone];
+    [visitPlan setRespondent:respondent];
     [visitPlan setAddress:address];
     [visitPlan setVisitProfile:visitProfile];
     [visitPlan setResult:result];

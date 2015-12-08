@@ -307,6 +307,7 @@
     NSLog(@"%@",key2);
     
     if (key != nil) {
+        APPDELEGATE.page=@"1";
         NSString *customerCallPlanID =[self.customerID objectAtIndex:indexPath.row];
         NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
        

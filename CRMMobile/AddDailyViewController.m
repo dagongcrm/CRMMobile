@@ -14,8 +14,13 @@
 
 @interface AddDailyViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *time;
-@property (weak, nonatomic) IBOutlet UITextField *jihua;
-@property (weak, nonatomic) IBOutlet UITextField *zongjie;
+//@property (weak, nonatomic) IBOutlet UITextField *jihua;
+//@property (weak, nonatomic) IBOutlet UITextField *zongjie;
+@property (weak, nonatomic) IBOutlet UITextView *zongjie;
+
+@property (weak, nonatomic) IBOutlet UITextView *jihua;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *bumen;
 @property (weak, nonatomic) IBOutlet UITextField *leixing;
 @property (strong, nonatomic) HZQDatePickerView *pikerView;
@@ -35,6 +40,19 @@
         self.scroll.contentSize = CGSizeMake(375, 700);
     self.bumen.text =@"销售部";
     self.leixing.text=@"日报";
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.jihua.layer setBorderColor:color];
+    self.jihua.layer.borderWidth = 1;
+    self.jihua.layer.cornerRadius = 6;
+    self.jihua.layer.masksToBounds = YES;
+//    self.jihua.editable = NO;
+    [self.zongjie.layer setBorderColor:color];
+    self.zongjie.layer.borderWidth = 1;
+    self.zongjie.layer.cornerRadius = 6;
+    self.zongjie.layer.masksToBounds = YES;
+//    self.zongjie.editable = NO;
+    
     [self.bumen setEnabled:NO];
     [self.leixing setEnabled:NO];
 }

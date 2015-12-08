@@ -1,10 +1,3 @@
-//
-//  RecordsDetalViewController.m
-//  CRMMobile
-//
-//  Created by peng on 15/11/8.
-//  Copyright (c) 2015年 dagong. All rights reserved.
-//
 
 #import "TaskRecordsTableViewController.h"
 #import "RecordsDetalViewController.h"
@@ -14,12 +7,18 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;
-@property (weak, nonatomic) IBOutlet UITextField *theme;
+
 @property (weak, nonatomic) IBOutlet UITextField *accessMethodStr;
-@property (weak, nonatomic) IBOutlet UITextField *mainContent;
+@property (weak, nonatomic) IBOutlet UITextView *theme;
+
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
+@property (weak, nonatomic) IBOutlet UITextView *mainContent;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 @property (weak, nonatomic) IBOutlet UITextField *address;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
@@ -38,10 +37,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"拜访记录";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.scroll.contentSize = CGSizeMake(375, 1300);    
+    self.scroll.contentSize = CGSizeMake(375, 1000);
     self.listData = [[NSMutableArray alloc]init];
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+    self.theme.editable = NO;
+    
+    [self.mainContent.layer setBorderColor:color];
+    self.mainContent.layer.borderWidth = 1;
+    self.mainContent.layer.cornerRadius = 6;
+    self.mainContent.layer.masksToBounds = YES;
+    self.mainContent.editable = NO;
     self.customerNameStr.text =_dailyEntity.customerNameStr;
     self.visitDate.text =_dailyEntity.visitDate;
     self.theme.text =_dailyEntity.theme;
@@ -58,12 +73,12 @@
     self.visitor.text =_dailyEntity.visitor;
     [self.customerNameStr setEnabled:NO];
     [self.visitDate setEnabled:NO];
-    [self.theme setEnabled:NO];
+//    [self.theme setEnabled:NO];
     [self.customerChange setEnabled:NO];
     [self.visitorAttributionStr setEnabled:NO];
     [self.visitor setEnabled:NO];
     [self.accessMethodStr setEnabled:NO];
-    [self.mainContent setEnabled:NO];
+//    [self.mainContent setEnabled:NO];
     [self.respondentPhone setEnabled:NO];
     [self.respondent setEnabled:NO];
     [self.address setEnabled:NO];
@@ -102,7 +117,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@",callRecordsID,sid];
+        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@&customerNameStr=%@&visitDate=%@&theme=%@&accessMethodStr=%@&mainContent=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttributionStr=%@&visitor=%@",callRecordsID,sid];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];

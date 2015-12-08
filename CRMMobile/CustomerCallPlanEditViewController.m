@@ -15,17 +15,16 @@
 
 @interface CustomerCallPlanEditViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;  //拜访时间
 
-@property (weak, nonatomic) IBOutlet UITextField *theme;    //主题
+@property (weak, nonatomic) IBOutlet UITextView *theme;
+@property (weak, nonatomic) IBOutlet UITextView *address;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;    //受访人电话
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;    //受访人员
-
-
-@property (weak, nonatomic) IBOutlet UITextField *address;    //受访人地址
 
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;    //拜访概要
 
@@ -39,13 +38,6 @@
 
 
 
-
-@property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
-
-
-
-
-
 @property (weak, nonatomic) IBOutlet UIButton *accessMethod;   //访问方式按钮
 //下拉选
 @property (strong, nonatomic) NSMutableArray *uid;
@@ -54,44 +46,20 @@
 @property (strong,nonatomic)  NSArray           *selectBFFSId; //选择的 拜访方式ID
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSForShow; // 拜访方式
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSIdForParam;//拜访方式编号
-
+@property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
 
 
 @end
 
 @implementation CustomerCallPlanEditViewController
 @synthesize customerCallPlanEntity=_customerCallPlanEntity;
-
 @synthesize nextArray;
 @synthesize selectPicker;
 @synthesize selectedIndexPath = _selectedIndexPath;
 
 //选择客户名称
 - (IBAction)addCustomer:(id)sender {
-    
-//    NSString *theme=_theme.text;
-//    NSString *visitDate=_visitDate.text;
-//    NSString *respondentPhone=_respondentPhone.text;
-//    NSString *respondent=_respondent.text;
-//    NSString *address=_address.text;
-//    NSString *visitProfile=_visitProfile.text;
-//    NSString *result=_result.text;
-//    NSString *customerRequirements=_customerRequirements.text;
-//    NSString *customerChange=_customerChange.text;
 
-//    _customerCallPlanEntity=[[CustomerCallPlanDetailMessageEntity alloc] init];
-//    
-//    [_customerCallPlanEntity setTheme:theme];
-//    [_customerCallPlanEntity setAccessMethod:accessMethodID];
-//    [_customerCallPlanEntity setRespondentPhone:respondentPhone];
-//    [_customerCallPlanEntity setRespondent:respondent];
-//    [_customerCallPlanEntity setAddress:address];
-//    [_customerCallPlanEntity setVisitProfile:visitProfile];
-//    [_customerCallPlanEntity setVisitDate:visitDate];
-//    [_customerCallPlanEntity setResult:result];
-//    [_customerCallPlanEntity setCustomerRequirements:customerRequirements];
-//    [_customerCallPlanEntity setCustomerChange:customerChange];
-    
     [_customerCallPlanEntity setIndex:@"editCustomerCallPlan"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setCustomerCallPlanEntity:_customerCallPlanEntity];
@@ -100,10 +68,6 @@
     
 }
 
-
-
-
-
 //选择访问方式
 - (IBAction)accessMethod:(id)sender {
     [self selectBFFSArray];
@@ -111,7 +75,7 @@
     self.selectBFFSForShow=[[NSMutableArray alloc] init];
     self.selectBFFSIdForParam=[[NSMutableArray alloc] init];
     ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"所属行业选择";
+    listView.titleName.text = @"访问方式选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
     listView.delegate = self;
@@ -273,6 +237,13 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
+//        for (UIViewController *controller in self.navigationController.viewControllers)
+//        {
+//            if ([controller isKindOfClass:[CustomerCallPlanEditViewController class]])
+//            {
+//                [self.navigationController popToViewController:controller animated:YES];
+//            }
+//        }
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -285,19 +256,30 @@
 }
 
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"拜访计划修改";
+    self.scroll.contentSize=CGSizeMake(375, 750);
     //赋值
     [self valuation];
-    
-    
 }
 
 //赋值方法
 - (void) valuation {
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+//    self.theme.editable = NO;
+    
+    [self.address.layer setBorderColor:color];
+    self.address.layer.borderWidth = 1;
+    self.address.layer.cornerRadius = 6;
+    self.address.layer.masksToBounds = YES;
+//    self.address.editable = NO;
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
@@ -312,24 +294,9 @@
     
 }
 
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -4,8 +4,14 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>crm00.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.org.dagong.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleName</key>
@@ -24,8 +30,6 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>需要持续定位</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -45,12 +49,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>CFBundleDisplayName</key>
-	<string></string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>crm00.png</string>
 	</array>
 </dict>
 </plist>

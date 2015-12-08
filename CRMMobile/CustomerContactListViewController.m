@@ -18,6 +18,8 @@
 #import "CustomerCallPlanEditViewController.h"
 #import "AddSaleOppViewController.h"
 #import "EditSaleOppViewController.h"
+#import "addSaleLeadsViewController.h"
+#import "saleLeads.h"
 
 @interface CustomerContactListViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
@@ -32,6 +34,7 @@
 @synthesize addCustomerEntity =_addCustomerEntity;
 @synthesize CustomerCallPlanEntity =_customerCallPlanEntity;   //客户拜访计划
 @synthesize saleOppEntity =_saleOppEntity;   //销售机会
+@synthesize saleLeads =_saleLeads;   //销售线索
 @synthesize dailyEntity =_dailyEntity;
 - (NSMutableArray *)fakeData
 {
@@ -188,7 +191,7 @@
         NSString *customerName3=[self.fakeData objectAtIndex:indexPath.row];
         [_dailyEntity setCustomerNameStr:customerName3];
         //    _customerEntity.customerName = customerName;
-        [editCustomer3 setDailyEntity:_dailyEntity];
+        [editCustomer3 setCustomerCallPlanEntity:_customerCallPlanEntity];
         [self.navigationController pushViewController:editCustomer3 animated:YES];
     }else if([_customerCallPlanEntity.index isEqualToString:@"addCustomerCallPlan"]){   //客添加户拜访纪录中添加客户名称
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
@@ -221,8 +224,17 @@
         [_saleOppEntity setCustomerNameStr:customerName1 ];
         EditSaleOppViewController *editSaleOpp=[[EditSaleOppViewController alloc]init];
         [editSaleOpp setSaleOppEntity:_saleOppEntity];
-        [self.navigationController pushViewController:editSaleOpp animated:YES];    }
+        [self.navigationController pushViewController:editSaleOpp animated:YES];
+    }else if([_saleOppEntity.index isEqualToString:@"addSaleLeads"]){   //添加销售线索中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_saleOppEntity setCustomerName:customerID ];
+        [_saleOppEntity setCustomerNameStr:customerName1 ];
+        addSaleLeadsViewController *addSaleLeads = [[addSaleLeadsViewController alloc] init];
+        [addSaleLeads setSaleOppEntity:_saleOppEntity];
+        [self.navigationController pushViewController:addSaleLeads animated:YES];
     }
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

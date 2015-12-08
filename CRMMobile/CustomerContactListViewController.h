@@ -12,6 +12,7 @@
 #import "AddCustomerEntity.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "SaleOppEntity.h"
+#import "saleLeads.h"
 
 @interface CustomerContactListViewController : UITableViewController
 @property(strong,nonatomic)CostomerContactEntity *customerEntity;
@@ -22,4 +23,5 @@
 @property(strong,nonatomic)SaleOppEntity *saleOppEntity;//销售机会
 
 @property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
+@property (strong,nonatomic) saleLeads *saleLeads;
 @end

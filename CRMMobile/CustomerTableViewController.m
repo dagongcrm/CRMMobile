@@ -26,6 +26,7 @@
 @implementation CustomerTableViewController
 @synthesize dailyEntity=_dailyEntity;
 @synthesize addCustomerEntity =_addCustomerEntity;
+@synthesize customerCallPlanEntity=_customerCallPlanEntity;
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -152,8 +153,8 @@
     if ([index isEqualToString:@"1"]) {
         EditPlanViewController *editCustomer = [[EditPlanViewController alloc]init];
         NSString *customerNameStr=[self.fakeData objectAtIndex:indexPath.row];
-        [_dailyEntity setCustomerNameStr:customerNameStr];
-        [editCustomer setDailyEntity:_dailyEntity];
+        [_customerCallPlanEntity setCustomerNameStr:customerNameStr];
+        [editCustomer setCustomerCallPlanEntity:_customerCallPlanEntity];
         [self.navigationController pushViewController:editCustomer animated:YES];
     }
 }

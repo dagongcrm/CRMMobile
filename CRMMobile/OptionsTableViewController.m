@@ -9,12 +9,16 @@
 #import "OptionsTableViewController.h"
 #import "TXLTableViewController.h"
 #import "XGViewController.h"
-#import "SettingViewController.h"
 #import "GuanyuViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
 #import "LocationViewController.h"
-
+#import <AVFoundation/AVFoundation.h>
+#import "UIViewAdditions.h"
+#import "MyViewController.h"
+#import "SettingTableViewController.h"
+#import "MeMainTableViewController.h"
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 @interface OptionsTableViewController()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSArray *OptionsListData;
 @property (strong,nonatomic) MeUser *mMeUser;
@@ -23,19 +27,21 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtname;//用户名
 @property (weak, nonatomic) IBOutlet UITextField *txtOrg;//组织
 @property (weak, nonatomic) IBOutlet UIImageView *Image;//头像
-@property (strong,nonatomic) NSMutableArray *imgpathData;
-@property (strong,nonatomic) NSMutableArray *imageNamesData;
+@property (strong ,nonatomic)NSString *imageNames11;
+@property (strong ,nonatomic)NSString *imagePaths11;
+
+@property (weak, nonatomic)UIScrollView *scrollView;
+
+@property (weak, nonatomic)UIPageControl *pageView;
+
+@property (strong, nonatomic)NSTimer *timer;
+@property(nonatomic ,strong)UIScrollView * headScroll;
+@property(nonatomic ,strong)UIPageControl * pageControl;
+@property(nonatomic,strong)NSArray * imagesArray;
+@property (nonatomic, strong)NSTimer *time;
 @property  NSInteger index;
 - (IBAction)ImgButton:(id)sender;//头像按钮
-
-- (IBAction)editpass:(id)sender;//修改密码
-- (IBAction)setting:(id)sender;//设置
-
-- (IBAction)tongxun:(id)sender;//通信录
-
-- (IBAction)guanyu:(id)sender;//关于
 - (IBAction)moveImg:(id)sender;//换背景
-- (IBAction)location:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *beijingImg;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -46,55 +52,23 @@
 - (void)viewDidLoad {
     NAVCOLOR;
     [super viewDidLoad];
-    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
-    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
-    NSLog(@"jjjdjdjdjdjdjdjjdjd");
-    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
-        if (iosDeviceScreenSize.height==568) {
-            //IPHONE5/5s/5c
-            NSLog(@"IPHONE5/5s/5c");
-        }else if(iosDeviceScreenSize.height==667){
-            //iphone6
-            NSLog(@"iphone 6");
-        }else if(iosDeviceScreenSize.height==736){
-            //iphone6plus
-            NSLog(@"iphone6plus");
-        }else{
-            //iphone 4等其他设备
-            NSLog(@"iphone 4等其他设备");
-        }
-    }
-    //设置导航栏返回
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
-    //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+
     self.scroll.contentSize = CGSizeMake(375, 1300);
     _mMeUser = [[MeUser alloc] init];
-    //顶部的图片区域
-    //把图片添加到动态数组
-    NSMutableArray * animateArray = [[NSMutableArray alloc]initWithCapacity:20];
-    [animateArray addObject:[UIImage imageNamed:@"10002"]];
-    [animateArray addObject:[UIImage imageNamed:@"10003"]];
-    [animateArray addObject:[UIImage imageNamed:@"10004"]];
-    [animateArray addObject:[UIImage imageNamed:@"10001"]];
-    //为图片设置动态
-    self.beijingImg.animationImages = animateArray;
-    //为动画设置持续时间
-    self.beijingImg.animationDuration = 30.0;
-    //为默认的无限循环
-    self.beijingImg.animationRepeatCount = 0;
-    //开始播放动画
-    [self.beijingImg startAnimating];
-    [self.view addSubview:self.beijingImg];
+    
+    self.imagesArray = @[@"11.JPG",@"12.JPG",@"13.JPG",@"14.JPG",@"15.JPG",@"16.JPG"];
+    [self setupScrollView];
+    [self setupPageControl];
+
     //取出登陆信息
     NSDictionary *Diclogin = [[NSDictionary alloc]init];
     Diclogin= APPDELEGATE.sessionInfo;
     NSString *loginName = [[Diclogin  objectForKey:@"obj"] objectForKey:@"loginName"];
     NSString *orgName = [[Diclogin objectForKey:@"obj"]objectForKey:@"orgName"];
-   
     NSLog(@"==========%@",loginName);
-
     self.txtname.font = [UIFont fontWithName:@"System" size:20.0f];
     self.txtOrg.font = [UIFont fontWithName:@"System" size:20.0f];
     
@@ -102,14 +76,13 @@
     [self.txtOrg setEnabled:NO];
     if ([loginName isEqualToString:@"admin"]) {
         self.txtname.text = @"超级管理员";
-        self.txtOrg.text =@"管理员";
+        self.txtOrg.text =@"运营部";
     }else{
         //普通用户
         self.txtname.text =loginName;
         self.txtOrg.text = orgName;
     }
-    //必须在uiimageview加载之后设置
-    
+    //必须在uiimageview加载之后设置    
     //设置图片为圆角的
     CALayer *lay  = self.Image.layer;//获取ImageView的层
     [lay setMasksToBounds:YES];
@@ -117,7 +90,123 @@
     lay.borderWidth=1.0;
     lay.borderColor=[[UIColor grayColor] CGColor];
     [self loadImageqq];
+    UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,318,self.view.bounds.size.width,1)];
+    navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [navDividingLine sizeToFit];
+    [self.view addSubview:navDividingLine];
+    
+    MeMainTableViewController *nav = [[MeMainTableViewController alloc] init];
+    nav.view.autoresizingMask = UIViewAutoresizingNone;
+    [self addChildViewController:nav];
+    nav.view.frame =  CGRectMake(0, 319, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:nav.view];
+    [nav didMoveToParentViewController:self];
 }
+//轮播加点击
+//添加UISrollView
+- (void)setupScrollView{
+    // 添加UISrollView
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.frame = CGRectMake(0, 60, self.view.width, 150);
+    scrollView.bounces = NO;
+    scrollView.delegate = self;
+    
+    [self.view addSubview:scrollView];
+    self.headScroll = scrollView;
+    // 添加图片
+    for (int i = 0; i<self.imagesArray.count; i++) {
+        // 创建UIImageView
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = 100 + i;
+        
+        imageView.frame = CGRectMake(i * scrollView.width, 0, self.view.width, 200);
+        imageView.image = [UIImage imageNamed:self.imagesArray[i]];
+        [scrollView addSubview:imageView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
+        [imageView addGestureRecognizer:tap];
+        
+    }
+    
+    // 3.设置其他属性
+    scrollView.contentSize = CGSizeMake(self.imagesArray.count * scrollView.width, 0);
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    self.time = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(timeAction) userInfo:nil repeats:YES];
+    
+    
+    
+}
+
+//添加pageControl
+- (void)setupPageControl{
+    // 添加PageControl
+    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.view.centerX - 35, self.headScroll.height * 1.25, 70, 20)];
+    _pageControl.numberOfPages = self.imagesArray.count;
+    [self.view addSubview:_pageControl];
+    [self.time fire];
+    [[NSRunLoop currentRunLoop]addTimer:self.time forMode:NSRunLoopCommonModes];
+    // 设置圆点的颜色
+    [self changePageControlImage:self.pageControl];
+    
+}
+//改变pagecontrol中圆点样式
+- (void)changePageControlImage:(UIPageControl *)pageControl
+{
+    static UIImage *imgCurrent = nil;
+    static UIImage *imgOther = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        imgCurrent = [UIImage imageNamed:@"dot"];
+        imgOther = [UIImage imageNamed:@"dotk"];
+    });
+    
+    
+    if (iOS7) {
+        [pageControl setValue:imgCurrent forKey:@"_currentPageImage"];
+        [pageControl setValue:imgOther forKey:@"_pageImage"];
+    } else {
+        for (int i = 0;i < self.imagesArray.count; i++) {
+            UIImageView *imageVieW = [pageControl.subviews objectAtIndex:i];
+            imageVieW.frame = CGRectMake(imageVieW.frame.origin.x, imageVieW.frame.origin.y, 20, 20);
+            imageVieW.image = pageControl.currentPage == i ? imgCurrent : imgOther;
+        }
+    }
+}
+
+
+#pragma mark 滚动代理。。pageControl方法
+- (void)changePage:(UIPageControl *)page{
+    [self.headScroll setContentOffset:CGPointMake(self.view.width * page.currentPage, 0) animated:YES];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    int halfX = scrollView.frame.size.width / 2;
+    int page = (scrollView.contentOffset.x - halfX) / self.view.width + 1;
+    self.pageControl.currentPage = page;
+    [self changePageControlImage:_pageControl];
+    
+}
+- (void)timeAction{
+    NSInteger page = self.pageControl.currentPage;
+    page++;
+    if (page == self.imagesArray.count) {
+        page = 0;
+    }
+    CGPoint point = CGPointMake(self.view.width * page, 0);
+    [self.headScroll setContentOffset:point animated:YES];
+}
+-(void)tapClick:(UITapGestureRecognizer *)recognizer{
+    
+    UIImageView *imaView = (UIImageView *)recognizer.view;
+    MyViewController * MVC = [[MyViewController alloc]init];
+    
+    MVC.tapID = [NSString
+                 stringWithFormat:@"%@",[self.imagesArray objectAtIndex:imaView.tag - 100]];
+    NSLog(@"%@",MVC.tapID);
+    [self presentViewController:MVC animated:YES completion:nil];
+}
+
 //获取头像判断
 -(void)loadImageqq{
     NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
@@ -192,6 +281,7 @@
 
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
     NSLog(@"mmmmmmklklklklkl%lu",buttonIndex);
     if (actionSheet.tag == 255) {
         
@@ -223,14 +313,31 @@
         }
         // 跳转到相机或相册页面
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        
         imagePickerController.delegate = self;
         
         imagePickerController.allowsEditing = YES;
         
         imagePickerController.sourceType = sourceType;
-        
-        [self presentViewController:imagePickerController animated:YES completion:^{}];
+//        //判断相机是否能够使用
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if(status == AVAuthorizationStatusAuthorized) {
+            // authorized
+            [self presentViewController:imagePickerController animated:YES completion:nil];
+        } else if(status == AVAuthorizationStatusDenied){
+            // denied
+            return ;
+        } else if(status == AVAuthorizationStatusRestricted){
+            // restricted
+        } else if(status == AVAuthorizationStatusNotDetermined){
+            // not determined
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if(granted){
+                    [self presentViewController:imagePickerController animated:YES completion:nil];
+                } else {
+                    return;
+                }
+            }];
+        }
     }
 }
 
@@ -239,15 +346,7 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     NSLog(@"bbbbb");
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    /* 此处info 有六个值
-     * UIImagePickerControllerMediaType; // an NSString UTTypeImage)
-     * UIImagePickerControllerOriginalImage;  // a UIImage 原始图片
-     * UIImagePickerControllerEditedImage;    // a UIImage 裁剪后图片
-     * UIImagePickerControllerCropRect;       // an NSValue (CGRect)
-     * UIImagePickerControllerMediaURL;       // an NSURL
-     * UIImagePickerControllerReferenceURL    // an NSURL that references an asset in the AssetsLibrary framework
-     * UIImagePickerControllerMediaMetadata    // an NSDictionary containing metadata from a captured photo
-     */
+    
     // 保存图片至本地，方法见下文
     NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
     NSString *imgNames = [userName stringByAppendingString:@".png"];
@@ -256,13 +355,9 @@
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imgNames];
     
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-    //    self.isFullScreen = NO;
     [self.Image setImage:savedImage];
-    self.imageNamesData=[[NSMutableArray alloc]init];
-    [self.imageNamesData addObject:imgNames];
+    self.imageNames11 = imgNames;
     self.Image.tag = 100;
-//    NSLog(@"cccc===>>>%@",fullPath);
-//    
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -278,13 +373,13 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     // 将图片写入文件
     [imageData writeToFile:fullPath atomically:NO];
     NSString *path = [imageData base64Encoding];
-    [self.imgpathData addObject:path] ;
+    self.imagePaths11 = path;
     [self pickerImg:path];
 }
 
 -(void)pickerImg:(NSString *)path{
     NSLog(@"///////222222/////3333////%@", path);
-    NSString *fileName = [self.imageNamesData objectAtIndex:1];
+    NSString *fileName = self.imageNames11;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"uploadAction!upload.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
@@ -301,34 +396,5 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     NSLog(@"//////////1%@",path);
     NSLog(@"//////////2%@",fileName);
 }
-//xiugaimima
-- (IBAction)editpass:(id)sender {
-    //修改密码
-    _xView =  [[XGViewController alloc]init];
-    [self.navigationController pushViewController:_xView animated:YES];
-}
-//设置
-- (IBAction)setting:(id)sender {
-    SettingViewController *setView = [[SettingViewController alloc] init];
-    [self.navigationController pushViewController:setView animated:YES];
-}
-//通讯录
-- (IBAction)tongxun:(id)sender {
-    TXLTableViewController *txlView = [[TXLTableViewController alloc] init];
-    txlView.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:txlView animated:YES];
-}
-//关于
-- (IBAction)guanyu:(id)sender {
-    GuanyuViewController *guanView = [[GuanyuViewController alloc] init];
-    [self.navigationController pushViewController:guanView animated:YES];
-}
-- (IBAction)moveImg:(id)sender {
-    NSLog(@"准备换背景图片");
-}
-- (IBAction)location:(id)sender {
-    LocationViewController *locationView=[[LocationViewController alloc] init];
-    locationView.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:locationView animated:YES];
-}
+
 @end
