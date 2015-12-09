@@ -195,6 +195,7 @@
 		96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E312541BEB53BA00A1A3FF /* UIView+MJExtension.m */; };
 		96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E312561BEB53BA00A1A3FF /* UIScrollView+MJExtension.m */; };
 		96ED77DF1C17FD4E00943200 /* setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96ED77DE1C17FD4E00943200 /* setting.plist */; };
+		96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96ED78731C182F6900943200 /* AuthorityDictionary.plist */; };
 		96EDBEB91BE8838300824AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EDBEB81BE8838300824AE2 /* Main.storyboard */; };
 		96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */; };
 		96F408741BF2C63800AA4AD5 /* back002.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F408731BF2C63800AA4AD5 /* back002.png */; };
@@ -584,6 +585,7 @@
 		96E312551BEB53BA00A1A3FF /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		96E312561BEB53BA00A1A3FF /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		96ED77DE1C17FD4E00943200 /* setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = setting.plist; sourceTree = "<group>"; };
+		96ED78731C182F6900943200 /* AuthorityDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthorityDictionary.plist; sourceTree = "<group>"; };
 		96EDBEB81BE8838300824AE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		96F408711BF2C1D000AA4AD5 /* checkmark_icon_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon_1x.png; sourceTree = "<group>"; };
 		96F408731BF2C63800AA4AD5 /* back002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back002.png; sourceTree = "<group>"; };
@@ -1398,6 +1400,7 @@
 		C0D5692C1BD9B65100860B33 /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				96ED78731C182F6900943200 /* AuthorityDictionary.plist */,
 				96ED77DE1C17FD4E00943200 /* setting.plist */,
 				C0D569441BD9C65100860B33 /* Options.plist */,
 				C0D5692D1BD9B69100860B33 /* Work.plist */,
@@ -1769,6 +1772,7 @@
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
 				39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
+				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
