@@ -133,7 +133,6 @@
     }else{
     self.qiYeMCMC.text = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     };
-    //[self.chooseUserButtonQiYe setTitle:submitName forState:UIControlStateNormal];
     [self.chooseUserButton setTitle:yeWuZL forState:UIControlStateNormal];
     [self.chooseHY setTitle:hangYeFLMC forState:UIControlStateNormal];
     _judge=@"";
