@@ -156,7 +156,7 @@
     [_saleOppEntity setIndex:@"addSaleOpp"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setSaleOppEntity:_saleOppEntity];
-    [self.navigationController pushViewController:list animated:YES];
+    [self.navigationController pushViewController:list animated:NO];
 }
 
 - (IBAction)saleOppSrcSelect:(id)sender {

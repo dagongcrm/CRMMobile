@@ -146,7 +146,7 @@
     SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
     DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
     [detailSallOpp setSaleOppEntity:saleOppEntity];
-    [self.navigationController pushViewController:detailSallOpp animated:YES];
+    [self.navigationController pushViewController:detailSallOpp animated:NO];
 }
 
 
@@ -162,12 +162,33 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    static NSString *cellId = @"mycell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
+     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
+    [cell.detailTextLabel setText:detailText];
+    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
+
+    
+    
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
+//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
+//    NSString *str =[testDetail stringByAppendingString:testDetail1];
+//    NSLog(@"%@",str);
+//    [cell.detailTextLabel setText:str];
+//    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
+    
+    
     return cell;
 }
 
