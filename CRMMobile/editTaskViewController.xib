@@ -13,6 +13,8 @@
                 <outlet property="chooseHY" destination="8xe-4m-HNi" id="jhQ-jj-qxh"/>
                 <outlet property="chooseUserButton" destination="OLX-nc-HPu" id="GVf-iz-KIO"/>
                 <outlet property="chooseUserButtonQiYe" destination="hdo-dj-c5D" id="NUF-Kf-vLg"/>
+                <outlet property="qiYeMC" destination="UVh-Sb-UhS" id="CJH-4j-NST"/>
+                <outlet property="qiYeMCMC" destination="UVh-Sb-UhS" id="GVW-AU-KsS"/>
                 <outlet property="scroll" destination="bXN-EQ-3Ac" id="mwS-hy-T03"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -52,15 +54,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-dj-c5D">
-                            <rect key="frame" x="140" y="77" width="200" height="30"/>
-                            <state key="normal" title="请选择企业名称">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="fAe-hR-uoz"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLX-nc-HPu">
                             <rect key="frame" x="140" y="136" width="200" height="30"/>
                             <state key="normal" title="请选择业务种类">
@@ -152,6 +145,15 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-dj-c5D">
+                            <rect key="frame" x="140" y="76" width="200" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="fAe-hR-uoz"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
