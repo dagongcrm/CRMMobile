@@ -43,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"客户档案管理";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
     //添加图标
