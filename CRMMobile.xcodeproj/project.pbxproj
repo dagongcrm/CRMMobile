@@ -101,7 +101,6 @@
 		39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797311C05CCE4000D9A20 /* DetailSaleOppViewController.m */; };
 		39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */; };
 		39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */; };
-		39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */; };
 		39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */; };
 		39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */; };
 		39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797711C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m */; };
@@ -207,6 +206,10 @@
 		B8CFB8D01C11958800C19B76 /* AddCustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CFB8CE1C11958800C19B76 /* AddCustomerCallPlanViewController.m */; };
 		B8CFB8D11C11958800C19B76 /* AddCustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8CFB8CF1C11958800C19B76 /* AddCustomerCallPlanViewController.xib */; };
 		C0B8D6951C06F2A20051367D /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = C0B8D6941C06F2A20051367D /* business.png */; };
+		C0C484231C1818AF00B142BC /* ZSYPopoverListViewSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */; };
+		C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
+		C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C484251C181B0800B142BC /* fs_main_login_normal.png */; };
+		C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C484261C181B0800B142BC /* fs_main_login_selected.png */; };
 		C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D3CD3B1BDF0CEF00C23FB3 /* 0.png */; };
 		C0D3CD5C1BDF0CEF00C23FB3 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D3CD3C1BDF0CEF00C23FB3 /* 1.png */; };
 		C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D3CD3D1BDF0CEF00C23FB3 /* 2.png */; };
@@ -417,8 +420,6 @@
 		39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F7973B1C05CCEF000D9A20 /* SaleOppEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppEntity.h; sourceTree = "<group>"; };
 		39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppEntity.m; sourceTree = "<group>"; };
-		39F7975D1C05CD3D000D9A20 /* CRMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMTableViewController.h; sourceTree = "<group>"; };
-		39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMTableViewController.m; sourceTree = "<group>"; };
 		39F7976D1C05CF58000D9A20 /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
 		39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
 		39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationTableViewController.xib; sourceTree = "<group>"; };
@@ -597,6 +598,10 @@
 		B8CFB8CE1C11958800C19B76 /* AddCustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerCallPlanViewController.m; sourceTree = "<group>"; };
 		B8CFB8CF1C11958800C19B76 /* AddCustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerCallPlanViewController.xib; sourceTree = "<group>"; };
 		C0B8D6941C06F2A20051367D /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
+		C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListViewSingle.h; sourceTree = "<group>"; };
+		C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListViewSingle.m; sourceTree = "<group>"; };
+		C0C484251C181B0800B142BC /* fs_main_login_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_normal.png; sourceTree = "<group>"; };
+		C0C484261C181B0800B142BC /* fs_main_login_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_selected.png; sourceTree = "<group>"; };
 		C0D3CD3B1BDF0CEF00C23FB3 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		C0D3CD3C1BDF0CEF00C23FB3 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C0D3CD3D1BDF0CEF00C23FB3 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -682,6 +687,8 @@
 		1F93AADF1BF1FFC60099C57E /* TableViewForSeleteUser */ = {
 			isa = PBXGroup;
 			children = (
+				C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */,
+				C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */,
 				1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */,
 				1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */,
 			);
@@ -1050,8 +1057,6 @@
 			children = (
 				1FEF62521C16AE9E00E6F4BF /* saleLeads */,
 				1FEF62061C16ABB000E6F4BF /* MarketManagement */,
-				39F7975D1C05CD3D000D9A20 /* CRMTableViewController.h */,
-				39F7975E1C05CD3D000D9A20 /* CRMTableViewController.m */,
 				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
@@ -1092,6 +1097,8 @@
 		96AEF19A1BF1FD5700EDE5CE /* work */ = {
 			isa = PBXGroup;
 			children = (
+				C0C484251C181B0800B142BC /* fs_main_login_normal.png */,
+				C0C484261C181B0800B142BC /* fs_main_login_selected.png */,
 				C0B8D6941C06F2A20051367D /* business.png */,
 				96D58D031BFED22200159E09 /* arrow-left.png */,
 				9618AA521BFC82D1001A6D0D /* back.png */,
@@ -1758,6 +1765,7 @@
 				C0D3CD731BDF0CEF00C23FB3 /* 24.png in Resources */,
 				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
 				C0D3CD751BDF0CEF00C23FB3 /* 26.png in Resources */,
+				C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */,
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
 				39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
@@ -1798,6 +1806,7 @@
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				1FEF62781C16AFC900E6F4BF /* NoticeViewController.xib in Resources */,
+				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
 				39F7987C1C05D35E000D9A20 /* TaskRecordsTableViewController.xib in Resources */,
@@ -1870,7 +1879,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39F7975F1C05CD3D000D9A20 /* CRMTableViewController.m in Sources */,
+				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
@@ -1936,6 +1945,7 @@
 				39F797241C05CCB7000D9A20 /* CostomerContactEntity.m in Sources */,
 				39F797EB1C05D12F000D9A20 /* AddDailyViewController.m in Sources */,
 				C0E013151C0C2D57006BBF97 /* HttpHelper.m in Sources */,
+				C0C484231C1818AF00B142BC /* ZSYPopoverListViewSingle.m in Sources */,
 				39F798541C05D314000D9A20 /* ReminderEntity.m in Sources */,
 				39F797341C05CCE4000D9A20 /* EditSaleOppViewController.m in Sources */,
 				1FEF626C1C16AFBF00E6F4BF /* activityDetailViewController.m in Sources */,

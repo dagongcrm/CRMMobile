@@ -255,6 +255,50 @@
     return list;
 }
 
+
+
+//single choose
+- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 25;
+}
+
+- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+    if (nil == cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"-dsds---%ld------", (long)indexPath.row];
+    return cell;
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    NSLog(@"deselect:%ld", (long)indexPath.row);
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedIndexPath = indexPath;
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    NSLog(@"select:%ld", (long)indexPath.row);
+}
+
+
 - (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([_select isEqualToString:@"saleOppSrc"]){
