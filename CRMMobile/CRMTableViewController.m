@@ -13,7 +13,8 @@
 #import "CustomercontactTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
-
+#import "saleLeadsTableViewController.h"
+#import "MarketManagementViewController.h"
 @interface CRMTableViewController ()
 @property (strong,nonatomic) NSArray        *authTableDataCount;
 @end
