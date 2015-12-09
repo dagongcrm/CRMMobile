@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "VisitPlanNsObj.h"
 #import "AddCustomerEntity.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 @interface CustomerTableViewController : UITableViewController
 
 @property(strong,nonatomic)AddCustomerEntity *addCustomerEntity;
 @property (strong,nonatomic) VisitPlanNsObj *dailyEntity;
+@property ( retain , nonatomic ) CustomerCallPlanDetailMessageEntity *customerCallPlanEntity;
 @end

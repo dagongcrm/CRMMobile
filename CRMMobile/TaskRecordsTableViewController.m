@@ -89,6 +89,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"拜访记录";
     [self setupRefresh];
   }
 
@@ -237,18 +238,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = self.fakeData[indexPath.row];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    NSString *testDetail1 =[@"  受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    NSLog(@"%@",str);
+    [cell.detailTextLabel setText:str];
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 

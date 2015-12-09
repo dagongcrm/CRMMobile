@@ -6,7 +6,7 @@
                 <key>Name</key>
                 <string>通讯录</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>tongxunlu.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/iapps</string>
                 <key>Category</key>
@@ -20,7 +20,7 @@
                 <key>Name</key>
                 <string>修改密码</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>xiugaimima.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/appleus</string>
                 <key>Favorite</key>
@@ -34,7 +34,7 @@
                 <key>Name</key>
                 <string>设置</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>setting.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/gx110</string>
                 <key>Favorite</key>
@@ -48,7 +48,7 @@
                 <key>Name</key>
                 <string>关于</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>guanyu.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/kaifulee</string>
                 <key>Favorite</key>

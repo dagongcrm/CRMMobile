@@ -60,7 +60,7 @@
         SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
         [self.entities addObject:saleOpp];
-    }
+            }
     return self.entities;
 }
 

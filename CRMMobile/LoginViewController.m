@@ -4,6 +4,7 @@
 #import "HttpHelper.h"
 #import "GLReusableViewController.h"
 @interface LoginViewController ()
+@property (strong,nonatomic) NSMutableArray *authorityList;
 @end
 
 
@@ -22,7 +23,6 @@
     [self loadValue];    
 }
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,12 +31,11 @@
     return self;
 }
 
-
 -(void)loadValue{
-    NSUserDefaults *ud1 = [NSUserDefaults standardUserDefaults];
-    if([ud1 objectForKey:@"userName"]!=nil){
-        accountField.text = [ud1 objectForKey:@"userName"];
-        passwdField.text = [ud1 objectForKey:@"password"];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if([ud objectForKey:@"userName"]!=nil){
+        accountField.text = [ud objectForKey:@"userName"];
+        passwdField.text =  [ud objectForKey:@"password"];
     }
 }
 
@@ -57,22 +56,73 @@
     NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     myDelegate.sessionInfo  = loginDic;
+    NSLog(@"%@",loginDic);
     if([[loginDic objectForKey:@"success"] boolValue] == YES)
     {
+        myDelegate.roleAuthority=[self authorityDic];
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         [ud setObject:accountField.text forKey:@"userName"];
-        [ud setObject:passwdField.text forKey:@"password"];
+        [ud setObject:passwdField.text  forKey:@"password"];
         [ud synchronize];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
     }else
     {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"登录失败！用户名或密码错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }
-    
+}
+
+-(NSDictionary *)authorityDic{
+    NSString *authorityPath = [[NSBundle mainBundle]pathForResource:@"AuthorityDictionary.plist" ofType:nil];
+    self.authorityList= [NSMutableArray arrayWithContentsOfFile:authorityPath];
+    NSString *role =[[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"roleIds"];
+    __block NSDictionary *auths = [[NSDictionary alloc] init];
+    if(![role rangeOfString:@","].length>0){
+    [self.authorityList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj objectForKey:@"role"] isEqualToString:role]) {
+            auths=[self.authorityList objectAtIndex:idx];
+            *stop =YES;
+        }
+    }];}
+    else{
+        NSArray *rolearray = [role componentsSeparatedByString:@","];
+        NSMutableDictionary  *roleauthcom=[[NSMutableDictionary  alloc] init];
+        [roleauthcom setValue:[self setroleauthority:@"kehudangan"  rolearrayforadd:rolearray] forKey:@"kehudangan"];
+        [roleauthcom setValue:[self setroleauthority:@"role"  rolearrayforadd:rolearray] forKey:@"role"];
+        [roleauthcom setValue:[self setroleauthority:@"kehulianxiren"  rolearrayforadd:rolearray] forKey:@"kehulianxiren"];
+        [roleauthcom setValue:[self setroleauthority:@"baifangjilu"  rolearrayforadd:rolearray] forKey:@"baifangjilu"];
+        [roleauthcom setValue:[self setroleauthority:@"xiaoshoujihui"  rolearrayforadd:rolearray] forKey:@"xiaoshoujihui"];
+        [roleauthcom setValue:[self setroleauthority:@"xiaoshouxiansuo"  rolearrayforadd:rolearray] forKey:@"xiaoshouxiansuo"];
+        [roleauthcom setValue:[self setroleauthority:@"baifangjihua"  rolearrayforadd:rolearray] forKey:@"baifangjihua"];
+        [roleauthcom setValue:[self setroleauthority:@"huodongtongji"  rolearrayforadd:rolearray] forKey:@"huodongtongji"];
+        [roleauthcom setValue:[self setroleauthority:@"gongzuobaogao"  rolearrayforadd:rolearray] forKey:@"gongzuobaogao"];
+        [roleauthcom setValue:[self setroleauthority:@"renwutijiao"  rolearrayforadd:rolearray] forKey:@"renwutijiao"];
+        [roleauthcom setValue:[self setroleauthority:@"renwushenhe"  rolearrayforadd:rolearray] forKey:@"renwushenhe"];
+        [roleauthcom setValue:[self setroleauthority:@"renwugenzong"  rolearrayforadd:rolearray] forKey:@"renwugenzong"];
+        auths=roleauthcom;
+    }
+    return  auths;
 }
 
 
+-(NSString *) setroleauthority:(NSString *)authname  rolearrayforadd:(NSArray *)rolearraytoadd
+{
+    NSMutableArray *multiRoleArray=[[NSMutableArray alloc] init];
+    for(int i =0;i<[rolearraytoadd count];i++){
+    [self.authorityList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        if ([[obj objectForKey:@"role"] isEqualToString:[rolearraytoadd objectAtIndex:i]]) {
+                               [multiRoleArray addObject:[[self.authorityList objectAtIndex:idx] objectForKey:authname]];
+                                *stop =YES;
+                    }
+                    }];
+    }
+    NSString *authcom=@"";
+    for (NSString *str in multiRoleArray)
+        {
+        authcom = [authcom stringByAppendingFormat:@"%@",str];
+        }
+    return authcom;
+}
 
 @end

@@ -32,8 +32,8 @@
 @synthesize reminderEntity = _reminderEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scroll.contentSize = CGSizeMake(375, 1100);
-
+    self.scroll.contentSize = CGSizeMake(375, 700);
+    
     self.title=@"任务审核";
     self.qiYeMC.text = _auditEntity.submitName;
     self.yeWuZL.text = _auditEntity.yeWuZL;
@@ -52,7 +52,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
- 
+    
     NSString *yeWuZLBH= _auditEntity.yeWuZLBH;
     NSString *qiYeBH = _auditEntity.submitID;
     NSString *qiYeMC = _auditEntity.submitName;
@@ -143,28 +143,29 @@
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
-        if (APPDELEGATE.page!=@"") {
-            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
-            [self.navigationController pushViewController:tvc animated:YES];
-        }else{
-            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
-            [self.navigationController pushViewController:mj animated:YES];
-        }
-
-//        for (UIViewController *controller in self.navigationController.viewControllers)
-//        {
-//            if ([controller isKindOfClass:[GLReusableViewController class]])
-//            {
-//                [self.navigationController popToViewController:controller animated:YES];
-//            }
+//        if (APPDELEGATE.page!=@"") {
+//            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
+//            [self.navigationController pushViewController:tvc animated:YES];
+//        }else{
+//            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
+//            [self.navigationController pushViewController:mj animated:YES];
 //        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
+        //        for (UIViewController *controller in self.navigationController.viewControllers)
+        //        {
+        //            if ([controller isKindOfClass:[GLReusableViewController class]])
+        //            {
+        //                [self.navigationController popToViewController:controller animated:YES];
+        //            }
+        //        }
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     
-
+    
 }
 - (IBAction)del:(id)sender {
     NSError *error;
@@ -214,14 +215,15 @@
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
-        if (APPDELEGATE.page!=@"") {
-            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
-            [self.navigationController pushViewController:tvc animated:YES];
-        }else{
-            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
-            [self.navigationController pushViewController:mj animated:YES];
-        }
-        
+//        if (APPDELEGATE.page!=@"") {
+//            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
+//            [self.navigationController pushViewController:tvc animated:YES];
+//        }else{
+//            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
+//            [self.navigationController pushViewController:mj animated:YES];
+//        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

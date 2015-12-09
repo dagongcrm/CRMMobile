@@ -25,11 +25,13 @@
 
     @synthesize oppState;
 
-     @synthesize oppStateStr;
+    @synthesize oppStateStr;
 
     @synthesize contact;
 
     @synthesize contactTel;
+
+    @synthesize saleLeadsAdd;
 
     @synthesize index;
 @end

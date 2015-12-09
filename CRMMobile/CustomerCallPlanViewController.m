@@ -5,7 +5,9 @@
 //  Created by yd on 15/11/17.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-
+#import "IndexViewController.h"
+#import "GLReusableViewController.h"
+#import "UIImage+Tint.h"
 #import "CustomerCallPlanViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
@@ -20,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableDictionary *uCustomerCallPlanID;
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
+@property (strong, nonatomic) NSMutableArray *respondent;
 @property  NSInteger  index;
 
 @end
@@ -32,6 +35,7 @@
         self.fakeData   = [NSMutableArray array];
         self.customerCallPlanID = [NSMutableArray array];
         self.visitDate = [[NSMutableArray alloc]init];
+        self.respondent=[[NSMutableArray alloc]init];
         [self faker:@"1"];
         [self faker:@"2"];
     }
@@ -42,13 +46,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"拜访计划";
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
     
     //添加图标
     [self addPage];
     
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
 }
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
+
 
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
@@ -80,6 +116,7 @@
         NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
         NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
         NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
+        NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
         if(teamname.length==0){   //若客户名称问null，将其赋值
             teamname=@"没有数据";
         }
@@ -87,6 +124,7 @@
         [self.customerCallPlanID     addObject:customerCallPlanID];
         [self.fakeData     addObject:teamname];
         [self.visitDate     addObject:teamname2];
+        [self.respondent    addObject:teamname3];
     }
     //    [self customerIDReturn:self.customerCallPlanID];
     return self.fakeData;
@@ -117,18 +155,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = self.fakeData[indexPath.row];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"拜访时间:" stringByAppendingString:(NSString *)[self.visitDate objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    NSString *testDetail1 =[@"  受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    NSLog(@"%@",str);
+    [cell.detailTextLabel setText:str];
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -260,13 +301,12 @@
 
 
 //跳转至添加页面
--(void) addPage
-{
+-(void) addPage{
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
                                  action:@selector(addCustomerCallPlan:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
+    self.navigationItem.leftBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;

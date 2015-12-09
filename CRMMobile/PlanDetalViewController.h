@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VisitPlanNsObj.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 @interface PlanDetalViewController : UIViewController
 @property (strong,nonatomic) VisitPlanNsObj *DailyEntity;
+@property ( retain , nonatomic ) CustomerCallPlanDetailMessageEntity *customerCallPlanEntity;
 @end

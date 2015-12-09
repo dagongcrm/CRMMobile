@@ -20,12 +20,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *CustomerClassStr;
 @property (weak, nonatomic) IBOutlet UITextField *ProvinceStr;
 @property (weak, nonatomic) IBOutlet UITextField *ShiChangXQFL;
-@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
+//@property (weak, nonatomic) IBOutlet UITextView *ShiChangXQFL;
+
+//@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
+@property (weak, nonatomic) IBOutlet UITextView *CustomerAddress;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *Phone;
 @property (weak, nonatomic) IBOutlet UITextField *ReceptionPersonnel;
-
-
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
 
@@ -79,8 +82,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"查看客户档案管理表";
+    self.scroll.contentSize=CGSizeMake(375,800);
     //赋值
     [self valuation];
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.CustomerAddress.layer setBorderColor:color];
+    self.CustomerAddress.layer.borderWidth = 1;
+    self.CustomerAddress.layer.cornerRadius = 6;
+    self.CustomerAddress.layer.masksToBounds = YES;
+        self.CustomerAddress.editable = NO;
     
 }
 

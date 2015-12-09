@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.title=@"任务审核";
     [self setupRefresh];
     //[self faker:@"1"];
     

@@ -9,7 +9,6 @@
 #import "OptionsTableViewController.h"
 #import "TXLTableViewController.h"
 #import "XGViewController.h"
-#import "SettingViewController.h"
 #import "GuanyuViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
@@ -17,6 +16,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UIViewAdditions.h"
 #import "MyViewController.h"
+#import "SettingTableViewController.h"
+#import "MeMainTableViewController.h"
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 @interface OptionsTableViewController()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSArray *OptionsListData;
@@ -26,8 +27,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtname;//用户名
 @property (weak, nonatomic) IBOutlet UITextField *txtOrg;//组织
 @property (weak, nonatomic) IBOutlet UIImageView *Image;//头像
-//@property (strong,nonatomic) NSMutableArray *imgpathData;
-//@property (strong,nonatomic) NSMutableArray *imageNamesData;
 @property (strong ,nonatomic)NSString *imageNames11;
 @property (strong ,nonatomic)NSString *imagePaths11;
 
@@ -40,18 +39,9 @@
 @property(nonatomic ,strong)UIPageControl * pageControl;
 @property(nonatomic,strong)NSArray * imagesArray;
 @property (nonatomic, strong)NSTimer *time;
-
 @property  NSInteger index;
 - (IBAction)ImgButton:(id)sender;//头像按钮
-
-- (IBAction)editpass:(id)sender;//修改密码
-- (IBAction)setting:(id)sender;//设置
-
-- (IBAction)tongxun:(id)sender;//通信录
-
-- (IBAction)guanyu:(id)sender;//关于
 - (IBAction)moveImg:(id)sender;//换背景
-- (IBAction)location:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *beijingImg;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -86,7 +76,7 @@
     [self.txtOrg setEnabled:NO];
     if ([loginName isEqualToString:@"admin"]) {
         self.txtname.text = @"超级管理员";
-        self.txtOrg.text =@"管理员";
+        self.txtOrg.text =@"运营部";
     }else{
         //普通用户
         self.txtname.text =loginName;
@@ -100,13 +90,24 @@
     lay.borderWidth=1.0;
     lay.borderColor=[[UIColor grayColor] CGColor];
     [self loadImageqq];
+    UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,318,self.view.bounds.size.width,1)];
+    navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [navDividingLine sizeToFit];
+    [self.view addSubview:navDividingLine];
+    
+    MeMainTableViewController *nav = [[MeMainTableViewController alloc] init];
+    nav.view.autoresizingMask = UIViewAutoresizingNone;
+    [self addChildViewController:nav];
+    nav.view.frame =  CGRectMake(0, 319, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:nav.view];
+    [nav didMoveToParentViewController:self];
 }
 //轮播加点击
 //添加UISrollView
 - (void)setupScrollView{
     // 添加UISrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = CGRectMake(0, 60, self.view.width, 142);
+    scrollView.frame = CGRectMake(0, 60, self.view.width, 150);
     scrollView.bounces = NO;
     scrollView.delegate = self;
     
@@ -119,7 +120,7 @@
         imageView.userInteractionEnabled = YES;
         imageView.tag = 100 + i;
         
-        imageView.frame = CGRectMake(i * scrollView.width, 0, self.view.width, 300);
+        imageView.frame = CGRectMake(i * scrollView.width, 0, self.view.width, 200);
         imageView.image = [UIImage imageNamed:self.imagesArray[i]];
         [scrollView addSubview:imageView];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
@@ -186,7 +187,6 @@
     [self changePageControlImage:_pageControl];
     
 }
-
 - (void)timeAction{
     NSInteger page = self.pageControl.currentPage;
     page++;
@@ -396,34 +396,5 @@ NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality)
     NSLog(@"//////////1%@",path);
     NSLog(@"//////////2%@",fileName);
 }
-//xiugaimima
-- (IBAction)editpass:(id)sender {
-    //修改密码
-    _xView =  [[XGViewController alloc]init];
-    [self.navigationController pushViewController:_xView animated:YES];
-}
-//设置
-- (IBAction)setting:(id)sender {
-    SettingViewController *setView = [[SettingViewController alloc] init];
-    [self.navigationController pushViewController:setView animated:YES];
-}
-//通讯录
-- (IBAction)tongxun:(id)sender {
-    TXLTableViewController *txlView = [[TXLTableViewController alloc] init];
-    txlView.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:txlView animated:YES];
-}
-//关于
-- (IBAction)guanyu:(id)sender {
-    GuanyuViewController *guanView = [[GuanyuViewController alloc] init];
-    [self.navigationController pushViewController:guanView animated:YES];
-}
-- (IBAction)moveImg:(id)sender {
-    NSLog(@"准备换背景图片");
-}
-- (IBAction)location:(id)sender {
-    LocationViewController *locationView=[[LocationViewController alloc] init];
-    locationView.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:locationView animated:YES];
-}
+
 @end

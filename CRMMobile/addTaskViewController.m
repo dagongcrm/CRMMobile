@@ -13,6 +13,7 @@
 #import "SubmitTableViewController.h"
 #import "selectListTableViewController.h"
 #import "selectEntity.h"
+#import "ZSYPopoverListView.h"
 
 @interface addTaskViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *Lable;
@@ -158,6 +159,7 @@
 }
 
 - (void)viewDidLoad {
+    self.title=@"添加任务基本信息";
     self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
@@ -321,6 +323,10 @@
 //点击添加选择的人员
 - (void)popoverListView:(ZSYPopoverListView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    if (self.selectedIndexPath) {
+//        UITableViewCell *unchechCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
+//        unchechCell.accessoryType = UITableViewCellAccessoryNone;
+//    }
     self.selectedIndexPath = indexPath;
     if ([self.judge isEqualToString:@"1"]) {
         [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];

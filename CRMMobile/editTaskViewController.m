@@ -15,6 +15,7 @@
 #import "selectListTableViewController.h"
 
 @interface editTaskViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *qiYeMC;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *Label;
 - (IBAction)segmentControl:(id)sender;
@@ -40,7 +41,7 @@
 
 @property (strong, nonatomic) NSString *judge;
 
-@property (strong,nonatomic)  IBOutlet UITextField *qiYeMC;
+@property (strong,nonatomic)  IBOutlet UITextField *qiYeMCMC;
 @property (strong,nonatomic)  IBOutlet UITextField *yeWuZL;
 @property (weak, nonatomic) IBOutlet UITextField *HeTongJE;
 @property (weak, nonatomic) IBOutlet UITextField *GenZongSF;
@@ -113,6 +114,7 @@
 }
 
 - (void)viewDidLoad {
+    self.title=@"修改任务基本信息";
     self.scroll.contentSize = CGSizeMake(375, 1000);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
@@ -125,7 +127,12 @@
     self.HeTongJE.text = myDelegate.heTongJE;
     self.GenZongSFJE.text = myDelegate.genZongSFJE;
     self.LianXiFS.text = myDelegate.lianxiFS;
-    [self.chooseUserButtonQiYe setTitle:submitName forState:UIControlStateNormal];
+    NSString *str = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
+    if (str == nil) {
+        self.qiYeMCMC.text = submitName;
+    }else{
+    self.qiYeMCMC.text = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
+    };
     [self.chooseUserButton setTitle:yeWuZL forState:UIControlStateNormal];
     [self.chooseHY setTitle:hangYeFLMC forState:UIControlStateNormal];
     _judge=@"";
@@ -362,7 +369,7 @@
     NSString *qiYeBH1  = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
     
     NSString *yeWuZLBH=@"";
-    NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
+    NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSString *yeWuZLMC=@"";
     NSString *hangYeFLMC=@"";
     NSString *hangYeBH = @"";

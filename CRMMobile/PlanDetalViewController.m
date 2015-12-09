@@ -12,26 +12,27 @@
 #import "VisitPlanTableViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
-#import "AddPlanViewController.h"
+
 @interface PlanDetalViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
-@property (weak, nonatomic) IBOutlet UITextField *visitDate;
-@property (weak, nonatomic) IBOutlet UITextField *theme;
-
-@property (weak, nonatomic) IBOutlet UITextField *accessMerthod;
-@property (weak, nonatomic) IBOutlet UITextField *mainContent;
+@property (weak, nonatomic) IBOutlet UITextView *theme;
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
-@property (weak, nonatomic) IBOutlet UITextField *address;
-
+@property (weak, nonatomic) IBOutlet UITextView *address;
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;
+@property (weak, nonatomic) IBOutlet UITextField *visitDate;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;
-@property (weak, nonatomic) IBOutlet UITextField *visitorStr;
-- (IBAction)edit:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *visitorAttributionStr;
+@property (weak, nonatomic) IBOutlet UITextField *accessmethod;
 
+@property (weak, nonatomic) IBOutlet UITextView *mainContent;
+
+@property (weak, nonatomic) IBOutlet UITextField *visitorStr;
+
+- (IBAction)edit:(id)sender;
 - (IBAction)delete:(id)sender;
 - (IBAction)visitQR:(id)sender;
 
@@ -40,40 +41,72 @@
 @end
 
 @implementation PlanDetalViewController
+@synthesize customerCallPlanEntity=_customerCallPlanEntity;
 @synthesize DailyEntity=_dailyEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.scroll.contentSize = CGSizeMake(375, 1300);
-    self.customerNameStr.text =_dailyEntity.customerNameStr;
-    self.visitDate.text =_dailyEntity.visitDate;
-    self.theme.text =_dailyEntity.theme;
-    self.accessMerthod.text =_dailyEntity.accessMethod;
-    self.mainContent.text =_dailyEntity.mainContent;
-    self.respondentPhone.text =_dailyEntity.respondentPhone;
-    self.respondent.text =_dailyEntity.respondent;
-    self.address.text =_dailyEntity.address;
-    self.visitProfile.text =_dailyEntity.visitProfile;
-    self.result.text =_dailyEntity.result;
-    self.customerRequirements.text =_dailyEntity.customerRequirements;
-    self.customerChange.text =_dailyEntity.customerChange;
-    self.visitorStr.text =_dailyEntity.visitorStr;
+    self.title=@"拜访计划";
+    //调节scroll宽度和高度
+    self.scroll.contentSize=CGSizeMake(375, 1060);
+    
+    //赋值
+    [self valuation];
+    
+    
+}
 
-
+//赋值
+- (void) valuation {
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+    self.theme.editable = NO;
+    
+    [self.mainContent.layer setBorderColor:color];
+    self.mainContent.layer.borderWidth = 1;
+    self.mainContent.layer.cornerRadius = 6;
+    self.mainContent.layer.masksToBounds = YES;
+    self.mainContent.editable = NO;
+    
+    [self.address.layer setBorderColor:color];
+    self.address.layer.borderWidth = 1;
+    self.address.layer.cornerRadius = 6;
+    self.address.layer.masksToBounds = YES;
+    self.address.editable = NO;
+    self.customerNameStr.text  =_customerCallPlanEntity.customerNameStr;
+    _visitDate.text=_customerCallPlanEntity.visitDate;
+    _theme.text=_customerCallPlanEntity.theme;
+    _accessmethod.text=_customerCallPlanEntity.accessMethodStr;
+    _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
+    _respondent.text=_customerCallPlanEntity.respondent;
+    _address.text=_customerCallPlanEntity.address;
+    _visitProfile.text=_customerCallPlanEntity.visitProfile;
+    _result.text=_customerCallPlanEntity.result;
+    _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
+    _customerChange.text=_customerCallPlanEntity.customerChange;
+    _visitorAttributionStr.text=_customerCallPlanEntity.visitorAttributionStr;
+    _visitorStr.text=_customerCallPlanEntity.baiFangRenStr;
+    _mainContent.text=_customerCallPlanEntity.mainContent;
+    
     [self.customerNameStr setEnabled:NO];
     [self.visitDate setEnabled:NO];
-    [self.theme setEnabled:NO];
+  
     [self.customerChange setEnabled:NO];
     [self.visitorStr setEnabled:NO];
-    [self.accessMerthod setEnabled:NO];
-    [self.mainContent setEnabled:NO];
+    [self.accessmethod setEnabled:NO];
+
     [self.respondentPhone setEnabled:NO];
     [self.respondent setEnabled:NO];
-    [self.address setEnabled:NO];
+
     [self.visitProfile setEnabled:NO];
     [self.result setEnabled:NO];
     [self.customerRequirements setEnabled:NO];
+    [self.visitorAttributionStr setEnabled:NO];
 }
 
 
@@ -92,20 +125,46 @@
     [super didReceiveMemoryWarning];
 }
 
+
+
 - (IBAction)edit:(id)sender {
     EditPlanViewController *uc1 =[[EditPlanViewController alloc] init];
-    [uc1 setDailyEntity:_dailyEntity];
+    [uc1 setCustomerCallPlanEntity:_customerCallPlanEntity];
     [self.navigationController pushViewController:uc1 animated:YES];
 }
 
 - (IBAction)delete:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
-    [alertView show];
+    NSString *ci= _customerCallPlanEntity.customerCallPlanID;
+    
+    NSError *error;
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!delete.action?"]];
+    
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+    request.timeoutInterval=10.0;
+    request.HTTPMethod=@"POST";
+    NSString *param=[NSString stringWithFormat:@"ids=%@&MOBILE_SID=%@",ci,sid];
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    
+    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
+        [self.navigationController pushViewController:mj animated:YES];
+        [alert show];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+    }
 }
 
+
+
 - (IBAction)visitQR:(id)sender {
-    NSString *ci= _dailyEntity.customerCallPlanID;
+    NSString *ci= _customerCallPlanEntity.customerCallPlanID;
     
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -131,8 +190,8 @@
         
     }
     
-
 }
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
