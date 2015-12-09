@@ -14,6 +14,7 @@
 @synthesize sessionInfo;
 @synthesize index;
 @synthesize indexPageForLoad;
+@synthesize roleAuthority;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
