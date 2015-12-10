@@ -165,13 +165,6 @@
 		39F798811C05D365000D9A20 /* RecordsDetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7987F1C05D365000D9A20 /* RecordsDetalViewController.xib */; };
 		39F798841C05D36D000D9A20 /* RecordsNsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798831C05D36D000D9A20 /* RecordsNsObj.m */; };
 		39F798871C05D386000D9A20 /* config.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798861C05D386000D9A20 /* config.m */; };
-		39F798B51C05DBD1000D9A20 /* CustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798A81C05DBD1000D9A20 /* CustomerCallPlanViewController.m */; };
-		39F798B61C05DBD1000D9A20 /* CustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798A91C05DBD1000D9A20 /* CustomerCallPlanViewController.xib */; };
-		39F798B71C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798AB1C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.m */; };
-		39F798B81C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798AD1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.m */; };
-		39F798B91C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798AE1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.xib */; };
-		39F798BC1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798B31C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m */; };
-		39F798BD1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798B41C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib */; };
 		39F798C41C05E2EF000D9A20 /* CustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798BF1C05E2EF000D9A20 /* CustomerTableViewController.m */; };
 		39F798C51C05E2EF000D9A20 /* CustomerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798C01C05E2EF000D9A20 /* CustomerTableViewController.xib */; };
 		39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798C21C05E2EF000D9A20 /* PlanButViewController.m */; };
@@ -204,8 +197,15 @@
 		96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAE25A1BEC73A900032BB3 /* HZQDatePickerView.xib */; };
 		96FF05771BF80C7F00EA5457 /* crm.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FF05761BF80C7F00EA5457 /* crm.png */; };
 		B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */ = {isa = PBXBuildFile; fileRef = B87028191BD9E52500CD2FF2 /* taskReport.plist */; };
-		B8CFB8D01C11958800C19B76 /* AddCustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CFB8CE1C11958800C19B76 /* AddCustomerCallPlanViewController.m */; };
-		B8CFB8D11C11958800C19B76 /* AddCustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8CFB8CF1C11958800C19B76 /* AddCustomerCallPlanViewController.xib */; };
+		B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */; };
+		B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */; };
+		B8EDAD521C1933EC00865E7C /* CustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */; };
+		B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD471C1933EC00865E7C /* CustomerCallPlanViewController.xib */; };
+		B8EDAD541C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD491C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m */; };
+		B8EDAD551C1933EC00865E7C /* CustomerCallPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD4B1C1933EC00865E7C /* CustomerCallPlanDetailViewController.m */; };
+		B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD4C1C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib */; };
+		B8EDAD571C1933EC00865E7C /* CustomerCallPlanEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD4E1C1933EC00865E7C /* CustomerCallPlanEditViewController.m */; };
+		B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD4F1C1933EC00865E7C /* CustomerCallPlanEditViewController.xib */; };
 		C0B8D6951C06F2A20051367D /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = C0B8D6941C06F2A20051367D /* business.png */; };
 		C0C484231C1818AF00B142BC /* ZSYPopoverListViewSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */; };
 		C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
@@ -525,17 +525,6 @@
 		39F798831C05D36D000D9A20 /* RecordsNsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsNsObj.m; sourceTree = "<group>"; };
 		39F798851C05D386000D9A20 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		39F798861C05D386000D9A20 /* config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = config.m; sourceTree = "<group>"; };
-		39F798A71C05DBD1000D9A20 /* CustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanViewController.h; sourceTree = "<group>"; };
-		39F798A81C05DBD1000D9A20 /* CustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanViewController.m; sourceTree = "<group>"; };
-		39F798A91C05DBD1000D9A20 /* CustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanViewController.xib; sourceTree = "<group>"; };
-		39F798AA1C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailMessageEntity.h; sourceTree = "<group>"; };
-		39F798AB1C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailMessageEntity.m; sourceTree = "<group>"; };
-		39F798AC1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailViewController.h; sourceTree = "<group>"; };
-		39F798AD1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailViewController.m; sourceTree = "<group>"; };
-		39F798AE1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanDetailViewController.xib; sourceTree = "<group>"; };
-		39F798B21C05DBD1000D9A20 /* CustomerCallPlanEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanEditViewController.h; sourceTree = "<group>"; };
-		39F798B31C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanEditViewController.m; sourceTree = "<group>"; };
-		39F798B41C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanEditViewController.xib; sourceTree = "<group>"; };
 		39F798BE1C05E2EF000D9A20 /* CustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerTableViewController.h; sourceTree = "<group>"; };
 		39F798BF1C05E2EF000D9A20 /* CustomerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerTableViewController.m; sourceTree = "<group>"; };
 		39F798C01C05E2EF000D9A20 /* CustomerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerTableViewController.xib; sourceTree = "<group>"; };
@@ -596,9 +585,20 @@
 		96FAE25A1BEC73A900032BB3 /* HZQDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZQDatePickerView.xib; sourceTree = "<group>"; };
 		96FF05761BF80C7F00EA5457 /* crm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crm.png; sourceTree = "<group>"; };
 		B87028191BD9E52500CD2FF2 /* taskReport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = taskReport.plist; sourceTree = "<group>"; };
-		B8CFB8CD1C11958800C19B76 /* AddCustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerCallPlanViewController.h; sourceTree = "<group>"; };
-		B8CFB8CE1C11958800C19B76 /* AddCustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerCallPlanViewController.m; sourceTree = "<group>"; };
-		B8CFB8CF1C11958800C19B76 /* AddCustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerCallPlanViewController.xib; sourceTree = "<group>"; };
+		B8EDAD421C1933EC00865E7C /* AddCustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerCallPlanViewController.h; sourceTree = "<group>"; };
+		B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerCallPlanViewController.m; sourceTree = "<group>"; };
+		B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerCallPlanViewController.xib; sourceTree = "<group>"; };
+		B8EDAD451C1933EC00865E7C /* CustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanViewController.h; sourceTree = "<group>"; };
+		B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanViewController.m; sourceTree = "<group>"; };
+		B8EDAD471C1933EC00865E7C /* CustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanViewController.xib; sourceTree = "<group>"; };
+		B8EDAD481C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailMessageEntity.h; sourceTree = "<group>"; };
+		B8EDAD491C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailMessageEntity.m; sourceTree = "<group>"; };
+		B8EDAD4A1C1933EC00865E7C /* CustomerCallPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanDetailViewController.h; sourceTree = "<group>"; };
+		B8EDAD4B1C1933EC00865E7C /* CustomerCallPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanDetailViewController.m; sourceTree = "<group>"; };
+		B8EDAD4C1C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanDetailViewController.xib; sourceTree = "<group>"; };
+		B8EDAD4D1C1933EC00865E7C /* CustomerCallPlanEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCallPlanEditViewController.h; sourceTree = "<group>"; };
+		B8EDAD4E1C1933EC00865E7C /* CustomerCallPlanEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCallPlanEditViewController.m; sourceTree = "<group>"; };
+		B8EDAD4F1C1933EC00865E7C /* CustomerCallPlanEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCallPlanEditViewController.xib; sourceTree = "<group>"; };
 		C0B8D6941C06F2A20051367D /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
 		C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListViewSingle.h; sourceTree = "<group>"; };
 		C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListViewSingle.m; sourceTree = "<group>"; };
@@ -875,20 +875,20 @@
 		39E8767D1C03036E00BF6808 /* customerCallPlan */ = {
 			isa = PBXGroup;
 			children = (
-				B8CFB8CD1C11958800C19B76 /* AddCustomerCallPlanViewController.h */,
-				B8CFB8CE1C11958800C19B76 /* AddCustomerCallPlanViewController.m */,
-				B8CFB8CF1C11958800C19B76 /* AddCustomerCallPlanViewController.xib */,
-				39F798A71C05DBD1000D9A20 /* CustomerCallPlanViewController.h */,
-				39F798A81C05DBD1000D9A20 /* CustomerCallPlanViewController.m */,
-				39F798A91C05DBD1000D9A20 /* CustomerCallPlanViewController.xib */,
-				39F798AA1C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.h */,
-				39F798AB1C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.m */,
-				39F798AC1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.h */,
-				39F798AD1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.m */,
-				39F798AE1C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.xib */,
-				39F798B21C05DBD1000D9A20 /* CustomerCallPlanEditViewController.h */,
-				39F798B31C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m */,
-				39F798B41C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib */,
+				B8EDAD421C1933EC00865E7C /* AddCustomerCallPlanViewController.h */,
+				B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */,
+				B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */,
+				B8EDAD451C1933EC00865E7C /* CustomerCallPlanViewController.h */,
+				B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */,
+				B8EDAD471C1933EC00865E7C /* CustomerCallPlanViewController.xib */,
+				B8EDAD481C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.h */,
+				B8EDAD491C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m */,
+				B8EDAD4A1C1933EC00865E7C /* CustomerCallPlanDetailViewController.h */,
+				B8EDAD4B1C1933EC00865E7C /* CustomerCallPlanDetailViewController.m */,
+				B8EDAD4C1C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib */,
+				B8EDAD4D1C1933EC00865E7C /* CustomerCallPlanEditViewController.h */,
+				B8EDAD4E1C1933EC00865E7C /* CustomerCallPlanEditViewController.m */,
+				B8EDAD4F1C1933EC00865E7C /* CustomerCallPlanEditViewController.xib */,
 			);
 			name = customerCallPlan;
 			sourceTree = "<group>";
@@ -1700,16 +1700,14 @@
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
 				39F797E81C05D12F000D9A20 /* DailyViewController.xib in Resources */,
-				B8CFB8D11C11958800C19B76 /* AddCustomerCallPlanViewController.xib in Resources */,
+				B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
 				1FEF62581C16AED200E6F4BF /* saleLeadsTableViewController.xib in Resources */,
 				39F7984A1C05D306000D9A20 /* ActivityViewController.xib in Resources */,
-				39F798B91C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.xib in Resources */,
 				C0D3CD631BDF0CEF00C23FB3 /* 8.png in Resources */,
 				1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */,
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
-				39F798BD1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
@@ -1738,6 +1736,7 @@
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
+				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
 				39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */,
 				96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */,
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
@@ -1755,6 +1754,7 @@
 				39F797FE1C05D147000D9A20 /* ShowAndDeleteWeekViewController.xib in Resources */,
 				C0D3CD661BDF0CEF00C23FB3 /* 11.png in Resources */,
 				96D58D041BFED22200159E09 /* arrow-left.png in Resources */,
+				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				C0D3CD641BDF0CEF00C23FB3 /* 9.png in Resources */,
 				39F7971D1C05CC50000D9A20 /* EditCustomerContactController.xib in Resources */,
@@ -1776,7 +1776,6 @@
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
-				39F798B61C05DBD1000D9A20 /* CustomerCallPlanViewController.xib in Resources */,
 				39F7985A1C05D322000D9A20 /* VisitPlanTableViewController.xib in Resources */,
 				39F797EC1C05D12F000D9A20 /* AddDailyViewController.xib in Resources */,
 				39F798681C05D335000D9A20 /* PlanDetalViewController.xib in Resources */,
@@ -1808,6 +1807,7 @@
 				1FEF62371C16AD9F00E6F4BF /* XGViewController.xib in Resources */,
 				1FEF626B1C16AFBF00E6F4BF /* activityDetailViewController.xib in Resources */,
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
+				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				1FEF62781C16AFC900E6F4BF /* NoticeViewController.xib in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
@@ -1920,6 +1920,7 @@
 				39F798491C05D306000D9A20 /* ActivityViewController.m in Sources */,
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,
 				39F7984E1C05D30D000D9A20 /* ReminderDetailViewController.m in Sources */,
+				B8EDAD571C1933EC00865E7C /* CustomerCallPlanEditViewController.m in Sources */,
 				96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */,
 				C0D3CD871BDF0E8B00C23FB3 /* NSArray+PureLayout.m in Sources */,
 				1FEF621F1C16AC3600E6F4BF /* PNColor.m in Sources */,
@@ -1940,11 +1941,8 @@
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
 				39F797FD1C05D147000D9A20 /* ShowAndDeleteWeekViewController.m in Sources */,
 				39F798671C05D335000D9A20 /* PlanDetalViewController.m in Sources */,
-				39F798B51C05DBD1000D9A20 /* CustomerCallPlanViewController.m in Sources */,
 				39F798441C05D2FA000D9A20 /* ReminderTableViewController.m in Sources */,
-				39F798B71C05DBD1000D9A20 /* CustomerCallPlanDetailMessageEntity.m in Sources */,
 				1FEF626E1C16AFBF00E6F4BF /* NoticeTableViewController.m in Sources */,
-				B8CFB8D01C11958800C19B76 /* AddCustomerCallPlanViewController.m in Sources */,
 				39F797E91C05D12F000D9A20 /* DailyTableViewController.m in Sources */,
 				39F797241C05CCB7000D9A20 /* CostomerContactEntity.m in Sources */,
 				39F797EB1C05D12F000D9A20 /* AddDailyViewController.m in Sources */,
@@ -1956,12 +1954,14 @@
 				39F797DC1C05D125000D9A20 /* TaskReportTableViewController.m in Sources */,
 				1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */,
 				39F797EF1C05D138000D9A20 /* TaskReportDailyEntity.m in Sources */,
+				B8EDAD551C1933EC00865E7C /* CustomerCallPlanDetailViewController.m in Sources */,
 				1FEF622D1C16AD8D00E6F4BF /* OptionsTableViewController.m in Sources */,
 				1FEF62361C16AD9F00E6F4BF /* XGViewController.m in Sources */,
 				1FEF62201C16AC3600E6F4BF /* PNLineChart.m in Sources */,
 				39F797381C05CCE4000D9A20 /* CustomerSelectTableViewController.m in Sources */,
+				B8EDAD541C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m in Sources */,
 				39E729F91C0697C80050D77F /* submitTaskEntity.m in Sources */,
-				39F798B81C05DBD1000D9A20 /* CustomerCallPlanDetailViewController.m in Sources */,
+				B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */,
 				1FEF62471C16AE0900E6F4BF /* SettingTableViewController.m in Sources */,
 				39F798131C05D167000D9A20 /* TaskReportMonthEntity.m in Sources */,
 				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
@@ -1980,7 +1980,6 @@
 				39E729F01C0697A50050D77F /* addTaskViewController.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				39F7971C1C05CC50000D9A20 /* EditCustomerContactController.m in Sources */,
-				39F798BC1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.m in Sources */,
 				1FEF621C1C16AC3600E6F4BF /* PNBarChart.m in Sources */,
 				1FEF62771C16AFC900E6F4BF /* NoticeViewController.m in Sources */,
 				39F7980D1C05D15A000D9A20 /* ShowAndDeleteViewController.m in Sources */,
@@ -2001,6 +2000,7 @@
 				39F798841C05D36D000D9A20 /* RecordsNsObj.m in Sources */,
 				39F798871C05D386000D9A20 /* config.m in Sources */,
 				39F7971A1C05CC50000D9A20 /* CustomercontactTableViewController.m in Sources */,
+				B8EDAD521C1933EC00865E7C /* CustomerCallPlanViewController.m in Sources */,
 				39F798551C05D314000D9A20 /* activityEntity.m in Sources */,
 				C0D3CD861BDF0E8B00C23FB3 /* ALView+PureLayout.m in Sources */,
 			);
