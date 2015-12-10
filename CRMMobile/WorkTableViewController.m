@@ -31,7 +31,9 @@
         NSMutableArray  *data        = [NSMutableArray arrayWithContentsOfFile:path];
         for(int i=0;i<[data count];i++){
             NSString *indexName=[[data objectAtIndex:i] objectForKey:@"authorityname"];
-            if(![[APPDELEGATE.roleAuthority objectForKey:indexName]rangeOfString:@"N"].length>0){
+            NSString *authname=[APPDELEGATE.roleAuthority objectForKey:indexName];
+            int countForN=[self numberOfCharaterInString:authname characterToCount:@"N"];
+            if(countForN != authname.length){
                 [tablecount addObject:[data objectAtIndex:i]];
             }
         }
@@ -39,6 +41,25 @@
     }
     return  _authTableDataCount;
 }
+
+
+
+-(int) numberOfCharaterInString:(NSString *)stringToCount characterToCount:(NSString *) character{
+    int numberPoint = 0;
+    
+    for (int i = 0; i<stringToCount.length; i++)
+    {
+        NSString * temp = [stringToCount substringWithRange:NSMakeRange(i, 1)];
+        
+        if ([temp isEqualToString:character])
+        {
+            numberPoint ++;
+        }
+    }
+    return  numberPoint;
+}
+
+
 
 
 
@@ -58,7 +79,6 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
@@ -81,19 +101,20 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==0){
+    NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
+    NSString *authid=[item objectForKey:@"authorityname"];
+    if([authid isEqualToString:@"gongzuobaogao"]){
         TaskReportTableViewController *fltv = [[TaskReportTableViewController alloc] init];
         [self.navigationController pushViewController:fltv animated:YES];
-    }else if(indexPath.row==1){
+    }else if([authid isEqualToString:@"renwutijiao"]){
         SubmitTableViewController *sub = [[SubmitTableViewController alloc] init];
         [self.navigationController pushViewController:sub animated:YES];
-    }else if(indexPath.row==2){
+    }else if([authid isEqualToString:@"renwushenhe"]){
         auditTableViewController *audit = [[auditTableViewController alloc] init];
         [self.navigationController pushViewController:audit animated:YES];
-    }else if(indexPath.row==3){
+    }else if([authid isEqualToString:@"renwugenzong"]){
         trackingTableViewController *track = [[trackingTableViewController alloc] init];
         [self.navigationController pushViewController:track animated:YES];
-
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
