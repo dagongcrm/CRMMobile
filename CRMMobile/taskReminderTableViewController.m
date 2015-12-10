@@ -15,9 +15,11 @@
 #import "auditEntity.h"
 #import "auditTableViewController.h"
 #import "VisitPlanNsObj.h"
+#import "CustomerCallPlanDetailMessageEntity.h"
 #import "PlanDetalViewController.h"
 #import "activityDetailViewController.h"
 #import "marketActivity.h"
+
 
 @interface taskReminderTableViewController ()
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
@@ -126,6 +128,12 @@
             }
 
         }else if (i==2){
+         
+            if (listi==[NSNull null]) {
+               
+            }else{
+      
+           
             if ([listi count] != 0) {
                 for (int i = 0; i<[listi count]; i++) {
                     listdic = [listi objectAtIndex:i];
@@ -154,6 +162,7 @@
                     
                 }
                
+            }
             }
         }
     }
@@ -289,6 +298,7 @@
     //NSString *b = [NSString stringWithFormat:@"%f", activityCost];
     NSLog(@"%@",[activityCost substringFromIndex:1]);
     NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    NSLog(@"nc2%@",nc2);
     NSString *customerName = (NSString *) [nc2 objectForKey:@"customerNameStr"];
     NSString *visitDate= (NSString *) [nc2 objectForKey:@"visitDate"];
     NSString *theme = (NSString *) [nc2 objectForKey:@"theme"];
@@ -352,7 +362,7 @@
     NSString *customerNameStr  =[self.fakeData objectAtIndex:indexPath.row];
     NSString *visitDate =[self.visitDate objectAtIndex:indexPath.row];
     //NSString *theme =[self.theme objectAtIndex:indexPath.row];;
-    VisitPlanNsObj *visitPlan =[[VisitPlanNsObj alloc] init];
+    CustomerCallPlanDetailMessageEntity *visitPlan =[[CustomerCallPlanDetailMessageEntity alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
     [visitPlan setCustomerCallPlanID:customerCallPlanID];
     [visitPlan setVisitDate:visitDate];
@@ -365,10 +375,10 @@
     [visitPlan setResult:result];
     [visitPlan setCustomerRequirements:customerRequirements];
     [visitPlan setCustomerChange:customerChange];
-    [visitPlan setVisitorStr:visitorStr];
+    //[visitPlan setVisitorStr:visitorStr];
     //[visitPlan setTheme:theme];
     PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
-    [uc setDailyEntity:visitPlan];
+    [uc setCustomerCallPlanEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:YES];
    }
 

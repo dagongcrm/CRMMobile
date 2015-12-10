@@ -294,7 +294,7 @@
     //赋值
     [self valuation];
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 800);
+    self.scroll.contentSize=CGSizeMake(375, 725);
     
 }
 
