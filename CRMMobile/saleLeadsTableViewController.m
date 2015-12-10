@@ -67,6 +67,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.title=@"销售线索";
     [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
@@ -74,9 +75,16 @@
                                  target:self
                                  action:@selector(addSaleOpp:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
-    //[self setExtraCellLineHidden:self.tableView];
+    [self setExtraCellLineHidden:self.tableView];
 
     }
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
 - (IBAction)addSaleOpp:(id)sender
 {
     addSaleLeadsViewController *addSaleLeads = [[addSaleLeadsViewController alloc] init];
@@ -140,6 +148,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
     return cell;
 }
 

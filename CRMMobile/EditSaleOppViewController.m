@@ -104,6 +104,7 @@
         _chooseOppSrcID=_saleOppEntity.saleOppSrc;
         _chooseOppSrc=_saleOppEntity.saleOppSrcStr;
         [self.saleOppSrcSelect setTitle:_saleOppEntity.saleOppSrcStr forState:UIControlStateNormal];
+        NSLog(@"%@",[self.saleOppSrcSelect currentTitle]);
         
     }
     if(_saleOppEntity.oppState.length!=0){
@@ -117,6 +118,11 @@
 }
 
 - (IBAction)save:(id)sender {
+    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle.length==0||_selectOppStateSelectButton.currentTitle.length==0) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -139,7 +145,7 @@
         [alert show];
         
     }
-    
+}
 }
 
 - (IBAction)customerNameSelect:(id)sender {

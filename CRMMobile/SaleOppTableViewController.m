@@ -71,6 +71,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"销售机会";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
@@ -95,7 +96,7 @@
 - (IBAction)addSaleOpp:(id)sender
 {
     AddSaleOppViewController *addSaleOpp= [[AddSaleOppViewController alloc] init];
-    [self.navigationController pushViewController: addSaleOpp animated:YES];
+    [self.navigationController pushViewController:addSaleOpp animated:NO];
 }
 
 - (void)setupRefresh
@@ -146,7 +147,7 @@
     SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
     DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
     [detailSallOpp setSaleOppEntity:saleOppEntity];
-    [self.navigationController pushViewController:detailSallOpp animated:NO];
+    [self.navigationController pushViewController:detailSallOpp animated:YES];
 }
 
 
@@ -175,7 +176,7 @@
     NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
      NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
     [cell.detailTextLabel setText:detailText];
-    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
 
     
     

@@ -44,6 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];
+    self.title=@"任务跟踪";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -167,7 +168,7 @@
     NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:testDetail];
-    [cell.imageView setImage:[UIImage imageNamed:@"image.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

@@ -153,7 +153,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"arrow-left"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -216,7 +216,7 @@
         [_saleOppEntity setCustomerNameStr:customerName1 ];
         AddSaleOppViewController *addSaleOpp=[[AddSaleOppViewController alloc]init];
         [addSaleOpp setSaleOppEntity:_saleOppEntity];
-        [self.navigationController pushViewController:addSaleOpp animated:YES];
+        [self.navigationController pushViewController:addSaleOpp animated:NO];
     }else if([_saleOppEntity.index isEqualToString:@"editSaleOpp"]){   //修改销售机会中添加客户名称
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];

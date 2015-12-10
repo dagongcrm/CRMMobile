@@ -42,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.tableView.tableFooterView=[[UIView alloc] init];
 }
 

@@ -210,7 +210,7 @@
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"" stringByAppendingString:self.detail[indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 
