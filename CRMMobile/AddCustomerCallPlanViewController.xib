@@ -7,15 +7,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCustomerCallPlanViewController">
             <connections>
                 <outlet property="accessMethod" destination="tsK-qj-mWy" id="eTe-8i-S2p"/>
-                <outlet property="address" destination="C87-RZ-xPg" id="4nu-sb-Hdd"/>
+                <outlet property="address" destination="IWy-fz-c34" id="DPU-JH-0BK"/>
                 <outlet property="customerChange" destination="3qp-xA-Tk2" id="oLX-qx-p9u"/>
                 <outlet property="customerRequirements" destination="kGS-qB-io9" id="eT1-us-7Qg"/>
                 <outlet property="khmc" destination="72X-3N-0VR" id="ZG2-HT-EqM"/>
-                <outlet property="respondent" destination="UzY-2P-eir" id="YkC-Z4-y3E"/>
+                <outlet property="respondent" destination="r87-gV-BZN" id="7WI-Aj-HJh"/>
                 <outlet property="respondentPhone" destination="lsT-hO-DWM" id="asO-yv-Gc9"/>
                 <outlet property="result" destination="sHk-Y7-y1p" id="oJp-z1-7XR"/>
                 <outlet property="scroll" destination="eMq-Qv-9vj" id="WGH-Eq-NjV"/>
-                <outlet property="theme" destination="Qva-kT-6FQ" id="rEM-SB-RGL"/>
+                <outlet property="theme" destination="WOs-LH-SeD" id="upR-io-9ph"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="visitDate" destination="AbX-B8-zFU" id="qbz-oH-bGA"/>
                 <outlet property="visitProfile" destination="UWr-tv-Xp7" id="B8q-eS-DrN"/>
@@ -55,11 +55,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qva-kT-6FQ">
-                            <rect key="frame" x="119" y="84" width="205" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="拜访时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-Vn-qGk">
                             <rect key="frame" x="31" y="140" width="73" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -67,18 +62,32 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AbX-B8-zFU">
-                            <rect key="frame" x="119" y="136" width="205" height="30"/>
+                            <rect key="frame" x="119" y="133" width="205" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu3-sc-IzR">
+                            <rect key="frame" x="119" y="133" width="205" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectDate:" destination="-1" eventType="touchUpInside" id="OGP-BU-DWG"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="访问方式:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-Dk-vK2">
                             <rect key="frame" x="31" y="192" width="73" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAT-Ap-7Fq">
+                            <rect key="frame" x="119" y="184" width="205" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsK-qj-mWy">
-                            <rect key="frame" x="125" y="183" width="183" height="30"/>
+                            <rect key="frame" x="119" y="184" width="205" height="30"/>
                             <state key="normal" title="请选择访问方式">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -99,7 +108,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsT-hO-DWM">
-                            <rect key="frame" x="120" y="228" width="205" height="30"/>
+                            <rect key="frame" x="120" y="235" width="205" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -109,11 +118,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzY-2P-eir">
-                            <rect key="frame" x="119" y="287" width="205" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="受访人地" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhT-zG-Xxw">
                             <rect key="frame" x="31" y="344" width="92" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -126,11 +130,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C87-RZ-xPg">
-                            <rect key="frame" x="119" y="344" width="205" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="拜访概要:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-F1-Otb">
                             <rect key="frame" x="31" y="409" width="80" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -176,12 +175,38 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-ve-soX">
-                            <rect key="frame" x="156" y="629" width="46" height="30"/>
+                            <rect key="frame" x="225" y="629" width="46" height="30"/>
                             <state key="normal" title="保存">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="add:" destination="-1" eventType="touchUpInside" id="rLW-Ql-UjO"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-LH-SeD">
+                            <rect key="frame" x="120" y="79" width="205" height="42"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWy-fz-c34">
+                            <rect key="frame" x="120" y="340" width="205" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r87-gV-BZN">
+                            <rect key="frame" x="119" y="288" width="205" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFp-Fo-Een">
+                            <rect key="frame" x="101" y="629" width="46" height="30"/>
+                            <state key="normal" title="取消">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="TIJ-b5-OVZ"/>
                             </connections>
                         </button>
                     </subviews>

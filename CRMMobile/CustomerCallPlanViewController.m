@@ -5,6 +5,7 @@
 //  Created by yd on 15/11/17.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
+#import "CRMTableViewController.h"
 #import "IndexViewController.h"
 #import "GLReusableViewController.h"
 #import "UIImage+Tint.h"
@@ -51,14 +52,19 @@
     self.uid=[NSMutableArray array];
     
     //添加图标
-    [self addPage];
+//    [self addPage];
     
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addUser:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
+    [self setExtraCellLineHidden:self.tableView];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
@@ -78,13 +84,17 @@
 {
     for (UIViewController *controller in self.navigationController.viewControllers)
     {
-        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        if ([controller isKindOfClass:[CRMTableViewController class]])
         {
             [self.navigationController popToViewController:controller animated:YES];
         }
     }
 }
-
+- (IBAction)addUser:(id)sender
+{
+    AddCustomerCallPlanViewController *addCustomer = [[AddCustomerCallPlanViewController alloc] init];
+    [self.navigationController pushViewController: addCustomer animated:true];
+}
 
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
@@ -168,7 +178,7 @@
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -300,25 +310,7 @@
 }
 
 
-//跳转至添加页面
--(void) addPage{
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addCustomerCallPlan:)];
-    self.navigationItem.leftBarButtonItem = rightAdd;
-    [self setExtraCellLineHidden:self.tableView];
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
-    
-}
 
-- (IBAction)addCustomerCallPlan:(id)sender
-{
-    AddCustomerCallPlanViewController *jumpController = [[AddCustomerCallPlanViewController alloc] init];
-    [self.navigationController pushViewController: jumpController animated:true];
-    
-}
 
 -(void)setExtraCellLineHidden: (UITableView *)tableView
 {

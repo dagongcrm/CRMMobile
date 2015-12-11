@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
         
     [super viewDidLoad];
-    
+    self.title=@"通知";
     [self reloadData];
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];

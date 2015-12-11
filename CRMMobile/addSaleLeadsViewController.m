@@ -91,6 +91,14 @@
 */
 
 - (IBAction)save:(id)sender {
+    //验证
+    if(_customerName.text.length==0||_leadsAdd.text.length==0){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+
+    
+    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -128,7 +136,7 @@
         [alert show];
         
     }
-
+    }
 }
 
 - (IBAction)cancel:(id)sender {

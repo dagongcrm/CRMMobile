@@ -500,7 +500,6 @@
 
 
 
-
 //添加
 - (IBAction)add:(id)sender {
     NSString *hy=@"";   //所属行业
@@ -519,11 +518,16 @@
     for (int i=0; i<[self.selectSFIdForParam count]; i++) {
         sf = [self.selectSFIdForParam objectAtIndex:i];
     }
-    
     NSString *cn=[_customerName text];
     NSString *ca=[_CustomerAddress text];
     NSString *p=[_Phone text];
-    
+    //验证
+    if (_customerName.text.length==0||_CustomerAddress.text.length==0||_Phone.text.length==0||hy.length==0||qylx.length==0||khlb.length==0||sf.length==0) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+
+    }else{    
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
@@ -556,7 +560,7 @@
         [alert show];
         
     }
-    
+    }
 }
 
 - (void)viewDidLoad {
@@ -585,15 +589,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

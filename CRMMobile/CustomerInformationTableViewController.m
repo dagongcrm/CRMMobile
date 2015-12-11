@@ -135,7 +135,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
-    [cell.imageView setImage:[UIImage imageNamed:@"kee11"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
     NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     return cell;

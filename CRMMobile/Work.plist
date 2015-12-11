@@ -6,7 +6,7 @@
                 <key>Name</key>
                 <string>工作报告</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>work-1.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/iapps</string>
                 <key>Category</key>
@@ -22,7 +22,7 @@
                 <key>Name</key>
                 <string>任务提交</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>work-2.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/appleus</string>
                 <key>Favorite</key>
@@ -38,7 +38,7 @@
                 <key>Name</key>
                 <string>任务审核</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>work-3.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/gx110</string>
                 <key>Favorite</key>
@@ -54,7 +54,7 @@
                 <key>Name</key>
                 <string>任务跟踪</string>
                 <key>Image</key>
-                <string>home-black.png</string>
+                <string>work-4.png</string>
                 <key>WebSite</key>
                 <string>http://weibo.com/kaifulee</string>
                 <key>Favorite</key>
