@@ -14,6 +14,7 @@
 #import "EditPlanViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "HZQDatePickerView.h"
 @interface EditPlanViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -27,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;
+- (IBAction)cancel:(id)sender;
+- (IBAction)selectDate:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
 @property (weak, nonatomic) IBOutlet UIButton *accessMethod;
@@ -37,6 +40,7 @@
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSForShow; // 拜访方式
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSIdForParam;//拜访方式编号
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
+@property (strong, nonatomic) HZQDatePickerView *pikerView;
 @end
 
 @implementation EditPlanViewController
@@ -118,7 +122,11 @@
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-    
+    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else{
     
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -137,13 +145,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
-        //        for (UIViewController *controller in self.navigationController.viewControllers)
-        //        {
-        //            if ([controller isKindOfClass:[CustomerCallPlanEditViewController class]])
-        //            {
-        //                [self.navigationController popToViewController:controller animated:YES];
-        //            }
-        //        }
+        
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -151,7 +153,7 @@
         
     }
     
-    
+    }
     
 }
 
@@ -277,6 +279,37 @@
     
 }
 
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
+
+- (IBAction)selectDate:(id)sender {
+    _pikerView = [HZQDatePickerView instanceDatePickerView];
+    //        _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    DateType type ;
+    [_pikerView setBackgroundColor:[UIColor clearColor]];
+    _pikerView.delegate = self;
+    _pikerView.type = type;
+    [_pikerView.datePickerView setMinimumDate:[NSDate date]];
+    
+    [self.view addSubview:_pikerView];
+}
+
+- (void)getSelectDate:(NSString *)date type:(DateType)type {
+    NSLog(@"%d - %@", type, date);
+    self.visitDate.text = [NSString stringWithFormat:@"%@", date];
+}
+
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[VisitPlanTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
 @end
 
 

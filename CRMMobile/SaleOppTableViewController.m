@@ -173,10 +173,10 @@
     
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
-    [cell.detailTextLabel setText:detailText];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+//    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
+//     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
+//    [cell.detailTextLabel setText:detailText];
+    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
 
     
     

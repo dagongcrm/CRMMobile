@@ -225,15 +225,24 @@
         EditSaleOppViewController *editSaleOpp=[[EditSaleOppViewController alloc]init];
         [editSaleOpp setSaleOppEntity:_saleOppEntity];
         [self.navigationController pushViewController:editSaleOpp animated:YES];
-    }else if([_saleOppEntity.index isEqualToString:@"addSaleLeads"]){   //添加销售线索中添加客户名称
+    }else if([_saleLeads.index isEqualToString:@"addSaleLeads"]){   //添加销售线索中添加客户名称
         NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
         NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
-        [_saleOppEntity setCustomerName:customerID ];
-        [_saleOppEntity setCustomerNameStr:customerName1 ];
+        [_saleLeads setCustomerID:customerID ];
+        [_saleLeads setCustomerNameStr:customerName1 ];
         addSaleLeadsViewController *addSaleLeads = [[addSaleLeadsViewController alloc] init];
-        [addSaleLeads setSaleOppEntity:_saleOppEntity];
+        [addSaleLeads setSaleLeads:_saleLeads];
+        [self.navigationController pushViewController:addSaleLeads animated:YES];
+    }else if([_saleLeads.index isEqualToString:@"editSaleLeads"]){   //添加销售线索中添加客户名称
+        NSString *customerName1=[self.fakeData objectAtIndex:indexPath.row];
+        NSString *customerID = [self.customerIDData objectAtIndex:indexPath.row];
+        [_saleLeads setCustomerID:customerID ];
+        [_saleLeads setCustomerNameStr:customerName1 ];
+        addSaleLeadsViewController *addSaleLeads = [[addSaleLeadsViewController alloc] init];
+        [addSaleLeads setSaleLeads:_saleLeads];
         [self.navigationController pushViewController:addSaleLeads animated:YES];
     }
+
 }
 
 

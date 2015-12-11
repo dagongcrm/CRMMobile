@@ -82,7 +82,7 @@
     
     self.selectSFForShow=[[NSMutableArray alloc] init];
     self.selectSFIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
     listView.titleName.text = @"请选择对应的省份";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -125,7 +125,7 @@
     
     self.selectKHLBForShow=[[NSMutableArray alloc] init];
     self.selectKHLBIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -163,7 +163,7 @@
     
     self.selectHYForShow=[[NSMutableArray alloc] init];
     self.selectHYIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -205,7 +205,7 @@
     
     self.selectQYLXForShow=[[NSMutableArray alloc] init];
     self.selectQYLXIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"企业类型选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -278,6 +278,130 @@
     }
 //    return [_selectHY count];
 }
+
+
+//single choose
+- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 25;
+}
+
+- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+    if (nil == cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    }
+    if ([_select isEqualToString:@"HY"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectHY[indexPath.row];
+        return cell;
+    }else if([_select isEqualToString:@"QYLX"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectQYLX[indexPath.row];
+        return cell;
+    }else if([_select isEqualToString:@"KHLB"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectKHLB[indexPath.row];
+        return cell;
+    }else if([_select isEqualToString:@"SF"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectSF[indexPath.row];
+        return cell;
+    }else{
+        return nil;
+    }
+    
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
+    [self.selectHYIdForParam removeObject:[self.selectHYId objectAtIndex:indexPath.row]];
+    [self buttonInputLabel:tableView];
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedIndexPath = indexPath;
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    if ([_select isEqualToString:@"HY"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
+        [self.selectHYIdForParam removeObject:[self.selectHYId objectAtIndex:indexPath.row]];
+        [self.selectHYForShow    addObject:[self.selectHY   objectAtIndex:indexPath.row]];
+        [self.selectHYIdForParam addObject:[self.selectHYId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectHYIdForParam%@",self.selectHYIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"QYLX"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectQYLXForShow    removeObject:[self.selectQYLX   objectAtIndex:indexPath.row]];
+        [self.selectQYLXIdForParam removeObject:[self.selectQYLXId objectAtIndex:indexPath.row]];
+        [self.selectQYLXForShow    addObject:[self.selectQYLX   objectAtIndex:indexPath.row]];
+        [self.selectQYLXIdForParam addObject:[self.selectQYLXId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectQYLXIdForParam%@",self.selectQYLXIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"KHLB"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectKHLBForShow    removeObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
+        [self.selectKHLBIdForParam removeObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
+        [self.selectKHLBForShow    addObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
+        [self.selectKHLBIdForParam addObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectKHLBIdForParam%@",self.selectKHLBIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"SF"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectSFForShow    removeObject:[self.selectSF   objectAtIndex:indexPath.row]];
+        [self.selectSFIdForParam removeObject:[self.selectSFId objectAtIndex:indexPath.row]];
+        [self.selectSFForShow    addObject:[self.selectSF   objectAtIndex:indexPath.row]];
+        [self.selectSFIdForParam addObject:[self.selectSFId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectSFIdForParam%@",self.selectSFIdForParam);
+        [self buttonInputLabel:tableView];
+    }
+    
+
+}
+
+
+
+
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

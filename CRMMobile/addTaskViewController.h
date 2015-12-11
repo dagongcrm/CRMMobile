@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ZSYPopoverListView.h"
 #import "selectEntity.h"
+#import "ZSYPopoverListViewSingle.h"
 
-@interface addTaskViewController : UIViewController<ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
+@interface addTaskViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
     NSArray *nextArray;
 }
 @property (retain ,nonatomic)       selectEntity *roleEntity;
