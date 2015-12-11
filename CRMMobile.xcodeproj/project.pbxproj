@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
+		1FE070201C1978BC00A2A30D /* detailSaleLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0701E1C1978BC00A2A30D /* detailSaleLeadsViewController.m */; };
+		1FE070211C1978BC00A2A30D /* detailSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE0701F1C1978BC00A2A30D /* detailSaleLeadsViewController.xib */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */; };
 		1FEF620C1C16ABED00E6F4BF /* MarketManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF620A1C16ABED00E6F4BF /* MarketManagementViewController.xib */; };
@@ -275,6 +277,9 @@
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
 		1FDC1B6B1BFD9B4D008B50A3 /* selectEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectEntity.h; sourceTree = "<group>"; };
 		1FDC1B6C1BFD9B4D008B50A3 /* selectEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectEntity.m; sourceTree = "<group>"; };
+		1FE0701D1C1978BC00A2A30D /* detailSaleLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailSaleLeadsViewController.h; sourceTree = "<group>"; };
+		1FE0701E1C1978BC00A2A30D /* detailSaleLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailSaleLeadsViewController.m; sourceTree = "<group>"; };
+		1FE0701F1C1978BC00A2A30D /* detailSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailSaleLeadsViewController.xib; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FEF62081C16ABED00E6F4BF /* MarketManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketManagementViewController.h; sourceTree = "<group>"; };
@@ -788,6 +793,9 @@
 			children = (
 				1FEF62591C16AEFE00E6F4BF /* addSaleLeadsViewController.h */,
 				1FEF625A1C16AEFE00E6F4BF /* addSaleLeadsViewController.m */,
+				1FE0701D1C1978BC00A2A30D /* detailSaleLeadsViewController.h */,
+				1FE0701E1C1978BC00A2A30D /* detailSaleLeadsViewController.m */,
+				1FE0701F1C1978BC00A2A30D /* detailSaleLeadsViewController.xib */,
 				1FEF625B1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib */,
 				1FEF62541C16AED200E6F4BF /* saleLeadsTableViewController.h */,
 				1FEF62551C16AED200E6F4BF /* saleLeadsTableViewController.m */,
@@ -1708,6 +1716,7 @@
 				C0D3CD631BDF0CEF00C23FB3 /* 8.png in Resources */,
 				1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */,
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
+				1FE070211C1978BC00A2A30D /* detailSaleLeadsViewController.xib in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
 				39F798BD1C05DBD1000D9A20 /* CustomerCallPlanEditViewController.xib in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
@@ -1901,6 +1910,7 @@
 				1FEF62761C16AFC900E6F4BF /* marketActivity.m in Sources */,
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
 				39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */,
+				1FE070201C1978BC00A2A30D /* detailSaleLeadsViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				39F7983F1C05D29B000D9A20 /* GLReusableViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,

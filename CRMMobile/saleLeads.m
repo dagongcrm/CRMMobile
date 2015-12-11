@@ -14,7 +14,14 @@
 
 @synthesize customerNameStr;
 
-@synthesize customerLeads;
+@synthesize saleClueID;
+
+@synthesize userID;
+
+@synthesize creatingTime;
+
 @synthesize index;
+
+@synthesize salesLeads;
 
 @end
