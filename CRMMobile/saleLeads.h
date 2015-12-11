@@ -10,6 +10,7 @@
 
 @interface saleLeads : NSObject
 
+
 @property (strong,nonatomic) NSString *customerID;
 
 @property (strong,nonatomic) NSString *customerNameStr;
