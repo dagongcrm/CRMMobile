@@ -36,9 +36,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     if([[[NSUserDefaults alloc] init] objectForKey:@"taskTableDateSource"]){
-    self.refreshOrNot=@"NO";
+        self.refreshOrNot=@"NO";
     }else{
-    self.refreshOrNot=@"YES";
+        self.refreshOrNot=@"YES";
     }
 }
 
@@ -66,24 +66,24 @@
     }
     
     if([self.refreshOrNot isEqualToString:@"YES"]){
-    if (!_fakeData) {
-        self.callRecordsID = [[NSMutableArray alloc]init];
-        self.fakeData = [[NSMutableArray alloc]init];
-        self.visitDate = [[NSMutableArray alloc]init];
-        self.theme = [[NSMutableArray alloc]init];
-        self.accessMethodStr = [[NSMutableArray alloc]init];
-        self.mainContent = [[NSMutableArray alloc]init];
-        self.respondentPhone = [[NSMutableArray alloc]init];
-        self.respondent= [[NSMutableArray alloc]init];
-        self.address = [[NSMutableArray alloc]init];
-        self.visitProfile = [[NSMutableArray alloc]init];
-        self.result = [[NSMutableArray alloc]init];
-        self.customerRequirements = [[NSMutableArray alloc]init];
-        self.customerChange = [[NSMutableArray alloc]init];
-        self.visitor = [[NSMutableArray alloc]init];
-        [self faker:@"1"];
-        [self faker:@"2"];
-    }
+        if (!_fakeData) {
+            self.callRecordsID = [[NSMutableArray alloc]init];
+            self.fakeData = [[NSMutableArray alloc]init];
+            self.visitDate = [[NSMutableArray alloc]init];
+            self.theme = [[NSMutableArray alloc]init];
+            self.accessMethodStr = [[NSMutableArray alloc]init];
+            self.mainContent = [[NSMutableArray alloc]init];
+            self.respondentPhone = [[NSMutableArray alloc]init];
+            self.respondent= [[NSMutableArray alloc]init];
+            self.address = [[NSMutableArray alloc]init];
+            self.visitProfile = [[NSMutableArray alloc]init];
+            self.result = [[NSMutableArray alloc]init];
+            self.customerRequirements = [[NSMutableArray alloc]init];
+            self.customerChange = [[NSMutableArray alloc]init];
+            self.visitor = [[NSMutableArray alloc]init];
+            [self faker:@"1"];
+            [self faker:@"2"];
+        }
     }
     return _fakeData;
 }
@@ -91,7 +91,7 @@
     [super viewDidLoad];
     self.title=@"拜访记录";
     [self setupRefresh];
-  }
+}
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -100,10 +100,10 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"visitDate";
+    NSString *sort = @"time";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-     NSError *error;
+    NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSArray *list = [weatherDic objectForKey:@"obj"];
@@ -135,45 +135,45 @@
         if(teamname.length==0){
             teamname=@"";
         }
-                if (teamname1.length==0) {
-                    teamname1=@" ";
-                }
-                if (teamname2.length==0) {
-                    teamname2=@" ";
-                }
-                if (teamname3.length==0) {
-                    teamname3=@" ";
-                }
-                if (teamname4.length==0) {
-                    teamname4=@" ";
-                }
-                if (teamname5.length==0) {
-                    teamname5=@" ";
-                }
-                if (teamname6.length==0) {
-                    teamname6=@" ";
-                }
-                if (teamname7.length==0) {
-                    teamname7=@" ";
-                }
-                if (teamname8.length==0) {
-                    teamname8=@" ";
-                }
-                if (teamname9.length==0) {
-                    teamname9=@" ";
-                }
-                if (teamname10.length==0) {
-                    teamname10=@" ";
-                }
-                if (teamname11.length==0) {
-                    teamname11=@" ";
-                }
-                if (teamname12.length==0) {
-                    teamname12=@" ";
-                }
-                if (teamname13.length==0) {
-                    teamname13=@" ";
-                }
+        if (teamname1.length==0) {
+            teamname1=@" ";
+        }
+        if (teamname2.length==0) {
+            teamname2=@" ";
+        }
+        if (teamname3.length==0) {
+            teamname3=@" ";
+        }
+        if (teamname4.length==0) {
+            teamname4=@" ";
+        }
+        if (teamname5.length==0) {
+            teamname5=@" ";
+        }
+        if (teamname6.length==0) {
+            teamname6=@" ";
+        }
+        if (teamname7.length==0) {
+            teamname7=@" ";
+        }
+        if (teamname8.length==0) {
+            teamname8=@" ";
+        }
+        if (teamname9.length==0) {
+            teamname9=@" ";
+        }
+        if (teamname10.length==0) {
+            teamname10=@" ";
+        }
+        if (teamname11.length==0) {
+            teamname11=@" ";
+        }
+        if (teamname12.length==0) {
+            teamname12=@" ";
+        }
+        if (teamname13.length==0) {
+            teamname13=@" ";
+        }
         [self.callRecordsID addObject:teamname];
         [self.fakeData addObject:teamname1];
         [self.visitDate addObject:teamname2];
@@ -190,7 +190,7 @@
         [self.visitorAttributionStr addObject:teamname13];
         [self.visitor addObject:teamname14];
     }
-
+    
     NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
                                      self.callRecordsID,@"callRecordsID",
                                      self.fakeData,@"fakeData",
@@ -226,7 +226,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
@@ -251,7 +251,7 @@
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

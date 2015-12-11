@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *address;
 
 
+- (IBAction)cancel:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;    //受访人电话
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;    //受访人员
@@ -299,4 +300,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
 @end

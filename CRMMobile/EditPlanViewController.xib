@@ -183,12 +183,21 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsG-zC-Jch">
-                            <rect key="frame" x="144" y="662" width="46" height="30"/>
+                            <rect key="frame" x="198" y="657" width="46" height="30"/>
                             <state key="normal" title="保存">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="rOL-nW-fTC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5j-bt-FkT">
+                            <rect key="frame" x="100" y="657" width="46" height="30"/>
+                            <state key="normal" title="取消">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="Wvp-x5-aZn"/>
                             </connections>
                         </button>
                     </subviews>

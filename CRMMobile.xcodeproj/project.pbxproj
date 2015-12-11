@@ -54,13 +54,6 @@
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
-		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
-		39E729EF1C0697A50050D77F /* editTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E729E31C0697A50050D77F /* editTaskViewController.xib */; };
-		39E729F01C0697A50050D77F /* addTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E51C0697A50050D77F /* addTaskViewController.m */; };
-		39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E729E61C0697A50050D77F /* addTaskViewController.xib */; };
-		39E729F21C0697A50050D77F /* SubmitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E81C0697A50050D77F /* SubmitTableViewController.m */; };
-		39E729F31C0697A50050D77F /* submitTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729EA1C0697A50050D77F /* submitTaskDetailViewController.m */; };
-		39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E729EB1C0697A50050D77F /* submitTaskDetailViewController.xib */; };
 		39E729F51C0697A50050D77F /* options.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729ED1C0697A50050D77F /* options.m */; };
 		39E729F91C0697C80050D77F /* submitTaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729F71C0697C80050D77F /* submitTaskEntity.m */; };
 		39E729FA1C0697C80050D77F /* submitTaskEntity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E729F81C0697C80050D77F /* submitTaskEntity.xib */; };
@@ -206,6 +199,13 @@
 		B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD851C1936E300865E7C /* ReminderTableViewController.xib */; };
 		B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD891C1948D600865E7C /* VisitPlanTableViewController.m */; };
 		B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD8A1C1948D600865E7C /* VisitPlanTableViewController.xib */; };
+		B8FA064B1C1AA90F00440EE3 /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06411C1AA90F00440EE3 /* editTaskViewController.m */; };
+		B8FA064C1C1AA90F00440EE3 /* editTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA06421C1AA90F00440EE3 /* editTaskViewController.xib */; };
+		B8FA064D1C1AA90F00440EE3 /* addTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06441C1AA90F00440EE3 /* addTaskViewController.m */; };
+		B8FA064E1C1AA90F00440EE3 /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA06451C1AA90F00440EE3 /* addTaskViewController.xib */; };
+		B8FA064F1C1AA90F00440EE3 /* SubmitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06471C1AA90F00440EE3 /* SubmitTableViewController.m */; };
+		B8FA06501C1AA90F00440EE3 /* submitTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06491C1AA90F00440EE3 /* submitTaskDetailViewController.m */; };
+		B8FA06511C1AA90F00440EE3 /* submitTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA064A1C1AA90F00440EE3 /* submitTaskDetailViewController.xib */; };
 		C0B8D6951C06F2A20051367D /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = C0B8D6941C06F2A20051367D /* business.png */; };
 		C0C484231C1818AF00B142BC /* ZSYPopoverListViewSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */; };
 		C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
@@ -347,17 +347,6 @@
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
-		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
-		39E729E21C0697A50050D77F /* editTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editTaskViewController.m; sourceTree = "<group>"; };
-		39E729E31C0697A50050D77F /* editTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = editTaskViewController.xib; sourceTree = "<group>"; };
-		39E729E41C0697A50050D77F /* addTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addTaskViewController.h; sourceTree = "<group>"; };
-		39E729E51C0697A50050D77F /* addTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addTaskViewController.m; sourceTree = "<group>"; };
-		39E729E61C0697A50050D77F /* addTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
-		39E729E71C0697A50050D77F /* SubmitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitTableViewController.h; sourceTree = "<group>"; };
-		39E729E81C0697A50050D77F /* SubmitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitTableViewController.m; sourceTree = "<group>"; };
-		39E729E91C0697A50050D77F /* submitTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitTaskDetailViewController.h; sourceTree = "<group>"; };
-		39E729EA1C0697A50050D77F /* submitTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitTaskDetailViewController.m; sourceTree = "<group>"; };
-		39E729EB1C0697A50050D77F /* submitTaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitTaskDetailViewController.xib; sourceTree = "<group>"; };
 		39E729EC1C0697A50050D77F /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
 		39E729ED1C0697A50050D77F /* options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = options.m; sourceTree = "<group>"; };
 		39E729F61C0697C80050D77F /* submitTaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitTaskEntity.h; sourceTree = "<group>"; };
@@ -599,6 +588,17 @@
 		B8EDAD881C1948D600865E7C /* VisitPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitPlanTableViewController.h; sourceTree = "<group>"; };
 		B8EDAD891C1948D600865E7C /* VisitPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanTableViewController.m; sourceTree = "<group>"; };
 		B8EDAD8A1C1948D600865E7C /* VisitPlanTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitPlanTableViewController.xib; sourceTree = "<group>"; };
+		B8FA06401C1AA90F00440EE3 /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
+		B8FA06411C1AA90F00440EE3 /* editTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editTaskViewController.m; sourceTree = "<group>"; };
+		B8FA06421C1AA90F00440EE3 /* editTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = editTaskViewController.xib; sourceTree = "<group>"; };
+		B8FA06431C1AA90F00440EE3 /* addTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addTaskViewController.h; sourceTree = "<group>"; };
+		B8FA06441C1AA90F00440EE3 /* addTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addTaskViewController.m; sourceTree = "<group>"; };
+		B8FA06451C1AA90F00440EE3 /* addTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
+		B8FA06461C1AA90F00440EE3 /* SubmitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitTableViewController.h; sourceTree = "<group>"; };
+		B8FA06471C1AA90F00440EE3 /* SubmitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitTableViewController.m; sourceTree = "<group>"; };
+		B8FA06481C1AA90F00440EE3 /* submitTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitTaskDetailViewController.h; sourceTree = "<group>"; };
+		B8FA06491C1AA90F00440EE3 /* submitTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitTaskDetailViewController.m; sourceTree = "<group>"; };
+		B8FA064A1C1AA90F00440EE3 /* submitTaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitTaskDetailViewController.xib; sourceTree = "<group>"; };
 		C0B8D6941C06F2A20051367D /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
 		C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListViewSingle.h; sourceTree = "<group>"; };
 		C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListViewSingle.m; sourceTree = "<group>"; };
@@ -700,18 +700,17 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
-				1FFA8B1C1C17DCBF0000616A /* New Group */,
-				39E729E11C0697A50050D77F /* editTaskViewController.h */,
-				39E729E21C0697A50050D77F /* editTaskViewController.m */,
-				39E729E31C0697A50050D77F /* editTaskViewController.xib */,
-				39E729E41C0697A50050D77F /* addTaskViewController.h */,
-				39E729E51C0697A50050D77F /* addTaskViewController.m */,
-				39E729E61C0697A50050D77F /* addTaskViewController.xib */,
-				39E729E71C0697A50050D77F /* SubmitTableViewController.h */,
-				39E729E81C0697A50050D77F /* SubmitTableViewController.m */,
-				39E729E91C0697A50050D77F /* submitTaskDetailViewController.h */,
-				39E729EA1C0697A50050D77F /* submitTaskDetailViewController.m */,
-				39E729EB1C0697A50050D77F /* submitTaskDetailViewController.xib */,
+				B8FA06401C1AA90F00440EE3 /* editTaskViewController.h */,
+				B8FA06411C1AA90F00440EE3 /* editTaskViewController.m */,
+				B8FA06421C1AA90F00440EE3 /* editTaskViewController.xib */,
+				B8FA06431C1AA90F00440EE3 /* addTaskViewController.h */,
+				B8FA06441C1AA90F00440EE3 /* addTaskViewController.m */,
+				B8FA06451C1AA90F00440EE3 /* addTaskViewController.xib */,
+				B8FA06461C1AA90F00440EE3 /* SubmitTableViewController.h */,
+				B8FA06471C1AA90F00440EE3 /* SubmitTableViewController.m */,
+				B8FA06481C1AA90F00440EE3 /* submitTaskDetailViewController.h */,
+				B8FA06491C1AA90F00440EE3 /* submitTaskDetailViewController.m */,
+				B8FA064A1C1AA90F00440EE3 /* submitTaskDetailViewController.xib */,
 				39E729EC1C0697A50050D77F /* options.h */,
 				39E729ED1C0697A50050D77F /* options.m */,
 				39E876A01C03087F00BF6808 /* Entity */,
@@ -837,13 +836,6 @@
 				1FEF62961C16B57000E6F4BF /* 16.JPG */,
 			);
 			name = option;
-			sourceTree = "<group>";
-		};
-		1FFA8B1C1C17DCBF0000616A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		39E8765F1C02FF0B00BF6808 /* crm */ = {
@@ -1734,7 +1726,6 @@
 				39F797881C05CF58000D9A20 /* CustomerInformationEditViewController.xib in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				1FEF62981C16B57000E6F4BF /* 12.JPG in Resources */,
-				39E729EF1C0697A50050D77F /* editTaskViewController.xib in Resources */,
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
@@ -1773,9 +1764,9 @@
 				C0D3CD751BDF0CEF00C23FB3 /* 26.png in Resources */,
 				C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */,
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
-				39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
 				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
+				B8FA064E1C1AA90F00440EE3 /* addTaskViewController.xib in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
@@ -1812,12 +1803,13 @@
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
-				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
 				39F7987C1C05D35E000D9A20 /* TaskRecordsTableViewController.xib in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
 				39F7986C1C05D335000D9A20 /* EditPlanViewController.xib in Resources */,
+				B8FA06511C1AA90F00440EE3 /* submitTaskDetailViewController.xib in Resources */,
 				1FEF628E1C16B42500E6F4BF /* submit-1.png in Resources */,
 				B8EDAD731C19366300865E7C /* publicNoticeTableViewController.xib in Resources */,
+				B8FA064C1C1AA90F00440EE3 /* editTaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1894,14 +1886,15 @@
 				1FEF62571C16AED200E6F4BF /* saleLeadsTableViewController.m in Sources */,
 				39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */,
 				1FEF621E1C16AC3600E6F4BF /* PNChartLabel.m in Sources */,
-				39E729F31C0697A50050D77F /* submitTaskDetailViewController.m in Sources */,
 				B8EDAD7B1C19366300865E7C /* taskReminderTableViewController.m in Sources */,
 				1FEF62501C16AE4900E6F4BF /* MeEntity.m in Sources */,
 				39F797181C05CC50000D9A20 /* CustomercontactInfoController.m in Sources */,
 				39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */,
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
 				39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */,
+				B8FA064B1C1AA90F00440EE3 /* editTaskViewController.m in Sources */,
 				B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */,
+				B8FA064D1C1AA90F00440EE3 /* addTaskViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				39F798C41C05E2EF000D9A20 /* CustomerTableViewController.m in Sources */,
@@ -1913,6 +1906,7 @@
 				39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */,
 				C0E013191C0C2DCA006BBF97 /* Reachability.m in Sources */,
 				1FEF625C1C16AEFE00E6F4BF /* addSaleLeadsViewController.m in Sources */,
+				B8FA064F1C1AA90F00440EE3 /* SubmitTableViewController.m in Sources */,
 				C0D3CD881BDF0E8B00C23FB3 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				39F797F91C05D147000D9A20 /* WeekTableViewController.m in Sources */,
 				B8EDAD741C19366300865E7C /* marketActivity.m in Sources */,
@@ -1933,7 +1927,6 @@
 				1FEF62491C16AE0900E6F4BF /* MeMainTableViewController.m in Sources */,
 				39F797BD1C05D0E7000D9A20 /* auditDetailViewController.m in Sources */,
 				B8EDAD751C19366300865E7C /* NoticeViewController.m in Sources */,
-				39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */,
 				1FEF623F1C16ADDA00E6F4BF /* UIViewAdditions.m in Sources */,
 				39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */,
 				1FEF62511C16AE4900E6F4BF /* MeUser.m in Sources */,
@@ -1962,6 +1955,7 @@
 				B8EDAD541C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m in Sources */,
 				39E729F91C0697C80050D77F /* submitTaskEntity.m in Sources */,
 				B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */,
+				B8FA06501C1AA90F00440EE3 /* submitTaskDetailViewController.m in Sources */,
 				1FEF62471C16AE0900E6F4BF /* SettingTableViewController.m in Sources */,
 				39F798131C05D167000D9A20 /* TaskReportMonthEntity.m in Sources */,
 				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
@@ -1975,12 +1969,10 @@
 				39F797B31C05D0DF000D9A20 /* trackingTableViewController.m in Sources */,
 				C0D68C661BD8ED44009CEC23 /* LoginViewController.m in Sources */,
 				39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */,
-				39E729F01C0697A50050D77F /* addTaskViewController.m in Sources */,
 				96FAE25C1BEC73A900032BB3 /* HZQDatePickerView.m in Sources */,
 				39F7971C1C05CC50000D9A20 /* EditCustomerContactController.m in Sources */,
 				1FEF621C1C16AC3600E6F4BF /* PNBarChart.m in Sources */,
 				39F7980D1C05D15A000D9A20 /* ShowAndDeleteViewController.m in Sources */,
-				39E729F21C0697A50050D77F /* SubmitTableViewController.m in Sources */,
 				39E729F51C0697A50050D77F /* options.m in Sources */,
 				39F7980B1C05D15A000D9A20 /* MonthTableViewController.m in Sources */,
 				1FEF621D1C16AC3600E6F4BF /* PNChart.m in Sources */,

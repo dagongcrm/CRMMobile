@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;
+- (IBAction)cancel:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
 @property (weak, nonatomic) IBOutlet UIButton *accessMethod;
@@ -277,6 +278,19 @@
     
 }
 
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[VisitPlanTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
 @end
 
 

@@ -154,7 +154,7 @@
 //确认拜访
 - (IBAction)addCallRecords:(id)sender {
     UIAlertView *alertView1 = [[UIAlertView alloc]
-                              initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+                              initWithTitle:@"提示信息" message:@"是否 确认拜访？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
     [alertView1 show];
     
 }
