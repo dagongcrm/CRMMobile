@@ -252,11 +252,32 @@
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerRequirements.length==0) {
+    //时间验证
+//        NSDate *now = [NSDate date];
+//        NSString* string = @"visitDate";
+//        NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init ];
+//        [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ];
+//    
+//        [inputFormatter setDateFormat:@"EEE, d MMM yyyy "];
+//    
+//        NSDate* inputDate = [inputFormatter dateFromString:string];
+//        NSTimeInterval secondsPerDay = 24 * 60 * 60;
+//        NSLog(@"date = %@", inputDate);
+
+    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else{
+//    }
+//    else if(inputDate<now){
+//        if((inputDate<[now dateByAddingTimeInterval: -secondsPerDay])){
+//            UIAlertView *alertView = [[UIAlertView alloc]
+//                                      initWithTitle:@"温馨提示" message:@"计划时间不能小于当前时间！" delegate:self cancelButtonTitle:@"请重新填写" otherButtonTitles:nil];
+//            [alertView show];
+//        }
+
+    }
+    else{
 
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -342,7 +363,7 @@
 //            [alertView show];
 //        }
 //    }
-    
+
 //}
 
 - (void)didReceiveMemoryWarning {

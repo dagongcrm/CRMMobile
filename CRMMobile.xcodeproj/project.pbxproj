@@ -206,6 +206,8 @@
 		B8FA064F1C1AA90F00440EE3 /* SubmitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06471C1AA90F00440EE3 /* SubmitTableViewController.m */; };
 		B8FA06501C1AA90F00440EE3 /* submitTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06491C1AA90F00440EE3 /* submitTaskDetailViewController.m */; };
 		B8FA06511C1AA90F00440EE3 /* submitTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA064A1C1AA90F00440EE3 /* submitTaskDetailViewController.xib */; };
+		B8FA06551C1AB10800440EE3 /* detailSaleLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA06531C1AB10800440EE3 /* detailSaleLeadsViewController.m */; };
+		B8FA06561C1AB10800440EE3 /* detailSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FA06541C1AB10800440EE3 /* detailSaleLeadsViewController.xib */; };
 		C0B8D6951C06F2A20051367D /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = C0B8D6941C06F2A20051367D /* business.png */; };
 		C0C484231C1818AF00B142BC /* ZSYPopoverListViewSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */; };
 		C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */; };
@@ -599,6 +601,9 @@
 		B8FA06481C1AA90F00440EE3 /* submitTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitTaskDetailViewController.h; sourceTree = "<group>"; };
 		B8FA06491C1AA90F00440EE3 /* submitTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitTaskDetailViewController.m; sourceTree = "<group>"; };
 		B8FA064A1C1AA90F00440EE3 /* submitTaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitTaskDetailViewController.xib; sourceTree = "<group>"; };
+		B8FA06521C1AB10800440EE3 /* detailSaleLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailSaleLeadsViewController.h; sourceTree = "<group>"; };
+		B8FA06531C1AB10800440EE3 /* detailSaleLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailSaleLeadsViewController.m; sourceTree = "<group>"; };
+		B8FA06541C1AB10800440EE3 /* detailSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailSaleLeadsViewController.xib; sourceTree = "<group>"; };
 		C0B8D6941C06F2A20051367D /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
 		C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListViewSingle.h; sourceTree = "<group>"; };
 		C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListViewSingle.m; sourceTree = "<group>"; };
@@ -785,6 +790,9 @@
 		1FEF62521C16AE9E00E6F4BF /* saleLeads */ = {
 			isa = PBXGroup;
 			children = (
+				B8FA06521C1AB10800440EE3 /* detailSaleLeadsViewController.h */,
+				B8FA06531C1AB10800440EE3 /* detailSaleLeadsViewController.m */,
+				B8FA06541C1AB10800440EE3 /* detailSaleLeadsViewController.xib */,
 				1FEF62591C16AEFE00E6F4BF /* addSaleLeadsViewController.h */,
 				1FEF625A1C16AEFE00E6F4BF /* addSaleLeadsViewController.m */,
 				1FEF625B1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib */,
@@ -1700,6 +1708,7 @@
 				1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */,
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
+				B8FA06561C1AB10800440EE3 /* detailSaleLeadsViewController.xib in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
@@ -1893,6 +1902,7 @@
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
 				39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */,
 				B8FA064B1C1AA90F00440EE3 /* editTaskViewController.m in Sources */,
+				B8FA06551C1AB10800440EE3 /* detailSaleLeadsViewController.m in Sources */,
 				B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */,
 				B8FA064D1C1AA90F00440EE3 /* addTaskViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
