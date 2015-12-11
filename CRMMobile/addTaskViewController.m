@@ -304,6 +304,7 @@
 
 
 //single choose
+//single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 25;
@@ -325,14 +326,13 @@
     {
         cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     }
-    if ([self.judge isEqualToString:@"1"]) {
-        cell.textLabel.text = _selectUser[indexPath.row];
-    }
+        if ([self.judge isEqualToString:@"1"]) {
+            cell.textLabel.text = _selectUser[indexPath.row];
+        }
     
-    if ([self.judge isEqualToString:@"2"]) {
-        cell.textLabel.text = _selectUserQiYe[indexPath.row];
-    }
-
+        if ([self.judge isEqualToString:@"2"]) {
+            cell.textLabel.text = _selectUserQiYe[indexPath.row];
+        }
     return cell;
 }
 
@@ -341,42 +341,105 @@
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
     cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     NSLog(@"deselect:%ld", (long)indexPath.row);
-    self.selectedIndexPath = indexPath;
-    if ([self.judge isEqualToString:@"1"]) {
-        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-    }
-    if ([self.judge isEqualToString:@"2"]) {
-        [self.selectUserForShowQiYe    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-        [self.selectUserIdForParamQiYe addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-        
-    }
-    NSLog(@"%@",self.selectUserQiYe);
-    NSLog(@"%@",self.selectUser);
-    [self buttonInputLabel:tableView];
-    
 }
 
 - (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedIndexPath = indexPath;
-    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-    NSLog(@"select:%ld", (long)indexPath.row);
-    self.selectedIndexPath = indexPath;
-    if ([self.judge isEqualToString:@"1"]) {
-        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-    }
-    if ([self.judge isEqualToString:@"2"]) {
-        [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
-        [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
-        
-    }
-    [self buttonInputLabel:tableView];
+        self.selectedIndexPath = indexPath;
+        UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+        NSLog(@"select:%ld", (long)indexPath.row);
+        self.selectedIndexPath = indexPath;
+        if ([self.judge isEqualToString:@"1"]) {
+            [self.selectUserForShow removeAllObjects];
+            [self.selectUserIdForParam removeAllObjects];
+            [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
+            [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
+        }
+        if ([self.judge isEqualToString:@"2"]) {
+            [self.selectUserForShowQiYe removeAllObjects];
+            [self.selectUserIdForParamQiYe removeAllObjects];
+            [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
+            [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
+    
+        }
+        [self buttonInputLabel:tableView];
+
 }
 
-
+//- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return 25;
+//}
+//
+//- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *identifier = @"identifier";
+//    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+//    if (nil == cell)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+//    }
+//    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+//    {
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    }
+//    else
+//    {
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//    }
+//    if ([self.judge isEqualToString:@"1"]) {
+//        cell.textLabel.text = _selectUser[indexPath.row];
+//    }
+//    
+//    if ([self.judge isEqualToString:@"2"]) {
+//        cell.textLabel.text = _selectUserQiYe[indexPath.row];
+//    }
+//
+//    return cell;
+//}
+//
+//- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//    NSLog(@"deselect:%ld", (long)indexPath.row);
+//    self.selectedIndexPath = indexPath;
+//    if ([self.judge isEqualToString:@"1"]) {
+//        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
+//        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
+//    }
+//    if ([self.judge isEqualToString:@"2"]) {
+//        [self.selectUserForShowQiYe    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
+//        [self.selectUserIdForParamQiYe addObject:[self.selectUserId objectAtIndex:indexPath.row]];
+//        
+//    }
+//    NSLog(@"%@",self.selectUserQiYe);
+//    NSLog(@"%@",self.selectUser);
+//    [self buttonInputLabel:tableView];
+//    
+//}
+//
+//- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    self.selectedIndexPath = indexPath;
+//    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    NSLog(@"select:%ld", (long)indexPath.row);
+//    self.selectedIndexPath = indexPath;
+//    if ([self.judge isEqualToString:@"1"]) {
+//        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
+//        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
+//    }
+//    if ([self.judge isEqualToString:@"2"]) {
+//        [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
+//        [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
+//        
+//    }
+//    [self buttonInputLabel:tableView];
+//}
+//
+//
 
 
 

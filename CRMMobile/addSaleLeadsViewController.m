@@ -95,23 +95,27 @@
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:@""];
-    NSString *leadsAdd =_leadsAdd.text;
+    NSString *leadsAdd =_saleLeads.salesLeads;
+    NSString *leadsAdd1 =self.leadsAdd.text;
     NSString *customerName = _saleLeads.customerID;
     NSString *saleClubID = _saleLeads.saleClueID;
     NSString *creatingTime = _saleLeads.creatingTime;
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@",sid,customerName,leadsAdd];
+    NSString *customerNameStr = _saleLeads.customerNameStr;
+    NSLog(@"leadsAddleadsAddleadsAdd%@",leadsAdd);
+    NSLog(@"leadsAdd1leadsAdd1leadsAdd1%@",leadsAdd1);
+
+    NSString *param=@"";
     if (_saleLeads.index == @"addSaleLeads") {
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
+        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@",sid,customerName,customerNameStr,leadsAdd1];
     }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
-        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@",sid,customerName,leadsAdd,saleClubID,creatingTime];
+        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@",sid,customerName,customerNameStr,leadsAdd1,saleClubID,creatingTime];
     }
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSLog(@"%@",_saleOppEntity.customerName);
-    NSLog(@"saleOppEntity.saleLeadsAdd%@",_leadsAdd.text);
     
     
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];

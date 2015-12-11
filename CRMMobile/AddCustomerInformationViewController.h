@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ZSYPopoverListView.h"
+#include "ZSYPopoverListViewSingle.h"
 
-@interface AddCustomerInformationViewController : UIViewController
+@interface AddCustomerInformationViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource,ZSYPopoverListDelegate>
 
 
 //@property (strong,nonatomic) options *options;

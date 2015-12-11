@@ -82,7 +82,7 @@
     
     self.selectSFForShow=[[NSMutableArray alloc] init];
     self.selectSFIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
     listView.titleName.text = @"请选择对应的省份";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -125,7 +125,7 @@
     
     self.selectKHLBForShow=[[NSMutableArray alloc] init];
     self.selectKHLBIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -163,7 +163,7 @@
     
     self.selectHYForShow=[[NSMutableArray alloc] init];
     self.selectHYIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -205,7 +205,7 @@
     
     self.selectQYLXForShow=[[NSMutableArray alloc] init];
     self.selectQYLXIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"企业类型选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -278,6 +278,52 @@
     }
 //    return [_selectHY count];
 }
+
+
+//single choose
+- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 25;
+}
+
+- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+    if (nil == cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"-dsds---%ld------", (long)indexPath.row];
+    return cell;
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    NSLog(@"deselect:%ld", (long)indexPath.row);
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedIndexPath = indexPath;
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    NSLog(@"select:%ld", (long)indexPath.row);
+}
+
+
+
+
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

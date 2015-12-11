@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>20F259DA-AE5D-4809-A9F3-D8E2CFA786DD</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>CRMMobile</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EE5788CCBC693FEC68C192AA21FB6841CF208407</key>
 		<string>https://github.com/dagongcrm/CRMMobile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CRMMobile.xcodeproj/project.xcworkspace</string>
+	<string>CRMMobile.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EE5788CCBC693FEC68C192AA21FB6841CF208407</key>
