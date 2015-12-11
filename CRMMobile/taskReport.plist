@@ -6,7 +6,7 @@
             <key>Name</key>
             <string>工作日报</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>work-5.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/iapps</string>
             <key>Category</key>
@@ -20,7 +20,7 @@
             <key>Name</key>
             <string>工作周报</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>work-5.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/appleus</string>
             <key>Favorite</key>
@@ -34,7 +34,7 @@
             <key>Name</key>
             <string>工作月报</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>work-5.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>

@@ -52,7 +52,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [taskReportListData objectAtIndex:indexPath.row];
-    [cell.imageView setImage:[UIImage imageNamed:@"bao1"]];
+    [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -68,12 +68,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){
         DailyTableViewController *fltv = [[DailyTableViewController alloc] init];
+         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:fltv animated:YES];
     }else if(indexPath.row==1){
         WeekTableViewController *week = [[WeekTableViewController alloc] init];
+         week.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:week animated:YES];
     }else if(indexPath.row==2){
         MonthTableViewController *month = [[MonthTableViewController alloc]init];
+         month.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:month animated:YES];
     }
 }

@@ -89,17 +89,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-Uh-jhR">
-                            <rect key="frame" x="54" y="494" width="120" height="40"/>
-                            <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="cancle.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="cancle:" destination="-1" eventType="touchUpInside" id="zni-dR-2Ai"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-lF-x18">
                             <rect key="frame" x="206" y="494" width="120" height="40"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,6 +98,17 @@
                             </state>
                             <connections>
                                 <action selector="Submit:" destination="-1" eventType="touchUpInside" id="eKz-s6-fka"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-Uh-jhR">
+                            <rect key="frame" x="55" y="494" width="120" height="40"/>
+                            <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="cancle-s.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancle:" destination="-1" eventType="touchUpInside" id="zni-dR-2Ai"/>
                             </connections>
                         </button>
                     </subviews>
@@ -121,7 +121,7 @@
     </objects>
     <resources>
         <image name="222.png" width="25" height="24"/>
-        <image name="cancle.png" width="200" height="60"/>
-        <image name="sub-s.png" width="200" height="60"/>
+        <image name="cancle-s.png" width="120" height="40"/>
+        <image name="sub-s.png" width="120" height="40"/>
     </resources>
 </document>

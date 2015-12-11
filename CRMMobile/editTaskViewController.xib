@@ -78,22 +78,13 @@
                                 <action selector="selectHY:" destination="-1" eventType="touchUpInside" id="aHt-SS-wKW"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4W-a9-aQh">
-                            <rect key="frame" x="46" y="555" width="46" height="30"/>
-                            <state key="normal" title="取消">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4W-a9-aQh">
+                            <rect key="frame" x="44" y="578" width="120" height="40"/>
+                            <state key="normal" image="cancle-s.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="gsY-wE-3zI"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYq-DA-y6I">
-                            <rect key="frame" x="173" y="555" width="46" height="30"/>
-                            <state key="normal" title="保存">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="save:" destination="-1" eventType="touchUpInside" id="0E5-aE-X7S"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合同金额" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poA-U6-d5p">
@@ -154,6 +145,15 @@
                                 <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="fAe-hR-uoz"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYq-DA-y6I">
+                            <rect key="frame" x="214" y="578" width="120" height="40"/>
+                            <state key="normal" image="save-s.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="save:" destination="-1" eventType="touchUpInside" id="0E5-aE-X7S"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -161,4 +161,8 @@
             <point key="canvasLocation" x="309" y="-1"/>
         </view>
     </objects>
+    <resources>
+        <image name="cancle-s.png" width="120" height="40"/>
+        <image name="save-s.png" width="120" height="40"/>
+    </resources>
 </document>

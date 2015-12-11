@@ -109,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="delete.png" width="460" height="60"/>
+        <image name="delete.png" width="200" height="40"/>
     </resources>
 </document>

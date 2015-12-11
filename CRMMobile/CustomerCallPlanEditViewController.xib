@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhM-Yy-a7w">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="716"/>
+                    <rect key="frame" x="0.0" y="-300" width="375" height="810"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客户名称:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E05-Ph-H3t">
                             <rect key="frame" x="31" y="36" width="92" height="21"/>
@@ -177,9 +177,9 @@
                                 <action selector="addCustomer:" destination="-1" eventType="touchUpInside" id="EAJ-f7-10X"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJR-iQ-Js1">
-                            <rect key="frame" x="144" y="662" width="46" height="30"/>
-                            <state key="normal" title="保存">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJR-iQ-Js1">
+                            <rect key="frame" x="114" y="691" width="200" height="40"/>
+                            <state key="normal" image="save.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -194,4 +194,7 @@
             <point key="canvasLocation" x="262.5" y="296.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="save.png" width="200" height="40"/>
+    </resources>
 </document>

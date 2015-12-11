@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginLogo1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uw1-Te-Rhe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginLogo2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uw1-Te-Rhe">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WM0-F9-9MF">
@@ -25,9 +25,9 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0W-lh-UNY">
-                    <rect key="frame" x="73" y="423" width="240" height="40"/>
+                    <rect key="frame" x="105" y="422" width="200" height="40"/>
                     <color key="backgroundColor" red="0.86274509803921573" green="0.94117647058823528" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="submit11.png">
+                    <state key="normal" image="submit12.png">
                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -47,7 +47,7 @@
         </view>
     </objects>
     <resources>
-        <image name="loginLogo1.jpg" width="750" height="1334"/>
-        <image name="submit11.png" width="240" height="37"/>
+        <image name="loginLogo2.jpg" width="750" height="1334"/>
+        <image name="submit12.png" width="200" height="40"/>
     </resources>
 </document>

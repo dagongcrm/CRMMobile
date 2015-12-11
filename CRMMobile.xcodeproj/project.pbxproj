@@ -151,6 +151,44 @@
 		39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798C21C05E2EF000D9A20 /* PlanButViewController.m */; };
 		39F798C71C05E2EF000D9A20 /* PlanButViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798C31C05E2EF000D9A20 /* PlanButViewController.xib */; };
 		39F798CB1C05E4AE000D9A20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798CA1C05E4AE000D9A20 /* AppDelegate.m */; };
+		9604F46F1C1AC62C0074B1A5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */; };
+		9604F4711C1AC6A90074B1A5 /* submit12.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4701C1AC6A90074B1A5 /* submit12.png */; };
+		9604F4741C1AC71B0074B1A5 /* notice-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4721C1AC71B0074B1A5 /* notice-1.png */; };
+		9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4731C1AC71B0074B1A5 /* notice-2.png */; };
+		9604F47D1C1AC79A0074B1A5 /* crm-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4761C1AC79A0074B1A5 /* crm-3.png */; };
+		9604F47E1C1AC79A0074B1A5 /* crm-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4771C1AC79A0074B1A5 /* crm-4.png */; };
+		9604F47F1C1AC79A0074B1A5 /* crm-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4781C1AC79A0074B1A5 /* crm-7.png */; };
+		9604F4801C1AC79A0074B1A5 /* crm-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4791C1AC79A0074B1A5 /* crm-1.png */; };
+		9604F4811C1AC79A0074B1A5 /* crm-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F47A1C1AC79A0074B1A5 /* crm-2.png */; };
+		9604F4821C1AC79A0074B1A5 /* crm-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F47B1C1AC79A0074B1A5 /* crm-5.png */; };
+		9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F47C1C1AC79A0074B1A5 /* crm-6.png */; };
+		9604F4891C1AC8280074B1A5 /* work-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4841C1AC8280074B1A5 /* work-1.png */; };
+		9604F48A1C1AC8280074B1A5 /* gongsi.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4851C1AC8280074B1A5 /* gongsi.png */; };
+		9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4861C1AC8280074B1A5 /* work-4.png */; };
+		9604F48C1C1AC8280074B1A5 /* work-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4871C1AC8280074B1A5 /* work-3.png */; };
+		9604F48D1C1AC8280074B1A5 /* work-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4881C1AC8280074B1A5 /* work-2.png */; };
+		9604F48F1C1AC8810074B1A5 /* work-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F48E1C1AC8810074B1A5 /* work-5.png */; };
+		9604F4971C1AC8D90074B1A5 /* op-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4901C1AC8D90074B1A5 /* op-4.png */; };
+		9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4911C1AC8D90074B1A5 /* set-1.png */; };
+		9604F4991C1AC8D90074B1A5 /* set-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4921C1AC8D90074B1A5 /* set-3.png */; };
+		9604F49A1C1AC8D90074B1A5 /* op-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4931C1AC8D90074B1A5 /* op-3.png */; };
+		9604F49B1C1AC8D90074B1A5 /* txl-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4941C1AC8D90074B1A5 /* txl-1.png */; };
+		9604F49C1C1AC8D90074B1A5 /* set-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4951C1AC8D90074B1A5 /* set-2.png */; };
+		9604F49D1C1AC8D90074B1A5 /* op-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4961C1AC8D90074B1A5 /* op-2.png */; };
+		9604F4A01C1AC92B0074B1A5 /* op-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F49F1C1AC92B0074B1A5 /* op-1.png */; };
+		9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A11C1ACC3E0074B1A5 /* save-s.png */; };
+		9604F4AF1C1ACC3E0074B1A5 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A21C1ACC3E0074B1A5 /* save.png */; };
+		9604F4B01C1ACC3E0074B1A5 /* cancle-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */; };
+		9604F4B11C1ACC3E0074B1A5 /* bfan.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A41C1ACC3E0074B1A5 /* bfan.png */; };
+		9604F4B21C1ACC3E0074B1A5 /* delete-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A51C1ACC3E0074B1A5 /* delete-s.png */; };
+		9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A61C1ACC3E0074B1A5 /* delete-si.png */; };
+		9604F4B41C1ACC3E0074B1A5 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A71C1ACC3E0074B1A5 /* delete.png */; };
+		9604F4B51C1ACC3E0074B1A5 /* shenhe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A81C1ACC3E0074B1A5 /* shenhe.png */; };
+		9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A91C1ACC3E0074B1A5 /* sub-s.png */; };
+		9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AA1C1ACC3E0074B1A5 /* sub.png */; };
+		9604F4B81C1ACC3E0074B1A5 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AB1C1ACC3E0074B1A5 /* stop.png */; };
+		9604F4B91C1ACC3E0074B1A5 /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AC1C1ACC3E0074B1A5 /* update.png */; };
+		9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AD1C1ACC3E0074B1A5 /* update-s.png */; };
 		9618AA531BFC82D1001A6D0D /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA521BFC82D1001A6D0D /* back.png */; };
 		96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96332E961BFF32C100BBEB85 /* EntityHelper.m */; };
 		9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */; };
@@ -503,6 +541,44 @@
 		39F798C91C05E4AE000D9A20 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39F798CA1C05E4AE000D9A20 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
+		9604F4701C1AC6A90074B1A5 /* submit12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit12.png; sourceTree = "<group>"; };
+		9604F4721C1AC71B0074B1A5 /* notice-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice-1.png"; sourceTree = "<group>"; };
+		9604F4731C1AC71B0074B1A5 /* notice-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice-2.png"; sourceTree = "<group>"; };
+		9604F4761C1AC79A0074B1A5 /* crm-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-3.png"; sourceTree = "<group>"; };
+		9604F4771C1AC79A0074B1A5 /* crm-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-4.png"; sourceTree = "<group>"; };
+		9604F4781C1AC79A0074B1A5 /* crm-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-7.png"; sourceTree = "<group>"; };
+		9604F4791C1AC79A0074B1A5 /* crm-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-1.png"; sourceTree = "<group>"; };
+		9604F47A1C1AC79A0074B1A5 /* crm-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-2.png"; sourceTree = "<group>"; };
+		9604F47B1C1AC79A0074B1A5 /* crm-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-5.png"; sourceTree = "<group>"; };
+		9604F47C1C1AC79A0074B1A5 /* crm-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-6.png"; sourceTree = "<group>"; };
+		9604F4841C1AC8280074B1A5 /* work-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-1.png"; sourceTree = "<group>"; };
+		9604F4851C1AC8280074B1A5 /* gongsi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gongsi.png; sourceTree = "<group>"; };
+		9604F4861C1AC8280074B1A5 /* work-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-4.png"; sourceTree = "<group>"; };
+		9604F4871C1AC8280074B1A5 /* work-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-3.png"; sourceTree = "<group>"; };
+		9604F4881C1AC8280074B1A5 /* work-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-2.png"; sourceTree = "<group>"; };
+		9604F48E1C1AC8810074B1A5 /* work-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-5.png"; sourceTree = "<group>"; };
+		9604F4901C1AC8D90074B1A5 /* op-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "op-4.png"; sourceTree = "<group>"; };
+		9604F4911C1AC8D90074B1A5 /* set-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set-1.png"; sourceTree = "<group>"; };
+		9604F4921C1AC8D90074B1A5 /* set-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set-3.png"; sourceTree = "<group>"; };
+		9604F4931C1AC8D90074B1A5 /* op-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "op-3.png"; sourceTree = "<group>"; };
+		9604F4941C1AC8D90074B1A5 /* txl-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "txl-1.png"; sourceTree = "<group>"; };
+		9604F4951C1AC8D90074B1A5 /* set-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set-2.png"; sourceTree = "<group>"; };
+		9604F4961C1AC8D90074B1A5 /* op-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "op-2.png"; sourceTree = "<group>"; };
+		9604F49F1C1AC92B0074B1A5 /* op-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "op-1.png"; sourceTree = "<group>"; };
+		9604F4A11C1ACC3E0074B1A5 /* save-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save-s.png"; sourceTree = "<group>"; };
+		9604F4A21C1ACC3E0074B1A5 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancle-s.png"; sourceTree = "<group>"; };
+		9604F4A41C1ACC3E0074B1A5 /* bfan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bfan.png; sourceTree = "<group>"; };
+		9604F4A51C1ACC3E0074B1A5 /* delete-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-s.png"; sourceTree = "<group>"; };
+		9604F4A61C1ACC3E0074B1A5 /* delete-si.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-si.png"; sourceTree = "<group>"; };
+		9604F4A71C1ACC3E0074B1A5 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		9604F4A81C1ACC3E0074B1A5 /* shenhe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shenhe.png; sourceTree = "<group>"; };
+		9604F4A91C1ACC3E0074B1A5 /* sub-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sub-s.png"; sourceTree = "<group>"; };
+		9604F4AA1C1ACC3E0074B1A5 /* sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sub.png; sourceTree = "<group>"; };
+		9604F4AB1C1ACC3E0074B1A5 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		9604F4AC1C1ACC3E0074B1A5 /* update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update.png; sourceTree = "<group>"; };
+		9604F4AD1C1ACC3E0074B1A5 /* update-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update-s.png"; sourceTree = "<group>"; };
 		9618AA521BFC82D1001A6D0D /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		96332E951BFF32C100BBEB85 /* EntityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityHelper.h; sourceTree = "<group>"; };
 		96332E961BFF32C100BBEB85 /* EntityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityHelper.m; sourceTree = "<group>"; };
@@ -818,6 +894,8 @@
 		1FEF62871C16B3E300E6F4BF /* login */ = {
 			isa = PBXGroup;
 			children = (
+				9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */,
+				9604F4701C1AC6A90074B1A5 /* submit12.png */,
 				1FEF628C1C16B42500E6F4BF /* submit-1.png */,
 				1FEF628D1C16B42500E6F4BF /* submit11.png */,
 				1FEF62881C16B40E00E6F4BF /* login-1.jpg */,
@@ -829,6 +907,14 @@
 		1FEF62901C16B54700E6F4BF /* option */ = {
 			isa = PBXGroup;
 			children = (
+				9604F4911C1AC8D90074B1A5 /* set-1.png */,
+				9604F4951C1AC8D90074B1A5 /* set-2.png */,
+				9604F4921C1AC8D90074B1A5 /* set-3.png */,
+				9604F4941C1AC8D90074B1A5 /* txl-1.png */,
+				9604F49F1C1AC92B0074B1A5 /* op-1.png */,
+				9604F4961C1AC8D90074B1A5 /* op-2.png */,
+				9604F4931C1AC8D90074B1A5 /* op-3.png */,
+				9604F4901C1AC8D90074B1A5 /* op-4.png */,
 				1FEF62911C16B57000E6F4BF /* 11.JPG */,
 				1FEF62921C16B57000E6F4BF /* 12.JPG */,
 				1FEF62931C16B57000E6F4BF /* 13.JPG */,
@@ -1017,6 +1103,50 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9604F4371C1A98FC0074B1A5 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				9604F4A11C1ACC3E0074B1A5 /* save-s.png */,
+				9604F4A21C1ACC3E0074B1A5 /* save.png */,
+				9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */,
+				9604F4A41C1ACC3E0074B1A5 /* bfan.png */,
+				9604F4A51C1ACC3E0074B1A5 /* delete-s.png */,
+				9604F4A61C1ACC3E0074B1A5 /* delete-si.png */,
+				9604F4A71C1ACC3E0074B1A5 /* delete.png */,
+				9604F4A81C1ACC3E0074B1A5 /* shenhe.png */,
+				9604F4A91C1ACC3E0074B1A5 /* sub-s.png */,
+				9604F4AA1C1ACC3E0074B1A5 /* sub.png */,
+				9604F4AB1C1ACC3E0074B1A5 /* stop.png */,
+				9604F4AC1C1ACC3E0074B1A5 /* update.png */,
+				9604F4AD1C1ACC3E0074B1A5 /* update-s.png */,
+				9604F4851C1AC8280074B1A5 /* gongsi.png */,
+			);
+			name = button;
+			sourceTree = "<group>";
+		};
+		9604F45A1C1A9A160074B1A5 /* crm */ = {
+			isa = PBXGroup;
+			children = (
+				9604F4761C1AC79A0074B1A5 /* crm-3.png */,
+				9604F4771C1AC79A0074B1A5 /* crm-4.png */,
+				9604F4781C1AC79A0074B1A5 /* crm-7.png */,
+				9604F4791C1AC79A0074B1A5 /* crm-1.png */,
+				9604F47A1C1AC79A0074B1A5 /* crm-2.png */,
+				9604F47B1C1AC79A0074B1A5 /* crm-5.png */,
+				9604F47C1C1AC79A0074B1A5 /* crm-6.png */,
+			);
+			name = crm;
+			sourceTree = "<group>";
+		};
+		9604F4691C1A9A3A0074B1A5 /* notice */ = {
+			isa = PBXGroup;
+			children = (
+				9604F4721C1AC71B0074B1A5 /* notice-1.png */,
+				9604F4731C1AC71B0074B1A5 /* notice-2.png */,
+			);
+			name = notice;
+			sourceTree = "<group>";
+		};
 		96332E791BFF306E00BBEB85 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,6 +1229,11 @@
 		96AEF19A1BF1FD5700EDE5CE /* work */ = {
 			isa = PBXGroup;
 			children = (
+				9604F48E1C1AC8810074B1A5 /* work-5.png */,
+				9604F4841C1AC8280074B1A5 /* work-1.png */,
+				9604F4861C1AC8280074B1A5 /* work-4.png */,
+				9604F4871C1AC8280074B1A5 /* work-3.png */,
+				9604F4881C1AC8280074B1A5 /* work-2.png */,
 				C0C484251C181B0800B142BC /* fs_main_login_normal.png */,
 				C0C484261C181B0800B142BC /* fs_main_login_selected.png */,
 				C0B8D6941C06F2A20051367D /* business.png */,
@@ -1323,6 +1458,9 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				9604F4691C1A9A3A0074B1A5 /* notice */,
+				9604F45A1C1A9A160074B1A5 /* crm */,
+				9604F4371C1A98FC0074B1A5 /* button */,
 				1FEF62901C16B54700E6F4BF /* option */,
 				1FEF62871C16B3E300E6F4BF /* login */,
 				96AEF19A1BF1FD5700EDE5CE /* work */,
@@ -1698,6 +1836,7 @@
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
+				9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */,
 				39F797E81C05D12F000D9A20 /* DailyViewController.xib in Resources */,
 				B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */,
 				C0D3CD691BDF0CEF00C23FB3 /* 14.png in Resources */,
@@ -1705,38 +1844,51 @@
 				1FEF62581C16AED200E6F4BF /* saleLeadsTableViewController.xib in Resources */,
 				39F7984A1C05D306000D9A20 /* ActivityViewController.xib in Resources */,
 				C0D3CD631BDF0CEF00C23FB3 /* 8.png in Resources */,
+				9604F47D1C1AC79A0074B1A5 /* crm-3.png in Resources */,
 				1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */,
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
+				9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
+				9604F4B01C1ACC3E0074B1A5 /* cancle-s.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
 				96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */,
+				9604F4B11C1ACC3E0074B1A5 /* bfan.png in Resources */,
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
+				9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */,
 				1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */,
+				9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */,
 				C0D3CD781BDF0CEF00C23FB3 /* 29.png in Resources */,
 				39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */,
 				C0D3CD6C1BDF0CEF00C23FB3 /* 17.png in Resources */,
 				1FEF628B1C16B40E00E6F4BF /* loginLogo1.jpg in Resources */,
+				9604F46F1C1AC62C0074B1A5 /* loginLogo2.jpg in Resources */,
+				9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */,
 				39F797FA1C05D147000D9A20 /* WeekTableViewController.xib in Resources */,
 				39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */,
+				9604F49D1C1AC8D90074B1A5 /* op-2.png in Resources */,
 				B8EDAD711C19366300865E7C /* noticeDetailViewController.xib in Resources */,
 				39F7980C1C05D15A000D9A20 /* MonthTableViewController.xib in Resources */,
 				1FEF624A1C16AE0900E6F4BF /* MeMainTableViewController.xib in Resources */,
 				C0D3CD6B1BDF0CEF00C23FB3 /* 16.png in Resources */,
+				9604F49A1C1AC8D90074B1A5 /* op-3.png in Resources */,
 				39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */,
 				B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */,
+				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
 				B8EDAD761C19366300865E7C /* NoticeViewController.xib in Resources */,
 				C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */,
 				96A695BA1BF5DE8900ADAC98 /* Image.plist in Resources */,
 				39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */,
+				9604F4B91C1ACC3E0074B1A5 /* update.png in Resources */,
 				39F797881C05CF58000D9A20 /* CustomerInformationEditViewController.xib in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				1FEF62981C16B57000E6F4BF /* 12.JPG in Resources */,
 				39E729EF1C0697A50050D77F /* editTaskViewController.xib in Resources */,
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
+				9604F4B81C1ACC3E0074B1A5 /* stop.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
@@ -1745,6 +1897,7 @@
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
 				C0D3CD601BDF0CEF00C23FB3 /* 5.png in Resources */,
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
+				9604F48A1C1AC8280074B1A5 /* gongsi.png in Resources */,
 				C0D3CD741BDF0CEF00C23FB3 /* 25.png in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
 				39F797FC1C05D147000D9A20 /* AddWeekViewController.xib in Resources */,
@@ -1752,9 +1905,12 @@
 				39F798C71C05E2EF000D9A20 /* PlanButViewController.xib in Resources */,
 				96FF05771BF80C7F00EA5457 /* crm.png in Resources */,
 				B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */,
+				9604F4AF1C1ACC3E0074B1A5 /* save.png in Resources */,
 				96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */,
 				39F797BE1C05D0E7000D9A20 /* auditDetailViewController.xib in Resources */,
 				39F797FE1C05D147000D9A20 /* ShowAndDeleteWeekViewController.xib in Resources */,
+				9604F47E1C1AC79A0074B1A5 /* crm-4.png in Resources */,
+				9604F4811C1AC79A0074B1A5 /* crm-2.png in Resources */,
 				C0D3CD661BDF0CEF00C23FB3 /* 11.png in Resources */,
 				96D58D041BFED22200159E09 /* arrow-left.png in Resources */,
 				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
@@ -1762,50 +1918,69 @@
 				B8EDAD7C1C19366300865E7C /* taskReminderTableViewController.xib in Resources */,
 				C0D3CD641BDF0CEF00C23FB3 /* 9.png in Resources */,
 				39F7971D1C05CC50000D9A20 /* EditCustomerContactController.xib in Resources */,
+				9604F4801C1AC79A0074B1A5 /* crm-1.png in Resources */,
 				C0D3CD5C1BDF0CEF00C23FB3 /* 1.png in Resources */,
 				C0D3CD671BDF0CEF00C23FB3 /* 12.png in Resources */,
 				C0D569301BD9B69100860B33 /* Work.plist in Resources */,
 				39F798101C05D15A000D9A20 /* AddMonthViewController.xib in Resources */,
 				B8EDAD771C19366300865E7C /* activityDetailViewController.xib in Resources */,
 				39F798C51C05E2EF000D9A20 /* CustomerTableViewController.xib in Resources */,
+				9604F4B51C1ACC3E0074B1A5 /* shenhe.png in Resources */,
 				C0D3CD731BDF0CEF00C23FB3 /* 24.png in Resources */,
 				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
 				C0D3CD751BDF0CEF00C23FB3 /* 26.png in Resources */,
 				C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */,
+				9604F4711C1AC6A90074B1A5 /* submit12.png in Resources */,
+				9604F49B1C1AC8D90074B1A5 /* txl-1.png in Resources */,
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
 				39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */,
+				9604F4991C1AC8D90074B1A5 /* set-3.png in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
+				9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */,
 				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
+				9604F48F1C1AC8810074B1A5 /* work-5.png in Resources */,
 				C0D3CD761BDF0CEF00C23FB3 /* 27.png in Resources */,
 				39F797EC1C05D12F000D9A20 /* AddDailyViewController.xib in Resources */,
 				39F798681C05D335000D9A20 /* PlanDetalViewController.xib in Resources */,
 				C0D3CD651BDF0CEF00C23FB3 /* 10.png in Resources */,
+				9604F4A01C1AC92B0074B1A5 /* op-1.png in Resources */,
 				C0D3CD611BDF0CEF00C23FB3 /* 6.png in Resources */,
+				9604F4B21C1ACC3E0074B1A5 /* delete-s.png in Resources */,
+				9604F49C1C1AC8D90074B1A5 /* set-2.png in Resources */,
 				39F797351C05CCE4000D9A20 /* EditSaleOppViewController.xib in Resources */,
 				C0D569451BD9C65100860B33 /* Options.plist in Resources */,
+				9604F4B41C1ACC3E0074B1A5 /* delete.png in Resources */,
+				9604F47F1C1AC79A0074B1A5 /* crm-7.png in Resources */,
 				39E729FA1C0697C80050D77F /* submitTaskEntity.xib in Resources */,
 				C0D3CD5F1BDF0CEF00C23FB3 /* 4.png in Resources */,
+				9604F4741C1AC71B0074B1A5 /* notice-1.png in Resources */,
 				C0D3CD681BDF0CEF00C23FB3 /* 13.png in Resources */,
 				C0D3CD6F1BDF0CEF00C23FB3 /* 20.png in Resources */,
+				9604F48D1C1AC8280074B1A5 /* work-2.png in Resources */,
 				C0D3CD791BDF0CEF00C23FB3 /* 30.png in Resources */,
 				1FEF62971C16B57000E6F4BF /* 11.JPG in Resources */,
 				9678AEF71BEB71C800E5B50E /* AddCustomerInformationViewController.xib in Resources */,
 				9678AEFF1BEB731600E5B50E /* 222.png in Resources */,
 				1FEF620C1C16ABED00E6F4BF /* MarketManagementViewController.xib in Resources */,
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
+				9604F4821C1AC79A0074B1A5 /* crm-5.png in Resources */,
+				9604F48C1C1AC8280074B1A5 /* work-3.png in Resources */,
 				1FEF629A1C16B57000E6F4BF /* 14.JPG in Resources */,
 				39F7980E1C05D15A000D9A20 /* ShowAndDeleteViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
 				39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */,
+				9604F4971C1AC8D90074B1A5 /* op-4.png in Resources */,
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
 				C0D3CD771BDF0CEF00C23FB3 /* 28.png in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				C0D3CD621BDF0CEF00C23FB3 /* 7.png in Resources */,
+				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				9678AEF91BEB71C800E5B50E /* CustomerInformationEditViewController.xib in Resources */,
+				9604F4891C1AC8280074B1A5 /* work-1.png in Resources */,
 				1FEF62371C16AD9F00E6F4BF /* XGViewController.xib in Resources */,
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
 				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
@@ -1813,6 +1988,7 @@
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				C0D3CD701BDF0CEF00C23FB3 /* 21.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
+				9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */,
 				39F7987C1C05D35E000D9A20 /* TaskRecordsTableViewController.xib in Resources */,
 				C0D3CD711BDF0CEF00C23FB3 /* 22.png in Resources */,
 				39F7986C1C05D335000D9A20 /* EditPlanViewController.xib in Resources */,

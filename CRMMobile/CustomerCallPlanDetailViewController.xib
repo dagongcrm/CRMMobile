@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mam-za-oUc">
-                    <rect key="frame" x="0.0" y="-30" width="500" height="1200"/>
+                    <rect key="frame" x="0.0" y="-300" width="500" height="1200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客户名称:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Giz-7d-PLx">
                             <rect key="frame" x="31" y="36" width="92" height="21"/>
@@ -202,15 +202,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-aB-bHi">
-                            <rect key="frame" x="146" y="871" width="90" height="40"/>
-                            <state key="normal" image="update.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="pzM-7h-wGU"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMl-V1-plG">
                             <rect key="frame" x="34" y="871" width="90" height="40"/>
                             <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,11 +219,20 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70K-fh-rhl">
                             <rect key="frame" x="252" y="871" width="90" height="40"/>
-                            <state key="normal" image="delete-s.png">
+                            <state key="normal" image="delete-si.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="delete:" destination="-1" eventType="touchUpInside" id="nvw-2V-bF5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-aB-bHi">
+                            <rect key="frame" x="146" y="871" width="90" height="40"/>
+                            <state key="normal" image="update-s.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="pzM-7h-wGU"/>
                             </connections>
                         </button>
                     </subviews>
@@ -244,8 +244,8 @@
         </view>
     </objects>
     <resources>
-        <image name="delete-s.png" width="200" height="60"/>
-        <image name="sub-s.png" width="200" height="60"/>
-        <image name="update.png" width="200" height="60"/>
+        <image name="delete-si.png" width="90" height="40"/>
+        <image name="sub-s.png" width="120" height="40"/>
+        <image name="update-s.png" width="90" height="40"/>
     </resources>
 </document>

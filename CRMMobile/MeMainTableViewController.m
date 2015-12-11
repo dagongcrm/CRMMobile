@@ -51,7 +51,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [_optionListData objectAtIndex:indexPath.row];
-        [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
     [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -61,6 +60,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){
     TXLTableViewController  *tongxunlu = [[TXLTableViewController alloc] init];
+         tongxunlu.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:tongxunlu animated:YES];
     }else if(indexPath.row==1){
         XGViewController  *xiugai = [[XGViewController alloc] init];
