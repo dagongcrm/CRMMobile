@@ -41,7 +41,11 @@
 - (IBAction)Summit:(id)sender {
     NSString *op = self.txtOPass.text;
     NSString *np = self.txtNPass.text;
-    
+    if ((op.length==0)&&(np.length==0)) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示通知" message:@"新密码和旧密码不能为空!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alert show];
+
+    }else{
     NSLog(@"1111111111=======:%@",op);
     NSLog(@"2222222222=======:%@",np);
     if ([np isEqualToString:op]){
@@ -74,10 +78,10 @@
         [myDelegate.window makeKeyAndVisible];
         
     }else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改失败" message:@"修改失败！原始密码错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改失败" message:[editpassDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }
-
+    }
     }
 }
 @end

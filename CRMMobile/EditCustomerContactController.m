@@ -55,7 +55,7 @@
                                                                                    target:nil action:nil];
     negativeSpacer.width = -5;//这个数值可以根据情况自由变化
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    self.scroll.contentSize = CGSizeMake(375, 1100);
+    self.scroll.contentSize = CGSizeMake(375, 900);
     self.khmc.text = _contactEntity.customerNameStr;
     self.lxrenxm.text = _contactEntity.contactName;
     self.lxrendh.text = _contactEntity.telePhone;
@@ -109,12 +109,13 @@
                                   initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
     }else{
+        NSLog(@"mmmmmmmm//////%@",customerName);
         NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
         NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!edit.action?"]];
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&evaluationOfTheSalesman=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

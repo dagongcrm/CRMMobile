@@ -177,6 +177,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];
+    self.title=@"待办提醒";
    // self.uid=[NSMutableArray array];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
@@ -219,7 +220,7 @@
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"" stringByAppendingString:self.detail[indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 
