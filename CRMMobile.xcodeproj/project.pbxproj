@@ -81,18 +81,6 @@
 		39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797311C05CCE4000D9A20 /* DetailSaleOppViewController.m */; };
 		39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */; };
 		39F7973D1C05CCEF000D9A20 /* SaleOppEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */; };
-		39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */; };
-		39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */; };
-		39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797711C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m */; };
-		39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797731C05CF58000D9A20 /* CustomerInformationDetailViewController.m */; };
-		39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797741C05CF58000D9A20 /* CustomerInformationDetailViewController.xib */; };
-		39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797761C05CF58000D9A20 /* AddCustomerInformationViewController.m */; };
-		39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797771C05CF58000D9A20 /* AddCustomerInformationViewController.xib */; };
-		39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797791C05CF58000D9A20 /* CustomerInformationEditViewController.m */; };
-		39F797881C05CF58000D9A20 /* CustomerInformationEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7977A1C05CF58000D9A20 /* CustomerInformationEditViewController.xib */; };
-		39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7977C1C05CF58000D9A20 /* selectListTableViewController.m */; };
-		39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7977D1C05CF58000D9A20 /* selectListTableViewController.xib */; };
-		39F7978B1C05CF58000D9A20 /* selectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7977F1C05CF58000D9A20 /* selectEntity.m */; };
 		39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797AF1C05D06F000D9A20 /* WorkTableViewController.m */; };
 		39F797B31C05D0DF000D9A20 /* trackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797B21C05D0DF000D9A20 /* trackingTableViewController.m */; };
 		39F797BB1C05D0E7000D9A20 /* auditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797B51C05D0E7000D9A20 /* auditTableViewController.m */; };
@@ -391,25 +379,6 @@
 		39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F7973B1C05CCEF000D9A20 /* SaleOppEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppEntity.h; sourceTree = "<group>"; };
 		39F7973C1C05CCEF000D9A20 /* SaleOppEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppEntity.m; sourceTree = "<group>"; };
-		39F7976D1C05CF58000D9A20 /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
-		39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationTableViewController.m; sourceTree = "<group>"; };
-		39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationTableViewController.xib; sourceTree = "<group>"; };
-		39F797701C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfermationDetailMessageEntity.h; sourceTree = "<group>"; };
-		39F797711C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfermationDetailMessageEntity.m; sourceTree = "<group>"; };
-		39F797721C05CF58000D9A20 /* CustomerInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationDetailViewController.h; sourceTree = "<group>"; };
-		39F797731C05CF58000D9A20 /* CustomerInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationDetailViewController.m; sourceTree = "<group>"; };
-		39F797741C05CF58000D9A20 /* CustomerInformationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationDetailViewController.xib; sourceTree = "<group>"; };
-		39F797751C05CF58000D9A20 /* AddCustomerInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerInformationViewController.h; sourceTree = "<group>"; };
-		39F797761C05CF58000D9A20 /* AddCustomerInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerInformationViewController.m; sourceTree = "<group>"; };
-		39F797771C05CF58000D9A20 /* AddCustomerInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerInformationViewController.xib; sourceTree = "<group>"; };
-		39F797781C05CF58000D9A20 /* CustomerInformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationEditViewController.h; sourceTree = "<group>"; };
-		39F797791C05CF58000D9A20 /* CustomerInformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInformationEditViewController.m; sourceTree = "<group>"; };
-		39F7977A1C05CF58000D9A20 /* CustomerInformationEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerInformationEditViewController.xib; sourceTree = "<group>"; };
-		39F7977B1C05CF58000D9A20 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
-		39F7977C1C05CF58000D9A20 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
-		39F7977D1C05CF58000D9A20 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
-		39F7977E1C05CF58000D9A20 /* selectEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectEntity.h; sourceTree = "<group>"; };
-		39F7977F1C05CF58000D9A20 /* selectEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectEntity.m; sourceTree = "<group>"; };
 		39F797AE1C05D06F000D9A20 /* WorkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTableViewController.h; sourceTree = "<group>"; };
 		39F797AF1C05D06F000D9A20 /* WorkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTableViewController.m; sourceTree = "<group>"; };
 		39F797B11C05D0DF000D9A20 /* trackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackingTableViewController.h; sourceTree = "<group>"; };
@@ -846,32 +815,6 @@
 			name = option;
 			sourceTree = "<group>";
 		};
-		39E8765F1C02FF0B00BF6808 /* crm */ = {
-			isa = PBXGroup;
-			children = (
-				39F7976D1C05CF58000D9A20 /* CustomerInformationTableViewController.h */,
-				39F7976E1C05CF58000D9A20 /* CustomerInformationTableViewController.m */,
-				39F7976F1C05CF58000D9A20 /* CustomerInformationTableViewController.xib */,
-				39F797701C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.h */,
-				39F797711C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m */,
-				39F797721C05CF58000D9A20 /* CustomerInformationDetailViewController.h */,
-				39F797731C05CF58000D9A20 /* CustomerInformationDetailViewController.m */,
-				39F797741C05CF58000D9A20 /* CustomerInformationDetailViewController.xib */,
-				39F797751C05CF58000D9A20 /* AddCustomerInformationViewController.h */,
-				39F797761C05CF58000D9A20 /* AddCustomerInformationViewController.m */,
-				39F797771C05CF58000D9A20 /* AddCustomerInformationViewController.xib */,
-				39F797781C05CF58000D9A20 /* CustomerInformationEditViewController.h */,
-				39F797791C05CF58000D9A20 /* CustomerInformationEditViewController.m */,
-				39F7977A1C05CF58000D9A20 /* CustomerInformationEditViewController.xib */,
-				39F7977B1C05CF58000D9A20 /* selectListTableViewController.h */,
-				39F7977C1C05CF58000D9A20 /* selectListTableViewController.m */,
-				39F7977D1C05CF58000D9A20 /* selectListTableViewController.xib */,
-				39F7977E1C05CF58000D9A20 /* selectEntity.h */,
-				39F7977F1C05CF58000D9A20 /* selectEntity.m */,
-			);
-			name = crm;
-			sourceTree = "<group>";
-		};
 		39E8767D1C03036E00BF6808 /* customerCallPlan */ = {
 			isa = PBXGroup;
 			children = (
@@ -1059,7 +1002,6 @@
 			children = (
 				1FEF62521C16AE9E00E6F4BF /* saleLeads */,
 				1FEF62061C16ABB000E6F4BF /* MarketManagement */,
-				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
 				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
@@ -1690,7 +1632,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */,
 				39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */,
 				C0D3CD6D1BDF0CEF00C23FB3 /* 18.png in Resources */,
 				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
@@ -1717,7 +1658,6 @@
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
 				1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */,
 				C0D3CD781BDF0CEF00C23FB3 /* 29.png in Resources */,
-				39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */,
 				C0D3CD6C1BDF0CEF00C23FB3 /* 17.png in Resources */,
 				1FEF628B1C16B40E00E6F4BF /* loginLogo1.jpg in Resources */,
 				39F797FA1C05D147000D9A20 /* WeekTableViewController.xib in Resources */,
@@ -1732,7 +1672,6 @@
 				C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */,
 				96A695BA1BF5DE8900ADAC98 /* Image.plist in Resources */,
 				39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */,
-				39F797881C05CF58000D9A20 /* CustomerInformationEditViewController.xib in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				1FEF62981C16B57000E6F4BF /* 12.JPG in Resources */,
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
@@ -1740,11 +1679,9 @@
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
-				39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */,
 				96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */,
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
 				C0D3CD601BDF0CEF00C23FB3 /* 5.png in Resources */,
-				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
 				C0D3CD741BDF0CEF00C23FB3 /* 25.png in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
 				39F797FC1C05D147000D9A20 /* AddWeekViewController.xib in Resources */,
@@ -1885,13 +1822,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
-				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
-				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
-				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
-				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
-				39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */,
-				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
-				39F7978B1C05CF58000D9A20 /* selectEntity.m in Sources */,
 				1FEF62571C16AED200E6F4BF /* saleLeadsTableViewController.m in Sources */,
 				39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */,
 				1FEF621E1C16AC3600E6F4BF /* PNChartLabel.m in Sources */,
