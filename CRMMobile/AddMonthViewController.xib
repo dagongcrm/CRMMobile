@@ -90,15 +90,6 @@
                                 <action selector="Submit:" destination="-1" eventType="touchUpInside" id="uXz-b7-8XX"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-MV-NHd">
-                            <rect key="frame" x="301" y="41" width="25" height="24"/>
-                            <state key="normal" image="222.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="choiceTime:" destination="-1" eventType="touchUpInside" id="PKj-vL-75K"/>
-                            </connections>
-                        </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l68-Cf-BtJ" userLabel="今日总结">
                             <rect key="frame" x="131" y="91" width="200" height="73"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +102,15 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-MV-NHd">
+                            <rect key="frame" x="301" y="41" width="25" height="24"/>
+                            <state key="normal" image="222.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="choiceTime:" destination="-1" eventType="touchUpInside" id="PKj-vL-75K"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>

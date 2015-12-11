@@ -31,6 +31,7 @@
 @end
 
 @implementation VisitPlanTableViewController
+
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
@@ -169,7 +170,9 @@
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
 //上拉刷新下拉加载
 - (void)setupRefresh
 {

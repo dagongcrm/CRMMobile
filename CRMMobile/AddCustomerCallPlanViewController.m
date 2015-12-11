@@ -8,6 +8,7 @@
 
 #import "AddCustomerCallPlanViewController.h"
 #import "AppDelegate.h"
+#import "HZQDatePickerView.h"
 #import "config.h"
 #import "CustomerCallPlanViewController.h"
 #import "ZSYPopoverListView.h"
@@ -18,15 +19,16 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 
-@property (weak, nonatomic) IBOutlet UITextField *theme;  //主题
+@property (weak, nonatomic) IBOutlet UITextView *theme;
+
 
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;  //拜访时间
 
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;  //受访人电话
 
-@property (weak, nonatomic) IBOutlet UITextField *respondent;   //受访人
+@property (weak, nonatomic) IBOutlet UITextView *address;
 
-@property (weak, nonatomic) IBOutlet UITextField *address;   //受访人地址
+@property (weak, nonatomic) IBOutlet UITextField *respondent;
 
 @property (weak, nonatomic) IBOutlet UITextField *visitProfile;  //拜访概要
 
@@ -37,13 +39,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;  //客户变故
 
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
-
-
-
+- (IBAction)selectDate:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
 
 
+@property (strong, nonatomic) HZQDatePickerView *pikerView;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *accessMethod;   //访问方式
@@ -234,12 +236,6 @@
 }
 
 
-
-
-
-
-
-
 //添加
 - (IBAction)add:(id)sender {
     NSString *customerID=_customerCallPlanEntity.customerID;
@@ -256,8 +252,12 @@
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-    
-    
+    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerRequirements.length==0) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else{
+
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
@@ -284,22 +284,34 @@
         
     }
     
+  }
 }
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     //赋值
     [self valuation];
     //调节scroll宽度和高度
     self.scroll.contentSize=CGSizeMake(375, 725);
-    
+//    [self dateVerify];
 }
 
 //赋值方法
 - (void) valuation {
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.theme.layer setBorderColor:color];
+    self.theme.layer.borderWidth = 1;
+    self.theme.layer.cornerRadius = 6;
+    self.theme.layer.masksToBounds = YES;
+    
+    
+    [self.address.layer setBorderColor:color];
+    self.address.layer.borderWidth = 1;
+    self.address.layer.cornerRadius = 6;
+    self.address.layer.masksToBounds = YES;
+    
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
@@ -311,7 +323,27 @@
     _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
     _customerChange.text=_customerCallPlanEntity.customerChange;
 }
-
+//-(void)dateVerify{
+    //当前时间
+//    NSDate *now = [NSDate date];
+//    NSString* string = @"visitDate";
+//    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init ];
+//    [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ];
+//    
+//    [inputFormatter setDateFormat:@"EEE, d MMM yyyy "];
+//    
+//    NSDate* inputDate = [inputFormatter dateFromString:string];
+//    NSTimeInterval secondsPerDay = 24 * 60 * 60;
+//    NSLog(@"date = %@", inputDate);
+//    if(inputDate<now){
+//        if((inputDate<[now dateByAddingTimeInterval: -secondsPerDay])){
+//            UIAlertView *alertView = [[UIAlertView alloc]
+//                                      initWithTitle:@"温馨提示" message:@"计划时间不能小于当前时间！" delegate:self cancelButtonTitle:@"请重新填写" otherButtonTitles:nil];
+//            [alertView show];
+//        }
+//    }
+    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -328,4 +360,33 @@
 }
 */
 
+- (IBAction)selectDate:(id)sender {
+    _pikerView = [HZQDatePickerView instanceDatePickerView];
+    //        _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    DateType type ;
+    [_pikerView setBackgroundColor:[UIColor clearColor]];
+    _pikerView.delegate = self;
+    _pikerView.type = type;
+    [_pikerView.datePickerView setMinimumDate:[NSDate date]];
+    
+    [self.view addSubview:_pikerView];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
+- (void)getSelectDate:(NSString *)date type:(DateType)type {
+    NSLog(@"%d - %@", type, date);
+    self.visitDate.text = [NSString stringWithFormat:@"%@", date];
+}
 @end

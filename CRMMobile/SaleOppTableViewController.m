@@ -71,6 +71,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"销售机会";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];

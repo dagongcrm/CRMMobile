@@ -62,6 +62,7 @@
     [super viewDidLoad];
     [self setupPages];
     [self loadPage:0];
+    
 }
 
 - (void)setupPages
@@ -102,6 +103,7 @@
         x += self.navScrollView.frame.size.width;
     }
     self.pageControl.numberOfPages = TOTAL_PAGES;
+    [self.scrollView bringSubviewToFront:self.contentView];
 }
 
 - (void)loadPage:(NSInteger)page
@@ -190,6 +192,7 @@
     offsetX=offsetX+(scrollView.frame.size.width);
     int page=offsetX/scrollView.frame.size.width;
     self.pageControl.currentPage=page-1;
+    [self.scrollView bringSubviewToFront:self.pageControl];
 }
 
 @end

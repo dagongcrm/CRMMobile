@@ -22,21 +22,21 @@
 @property (nonatomic, retain) NSIndexPath *selectedIndexPath;
 //选择  销售机会来源
 @property (strong, nonatomic) IBOutlet UIButton *saleOppSrcSelect;//销售机会选择按钮
+
 @property (strong,nonatomic)  NSMutableArray *selectOppSrcForShow;//已选择的销售机会列表
 @property (strong,nonatomic)  NSMutableArray *selectSrcIdForParam;//已选择的销售机会ID列表
 @property (strong,nonatomic)  NSArray *selectSrc;//可供选择的 销售机会
 @property (strong,nonatomic)  NSArray *selectSrcId;//可供选择的 销售机会ID
 @property (strong,nonatomic) NSString  *chooseOppSrcID;//用于提交的销售机会ID
 @property (strong,nonatomic) NSString  *chooseOppSrc;//用于提交的销售机会
+@property (strong, nonatomic) IBOutlet UIButton *selectOppStateSelectButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *selectOppStateSelectButton;//机会状态选择按钮
 @property (strong,nonatomic)  NSMutableArray *selectOppStateForShow;//已选择的机会状态列表
 @property (strong,nonatomic)  NSMutableArray *selectOppStateIdForParam;//已选择的机会状态ID列表
 @property (strong,nonatomic)  NSArray *selectOppState;//可供选择的 机会状态
 @property (strong,nonatomic)  NSArray *selectOppStateId;//可供选择的 机会状态ID
 @property (strong,nonatomic) NSString  *chooseoppStateID;//用于提交的机会状态ID
 @property (strong,nonatomic) NSString  *chooseoppState;//用于提交的机会状态
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
@@ -45,11 +45,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *oppState;
 @property (weak, nonatomic) IBOutlet UITextField *contact;
 @property (weak, nonatomic) IBOutlet UITextField *contactTel;
-
-
-
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
+
+
+
 - (IBAction)customerNameSelect:(id)sender;
 
 @end
@@ -112,9 +112,7 @@
         [self.selectOppStateSelectButton setTitle:_saleOppEntity.oppStateStr forState:UIControlStateNormal];
     }
 }
-- (IBAction)cancel:(id)sender {
-    [self ResView];
-}
+
 
 - (IBAction)save:(id)sender {
     NSError *error;
@@ -158,6 +156,8 @@
     [list setSaleOppEntity:_saleOppEntity];
     [self.navigationController pushViewController:list animated:YES];
 }
+
+
 
 - (IBAction)saleOppSrcSelect:(id)sender {
     _select=@"saleOppSrc";
