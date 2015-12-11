@@ -104,7 +104,7 @@
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
     }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
-        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@",sid,customerName,leadsAdd,saleClubID,creatingTime];
+        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@&saleClueID=%@&creatingTime",sid,customerName,leadsAdd,saleClubID];
     }
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
