@@ -121,31 +121,31 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-gl-OR3" userLabel="联系人电话">
-                            <rect key="frame" x="120" y="497" width="205" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8io-fk-o4K" userLabel="联系人电话">
+                            <rect key="frame" x="46" y="508" width="282" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOR-lf-xGe">
-                            <rect key="frame" x="42" y="582" width="143" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.25764523859999999" blue="0.39827132430000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="tintColor" red="0.97780994740000005" green="0.97646244230000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="删除">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="jhi-FR-YAA"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WA-ex-plP">
-                            <rect key="frame" x="193" y="582" width="131" height="30"/>
-                            <color key="backgroundColor" red="0.2048767061" green="0.72883128159999999" blue="0.16610844920000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qr8-JW-uo1">
+                            <rect key="frame" x="197" y="564" width="131" height="30"/>
+                            <color key="backgroundColor" red="0.20487670610258324" green="0.72883128156565657" blue="0.16610844922396459" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.97780994740000005" green="0.97646244230000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="修改">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="edit:" destination="-1" eventType="touchUpInside" id="nFi-Vd-L4z"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-Um-2yL">
+                            <rect key="frame" x="46" y="564" width="143" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.25764523863146072" blue="0.39827132431958212" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.97780994744163141" green="0.97646244234210744" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="删除">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="3LQ-W7-BYX"/>
                             </connections>
                         </button>
                     </subviews>

@@ -13,6 +13,7 @@
 #import "SaleOppEntity.h"
 #import "EntityHelper.h"
 #import "addSaleLeadsViewController.h"
+#import "detailSaleLeadsViewController.h"
 
 @interface saleLeadsTableViewController ()
 
@@ -46,6 +47,7 @@
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSMutableArray *list = [json objectForKey:@"obj"];
+    NSLog(@"%@",list);
     if([list count] ==0)
     {
         self.tableView.footerRefreshingText = @"没有更多数据";
@@ -56,9 +58,10 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
-        SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
+        saleLeads *saleOpp =[[saleLeads alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
         [self.entities addObject:saleOpp];
+        NSLog(@"%@",saleOpp);
     }
     return self.entities;
 }
@@ -151,7 +154,13 @@
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    saleLeads *saleLeadsEntity =[self.entities objectAtIndex:indexPath.row];
+    detailSaleLeadsViewController *detailSaleLeads =[[detailSaleLeadsViewController alloc] init];
+    [detailSaleLeads setSaleLeads:saleLeadsEntity];
+    [self.navigationController pushViewController:detailSaleLeads animated:NO];
+}
 
 
 @end

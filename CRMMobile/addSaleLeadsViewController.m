@@ -26,22 +26,22 @@
 @end
 
 @implementation addSaleLeadsViewController
+@synthesize saleLeads = _saleLeads;
 @synthesize saleOppEntity=_saleOppEntity;
 - (IBAction)customerSelect:(id)sender {
-    _saleOppEntity=[[SaleOppEntity alloc] init];
-    [_saleOppEntity setCustomerNameStr:_customerName.text];
-    [_saleOppEntity setSaleLeadsAdd:_leadsAdd.text];
-    [_saleOppEntity setIndex:@"addSaleLeads"];
+    _saleLeads=[[saleLeads alloc] init];
+    [_saleLeads setCustomerNameStr:_customerName.text];
+    [_saleLeads setSalesLeads:_leadsAdd.text];
+    [_saleLeads setIndex:@"addSaleLeads"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
-    [list setSaleOppEntity:_saleOppEntity];
+    [list setSaleLeads:_saleLeads];
     [self.navigationController pushViewController:list animated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"添加销售线索";
-    _customerName.text=_saleOppEntity.customerNameStr;
-    _leadsAdd.text = _saleOppEntity.saleLeadsAdd;
+    _customerName.text=_saleLeads.customerNameStr;
+    _leadsAdd.text = _saleLeads.salesLeads;
     self.scroll.contentSize = CGSizeMake(375, 1000);
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -64,6 +64,7 @@
     //    self.tableView.dataSource=self;
     
     }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -90,26 +91,30 @@
 */
 
 - (IBAction)save:(id)sender {
-    //验证
-    if(_customerName.text.length==0||_leadsAdd.text.length==0){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-
     
-    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
+    NSURL *URL=[NSURL URLWithString:@""];
+    NSString *leadsAdd =_leadsAdd.text;
+    NSString *customerName = _saleLeads.customerID;
+    NSString *saleClubID = _saleLeads.saleClueID;
+    NSString *creatingTime = _saleLeads.creatingTime;
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@",sid,customerName,leadsAdd];
+    if (_saleLeads.index == @"addSaleLeads") {
+        URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
+    }else{
+        URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
+        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@&saleClueID=%@&creatingTime",sid,customerName,leadsAdd,saleClubID];
+    }
+    
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSLog(@"%@",_saleOppEntity.customerName);
     NSLog(@"saleOppEntity.saleLeadsAdd%@",_leadsAdd.text);
-    NSString *leadsAdd =_leadsAdd.text;
-    NSString *customerName = _saleOppEntity.customerName;
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&salesLeads=%@",sid,customerName,leadsAdd];
+    
+    
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -124,7 +129,7 @@
         [alert show];
         
     }
-    }
+    
 }
 
 - (IBAction)cancel:(id)sender {
