@@ -142,23 +142,9 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-//        if (APPDELEGATE.page!=@"") {
-//            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
-//            [self.navigationController pushViewController:tvc animated:YES];
-//        }else{
-//            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
-//            [self.navigationController pushViewController:mj animated:YES];
-//        }
+
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
-        //        for (UIViewController *controller in self.navigationController.viewControllers)
-        //        {
-        //            if ([controller isKindOfClass:[GLReusableViewController class]])
-        //            {
-        //                [self.navigationController popToViewController:controller animated:YES];
-        //            }
-        //        }
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -167,68 +153,68 @@
     
     
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSError *error;
+        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+        NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+        
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mRenWuSH_DGGJAction!shenHeTG.action?a=1&shenHeRQZ=YongHu00000000000"]];
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        
+        NSString *yeWuZLBH= _auditEntity.yeWuZLBH;
+        NSString *qiYeBH = _auditEntity.submitID;
+        NSString *qiYeMC = _auditEntity.submitName;
+        NSString *yeWuZLMC = _auditEntity.yeWuZL;
+        NSString *ftn_ID = _auditEntity.ftn_ID;
+        NSString*userID=_auditEntity.userID;
+        NSLog(@"%@",qiYeBH);
+        NSLog(@"%@",qiYeMC);
+        NSLog(@"%@",yeWuZLBH);
+        NSLog(@"%@",yeWuZLMC);
+        NSLog(@"%@",ftn_ID);
+        AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+        NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
+        NSLog(@"%@",loginName);
+        NSString *flowId=@"";
+        NSString *fln_UserCode=@"";
+        NSString *nextParticipants=@"";
+        if (loginName == nil||[loginName isEqualToString:@"yushasha"]) {
+            NSLog(@"%@",@"1");
+            flowId=@"FTL_T2013081300001.003";
+            fln_UserCode=@"XTYH20120510007";
+            nextParticipants=@"USER_2014121700012";
+            userID=@"USER_2014121700012";
+        }else{
+            NSLog(@"%@",@"2");
+            flowId=@"FTL_T2013081300001.005";
+            fln_UserCode=@"YongHu2015042000001";
+        }
+        
+        
+        NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        
+        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
+            [alert show];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+        }
+    }
+}
 - (IBAction)del:(id)sender {
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mRenWuSH_DGGJAction!shenHeTG.action?a=1&shenHeRQZ=YongHu00000000000"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    
-    NSString *yeWuZLBH= _auditEntity.yeWuZLBH;
-    NSString *qiYeBH = _auditEntity.submitID;
-    NSString *qiYeMC = _auditEntity.submitName;
-    NSString *yeWuZLMC = _auditEntity.yeWuZL;
-    NSString *ftn_ID = _auditEntity.ftn_ID;
-    NSString*userID=_auditEntity.userID;
-    NSLog(@"%@",qiYeBH);
-    NSLog(@"%@",qiYeMC);
-    NSLog(@"%@",yeWuZLBH);
-    NSLog(@"%@",yeWuZLMC);
-    NSLog(@"%@",ftn_ID);
-    AppDelegate *ad = [[UIApplication sharedApplication] delegate];
-    NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-    NSLog(@"%@",loginName);
-    NSString *flowId=@"";
-    NSString *fln_UserCode=@"";
-    NSString *nextParticipants=@"";
-    if (loginName == nil||[loginName isEqualToString:@"yushasha"]) {
-        NSLog(@"%@",@"1");
-        flowId=@"FTL_T2013081300001.003";
-        fln_UserCode=@"XTYH20120510007";
-        nextParticipants=@"USER_2014121700012";
-        userID=@"USER_2014121700012";
-    }else{
-        NSLog(@"%@",@"2");
-        flowId=@"FTL_T2013081300001.005";
-        fln_UserCode=@"YongHu2015042000001";
-    }
-    
-    
-    NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
-    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-//        if (APPDELEGATE.page!=@"") {
-//            GLReusableViewController *tvc = [[GLReusableViewController alloc] init];
-//            [self.navigationController pushViewController:tvc animated:YES];
-//        }else{
-//            ReminderTableViewController *mj = [[ReminderTableViewController alloc] init];
-//            [self.navigationController pushViewController:mj animated:YES];
-//        }
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
-        [alert show];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"提示信息" message:@"是否审核？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [alertView show];
 }
 @end

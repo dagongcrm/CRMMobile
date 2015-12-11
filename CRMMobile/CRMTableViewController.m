@@ -30,18 +30,38 @@
         NSMutableArray  *data        = [NSMutableArray arrayWithContentsOfFile:path];
         for(int i=0;i<[data count];i++){
             NSString *indexName=[[data objectAtIndex:i] objectForKey:@"authorityname"];
-            if(![[APPDELEGATE.roleAuthority objectForKey:indexName]rangeOfString:@"N"].length>0){
-                [tablecount addObject:[data objectAtIndex:i]];
-            }
+            NSString *authname=[APPDELEGATE.roleAuthority objectForKey:indexName];
+            int countForN=[self numberOfCharaterInString:authname characterToCount:@"N"];
+                if(countForN != authname.length){
+                    [tablecount addObject:[data objectAtIndex:i]];
+                }
         }
         _authTableDataCount=[tablecount copy];
     }
     return  _authTableDataCount;
 }
 
+-(int) numberOfCharaterInString:(NSString *)stringToCount characterToCount:(NSString *) character{
+    int numberPoint = 0;
+    
+    for (int i = 0; i<stringToCount.length; i++)
+    {
+        NSString * temp = [stringToCount substringWithRange:NSMakeRange(i, 1)];
+        
+        if ([temp isEqualToString:character])
+        {
+            numberPoint ++;
+        }
+    }
+    return  numberPoint;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.tableView.tableFooterView=[[UIView alloc] init];
 }
 
@@ -67,37 +87,39 @@
     }
     NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
+    [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==0){
+    NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
+    NSString *authid=[item objectForKey:@"authorityname"];
+    if([authid isEqualToString:@"kehudangan"]){
         CustomerInformationTableViewController *fltv= [[CustomerInformationTableViewController alloc] init];
         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
-    }else if(indexPath.row==1){
+    }else if([authid isEqualToString:@"kehulianxiren"]){
         CustomercontactTableViewController *customercontact = [[CustomercontactTableViewController alloc]init];
         customercontact.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: customercontact animated:YES];
-    }else if(indexPath.row==2){
+    }else if([authid isEqualToString:@"baifangjihua"]){
         CustomerCallPlanViewController *fltv=[[CustomerCallPlanViewController alloc] init];
         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
         
-    }else if(indexPath.row==3){
+    }else if([authid isEqualToString:@"baifangjilu"]){
         TaskRecordsTableViewController *fltv=[[TaskRecordsTableViewController alloc] init];
         fltv.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: fltv animated:YES];
-    }else if(indexPath.row==4){
+    }else if([authid isEqualToString:@"xiaoshouxiansuo"]){
         saleLeadsTableViewController *saleLeads = [[saleLeadsTableViewController alloc] init];
         [self.navigationController pushViewController:saleLeads animated:YES];
-        
-    }else if(indexPath.row==5){
+    }else if([authid isEqualToString:@"xiaoshoujihui"]){
         SaleOppTableViewController *saleopp= [[SaleOppTableViewController alloc] init];
         [self.navigationController pushViewController: saleopp animated:YES];
-    }else if(indexPath.row==6){
+    }else if([authid isEqualToString:@"huodongtongji"]){
         MarketManagementViewController *marketManagement= [[MarketManagementViewController alloc] init];
         [self.navigationController pushViewController: marketManagement animated:YES];
     }

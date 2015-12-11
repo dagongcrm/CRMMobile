@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     NSString *dataPath = [[NSBundle mainBundle]pathForResource:@"Notification.plist" ofType:nil];
     NotificationListData= [NSMutableArray arrayWithContentsOfFile:dataPath];
     [self setExtraCellLineHidden:self.tableView];
@@ -59,6 +60,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [NotificationListData objectAtIndex:indexPath.row];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
+    [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

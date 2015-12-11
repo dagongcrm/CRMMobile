@@ -7,7 +7,7 @@
             <key>Name</key>
             <string>待办提醒</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>notice-1.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
@@ -21,7 +21,7 @@
             <key>Name</key>
             <string>通知</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>notice-2.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>

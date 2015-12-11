@@ -209,7 +209,7 @@
     
     self.selectSFForShow=[[NSMutableArray alloc] init];
     self.selectSFIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 260, 400)];
     listView.titleName.text = @"所属行业选择";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -486,7 +486,15 @@
     for (int i=0; i<[self.selectSFIdForParam count]; i++) {
         sf = [self.selectSFIdForParam objectAtIndex:i];
     }
-    
+    //验证
+    if (cn.length==0||ca.length==0||p.length==0||hy.length==0||qylx.length==0||khlb.length==0||sf.length==0) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else{
+        
+
     
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -518,7 +526,7 @@
         [alert show];
         
     }
-    
+}
     
 }
 

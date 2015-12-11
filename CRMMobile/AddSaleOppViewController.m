@@ -57,7 +57,6 @@
 @synthesize selectedIndexPath = _selectedIndexPath;
 @synthesize saleOppEntity=_saleOppEntity;
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     [self valuation];
     [self BackButton];
@@ -117,6 +116,11 @@
 }
 
 - (IBAction)save:(id)sender {
+    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle==nil||_saleOppSrcSelect.currentTitle==NULL||_selectOppStateSelectButton.currentTitle==nil||_selectOppStateSelectButton.currentTitle==NULL) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -139,7 +143,7 @@
         [alert show];
         
     }
-
+    }
 }
 
 - (IBAction)customerNameSelect:(id)sender {

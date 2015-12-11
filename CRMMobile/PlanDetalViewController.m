@@ -132,67 +132,6 @@
     [uc1 setCustomerCallPlanEntity:_customerCallPlanEntity];
     [self.navigationController pushViewController:uc1 animated:YES];
 }
-
-- (IBAction)delete:(id)sender {
-    NSString *ci= _customerCallPlanEntity.customerCallPlanID;
-    
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!delete.action?"]];
-    
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"ids=%@&MOBILE_SID=%@",ci,sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
-    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
-        [alert show];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
-}
-
-
-
-- (IBAction)visitQR:(id)sender {
-    NSString *ci= _customerCallPlanEntity.customerCallPlanID;
-    
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!addCallRecords.action?"]];
-    
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"customerCallPlanID=%@&MOBILE_SID=%@",ci,sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
-    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
-        [alert show];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
-    
-}
-
-
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
         NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
@@ -200,7 +139,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&ids=%@",sid,_dailyEntity.customerCallPlanID];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&ids=%@",sid,_customerCallPlanEntity.customerCallPlanID];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -212,4 +151,74 @@
         }
     }
 }
+
+- (IBAction)delete:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [alertView show];
+//    NSString *ci= _customerCallPlanEntity.customerCallPlanID;
+//    
+//    NSError *error;
+//    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+//    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+//    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!delete.action?"]];
+//    
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+//    request.timeoutInterval=10.0;
+//    request.HTTPMethod=@"POST";
+//    NSString *param=[NSString stringWithFormat:@"ids=%@&MOBILE_SID=%@",ci,sid];
+//    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+//    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//    
+//    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+//        [alert show];
+//    }else{
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        [alert show];
+//        
+//    }
+}
+
+-(void)alertView1:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSString *ci= _customerCallPlanEntity.customerCallPlanID;
+        
+        NSError *error;
+        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+        NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!addCallRecords.action?"]];
+        
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        NSString *param=[NSString stringWithFormat:@"customerCallPlanID=%@&MOBILE_SID=%@",ci,sid];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        
+        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
+            [self.navigationController pushViewController:mj animated:YES];
+            [alert show];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+        }
+    }
+}
+
+- (IBAction)visitQR:(id)sender {
+    UIAlertView *alertView1= [[UIAlertView alloc]
+                              initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [alertView1 show];
+}
+
+
+
 @end

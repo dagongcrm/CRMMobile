@@ -214,7 +214,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"lianxiren"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"txl-1"]];
     cell.textLabel.text = self.fakeData[indexPath.row];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     

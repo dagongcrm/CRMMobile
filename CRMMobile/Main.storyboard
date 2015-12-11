@@ -271,16 +271,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8K-QG-ELD" userLabel="Content View">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
-                                            <subviews>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-Rt-kTL">
-                                                    <rect key="frame" x="0.0" y="15" width="200" height="37"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="37" id="Kxz-6q-91O"/>
-                                                    </constraints>
-                                                    <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                                    <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </pageControl>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
@@ -294,12 +284,23 @@
                                         <constraint firstItem="D8K-QG-ELD" firstAttribute="top" secondItem="ldl-Pm-R7w" secondAttribute="top" id="tH0-fG-u7O"/>
                                     </constraints>
                                 </scrollView>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-Rt-kTL">
+                                    <rect key="frame" x="0.0" y="15" width="200" height="37"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="37" id="Kxz-6q-91O"/>
+                                    </constraints>
+                                    <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="ldl-Pm-R7w" firstAttribute="top" secondItem="gW4-M6-GVY" secondAttribute="top" id="CB0-PL-icz"/>
                                 <constraint firstAttribute="trailing" secondItem="ldl-Pm-R7w" secondAttribute="trailing" id="IJf-Vb-QgM"/>
+                                <constraint firstItem="5Dd-Rt-kTL" firstAttribute="leading" secondItem="ldl-Pm-R7w" secondAttribute="leading" id="ODU-wm-gAe"/>
                                 <constraint firstAttribute="bottom" secondItem="ldl-Pm-R7w" secondAttribute="bottom" id="em6-QO-2Sq"/>
+                                <constraint firstItem="5Dd-Rt-kTL" firstAttribute="top" secondItem="gW4-M6-GVY" secondAttribute="top" constant="15" id="lgu-kp-cmR"/>
+                                <constraint firstItem="5Dd-Rt-kTL" firstAttribute="trailing" secondItem="ldl-Pm-R7w" secondAttribute="trailing" id="oKc-Cb-53M"/>
                                 <constraint firstItem="ldl-Pm-R7w" firstAttribute="leading" secondItem="gW4-M6-GVY" secondAttribute="leading" id="rRD-fW-zWA"/>
                             </constraints>
                         </view>
