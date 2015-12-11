@@ -177,6 +177,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];
+    self.title=@"待办提醒";
    // self.uid=[NSMutableArray array];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;

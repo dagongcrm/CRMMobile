@@ -91,6 +91,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
     NSDictionary *item = [self.authTableDataCount objectAtIndex:indexPath.row];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
+    [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

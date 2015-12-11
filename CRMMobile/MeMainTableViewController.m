@@ -53,6 +53,7 @@
     NSDictionary *item = [_optionListData objectAtIndex:indexPath.row];
         [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     [cell.textLabel setText:[item objectForKey:@"Name"]];
+    [cell.imageView setImage:[UIImage imageNamed:[item objectForKey:@"Image"]]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

@@ -6,7 +6,7 @@
             <key>Name</key>
             <string>客户档案</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-1.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/iapps</string>
             <key>Category</key>
@@ -22,7 +22,7 @@
             <key>Name</key>
             <string>客户联系人</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-2.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/appleus</string>
             <key>Favorite</key>
@@ -38,7 +38,7 @@
             <key>Name</key>
             <string>拜访计划</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-3.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
@@ -54,7 +54,7 @@
             <key>Name</key>
             <string>拜访记录</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-4.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
@@ -70,7 +70,7 @@
             <key>Name</key>
             <string>销售线索</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-5.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
@@ -86,7 +86,7 @@
             <key>Name</key>
             <string>销售机会</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-6.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
@@ -102,7 +102,7 @@
             <key>Name</key>
             <string>活动统计</string>
             <key>Image</key>
-            <string>home-black.png</string>
+            <string>crm-7.png</string>
             <key>WebSite</key>
             <string>http://weibo.com/gx110</string>
             <key>Favorite</key>
