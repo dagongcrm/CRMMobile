@@ -17,6 +17,7 @@
 @synthesize roleAuthority;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [NSThread sleepForTimeInterval:1.0];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
