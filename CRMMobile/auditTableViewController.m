@@ -179,7 +179,7 @@
     NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"image.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 

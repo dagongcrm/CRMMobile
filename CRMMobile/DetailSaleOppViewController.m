@@ -13,16 +13,18 @@
 #import "AppDelegate.h"
 
 @interface DetailSaleOppViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-@property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
-@property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
-@property (weak, nonatomic) IBOutlet UITextField *successProbability;
-@property (weak, nonatomic) IBOutlet UITextField *saleOppDescription;
-@property (weak, nonatomic) IBOutlet UITextField *oppState;
-@property (weak, nonatomic) IBOutlet UITextField *contact;
-@property (weak, nonatomic) IBOutlet UITextField *contactTel;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UITextField *customerNameStr;
+@property (strong, nonatomic) IBOutlet UITextField *saleOppSrc;
+@property (strong, nonatomic) IBOutlet UITextField *successProbability;
+@property (strong, nonatomic) IBOutlet UITextField *saleOppDescription;
+@property (strong, nonatomic) IBOutlet UITextField *oppState;
+@property (strong, nonatomic) IBOutlet UITextField *contact;
+@property (strong, nonatomic) IBOutlet UITextField *contactTel;
 - (IBAction)delete:(id)sender;
 - (IBAction)edit:(id)sender;
+
+
 
 @end
 
@@ -31,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"销售机会详情";
-    self.scroll.contentSize = CGSizeMake(375, 600);
+    self.scroll.contentSize = CGSizeMake(375, 680);
     self.customerNameStr.text=_saleOppEntity.customerNameStr;
     self.saleOppSrc.text=_saleOppEntity.saleOppSrcStr;
     self.successProbability.text=_saleOppEntity.successProbability;
@@ -40,6 +42,7 @@
     self.contact.text=_saleOppEntity.contact;
     self.contactTel.text=_saleOppEntity.contactTel;
 }
+
 
 
 - (IBAction)delete:(id)sender {

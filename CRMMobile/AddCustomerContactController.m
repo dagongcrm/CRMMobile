@@ -33,8 +33,8 @@
 @synthesize addCustomerEntity = _addCustomerEntity;
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title=@"添加联系人信息";
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.title=@"添加联系人信息";
+    self.scroll.contentSize = CGSizeMake(375, 900);
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
@@ -100,7 +100,13 @@
     [super didReceiveMemoryWarning];
 }
 - (IBAction)cancleForAdd:(id)sender {
-    
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CustomercontactTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }    
 }
 
 - (IBAction)saveForAdd:(id)sender {

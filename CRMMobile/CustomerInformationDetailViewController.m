@@ -37,8 +37,15 @@
 
 //删除
 - (IBAction)delete:(id)sender {
-    NSString *ci= _customerInformationEntity.customerID;
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"提示信息" message:@"是否确定删除这条档案信息？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [alertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
     
+    NSString *ci= _customerInformationEntity.customerID;
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -69,7 +76,7 @@
         [alert show];
         
     }
-    
+    }
 }
 
 //跳转至修改页面
@@ -113,15 +120,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

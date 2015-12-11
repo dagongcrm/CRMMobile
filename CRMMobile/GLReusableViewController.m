@@ -76,7 +76,7 @@
         timeForShow.textColor=[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0];
         [self.view addSubview:timeForShow];
         [timeForShow sizeToFit];
-        timeForShow.center = CGPointMake(self.view.bounds.size.width/2,100);
+        timeForShow.center = CGPointMake(180,100);
     
         NSString *weatherDetail=[self getWeather];
         UILabel  *weatherDetailText = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 30, 30)];
@@ -84,7 +84,7 @@
         weatherDetailText.textColor=[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0];
         [self.view addSubview:weatherDetailText];
         [weatherDetailText sizeToFit];
-        weatherDetailText.center = CGPointMake(self.view.bounds.size.width/2,130);
+        weatherDetailText.center = CGPointMake(190,140);
     
         UILabel  *todolabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 160, 20, 10)];
         todolabel.text=@"今日工作";
@@ -93,6 +93,10 @@
         [self.view addSubview:todolabel];
         [todolabel sizeToFit];
     
+        UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,179,self.view.bounds.size.width,1)];
+        navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [navDividingLine sizeToFit];
+        [self.view addSubview:navDividingLine];
     
         ReminderTableViewController *nav = [[ReminderTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
@@ -122,7 +126,9 @@
         [nav didMoveToParentViewController:self];
     }
 }
-
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)page{
+//    return 60;
+//}
 -(NSString *) getTimeNow{
     NSArray * arrWeek=[NSArray arrayWithObjects:@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六", nil];
     NSDate *date = [NSDate date];
@@ -140,7 +146,7 @@
     int year  = [comps year];
     int month = [comps month];
     int day   = [comps day];
-    NSString *timeForShowFormatter=[[NSString stringWithFormat:@"%d年%d月%d日 ",year,month,day] stringByAppendingString:[NSString stringWithFormat:@"%@",[arrWeek objectAtIndex:week]]];
+    NSString *timeForShowFormatter=[[NSString stringWithFormat:@"%d年%d月%d日 ",year,month,day] stringByAppendingString:[NSString stringWithFormat:@"      %@",[arrWeek objectAtIndex:week]]];
     return timeForShowFormatter;
 }
 
@@ -164,6 +170,6 @@
     weatherDic = [weatherDic substringFromIndex:range5.location+1];
     NSRange range6=[weatherDic rangeOfString:@" "];
     weatherDic = [weatherDic substringToIndex:range6.location+1];
-    return [[weatherDic stringByAppendingString:@" "] stringByAppendingString:temp];
+    return [[weatherDic stringByAppendingString:@"     "] stringByAppendingString:temp];
 }
 @end
