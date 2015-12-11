@@ -151,7 +151,6 @@
 		39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798C21C05E2EF000D9A20 /* PlanButViewController.m */; };
 		39F798C71C05E2EF000D9A20 /* PlanButViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798C31C05E2EF000D9A20 /* PlanButViewController.xib */; };
 		39F798CB1C05E4AE000D9A20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798CA1C05E4AE000D9A20 /* AppDelegate.m */; };
-		9604F46F1C1AC62C0074B1A5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */; };
 		9604F4711C1AC6A90074B1A5 /* submit12.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4701C1AC6A90074B1A5 /* submit12.png */; };
 		9604F4741C1AC71B0074B1A5 /* notice-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4721C1AC71B0074B1A5 /* notice-1.png */; };
 		9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4731C1AC71B0074B1A5 /* notice-2.png */; };
@@ -189,6 +188,9 @@
 		9604F4B81C1ACC3E0074B1A5 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AB1C1ACC3E0074B1A5 /* stop.png */; };
 		9604F4B91C1ACC3E0074B1A5 /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AC1C1ACC3E0074B1A5 /* update.png */; };
 		9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AD1C1ACC3E0074B1A5 /* update-s.png */; };
+		9604F4BE1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9604F4BC1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m */; };
+		9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */; };
+		9604F4C11C1ADE400074B1A5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */; };
 		9618AA531BFC82D1001A6D0D /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA521BFC82D1001A6D0D /* back.png */; };
 		96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96332E961BFF32C100BBEB85 /* EntityHelper.m */; };
 		9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */; };
@@ -541,7 +543,6 @@
 		39F798C91C05E4AE000D9A20 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39F798CA1C05E4AE000D9A20 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82C7E133320381C359BF81B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		9604F4701C1AC6A90074B1A5 /* submit12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit12.png; sourceTree = "<group>"; };
 		9604F4721C1AC71B0074B1A5 /* notice-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice-1.png"; sourceTree = "<group>"; };
 		9604F4731C1AC71B0074B1A5 /* notice-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice-2.png"; sourceTree = "<group>"; };
@@ -579,6 +580,10 @@
 		9604F4AB1C1ACC3E0074B1A5 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		9604F4AC1C1ACC3E0074B1A5 /* update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update.png; sourceTree = "<group>"; };
 		9604F4AD1C1ACC3E0074B1A5 /* update-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update-s.png"; sourceTree = "<group>"; };
+		9604F4BB1C1ADDA10074B1A5 /* detailSaleLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailSaleLeadsViewController.h; sourceTree = "<group>"; };
+		9604F4BC1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailSaleLeadsViewController.m; sourceTree = "<group>"; };
+		9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailSaleLeadsViewController.xib; sourceTree = "<group>"; };
+		9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		9618AA521BFC82D1001A6D0D /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		96332E951BFF32C100BBEB85 /* EntityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityHelper.h; sourceTree = "<group>"; };
 		96332E961BFF32C100BBEB85 /* EntityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityHelper.m; sourceTree = "<group>"; };
@@ -863,6 +868,9 @@
 			isa = PBXGroup;
 			children = (
 				1FEF62591C16AEFE00E6F4BF /* addSaleLeadsViewController.h */,
+				9604F4BB1C1ADDA10074B1A5 /* detailSaleLeadsViewController.h */,
+				9604F4BC1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m */,
+				9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */,
 				1FEF625A1C16AEFE00E6F4BF /* addSaleLeadsViewController.m */,
 				1FEF625B1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib */,
 				1FEF62541C16AED200E6F4BF /* saleLeadsTableViewController.h */,
@@ -894,7 +902,7 @@
 		1FEF62871C16B3E300E6F4BF /* login */ = {
 			isa = PBXGroup;
 			children = (
-				9604F46E1C1AC62C0074B1A5 /* loginLogo2.jpg */,
+				9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */,
 				9604F4701C1AC6A90074B1A5 /* submit12.png */,
 				1FEF628C1C16B42500E6F4BF /* submit-1.png */,
 				1FEF628D1C16B42500E6F4BF /* submit11.png */,
@@ -1864,7 +1872,6 @@
 				39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */,
 				C0D3CD6C1BDF0CEF00C23FB3 /* 17.png in Resources */,
 				1FEF628B1C16B40E00E6F4BF /* loginLogo1.jpg in Resources */,
-				9604F46F1C1AC62C0074B1A5 /* loginLogo2.jpg in Resources */,
 				9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */,
 				39F797FA1C05D147000D9A20 /* WeekTableViewController.xib in Resources */,
 				39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */,
@@ -1875,6 +1882,7 @@
 				C0D3CD6B1BDF0CEF00C23FB3 /* 16.png in Resources */,
 				9604F49A1C1AC8D90074B1A5 /* op-3.png in Resources */,
 				39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */,
+				9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */,
 				B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */,
 				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
 				B8EDAD761C19366300865E7C /* NoticeViewController.xib in Resources */,
@@ -1916,6 +1924,7 @@
 				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				B8EDAD7C1C19366300865E7C /* taskReminderTableViewController.xib in Resources */,
+				9604F4C11C1ADE400074B1A5 /* loginLogo2.jpg in Resources */,
 				C0D3CD641BDF0CEF00C23FB3 /* 9.png in Resources */,
 				39F7971D1C05CC50000D9A20 /* EditCustomerContactController.xib in Resources */,
 				9604F4801C1AC79A0074B1A5 /* crm-1.png in Resources */,
@@ -2077,6 +2086,7 @@
 				39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */,
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
 				39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */,
+				9604F4BE1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m in Sources */,
 				B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
