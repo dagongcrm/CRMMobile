@@ -205,11 +205,11 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMl-V1-plG">
                             <rect key="frame" x="36" y="891" width="90" height="40"/>
                             <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="sub-s.png">
+                            <state key="normal" image="bfan.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="addCallRecords:" destination="-1" eventType="touchUpInside" id="3ce-1Q-KGk"/>
+                                <action selector="addCallRecords:" destination="-1" eventType="touchUpInside" id="fX0-zC-tpq"/>
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-h2-MbR">
@@ -223,7 +223,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="nvw-2V-bF5"/>
+                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="6XE-Uz-gXb"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-aB-bHi">
@@ -232,7 +232,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="pzM-7h-wGU"/>
+                                <action selector="edit:" destination="-1" eventType="touchUpInside" id="apI-NG-CLZ"/>
                             </connections>
                         </button>
                     </subviews>
@@ -244,8 +244,8 @@
         </view>
     </objects>
     <resources>
+        <image name="bfan.png" width="90" height="40"/>
         <image name="delete-si.png" width="90" height="40"/>
-        <image name="sub-s.png" width="120" height="40"/>
         <image name="update-s.png" width="90" height="40"/>
     </resources>
 </document>
