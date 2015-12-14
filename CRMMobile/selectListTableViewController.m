@@ -37,7 +37,7 @@
         self.fakeData   = [NSMutableArray array];
         self.customerID = [NSMutableArray array];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -185,6 +185,10 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
 
 - (void)setupRefresh
 {
@@ -199,10 +203,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    myDelegate.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -212,11 +214,11 @@
 
 - (void)footerRereshing
 {
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    if(myDelegate.index==0){
-        myDelegate.index=3;
+    if(self.index==0){
+        self.index=2;
+    }else{
+        self.index++;
     }
-    self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     NSLog(@"%@************",p);
     [self faker:p];

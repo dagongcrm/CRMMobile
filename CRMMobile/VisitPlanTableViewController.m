@@ -40,7 +40,7 @@
         self.visitDate = [[NSMutableArray alloc]init];
         self.respondent=[[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -70,7 +70,10 @@
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+    [self setExtraCellLineHidden:self.tableView];
 }
+
+
 - (void)ResView
 {
     for (UIViewController *controller in self.navigationController.viewControllers)
@@ -166,12 +169,12 @@
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 55;
 }
 //上拉刷新下拉加载
 - (void)setupRefresh
@@ -187,9 +190,9 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    self.index=3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
+
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -200,9 +203,11 @@
 - (void)footerRereshing
 {
     if(self.index==0){
-        self.index=3;
+        self.index=2;
+    }else{
+        self.index++;
     }
-    self.index=self.index++;
+
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -13,7 +13,8 @@
 #import "CustomerInfermationDetailMessageEntity.h"
 #import "CustomerInformationDetailViewController.h"
 #import "AddCustomerInformationViewController.h"
-
+#import "UIImage+Tint.h"
+#import "CRMTableViewController.h"
 @interface CustomerInformationTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
@@ -34,7 +35,7 @@
         self.fakeData   = [NSMutableArray array];
         self.customerID = [NSMutableArray array];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -53,9 +54,30 @@
                                  action:@selector(addCustomerInfomation:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-    
+}
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CRMTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
 }
 
 -(NSMutableArray *) faker: (NSString *) page{
@@ -155,10 +177,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    myDelegate.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -168,11 +188,11 @@
 
 - (void)footerRereshing
 {
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    if(myDelegate.index==0){
-        myDelegate.index=3;
+    if(self.index==0){
+        self.index=2;
+    }else{
+        self.index++;
     }
-    self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     NSLog(@"%@************",p);
     [self faker:p];
@@ -236,6 +256,9 @@
         [self.navigationController pushViewController:uc animated:YES];
         
     }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 // delcare id and index

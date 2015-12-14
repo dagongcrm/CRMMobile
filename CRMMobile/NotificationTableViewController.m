@@ -68,11 +68,13 @@
     if(indexPath.row == 0){
         NSLog(@"fffffffff");
         taskReminderTableViewController *tr = [[taskReminderTableViewController alloc] init];
+        tr.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:tr animated:YES];
     }else if(indexPath.row == 1){
         NSLog(@"ffffffffferji");
         //NoticeTableViewController *view = [[NoticeTableViewController alloc]init];
         NoticeViewController *view = [[NoticeViewController alloc] init];
+        view.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:view animated:YES];
     }
 }

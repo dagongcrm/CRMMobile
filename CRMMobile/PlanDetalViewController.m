@@ -1,11 +1,3 @@
-//
-//  PlanDetalViewController.m
-//  CRMMobile
-//
-//  Created by peng on 15/11/6.
-//  Copyright (c) 2015年 dagong. All rights reserved.
-//
-
 
 #import "EditPlanViewController.h"
 #import "PlanDetalViewController.h"
@@ -53,7 +45,7 @@
     [super viewDidLoad];
     self.title=@"拜访计划";
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 1060);
+    self.scroll.contentSize=CGSizeMake(375, 1080);
     
     //赋值
     [self valuation];

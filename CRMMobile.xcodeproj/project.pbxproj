@@ -52,8 +52,6 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
-		39DE6F5D1C1E5FFA00302020 /* OMGToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE6F5C1C1E5FFA00302020 /* OMGToast.m */; };
-		39DE6F5F1C1E6C3D00302020 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE6F5E1C1E6C3C00302020 /* QuartzCore.framework */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -164,7 +162,6 @@
 		9604F4821C1AC79A0074B1A5 /* crm-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F47B1C1AC79A0074B1A5 /* crm-5.png */; };
 		9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F47C1C1AC79A0074B1A5 /* crm-6.png */; };
 		9604F4891C1AC8280074B1A5 /* work-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4841C1AC8280074B1A5 /* work-1.png */; };
-		9604F48A1C1AC8280074B1A5 /* gongsi.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4851C1AC8280074B1A5 /* gongsi.png */; };
 		9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4861C1AC8280074B1A5 /* work-4.png */; };
 		9604F48C1C1AC8280074B1A5 /* work-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4871C1AC8280074B1A5 /* work-3.png */; };
 		9604F48D1C1AC8280074B1A5 /* work-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4881C1AC8280074B1A5 /* work-2.png */; };
@@ -179,8 +176,6 @@
 		9604F4A01C1AC92B0074B1A5 /* op-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F49F1C1AC92B0074B1A5 /* op-1.png */; };
 		9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A11C1ACC3E0074B1A5 /* save-s.png */; };
 		9604F4AF1C1ACC3E0074B1A5 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A21C1ACC3E0074B1A5 /* save.png */; };
-		9604F4B01C1ACC3E0074B1A5 /* cancle-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */; };
-		9604F4B11C1ACC3E0074B1A5 /* bfan.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A41C1ACC3E0074B1A5 /* bfan.png */; };
 		9604F4B21C1ACC3E0074B1A5 /* delete-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A51C1ACC3E0074B1A5 /* delete-s.png */; };
 		9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A61C1ACC3E0074B1A5 /* delete-si.png */; };
 		9604F4B41C1ACC3E0074B1A5 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4A71C1ACC3E0074B1A5 /* delete.png */; };
@@ -194,6 +189,11 @@
 		9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */; };
 		9604F4C11C1ADE400074B1A5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */; };
 		9618AA531BFC82D1001A6D0D /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA521BFC82D1001A6D0D /* back.png */; };
+		9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70A1C1EB0C2000C4EEE /* cancle-s.png */; };
+		9619C70F1C1EB1D0000C4EEE /* bfan.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70C1C1EB1D0000C4EEE /* bfan.png */; };
+		9619C7101C1EB1D0000C4EEE /* goback-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70D1C1EB1D0000C4EEE /* goback-1.png */; };
+		9619C7111C1EB1D0000C4EEE /* pass-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70E1C1EB1D0000C4EEE /* pass-1.png */; };
+		9619C7151C1EC6BC000C4EEE /* gongsi.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C7141C1EC6BC000C4EEE /* gongsi.png */; };
 		96332E971BFF32C100BBEB85 /* EntityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96332E961BFF32C100BBEB85 /* EntityHelper.m */; };
 		9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEEA1BEB71C800E5B50E /* CustomerInformationDetailViewController.xib */; };
 		9678AEF71BEB71C800E5B50E /* AddCustomerInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9678AEED1BEB71C800E5B50E /* AddCustomerInformationViewController.xib */; };
@@ -387,9 +387,6 @@
 		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
 		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
-		39DE6F5B1C1E5FFA00302020 /* OMGToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGToast.h; sourceTree = "<group>"; };
-		39DE6F5C1C1E5FFA00302020 /* OMGToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGToast.m; sourceTree = "<group>"; };
-		39DE6F5E1C1E6C3C00302020 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -559,7 +556,6 @@
 		9604F47B1C1AC79A0074B1A5 /* crm-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-5.png"; sourceTree = "<group>"; };
 		9604F47C1C1AC79A0074B1A5 /* crm-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crm-6.png"; sourceTree = "<group>"; };
 		9604F4841C1AC8280074B1A5 /* work-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-1.png"; sourceTree = "<group>"; };
-		9604F4851C1AC8280074B1A5 /* gongsi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gongsi.png; sourceTree = "<group>"; };
 		9604F4861C1AC8280074B1A5 /* work-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-4.png"; sourceTree = "<group>"; };
 		9604F4871C1AC8280074B1A5 /* work-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-3.png"; sourceTree = "<group>"; };
 		9604F4881C1AC8280074B1A5 /* work-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-2.png"; sourceTree = "<group>"; };
@@ -574,8 +570,6 @@
 		9604F49F1C1AC92B0074B1A5 /* op-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "op-1.png"; sourceTree = "<group>"; };
 		9604F4A11C1ACC3E0074B1A5 /* save-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save-s.png"; sourceTree = "<group>"; };
 		9604F4A21C1ACC3E0074B1A5 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
-		9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancle-s.png"; sourceTree = "<group>"; };
-		9604F4A41C1ACC3E0074B1A5 /* bfan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bfan.png; sourceTree = "<group>"; };
 		9604F4A51C1ACC3E0074B1A5 /* delete-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-s.png"; sourceTree = "<group>"; };
 		9604F4A61C1ACC3E0074B1A5 /* delete-si.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-si.png"; sourceTree = "<group>"; };
 		9604F4A71C1ACC3E0074B1A5 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
@@ -590,6 +584,11 @@
 		9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailSaleLeadsViewController.xib; sourceTree = "<group>"; };
 		9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		9618AA521BFC82D1001A6D0D /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		9619C70A1C1EB0C2000C4EEE /* cancle-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancle-s.png"; sourceTree = "<group>"; };
+		9619C70C1C1EB1D0000C4EEE /* bfan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bfan.png; sourceTree = "<group>"; };
+		9619C70D1C1EB1D0000C4EEE /* goback-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goback-1.png"; sourceTree = "<group>"; };
+		9619C70E1C1EB1D0000C4EEE /* pass-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pass-1.png"; sourceTree = "<group>"; };
+		9619C7141C1EC6BC000C4EEE /* gongsi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gongsi.png; sourceTree = "<group>"; };
 		96332E951BFF32C100BBEB85 /* EntityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityHelper.h; sourceTree = "<group>"; };
 		96332E961BFF32C100BBEB85 /* EntityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityHelper.m; sourceTree = "<group>"; };
 		9678AEE31BEB71C800E5B50E /* CustomerInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInformationTableViewController.h; sourceTree = "<group>"; };
@@ -758,7 +757,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39DE6F5F1C1E6C3D00302020 /* QuartzCore.framework in Frameworks */,
 				39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,7 +785,6 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
-				1FFA8B1C1C17DCBF0000616A /* New Group */,
 				39E729E11C0697A50050D77F /* editTaskViewController.h */,
 				39E729E21C0697A50050D77F /* editTaskViewController.m */,
 				39E729E31C0697A50050D77F /* editTaskViewController.xib */,
@@ -937,22 +934,6 @@
 				1FEF62961C16B57000E6F4BF /* 16.JPG */,
 			);
 			name = option;
-			sourceTree = "<group>";
-		};
-		1FFA8B1C1C17DCBF0000616A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
-		39DE6F5A1C1E5FDD00302020 /* toast */ = {
-			isa = PBXGroup;
-			children = (
-				39DE6F5B1C1E5FFA00302020 /* OMGToast.h */,
-				39DE6F5C1C1E5FFA00302020 /* OMGToast.m */,
-			);
-			name = toast;
 			sourceTree = "<group>";
 		};
 		39E8765F1C02FF0B00BF6808 /* crm */ = {
@@ -1111,7 +1092,6 @@
 		697B9FD2210A177A0B37E0B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39DE6F5E1C1E6C3C00302020 /* QuartzCore.framework */,
 				39F1F1721BE34F1700EA3133 /* libPods.a */,
 				82C7E133320381C359BF81B5 /* libPods.a */,
 			);
@@ -1130,10 +1110,13 @@
 		9604F4371C1A98FC0074B1A5 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				9619C7141C1EC6BC000C4EEE /* gongsi.png */,
+				9619C70C1C1EB1D0000C4EEE /* bfan.png */,
+				9619C70D1C1EB1D0000C4EEE /* goback-1.png */,
+				9619C70E1C1EB1D0000C4EEE /* pass-1.png */,
 				9604F4A11C1ACC3E0074B1A5 /* save-s.png */,
+				9619C70A1C1EB0C2000C4EEE /* cancle-s.png */,
 				9604F4A21C1ACC3E0074B1A5 /* save.png */,
-				9604F4A31C1ACC3E0074B1A5 /* cancle-s.png */,
-				9604F4A41C1ACC3E0074B1A5 /* bfan.png */,
 				9604F4A51C1ACC3E0074B1A5 /* delete-s.png */,
 				9604F4A61C1ACC3E0074B1A5 /* delete-si.png */,
 				9604F4A71C1ACC3E0074B1A5 /* delete.png */,
@@ -1143,7 +1126,6 @@
 				9604F4AB1C1ACC3E0074B1A5 /* stop.png */,
 				9604F4AC1C1ACC3E0074B1A5 /* update.png */,
 				9604F4AD1C1ACC3E0074B1A5 /* update-s.png */,
-				9604F4851C1AC8280074B1A5 /* gongsi.png */,
 			);
 			name = button;
 			sourceTree = "<group>";
@@ -1536,7 +1518,6 @@
 		C0D3CD7B1BDF0E1000C23FB3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				39DE6F5A1C1E5FDD00302020 /* toast */,
 				C0E013161C0C2D88006BBF97 /* Http */,
 				96332E941BFF32B200BBEB85 /* Entity */,
 				C0D3CD7C1BDF0E2C00C23FB3 /* PureLayout */,
@@ -1856,6 +1837,7 @@
 				39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */,
 				39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */,
 				C0D3CD6D1BDF0CEF00C23FB3 /* 18.png in Resources */,
+				9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */,
 				9678AEF51BEB71C800E5B50E /* CustomerInformationDetailViewController.xib in Resources */,
 				39F797191C05CC50000D9A20 /* CustomercontactInfoController.xib in Resources */,
 				C0D3CD6A1BDF0CEF00C23FB3 /* 15.png in Resources */,
@@ -1875,11 +1857,10 @@
 				9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
-				9604F4B01C1ACC3E0074B1A5 /* cancle-s.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
+				9619C7151C1EC6BC000C4EEE /* gongsi.png in Resources */,
 				96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */,
-				9604F4B11C1ACC3E0074B1A5 /* bfan.png in Resources */,
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
 				9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */,
@@ -1914,6 +1895,7 @@
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
 				C0D3CD5D1BDF0CEF00C23FB3 /* 2.png in Resources */,
 				9604F4B81C1ACC3E0074B1A5 /* stop.png in Resources */,
+				9619C7101C1EB1D0000C4EEE /* goback-1.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
@@ -1922,7 +1904,6 @@
 				C0D3CD6E1BDF0CEF00C23FB3 /* 19.png in Resources */,
 				C0D3CD601BDF0CEF00C23FB3 /* 5.png in Resources */,
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
-				9604F48A1C1AC8280074B1A5 /* gongsi.png in Resources */,
 				C0D3CD741BDF0CEF00C23FB3 /* 25.png in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
 				39F797FC1C05D147000D9A20 /* AddWeekViewController.xib in Resources */,
@@ -1948,6 +1929,7 @@
 				C0D3CD5C1BDF0CEF00C23FB3 /* 1.png in Resources */,
 				C0D3CD671BDF0CEF00C23FB3 /* 12.png in Resources */,
 				C0D569301BD9B69100860B33 /* Work.plist in Resources */,
+				9619C70F1C1EB1D0000C4EEE /* bfan.png in Resources */,
 				39F798101C05D15A000D9A20 /* AddMonthViewController.xib in Resources */,
 				B8EDAD771C19366300865E7C /* activityDetailViewController.xib in Resources */,
 				39F798C51C05E2EF000D9A20 /* CustomerTableViewController.xib in Resources */,
@@ -2020,6 +2002,7 @@
 				39F7986C1C05D335000D9A20 /* EditPlanViewController.xib in Resources */,
 				1FEF628E1C16B42500E6F4BF /* submit-1.png in Resources */,
 				B8EDAD731C19366300865E7C /* publicNoticeTableViewController.xib in Resources */,
+				9619C7111C1EB1D0000C4EEE /* pass-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2124,7 +2107,6 @@
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,
 				39F7984E1C05D30D000D9A20 /* ReminderDetailViewController.m in Sources */,
 				B8EDAD571C1933EC00865E7C /* CustomerCallPlanEditViewController.m in Sources */,
-				39DE6F5D1C1E5FFA00302020 /* OMGToast.m in Sources */,
 				96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */,
 				C0D3CD871BDF0E8B00C23FB3 /* NSArray+PureLayout.m in Sources */,
 				1FEF621F1C16AC3600E6F4BF /* PNColor.m in Sources */,

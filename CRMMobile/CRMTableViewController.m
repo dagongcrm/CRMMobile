@@ -115,9 +115,11 @@
         [self.navigationController pushViewController: fltv animated:YES];
     }else if([authid isEqualToString:@"xiaoshouxiansuo"]){
         saleLeadsTableViewController *saleLeads = [[saleLeadsTableViewController alloc] init];
+        saleLeads.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:saleLeads animated:YES];
     }else if([authid isEqualToString:@"xiaoshoujihui"]){
         SaleOppTableViewController *saleopp= [[SaleOppTableViewController alloc] init];
+         saleopp.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController: saleopp animated:YES];
     }else if([authid isEqualToString:@"huodongtongji"]){
         MarketManagementViewController *marketManagement= [[MarketManagementViewController alloc] init];

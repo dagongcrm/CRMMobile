@@ -41,7 +41,7 @@
         self.reportData = [[NSMutableArray alloc]init];//report
         
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -126,10 +126,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    myDelegate.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -138,11 +136,11 @@
 
 - (void)footerRereshing
 {
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    if(myDelegate.index==0){
-        myDelegate.index==3;
+    if(self.index==0){
+        self.index=2;
+    }else{
+        self.index++;
     }
-    self.index=myDelegate.index++;
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -209,7 +207,19 @@
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
+    //换算多少周
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *weeks = [self.dateData objectAtIndex:indexPath.row];
+    NSDate *date = [formatter dateFromString:weeks];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
+    NSInteger weekofyear = [weekOfYearComponents weekOfYear];
+    NSLog(@"weekofyear number = %lu" , weekofyear);
+    NSString *testDetail1 =[@"    报告日期:" stringByAppendingString:weeks];
+    NSString *weekends = [NSString stringWithFormat:@"%lu",weekofyear];
+    NSString *testDetail2= [[@"第" stringByAppendingString:weekends] stringByAppendingString:@"周"];
+    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:testDetail];
     return cell;
 }
@@ -237,4 +247,7 @@
     sd.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:sd animated:YES];
     }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
 @end

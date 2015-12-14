@@ -80,6 +80,7 @@
                               initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
     alertView.tag=1;
     [alertView show];
+    [self alertView:nil clickedButtonAtIndex:1];
 }
 
 - (IBAction)addCallRecords:(id)sender {
