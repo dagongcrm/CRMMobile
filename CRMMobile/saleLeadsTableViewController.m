@@ -28,7 +28,7 @@
     if (!_entities) {
         self.entities = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _entities;
 }
@@ -107,9 +107,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    self.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -119,7 +118,7 @@
 - (void)footerRereshing
 {
     if(self.index==0){
-        self.index=3;
+        self.index=2;
     }else{
         self.index++;
     }
@@ -161,6 +160,10 @@
     [detailSaleLeads setSaleLeads:saleLeadsEntity];
     [self.navigationController pushViewController:detailSaleLeads animated:NO];
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
 
 
 @end

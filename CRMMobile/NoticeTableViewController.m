@@ -69,6 +69,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setExtraCellLineHidden:self.tableView];
+}
+// hide the extraLine隐藏分割线
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender{
@@ -211,7 +219,7 @@
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *str = @"fsfdsfd";
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"work-5.png"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
     

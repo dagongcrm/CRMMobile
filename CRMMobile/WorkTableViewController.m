@@ -109,12 +109,16 @@
         [self.navigationController pushViewController:fltv animated:YES];
     }else if([authid isEqualToString:@"renwutijiao"]){
         SubmitTableViewController *sub = [[SubmitTableViewController alloc] init];
+        sub.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:sub animated:YES];
     }else if([authid isEqualToString:@"renwushenhe"]){
         auditTableViewController *audit = [[auditTableViewController alloc] init];
+        audit.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:audit animated:YES];
     }else if([authid isEqualToString:@"renwugenzong"]){
-        trackingTableViewController *track = [[trackingTableViewController alloc] init];
+        trackingTableViewController *track = [[trackingTableViewController alloc]
+                                              init];
+        track.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:track animated:YES];
     }
 }

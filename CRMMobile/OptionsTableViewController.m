@@ -90,7 +90,7 @@
     lay.borderWidth=1.0;
     lay.borderColor=[[UIColor grayColor] CGColor];
     [self loadImageqq];
-    UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,318,self.view.bounds.size.width,1)];
+    UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,324,self.view.bounds.size.width,1)];
     navDividingLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [navDividingLine sizeToFit];
     [self.view addSubview:navDividingLine];
@@ -98,7 +98,7 @@
     MeMainTableViewController *nav = [[MeMainTableViewController alloc] init];
     nav.view.autoresizingMask = UIViewAutoresizingNone;
     [self addChildViewController:nav];
-    nav.view.frame =  CGRectMake(0, 319, self.view.bounds.size.width, self.view.bounds.size.height);
+    nav.view.frame =  CGRectMake(0, 325, self.view.bounds.size.width, self.view.bounds.size.height);
     [self.view addSubview:nav.view];
     [nav didMoveToParentViewController:self];
 }
@@ -196,15 +196,16 @@
     CGPoint point = CGPointMake(self.view.width * page, 0);
     [self.headScroll setContentOffset:point animated:YES];
 }
+//轮播点击进入详情方法
 -(void)tapClick:(UITapGestureRecognizer *)recognizer{
-    
-    UIImageView *imaView = (UIImageView *)recognizer.view;
-    MyViewController * MVC = [[MyViewController alloc]init];
-    
-    MVC.tapID = [NSString
-                 stringWithFormat:@"%@",[self.imagesArray objectAtIndex:imaView.tag - 100]];
-    NSLog(@"%@",MVC.tapID);
-    [self presentViewController:MVC animated:YES completion:nil];
+//    
+//    UIImageView *imaView = (UIImageView *)recognizer.view;
+//    MyViewController * MVC = [[MyViewController alloc]init];
+//    
+//    MVC.tapID = [NSString
+//                 stringWithFormat:@"%@",[self.imagesArray objectAtIndex:imaView.tag - 100]];
+//    NSLog(@"%@",MVC.tapID);
+//    [self presentViewController:MVC animated:YES completion:nil];
 }
 
 //获取头像判断

@@ -44,7 +44,7 @@
     if (!_entities) {
         self.entities = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
+//        [self faker:@"2"];
     }
     return _entities;
 }
@@ -59,7 +59,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setExtraCellLineHidden:self.tableView];
 }
+// hide the extraLine隐藏分割线
+-(void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
@@ -115,9 +124,8 @@
 - (void)headerRereshing
 {
     [self.fakeData removeAllObjects];
-    self.index =3;
+    self.index =1;
     [self faker:@"1"];
-    [self faker:@"2"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -127,7 +135,7 @@
 - (void)footerRereshing
 {
     if(self.index==0){
-        self.index=3;
+        self.index=2;
     }else{
         self.index++;
     }
@@ -169,7 +177,7 @@
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *str = @"fsfdsfd";
     [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"0.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"work-5.png"]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -185,6 +193,10 @@
     [detail setNoticeEntity:notice];
     [self.navigationController pushViewController:detail animated:YES];
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
