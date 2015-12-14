@@ -13,6 +13,7 @@
 #import "auditDetailViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
+#import "WorkTableViewController.h"
 
 @interface auditTableViewController ()
 
@@ -51,14 +52,33 @@
     [super viewDidLoad];
     self.title=@"任务审核";
     [self setupRefresh];
-    //[self faker:@"1"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
 }
+
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[WorkTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
+
 -(void) faker: (NSString *) page{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];

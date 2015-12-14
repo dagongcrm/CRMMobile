@@ -60,9 +60,20 @@
 
 - (void)reloadData
 {
-   
-        self.publicNotice.tintColor = [UIColor blueColor];
-        self.notice.tintColor = [UIColor blackColor];
+    UIColor *myColorRGB = [ UIColor colorWithRed: 0.776
+                                        green: 0.780
+                                         blue: 0.8
+                                        alpha: 1.0
+                        ];
+    UIColor *myColorRGB1 = [ UIColor colorWithRed: 0.208
+                                        green: 0.655
+                                         blue: 0.851
+                                        alpha: 1.0
+                        ];
+    self.notice.backgroundColor = myColorRGB;
+        self.publicNotice.tintColor = [UIColor whiteColor];
+    self.publicNotice.backgroundColor = myColorRGB1;
+        self.notice.tintColor = [UIColor whiteColor];
         publicNoticeTableViewController *nav = [[publicNoticeTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
         [self addChildViewController:nav];
@@ -72,8 +83,20 @@
    }
 - (void)reloadData1
 {
-        self.publicNotice.tintColor = [UIColor blackColor];
-        self.notice.tintColor = [UIColor blueColor];
+    UIColor *myColorRGB = [ UIColor colorWithRed: 0.776
+                                        green: 0.780
+                                         blue: 0.8
+                                        alpha: 1.0
+                        ];
+    UIColor *myColorRGB1 = [ UIColor colorWithRed: 0.208
+                                           green: 0.655
+                                            blue: 0.851
+                                           alpha: 1.0
+                           ];
+        self.publicNotice.backgroundColor = myColorRGB;
+        self.publicNotice.tintColor = [UIColor whiteColor];
+        self.notice.tintColor = [UIColor whiteColor];
+        self.notice.backgroundColor = myColorRGB1;
         NoticeTableViewController *nav = [[NoticeTableViewController alloc] init];
         nav.view.autoresizingMask = UIViewAutoresizingNone;
         [self addChildViewController:nav];

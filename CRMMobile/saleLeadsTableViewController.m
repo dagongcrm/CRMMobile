@@ -14,6 +14,8 @@
 #import "EntityHelper.h"
 #import "addSaleLeadsViewController.h"
 #import "detailSaleLeadsViewController.h"
+#import "UIImage+Tint.h"
+#import "CRMTableViewController.h"
 
 @interface saleLeadsTableViewController ()
 
@@ -34,6 +36,7 @@
 }
 
 -(NSMutableArray *) faker: (NSString *) page{
+    
     NSError *error;
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!datagrid.action?"]];
@@ -79,8 +82,35 @@
                                  action:@selector(addSaleOpp:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-
+    //设置返回键的颜色
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil action:nil];
+    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     }
+
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[CRMTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
+
 -(void)setExtraCellLineHidden: (UITableView *)tableView
 {
     UIView *view = [UIView new];

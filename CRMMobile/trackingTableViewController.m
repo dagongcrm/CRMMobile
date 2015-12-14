@@ -161,7 +161,7 @@
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"种类:" stringByAppendingString:self.dataing[indexPath.row]];
+    NSString *testDetail =[@"任务阶段:" stringByAppendingString:self.dataing[indexPath.row]];
     NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:testDetail];

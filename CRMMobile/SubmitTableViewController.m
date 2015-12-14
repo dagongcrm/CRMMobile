@@ -54,6 +54,7 @@
     self.title=@"任务提交";
     [self setupRefresh];
     [self leftButtonInit];
+    
 }
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;

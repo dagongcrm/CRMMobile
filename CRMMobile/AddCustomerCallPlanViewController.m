@@ -75,6 +75,8 @@
     NSString *theme=_theme.text;
     NSString *visitDate=_visitDate.text;
     NSString *respondentPhone=_respondentPhone.text;
+   
+    
     NSString *respondent=_respondent.text;
     NSString *address=_address.text;
     NSString *visitProfile=_visitProfile.text;
@@ -82,6 +84,7 @@
     NSString *customerRequirements=_customerRequirements.text;
     NSString *customerChange=_customerChange.text;
     NSString *accessMethodID=@"";//拜访方式
+  
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
@@ -106,9 +109,6 @@
     [self.navigationController pushViewController:list animated:YES];
     
 }
-
-
-
 
 //选择访问方式
 - (IBAction)accessMethod:(id)sender {
@@ -234,7 +234,46 @@
         }
     
 }
-
+- (NSString *)isMobileNumber:(NSString *)mobile{
+    //+ (NSString *)isMobileNumber:(NSString *)mobile{
+    NSLog(@"112111111111");
+//    if (mobile.length < 11)
+//    {
+//        NSLog(@"112111111112222");
+//        return @"手机号长度只能是11位";
+//    }else{
+        /**
+         * 移动号段正则表达式
+         */
+        NSLog(@"1121111111113333");
+        NSString *CM_NUM = @"^((13[4-9])|(147)|(15[0-2,7-9])|(178)|(18[2-4,7-8]))\\d{8}|(1705)\\d{7}$";
+        /**
+         * 联通号段正则表达式
+         */
+        NSString *CU_NUM = @"^((13[0-2])|(145)|(15[5-6])|(176)|(18[5,6]))\\d{8}|(1709)\\d{7}$";
+        /**
+         * 电信号段正则表达式
+         */
+        NSString *CT_NUM = @"^((133)|(153)|(177)|(18[0,1,9]))\\d{8}$";
+        NSPredicate *pred1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM_NUM];
+        BOOL isMatch1 = [pred1 evaluateWithObject:mobile];
+        NSPredicate *pred2 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU_NUM];
+        BOOL isMatch2 = [pred2 evaluateWithObject:mobile];
+        NSPredicate *pred3 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT_NUM];
+        BOOL isMatch3 = [pred3 evaluateWithObject:mobile];
+        
+        if (isMatch1 || isMatch2 || isMatch3) {
+            return nil;
+        }else{
+//            return @"请输入正确的电话号码";
+        
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"请输入正确的电话号码！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }
+//    }
+    return nil;
+}
 
 //添加
 - (IBAction)add:(id)sender {
@@ -249,36 +288,19 @@
     NSString *customerRequirements=_customerRequirements.text;
     NSString *customerChange=_customerChange.text;
     NSString *accessMethodID=@"";//拜访方式
+    [self isMobileNumber:respondentPhone];
+ 
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-    //时间验证
-//        NSDate *now = [NSDate date];
-//        NSString* string = @"visitDate";
-//        NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init ];
-//        [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ];
-//    
-//        [inputFormatter setDateFormat:@"EEE, d MMM yyyy "];
-//    
-//        NSDate* inputDate = [inputFormatter dateFromString:string];
-//        NSTimeInterval secondsPerDay = 24 * 60 * 60;
-//        NSLog(@"date = %@", inputDate);
-
+  
     if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-//    }
-//    else if(inputDate<now){
-//        if((inputDate<[now dateByAddingTimeInterval: -secondsPerDay])){
-//            UIAlertView *alertView = [[UIAlertView alloc]
-//                                      initWithTitle:@"温馨提示" message:@"计划时间不能小于当前时间！" delegate:self cancelButtonTitle:@"请重新填写" otherButtonTitles:nil];
-//            [alertView show];
-//        }
-
-    }
-    else{
-
+    
+        
+        }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
@@ -312,7 +334,8 @@
     //赋值
     [self valuation];
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 725);
+    self.title=@"拜访添加";
+    self.scroll.contentSize=CGSizeMake(375, 925);
 //    [self dateVerify];
 }
 
@@ -335,6 +358,7 @@
     
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
+    
     _theme.text=_customerCallPlanEntity.theme;
     _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
     _respondent.text=_customerCallPlanEntity.respondent;
@@ -344,42 +368,11 @@
     _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
     _customerChange.text=_customerCallPlanEntity.customerChange;
 }
-//-(void)dateVerify{
-    //当前时间
-//    NSDate *now = [NSDate date];
-//    NSString* string = @"visitDate";
-//    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init ];
-//    [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ];
-//    
-//    [inputFormatter setDateFormat:@"EEE, d MMM yyyy "];
-//    
-//    NSDate* inputDate = [inputFormatter dateFromString:string];
-//    NSTimeInterval secondsPerDay = 24 * 60 * 60;
-//    NSLog(@"date = %@", inputDate);
-//    if(inputDate<now){
-//        if((inputDate<[now dateByAddingTimeInterval: -secondsPerDay])){
-//            UIAlertView *alertView = [[UIAlertView alloc]
-//                                      initWithTitle:@"温馨提示" message:@"计划时间不能小于当前时间！" delegate:self cancelButtonTitle:@"请重新填写" otherButtonTitles:nil];
-//            [alertView show];
-//        }
-//    }
-
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)selectDate:(id)sender {
     _pikerView = [HZQDatePickerView instanceDatePickerView];
