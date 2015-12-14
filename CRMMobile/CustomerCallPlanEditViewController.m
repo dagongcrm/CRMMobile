@@ -5,7 +5,7 @@
 //  Created by yd on 15/11/18.
 //  Copyright (c) 2015年 dagong. All rights reserved.
 //
-
+#import "CustomerCallPlanDetailViewController.h"
 #import "CustomerCallPlanEditViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
@@ -22,8 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *address;
 - (IBAction)selectate:(id)sender;
 
-
 - (IBAction)cancel:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;    //受访人电话
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;    //受访人员
@@ -259,7 +260,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划修改";
-    self.scroll.contentSize=CGSizeMake(375, 750);
+    self.scroll.contentSize=CGSizeMake(375, 900);
     //赋值
     [self valuation];
 }
@@ -310,18 +311,20 @@
     
     [self.view addSubview:_pikerView];
 }
+
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
 - (void)getSelectDate:(NSString *)date type:(DateType)type {
     NSLog(@"%d - %@", type, date);
     self.visitDate.text = [NSString stringWithFormat:@"%@", date];
 }
-- (IBAction)cancel:(id)sender {
-    [self ResView];
-}
+
 - (void)ResView
 {
     for (UIViewController *controller in self.navigationController.viewControllers)
     {
-        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        if ([controller isKindOfClass:[CustomerCallPlanDetailViewController class]])
         {
             [self.navigationController popToViewController:controller animated:YES];
         }

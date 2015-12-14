@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"计划修改";
-    self.scroll.contentSize=CGSizeMake(375, 750);
+    self.scroll.contentSize=CGSizeMake(375, 880);
     //赋值
     [self valuation];
 }
