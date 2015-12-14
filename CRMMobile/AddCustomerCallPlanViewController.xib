@@ -14,7 +14,7 @@
                 <outlet property="respondent" destination="r87-gV-BZN" id="7WI-Aj-HJh"/>
                 <outlet property="respondentPhone" destination="lsT-hO-DWM" id="asO-yv-Gc9"/>
                 <outlet property="result" destination="sHk-Y7-y1p" id="oJp-z1-7XR"/>
-                <outlet property="scroll" destination="eMq-Qv-9vj" id="WGH-Eq-NjV"/>
+                <outlet property="scroll" destination="eMq-Qv-9vj" id="KXm-EZ-DX9"/>
                 <outlet property="theme" destination="WOs-LH-SeD" id="upR-io-9ph"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="visitDate" destination="AbX-B8-zFU" id="qbz-oH-bGA"/>
@@ -119,13 +119,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="受访人地" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhT-zG-Xxw">
-                            <rect key="frame" x="31" y="344" width="92" height="21"/>
+                            <rect key="frame" x="31" y="340" width="92" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="址:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTv-GK-6zy">
-                            <rect key="frame" x="46" y="366" width="42" height="21"/>
+                            <rect key="frame" x="46" y="369" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-ve-soX">
-                            <rect key="frame" x="204" y="672" width="120" height="40"/>
+                            <rect key="frame" x="52" y="619" width="120" height="40"/>
                             <state key="normal" image="save-s.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -201,7 +201,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFp-Fo-Een">
-                            <rect key="frame" x="38" y="672" width="120" height="40"/>
+                            <rect key="frame" x="223" y="621" width="120" height="40"/>
                             <state key="normal" image="cancle-s.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>

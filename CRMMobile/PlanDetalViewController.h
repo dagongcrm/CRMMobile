@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "VisitPlanNsObj.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 @interface PlanDetalViewController : UIViewController
 @property (strong,nonatomic) VisitPlanNsObj *DailyEntity;
 @property ( retain , nonatomic ) CustomerCallPlanDetailMessageEntity *customerCallPlanEntity;
+@property (nonatomic, strong) AMapLocationManager *locationManager;
 @end

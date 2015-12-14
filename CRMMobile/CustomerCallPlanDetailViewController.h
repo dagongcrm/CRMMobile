@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import <MAMapKit/MAMapKit.h>
-//#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 
 @interface CustomerCallPlanDetailViewController : UIViewController
 @property ( retain , nonatomic ) CustomerCallPlanDetailMessageEntity *customerCallPlanEntity;
-//@property (nonatomic, strong) AMapLocationManager *locationManager;
+@property (nonatomic, strong) AMapLocationManager *locationManager;
 @end
