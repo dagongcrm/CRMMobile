@@ -13,9 +13,9 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "saleLeadsTableViewController.h"
-
 @interface detailSaleLeadsViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *saleLead;
+
+@property (strong, nonatomic) IBOutlet UITextView *saleLead;
 @property (strong, nonatomic) IBOutlet UITextField *creatTime;
 - (IBAction)edit:(id)sender;
 - (IBAction)delete:(id)sender;
@@ -33,6 +33,14 @@
     self.title=@"销售线索详情";
     self.scroll.contentSize = CGSizeMake(375, 600);
     self.customerNameStr.text=_saleLeads.customerNameStr;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.saleLead.layer setBorderColor:color];
+    self.saleLead.layer.borderWidth = 1;
+    self.saleLead.layer.cornerRadius = 6;
+    self.saleLead.layer.masksToBounds = YES;
+    self.saleLead.editable = NO;
+    
     self.leadsAdd.text=_saleLeads.saleClueID;
     self.creatTime.text = _saleLeads.creatingTime;
     self.saleLead.text = _saleLeads.salesLeads;

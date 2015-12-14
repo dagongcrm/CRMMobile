@@ -548,71 +548,94 @@
     }
     
 }
+-(BOOL) validateMobile:(NSString *)mobile
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:mobile];
+}
+-(BOOL) validatePhone:(NSString *)phone
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+    //NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneNumber = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",PHS];
+    return [phoneNumber evaluateWithObject:phone];
+}
 
 
 
 - (IBAction)save:(id)sender {
-    //    NSString *hangyeGS = self.HangYeGS.text;
-    NSString *hetongJE = self.HeTongJE.text;
-    NSString *gezongSF = self.GenZongSF.text;
-    NSString *gezongSFJE = self.GenZongSFJE.text;
-    NSString *lianxiFS = self.LianXiFS.text;
-    NSLog(@"hetongJE===>%@",hetongJE);
-    NSLog(@"gezongSF===>%@",gezongSF);
-    NSLog(@"gezongSFJE===>%@",gezongSFJE);
-    NSLog(@"lianxiFS===>%@",lianxiFS);
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    //NSURL *URL=[NSURL URLWithString:@"http://172.16.21.49:8080/dagongcrm/mJobSubmissionAction!add.action?"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!add.action?"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *qiYeBH    = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
-    
-    NSString *yeWuZLBH=@"";
-    NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
-    NSString *yeWuZLMC=@"";
-    NSString *hangYeFLMC=@"";
-    NSString *hangYeBH = @"";
-    for(int i=0;i<[self.selectUserForShow count];i++){
-        yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
+    if ([self validateMobile:self.LianXiFS.text]||[self validatePhone:self.LianXiFS.text]) {
+        NSString *hetongJE = self.HeTongJE.text;
+        NSString *gezongSF = self.GenZongSF.text;
+        NSString *gezongSFJE = self.GenZongSFJE.text;
+        NSString *lianxiFS = self.LianXiFS.text;
+        NSLog(@"hetongJE===>%@",hetongJE);
+        NSLog(@"gezongSF===>%@",gezongSF);
+        NSLog(@"gezongSFJE===>%@",gezongSFJE);
+        NSLog(@"lianxiFS===>%@",lianxiFS);
+        NSError *error;
+        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+        NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+        //NSURL *URL=[NSURL URLWithString:@"http://172.16.21.49:8080/dagongcrm/mJobSubmissionAction!add.action?"];
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!add.action?"]];
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        NSString *qiYeBH    = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
         
-        yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
-        
-    }
-    for(int i=0;i<[self.selectUserForShowQiYe count];i++){
-        hangYeBH= [self.selectUserIdForParamQiYe objectAtIndex:i];
-        
-        hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
-        
-    }
-    NSLog(@"%@",qiYeBH);
-    NSLog(@"%@",qiYeMC);
-    NSLog(@"%@",yeWuZLBH);
-    NSLog(@"%@",yeWuZLMC);
-    NSLog(@"%@",hangYeBH);
-    NSLog(@"%@",hangYeFLMC);
-    //    heTongJE
-    NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"111111%@",weatherDic);
-    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
-        [alert show];
-        
-        
+        NSString *yeWuZLBH=@"";
+        NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];;
+        NSString *yeWuZLMC=@"";
+        NSString *hangYeFLMC=@"";
+        NSString *hangYeBH = @"";
+        for(int i=0;i<[self.selectUserForShow count];i++){
+            yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
+            
+            yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
+            
+        }
+        for(int i=0;i<[self.selectUserForShowQiYe count];i++){
+            hangYeBH= [self.selectUserIdForParamQiYe objectAtIndex:i];
+            
+            hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
+            
+        }
+        NSLog(@"%@",qiYeBH);
+        NSLog(@"%@",qiYeMC);
+        NSLog(@"%@",yeWuZLBH);
+        NSLog(@"%@",yeWuZLMC);
+        NSLog(@"%@",hangYeBH);
+        NSLog(@"%@",hangYeFLMC);
+        //    heTongJE
+        NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSLog(@"111111%@",weatherDic);
+        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+            [self.navigationController pushViewController:mj animated:YES];
+            [alert show];
+            
+            
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+        }
+
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系方式格式错误！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+
     }
-}
+    //    NSString *hangyeGS = self.HangYeGS.text;
+    }
 
 
 @end
