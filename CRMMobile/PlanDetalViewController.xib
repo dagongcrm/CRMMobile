@@ -190,7 +190,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="S34-lj-uIz"/>
+                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="RoE-qp-vZJ"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByT-BU-0xv">
@@ -209,15 +209,6 @@
                             </state>
                             <connections>
                                 <action selector="edit:" destination="-1" eventType="touchUpInside" id="P03-Hs-7U0"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByT-BU-0xv">
-                            <rect key="frame" x="33" y="865" width="90" height="40"/>
-                            <state key="normal" image="bfan.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="addCallRecords:" destination="-1" eventType="touchUpInside" id="5wp-Cf-ddY"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="受访人员:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJi-18-roP">

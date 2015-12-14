@@ -180,20 +180,20 @@
         }
     }
 }
-//确认拜访
-- (IBAction)addCallRecords:(id)sender {
-    UIAlertView *alertView1 = [[UIAlertView alloc]
-                              initWithTitle:@"提示信息" message:@"是否 确认拜访？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
-    [alertView1 show];
-    [self alertView1:nil clickedButtonAtIndex:1];
+
+//将NSDate 转换成 NSString(定位)
+- (NSString *)dateToString:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //调节scroll宽度和高度
-    self.title=@"拜访计划";
-    self.scroll.contentSize=CGSizeMake(375, 1100);
-    
+//定位功能初始化
+-(void) locationInit{
+    [AMapLocationServices sharedServices].apiKey = APIKey;
+    self.locationManager = [[AMapLocationManager alloc] init];
+}
 
 //定位功能
 -(void)Location:(NSString *) callRecordsID{
