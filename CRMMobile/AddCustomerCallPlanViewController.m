@@ -312,7 +312,8 @@
     //赋值
     [self valuation];
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 725);
+    self.scroll.contentSize=CGSizeMake(375, 900);
+    self.title=@"计划添加";
 //    [self dateVerify];
 }
 
