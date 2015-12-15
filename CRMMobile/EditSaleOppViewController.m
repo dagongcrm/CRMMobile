@@ -190,7 +190,7 @@
     [self saleOppSrcSelectArray];
     self.selectOppSrcForShow=[[NSMutableArray alloc] init];
     self.selectSrcIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"请选择销售机会来源";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -204,7 +204,7 @@
     
     self.selectOppStateForShow=[[NSMutableArray alloc] init];
     self.selectOppStateIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     listView.titleName.text = @"请选择机会状态";
     listView.backgroundColor=[UIColor blueColor];
     listView.datasource = self;
@@ -279,6 +279,105 @@
     NSLog(@"%@",nextFlow);
     NSArray *list = [nextFlow objectForKey:@"obj"];
     return list;
+}
+//single choose
+- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([_select isEqualToString:@"saleOppSrc"]){
+        return [_selectSrc count];
+    }else if([_select isEqualToString:@"oppState"]){
+        return [_selectOppState count];
+    }else{
+        return nil;
+    }
+}
+
+- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+    if (nil == cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    }
+    if ([_select isEqualToString:@"saleOppSrc"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectSrc[indexPath.row];
+        return cell;
+    }else if([_select isEqualToString:@"oppState"]){
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
+        if (nil == cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.selected = YES;
+        cell.textLabel.text = _selectOppState[indexPath.row];
+        return cell;
+    }else{
+        return nil;
+    }
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    NSLog(@"deselect:%ld", (long)indexPath.row);
+    self.selectedIndexPath = indexPath;
+    [self.selectOppSrcForShow    removeObject:[self.selectSrc objectAtIndex:indexPath.row]];
+    [self.selectSrcIdForParam removeObject:[self.selectSrcId objectAtIndex:indexPath.row]];
+    [self buttonInputLabel:tableView];
+    if ([_select isEqualToString:@"saleOppSrc"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectOppSrcForShow removeObject:[self.selectSrc objectAtIndex:indexPath.row]];
+        [self.selectSrcIdForParam removeObject:[self.selectSrcId objectAtIndex:indexPath.row]];
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"oppState"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectOppStateForShow removeObject:[self.selectSrc objectAtIndex:indexPath.row]];
+        [self.selectOppStateIdForParam removeObject:[self.selectSrcId objectAtIndex:indexPath.row]];
+        [self buttonInputLabel:tableView];
+    }
+    
+    
+}
+
+- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedIndexPath = indexPath;
+    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    NSLog(@"select:%ld", (long)indexPath.row);
+    if ([_select isEqualToString:@"saleOppSrc"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectOppSrcForShow removeObject:[self.selectSrc objectAtIndex:indexPath.row]];
+        [self.selectSrcIdForParam removeObject:[self.selectSrcId objectAtIndex:indexPath.row]];
+        [self.selectOppSrcForShow addObject:[self.selectSrc objectAtIndex:indexPath.row]];
+        [self.selectSrcIdForParam addObject:[self.selectSrcId objectAtIndex:indexPath.row]];
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"oppState"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectOppStateForShow removeAllObjects];
+        [self.selectOppStateIdForParam removeAllObjects];
+        [self.selectOppStateForShow addObject:[self.selectOppState objectAtIndex:indexPath.row]];
+        [self.selectOppStateIdForParam addObject:[self.selectOppStateId objectAtIndex:indexPath.row]];
+        [self buttonInputLabel:tableView];
+    }
 }
 
 - (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section

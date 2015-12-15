@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SaleOppEntity.h"
+#import "ZSYPopoverListViewSingle.h"
+#import "ZSYPopoverListView.h"
 
-@interface EditSaleOppViewController : UIViewController
+@interface EditSaleOppViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource,ZSYPopoverListDelegate>
 @property (strong,nonatomic) SaleOppEntity *saleOppEntity;
 @end

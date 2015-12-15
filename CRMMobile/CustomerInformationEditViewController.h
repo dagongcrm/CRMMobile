@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomerInfermationDetailMessageEntity.h"
+#import "ZSYPopoverListView.h"
+#import "ZSYPopoverListViewSingle.h"
 
-@interface CustomerInformationEditViewController : UIViewController
+@interface CustomerInformationEditViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource,ZSYPopoverListDelegate>
 @property ( retain , nonatomic ) CustomerInfermationDetailMessageEntity *customerInformationEntity;
 @property (strong,nonatomic) NSArray *nextArray;
 @property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
