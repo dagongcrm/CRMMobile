@@ -13,6 +13,11 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     NSDictionary  *sessionInfo;
 }
+
+@property  NSString    *appUpdate;
+
+
+
 @property  (strong ,nonatomic) NSString  *controllerJudge;
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) NSDictionary *sessionInfo;
