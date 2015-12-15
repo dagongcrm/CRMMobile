@@ -118,44 +118,7 @@
 
 
 
-//选择客户类别按钮
-- (IBAction)selectKHLB:(id)sender {
-    _select=@"KHLB";
-    [self selectKHLBArray];
-    
-    self.selectKHLBForShow=[[NSMutableArray alloc] init];
-    self.selectKHLBIdForParam=[[NSMutableArray alloc] init];
-    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    listView.titleName.text = @"所属行业选择";
-    listView.backgroundColor=[UIColor blueColor];
-    listView.datasource = self;
-    listView.delegate = self;
-    [listView show];
-}
-//为 客户类别赋值
--(void) selectKHLBArray
-{
-    NSError *error;
-    NSMutableArray *nextFlowKHLBName=[[NSMutableArray alloc] init];
-    NSMutableArray *nextFlowKHLBId=[[NSMutableArray alloc] init];
-    _uid=[[NSMutableArray alloc] init];
-    NSString *typeID = @"('keHuLB')";
-    NSArray *list = [self list:typeID];
-    
-    for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        NSLog(@"%@",listdic);
-        NSString *submitID = (NSString *)[listdic objectForKey:@"detailID"];
-        NSLog(@"%@",submitID);
-        NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
-        NSLog(@"%@",teamname);
-        
-        [nextFlowKHLBName     addObject:teamname];
-        [nextFlowKHLBId  addObject:submitID];
-    }
-    _selectKHLB= [nextFlowKHLBName copy];
-    _selectKHLBId=[nextFlowKHLBId copy];
-}
+
 //选择所属行业按钮
 - (IBAction)selectHY:(id)sender {
     _select=@"HY";
@@ -238,7 +201,44 @@
     _selectQYLXId=[nextFlowQYLXId copy];
 }
 
-
+//选择客户类别按钮
+- (IBAction)selectKHLB:(id)sender {
+    _select=@"KHLB";
+    [self selectKHLBArray];
+    
+    self.selectKHLBForShow=[[NSMutableArray alloc] init];
+    self.selectKHLBIdForParam=[[NSMutableArray alloc] init];
+    ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    listView.titleName.text = @"所属行业选择";
+    listView.backgroundColor=[UIColor blueColor];
+    listView.datasource = self;
+    listView.delegate = self;
+    [listView show];
+}
+//为 客户类别赋值
+-(void) selectKHLBArray
+{
+    NSError *error;
+    NSMutableArray *nextFlowKHLBName=[[NSMutableArray alloc] init];
+    NSMutableArray *nextFlowKHLBId=[[NSMutableArray alloc] init];
+    _uid=[[NSMutableArray alloc] init];
+    NSString *typeID = @"('keHuLB')";
+    NSArray *list = [self list:typeID];
+    
+    for (int i = 0; i<[list count]; i++) {
+        NSDictionary *listdic = [list objectAtIndex:i];
+        NSLog(@"%@",listdic);
+        NSString *submitID = (NSString *)[listdic objectForKey:@"detailID"];
+        NSLog(@"%@",submitID);
+        NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
+        NSLog(@"%@",teamname);
+        
+        [nextFlowKHLBName     addObject:teamname];
+        [nextFlowKHLBId  addObject:submitID];
+    }
+    _selectKHLB= [nextFlowKHLBName copy];
+    _selectKHLBId=[nextFlowKHLBId copy];
+}
 
 - (NSArray *)list:(NSString *)typeID{
     NSError *error;
@@ -283,7 +283,17 @@
 //single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 25;
+    if ([_select isEqualToString:@"HY"]){
+        return [_selectHY count];
+    }else if([_select isEqualToString:@"QYLX"]){
+        return [_selectQYLX count];
+    }else if([_select isEqualToString:@"KHLB"]){
+        return [_selectKHLB count];
+    }else if([_select isEqualToString:@"SF"]){
+        return [_selectSF count];
+    }else{
+        return nil;
+    }
 }
 
 - (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -352,9 +362,31 @@
 {
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
     cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-    [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
-    [self.selectHYIdForParam removeObject:[self.selectHYId objectAtIndex:indexPath.row]];
-    [self buttonInputLabel:tableView];
+    if ([_select isEqualToString:@"HY"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
+        [self.selectHYIdForParam removeObject:[self.selectHYId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectHYIdForParam%@",self.selectHYIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"QYLX"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectQYLXForShow    removeObject:[self.selectQYLX   objectAtIndex:indexPath.row]];
+        [self.selectQYLXIdForParam removeObject:[self.selectQYLXId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectQYLXIdForParam%@",self.selectQYLXIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"KHLB"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectKHLBForShow    removeObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
+        [self.selectKHLBIdForParam removeObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectKHLBIdForParam%@",self.selectKHLBIdForParam);
+        [self buttonInputLabel:tableView];
+    }else if([_select isEqualToString:@"SF"]){
+        self.selectedIndexPath = indexPath;
+        [self.selectSFForShow    removeObject:[self.selectSF   objectAtIndex:indexPath.row]];
+        [self.selectSFIdForParam removeObject:[self.selectSFId objectAtIndex:indexPath.row]];
+        NSLog(@"self.selectSFIdForParam%@",self.selectSFIdForParam);
+        [self buttonInputLabel:tableView];
+    }
 }
 
 - (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -372,16 +404,16 @@
         [self buttonInputLabel:tableView];
     }else if([_select isEqualToString:@"QYLX"]){
         self.selectedIndexPath = indexPath;
-        [self.selectQYLXForShow    removeObject:[self.selectQYLX   objectAtIndex:indexPath.row]];
-        [self.selectQYLXIdForParam removeObject:[self.selectQYLXId objectAtIndex:indexPath.row]];
+        [self.selectQYLXForShow    removeAllObjects];
+        [self.selectQYLXIdForParam removeAllObjects];
         [self.selectQYLXForShow    addObject:[self.selectQYLX   objectAtIndex:indexPath.row]];
         [self.selectQYLXIdForParam addObject:[self.selectQYLXId objectAtIndex:indexPath.row]];
         NSLog(@"self.selectQYLXIdForParam%@",self.selectQYLXIdForParam);
         [self buttonInputLabel:tableView];
     }else if([_select isEqualToString:@"KHLB"]){
         self.selectedIndexPath = indexPath;
-        [self.selectKHLBForShow    removeObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
-        [self.selectKHLBIdForParam removeObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
+        [self.selectKHLBForShow    removeAllObjects];
+        [self.selectKHLBIdForParam removeAllObjects];
         [self.selectKHLBForShow    addObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
         [self.selectKHLBIdForParam addObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
         NSLog(@"self.selectKHLBIdForParam%@",self.selectKHLBIdForParam);
@@ -477,6 +509,8 @@
         [self buttonInputLabel:tableView];
     }else if([_select isEqualToString:@"KHLB"]){
         self.selectedIndexPath = indexPath;
+        [self.selectKHLBForShow    removeAllObjects];
+        [self.selectKHLBIdForParam removeAllObjects];
         [self.selectKHLBForShow    addObject:[self.selectKHLB   objectAtIndex:indexPath.row]];
         [self.selectKHLBIdForParam addObject:[self.selectKHLBId objectAtIndex:indexPath.row]];
         NSLog(@"self.selectKHLBIdForParam%@",self.selectKHLBIdForParam);
@@ -556,9 +590,9 @@
         
     }else if([_select isEqualToString:@"KHLB"]){
         NSString *string =@"";
-        if([self.selectQYLXForShow count]==0){
+        if([self.selectKHLBForShow count]==0){
             [tableView dismiss];
-            [self.chooseQYLXButton setTitle:@"plese choose again" forState:UIControlStateNormal];
+            [self.chooseKHLBButton setTitle:@"plese choose again" forState:UIControlStateNormal];
         }else{
             for (NSString *str in self.selectKHLBForShow)
             {
