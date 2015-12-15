@@ -234,47 +234,22 @@
         }
     
 }
-- (NSString *)isMobileNumber:(NSString *)mobile{
-    //+ (NSString *)isMobileNumber:(NSString *)mobile{
-    NSLog(@"112111111111");
-//    if (mobile.length < 11)
-//    {
-//        NSLog(@"112111111112222");
-//        return @"手机号长度只能是11位";
-//    }else{
-        /**
-         * 移动号段正则表达式
-         */
-        NSLog(@"1121111111113333");
-        NSString *CM_NUM = @"^((13[4-9])|(147)|(15[0-2,7-9])|(178)|(18[2-4,7-8]))\\d{8}|(1705)\\d{7}$";
-        /**
-         * 联通号段正则表达式
-         */
-        NSString *CU_NUM = @"^((13[0-2])|(145)|(15[5-6])|(176)|(18[5,6]))\\d{8}|(1709)\\d{7}$";
-        /**
-         * 电信号段正则表达式
-         */
-        NSString *CT_NUM = @"^((133)|(153)|(177)|(18[0,1,9]))\\d{8}$";
-        NSPredicate *pred1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM_NUM];
-        BOOL isMatch1 = [pred1 evaluateWithObject:mobile];
-        NSPredicate *pred2 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU_NUM];
-        BOOL isMatch2 = [pred2 evaluateWithObject:mobile];
-        NSPredicate *pred3 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT_NUM];
-        BOOL isMatch3 = [pred3 evaluateWithObject:mobile];
-        
-        if (isMatch1 || isMatch2 || isMatch3) {
-            return nil;
-        }else{
-//            return @"请输入正确的电话号码";
-        
-            UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:@"温馨提示" message:@"请输入正确的电话号码！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-            [alertView show];
-        }
-//    }
-    return nil;
-}
 
+-(BOOL) validateMobile:(NSString *)mobile
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:mobile];
+}
+-(BOOL) validatePhone:(NSString *)phone
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+    //NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneNumber = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",PHS];
+    return [phoneNumber evaluateWithObject:phone];
+}
 //添加
 - (IBAction)add:(id)sender {
     NSString *customerID=_customerCallPlanEntity.customerID;
@@ -288,7 +263,6 @@
     NSString *customerRequirements=_customerRequirements.text;
     NSString *customerChange=_customerChange.text;
     NSString *accessMethodID=@"";//拜访方式
-    [self isMobileNumber:respondentPhone];
  
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
@@ -300,7 +274,12 @@
         [alertView show];
     
         
-        }else{
+    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text])){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
