@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="accountField" destination="xyb-eL-LbP" id="qKp-UO-kah"/>
+                <outlet property="loginImg" destination="Uw1-Te-Rhe" id="HkD-Fk-xWs"/>
                 <outlet property="passwdField" destination="WM0-F9-9MF" id="NKe-5W-guL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

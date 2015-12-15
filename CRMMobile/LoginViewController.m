@@ -5,6 +5,8 @@
 #import "GLReusableViewController.h"
 @interface LoginViewController ()
 @property (strong,nonatomic) NSMutableArray *authorityList;
+@property (weak, nonatomic) IBOutlet UIImageView *loginImg;
+
 @end
 
 
@@ -16,11 +18,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];  
+//     [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     accountField.placeholder    = @"用户名";
     passwdField.placeholder     = @"密码";
     passwdField.secureTextEntry = YES;
-    [self loadValue];    
+    [self loadValue];
+//    //可以判断进来的设备的型号
+//    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
+//    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
+//    NSLog(@"jjjdjdjdjdjdjdjjdjd");
+//    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
+//        if (iosDeviceScreenSize.height==568) {
+//            //IPHONE5/5s/5c
+//            NSLog(@"IPHONE5/5s/5c");
+//        }else if(iosDeviceScreenSize.height==667){
+//            //iphone6
+//            NSLog(@"iphone 6");
+//            [self.loginImg setImage:[UIImage imageNamed:@"loginLogo2"]];
+//        }else if(iosDeviceScreenSize.height==736){
+//            //iphone6plus
+//            NSLog(@"iphone6plus");
+//            [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
+//            
+//        }else{
+//            //iphone 4等其他设备
+//            NSLog(@"iphone 4等其他设备");
+//        }
+//    }
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,7 +68,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-}
+    }
 
 - (IBAction)loginBtnClicked:(id)sender {
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!login.action?"]];

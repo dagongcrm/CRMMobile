@@ -30,7 +30,7 @@
 @property (strong ,nonatomic)NSString *imageNames11;
 @property (strong ,nonatomic)NSString *imagePaths11;
 
-@property (weak, nonatomic)UIScrollView *scrollView;
+//@property (weak, nonatomic)UIScrollView *scrollView;
 
 @property (weak, nonatomic)UIPageControl *pageView;
 
@@ -56,7 +56,7 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
 
-    self.scroll.contentSize = CGSizeMake(375, 1300);
+//    self.scroll.contentSize = CGSizeMake(375, 1300);
     _mMeUser = [[MeUser alloc] init];
     
     self.imagesArray = @[@"11.JPG",@"12.JPG",@"13.JPG",@"14.JPG",@"15.JPG",@"16.JPG"];

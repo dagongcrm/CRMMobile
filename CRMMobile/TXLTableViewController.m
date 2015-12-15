@@ -40,7 +40,7 @@ NSString *kErrorTitle = @"Connection error";
 NSString *kNoticeTitle = @"Notice";
 NSString *kWarningTitle = @"Warning";
 NSString *kInfoTitle = @"客户联系人详情";
-NSString *kButtonTitle = @"Done";
+NSString *kButtonTitle = @"取消";
 NSString *kAttributeTitle = @"Attributed string operation successfully completed.";
 
 
@@ -289,7 +289,7 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     SCLAlertView *alert = [[SCLAlertView alloc] init];
      [alert addButton:@"拨打电话" target:self selector:@selector(callYou)];
     NSString * name1 =[@"姓名:" stringByAppendingString:_alertName];
-    NSString * cname = [@"企业名称:" stringByAppendingString:_alertQiye];
+//    NSString * cname = [@"企业名称:" stringByAppendingString:_alertQiye];
 //    int index = cname.length;
     NSString * phone= [@"联系电话:" stringByAppendingString:_alertPhone];
 //    NSString *Jilu = [@"上一次通话时间:" stringByAppendingString:_alertJilu];
