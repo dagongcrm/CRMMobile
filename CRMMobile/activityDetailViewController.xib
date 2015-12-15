@@ -14,7 +14,6 @@
                 <outlet property="activitySketch" destination="Rtx-rP-ozD" id="n0y-M5-c2A"/>
                 <outlet property="responsibleDepartmentPersonStr" destination="vGj-QW-anq" id="idH-8z-hhG"/>
                 <outlet property="responsibleDepartmentStr" destination="tcY-1h-63l" id="BGM-nq-Pnf"/>
-                <outlet property="scroll" destination="78j-Wh-iAe" id="Wcb-JG-cdV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
