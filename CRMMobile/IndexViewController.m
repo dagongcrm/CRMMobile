@@ -91,7 +91,7 @@
     
     NSString *str1 =[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSLog(@"%@",str1);
-    if (![str1 isEqualToString:APPDELEGATE.appUpdate]&&![str1 isEqualToString:@"1.0"]) {
+    if (![str1 isEqualToString:userName]&&![str1 isEqualToString:@"1.0"]) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"提示信息" message:@"有最新的软件包哦，亲快下载吧~" delegate:self cancelButtonTitle:@"狠心拒绝" otherButtonTitles:@"立即更新", nil];
         [alertView show];
@@ -101,8 +101,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
         NSString *str1 =[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-        APPDELEGATE.appUpdate = str1;
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.baidu.com"]]; 
+//        APPDELEGATE.appUpdate = str1;
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.baidu.com"]];
     }
 }
 
