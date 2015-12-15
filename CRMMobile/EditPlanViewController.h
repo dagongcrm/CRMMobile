@@ -11,7 +11,13 @@
 #import "AddCustomerEntity.h"
 #import "CostomerContactEntity.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
-@interface EditPlanViewController : UIViewController
+#import "ZSYPopoverListView.h"
+#import "selectEntity.h"
+#import "ZSYPopoverListViewSingle.h"
+@interface EditPlanViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
+    NSArray *nextArray;
+}
+@property (retain ,nonatomic)       selectEntity *roleEntity;
 @property (strong,nonatomic)AddCustomerEntity *addCustomerEntity;
 @property CostomerContactEntity *customerEntity;
 @property (strong,nonatomic) NSArray *nextArray;

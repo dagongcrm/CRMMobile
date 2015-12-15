@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
 @property (weak, nonatomic) IBOutlet UITextField *customerChange;
 @property (weak, nonatomic) IBOutlet UITextField *visitorAttributionStr;
-@property (weak, nonatomic) IBOutlet UITextField *accessmethod;
+@property (strong, nonatomic) IBOutlet UITextField *accessmethod;
+
 
 @property (weak, nonatomic) IBOutlet UITextView *mainContent;
 
@@ -43,9 +44,9 @@
 @synthesize locationManager=_locationManager;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"拜访计划";
+    self.title=@"拜访计划查看";
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 1080);
+    self.scroll.contentSize=CGSizeMake(375, 1320);
     
     //赋值
     [self valuation];
@@ -54,6 +55,7 @@
     
     
 }
+
 
 //赋值
 - (void) valuation {
@@ -142,7 +144,7 @@
 
 - (IBAction)addCallRecords:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"提示信息" message:@"是否 确认拜访？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+                              initWithTitle:@"提示信息" message:@"是否 确认拜访？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"确认", nil];
     alertView.tag=2;
     [alertView show];
     
