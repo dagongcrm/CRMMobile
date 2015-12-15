@@ -570,6 +570,26 @@
     _customerNAME.text=_customerInformationEntity.customerName;
     _customerAddress.text=_customerInformationEntity.customerAddress;
     _phone.text=_customerInformationEntity.phone;
+    if(_customerInformationEntity.industryIDStr.length!=0){
+        _chooseHYID=_customerInformationEntity.industryIDStr;
+        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.chooseHYButton setTitle:_customerInformationEntity.industryIDStr forState:UIControlStateNormal];
+    }
+    if(_customerInformationEntity.companyTypeStr.length!=0){
+        _chooseHYID=_customerInformationEntity.companyTypeStr;
+        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.chooseQYLXButton setTitle:_customerInformationEntity.companyTypeStr forState:UIControlStateNormal];
+    }
+    if(_customerInformationEntity.customerClassStr.length!=0){
+        _chooseHYID=_customerInformationEntity.customerClassStr;
+        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.chooseKHLBButton setTitle:_customerInformationEntity.customerClassStr forState:UIControlStateNormal];
+    }
+    if(_customerInformationEntity.provinceStr.length!=0){
+        _chooseHYID=_customerInformationEntity.provinceStr;
+        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.chooseSFButton setTitle:_customerInformationEntity.provinceStr forState:UIControlStateNormal];
+    }
 }
 
 
@@ -579,14 +599,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

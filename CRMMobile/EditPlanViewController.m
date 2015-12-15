@@ -58,6 +58,7 @@
 
 //赋值方法
 - (void) valuation {
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     
@@ -83,7 +84,13 @@
     _result.text=_customerCallPlanEntity.result;
     _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
     _customerChange.text=_customerCallPlanEntity.customerChange;
-    
+//    NSString *accessMethod = myDelegate.accessMethod;
+//    [self.accessMethod setTitle:accessMethod forState:UIControlStateNormal];
+    if(_customerCallPlanEntity.accessMethodStr.length!=0){
+        _accessMethodID=_customerCallPlanEntity.accessMethodStr;
+//        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.accessMethod setTitle:_customerCallPlanEntity.accessMethodStr forState:UIControlStateNormal];
+    }
     
 }
 
@@ -134,10 +141,12 @@
     NSString *customerChange=_customerChange.text;
     NSString *visitorAttribution=_customerCallPlanEntity.visitorAttribution; //拜访人归属
     NSString *visitor=_customerCallPlanEntity.baiFangRen;   //拜访人
-    NSString *accessMethodID=@"";//拜访方式
+    NSString *accessMethod=@"";//拜访方式
+    
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
-        accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
+        accessMethod = [self.selectBFFSIdForParam objectAtIndex:i];
     }
+    
     if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
@@ -157,7 +166,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethodID,customerID,customerName];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethod,customerID,customerName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
