@@ -69,7 +69,7 @@
     [super viewDidLoad];
     //调节scroll宽度和高度
     self.title=@"拜访计划";
-    self.scroll.contentSize=CGSizeMake(375, 1300);
+    self.scroll.contentSize=CGSizeMake(375, 1100);
     //赋值
     [self valuation];
     [self locationInit];

@@ -45,27 +45,27 @@
 
 - (NSMutableArray *)fakeData
 {
-    if([self.refreshOrNot isEqualToString:@"NO"]){
-        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
-        NSDictionary *ds=[ud objectForKey:@"taskTableDateSource"];
-        self.callRecordsID=[ds objectForKey:@"callRecordsID"],
-        self.fakeData=[ds objectForKey:@"fakeData"],
-        self.visitDate=[ds objectForKey:@"visitDate"],
-        self.theme=[ds objectForKey:@"theme"],
-        self.accessMethodStr=[ds objectForKey:@"accessMethodStr"],
-        self.mainContent=[ds objectForKey:@"mainContent"],
-        self.respondentPhone=[ds objectForKey:@"respondentPhone"],
-        self.respondent=[ds objectForKey:@"respondent"],
-        self.address=[ds objectForKey:@"address"],
-        self.visitProfile=[ds objectForKey:@"visitProfile"],
-        self.result=[ds objectForKey:@"result"],
-        self.customerRequirements=[ds objectForKey:@"customerRequirements"],
-        self.customerChange=[ds objectForKey:@"customerChange"],
-        self.visitorAttributionStr=[ds objectForKey:@"visitorAttributionStr"],
-        self.visitor=[ds objectForKey:@"visitor"];
-    }
-    
-    if([self.refreshOrNot isEqualToString:@"YES"]){
+//    if([self.refreshOrNot isEqualToString:@"NO"]){
+//        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+//        NSDictionary *ds=[ud objectForKey:@"taskTableDateSource"];
+//        self.callRecordsID=[ds objectForKey:@"callRecordsID"],
+//        self.fakeData=[ds objectForKey:@"fakeData"],
+//        self.visitDate=[ds objectForKey:@"visitDate"],
+//        self.theme=[ds objectForKey:@"theme"],
+//        self.accessMethodStr=[ds objectForKey:@"accessMethodStr"],
+//        self.mainContent=[ds objectForKey:@"mainContent"],
+//        self.respondentPhone=[ds objectForKey:@"respondentPhone"],
+//        self.respondent=[ds objectForKey:@"respondent"],
+//        self.address=[ds objectForKey:@"address"],
+//        self.visitProfile=[ds objectForKey:@"visitProfile"],
+//        self.result=[ds objectForKey:@"result"],
+//        self.customerRequirements=[ds objectForKey:@"customerRequirements"],
+//        self.customerChange=[ds objectForKey:@"customerChange"],
+//        self.visitorAttributionStr=[ds objectForKey:@"visitorAttributionStr"],
+//        self.visitor=[ds objectForKey:@"visitor"];
+//    }
+//    
+//    if([self.refreshOrNot isEqualToString:@"YES"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
             self.fakeData = [[NSMutableArray alloc]init];
@@ -84,7 +84,7 @@
             [self faker:@"1"];
 //            [self faker:@"2"];
         }
-    }
+//    }
     return _fakeData;
 }
 - (void)viewDidLoad {

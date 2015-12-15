@@ -25,7 +25,7 @@
 @property  (strong ,nonatomic) options    *options;
 @property  NSInteger    *judge;
 @property  NSString    *judgeSubmitID;
-
+@property  NSString    *accessMethod;
 @property  NSString    *submitName;
 @property  NSString    *yeWuZL;
 @property  NSString    *yeWuZLBH;

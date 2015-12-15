@@ -10,6 +10,7 @@
 #import "config.h"
 #import "AppDelegate.h"
 #import "MJRefresh.h"
+#import "SCLAlertView.h"
 @interface TXLTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -25,9 +26,23 @@
 @property (nonatomic,strong) NSString *phone;
 @property (nonatomic,strong) NSString *contactID;
 @property (nonatomic,strong) NSString *customerID;
+@property (nonatomic,strong) NSString *kSubtitle;
+@property (nonatomic,strong) NSString *alertPhone;//电话
+@property (nonatomic,strong) NSString *alertName;//联系人姓名
+@property (nonatomic,strong) NSString *alertQiye;//企业
+@property (nonatomic,strong) NSString *alertJilu;//上一次通话记录
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
+
+NSString *kSuccessTitle = @"Congratulations";
+NSString *kErrorTitle = @"Connection error";
+NSString *kNoticeTitle = @"Notice";
+NSString *kWarningTitle = @"Warning";
+NSString *kInfoTitle = @"客户联系人详情";
+NSString *kButtonTitle = @"Done";
+NSString *kAttributeTitle = @"Attributed string operation successfully completed.";
+
 
 @implementation TXLTableViewController
 - (NSMutableArray *)fakeData
@@ -217,15 +232,24 @@
 //    [self.navigationController pushViewController:fl animated:NO];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.phoneData]];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://self.phoneData"]];
-    NSString *str = @"tel://";
-    NSString *telephone = [str stringByAppendingString:self.phone];
-    UIWebView *callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:telephone];
-    // 貌似tel:// 或者 tel: 都行
-    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-    //记得添加到view上
-    [self.view addSubview:callWebview];
     
+    //给弹框传值
+    _alertPhone = self.phone;
+    _alertName = self.contactName;
+   _alertQiye = [self.customerNameStrData objectAtIndex:indexPath.row];
+    _alertJilu = [self.phoneData objectAtIndex:indexPath.row];
+    
+    
+//    NSString *str = @"tel://";
+//    NSString *telephone = [str stringByAppendingString:self.phone];
+//    
+//    UIWebView *callWebview =[[UIWebView alloc] init];
+//    NSURL *telURL =[NSURL URLWithString:telephone];
+//    // 貌似tel:// 或者 tel: 都行
+//    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+//    //记得添加到view上
+//    [self.view addSubview:callWebview];
+    [self showInfo];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
     NSLog(@"我们一起拨打电话吧%@",self.phone);
     
@@ -260,5 +284,56 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fakeData count];
+}
+- (void)showInfo{
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+     [alert addButton:@"拨打电话" target:self selector:@selector(callYou)];
+    NSString * name1 =[@"姓名:" stringByAppendingString:_alertName];
+    NSString * cname = [@"企业名称:" stringByAppendingString:_alertQiye];
+//    int index = cname.length;
+    NSString * phone= [@"联系电话:" stringByAppendingString:_alertPhone];
+//    NSString *Jilu = [@"上一次通话时间:" stringByAppendingString:_alertJilu];
+     UITextField *textField1 = [alert addTextField:@""];
+    textField1.text = name1;
+    [textField1 setEnabled:NO];
+     UITextField *textField2 = [alert addTextField:@""];
+    textField2.text = _alertQiye;
+     [textField2 setEnabled:NO];
+     UITextField *textField3 = [alert addTextField:@""];
+    textField3.text = phone;
+     [textField3 setEnabled:NO];
+//    UITextField *textField4 = [alert addTextField:@""];
+//    textField4.text = Jilu;
+//    [textField4 setEnabled:NO];
+//    UILabel *label = [UILabel new];
+//    label.text = @"             ";
+//    NSString *blog =@"             ";
+//    if (name1.length<16) {
+//        name1 = [name1 stringByAppendingString:label.text];
+//    }
+//    if (cname.length<16){
+//        cname = [cname stringByAppendingString:label.text];
+//    }
+//    if(phone.length<16){
+//        phone = [phone stringByAppendingString:label.text];
+//    }
+//    _kSubtitle = [[name1 stringByAppendingFormat:@"\n%@",cname]stringByAppendingFormat:@"\n%@",phone];
+     _kSubtitle = @"客户信息，可以拨打电话。";
+//
+//    _kSubtitle = [[[[[name1 stringByAppendingString:name1] stringByAppendingString:@"/n"] stringByAppendingString:cname] stringByAppendingString:@"/n"] stringByAppendingString:phone];
+    alert.shouldDismissOnTapOutside = YES;
+    [alert showInfo:self title:kInfoTitle subTitle:_kSubtitle closeButtonTitle:kButtonTitle duration:0.0f];
+}
+-(void)callYou{
+    NSLog(@"你好，先生！有什么可以帮到你的？");
+    NSString *str = @"tel://";
+    NSString *telephone = [str stringByAppendingString:_alertPhone];
+    NSLog(@"你好，你的电话：%@",telephone);
+    UIWebView *callWebview =[[UIWebView alloc] init];
+    NSURL *telURL =[NSURL URLWithString:telephone];
+    // 貌似tel:// 或者 tel: 都行
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //记得添加到view上
+    [self.view addSubview:callWebview];
 }
 @end

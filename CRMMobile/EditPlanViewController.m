@@ -50,7 +50,7 @@
 @synthesize selectedIndexPath = _selectedIndexPath;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"计划修改";
+    self.title=@"拜访计划修改";
     self.scroll.contentSize=CGSizeMake(375, 880);
     //赋值
     [self valuation];
@@ -75,6 +75,7 @@
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
+//     _accessMethod.text=_customerCallPlanEntity.accessMethodStr;
     _respondentPhone.text=_customerCallPlanEntity.respondentPhone;
     _respondent.text=_customerCallPlanEntity.respondent;
     _address.text=_customerCallPlanEntity.address;

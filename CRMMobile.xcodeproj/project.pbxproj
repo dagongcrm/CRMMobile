@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02085F9F1C1FC1D60086F765 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F981C1FC1D60086F765 /* SCLAlertView.m */; };
+		02085FA01C1FC1D60086F765 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9A1C1FC1D60086F765 /* SCLButton.m */; };
+		02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */; };
+		02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */; };
@@ -313,6 +317,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02085F971C1FC1D60086F765 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		02085F981C1FC1D60086F765 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		02085F991C1FC1D60086F765 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		02085F9A1C1FC1D60086F765 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
+		02085F9B1C1FC1D60086F765 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		02085F9D1C1FC1D60086F765 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
 		102A51D7D859922F2889B12A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
@@ -774,6 +786,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02085F961C1FC1B20086F765 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				02085F971C1FC1D60086F765 /* SCLAlertView.h */,
+				02085F981C1FC1D60086F765 /* SCLAlertView.m */,
+				02085F991C1FC1D60086F765 /* SCLButton.h */,
+				02085F9A1C1FC1D60086F765 /* SCLButton.m */,
+				02085F9B1C1FC1D60086F765 /* SCLAlertViewResponder.h */,
+				02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */,
+				02085F9D1C1FC1D60086F765 /* SCLAlertViewStyleKit.h */,
+				02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */,
+			);
+			name = SCLAlertView;
+			sourceTree = "<group>";
+		};
 		1F93AADF1BF1FFC60099C57E /* TableViewForSeleteUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,6 +1655,7 @@
 		C0D569371BD9B74700860B33 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				02085F961C1FC1B20086F765 /* SCLAlertView */,
 				1FEF624B1C16AE1E00E6F4BF /* Entity */,
 				1FEF62411C16AE0900E6F4BF /* SettingTableViewController.h */,
 				1FEF62421C16AE0900E6F4BF /* SettingTableViewController.m */,
@@ -2104,6 +2132,7 @@
 				B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
+				02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */,
 				39F798C41C05E2EF000D9A20 /* CustomerTableViewController.m in Sources */,
 				39F798CB1C05E4AE000D9A20 /* AppDelegate.m in Sources */,
 				96E3125F1BEB53BA00A1A3FF /* UIScrollView+MJExtension.m in Sources */,
@@ -2140,6 +2169,8 @@
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
 				B8EDAD781C19366300865E7C /* activityDetailViewController.m in Sources */,
 				39F797FD1C05D147000D9A20 /* ShowAndDeleteWeekViewController.m in Sources */,
+				02085F9F1C1FC1D60086F765 /* SCLAlertView.m in Sources */,
+				02085FA01C1FC1D60086F765 /* SCLButton.m in Sources */,
 				39F798671C05D335000D9A20 /* PlanDetalViewController.m in Sources */,
 				B8EDAD811C1936A500865E7C /* GLReusableViewController.m in Sources */,
 				39F797E91C05D12F000D9A20 /* DailyTableViewController.m in Sources */,
@@ -2181,6 +2212,7 @@
 				1FEF621C1C16AC3600E6F4BF /* PNBarChart.m in Sources */,
 				39F7980D1C05D15A000D9A20 /* ShowAndDeleteViewController.m in Sources */,
 				39E729F21C0697A50050D77F /* SubmitTableViewController.m in Sources */,
+				02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */,
 				39E729F51C0697A50050D77F /* options.m in Sources */,
 				39F7980B1C05D15A000D9A20 /* MonthTableViewController.m in Sources */,
 				1FEF621D1C16AC3600E6F4BF /* PNChart.m in Sources */,

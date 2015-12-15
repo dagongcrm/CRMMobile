@@ -10,7 +10,6 @@
                 <outlet property="heTongJE" destination="Qfw-5K-fu5" id="dMq-7V-gvf"/>
                 <outlet property="lianXiFS" destination="mrv-fz-Qe7" id="Nbv-Wq-XuF"/>
                 <outlet property="qiYeMC" destination="DQZ-bl-Wel" id="IBz-aX-Jeo"/>
-                <outlet property="scroll" destination="T48-br-pI8" id="UgC-YL-5R0"/>
                 <outlet property="suoShuHY" destination="k4q-Sc-Eln" id="eOk-1Q-eiE"/>
                 <outlet property="userName" destination="B2A-Zo-ZVz" id="kvG-TK-VKt"/>
                 <outlet property="view" destination="D38-ZC-Ysi" id="ydM-0V-S7S"/>

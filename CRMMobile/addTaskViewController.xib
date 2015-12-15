@@ -9,7 +9,6 @@
                 <outlet property="GenZongSFJE" destination="wlC-OL-PPC" id="Rjz-9b-c7g"/>
                 <outlet property="HangYeGS" destination="cnT-vH-wio" id="XW8-WW-RMF"/>
                 <outlet property="HeTongJE" destination="vKL-6l-oeX" id="VZC-Ax-Wkv"/>
-                <outlet property="Lable" destination="dPS-HB-cXY" id="Ghj-Z2-CMk"/>
                 <outlet property="LianXiFS" destination="C9Y-OU-Nb5" id="qQb-tc-4wV"/>
                 <outlet property="chooseUserButton" destination="ZRz-FE-2kw" id="hoi-ya-dtD"/>
                 <outlet property="chooseUserButtonHY" destination="LOq-RV-yEP" id="myP-1K-nyR"/>
@@ -162,6 +161,18 @@
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="lFJ-JW-7cV"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="跟踪收费" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9X-w6-PcJ">
+                            <rect key="frame" x="44" y="524" width="94" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金额(元):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKM-9s-M0L">
+                            <rect key="frame" x="44" y="545" width="68" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </scrollView>
             </subviews>
