@@ -69,6 +69,9 @@
                             <state key="normal" title="请选择销售机会来源">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="saleOppSrcSelect:" destination="-1" eventType="touchUpInside" id="NQc-6c-YHW"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 成 功 率：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coU-W4-kXt">
                             <rect key="frame" x="20" y="219" width="85" height="21"/>
@@ -114,6 +117,9 @@
                             <state key="normal" title="请选择机会状态">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="oppStateSelectButton:" destination="-1" eventType="touchUpInside" id="d44-eg-Wd8"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 联 系 人：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsu-xf-GxN">
                             <rect key="frame" x="20" y="461" width="85" height="21"/>

@@ -311,7 +311,12 @@
     _customerRequirements.text=_customerCallPlanEntity.customerRequirements;
     _customerChange.text=_customerCallPlanEntity.customerChange;
     
-    
+   
+    if(_customerCallPlanEntity.accessMethodStr.length!=0){
+        _accessMethodID=_customerCallPlanEntity.accessMethodStr;
+        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
+        [self.accessMethod setTitle:_customerCallPlanEntity.accessMethodStr forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
