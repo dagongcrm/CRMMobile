@@ -68,6 +68,27 @@
     
 }
 -(NSMutableArray *) appUpdate:(NSString *)page{
+    NSError *error;
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!findCodeIOS.action?"]];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+    request.timeoutInterval=10.0;
+    request.HTTPMethod=@"POST";
+    //    NSString *order = @"desc";
+    //    NSString *sort = @"time";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *list = [json objectForKey:@"obj"];
+    NSLog(@"%@",list);
+    NSString *userName = @"";
+    for (int i = 0;i<[list count];i++) {
+        NSDictionary *listDic =[list objectAtIndex:i];
+        userName = [listDic objectForKeyedSubscript:@"userName"];
+    }
+    NSLog(@"%@",userName);
+    
     NSString *str1 =[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSLog(@"%@",str1);
     if (![str1 isEqualToString:APPDELEGATE.appUpdate]&&![str1 isEqualToString:@"1.0"]) {
@@ -81,7 +102,7 @@
     if (buttonIndex==1) {
         NSString *str1 =[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         APPDELEGATE.appUpdate = str1;
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.baidu.com"]]; 
     }
 }
 
