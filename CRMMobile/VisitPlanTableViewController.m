@@ -174,7 +174,11 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55;
+    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+        return 45;
+    }else{
+        return 55;
+    }
 }
 //上拉刷新下拉加载
 - (void)setupRefresh

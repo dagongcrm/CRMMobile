@@ -330,7 +330,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cxz-8p-neT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oE7-Ix-2vx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYS-cX-Qfz" userLabel="换背景">
@@ -350,7 +350,7 @@
                                 <rect key="frame" x="0.0" y="150" width="375" height="1000"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-lJ-7iT" userLabel="UserImg">
-                                        <rect key="frame" x="0.0" y="61" width="375" height="115"/>
+                                        <rect key="frame" x="0.0" y="61" width="500" height="115"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hhhh" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-oI-Ar1" userLabel="touxiang">
@@ -392,10 +392,9 @@
                                 </subviews>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96470594409999999" green="0.98039221759999995" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="个人中心" id="egC-4Q-N9O"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="Image" destination="7cD-oI-Ar1" id="cVb-9x-LXO"/>
                         <outlet property="beijingImg" destination="wHR-eL-TFb" id="zgR-uC-BOs"/>

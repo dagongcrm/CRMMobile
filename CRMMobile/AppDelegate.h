@@ -15,7 +15,7 @@
 }
 
 @property  NSString    *appUpdate;
-
+@property  NSString    *deviceCode;
 
 
 @property  (strong ,nonatomic) NSString  *controllerJudge;

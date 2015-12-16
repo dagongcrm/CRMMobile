@@ -12,7 +12,8 @@
 #import "GLReusableViewController.h"
 #import "PureLayout.h"
 #import "NoticeViewController.h"
-
+#import "AppDelegate.h"
+#import "config.h"
 @interface NotificationTableViewController ()
 
 @end
@@ -79,7 +80,11 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+        return 50;
+    }else{
+        return 60;
+    }
 }
 
 /*
