@@ -18,6 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap =
+    [[UITapGestureRecognizer alloc]   initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 //     [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     accountField.placeholder    = @"用户名";
@@ -50,6 +53,11 @@
     }
 
 }
+
+-(void)dismissKeyboard {
+    [passwdField resignFirstResponder];
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -152,5 +160,7 @@
         }
     return authcom;
 }
+
+
 
 @end

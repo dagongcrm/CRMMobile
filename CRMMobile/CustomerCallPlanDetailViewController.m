@@ -114,7 +114,7 @@
     }else if (alertView.tag==2){
         if (buttonIndex==1) {
             //调用定位方法
-            [self Location:_customerCallPlanEntity.customerCallPlanID];
+            [self Location:_customerCallPlanEntity.customerID];
             
             NSString *ci= _customerCallPlanEntity.customerCallPlanID;
             NSError *error;
@@ -147,7 +147,7 @@
 
 
 
--(void) updateLocation:(NSString *) callRecordsID:(CLLocation *)location:(NSError *)error{
+-(void) updateLocation:(NSString *) customerID:(CLLocation *)location:(NSError *)error{
     if (error)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"定位失败，请检查您的GPS设置" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -168,7 +168,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&callRecordsID=%@&MOBILE_SID=%@",longitude,latitude,userId,time,callRecordsID,sid];
+        NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&customerID=%@&MOBILE_SID=%@",longitude,latitude,userId,time,customerID,sid];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -196,11 +196,11 @@
 }
 
 //定位功能
--(void)Location:(NSString *) callRecordsID{
+-(void)Location:(NSString *) customerID{
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     [self.locationManager requestLocationWithReGeocode:NO completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
          NSLog(@"location:%@", location);
-        [self updateLocation:callRecordsID:location:error];
+        [self updateLocation:customerID:location:error];
     }];
 }
 
