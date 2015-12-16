@@ -57,6 +57,14 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
+		3930D5A91C2154A300D3C25E /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5A71C2154A300D3C25E /* PgySDK.framework */; };
+		3930D5AA1C2154A300D3C25E /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5A81C2154A300D3C25E /* PgyUpdate.framework */; };
+		3930D5AC1C21551300D3C25E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5AB1C21551300D3C25E /* CoreTelephony.framework */; };
+		3930D5AE1C21552800D3C25E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5AD1C21552800D3C25E /* OpenGLES.framework */; };
+		3930D5B01C21553900D3C25E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5AF1C21553900D3C25E /* CoreMotion.framework */; };
+		3930D5B21C21554E00D3C25E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5B11C21554E00D3C25E /* AudioToolbox.framework */; };
+		3930D5B41C21556000D3C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5B31C21556000D3C25E /* AVFoundation.framework */; };
+		3930D5B61C21557000D3C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5B51C21557000D3C25E /* SystemConfiguration.framework */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -402,6 +410,14 @@
 		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
 		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
+		3930D5A71C2154A300D3C25E /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDK.framework; sourceTree = "<group>"; };
+		3930D5A81C2154A300D3C25E /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
+		3930D5AB1C21551300D3C25E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3930D5AD1C21552800D3C25E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3930D5AF1C21553900D3C25E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3930D5B11C21554E00D3C25E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3930D5B31C21556000D3C25E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3930D5B51C21557000D3C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -774,6 +790,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3930D5B61C21557000D3C25E /* SystemConfiguration.framework in Frameworks */,
+				3930D5B41C21556000D3C25E /* AVFoundation.framework in Frameworks */,
+				3930D5B21C21554E00D3C25E /* AudioToolbox.framework in Frameworks */,
+				3930D5B01C21553900D3C25E /* CoreMotion.framework in Frameworks */,
+				3930D5AE1C21552800D3C25E /* OpenGLES.framework in Frameworks */,
+				3930D5AC1C21551300D3C25E /* CoreTelephony.framework in Frameworks */,
+				3930D5AA1C2154A300D3C25E /* PgyUpdate.framework in Frameworks */,
+				3930D5A91C2154A300D3C25E /* PgySDK.framework in Frameworks */,
 				39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,6 +832,7 @@
 			children = (
 				C0C484211C1818AF00B142BC /* ZSYPopoverListViewSingle.h */,
 				C0C484221C1818AF00B142BC /* ZSYPopoverListViewSingle.m */,
+				B8EDAD471C1933EC00865E7C /* CustomerCallPlanViewController.xib */,
 				1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */,
 				1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */,
 			);
@@ -1002,10 +1027,9 @@
 				B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */,
 				B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */,
 				B8EDAD451C1933EC00865E7C /* CustomerCallPlanViewController.h */,
-				B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */,
-				B8EDAD471C1933EC00865E7C /* CustomerCallPlanViewController.xib */,
-				B8EDAD481C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.h */,
 				B8EDAD491C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m */,
+				B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */,
+				B8EDAD481C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.h */,
 				B8EDAD4A1C1933EC00865E7C /* CustomerCallPlanDetailViewController.h */,
 				B8EDAD4B1C1933EC00865E7C /* CustomerCallPlanDetailViewController.m */,
 				B8EDAD4C1C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib */,
@@ -1125,6 +1149,14 @@
 		697B9FD2210A177A0B37E0B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3930D5A71C2154A300D3C25E /* PgySDK.framework */,
+				3930D5A81C2154A300D3C25E /* PgyUpdate.framework */,
+				3930D5B51C21557000D3C25E /* SystemConfiguration.framework */,
+				3930D5B31C21556000D3C25E /* AVFoundation.framework */,
+				3930D5B11C21554E00D3C25E /* AudioToolbox.framework */,
+				3930D5AF1C21553900D3C25E /* CoreMotion.framework */,
+				3930D5AD1C21552800D3C25E /* OpenGLES.framework */,
+				3930D5AB1C21551300D3C25E /* CoreTelephony.framework */,
 				39F1F1721BE34F1700EA3133 /* libPods.a */,
 				82C7E133320381C359BF81B5 /* libPods.a */,
 			);
@@ -2359,8 +2391,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dagong Credit Software CO., LTD.";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CRMMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2378,8 +2414,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dagong Credit Software CO., LTD.";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CRMMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
