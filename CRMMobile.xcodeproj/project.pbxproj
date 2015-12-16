@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0205F2411C2154440032AEC5 /* loginLogo2.jpg */; };
 		02085F9F1C1FC1D60086F765 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F981C1FC1D60086F765 /* SCLAlertView.m */; };
 		02085FA01C1FC1D60086F765 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9A1C1FC1D60086F765 /* SCLButton.m */; };
 		02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */; };
@@ -192,7 +193,6 @@
 		9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4AD1C1ACC3E0074B1A5 /* update-s.png */; };
 		9604F4BE1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9604F4BC1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m */; };
 		9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */; };
-		9604F4C11C1ADE400074B1A5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */; };
 		9618AA531BFC82D1001A6D0D /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9618AA521BFC82D1001A6D0D /* back.png */; };
 		9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70A1C1EB0C2000C4EEE /* cancle-s.png */; };
 		9619C70F1C1EB1D0000C4EEE /* bfan.png in Resources */ = {isa = PBXBuildFile; fileRef = 9619C70C1C1EB1D0000C4EEE /* bfan.png */; };
@@ -318,6 +318,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0205F2411C2154440032AEC5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		02085F971C1FC1D60086F765 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
 		02085F981C1FC1D60086F765 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
 		02085F991C1FC1D60086F765 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
@@ -597,7 +598,6 @@
 		9604F4BB1C1ADDA10074B1A5 /* detailSaleLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailSaleLeadsViewController.h; sourceTree = "<group>"; };
 		9604F4BC1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailSaleLeadsViewController.m; sourceTree = "<group>"; };
 		9604F4BD1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailSaleLeadsViewController.xib; sourceTree = "<group>"; };
-		9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		9618AA521BFC82D1001A6D0D /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		9619C70A1C1EB0C2000C4EEE /* cancle-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancle-s.png"; sourceTree = "<group>"; };
 		9619C70C1C1EB1D0000C4EEE /* bfan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bfan.png; sourceTree = "<group>"; };
@@ -937,8 +937,8 @@
 		1FEF62871C16B3E300E6F4BF /* login */ = {
 			isa = PBXGroup;
 			children = (
+				0205F2411C2154440032AEC5 /* loginLogo2.jpg */,
 				027B7C3D1C202F8200C02991 /* login6p.png */,
-				9604F4C01C1ADE400074B1A5 /* loginLogo2.jpg */,
 				9604F4701C1AC6A90074B1A5 /* submit12.png */,
 				1FEF628C1C16B42500E6F4BF /* submit-1.png */,
 				1FEF628D1C16B42500E6F4BF /* submit11.png */,
@@ -1900,6 +1900,7 @@
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
 				9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */,
 				C0D3CD5E1BDF0CEF00C23FB3 /* 3.png in Resources */,
+				0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */,
 				C0D3CD7A1BDF0CEF00C23FB3 /* 31.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				C0D3CD721BDF0CEF00C23FB3 /* 23.png in Resources */,
@@ -1967,7 +1968,6 @@
 				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				B8EDAD7C1C19366300865E7C /* taskReminderTableViewController.xib in Resources */,
-				9604F4C11C1ADE400074B1A5 /* loginLogo2.jpg in Resources */,
 				C0D3CD641BDF0CEF00C23FB3 /* 9.png in Resources */,
 				39F7971D1C05CC50000D9A20 /* EditCustomerContactController.xib in Resources */,
 				9604F4801C1AC79A0074B1A5 /* crm-1.png in Resources */,
