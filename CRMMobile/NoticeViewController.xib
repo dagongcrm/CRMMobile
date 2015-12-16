@@ -18,16 +18,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gi-wO-nfg">
-                    <rect key="frame" x="26" y="67" width="150" height="30"/>
-                    <animations/>
+                    <rect key="frame" x="27" y="67" width="150" height="30"/>
                     <color key="backgroundColor" red="0.82984138259999995" green="0.82984138259999995" blue="0.82984138259999995" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="公告">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-Ly-sia">
-                    <rect key="frame" x="209" y="67" width="150" height="30"/>
-                    <animations/>
+                    <rect key="frame" x="193" y="67" width="150" height="30"/>
                     <state key="normal" title="通知">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

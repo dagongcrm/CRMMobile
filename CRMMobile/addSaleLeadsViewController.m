@@ -40,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"销售线索添加";
     _customerName.text=_saleLeads.customerNameStr;
     _leadsAdd.text = _saleLeads.salesLeads;
     self.scroll.contentSize = CGSizeMake(375, 1000);

@@ -27,28 +27,30 @@
     passwdField.placeholder     = @"密码";
     passwdField.secureTextEntry = YES;
     [self loadValue];
-//    //可以判断进来的设备的型号
-//    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
-//    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
-//    NSLog(@"jjjdjdjdjdjdjdjjdjd");
-//    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
-//        if (iosDeviceScreenSize.height==568) {
-//            //IPHONE5/5s/5c
-//            NSLog(@"IPHONE5/5s/5c");
-//        }else if(iosDeviceScreenSize.height==667){
-//            //iphone6
-//            NSLog(@"iphone 6");
-//            [self.loginImg setImage:[UIImage imageNamed:@"loginLogo2"]];
-//        }else if(iosDeviceScreenSize.height==736){
-//            //iphone6plus
-//            NSLog(@"iphone6plus");
-//            [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
-//            
-//        }else{
-//            //iphone 4等其他设备
-//            NSLog(@"iphone 4等其他设备");
-//        }
-//    }
+    //可以判断进来的设备的型号
+    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
+    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
+    NSLog(@"jjjdjdjdjdjdjdjjdjd");
+    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
+        if (iosDeviceScreenSize.height==568) {
+            //IPHONE5/5s/5c
+            NSLog(@"IPHONE5/5s/5c");
+            APPDELEGATE.deviceCode = @"5";
+        }else if(iosDeviceScreenSize.height==667){
+            //iphone6
+            NSLog(@"iphone 6");
+            APPDELEGATE.deviceCode = @"6";
+        }else if(iosDeviceScreenSize.height==736){
+            //iphone6plus
+            NSLog(@"iphone6plus");
+             APPDELEGATE.deviceCode = @"6p";
+            
+        }else{
+            //iphone 4等其他设备
+            NSLog(@"iphone 4等其他设备");
+             APPDELEGATE.deviceCode = @"4";
+        }
+    }
 
 }
 

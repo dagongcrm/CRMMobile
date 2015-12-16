@@ -17,15 +17,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginLogo2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uw1-Te-Rhe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uw1-Te-Rhe">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WM0-F9-9MF">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WM0-F9-9MF">
                     <rect key="frame" x="105" y="293" width="208" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0W-lh-UNY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0W-lh-UNY">
                     <rect key="frame" x="105" y="422" width="200" height="40"/>
                     <color key="backgroundColor" red="0.86274509803921573" green="0.94117647058823528" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="submit12.png">
@@ -36,13 +36,27 @@
                         <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="VOh-JL-RhY"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-eL-LbP">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-eL-LbP">
                     <rect key="frame" x="105" y="222" width="208" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="O0W-lh-UNY" firstAttribute="leading" secondItem="WM0-F9-9MF" secondAttribute="leading" id="Bu0-Wx-pqj"/>
+                <constraint firstItem="WM0-F9-9MF" firstAttribute="leading" secondItem="xyb-eL-LbP" secondAttribute="leading" id="Kje-he-gB7"/>
+                <constraint firstAttribute="trailing" secondItem="Uw1-Te-Rhe" secondAttribute="trailing" id="SNu-hi-9hg"/>
+                <constraint firstItem="Uw1-Te-Rhe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vlb-Cv-d1n"/>
+                <constraint firstItem="xyb-eL-LbP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="222" id="XnE-6c-E0s"/>
+                <constraint firstItem="Uw1-Te-Rhe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="edN-Pa-eDk"/>
+                <constraint firstAttribute="bottom" secondItem="Uw1-Te-Rhe" secondAttribute="bottom" id="jw2-Zn-f3Y"/>
+                <constraint firstItem="xyb-eL-LbP" firstAttribute="trailing" secondItem="WM0-F9-9MF" secondAttribute="trailing" id="mJe-FE-WbC"/>
+                <constraint firstAttribute="trailing" secondItem="O0W-lh-UNY" secondAttribute="trailing" constant="70" id="qBj-mc-kJ9"/>
+                <constraint firstItem="O0W-lh-UNY" firstAttribute="top" secondItem="WM0-F9-9MF" secondAttribute="bottom" constant="99" id="rw9-Xj-dWy"/>
+                <constraint firstItem="WM0-F9-9MF" firstAttribute="top" secondItem="xyb-eL-LbP" secondAttribute="bottom" constant="41" id="s1q-oP-Gmw"/>
+                <constraint firstAttribute="trailing" secondItem="xyb-eL-LbP" secondAttribute="trailing" constant="62" id="sLf-ZT-6Rt"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="263.5" y="254.5"/>
         </view>

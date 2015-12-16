@@ -11,7 +11,8 @@
 #import "XGViewController.h"
 #import "SettingTableViewController.h"
 #import "GuanyuViewController.h"
-
+#import "AppDelegate.h"
+#import "config.h"
 @interface MeMainTableViewController ()
 @property (nonatomic,retain) NSArray *optionListData;
 @end
@@ -74,7 +75,12 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+         return 44;
+    }else{
     return 60;
+    }    
 }
 
 @end

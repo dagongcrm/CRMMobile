@@ -338,8 +338,11 @@
     [self.navigationController pushViewController:uc animated:NO];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55;
-}
+    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+        return 44;
+    }else{
+        return 55;
+    }}
 
 
 @end
