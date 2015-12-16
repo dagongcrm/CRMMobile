@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务基本信息";
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 900);
     NSString *s= _submitTaskEntity.submitName;
     NSString *y= _submitTaskEntity.yeWuZL;
     self.qiYeMC1.text = _submitTaskEntity.submitName;
