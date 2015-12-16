@@ -27,7 +27,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UITextField *Phone;
-@property (weak, nonatomic) IBOutlet UITextField *ReceptionPersonnel;
+@property (weak, nonatomic) IBOutlet UITextField *createTime;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
@@ -112,7 +112,7 @@
     self.ShiChangXQFL.text  =_customerInformationEntity.shiChangXQFL;
     self.CustomerAddress.text  =_customerInformationEntity.customerAddress;
     self.Phone.text  =_customerInformationEntity.phone;
-    self.ReceptionPersonnel.text  =_customerInformationEntity.receptionPersonnel;
+    self.createTime.text  =_customerInformationEntity.createTime;
 }
 
 

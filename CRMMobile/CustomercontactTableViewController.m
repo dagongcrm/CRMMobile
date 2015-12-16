@@ -170,6 +170,7 @@
         NSString *contactName = (NSString *)[listDic objectForKey:@"contactName"];
         NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
         NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
+         NSString *informationAttributionStr = (NSString *)[listDic objectForKey:@"informationAttributionStr"];
 //        NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
         NSString *contactID =(NSString *)[listDic objectForKey:@"contactID"];
         if (contactName==nil||contactName==NULL) {
@@ -183,6 +184,9 @@
         }
         if (contactID==nil||contactID==NULL) {
             contactID=@"null";
+        }
+        if (informationAttributionStr==nil||informationAttributionStr==NULL) {
+            informationAttributionStr=@"null";
         }
         [self.fakeData addObject:contactName];
         [self.contactData addObject:telePhone];

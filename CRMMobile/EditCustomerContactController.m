@@ -137,7 +137,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerName=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

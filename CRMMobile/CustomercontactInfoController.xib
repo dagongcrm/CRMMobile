@@ -12,6 +12,7 @@
                 <outlet property="lxrzt" destination="KTw-5N-TQM" id="oLZ-Fx-b7v"/>
                 <outlet property="lxxm" destination="T6w-Uf-nit" id="W4w-Js-ZAG"/>
                 <outlet property="scroll" destination="FQo-Cs-lmA" id="O2Z-ux-apJ"/>
+                <outlet property="stopState" destination="jPk-pk-jbl" id="tdz-7l-xuC"/>
                 <outlet property="tjsj" destination="iQz-fU-isl" id="v5o-PQ-7hC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="S1Q-Fy-OdG"/>
                 <outlet property="whren" destination="fZr-aW-DEd" id="YXG-f4-YYT"/>
