@@ -58,6 +58,14 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
+		3930D5B91C2164EC00D3C25E /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5B71C2164EC00D3C25E /* PgySDK.framework */; };
+		3930D5BA1C2164EC00D3C25E /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5B81C2164EC00D3C25E /* PgyUpdate.framework */; };
+		3930D5BC1C21651C00D3C25E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5BB1C21651C00D3C25E /* CoreTelephony.framework */; };
+		3930D5BE1C21652D00D3C25E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5BD1C21652D00D3C25E /* OpenGLES.framework */; };
+		3930D5C01C21653900D3C25E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5BF1C21653900D3C25E /* CoreMotion.framework */; };
+		3930D5C21C21654500D3C25E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5C11C21654500D3C25E /* AudioToolbox.framework */; };
+		3930D5C41C21655100D3C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5C31C21655100D3C25E /* AVFoundation.framework */; };
+		3930D5C61C21655D00D3C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930D5C51C21655D00D3C25E /* SystemConfiguration.framework */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -403,6 +411,14 @@
 		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
 		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
+		3930D5B71C2164EC00D3C25E /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDK.framework; sourceTree = "<group>"; };
+		3930D5B81C2164EC00D3C25E /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
+		3930D5BB1C21651C00D3C25E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3930D5BD1C21652D00D3C25E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3930D5BF1C21653900D3C25E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3930D5C11C21654500D3C25E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3930D5C31C21655100D3C25E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3930D5C51C21655D00D3C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -774,6 +790,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3930D5C61C21655D00D3C25E /* SystemConfiguration.framework in Frameworks */,
+				3930D5C41C21655100D3C25E /* AVFoundation.framework in Frameworks */,
+				3930D5C21C21654500D3C25E /* AudioToolbox.framework in Frameworks */,
+				3930D5C01C21653900D3C25E /* CoreMotion.framework in Frameworks */,
+				3930D5BE1C21652D00D3C25E /* OpenGLES.framework in Frameworks */,
+				3930D5BC1C21651C00D3C25E /* CoreTelephony.framework in Frameworks */,
+				3930D5BA1C2164EC00D3C25E /* PgyUpdate.framework in Frameworks */,
+				3930D5B91C2164EC00D3C25E /* PgySDK.framework in Frameworks */,
 				39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1125,6 +1149,14 @@
 		697B9FD2210A177A0B37E0B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3930D5C51C21655D00D3C25E /* SystemConfiguration.framework */,
+				3930D5C31C21655100D3C25E /* AVFoundation.framework */,
+				3930D5C11C21654500D3C25E /* AudioToolbox.framework */,
+				3930D5BF1C21653900D3C25E /* CoreMotion.framework */,
+				3930D5BD1C21652D00D3C25E /* OpenGLES.framework */,
+				3930D5BB1C21651C00D3C25E /* CoreTelephony.framework */,
+				3930D5B71C2164EC00D3C25E /* PgySDK.framework */,
+				3930D5B81C2164EC00D3C25E /* PgyUpdate.framework */,
 				39F1F1721BE34F1700EA3133 /* libPods.a */,
 				82C7E133320381C359BF81B5 /* libPods.a */,
 			);
@@ -2358,13 +2390,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CRMMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.org.dagongsoftware.CRMMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2375,13 +2412,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CRMMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.org.dagongsoftware.CRMMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -19,9 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //启动基本SDK
-    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
+    [[PgyManager sharedPgyManager] startManagerWithAppId:@"2d24d315c288c1e04316bc1a0b1710d3"];
     //启动更新检查SDK
-    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
+    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"2d24d315c288c1e04316bc1a0b1710d3"];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
