@@ -41,7 +41,7 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
 
-    self.scrollView.contentSize = CGSizeMake(375, 1000);
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
     _index1 = 0;
      _index2 = 0;
      _index3 = 0;
@@ -67,6 +67,7 @@
      NSString *d3 = [NSString stringWithFormat:@"%d",_index3];
      NSString *d4 = [NSString stringWithFormat:@"%d",_index4];
      NSString *d5 = [NSString stringWithFormat:@"%d",_index5];
+    NSLog(@"d1d1d1d1d1-----.%@",d1);
     [lineChart setXLabels:@[[_date1 substringFromIndex:5],[_date2 substringFromIndex:5],[_date3 substringFromIndex:5],[_date4 substringFromIndex:5],[_date5 substringFromIndex:5]]];
     [lineChart setYValues:@[d1,d2,d3,d4,d5]];
     [lineChart strokeChart];
@@ -186,7 +187,8 @@
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *maketDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"maketDic字典里面的内容为--》%@", maketDic);
-    NSArray *list = [maketDic objectForKey:@"obj"];    NSLog(@"maketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDic==>>%lu",[list count]);
+    NSArray *list = [maketDic objectForKey:@"obj"];
+    NSLog(@"maketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDic==>>%lu",[list count]);
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
 //        [self.CustomerArr addObject:listDic];
@@ -212,7 +214,7 @@
             _index4=0;
         }
         if([time isEqualToString:_date5]){
-            _index1++;
+            _index5++;
         }else{
             _index5=0;
         }

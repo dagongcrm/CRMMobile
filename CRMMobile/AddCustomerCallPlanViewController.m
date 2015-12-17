@@ -29,14 +29,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *address;
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
+@property (strong, nonatomic) IBOutlet UITextView *visitProfile;
 
-@property (weak, nonatomic) IBOutlet UITextField *visitProfile;  //拜访概要
-
-@property (weak, nonatomic) IBOutlet UITextField *result;    //达成结果
-
-@property (weak, nonatomic) IBOutlet UITextField *customerRequirements;  //客户需求
-
-@property (weak, nonatomic) IBOutlet UITextField *customerChange;  //客户变故
+@property (strong, nonatomic) IBOutlet UITextView *result;
+@property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
+@property (strong, nonatomic) IBOutlet UITextView *customerChange;
 
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
 - (IBAction)selectDate:(id)sender;
@@ -314,7 +311,7 @@
     [self valuation];
     //调节scroll宽度和高度
     self.title=@"拜访添加";
-    self.scroll.contentSize=CGSizeMake(375, 925);
+    self.scroll.contentSize=CGSizeMake(375, 1025);
 //    [self dateVerify];
 }
 
@@ -334,6 +331,26 @@
     self.address.layer.borderWidth = 1;
     self.address.layer.cornerRadius = 6;
     self.address.layer.masksToBounds = YES;
+    
+    [self.customerChange.layer setBorderColor:color];
+    self.customerChange.layer.borderWidth = 1;
+    self.customerChange.layer.cornerRadius = 6;
+    self.customerChange.layer.masksToBounds = YES;
+    
+    [self.visitProfile.layer setBorderColor:color];
+    self.visitProfile.layer.borderWidth = 1;
+    self.visitProfile.layer.cornerRadius = 6;
+    self.visitProfile.layer.masksToBounds = YES;
+    
+    [self.result.layer setBorderColor:color];
+    self.result.layer.borderWidth = 1;
+    self.result.layer.cornerRadius = 6;
+    self.result.layer.masksToBounds = YES;
+    
+    [self.customerRequirements.layer setBorderColor:color];
+    self.customerRequirements.layer.borderWidth = 1;
+    self.customerRequirements.layer.cornerRadius = 6;
+    self.customerRequirements.layer.masksToBounds = YES;
     
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;

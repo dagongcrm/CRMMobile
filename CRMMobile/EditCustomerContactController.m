@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *lxrendh;//联系人电话
 @property (weak, nonatomic) IBOutlet UITextField *bmen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
-@property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
+
+@property (strong, nonatomic) IBOutlet UITextView *xsypj;
 
 - (IBAction)cancle:(id)sender;//取消
 
@@ -54,14 +55,26 @@
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                                    target:nil action:nil];
     negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+  
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.scroll.contentSize = CGSizeMake(375, 900);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.xsypj.layer setBorderColor:color];
+    self.xsypj.layer.borderWidth = 1;
+    self.xsypj.layer.cornerRadius = 6;
+    self.xsypj.layer.masksToBounds = YES;
     self.khmc.text = _contactEntity.customerNameStr;
     self.lxrenxm.text = _contactEntity.contactName;
     self.lxrendh.text = _contactEntity.telePhone;
     self.bmen.text = _contactEntity.department;
     self.zhiwu.text = _contactEntity.position;
     self.xsypj.text = _contactEntity.evaluationOfTheSalesman;
+    _customerIDSave = _contactEntity.customerID;
+    _evaluationSave = _contactEntity.evaluationOfTheSalesman;
+    _stateSave = _contactEntity.contactState1;
     if (_contactEntity.customerName.length==0) {
     self.khmc.text=_contactEntity.customerNameStr;
     }else{
@@ -116,10 +129,12 @@
     NSString *department=self.bmen.text;
     NSString *position=self.zhiwu.text;
     NSString *contactID = _contactEntity.contactID;
-    NSString *customerID = _contactEntity.customerID;
+    NSString *customerID = _customerIDSave;
     NSString *tianjiaSJ = _contactEntity.tianjiaSJ;
-    NSLog(@"tianjiaSJtianjiaSJ%@",tianjiaSJ);
-    NSLog(@"whywhywhwyhwyu%@",customerID);
+    NSString *evalation2 = _contactEntity.evaluationOfTheSalesman;
+    NSString *state2 = _stateSave;
+    NSLog(@"evalation2evalation2evalation2%@",evalation2);
+//    NSLog(@"state2state2state2state2%@",state2);
     NSString *evaluationOfTheSalesman=self.xsypj.text;
     if (customerName.length==0||contactName.length==0||telePhone.length==0||department.length==0||position.length==0||evaluationOfTheSalesman.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -137,7 +152,8 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerName=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@ &evaluationOfTheSalesman=%@&contactState=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,tianjiaSJ,evalation2,state2];
+//
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -166,12 +182,18 @@
     NSString *telePhone1 =self.lxrendh.text;
     NSString *department1=self.bmen.text;
     NSString *position1=self.zhiwu.text;
+    NSString *evaluation = _evaluationSave;
+    NSString *state1 = _stateSave;
+    NSLog(@"联系人状态%@",state1);
+    NSLog(@"销售员评jia%@",evaluation);
 //    NSString *contactID = _contactEntity.contactID;
     [_contactEntity setCustomerName:customerName1];
     [_contactEntity setContactName:contactName1];
     [_contactEntity setTelePhone:telePhone1];
     [_contactEntity setDepartment:department1];
     [_contactEntity setPosition:position1];
+    [_contactEntity setEvaluationOfTheSalesman:evaluation];
+    [_contactEntity setContactState:state1];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [_contactEntity setIndex:@"1"];
     [list setCustomerEntity:_contactEntity];

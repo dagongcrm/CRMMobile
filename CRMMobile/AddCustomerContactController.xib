@@ -13,7 +13,7 @@
                 <outlet property="lxrenxm" destination="Tnu-kv-qnB" id="Vb7-WB-Fus"/>
                 <outlet property="scroll" destination="Rfw-GZ-Q3I" id="uN6-zf-TEW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="OSL-F7-Gw0"/>
-                <outlet property="xsypj" destination="q2u-6z-DBE" id="Lrg-Kv-BIE"/>
+                <outlet property="xsypj" destination="2Dy-dM-xEz" id="h68-bW-DwE"/>
                 <outlet property="zhiwu" destination="IXO-HW-8lf" id="3S3-KH-6Ec"/>
             </connections>
         </placeholder>
@@ -106,11 +106,6 @@
                                 <action selector="AddCustomer:" destination="-1" eventType="touchUpInside" id="hQO-3D-JXl"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="q2u-6z-DBE" userLabel="xsypj">
-                            <rect key="frame" x="140" y="440" width="200" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-Lr-4kZ">
                             <rect key="frame" x="209" y="549" width="120" height="40"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,6 +117,12 @@
                                 <action selector="saveForAdd:" destination="-1" eventType="touchUpInside" id="ho4-Q4-BG5"/>
                             </connections>
                         </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Dy-dM-xEz">
+                            <rect key="frame" x="140" y="422" width="200" height="66"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                 </scrollView>
             </subviews>

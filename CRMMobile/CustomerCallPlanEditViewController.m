@@ -28,14 +28,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;    //受访人电话
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;    //受访人员
-
-@property (weak, nonatomic) IBOutlet UITextField *visitProfile;    //拜访概要
-
-@property (weak, nonatomic) IBOutlet UITextField *result;    //达成结果
-
-@property (weak, nonatomic) IBOutlet UITextField *customerRequirements;   //客户需求
-
-@property (weak, nonatomic) IBOutlet UITextField *customerChange;   //客户变故
+@property (strong, nonatomic) IBOutlet UITextView *visitProfile;
+@property (strong, nonatomic) IBOutlet UITextView *result;
+@property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
+@property (strong, nonatomic) IBOutlet UITextView *customerChange;
 
 @property (weak, nonatomic) IBOutlet UITextField *khmc;    //客户名称
 
@@ -231,9 +227,9 @@
     NSString *customerChange=_customerChange.text;
     NSString *visitorAttribution=_customerCallPlanEntity.visitorAttribution; //拜访人归属
     NSString *visitor=_customerCallPlanEntity.baiFangRen;   //拜访人
-    NSString *accessMethodID=@"";//拜访方式
+    NSString *accessMethod=@"";//拜访方式
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
-        accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
+        accessMethod = [self.selectBFFSIdForParam objectAtIndex:i];
     }
     
     if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
@@ -254,7 +250,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethodID,customerID,customerName];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethod,customerID,customerName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -279,7 +275,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划修改";
-    self.scroll.contentSize=CGSizeMake(375, 900);
+    self.scroll.contentSize=CGSizeMake(375, 1000);
     //赋值
     [self valuation];
 }
@@ -300,6 +296,27 @@
     self.address.layer.cornerRadius = 6;
     self.address.layer.masksToBounds = YES;
 //    self.address.editable = NO;
+    
+    [self.customerChange.layer setBorderColor:color];
+    self.customerChange.layer.borderWidth = 1;
+    self.customerChange.layer.cornerRadius = 6;
+    self.customerChange.layer.masksToBounds = YES;
+    
+    [self.visitProfile.layer setBorderColor:color];
+    self.visitProfile.layer.borderWidth = 1;
+    self.visitProfile.layer.cornerRadius = 6;
+    self.visitProfile.layer.masksToBounds = YES;
+    
+    [self.result.layer setBorderColor:color];
+    self.result.layer.borderWidth = 1;
+    self.result.layer.cornerRadius = 6;
+    self.result.layer.masksToBounds = YES;
+    
+    [self.customerRequirements.layer setBorderColor:color];
+    self.customerRequirements.layer.borderWidth = 1;
+    self.customerRequirements.layer.cornerRadius = 6;
+    self.customerRequirements.layer.masksToBounds = YES;
+    
     _khmc.text=_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
