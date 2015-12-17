@@ -23,12 +23,11 @@
 @end
 
 @implementation SaleOppTableViewController
-- (NSMutableArray *)fakeData
+- (NSMutableArray *)entities
 {
     if (!_entities) {
         self.entities = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        [self faker:@"2"];
     }
     return _entities;
 }
@@ -112,10 +111,9 @@
 
 - (void)headerRereshing
 {
-    [self.fakeData removeAllObjects];
-    self.index =1;
+    [self.entities removeAllObjects];
+     self.index =1;
     [self faker:@"1"];
-//    [self faker:@"2"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -174,20 +172,13 @@
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-//    NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
-//    [cell.detailTextLabel setText:detailText];
+    if (detail ==nil) {
+        detail=@"暂无";
+    }
+     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
+    [cell.detailTextLabel setText:detailText];
+    
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
-//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-//    NSString *str =[testDetail stringByAppendingString:testDetail1];
-//    NSLog(@"%@",str);
-//    [cell.detailTextLabel setText:str];
-//    [cell.imageView setImage:[UIImage imageNamed:@"121.png"]];
-    
-    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
