@@ -95,9 +95,14 @@
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     if(response){
-        [MBProgressHUD hideHUD];
         NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         APPDELEGATE.sessionInfo = loginDic;
+
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        if(![[ud objectForKey:@"userName"] isEqualToString:accountField.text])
+        {
+         APPDELEGATE.userChangeOrNot=@"change";
+        }
         if([[loginDic objectForKey:@"success"] boolValue] == YES)
         {
             APPDELEGATE.roleAuthority=[self authorityDic];
@@ -113,6 +118,7 @@
             [alert show];
         }
     }else{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登陆超时" message:@"登陆超时请重新登录" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
     }

@@ -16,6 +16,7 @@
 @synthesize index;
 @synthesize indexPageForLoad;
 @synthesize roleAuthority;
+@synthesize userChangeOrNot;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    //启动基本SDK
