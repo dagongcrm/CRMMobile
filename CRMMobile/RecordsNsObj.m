@@ -24,4 +24,5 @@
 @synthesize customerRequirements=_customerRequirements;
 @synthesize visitorAttributionStr=_visitorAttributionStr;
 @synthesize visitor=_visitor;
+@synthesize visitorStr=_visitorStr;
 @end

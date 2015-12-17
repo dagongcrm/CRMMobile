@@ -41,7 +41,8 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
 
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 800);
+    NSLog(@"1111111111111%f",SCREEN_WIDTH);
     _index1 = 0;
      _index2 = 0;
      _index3 = 0;
@@ -55,7 +56,7 @@
     [self DateForIn];
     //Add LineChart
     UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
-    lineChartLabel.text = @"活动次数";
+    lineChartLabel.text = @"拜访签到:活动次数";
     lineChartLabel.textColor = PNFreshGreen;
     lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
     lineChartLabel.textAlignment = NSTextAlignmentCenter;
@@ -74,27 +75,48 @@
     [self.scrollView addSubview:lineChartLabel];
     [self.scrollView addSubview:lineChart];
     
-    //Add BarChart    
+    UILabel * lineChartLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
+    lineChartLabel1.text = @"电话:电话次数";
+    lineChartLabel1.textColor = PNFreshGreen;
+    lineChartLabel1.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+    lineChartLabel1.textAlignment = NSTextAlignmentCenter;
     
-    UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
-    barChartLabel.text = @"电话次数";
-    barChartLabel.textColor = PNFreshGreen;
-    barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
-    barChartLabel.textAlignment = NSTextAlignmentCenter;
-    
-    PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 335.0, SCREEN_WIDTH, 200.0)];
-    barChart.backgroundColor = [UIColor clearColor];
-    barChart.type = PNBarType;
+    PNChart * lineChart1 = [[PNChart alloc] initWithFrame:CGRectMake(0, 335.0, SCREEN_WIDTH, 200.0)];
+    lineChart1.backgroundColor = [UIColor clearColor];
     NSString *d11 = [NSString stringWithFormat:@"%d",_index11];
     NSString *d12 = [NSString stringWithFormat:@"%d",_index12];
     NSString *d13 = [NSString stringWithFormat:@"%d",_index13];
     NSString *d14 = [NSString stringWithFormat:@"%d",_index14];
-    NSString *d15 = [NSString stringWithFormat:@"%d",_index5];
-    [barChart setXLabels:@[_date1,_date2,_date3,_date4,_date5]];
-    [barChart setYValues:@[d11,d12,d13,d14,d15]];
-    [barChart strokeChart];
-    [self.scrollView addSubview:barChartLabel];
-    [self.scrollView addSubview:barChart];
+    NSString *d15 = [NSString stringWithFormat:@"%d",_index15];
+    NSLog(@"d1d1d1d1d1-----.%@",d11);
+    [lineChart1 setXLabels:@[[_date1 substringFromIndex:5],[_date2 substringFromIndex:5],[_date3 substringFromIndex:5],[_date4 substringFromIndex:5],[_date5 substringFromIndex:5]]];
+    [lineChart1 setYValues:@[d11,d12,d13,d14,d15]];
+    [lineChart1 strokeChart];
+    [self.scrollView addSubview:lineChartLabel1];
+    [self.scrollView addSubview:lineChart1];
+    
+    //Add BarChart    
+    
+//    UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
+//    barChartLabel.text = @"电话:电话次数";
+//    barChartLabel.textColor = PNFreshGreen;
+//    barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+//    barChartLabel.textAlignment = NSTextAlignmentCenter;
+//    
+//    PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 335.0, SCREEN_WIDTH, 200.0)];
+//    barChart.backgroundColor = [UIColor clearColor];
+//    barChart.type = PNBarType;
+//    NSString *d11 = [NSString stringWithFormat:@"%d",_index11];
+//    NSString *d12 = [NSString stringWithFormat:@"%d",_index12];
+//    NSString *d13 = [NSString stringWithFormat:@"%d",_index13];
+//    NSString *d14 = [NSString stringWithFormat:@"%d",_index14];
+//    NSString *d15 = [NSString stringWithFormat:@"%d",_index5];
+//    [barChart setXLabels:@[_date1,_date2,_date3,_date4,_date5]];
+//    NSLog(@"date111%@",_date1);
+//    [barChart setYValues:@[d11,d12,d13,d14,d15]];
+//    [barChart strokeChart];
+//    [self.scrollView addSubview:barChartLabel];
+//    [self.scrollView addSubview:barChart];
     
 }
 //date
@@ -192,31 +214,19 @@
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
 //        [self.CustomerArr addObject:listDic];
-        NSString *time = (NSString *)[listDic objectForKey:@"timeStr"];
+        NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
+        NSLog(@"timeAAAA%@",time);
         if([time isEqualToString:_date1]){
+            NSLog(@"date111%@",_date1);
             _index1++;
-        }else{
-            _index1=0;
-        }
-        if([time isEqualToString:_date2]){
+        }else if([time isEqualToString:_date2]){
             _index2++;
-        }else{
-            _index2=0;
-        }
-        if([time isEqualToString:_date3]){
+        }else if([time isEqualToString:_date3]){
             _index3++;
-        }else{
-            _index3=0;
-        }
-        if([time isEqualToString:_date4]){
+        }else if([time isEqualToString:_date4]){
             _index4++;
-        }else{
-            _index4=0;
-        }
-        if([time isEqualToString:_date5]){
+        }else if([time isEqualToString:_date5]){
             _index5++;
-        }else{
-            _index5=0;
         }
 //        NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
 //        NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
@@ -259,33 +269,20 @@
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         //        [self.CustomerArr addObject:listDic];
-        NSString *time = (NSString *)[listDic objectForKey:@"timeStr"];
-       NSString *timeStr = [time substringToIndex:9];//截取下标7之后的字符串
-        NSLog(@"time%@",timeStr);
+        NSString *time = (NSString *)[listDic objectForKey:@"time"];
+        NSLog(@"time11===>%@",time);
+       NSString *timeStr = [time substringToIndex:10];//截取下标7之后的字符串
+        NSLog(@"time22===>%@",timeStr);
         if([timeStr isEqualToString:_date1]){
             _index11++;
-        }else{
-            _index11=0;
-        }
-        if([timeStr isEqualToString:_date2]){
+        }else if([timeStr isEqualToString:_date2]){
             _index12++;
-        }else{
-            _index12=0;
-        }
-        if([timeStr isEqualToString:_date3]){
+        }else if([timeStr isEqualToString:_date3]){
             _index13++;
-        }else{
-            _index13=0;
-        }
-        if([timeStr isEqualToString:_date4]){
+        }else if([timeStr isEqualToString:_date4]){
             _index14++;
-        }else{
-            _index14=0;
-        }
-        if([timeStr isEqualToString:_date5]){
+        }else if([timeStr isEqualToString:_date5]){
             _index15++;
-        }else{
-            _index15=0;
         }
         NSLog(@"index11==>>%d",_index11);
         NSLog(@"index12==>>%d",_index12);

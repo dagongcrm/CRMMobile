@@ -24,4 +24,5 @@
 @property (strong, nonatomic) NSString *visitorAttributionStr;//拜访人归属
 @property (strong, nonatomic) NSString *visitor;//拜访人
 @property (strong, nonatomic) NSString *callRecordsID;//拜访
+@property (strong, nonatomic) NSString *visitorStr;//拜访人
 @end

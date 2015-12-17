@@ -46,7 +46,7 @@
 @synthesize locationManager=_locationManager;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"拜访计划查看";
+    self.title=@"拜访计划详情";
     //调节scroll宽度和高度
     self.scroll.contentSize=CGSizeMake(375, 1400);
     
