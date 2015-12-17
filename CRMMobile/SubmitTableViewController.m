@@ -263,7 +263,7 @@
         NSLog(@"%@",userID);
         NSLog(@"ftn_ID%@",ftn_ID);
         NSLog(@"yeWuZLBH%@",yeWuZLBH);
-        NSLog(@"yeWuZLBH%@",hangYeFLMC);
+        NSLog(@"yeWuZLBH%@",lianXiFS);
         submitTaskEntity *udetail =[[submitTaskEntity alloc] init];
         [udetail setSubmitName:submitName];
         [udetail setSubmitID:submitID];
