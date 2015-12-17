@@ -383,6 +383,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-lJ-7iT" userLabel="UserImg">
                                         <rect key="frame" x="0.0" y="61" width="500" height="115"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hhhh" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-oI-Ar1" userLabel="touxiang">

@@ -22,6 +22,7 @@
 @property (strong,nonatomic) NSString *informationAttributionStr;
 @property (strong,nonatomic) NSString *guishuRStr;
 @property (strong,nonatomic) NSString *contactState;
+@property (strong,nonatomic) NSString *contactState1;
 @property (strong,nonatomic) NSString *tianjiaSJ;
 @property (strong,nonatomic) NSString *contactID;
 @property (strong,nonatomic) NSString *index;

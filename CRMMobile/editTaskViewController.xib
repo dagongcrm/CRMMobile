@@ -139,15 +139,6 @@
                                 <action selector="selectQiYe:" destination="-1" eventType="touchUpInside" id="fAe-hR-uoz"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYq-DA-y6I">
-                            <rect key="frame" x="214" y="578" width="120" height="40"/>
-                            <state key="normal" image="save-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="save:" destination="-1" eventType="touchUpInside" id="0E5-aE-X7S"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金额(元):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq5-96-BQ6">
                             <rect key="frame" x="38" y="523" width="77" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -160,6 +151,15 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYq-DA-y6I">
+                            <rect key="frame" x="214" y="578" width="120" height="40"/>
+                            <state key="normal" image="sub-s.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="save:" destination="-1" eventType="touchUpInside" id="0E5-aE-X7S"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -169,6 +169,6 @@
     </objects>
     <resources>
         <image name="cancle-s.png" width="120" height="40"/>
-        <image name="save-s.png" width="120" height="40"/>
+        <image name="sub-s.png" width="120" height="40"/>
     </resources>
 </document>

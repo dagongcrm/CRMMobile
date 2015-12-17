@@ -21,7 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *bmen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
 @property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
-
+@property (strong ,nonatomic) NSString *stateSave;//联系人状态
+@property (strong ,nonatomic) NSString *evaluationSave;//销售员评价
+@property (strong ,nonatomic) NSString *customerIDSave;//客户ID
 - (IBAction)cancle:(id)sender;//取消
 
 - (IBAction)saveForEdit:(id)sender;//保存修改
@@ -62,8 +64,11 @@
     self.bmen.text = _contactEntity.department;
     self.zhiwu.text = _contactEntity.position;
     self.xsypj.text = _contactEntity.evaluationOfTheSalesman;
+    _customerIDSave = _contactEntity.customerID;
+    _evaluationSave = _contactEntity.evaluationOfTheSalesman;
+    _stateSave = _contactEntity.contactState1;
     if (_contactEntity.customerName.length==0) {
-    self.khmc.text=_contactEntity.customerNameStr;
+        self.khmc.text=_contactEntity.customerNameStr;
     }else{
         self.khmc.text=_contactEntity.customerName;
     }
@@ -116,10 +121,12 @@
     NSString *department=self.bmen.text;
     NSString *position=self.zhiwu.text;
     NSString *contactID = _contactEntity.contactID;
-    NSString *customerID = _contactEntity.customerID;
+    NSString *customerID = _customerIDSave;
     NSString *tianjiaSJ = _contactEntity.tianjiaSJ;
-    NSLog(@"tianjiaSJtianjiaSJ%@",tianjiaSJ);
-    NSLog(@"whywhywhwyhwyu%@",customerID);
+    NSString *evalation2 = _contactEntity.evaluationOfTheSalesman;
+    NSString *state2 = _stateSave;
+    NSLog(@"evalation2evalation2evalation2%@",evalation2);
+    //    NSLog(@"state2state2state2state2%@",state2);
     NSString *evaluationOfTheSalesman=self.xsypj.text;
     if (customerName.length==0||contactName.length==0||telePhone.length==0||department.length==0||position.length==0||evaluationOfTheSalesman.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -137,16 +144,17 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerName=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,evaluationOfTheSalesman,tianjiaSJ];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@ &evaluationOfTheSalesman=%@&contactState=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,tianjiaSJ,evalation2,state2];
+        //
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *saveDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"saveDic字典里面的内容为--》%@", saveDic);
-//        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
-//            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-//            [self.navigationController pushViewController:contant animated:YES];
-//        }
+        //        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
+        //            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
+        //            [self.navigationController pushViewController:contant animated:YES];
+        //        }
         if([[saveDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
@@ -157,7 +165,7 @@
             [alert show];
             
         }
-
+        
     }
 }
 - (IBAction)Test:(id)sender {
@@ -166,12 +174,18 @@
     NSString *telePhone1 =self.lxrendh.text;
     NSString *department1=self.bmen.text;
     NSString *position1=self.zhiwu.text;
-//    NSString *contactID = _contactEntity.contactID;
+    NSString *evaluation = _evaluationSave;
+    NSString *state1 = _stateSave;
+    NSLog(@"联系人状态%@",state1);
+    NSLog(@"销售员评jia%@",evaluation);
+    //    NSString *contactID = _contactEntity.contactID;
     [_contactEntity setCustomerName:customerName1];
     [_contactEntity setContactName:contactName1];
     [_contactEntity setTelePhone:telePhone1];
     [_contactEntity setDepartment:department1];
     [_contactEntity setPosition:position1];
+    [_contactEntity setEvaluationOfTheSalesman:evaluation];
+    [_contactEntity setContactState:state1];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [_contactEntity setIndex:@"1"];
     [list setCustomerEntity:_contactEntity];

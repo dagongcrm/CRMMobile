@@ -7,7 +7,7 @@
 #import "UIImage+Tint.h"
 #import "RecordsNsObj.h"
 #import "ReminderTableViewController.h"
-
+#import "IndexViewController.h"
 @interface TaskRecordsTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -45,27 +45,28 @@
 
 - (NSMutableArray *)fakeData
 {
-//    if([self.refreshOrNot isEqualToString:@"NO"]){
-//        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
-//        NSDictionary *ds=[ud objectForKey:@"taskTableDateSource"];
-//        self.callRecordsID=[ds objectForKey:@"callRecordsID"],
-//        self.fakeData=[ds objectForKey:@"fakeData"],
-//        self.visitDate=[ds objectForKey:@"visitDate"],
-//        self.theme=[ds objectForKey:@"theme"],
-//        self.accessMethodStr=[ds objectForKey:@"accessMethodStr"],
-//        self.mainContent=[ds objectForKey:@"mainContent"],
-//        self.respondentPhone=[ds objectForKey:@"respondentPhone"],
-//        self.respondent=[ds objectForKey:@"respondent"],
-//        self.address=[ds objectForKey:@"address"],
-//        self.visitProfile=[ds objectForKey:@"visitProfile"],
-//        self.result=[ds objectForKey:@"result"],
-//        self.customerRequirements=[ds objectForKey:@"customerRequirements"],
-//        self.customerChange=[ds objectForKey:@"customerChange"],
-//        self.visitorAttributionStr=[ds objectForKey:@"visitorAttributionStr"],
-//        self.visitor=[ds objectForKey:@"visitor"];
-//    }
-//    
-//    if([self.refreshOrNot isEqualToString:@"YES"]){
+    if([self.refreshOrNot isEqualToString:@"NO"]){
+        
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        NSDictionary *ds=[[ud objectForKey:@"taskTableDateSource"] mutableCopy];
+        self.callRecordsID=[[ds objectForKey:@"callRecordsID"] mutableCopy],
+        self.fakeData=[[ds objectForKey:@"fakeData"] mutableCopy],
+        self.visitDate=[[ds objectForKey:@"visitDate"] mutableCopy],
+        self.theme=[[ds objectForKey:@"theme"] mutableCopy],
+        self.accessMethodStr=[[ds objectForKey:@"accessMethodStr"] mutableCopy],
+        self.mainContent=[[ds objectForKey:@"mainContent"] mutableCopy],
+        self.respondentPhone=[[ds objectForKey:@"respondentPhone"] mutableCopy],
+        self.respondent=[[ds objectForKey:@"respondent"] mutableCopy],
+        self.address=[[ds objectForKey:@"address"] mutableCopy],
+        self.visitProfile=[[ds objectForKey:@"visitProfile"] mutableCopy],
+        self.result=[[ds objectForKey:@"result"] mutableCopy],
+        self.customerRequirements=[[ds objectForKey:@"customerRequirements"] mutableCopy],
+        self.customerChange=[[ds objectForKey:@"customerChange"] mutableCopy],
+        self.visitorAttributionStr=[[ds objectForKey:@"visitorAttributionStr"] mutableCopy],
+        self.visitor=[[ds objectForKey:@"visitor"] mutableCopy];
+    }
+    
+    if([self.refreshOrNot isEqualToString:@"YES"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
             self.fakeData = [[NSMutableArray alloc]init];
@@ -84,7 +85,11 @@
             [self faker:@"1"];
 //            [self faker:@"2"];
         }
-//    }
+    }
+    
+    
+    
+    
     return _fakeData;
 }
 - (void)viewDidLoad {
@@ -92,7 +97,41 @@
     self.title=@"拜访记录";
     [self setupRefresh];
     [self setExtraCellLineHidden:self.tableView];
+    //设置导航栏返回
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.backBarButtonItem = item;
+//    //设置返回键的颜色
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                                                   target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    self.tableView.delegate=self;
+//    self.tableView.dataSource=self;
+//    [self setExtraCellLineHidden:self.tableView];
+//}
+//
+//
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[IndexViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
 }
+
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
