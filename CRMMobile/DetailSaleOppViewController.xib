@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailSaleOppViewController">
             <connections>
                 <outlet property="contact" destination="EtV-HM-gky" id="Fxs-5M-Dr5"/>
+                <outlet property="contactTel" destination="8io-fk-o4K" id="XtN-Fk-6qf"/>
                 <outlet property="customerNameStr" destination="XdM-UG-cUf" id="fiV-BI-2dv"/>
                 <outlet property="oppState" destination="Zld-sI-Tam" id="tVC-7v-qdm"/>
                 <outlet property="saleOppDescription" destination="uGn-0o-JJO" id="1cy-E9-9Qg"/>

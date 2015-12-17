@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *lxdh;//联系人电话
 @property (weak, nonatomic) IBOutlet UITextField *bum;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
-@property (weak, nonatomic) IBOutlet UITextField *xspj;//销售员评价
+
+@property (strong, nonatomic) IBOutlet UITextView *xspj;
+
 @property (weak, nonatomic) IBOutlet UITextField *xxgs;//信息归属
 @property (weak, nonatomic) IBOutlet UITextField *whren;//维护人
 @property (weak, nonatomic) IBOutlet UITextField *lxrzt;//联系人状态
@@ -42,6 +44,14 @@
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.scroll.contentSize = CGSizeMake(375, 1000);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.xspj.layer setBorderColor:color];
+    self.xspj.layer.borderWidth = 1;
+    self.xspj.layer.cornerRadius = 6;
+    self.xspj.layer.masksToBounds = YES;
     self.khmj.text = _contactEntity.customerNameStr;
     self.lxxm.text = _contactEntity.contactName;
     self.lxdh.text = _contactEntity.telePhone;
@@ -63,7 +73,7 @@
     [self.lxdh setEnabled:NO];
     [self.bum setEnabled:NO];
     [self.zhiwu setEnabled:NO];
-    [self.xspj setEnabled:NO];
+
     [self.xxgs setEnabled:NO];
     [self.whren setEnabled:NO];
     [self.lxrzt setEnabled:NO];

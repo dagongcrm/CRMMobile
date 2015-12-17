@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomerCallPlanDetailMessageEntity.h"
+#import "ZSYPopoverListView.h"
+#import "selectEntity.h"
+#import "ZSYPopoverListViewSingle.h"
 
-
-@interface CustomerCallPlanEditViewController : UIViewController
+@interface CustomerCallPlanEditViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource, ZSYPopoverListDelegate>{
+    NSArray *nextArray;
+}
 @property ( retain , nonatomic ) CustomerCallPlanDetailMessageEntity *customerCallPlanEntity;
-
+@property (retain ,nonatomic)       selectEntity *roleEntity;
 @property (strong,nonatomic) NSArray *nextArray;
 @property (strong,nonatomic) IBOutlet UIPickerView *selectPicker;
 

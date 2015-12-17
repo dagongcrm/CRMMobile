@@ -36,17 +36,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *respondent;   //受访人员
 
 @property (weak, nonatomic) IBOutlet UITextView *address;
-
-@property (weak, nonatomic) IBOutlet UITextField *visitProfile;   //拜访概要
-
+@property (strong, nonatomic) IBOutlet UITextView *visitProfile;
+@property (strong, nonatomic) IBOutlet UITextView *result;
+@property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
+@property (strong, nonatomic) IBOutlet UITextView *customerChange;
 
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;   //拜访时间
-
-@property (weak, nonatomic) IBOutlet UITextField *result;   //达成结果
-
-@property (weak, nonatomic) IBOutlet UITextField *customerRequirements;   //客户需求
-
-@property (weak, nonatomic) IBOutlet UITextField *customerChange;   //客户变故
 
 @property (weak, nonatomic) IBOutlet UITextField *visitorAttributionStr; //拜访人归属
 
@@ -69,7 +64,7 @@
     [super viewDidLoad];
     //调节scroll宽度和高度
     self.title=@"拜访计划";
-    self.scroll.contentSize=CGSizeMake(375, 1100);
+    self.scroll.contentSize=CGSizeMake(375, 1400);
     //赋值
     [self valuation];
     [self locationInit];
@@ -228,6 +223,30 @@
     self.address.layer.masksToBounds = YES;
     self.address.editable = NO;
     
+    [self.customerChange.layer setBorderColor:color];
+    self.customerChange.layer.borderWidth = 1;
+    self.customerChange.layer.cornerRadius = 6;
+    self.customerChange.layer.masksToBounds = YES;
+    self.customerChange.editable = NO;
+    
+    [self.visitProfile.layer setBorderColor:color];
+    self.visitProfile.layer.borderWidth = 1;
+    self.visitProfile.layer.cornerRadius = 6;
+    self.visitProfile.layer.masksToBounds = YES;
+    self.visitProfile.editable = NO;
+    
+    [self.result.layer setBorderColor:color];
+    self.result.layer.borderWidth = 1;
+    self.result.layer.cornerRadius = 6;
+    self.result.layer.masksToBounds = YES;
+    self.result.editable = NO;
+    
+    [self.customerRequirements.layer setBorderColor:color];
+    self.customerRequirements.layer.borderWidth = 1;
+    self.customerRequirements.layer.cornerRadius = 6;
+    self.customerRequirements.layer.masksToBounds = YES;
+    self.customerRequirements.editable = NO;
+    
     self.customerName.text  =_customerCallPlanEntity.customerNameStr;
     _visitDate.text=_customerCallPlanEntity.visitDate;
     _theme.text=_customerCallPlanEntity.theme;
@@ -246,16 +265,13 @@
     [self.customerName setEnabled:NO];
     [self.visitDate setEnabled:NO];
 //    [self.theme setEnabled:NO];
-    [self.customerChange setEnabled:NO];
     [self.baiFangRen setEnabled:NO];
     [self.accessMethodStr setEnabled:NO];
 //    [self.mainContent setEnabled:NO];
     [self.respondentPhone setEnabled:NO];
     [self.respondent setEnabled:NO];
 //    [self.address setEnabled:NO];
-    [self.visitProfile setEnabled:NO];
-    [self.result setEnabled:NO];
-    [self.customerRequirements setEnabled:NO];
+
     [self.visitorAttributionStr setEnabled:NO];
 }
 

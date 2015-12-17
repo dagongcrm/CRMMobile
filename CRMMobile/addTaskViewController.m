@@ -610,7 +610,7 @@
         NSLog(@"%@",hangYeBH);
         NSLog(@"%@",hangYeFLMC);
         //    heTongJE
-        NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
+        NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianXiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
