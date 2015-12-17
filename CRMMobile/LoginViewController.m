@@ -3,7 +3,13 @@
 #import "config.h"
 #import "HttpHelper.h"
 #import "GLReusableViewController.h"
-@interface LoginViewController ()
+#import "MBProgressHUD+NJ.h"
+@interface LoginViewController () <MBProgressHUDDelegate> {
+    MBProgressHUD *HUD;
+    long long expectedLength;
+    long long currentLength;
+}
+
 @property (strong,nonatomic) NSMutableArray *authorityList;
 @property (weak, nonatomic) IBOutlet UIImageView *loginImg;
 
@@ -54,6 +60,7 @@
 
 }
 
+
 -(void)dismissKeyboard {
     [passwdField resignFirstResponder];
 }
@@ -75,40 +82,50 @@
     }
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    }
 
+//登录按钮事件
 - (IBAction)loginBtnClicked:(id)sender {
+    [MBProgressHUD showMessage:@"加载中，请稍后" toView:self.view];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!login.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
+    request.timeoutInterval=20.0;
     request.HTTPMethod=@"POST";
     NSString *param=[NSString stringWithFormat:@"loginName=%@&password=%@",accountField.text,passwdField.text];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    myDelegate.sessionInfo  = loginDic;
-    NSLog(@"%@",loginDic);
-    if([[loginDic objectForKey:@"success"] boolValue] == YES)
-    {
-        myDelegate.roleAuthority=[self authorityDic];
+    if(response){
+        NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        APPDELEGATE.sessionInfo = loginDic;
+
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        [ud setObject:accountField.text forKey:@"userName"];
-        [ud setObject:passwdField.text  forKey:@"password"];
-        [ud synchronize];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
-    }else
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"登录失败！用户名或密码错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-        [alert show];
+        if(![[ud objectForKey:@"userName"] isEqualToString:accountField.text])
+        {
+         APPDELEGATE.userChangeOrNot=@"change";
+        }
+        if([[loginDic objectForKey:@"success"] boolValue] == YES)
+        {
+            APPDELEGATE.roleAuthority=[self authorityDic];
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            [ud setObject:accountField.text forKey:@"userName"];
+            [ud setObject:passwdField.text  forKey:@"password"];
+            [ud synchronize];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
+        }else
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"登录失败！用户名或密码错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+        }
+    }else{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登陆超时" message:@"登陆超时请重新登录" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
     }
 }
 
+
+//权限判断
 -(NSDictionary *)authorityDic{
     NSString *authorityPath = [[NSBundle mainBundle]pathForResource:@"AuthorityDictionary.plist" ofType:nil];
     self.authorityList= [NSMutableArray arrayWithContentsOfFile:authorityPath];
@@ -124,18 +141,18 @@
     else{
         NSArray *rolearray = [role componentsSeparatedByString:@","];
         NSMutableDictionary  *roleauthcom=[[NSMutableDictionary  alloc] init];
-        [roleauthcom setValue:[self setroleauthority:@"kehudangan"  rolearrayforadd:rolearray] forKey:@"kehudangan"];
-        [roleauthcom setValue:[self setroleauthority:@"role"  rolearrayforadd:rolearray] forKey:@"role"];
-        [roleauthcom setValue:[self setroleauthority:@"kehulianxiren"  rolearrayforadd:rolearray] forKey:@"kehulianxiren"];
-        [roleauthcom setValue:[self setroleauthority:@"baifangjilu"  rolearrayforadd:rolearray] forKey:@"baifangjilu"];
-        [roleauthcom setValue:[self setroleauthority:@"xiaoshoujihui"  rolearrayforadd:rolearray] forKey:@"xiaoshoujihui"];
-        [roleauthcom setValue:[self setroleauthority:@"xiaoshouxiansuo"  rolearrayforadd:rolearray] forKey:@"xiaoshouxiansuo"];
-        [roleauthcom setValue:[self setroleauthority:@"baifangjihua"  rolearrayforadd:rolearray] forKey:@"baifangjihua"];
-        [roleauthcom setValue:[self setroleauthority:@"huodongtongji"  rolearrayforadd:rolearray] forKey:@"huodongtongji"];
-        [roleauthcom setValue:[self setroleauthority:@"gongzuobaogao"  rolearrayforadd:rolearray] forKey:@"gongzuobaogao"];
-        [roleauthcom setValue:[self setroleauthority:@"renwutijiao"  rolearrayforadd:rolearray] forKey:@"renwutijiao"];
-        [roleauthcom setValue:[self setroleauthority:@"renwushenhe"  rolearrayforadd:rolearray] forKey:@"renwushenhe"];
-        [roleauthcom setValue:[self setroleauthority:@"renwugenzong"  rolearrayforadd:rolearray] forKey:@"renwugenzong"];
+        [roleauthcom setValue:[self setroleauthority:@"kehudangan"      rolearrayforadd:rolearray] forKey:@"kehudangan"];
+        [roleauthcom setValue:[self setroleauthority:@"role"            rolearrayforadd:rolearray] forKey:@"role"];
+        [roleauthcom setValue:[self setroleauthority:@"kehulianxiren"   rolearrayforadd:rolearray] forKey:@"kehulianxiren"];
+        [roleauthcom setValue:[self setroleauthority:@"baifangjilu"     rolearrayforadd:rolearray] forKey:@"baifangjilu"];
+        [roleauthcom setValue:[self setroleauthority:@"xiaoshoujihui"   rolearrayforadd:rolearray] forKey:@"xiaoshoujihui"];
+        [roleauthcom setValue:[self setroleauthority:@"xiaoshouxiansuo" rolearrayforadd:rolearray] forKey:@"xiaoshouxiansuo"];
+        [roleauthcom setValue:[self setroleauthority:@"baifangjihua"    rolearrayforadd:rolearray] forKey:@"baifangjihua"];
+        [roleauthcom setValue:[self setroleauthority:@"huodongtongji"   rolearrayforadd:rolearray] forKey:@"huodongtongji"];
+        [roleauthcom setValue:[self setroleauthority:@"gongzuobaogao"   rolearrayforadd:rolearray] forKey:@"gongzuobaogao"];
+        [roleauthcom setValue:[self setroleauthority:@"renwutijiao"     rolearrayforadd:rolearray] forKey:@"renwutijiao"];
+        [roleauthcom setValue:[self setroleauthority:@"renwushenhe"     rolearrayforadd:rolearray] forKey:@"renwushenhe"];
+        [roleauthcom setValue:[self setroleauthority:@"renwugenzong"    rolearrayforadd:rolearray] forKey:@"renwugenzong"];
         auths=roleauthcom;
     }
     return  auths;
@@ -160,7 +177,5 @@
         }
     return authcom;
 }
-
-
 
 @end

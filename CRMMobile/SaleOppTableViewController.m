@@ -40,9 +40,9 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-//    NSString *order = @"desc";
-//    NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@",sid,page];
+    NSString *order = @"desc";
+    NSString *sort = @"createTime";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&sort=%@&order=%@",sid,page,sort,order];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -76,7 +76,7 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
 
-    [self fakeData];
+   // [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
@@ -174,8 +174,8 @@
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
-    [cell.detailTextLabel setText:detailText];
+//    NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
+//    [cell.detailTextLabel setText:detailText];
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
 
 //    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];

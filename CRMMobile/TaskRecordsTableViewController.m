@@ -45,27 +45,28 @@
 
 - (NSMutableArray *)fakeData
 {
-//    if([self.refreshOrNot isEqualToString:@"NO"]){
-//        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
-//        NSDictionary *ds=[ud objectForKey:@"taskTableDateSource"];
-//        self.callRecordsID=[ds objectForKey:@"callRecordsID"],
-//        self.fakeData=[ds objectForKey:@"fakeData"],
-//        self.visitDate=[ds objectForKey:@"visitDate"],
-//        self.theme=[ds objectForKey:@"theme"],
-//        self.accessMethodStr=[ds objectForKey:@"accessMethodStr"],
-//        self.mainContent=[ds objectForKey:@"mainContent"],
-//        self.respondentPhone=[ds objectForKey:@"respondentPhone"],
-//        self.respondent=[ds objectForKey:@"respondent"],
-//        self.address=[ds objectForKey:@"address"],
-//        self.visitProfile=[ds objectForKey:@"visitProfile"],
-//        self.result=[ds objectForKey:@"result"],
-//        self.customerRequirements=[ds objectForKey:@"customerRequirements"],
-//        self.customerChange=[ds objectForKey:@"customerChange"],
-//        self.visitorAttributionStr=[ds objectForKey:@"visitorAttributionStr"],
-//        self.visitor=[ds objectForKey:@"visitor"];
-//    }
-//    
-//    if([self.refreshOrNot isEqualToString:@"YES"]){
+    if([self.refreshOrNot isEqualToString:@"NO"]){
+        
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        NSDictionary *ds=[[ud objectForKey:@"taskTableDateSource"] mutableCopy];
+        self.callRecordsID=[[ds objectForKey:@"callRecordsID"] mutableCopy],
+        self.fakeData=[[ds objectForKey:@"fakeData"] mutableCopy],
+        self.visitDate=[[ds objectForKey:@"visitDate"] mutableCopy],
+        self.theme=[[ds objectForKey:@"theme"] mutableCopy],
+        self.accessMethodStr=[[ds objectForKey:@"accessMethodStr"] mutableCopy],
+        self.mainContent=[[ds objectForKey:@"mainContent"] mutableCopy],
+        self.respondentPhone=[[ds objectForKey:@"respondentPhone"] mutableCopy],
+        self.respondent=[[ds objectForKey:@"respondent"] mutableCopy],
+        self.address=[[ds objectForKey:@"address"] mutableCopy],
+        self.visitProfile=[[ds objectForKey:@"visitProfile"] mutableCopy],
+        self.result=[[ds objectForKey:@"result"] mutableCopy],
+        self.customerRequirements=[[ds objectForKey:@"customerRequirements"] mutableCopy],
+        self.customerChange=[[ds objectForKey:@"customerChange"] mutableCopy],
+        self.visitorAttributionStr=[[ds objectForKey:@"visitorAttributionStr"] mutableCopy],
+        self.visitor=[[ds objectForKey:@"visitor"] mutableCopy];
+    }
+    
+    if([self.refreshOrNot isEqualToString:@"YES"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
             self.fakeData = [[NSMutableArray alloc]init];
@@ -84,7 +85,11 @@
             [self faker:@"1"];
 //            [self faker:@"2"];
         }
-//    }
+    }
+    
+    
+    
+    
     return _fakeData;
 }
 - (void)viewDidLoad {

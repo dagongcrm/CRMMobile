@@ -26,8 +26,6 @@
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
 @property (strong, nonatomic) NSMutableArray *respondent;
 @property  NSInteger  index;
-
-
 @end
 
 @implementation VisitPlanTableViewController
@@ -55,7 +53,6 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
@@ -90,7 +87,6 @@
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallPlanAction!datagrid.action?"]];
@@ -101,11 +97,9 @@
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
     if(![list count] ==0)
     {
-        
         self.tableView.footerRefreshingText=@"加载中";
     }else
     {
@@ -123,9 +117,9 @@
         }
         
         [self.customerCallPlanID     addObject:customerCallPlanID];
-        [self.fakeData     addObject:teamname];
-        [self.visitDate     addObject:teamname2];
-        [self.respondent    addObject:teamname3];
+        [self.fakeData               addObject:teamname];
+        [self.visitDate              addObject:teamname2];
+        [self.respondent             addObject:teamname3];
     }
     //    [self customerIDReturn:self.customerCallPlanID];
     return self.fakeData;
@@ -165,7 +159,7 @@
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-    NSString *testDetail1 =[@"  受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+    NSString *testDetail1 =[@"受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];

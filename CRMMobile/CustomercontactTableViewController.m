@@ -230,17 +230,19 @@
     
     NSDictionary *nc =[self singleUserInfo:(NSString *)[_uNameId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSLog(@"ncncncncncncncncncnc//////%@",nc);
-    NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];
-    NSString *contactName =(NSString *) [nc objectForKey:@"contactName"];
-    NSString *telePhone =(NSString *) [nc objectForKey:@"telePhone"];
-    NSString *department =(NSString *) [nc objectForKey:@"department"];
+    NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];//客户名称
+    NSString *contactName =(NSString *) [nc objectForKey:@"contactName"];//客户联系人
+    NSString *telePhone =(NSString *) [nc objectForKey:@"telePhone"];//电话
+    NSString *department =(NSString *) [nc objectForKey:@"department"];//部门
     NSString *position   =(NSString *) [nc objectForKey:@"position"];
     NSString *evaluationOfTheSalesman    =(NSString *) [nc objectForKey:@"evaluationOfTheSalesman"];
     NSString *informationAttributionStr    =(NSString *) [nc objectForKey:@"informationAttributionStr"];
     NSString *guishuRStr   =(NSString *) [nc objectForKey:@"guishuRStr"];
     NSString *contactState    =(NSString *) [nc objectForKey:@"contactStateStr"];
+     NSString *contactState1    =(NSString *) [nc objectForKey:@"contactState"];
     NSString *tianjiaSJ    =(NSString *) [nc objectForKey:@"tianjiaSJ"];
     NSString *contactID =(NSString *) [nc objectForKey:@"contactID"];
+    NSString *customerID = (NSString *) [nc objectForKey:@"customerID"];
     NSLog(@"tianjiaSJtianjiaSJ%@",tianjiaSJ);
     CostomerContactEntity *contact =[[CostomerContactEntity alloc] init];
     [contact setCustomerNameStr:customerNameStr];
@@ -252,8 +254,10 @@
     [contact setInformationAttributionStr:informationAttributionStr];
     [contact setGuishuRStr:guishuRStr];
     [contact setContactState:contactState];
+    [contact setContactState1:contactState1];
     [contact setTianjiaSJ:tianjiaSJ];
     [contact setContactID:contactID];
+    [contact setCustomerID:customerID];
     CustomercontactInfoController *customerInfo = [[CustomercontactInfoController alloc]init];
     [customerInfo setContactEntity:contact];
     [self.navigationController pushViewController:customerInfo animated:YES];
