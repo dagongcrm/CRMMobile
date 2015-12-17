@@ -202,7 +202,9 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@",sid];
+    NSString *order = @"desc";
+    NSString *sort = @"time";
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
@@ -215,7 +217,6 @@
         NSDictionary *listDic =[list objectAtIndex:i];
 //        [self.CustomerArr addObject:listDic];
         NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
-        NSLog(@"timeAAAA%@",time);
         if([time isEqualToString:_date1]){
             NSLog(@"date111%@",_date1);
             _index1++;
