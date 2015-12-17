@@ -20,8 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *lxrendh;//联系人电话
 @property (weak, nonatomic) IBOutlet UITextField *bumen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
-@property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
+
 @property (weak, nonatomic) IBOutlet UIButton *AddCustomer;//
+@property (strong, nonatomic) IBOutlet UITextView *xsypj;
 
 - (IBAction)cancleForAdd:(id)sender;//取消
 - (IBAction)saveForAdd:(id)sender;//保存
@@ -64,6 +65,14 @@
         self.khmc.text=_context;
         NSLog(@",,,,,,,,,,,,,,,%@",customerName);
     }
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.xsypj.layer setBorderColor:color];
+    self.xsypj.layer.borderWidth = 1;
+    self.xsypj.layer.cornerRadius = 6;
+    self.xsypj.layer.masksToBounds = YES;
     NSString *a=_addCustomerEntity.contactName;
     NSString *b=_addCustomerEntity.telePhone;
     NSString *c=_addCustomerEntity.department;

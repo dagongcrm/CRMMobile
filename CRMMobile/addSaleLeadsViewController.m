@@ -21,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerName;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerChoose;
-@property (weak, nonatomic) IBOutlet UITextField *leadsAdd;
+@property (strong, nonatomic) IBOutlet UITextView *leadsAdd;
+
 
 @end
 
@@ -41,6 +42,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"销售线索添加";
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.leadsAdd.layer setBorderColor:color];
+    self.leadsAdd.layer.borderWidth = 1;
+    self.leadsAdd.layer.cornerRadius = 6;
+    self.leadsAdd.layer.masksToBounds = YES;
     _customerName.text=_saleLeads.customerNameStr;
     _leadsAdd.text = _saleLeads.salesLeads;
     self.scroll.contentSize = CGSizeMake(375, 1000);

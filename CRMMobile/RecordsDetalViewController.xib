@@ -8,18 +8,18 @@
             <connections>
                 <outlet property="accessMethodStr" destination="3CA-2F-YPU" id="NxO-WI-gTQ"/>
                 <outlet property="address" destination="qYm-b6-UJ5" id="tQ3-au-Hni"/>
-                <outlet property="customerChange" destination="dDn-wm-Axv" id="9MZ-Eg-Fh1"/>
+                <outlet property="customerChange" destination="01A-5Y-B4V" id="Ux8-Fo-kG7"/>
                 <outlet property="customerNameStr" destination="Mjd-ZS-Sjb" id="JJR-yM-i4u"/>
-                <outlet property="customerRequirements" destination="QUu-fd-O8R" id="3Vm-U8-flt"/>
+                <outlet property="customerRequirements" destination="4Cv-kM-6pf" id="up5-sm-0Tr"/>
                 <outlet property="mainContent" destination="NTv-NI-9l5" id="YIA-aE-bFH"/>
                 <outlet property="respondent" destination="6aI-Li-loy" id="76n-oA-C0U"/>
                 <outlet property="respondentPhone" destination="aQy-cS-cg6" id="qPL-6z-jUD"/>
-                <outlet property="result" destination="uRb-Qt-LY1" id="Z2S-9Z-hZo"/>
+                <outlet property="result" destination="ohx-UR-UIf" id="Sw2-5X-4SP"/>
                 <outlet property="scroll" destination="NGo-UK-lIM" id="UCc-CD-uo6"/>
                 <outlet property="theme" destination="8Yx-cO-aKR" id="EKY-11-yjG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="visitDate" destination="UOW-Dd-Tjq" id="eNd-3k-X8v"/>
-                <outlet property="visitProfile" destination="4mz-jN-Bbp" id="Bh6-Tq-Vjf"/>
+                <outlet property="visitProfile" destination="flX-sO-GTK" id="W2p-2E-6od"/>
                 <outlet property="visitor" destination="L95-sf-CAC" id="wdb-GI-zun"/>
                 <outlet property="visitorAttributionStr" destination="xAu-tO-dB0" id="MUl-CM-xda"/>
             </connections>
@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="NGo-UK-lIM">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="848"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="973"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j9U-nQ-giT">
@@ -154,86 +154,90 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拜访概要：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0S-Rw-iLb">
-                            <rect key="frame" x="32" y="515" width="92" height="21"/>
+                            <rect key="frame" x="32" y="532" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4mz-jN-Bbp" userLabel="拜访概要">
-                            <rect key="frame" x="119" y="511" width="205" height="30"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="flX-sO-GTK">
+                            <rect key="frame" x="118" y="516" width="205" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="达成结果：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MR7-tp-I4Q">
-                            <rect key="frame" x="32" y="567" width="92" height="21"/>
+                            <rect key="frame" x="32" y="612" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="uRb-Qt-LY1" userLabel="达成成果">
-                            <rect key="frame" x="119" y="563" width="205" height="30"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ohx-UR-UIf">
+                            <rect key="frame" x="118" y="596" width="205" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户需求：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2fx-nX-bx9">
-                            <rect key="frame" x="32" y="620" width="92" height="21"/>
+                            <rect key="frame" x="32" y="693" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="QUu-fd-O8R" userLabel="客户需求">
-                            <rect key="frame" x="119" y="616" width="205" height="30"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4Cv-kM-6pf">
+                            <rect key="frame" x="118" y="677" width="205" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="01A-5Y-B4V">
+                            <rect key="frame" x="119" y="757" width="205" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户变更：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jlX-x0-Iha">
-                            <rect key="frame" x="31" y="673" width="92" height="21"/>
+                            <rect key="frame" x="31" y="773" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="dDn-wm-Axv" userLabel="客户变更">
-                            <rect key="frame" x="118" y="669" width="205" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拜访人归" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="88V-bE-dbU">
-                            <rect key="frame" x="31" y="717" width="122" height="21"/>
+                            <rect key="frame" x="31" y="840" width="122" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="xAu-tO-dB0" userLabel="拜访人归属">
-                            <rect key="frame" x="118" y="723" width="205" height="30"/>
+                            <rect key="frame" x="118" y="840" width="205" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="属：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HCK-fA-ZTZ">
-                            <rect key="frame" x="44" y="746" width="42" height="21"/>
+                            <rect key="frame" x="44" y="863" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拜访人：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZt-Qc-T0W">
-                            <rect key="frame" x="31" y="784" width="92" height="21"/>
+                            <rect key="frame" x="31" y="901" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="L95-sf-CAC" userLabel="拜访人">
-                            <rect key="frame" x="118" y="780" width="205" height="30"/>
+                            <rect key="frame" x="118" y="897" width="205" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
