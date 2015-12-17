@@ -58,6 +58,9 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
+		3930D5CD1C22CF7000D3C25E /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930D5C91C22CF7000D3C25E /* MBProgressHUD+NJ.m */; };
+		3930D5CE1C22CF7000D3C25E /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3930D5CA1C22CF7000D3C25E /* MBProgressHUD.bundle */; };
+		3930D5CF1C22CF7000D3C25E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930D5CC1C22CF7000D3C25E /* MBProgressHUD.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -403,6 +406,11 @@
 		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
 		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
+		3930D5C81C22CF7000D3C25E /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		3930D5C91C22CF7000D3C25E /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		3930D5CA1C22CF7000D3C25E /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		3930D5CB1C22CF7000D3C25E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3930D5CC1C22CF7000D3C25E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -969,6 +977,18 @@
 			name = option;
 			sourceTree = "<group>";
 		};
+		3930D5C71C22CF5E00D3C25E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3930D5C81C22CF7000D3C25E /* MBProgressHUD+NJ.h */,
+				3930D5C91C22CF7000D3C25E /* MBProgressHUD+NJ.m */,
+				3930D5CA1C22CF7000D3C25E /* MBProgressHUD.bundle */,
+				3930D5CB1C22CF7000D3C25E /* MBProgressHUD.h */,
+				3930D5CC1C22CF7000D3C25E /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		39E8765F1C02FF0B00BF6808 /* crm */ = {
 			isa = PBXGroup;
 			children = (
@@ -1231,7 +1251,6 @@
 				39E8765F1C02FF0B00BF6808 /* crm */,
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
-				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
 				9678AEE21BEB70D400E5B50E /* crm */,
 				39E8767D1C03036E00BF6808 /* customerCallPlan */,
@@ -1693,6 +1712,8 @@
 		C0D569461BD9C79600860B33 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				3930D5C71C22CF5E00D3C25E /* MBProgressHUD */,
+				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				39F798C91C05E4AE000D9A20 /* AppDelegate.h */,
 				B8EDAD591C19355600865E7C /* Main.storyboard */,
 				39F798CA1C05E4AE000D9A20 /* AppDelegate.m */,
@@ -1928,6 +1949,7 @@
 				39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */,
 				9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */,
 				B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */,
+				3930D5CE1C22CF7000D3C25E /* MBProgressHUD.bundle in Resources */,
 				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
 				B8EDAD761C19366300865E7C /* NoticeViewController.xib in Resources */,
 				C0D3CD5B1BDF0CEF00C23FB3 /* 0.png in Resources */,
@@ -2114,6 +2136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
+				3930D5CD1C22CF7000D3C25E /* MBProgressHUD+NJ.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
@@ -2223,6 +2246,7 @@
 				B8EDAD861C1936E300865E7C /* ReminderTableViewController.m in Sources */,
 				39F797BC1C05D0E7000D9A20 /* auditEntity.m in Sources */,
 				39F7971E1C05CC50000D9A20 /* AddCustomerContactController.m in Sources */,
+				3930D5CF1C22CF7000D3C25E /* MBProgressHUD.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,
 				1FEF621B1C16AC3600E6F4BF /* PNBar.m in Sources */,
 				39F797E71C05D12F000D9A20 /* DailyViewController.m in Sources */,
