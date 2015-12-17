@@ -491,7 +491,7 @@
         NSString *genZongSFJE = self.GenZongSFJE.text;
         NSString *lianXiFS = self.LianXiFS.text;
         
-        NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLBH=%@&hangYeFLMC=%@&lianxiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeBH,hangYeFLMC,lianXiFS,genZongSFJE,genZongSFJE,heTongJE];
+        NSString *param=[NSString stringWithFormat:@"bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLBH=%@&hangYeFLMC=%@&lianXiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@",workId,qiYeBH1,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeBH,hangYeFLMC,lianXiFS,genZongSFJE,genZongSFJE,heTongJE];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
