@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *whren;//维护人
 @property (weak, nonatomic) IBOutlet UITextField *lxrzt;//联系人状态
 @property (weak, nonatomic) IBOutlet UITextField *tjsj;//添加时间
+@property (weak, nonatomic) IBOutlet UIButton *stopState;//停止状态
 
 - (IBAction)deleteCustomer:(id)sender;//删除联系人
 - (IBAction)stopCustomer:(id)sender;//停用
@@ -49,8 +50,14 @@
     self.xspj.text = _contactEntity.evaluationOfTheSalesman;
     self.xxgs.text =_contactEntity.informationAttributionStr;
     self.whren.text = _contactEntity.guishuRStr;
+    if ([_contactEntity.guishuRStr isEqualToString:@"超级管理员"]) {
+       self.xxgs.text = @"运营部";
+    }
     self.lxrzt.text = _contactEntity.contactState;
     self.tjsj.text = _contactEntity.tianjiaSJ;
+    if([self.lxrzt.text isEqualToString:@"停用"]){
+        self.stopState.hidden = YES;
+    }
     [self.khmj setEnabled:NO];
     [self.lxxm setEnabled:NO];
     [self.lxdh setEnabled:NO];
@@ -70,9 +77,18 @@
 - (IBAction)deleteCustomer:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"提示信息" message:@"是否删除？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+   alertView.tag=1;
+    [alertView show];
+}
+//停用
+- (IBAction)stopCustomer:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                               initWithTitle:@"提示信息" message:@"是否停用该联系人？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    alertView.tag=2;
     [alertView show];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(alertView.tag==1){
      if (buttonIndex==1) {
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!delete.action?"]];
@@ -90,29 +106,23 @@
              [self.navigationController pushViewController:contant animated:YES];
          }
      }
-}
-//停用
-- (IBAction)stopCustomer:(id)sender {
-    UIAlertView *alertView1 = [[UIAlertView alloc]
-                              initWithTitle:@"提示信息" message:@"是否停用该联系人？" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
-    [alertView1 show];
-}
--(void)alertViewforStop:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==1) {
-        NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!stop.action?"]];
-        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-        request.timeoutInterval=10.0;
-        request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&ids=%@",sid,_contactEntity.contactID];
-        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error;
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
-        if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
-            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-            [self.navigationController pushViewController:contant animated:YES];
+    }else if(alertView.tag==2){
+        if (buttonIndex==1) {
+            NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+            NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!stop.action?"]];
+            NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+            request.timeoutInterval=10.0;
+            request.HTTPMethod=@"POST";
+            NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&ids=%@",sid,_contactEntity.contactID];
+            request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+            NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+            NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
+            if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
+                CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
+                [self.navigationController pushViewController:contant animated:YES];
+            }
         }
     }
 }

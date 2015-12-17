@@ -221,8 +221,8 @@
         NSString *customerAddress =(NSString *) [nc objectForKey:@"customerAddress"];  //客户地址
         NSString *phone =(NSString *) [nc objectForKey:@"phone"];  //联系电话
         NSString *receptionPersonnel =(NSString *) [nc objectForKey:@"receptionPersonnel"];  //客户主维护人
-        NSString *createTime =(NSString *) [nc objectForKey:@"createTime"];  //创建时间
- 
+        NSString *createTime =(NSString *) [nc objectForKey:@"creationDate"];  //创建时间
+        NSLog(@"createTime---------%@",createTime);
         CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
         [udetail setCustomerID:customerID];
         [udetail setCustomerName:customerName];

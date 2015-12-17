@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import <PgySDK/PgyManager.h>
-#import <PgyUpdate/PgyUpdateManager.h>
+//#import <PgySDK/PgyManager.h>
+//#import <PgyUpdate/PgyUpdateManager.h>
 
 @implementation AppDelegate
 @synthesize sessionInfo;
@@ -18,10 +18,10 @@
 @synthesize roleAuthority;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //启动基本SDK
-    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
-    //启动更新检查SDK
-    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
+//    //启动基本SDK
+//    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
+//    //启动更新检查SDK
+//    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];

@@ -52,7 +52,7 @@
     self.zongjie.layer.cornerRadius = 6;
     self.zongjie.layer.masksToBounds = YES;
 //    self.zongjie.editable = NO;
-    
+    [self.time setEnabled:NO];
     [self.bumen setEnabled:NO];
     [self.leixing setEnabled:NO];
 }
@@ -70,7 +70,23 @@
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;
     _pikerView.type = type;
-    [_pikerView.datePickerView setMinimumDate:[NSDate date]];
+    //设置日历的最小时间
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+      NSDateComponents *comps = nil;
+    
+       comps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    
+       NSDateComponents *adcomps = [[NSDateComponents alloc] init];
+    
+       [adcomps setYear:-1];
+    
+//      [adcomps setMonth:month];
+//    
+//        [adcomps setDay:day];
+    
+        NSDate *newdate = [calendar dateByAddingComponents:adcomps toDate:[NSDate date] options:0];
+    [_pikerView.datePickerView setMinimumDate:newdate];
 //    self.time.text = date;
     [self.view addSubview:_pikerView];
 }
