@@ -13,16 +13,15 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
 @property (weak, nonatomic) IBOutlet UITextView *mainContent;
+@property (strong, nonatomic) IBOutlet UITextView *customerChange;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 @property (weak, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UITextView *visitProfile;
+@property (strong, nonatomic) IBOutlet UITextView *result;
+@property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
 
-
-@property (weak, nonatomic) IBOutlet UITextField *visitProfile;
-@property (weak, nonatomic) IBOutlet UITextField *result;
-@property (weak, nonatomic) IBOutlet UITextField *customerRequirements;
-@property (weak, nonatomic) IBOutlet UITextField *customerChange;
 @property (weak, nonatomic) IBOutlet UITextField *visitorAttributionStr;
 @property (weak, nonatomic) IBOutlet UITextField *visitor;
 
@@ -40,7 +39,7 @@
     self.title=@"拜访记录";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 1280);
     self.listData = [[NSMutableArray alloc]init];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
@@ -51,6 +50,30 @@
     self.theme.layer.cornerRadius = 6;
     self.theme.layer.masksToBounds = YES;
     self.theme.editable = NO;
+    
+    [self.customerChange.layer setBorderColor:color];
+    self.customerChange.layer.borderWidth = 1;
+    self.customerChange.layer.cornerRadius = 6;
+    self.customerChange.layer.masksToBounds = YES;
+    self.customerChange.editable = NO;
+    
+    [self.visitProfile.layer setBorderColor:color];
+    self.visitProfile.layer.borderWidth = 1;
+    self.visitProfile.layer.cornerRadius = 6;
+    self.visitProfile.layer.masksToBounds = YES;
+    self.visitProfile.editable = NO;
+    
+    [self.result.layer setBorderColor:color];
+    self.result.layer.borderWidth = 1;
+    self.result.layer.cornerRadius = 6;
+    self.result.layer.masksToBounds = YES;
+    self.result.editable = NO;
+    
+    [self.customerRequirements.layer setBorderColor:color];
+    self.customerRequirements.layer.borderWidth = 1;
+    self.customerRequirements.layer.cornerRadius = 6;
+    self.customerRequirements.layer.masksToBounds = YES;
+    self.customerRequirements.editable = NO;
     
     [self.mainContent.layer setBorderColor:color];
     self.mainContent.layer.borderWidth = 1;
@@ -74,7 +97,6 @@
     [self.customerNameStr setEnabled:NO];
     [self.visitDate setEnabled:NO];
 //    [self.theme setEnabled:NO];
-    [self.customerChange setEnabled:NO];
     [self.visitorAttributionStr setEnabled:NO];
     [self.visitor setEnabled:NO];
     [self.accessMethodStr setEnabled:NO];
@@ -82,9 +104,6 @@
     [self.respondentPhone setEnabled:NO];
     [self.respondent setEnabled:NO];
     [self.address setEnabled:NO];
-    [self.visitProfile setEnabled:NO];
-    [self.result setEnabled:NO];
-    [self.customerRequirements setEnabled:NO];
     NSString *callRecordsID =_dailyEntity.callRecordsID;
     [self.listData addObject:callRecordsID];
 }

@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *lxrendh;//联系人电话
 @property (weak, nonatomic) IBOutlet UITextField *bmen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
-@property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
+
+@property (strong, nonatomic) IBOutlet UITextView *xsypj;
 
 - (IBAction)cancle:(id)sender;//取消
 
@@ -54,8 +55,17 @@
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                                    target:nil action:nil];
     negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+  
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.scroll.contentSize = CGSizeMake(375, 900);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.xsypj.layer setBorderColor:color];
+    self.xsypj.layer.borderWidth = 1;
+    self.xsypj.layer.cornerRadius = 6;
+    self.xsypj.layer.masksToBounds = YES;
     self.khmc.text = _contactEntity.customerNameStr;
     self.lxrenxm.text = _contactEntity.contactName;
     self.lxrendh.text = _contactEntity.telePhone;
