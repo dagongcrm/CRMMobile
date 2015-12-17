@@ -130,11 +130,18 @@
     NSString *department=self.bumen.text;
     NSString *position=self.zhiwu.text;
     NSString *evaluationOfTheSalesman=self.xsypj.text;
-    if (customerName.length==0||contactName.length==0||telePhone.length==0||department.length==0||position.length==0||evaluationOfTheSalesman.length==0) {
+    NSString *customerName1 = [customerName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *contactName1 = [contactName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (customerName1.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:self.lxrendh.text]||[self validatePhone:self.lxrendh.text])){
+    }else if (contactName1.length==0){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else if (telePhone.length!=0&&!([self validateMobile:self.lxrendh.text]||[self validatePhone:self.lxrendh.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
