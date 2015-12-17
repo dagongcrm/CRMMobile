@@ -39,15 +39,12 @@
     self.yeWuZL.text = _auditEntity.yeWuZL;
     self.hangYeFLMC.text = _auditEntity.hangYeFLMC;
     self.heTongJE.text = _auditEntity.heTongJE;
-    NSLog(@"%@",_auditEntity.genZongSFJE);
     self.genZongSFJE.text = _auditEntity.genZongSFJE;
     self.zhuChengXS.text=_auditEntity.zhuChengXS;
     self.userName.text=_auditEntity.userName;
     self.lianXiFS.text = _auditEntity.lianXiFS;
     NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    
+    NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mRenWuSH_DGGJAction!renWuSH_DGGJForm1.action?flag=2&step=1"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
@@ -65,11 +62,6 @@
     NSString *zhuChengXS= _auditEntity.zhuChengXS;
     NSString *userName = _auditEntity.userName;
     NSString *lianXiFS = _auditEntity.lianXiFS;
-    NSLog(@"%@",qiYeBH);
-    NSLog(@"%@",qiYeMC);
-    NSLog(@"%@",yeWuZLBH);
-    NSLog(@"%@",yeWuZLMC);
-    NSLog(@"%@",ftn_ID);
     
     
     NSString *param=[NSString stringWithFormat:@"ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&hangYeFLMC=%@&heTongJE=%@&genZongSFJE=%@&zhuChengXS=%@&userName=%@&lianXiFS=%@",ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,hangYeFLMC,heTongJE,genZongSFJE,zhuChengXS,userName,lianXiFS];

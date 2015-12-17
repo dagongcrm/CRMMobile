@@ -172,4 +172,5 @@
     weatherDic = [weatherDic substringToIndex:range6.location+1];
     return [[weatherDic stringByAppendingString:@"     "] stringByAppendingString:temp];
 }
+
 @end
