@@ -57,15 +57,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAc-9J-HYb">
-                            <rect key="frame" x="298" y="89" width="25" height="24"/>
-                            <state key="normal" image="222.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="datepicker:" destination="-1" eventType="touchUpInside" id="eFy-tT-HHV"/>
-                            </connections>
-                        </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-4o-Dot" userLabel="部门">
                             <rect key="frame" x="126" y="341" width="200" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -109,6 +100,15 @@
                             </state>
                             <connections>
                                 <action selector="cancle:" destination="-1" eventType="touchUpInside" id="40G-8o-Pie"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAc-9J-HYb">
+                            <rect key="frame" x="125" y="88" width="200" height="24"/>
+                            <state key="normal" image="222.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="datepicker:" destination="-1" eventType="touchUpInside" id="eFy-tT-HHV"/>
                             </connections>
                         </button>
                     </subviews>

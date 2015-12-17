@@ -18,6 +18,7 @@
 @synthesize informationAttributionStr=_informationAttributionStr;
 @synthesize guishuRStr=_guishuRStr;
 @synthesize contactState=_contactState;
+@synthesize contactState1=_contactState1;
 @synthesize tianjiaSJ=_tianjiaSJ;
 @synthesize contactID=_contactID;
 @synthesize customerName=_customerName;

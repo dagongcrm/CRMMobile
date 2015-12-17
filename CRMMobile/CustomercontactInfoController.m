@@ -60,6 +60,9 @@
     self.xspj.text = _contactEntity.evaluationOfTheSalesman;
     self.xxgs.text =_contactEntity.informationAttributionStr;
     self.whren.text = _contactEntity.guishuRStr;
+    if ([_contactEntity.guishuRStr isEqualToString:@"超级管理员"]) {
+       self.xxgs.text = @"运营部";
+    }
     self.lxrzt.text = _contactEntity.contactState;
     self.tjsj.text = _contactEntity.tianjiaSJ;
     if([self.lxrzt.text isEqualToString:@"停用"]){
