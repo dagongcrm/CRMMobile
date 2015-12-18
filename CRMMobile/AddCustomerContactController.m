@@ -176,13 +176,20 @@
         NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&evaluationOfTheSalesman=%@",sid,customerID,_context,contactName,telePhone,department,position,evaluationOfTheSalesman];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+            NSLog(@"--------%@",error);
+        }else{
+
         NSDictionary *saveForAddDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"saveForAddDic字典里面的内容为--》%@", saveForAddDic);
         if ([[saveForAddDic objectForKey:@"success"] boolValue] == YES) {
             CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
             [self.navigationController pushViewController:contant animated:YES];
         }
+    }
     }
 }
 - (IBAction)AddCustomer:(id)sender {

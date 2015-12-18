@@ -211,7 +211,12 @@
     request.HTTPMethod=@"POST";
     NSString *param  = [NSString stringWithFormat:@"&MOBILE_SID=%@",sid];
     request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        NSLog(@"--------%@",error);
+    }else{
     NSDictionary *nextFlow = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"%@",nextFlow);
     NSArray *list = [nextFlow objectForKey:@"obj"];
@@ -235,6 +240,7 @@
     //    }
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
+    }
 }
 
 -(void) selectUserArrayQiYe
@@ -252,7 +258,12 @@
     request.HTTPMethod=@"POST";
     NSString *param  = [NSString stringWithFormat:@"&MOBILE_SID=%@",sid];
     request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        NSLog(@"--------%@",error);
+    }else{
     NSDictionary *nextFlow = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"%@",nextFlow);
     NSArray *list = [nextFlow objectForKey:@"obj"];
@@ -271,7 +282,7 @@
     
     _selectUserQiYe= [nextFlowUserNameQiYe copy];
     _selectUserIdQiYe=[nextFlowUserIdQiYe copy];
-    
+    }
 }
 /*
  #pragma mark - Navigation
@@ -621,22 +632,29 @@
         //    heTongJE
         NSString *param=[NSString stringWithFormat:@"qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@&lianXiFS=%@&genZongSFJE=%@&gezongSF=%@&heTongJE=%@&hangYeFLBH=%@&hangYeFLMC=%@",qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid,lianxiFS,gezongSFJE,gezongSFJE,hetongJE,hangYeBH,hangYeFLMC];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"111111%@",weatherDic);
-        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-            [self.navigationController pushViewController:mj animated:YES];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
-            
-            
+            NSLog(@"--------%@",error);
         }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            
-        }
+            NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+            NSLog(@"111111%@",weatherDic);
+            if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+                [self.navigationController pushViewController:mj animated:YES];
+                [alert show];
+                
+                
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+            }
 
+        }
+        
     }else{
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"联系方式格式错误！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];

@@ -169,7 +169,12 @@
     NSString *sort = @"time";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&order=%@&sort=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        NSLog(@"--------%@",error);
+    }else{
     NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
 //    NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
     
@@ -206,6 +211,7 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
+    }
     }
     return self.fakeData;
 }
