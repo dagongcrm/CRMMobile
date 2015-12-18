@@ -49,7 +49,7 @@
 {
     
     NSLog(@"%@",self.refreshOrNot);
-    if([self.refreshOrNot isEqualToString:@"NO"]){
+    if([self.refreshOrNot isEqualToString:@"YES"]){
         
         NSUserDefaults *ud = [[NSUserDefaults alloc] init];
         NSDictionary *ds=[[ud objectForKey:@"taskTableDateSource"] mutableCopy];
@@ -67,12 +67,10 @@
         self.customerRequirements=[[ds objectForKey:@"customerRequirements"] mutableCopy],
         self.customerChange=[[ds objectForKey:@"customerChange"] mutableCopy],
         self.visitorAttributionStr=[[ds objectForKey:@"visitorAttributionStr"] mutableCopy],
-        self.visitor=[[ds objectForKey:@"visitor"] mutableCopy];
-        self.visitorAttribution=[[ds objectForKey:@"visitorAttribution"] mutableCopy],
-        self.visitorStr=[[ds objectForKey:@"userName"] mutableCopy];
+        self.visitor=[[ds objectForKey:@"userName"] mutableCopy];
     }
     
-    if([self.refreshOrNot isEqualToString:@"YES"]){
+    if([self.refreshOrNot isEqualToString:@"NO"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
             self.fakeData = [[NSMutableArray alloc]init];
@@ -170,6 +168,7 @@
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
+        NSLog(@"%@",listDic);
         NSString *teamname  = (NSString *)[listDic  objectForKey:@"callRecordsID"];
         NSString *teamname1 = (NSString *)[listDic  objectForKey:@"customerName"];
         NSString *teamname2 = (NSString *)[listDic  objectForKey:@"visitDate"];
@@ -184,9 +183,7 @@
         NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
         NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
         NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorAttributionStr"];
-        NSString *teamname14 = (NSString *)[listDic objectForKey:@"visitor"];
-        NSString *teamname15 =(NSString *) [listDic objectForKey:@"visitorAttribution"];  //拜访人归属
-        NSString *teamname16 =(NSString *) [listDic objectForKey:@"userName"];
+        NSString *teamname14 = (NSString *)[listDic objectForKey:@"userName"];
         if(teamname.length==0){
             teamname=@"";
         }
@@ -265,9 +262,7 @@
                                      self.customerRequirements,@"customerRequirements",
                                      self.customerChange,@"customerChange",
                                      self.visitorAttributionStr,@"visitorAttributionStr",
-                                     self.visitor,@"visitor",
-                                     self.visitorAttribution,@"visitorAttribution",
-                                     self.visitorStr,@"userName",
+                                     self.visitor,@"userName",
                                      nil];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:visitTableDate forKey:@"taskTableDateSource"];
@@ -376,7 +371,6 @@
     NSString *visitorAttributionStr  =[self.visitorAttributionStr objectAtIndex:indexPath.row];
     NSString *visitorAttribution  =[self.visitorAttribution objectAtIndex:indexPath.row];
     NSString *visitor =[self.visitor objectAtIndex:indexPath.row];
-    NSString *visitorStr =[self.visitorStr objectAtIndex:indexPath.row];
     RecordsNsObj *visitPlan =[[RecordsNsObj alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
     [visitPlan setCallRecordsID:callRecordsID];
