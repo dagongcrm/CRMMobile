@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *customerChange;//客户变更
 @property (strong, nonatomic) NSMutableArray *visitorAttributionStr;//拜访人归属
 @property (strong, nonatomic) NSMutableArray *visitor;//拜访人
+@property (strong, nonatomic) NSMutableArray *visitorAttribution;//拜访人归属
+@property (strong, nonatomic) NSMutableArray *visitorStr;//拜访人
 @property (strong, nonatomic) NSMutableArray *callRecordsID;//id
 @property (nonatomic, strong) NSMutableArray *userName;
 @property (strong, nonatomic) NSString       *refreshOrNot;
@@ -47,7 +49,7 @@
 {
     
     NSLog(@"%@",self.refreshOrNot);
-    if([self.refreshOrNot isEqualToString:@"NO"]){
+    if([self.refreshOrNot isEqualToString:@"YES"]){
         
         NSUserDefaults *ud = [[NSUserDefaults alloc] init];
         NSDictionary *ds=[[ud objectForKey:@"taskTableDateSource"] mutableCopy];
@@ -65,10 +67,10 @@
         self.customerRequirements=[[ds objectForKey:@"customerRequirements"] mutableCopy],
         self.customerChange=[[ds objectForKey:@"customerChange"] mutableCopy],
         self.visitorAttributionStr=[[ds objectForKey:@"visitorAttributionStr"] mutableCopy],
-        self.visitor=[[ds objectForKey:@"visitor"] mutableCopy];
+        self.visitor=[[ds objectForKey:@"userName"] mutableCopy];
     }
     
-    if([self.refreshOrNot isEqualToString:@"YES"]){
+    if([self.refreshOrNot isEqualToString:@"NO"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
             self.fakeData = [[NSMutableArray alloc]init];
@@ -84,6 +86,8 @@
             self.customerRequirements = [[NSMutableArray alloc]init];
             self.customerChange = [[NSMutableArray alloc]init];
             self.visitor = [[NSMutableArray alloc]init];
+            self.visitorAttribution = [[NSMutableArray alloc]init];
+            self.visitorStr = [[NSMutableArray alloc]init];
             [self faker:@"1"];
 //            [self faker:@"2"];
         }
@@ -164,6 +168,7 @@
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         [self.userName addObject:listDic];
+        NSLog(@"%@",listDic);
         NSString *teamname  = (NSString *)[listDic  objectForKey:@"callRecordsID"];
         NSString *teamname1 = (NSString *)[listDic  objectForKey:@"customerName"];
         NSString *teamname2 = (NSString *)[listDic  objectForKey:@"visitDate"];
@@ -178,7 +183,7 @@
         NSString *teamname11 = (NSString *)[listDic objectForKey:@"customerRequirements"];
         NSString *teamname12 = (NSString *)[listDic objectForKey:@"customerChange"];
         NSString *teamname13 = (NSString *)[listDic objectForKey:@"visitorAttributionStr"];
-        NSString *teamname14 = (NSString *)[listDic objectForKey:@"visitor"];
+        NSString *teamname14 = (NSString *)[listDic objectForKey:@"userName"];
         if(teamname.length==0){
             teamname=@"";
         }
@@ -236,6 +241,10 @@
         [self.customerChange addObject:teamname12];
         [self.visitorAttributionStr addObject:teamname13];
         [self.visitor addObject:teamname14];
+        [self.visitorAttributionStr addObject:teamname13];
+        [self.visitor addObject:teamname14];
+        [self.visitorAttribution addObject:teamname15];
+        [self.visitorStr addObject:teamname16];
     }
     
     NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -253,7 +262,7 @@
                                      self.customerRequirements,@"customerRequirements",
                                      self.customerChange,@"customerChange",
                                      self.visitorAttributionStr,@"visitorAttributionStr",
-                                     self.visitor,@"visitor",
+                                     self.visitor,@"userName",
                                      nil];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:visitTableDate forKey:@"taskTableDateSource"];
@@ -360,8 +369,8 @@
     NSString *customerRequirements =[self.customerRequirements objectAtIndex:indexPath.row];
     NSString *customerChange =[self.customerChange objectAtIndex:indexPath.row];
     NSString *visitorAttributionStr  =[self.visitorAttributionStr objectAtIndex:indexPath.row];
+    NSString *visitorAttribution  =[self.visitorAttribution objectAtIndex:indexPath.row];
     NSString *visitor =[self.visitor objectAtIndex:indexPath.row];
-    
     RecordsNsObj *visitPlan =[[RecordsNsObj alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
     [visitPlan setCallRecordsID:callRecordsID];
@@ -379,7 +388,8 @@
     [visitPlan setCustomerChange:customerChange];
     [visitPlan setVisitorAttributionStr:visitorAttributionStr];
     [visitPlan setVisitor:visitor];
-    
+    [visitPlan setVisitorAttribution:visitorAttribution];
+    [visitPlan setVisitorStr:visitorStr];
     RecordsDetalViewController *uc =[[RecordsDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:NO];
