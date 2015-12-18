@@ -92,9 +92,7 @@
 //            [self faker:@"2"];
         }
     }
-    
-    
-    
+  
     
     return _fakeData;
 }
@@ -369,7 +367,6 @@
     NSString *customerRequirements =[self.customerRequirements objectAtIndex:indexPath.row];
     NSString *customerChange =[self.customerChange objectAtIndex:indexPath.row];
     NSString *visitorAttributionStr  =[self.visitorAttributionStr objectAtIndex:indexPath.row];
-    NSString *visitorAttribution  =[self.visitorAttribution objectAtIndex:indexPath.row];
     NSString *visitor =[self.visitor objectAtIndex:indexPath.row];
     RecordsNsObj *visitPlan =[[RecordsNsObj alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
