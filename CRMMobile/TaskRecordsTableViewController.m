@@ -243,8 +243,8 @@
         [self.visitor addObject:teamname14];
         [self.visitorAttributionStr addObject:teamname13];
         [self.visitor addObject:teamname14];
-        [self.visitorAttribution addObject:teamname15];
-        [self.visitorStr addObject:teamname16];
+//        [self.visitorAttribution addObject:teamname15];
+//        [self.visitorStr addObject:teamname16];
     }
     
     NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -389,7 +389,7 @@
     [visitPlan setVisitorAttributionStr:visitorAttributionStr];
     [visitPlan setVisitor:visitor];
     [visitPlan setVisitorAttribution:visitorAttribution];
-    [visitPlan setVisitorStr:visitorStr];
+//    [visitPlan setVisitorStr:visitorStr];
     RecordsDetalViewController *uc =[[RecordsDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:NO];

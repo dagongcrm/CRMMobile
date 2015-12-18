@@ -68,6 +68,13 @@
     _customerIDSave = _contactEntity.customerID;
     _evaluationSave = _contactEntity.evaluationOfTheSalesman;
     _stateSave = _contactEntity.contactState1;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.xsypj.layer setBorderColor:color];
+    self.xsypj.layer.borderWidth = 1;
+    self.xsypj.layer.cornerRadius = 6;
+    self.xsypj.layer.masksToBounds = YES;
+    
     if (_contactEntity.customerName.length==0) {
         self.khmc.text=_contactEntity.customerNameStr;
     }else{
@@ -121,11 +128,13 @@
     NSString *telePhone =self.lxrendh.text;
     NSString *department=self.bmen.text;
     NSString *position=self.zhiwu.text;
+    NSString *guishu = _contactEntity.guishuR;
     NSString *contactID = _contactEntity.contactID;
     NSString *customerID = _customerIDSave;
     NSString *tianjiaSJ = _contactEntity.tianjiaSJ;
     NSString *evalation2 = _contactEntity.evaluationOfTheSalesman;
     NSString *state2 = _stateSave;
+    NSString *informationAttribution = _contactEntity.informationAttribution;
     NSLog(@"evalation2evalation2evalation2%@",evalation2);
     //    NSLog(@"state2state2state2state2%@",state2);
     NSString *evaluationOfTheSalesman=self.xsypj.text;
@@ -145,7 +154,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@ &evaluationOfTheSalesman=%@&contactState=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,tianjiaSJ,evalation2,state2];
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&contactID=%@&customerID=%@&customerNameStr=%@&contactName=%@&telePhone=%@&department=%@&position=%@&tianjiaSJ=%@ &evaluationOfTheSalesman=%@&contactState=%@&guishuR=%@&informationAttribution=%@",sid,contactID,customerID,customerName,contactName,telePhone,department,position,tianjiaSJ,evaluationOfTheSalesman,state2,guishu,informationAttribution];
         //
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
@@ -162,11 +171,11 @@
         //            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
         //            [self.navigationController pushViewController:contant animated:YES];
         //        }
-        if([[saveDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+        if([[saveDic objectForKey:@"success"] boolValue] == YES){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
             CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
             [self.navigationController pushViewController:contant animated:YES];
+            [alert show];
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];

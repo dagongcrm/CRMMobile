@@ -16,7 +16,9 @@
 @synthesize position=_position;
 @synthesize evaluationOfTheSalesman=_evaluationOfTheSalesman;
 @synthesize informationAttributionStr=_informationAttributionStr;
+@synthesize informationAttribution=_informationAttribution;
 @synthesize guishuRStr=_guishuRStr;
+@synthesize guishuR=_guishuR;
 @synthesize contactState=_contactState;
 @synthesize contactState1=_contactState1;
 @synthesize tianjiaSJ=_tianjiaSJ;

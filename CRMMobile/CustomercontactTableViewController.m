@@ -243,7 +243,9 @@
     NSString *position   =(NSString *) [nc objectForKey:@"position"];
     NSString *evaluationOfTheSalesman    =(NSString *) [nc objectForKey:@"evaluationOfTheSalesman"];
     NSString *informationAttributionStr    =(NSString *) [nc objectForKey:@"informationAttributionStr"];
+    NSString *informationAttribution    =(NSString *) [nc objectForKey:@"informationAttribution"];
     NSString *guishuRStr   =(NSString *) [nc objectForKey:@"guishuRStr"];
+    NSString *guishuR   =(NSString *) [nc objectForKey:@"guishuR"];
     NSString *contactState    =(NSString *) [nc objectForKey:@"contactStateStr"];
      NSString *contactState1    =(NSString *) [nc objectForKey:@"contactState"];
     NSString *tianjiaSJ    =(NSString *) [nc objectForKey:@"tianjiaSJ"];
@@ -258,7 +260,9 @@
     [contact setPosition:position];
     [contact setEvaluationOfTheSalesman:evaluationOfTheSalesman];
     [contact setInformationAttributionStr:informationAttributionStr];
+    [contact setInformationAttribution:informationAttribution];
     [contact setGuishuRStr:guishuRStr];
+    [contact setGuishuR:guishuR];
     [contact setContactState:contactState];
     [contact setContactState1:contactState1];
     [contact setTianjiaSJ:tianjiaSJ];

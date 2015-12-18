@@ -44,9 +44,21 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eo-Lq-rdm">
+                    <rect key="frame" x="262" y="176" width="25" height="25"/>
+                    <state key="normal" image="phone-1.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="callMe:" destination="-1" eventType="touchUpInside" id="IkK-88-rfT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.98823535442352295" green="0.9960784912109375" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="phone-1.png" width="29" height="30"/>
+    </resources>
 </document>
