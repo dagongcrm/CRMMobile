@@ -19,7 +19,7 @@
 #import "SettingTableViewController.h"
 #import "MeMainTableViewController.h"
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
-@interface OptionsTableViewController()<UITableViewDelegate,UITableViewDataSource>
+@interface OptionsTableViewController()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 @property (nonatomic,strong) NSArray *OptionsListData;
 @property (strong,nonatomic) MeUser *mMeUser;
 @property (strong,nonatomic) XGViewController *xView;
@@ -31,14 +31,13 @@
 @property (strong ,nonatomic)NSString *imagePaths11;
 
 //@property (weak, nonatomic)UIScrollView *scrollView;
-
 @property (weak, nonatomic)UIPageControl *pageView;
 
-@property (strong, nonatomic)NSTimer *timer;
-@property(nonatomic ,strong)UIScrollView * headScroll;
-@property(nonatomic ,strong)UIPageControl * pageControl;
-@property(nonatomic,strong)NSArray * imagesArray;
-@property (nonatomic, strong)NSTimer *time;
+@property (nonatomic,strong)NSTimer *timer;
+@property (nonatomic,strong)UIScrollView * headScroll;
+@property (nonatomic,strong)UIPageControl * pageControl;
+@property (nonatomic,strong)NSArray * imagesArray;
+@property (nonatomic,strong)NSTimer *time;
 @property  NSInteger index;
 - (IBAction)ImgButton:(id)sender;//头像按钮
 - (IBAction)moveImg:(id)sender;//换背景
@@ -67,13 +66,11 @@
     NSDictionary *Diclogin = [[NSDictionary alloc]init];
     Diclogin= APPDELEGATE.sessionInfo;
     NSString *loginName = [[Diclogin  objectForKey:@"obj"] objectForKey:@"loginName"];
-    NSString *orgName = [[Diclogin objectForKey:@"obj"]objectForKey:@"orgName"];
-    NSLog(@"==========%@",loginName);
-    self.txtname.font = [UIFont fontWithName:@"System" size:20.0f];
-    self.txtOrg.font = [UIFont fontWithName:@"System" size:20.0f];
-    
+    NSString *orgName   = [[Diclogin objectForKey:@"obj"]objectForKey:@"orgName"];
+    self.txtname.font   = [UIFont fontWithName:@"System" size:20.0f];
+    self.txtOrg.font    = [UIFont fontWithName:@"System" size:20.0f];
     [self.txtname setEnabled:NO];
-    [self.txtOrg setEnabled:NO];
+    [self.txtOrg  setEnabled:NO];
     if ([loginName isEqualToString:@"admin"]) {
         self.txtname.text = @"超级管理员";
         self.txtOrg.text =@"运营部";
@@ -133,9 +130,6 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     self.time = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(timeAction) userInfo:nil repeats:YES];
-    
-    
-    
 }
 
 //添加pageControl
@@ -180,6 +174,7 @@
 - (void)changePage:(UIPageControl *)page{
     [self.headScroll setContentOffset:CGPointMake(self.view.width * page.currentPage, 0) animated:YES];
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     int halfX = scrollView.frame.size.width / 2;
     int page = (scrollView.contentOffset.x - halfX) / self.view.width + 1;
@@ -187,6 +182,7 @@
     [self changePageControlImage:_pageControl];
     
 }
+
 - (void)timeAction{
     NSInteger page = self.pageControl.currentPage;
     page++;
@@ -266,20 +262,18 @@
 //点击修改图片
 - (IBAction)ImgButton:(id)sender {
     UIActionSheet *sheet;
-    //        // 判断是否支持相机
-            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-            {
+    // 判断是否支持相机
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
     sheet  = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
-    
-            }else{
-    
-                sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
+    }else{
+     sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
             }
     sheet.tag = 255;
     [sheet showInView:self.view];
 }
-//点击调用相机
 
+//点击调用相机
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -289,37 +283,34 @@
         NSUInteger sourceType = 0;
         
         // 判断是否支持相机
-        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            
-            switch (buttonIndex) {
-                case 0:
-                    // 相册
-                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    break;
-
-                case 1:
-                    // 相机
-                    sourceType = UIImagePickerControllerSourceTypeCamera;
-                    break;
-                    
-                    }
-        }
-        else {
-            if (buttonIndex == 0) {
-                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-            } else {
-                
-                return;
-            }
-        }
+//        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//            
+//            switch (buttonIndex) {
+//                case 0:
+//                    // 相册
+//                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//                    break;
+//                case 1:
+//                    // 相机
+//                    sourceType = UIImagePickerControllerSourceTypeCamera;
+//                    break;
+//                    }
+//        }
+//            else {
+//                if (buttonIndex == 0) {
+                   sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//                  } else {
+//                    return;
+//            }
+//        }
         // 跳转到相机或相册页面
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.delegate = self;
-        
         imagePickerController.allowsEditing = YES;
-        
         imagePickerController.sourceType = sourceType;
-//        //判断相机是否能够使用
+        [self.view.window.rootViewController presentViewController:imagePickerController animated:YES completion:^{}];
+//        [self presentModalViewController:imagePickerController animated:YES];
+        //判断相机是否能够使用
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if(status == AVAuthorizationStatusAuthorized) {
             // authorized
@@ -347,7 +338,6 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     NSLog(@"bbbbb");
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
     // 保存图片至本地，方法见下文
     NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
     NSString *imgNames = [userName stringByAppendingString:@".png"];
@@ -360,10 +350,12 @@
     self.imageNames11 = imgNames;
     self.Image.tag = 100;
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
 NSData * UIImageJPEGRepresentation ( UIImage *image, CGFloat compressionQuality);
 
 #pragma mark - 保存图片至沙盒
