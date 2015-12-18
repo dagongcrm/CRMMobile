@@ -35,7 +35,7 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    if([[[NSUserDefaults alloc] init] objectForKey:@"taskTableDateSource"]){
+    if([[[NSUserDefaults alloc] init] objectForKey:@"taskTableDateSource"]&&[APPDELEGATE.userChangeOrNot isEqualToString:@"nochange"]){
         self.refreshOrNot=@"NO";
     }else{
         self.refreshOrNot=@"YES";
@@ -45,6 +45,8 @@
 
 - (NSMutableArray *)fakeData
 {
+    
+    NSLog(@"%@",self.refreshOrNot);
     if([self.refreshOrNot isEqualToString:@"NO"]){
         
         NSUserDefaults *ud = [[NSUserDefaults alloc] init];
