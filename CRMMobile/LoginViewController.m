@@ -99,8 +99,10 @@
         APPDELEGATE.sessionInfo = loginDic;
 
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        if(![[ud objectForKey:@"userName"] isEqualToString:accountField.text])
+        if([[ud objectForKey:@"userName"] isEqualToString:accountField.text])
         {
+         APPDELEGATE.userChangeOrNot=@"nochange";
+        }else{
          APPDELEGATE.userChangeOrNot=@"change";
         }
         if([[loginDic objectForKey:@"success"] boolValue] == YES)
@@ -116,6 +118,7 @@
         {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"登录失败！用户名或密码错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
     }else{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
