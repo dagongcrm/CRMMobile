@@ -41,7 +41,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
 @property (weak, nonatomic) IBOutlet UITextField *successProbability;
-@property (weak, nonatomic) IBOutlet UITextField *saleOppDescription;
+@property (weak, nonatomic) IBOutlet UITextView *saleOppDescription;
 @property (weak, nonatomic) IBOutlet UITextField *oppState;
 @property (weak, nonatomic) IBOutlet UITextField *contact;
 @property (weak, nonatomic) IBOutlet UITextField *contactTel;
@@ -62,7 +62,12 @@
     [self BackButton];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
-    
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.saleOppDescription.layer setBorderColor:color];
+    self.saleOppDescription.layer.borderWidth = 1;
+    self.saleOppDescription.layer.cornerRadius = 6;
+    self.saleOppDescription.layer.masksToBounds = YES;
     //appear   appendviewDidLoad
 }
 
@@ -172,10 +177,6 @@
         SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
         [alert show];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
     }
     }
     }

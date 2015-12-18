@@ -41,7 +41,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (weak, nonatomic) IBOutlet UITextField *saleOppSrc;
 @property (weak, nonatomic) IBOutlet UITextField *successProbability;
-@property (weak, nonatomic) IBOutlet UITextField *saleOppDescription;
+@property (weak, nonatomic) IBOutlet UITextView *saleOppDescription;
 @property (weak, nonatomic) IBOutlet UITextField *oppState;
 @property (weak, nonatomic) IBOutlet UITextField *contact;
 @property (weak, nonatomic) IBOutlet UITextField *contactTel;
@@ -63,6 +63,12 @@
     [self BackButton];
     self.title=@"修改销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    [self.saleOppDescription.layer setBorderColor:color];
+    self.saleOppDescription.layer.borderWidth = 1;
+    self.saleOppDescription.layer.cornerRadius = 6;
+    self.saleOppDescription.layer.masksToBounds = YES;
 }
 
 
@@ -131,16 +137,16 @@
 }
 
 - (IBAction)save:(id)sender {
-    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle.length==0||_selectOppStateSelectButton.currentTitle.length==0) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text])){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-        
-    }else{
+//    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle.length==0||_selectOppStateSelectButton.currentTitle.length==0) {
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text])){
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//        
+//    }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -148,7 +154,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&saleOppID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@",sid,_saleOppEntity.saleOppID,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&saleOppID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@&creater=%@&orgID=%@&createTime=%@",sid,_saleOppEntity.saleOppID,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID,_saleOppEntity.creater,_saleOppEntity.orgID,_saleOppEntity.createTime];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         if (error) {
@@ -164,14 +170,10 @@
         SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
         [alert show];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
     }
 }
 }
-}
+//}
 
 - (IBAction)customerNameSelect:(id)sender {
     _saleOppEntity=[[SaleOppEntity alloc] init];
@@ -184,7 +186,7 @@
     [_saleOppEntity setOppStateStr:_chooseoppState];
     [_saleOppEntity setContact:_contact.text];
     [_saleOppEntity setContactTel:_contactTel.text];
-    [_saleOppEntity setIndex:@"addSaleOpp"];
+    [_saleOppEntity setIndex:@"editSaleOpp"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setSaleOppEntity:_saleOppEntity];
     [self.navigationController pushViewController:list animated:YES];

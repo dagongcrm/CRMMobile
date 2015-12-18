@@ -31,6 +31,12 @@
 
     @synthesize contactTel;
 
+    @synthesize creater;
+
+    @synthesize orgID;
+
+    @synthesize createTime;
+
     @synthesize saleLeadsAdd;
 
     @synthesize index;

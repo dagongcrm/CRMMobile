@@ -44,7 +44,15 @@
     self.saleOppDescription.layer.borderWidth = 1;
     self.saleOppDescription.layer.cornerRadius = 6;
     self.saleOppDescription.layer.masksToBounds = YES;
-//    self.theme.editable = NO;
+    self.saleOppDescription.editable = NO;
+    [self.customerNameStr setEnabled:NO];
+    [self.saleOppSrc setEnabled:NO];
+    [self.successProbability setEnabled:NO];
+    [self.oppState setEnabled:NO];
+    [self.contact setEnabled:NO];
+    [self.contactTel setEnabled:NO];
+
+    
     self.customerNameStr.text=_saleOppEntity.customerNameStr;
     self.saleOppSrc.text=_saleOppEntity.saleOppSrcStr;
     self.successProbability.text=_saleOppEntity.successProbability;

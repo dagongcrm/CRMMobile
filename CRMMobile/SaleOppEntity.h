@@ -31,8 +31,16 @@
 
     @property (strong,nonatomic) NSString *contactTel;
 
+    @property (strong,nonatomic) NSString *creater;
+
+    @property (strong,nonatomic) NSString *orgID;
+
+    @property (strong,nonatomic) NSString *createTime;
+
     @property (strong,nonatomic) NSString *saleLeadsAdd;
 
     @property (strong,nonatomic) NSString *index;
+
+
 @end
 
