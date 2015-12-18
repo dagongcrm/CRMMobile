@@ -146,7 +146,6 @@
 		39F798681C05D335000D9A20 /* PlanDetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798611C05D335000D9A20 /* PlanDetalViewController.xib */; };
 		39F7986B1C05D335000D9A20 /* EditPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798651C05D335000D9A20 /* EditPlanViewController.m */; };
 		39F7986C1C05D335000D9A20 /* EditPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F798661C05D335000D9A20 /* EditPlanViewController.xib */; };
-		39F7987B1C05D35E000D9A20 /* TaskRecordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F798791C05D35E000D9A20 /* TaskRecordsTableViewController.m */; };
 		39F7987C1C05D35E000D9A20 /* TaskRecordsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7987A1C05D35E000D9A20 /* TaskRecordsTableViewController.xib */; };
 		39F798801C05D365000D9A20 /* RecordsDetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F7987E1C05D365000D9A20 /* RecordsDetalViewController.m */; };
 		39F798811C05D365000D9A20 /* RecordsDetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F7987F1C05D365000D9A20 /* RecordsDetalViewController.xib */; };
@@ -228,6 +227,7 @@
 		B861A9241C239AFE00DF276D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B861A9201C239AFE00DF276D /* MBProgressHUD.m */; };
 		B861A9251C239AFE00DF276D /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = B861A9221C239AFE00DF276D /* MBProgressHUD+NJ.m */; };
 		B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */ = {isa = PBXBuildFile; fileRef = B87028191BD9E52500CD2FF2 /* taskReport.plist */; };
+		B8DF2B3E1C240FBA00241441 /* TaskRecordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DF2B3D1C240FBA00241441 /* TaskRecordsTableViewController.m */; };
 		B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */; };
 		B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */; };
 		B8EDAD521C1933EC00865E7C /* CustomerCallPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EDAD461C1933EC00865E7C /* CustomerCallPlanViewController.m */; };
@@ -546,7 +546,6 @@
 		39F798651C05D335000D9A20 /* EditPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPlanViewController.m; sourceTree = "<group>"; };
 		39F798661C05D335000D9A20 /* EditPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPlanViewController.xib; sourceTree = "<group>"; };
 		39F798781C05D35E000D9A20 /* TaskRecordsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRecordsTableViewController.h; sourceTree = "<group>"; };
-		39F798791C05D35E000D9A20 /* TaskRecordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRecordsTableViewController.m; sourceTree = "<group>"; };
 		39F7987A1C05D35E000D9A20 /* TaskRecordsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskRecordsTableViewController.xib; sourceTree = "<group>"; };
 		39F7987D1C05D365000D9A20 /* RecordsDetalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsDetalViewController.h; sourceTree = "<group>"; };
 		39F7987E1C05D365000D9A20 /* RecordsDetalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsDetalViewController.m; sourceTree = "<group>"; };
@@ -663,6 +662,7 @@
 		B861A9211C239AFE00DF276D /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
 		B861A9221C239AFE00DF276D /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
 		B87028191BD9E52500CD2FF2 /* taskReport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = taskReport.plist; sourceTree = "<group>"; };
+		B8DF2B3D1C240FBA00241441 /* TaskRecordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRecordsTableViewController.m; sourceTree = "<group>"; };
 		B8EDAD421C1933EC00865E7C /* AddCustomerCallPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerCallPlanViewController.h; sourceTree = "<group>"; };
 		B8EDAD431C1933EC00865E7C /* AddCustomerCallPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerCallPlanViewController.m; sourceTree = "<group>"; };
 		B8EDAD441C1933EC00865E7C /* AddCustomerCallPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomerCallPlanViewController.xib; sourceTree = "<group>"; };
@@ -1479,7 +1479,7 @@
 			isa = PBXGroup;
 			children = (
 				39F798781C05D35E000D9A20 /* TaskRecordsTableViewController.h */,
-				39F798791C05D35E000D9A20 /* TaskRecordsTableViewController.m */,
+				B8DF2B3D1C240FBA00241441 /* TaskRecordsTableViewController.m */,
 				39F7987A1C05D35E000D9A20 /* TaskRecordsTableViewController.xib */,
 				96332E991BFF332400BBEB85 /* recordsView */,
 				96332E981BFF331100BBEB85 /* recordsEntity */,
@@ -2149,6 +2149,7 @@
 				39E729F31C0697A50050D77F /* submitTaskDetailViewController.m in Sources */,
 				B8EDAD7B1C19366300865E7C /* taskReminderTableViewController.m in Sources */,
 				1FEF62501C16AE4900E6F4BF /* MeEntity.m in Sources */,
+				B8DF2B3E1C240FBA00241441 /* TaskRecordsTableViewController.m in Sources */,
 				39F797181C05CC50000D9A20 /* CustomercontactInfoController.m in Sources */,
 				39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */,
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
@@ -2225,7 +2226,6 @@
 				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
 				1FEF62601C16AF1100E6F4BF /* saleLeads.m in Sources */,
 				B861A9241C239AFE00DF276D /* MBProgressHUD.m in Sources */,
-				39F7987B1C05D35E000D9A20 /* TaskRecordsTableViewController.m in Sources */,
 				96E3125A1BEB53BA00A1A3FF /* MJRefreshConst.m in Sources */,
 				39F7985D1C05D32A000D9A20 /* VisitPlanNsObj.m in Sources */,
 				39F798801C05D365000D9A20 /* RecordsDetalViewController.m in Sources */,

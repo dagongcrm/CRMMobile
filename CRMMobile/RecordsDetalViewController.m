@@ -93,7 +93,7 @@
     self.customerRequirements.text =_dailyEntity.customerRequirements;
     self.customerChange.text =_dailyEntity.customerChange;
     self.visitorAttributionStr.text =_dailyEntity.visitorAttributionStr;
-    self.visitor.text =_dailyEntity.visitorStr;
+    self.visitor.text =_dailyEntity.visitor;
     [self.customerNameStr setEnabled:NO];
     [self.visitDate setEnabled:NO];
 //    [self.theme setEnabled:NO];

@@ -241,10 +241,8 @@
         [self.customerChange addObject:teamname12];
         [self.visitorAttributionStr addObject:teamname13];
         [self.visitor addObject:teamname14];
-        [self.visitorAttributionStr addObject:teamname13];
-        [self.visitor addObject:teamname14];
-        [self.visitorAttribution addObject:teamname15];
-        [self.visitorStr addObject:teamname16];
+        
+       
     }
     
     NSDictionary * visitTableDate = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -369,7 +367,6 @@
     NSString *customerRequirements =[self.customerRequirements objectAtIndex:indexPath.row];
     NSString *customerChange =[self.customerChange objectAtIndex:indexPath.row];
     NSString *visitorAttributionStr  =[self.visitorAttributionStr objectAtIndex:indexPath.row];
-    NSString *visitorAttribution  =[self.visitorAttribution objectAtIndex:indexPath.row];
     NSString *visitor =[self.visitor objectAtIndex:indexPath.row];
     RecordsNsObj *visitPlan =[[RecordsNsObj alloc] init];
     [visitPlan setCustomerNameStr:customerNameStr];
@@ -388,8 +385,8 @@
     [visitPlan setCustomerChange:customerChange];
     [visitPlan setVisitorAttributionStr:visitorAttributionStr];
     [visitPlan setVisitor:visitor];
-    [visitPlan setVisitorAttribution:visitorAttribution];
-    [visitPlan setVisitorStr:visitorStr];
+   
+
     RecordsDetalViewController *uc =[[RecordsDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
     [self.navigationController pushViewController:uc animated:NO];
