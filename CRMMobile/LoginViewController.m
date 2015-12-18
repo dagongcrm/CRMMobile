@@ -93,8 +93,8 @@
     NSString *param=[NSString stringWithFormat:@"loginName=%@&password=%@",accountField.text,passwdField.text];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if(response){
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if(!error){
         NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         APPDELEGATE.sessionInfo = loginDic;
 

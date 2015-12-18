@@ -205,10 +205,10 @@
                     [self.userName         addObject:userName];
                     [self.lianXiFS   addObject:lianXiFS];
                 }
+             }else{
+                [self.fakeData  addObject: @"nullobject"];
             }
 
-            }  else{
-                [self.fakeData  addObject: @"null"];
             }
         }
     }
@@ -242,10 +242,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    if([[self.fakeData objectAtIndex:0] isEqualToString:@"null"])
+    if([[self.fakeData objectAtIndex:0] isEqualToString:@"nullobject"])
         {
         return 0 ;
         }
+    
     return  [self.fakeData count];
     
     
@@ -301,7 +302,8 @@
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"" stringByAppendingString:self.detail[indexPath.row]];
+    NSLog(@"%@",self.detail[indexPath.row]);
+    NSString *testDetail =[self.detail[indexPath.row] length]==0?@" ":self.detail[indexPath.row];
     [cell.detailTextLabel setText:testDetail];
     [cell.imageView setImage:[UIImage imageNamed:@"business.png"]];
     return cell;
