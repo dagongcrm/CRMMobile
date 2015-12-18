@@ -81,8 +81,6 @@
         }
     }
 }
-    
-
 
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
@@ -154,7 +152,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -164,7 +162,7 @@
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -224,7 +222,6 @@
     
     if (tableView == self.tableView)
     {
-        
         NSDictionary *nc =[self singlecustomerCallPlan:(NSString *)[_uCustomerCallPlanID objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
         NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];  //客户名称
         NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];  //客户ID
@@ -276,7 +273,6 @@
     }else
     {
         
-        
     }
 }
 
@@ -308,6 +304,5 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
-
 
 @end

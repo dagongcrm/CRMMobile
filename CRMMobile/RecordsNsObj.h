@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *customerRequirements;//客户需求
 @property (strong, nonatomic) NSString *customerChange;//客户变更
 @property (strong, nonatomic) NSString *visitorAttributionStr;//拜访人归属
+@property (strong, nonatomic) NSString *visitorAttribution;//拜访人归属
 @property (strong, nonatomic) NSString *visitor;//拜访人
 @property (strong, nonatomic) NSString *callRecordsID;//拜访
 @property (strong, nonatomic) NSString *visitorStr;//拜访人

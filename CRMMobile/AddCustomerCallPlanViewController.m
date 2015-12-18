@@ -231,7 +231,14 @@
         }
     
 }
-
+-(BOOL) validateTelphone:(NSString *)mobile
+{
+    NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7,8}";
+   
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+   
+    return [phoneTest evaluateWithObject:mobile];
+}
 -(BOOL) validateMobile:(NSString *)mobile
 {
     //手机号以13， 15，18开头，八个 \d 数字字符
@@ -271,7 +278,7 @@
         [alertView show];
     
         
-    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text])){
+    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];

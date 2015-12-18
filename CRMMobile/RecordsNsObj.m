@@ -23,6 +23,7 @@
 @synthesize customerChange=_customerChange;
 @synthesize customerRequirements=_customerRequirements;
 @synthesize visitorAttributionStr=_visitorAttributionStr;
+@synthesize visitorAttribution=_visitorAttribution;
 @synthesize visitor=_visitor;
 @synthesize visitorStr=_visitorStr;
 @end

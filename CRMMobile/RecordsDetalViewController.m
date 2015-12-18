@@ -93,7 +93,7 @@
     self.customerRequirements.text =_dailyEntity.customerRequirements;
     self.customerChange.text =_dailyEntity.customerChange;
     self.visitorAttributionStr.text =_dailyEntity.visitorAttributionStr;
-    self.visitor.text =_dailyEntity.visitor;
+    self.visitor.text =_dailyEntity.visitorStr;
     [self.customerNameStr setEnabled:NO];
     [self.visitDate setEnabled:NO];
 //    [self.theme setEnabled:NO];
@@ -106,6 +106,7 @@
     [self.address setEnabled:NO];
     NSString *callRecordsID =_dailyEntity.callRecordsID;
     [self.listData addObject:callRecordsID];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,7 +137,7 @@
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@&customerNameStr=%@&visitDate=%@&theme=%@&accessMethodStr=%@&mainContent=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttributionStr=%@&visitor=%@",callRecordsID,sid];
+        NSString *param=[NSString stringWithFormat:@"callRecordsID=%@&MOBILE_SID=%@",callRecordsID,sid];
         request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
