@@ -208,7 +208,12 @@
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        NSLog(@"--------%@",error);
+    }else{
     NSDictionary *maketDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"maketDic字典里面的内容为--》%@", maketDic);
     NSArray *list = [maketDic objectForKey:@"obj"];
@@ -248,7 +253,7 @@
         NSLog(@"index5==>>%d",_index5);
     }
 //    return self.fakeData;
-    
+    }
     return 0;
 }
 //获取数据2
@@ -263,7 +268,12 @@
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        NSLog(@"--------%@",error);
+    }else{
     NSDictionary *callLogAction  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"callLogAction字典里面的内容为--》%@", callLogAction);
     NSArray *list = [callLogAction objectForKey:@"obj"];    NSLog(@"callLogActioncallLogAction==>>%lu",[list count]);
@@ -292,7 +302,7 @@
         NSLog(@"index15==>>%d",_index15);
     }
     //    return self.fakeData;
-    
+    }
     return 0;
 }
 
