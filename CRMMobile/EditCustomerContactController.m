@@ -20,10 +20,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *lxrendh;//联系人电话
 @property (weak, nonatomic) IBOutlet UITextField *bmen;//部门
 @property (weak, nonatomic) IBOutlet UITextField *zhiwu;//职务
-@property (weak, nonatomic) IBOutlet UITextField *xsypj;//销售员评价
 @property (strong ,nonatomic) NSString *stateSave;//联系人状态
 @property (strong ,nonatomic) NSString *evaluationSave;//销售员评价
 @property (strong ,nonatomic) NSString *customerIDSave;//客户ID
+@property (strong, nonatomic) IBOutlet UITextView *xsypj;
+
 - (IBAction)cancle:(id)sender;//取消
 
 - (IBAction)saveForEdit:(id)sender;//保存修改
