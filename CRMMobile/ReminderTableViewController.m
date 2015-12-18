@@ -300,10 +300,9 @@
     }
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    NSString *testDetail =[self.str stringByAppendingString:self.detail[indexPath.row]];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    NSString *testDetail =[@"" stringByAppendingString:self.detail[indexPath.row]];
     [cell.detailTextLabel setText:testDetail];
-    cell.textLabel.textColor=NAVBLUECOLOR;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.imageView setImage:[UIImage imageNamed:@"business.png"]];
     return cell;
 }
@@ -322,8 +321,8 @@
     NSDictionary *nc1 =[self singleUserInfo1:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key1 = [nc1 allKeys];
     
-    NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-    NSArray *key2 = [nc2 allKeys];
+//    NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+//    NSArray *key2 = [nc2 allKeys];
     
     if (key != nil) {
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
@@ -340,8 +339,7 @@
         NSString *zhuChengXS = (NSString *)[nc objectForKey:@"zhuChengXS"];
         NSString *userName = (NSString *)[nc objectForKey:@"userName_cn"];
         NSString *lianXiFS = (NSString *)[nc objectForKey:@"lianXiFS"];
-        
-        
+ 
         if (submitName==nil||submitName==NULL) {
             submitName = @"";
         }

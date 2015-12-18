@@ -559,6 +559,14 @@
     }
     
 }
+-(BOOL) validateTelphone:(NSString *)mobile
+{
+    NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7,8}";
+    
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    
+    return [phoneTest evaluateWithObject:mobile];
+}
 -(BOOL) validateMobile:(NSString *)mobile
 {
     //手机号以13， 15，18开头，八个 \d 数字字符
@@ -578,7 +586,7 @@
 
 
 - (IBAction)save:(id)sender {
-    if ([self validateMobile:self.LianXiFS.text]||[self validatePhone:self.LianXiFS.text]) {
+    if ([self validateMobile:self.LianXiFS.text]||[self validatePhone:self.LianXiFS.text]||[self validateTelphone:self.LianXiFS.text]) {
         NSString *hetongJE = self.HeTongJE.text;
         NSString *gezongSF = self.GenZongSF.text;
         NSString *gezongSFJE = self.GenZongSFJE.text;
