@@ -17,7 +17,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *customerNameStr;
 @property (strong, nonatomic) IBOutlet UITextField *saleOppSrc;
 @property (strong, nonatomic) IBOutlet UITextField *successProbability;
-@property (strong, nonatomic) IBOutlet UITextField *saleOppDescription;
+
+@property (strong, nonatomic) IBOutlet UITextView *saleOppDescription;
+
 @property (strong, nonatomic) IBOutlet UITextField *oppState;
 @property (strong, nonatomic) IBOutlet UITextField *contact;
 @property (strong, nonatomic) IBOutlet UITextField *contactTel;
@@ -34,6 +36,15 @@
     [super viewDidLoad];
     self.title=@"销售机会详情";
     self.scroll.contentSize = CGSizeMake(375, 680);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
+    
+    
+    [self.saleOppDescription.layer setBorderColor:color];
+    self.saleOppDescription.layer.borderWidth = 1;
+    self.saleOppDescription.layer.cornerRadius = 6;
+    self.saleOppDescription.layer.masksToBounds = YES;
+//    self.theme.editable = NO;
     self.customerNameStr.text=_saleOppEntity.customerNameStr;
     self.saleOppSrc.text=_saleOppEntity.saleOppSrcStr;
     self.successProbability.text=_saleOppEntity.successProbability;

@@ -92,9 +92,7 @@
 //            [self faker:@"2"];
         }
     }
-    
-    
-    
+  
     
     return _fakeData;
 }
