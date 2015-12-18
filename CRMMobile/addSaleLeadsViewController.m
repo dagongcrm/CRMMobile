@@ -113,6 +113,7 @@
     NSString *saleClubID = _saleLeads.saleClueID;
     NSString *creatingTime = _saleLeads.creatingTime;
     NSString *customerNameStr = _saleLeads.customerNameStr;
+    NSString *userID = _saleLeads.userID;
     NSLog(@"leadsAddleadsAddleadsAdd%@",leadsAdd);
     NSLog(@"leadsAdd1leadsAdd1leadsAdd1%@",leadsAdd1);
 
@@ -122,7 +123,7 @@
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@",sid,customerName,customerNameStr,leadsAdd1];
     }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
-        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@",sid,customerName,customerNameStr,leadsAdd1,saleClubID,creatingTime];
+        param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@&userID=%@",sid,customerName,customerNameStr,leadsAdd1,saleClubID,creatingTime,userID];
     }
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
