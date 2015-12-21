@@ -220,14 +220,19 @@
         NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];  //客户名称
         NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];  // 客户id
         NSString *industryIDStr  =(NSString *) [nc objectForKey:@"industryIDStr"];  //所属行业
+        NSString *industryID  =(NSString *) [nc objectForKey:@"industryID"];  //所属行业ID
         NSString *companyTypeStr =(NSString *) [nc objectForKey:@"companyTypeStr"]; // 企业类型
+        NSString *companyType =(NSString *) [nc objectForKey:@"companyType"]; // 企业类型ID
         NSString *customerClassStr =(NSString *) [nc objectForKey:@"customerClassStr"]; //客户类别
+        NSString *customerClass =(NSString *) [nc objectForKey:@"customerClass"]; //客户类别ID
         NSString *provinceStr =(NSString *) [nc objectForKey:@"provinceStr"];  //省份
+        NSString *province =(NSString *) [nc objectForKey:@"province"];  //省份ID
         NSString *shiChangXQFL =(NSString *) [nc objectForKey:@"shiChangXQFL"];  //市场需求分累
         NSString *customerAddress =(NSString *) [nc objectForKey:@"customerAddress"];  //客户地址
         NSString *phone =(NSString *) [nc objectForKey:@"phone"];  //联系电话
         NSString *receptionPersonnel =(NSString *) [nc objectForKey:@"receptionPersonnel"];  //客户主维护人
         NSString *createTime =(NSString *) [nc objectForKey:@"creationDate"];  //创建时间
+        NSString *customerMasterPrincipal =(NSString *) [nc objectForKey:@"customerMasterPrincipal"];
         NSLog(@"createTime---------%@",createTime);
         CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
         [udetail setCustomerID:customerID];
@@ -241,7 +246,12 @@
         [udetail setPhone:phone];
         [udetail setReceptionPersonnel:receptionPersonnel];
         [udetail setCreateTime:createTime];
-  
+        [udetail setCustomerMasterPrincipal:customerMasterPrincipal];
+        [udetail setIndustryID:industryID];//1
+        [udetail setCustomerClass:customerClass];//2
+        [udetail setCompanyType:companyType];//3
+        [udetail setProvince:province];//4
+        
         CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
         [uc setCustomerInformationEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];

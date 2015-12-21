@@ -634,6 +634,9 @@
     NSString *cn=[_customerNAME text];
     NSString *ca=[_customerAddress text];
     NSString *p=[_phone text];
+    NSString *receptionPersonnel = _customerInformationEntity.receptionPersonnel;
+    NSString *customerMasterPrincipal = _customerInformationEntity.customerMasterPrincipal;
+    NSLog(@"12312312313%@",receptionPersonnel);
     NSString *hy=@"";   //所属行业
     for (int i=0; i<[self.selectHYForShow count]; i++) {
         hy = [self.selectHYForShow objectAtIndex:i];
@@ -649,6 +652,20 @@
     NSString *sf=@"";   //省份
     for (int i=0; i<[self.selectSFIdForParam count]; i++) {
         sf = [self.selectSFIdForParam objectAtIndex:i];
+    }
+    NSLog(@"hyhyhby%lu",[hy length]);
+    if(sf.length>0){
+        _customerInformationEntity.province = sf;
+    }
+    if (hy.length>0) {
+        _customerInformationEntity.industryID = hy;
+    }
+    if(qylx.length>0){
+        _customerInformationEntity.companyType = qylx;
+    }
+    if(khlb.length>0){
+         _customerInformationEntity.customerClass = khlb;
+    
     }
     //验证
    if (cn.length==0) {
@@ -682,7 +699,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"customerID=%@&customerName=%@&customerAddress=%@&phone=%@&MOBILE_SID=%@&industryID=%@&companyType=%@&customerClass=%@&province=%@",ci,cn,ca,p,sid,hy,qylx,khlb,sf];
+    NSString *param=[NSString stringWithFormat:@"customerID=%@&customerName=%@&customerAddress=%@&phone=%@&MOBILE_SID=%@&industryID=%@&companyType=%@&customerClass=%@&province=%@&receptionPersonnel=%@&customerMasterPrincipal=%@",ci,cn,ca,p,sid,_customerInformationEntity.industryID,_customerInformationEntity.companyType,_customerInformationEntity.customerClass,_customerInformationEntity.province,receptionPersonnel,customerMasterPrincipal];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         if (error) {
