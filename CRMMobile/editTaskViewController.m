@@ -270,11 +270,11 @@
     }
     if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
     }
     else
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     }
     if ([self.judge isEqualToString:@"1"]) {
         cell.textLabel.text = _selectUser[indexPath.row];

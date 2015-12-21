@@ -136,6 +136,15 @@
     return [phoneNumber evaluateWithObject:phone];
 }
 
+-(BOOL) validateNumber:(NSString *)number
+{
+    //0-100的数字字符
+    NSString * PHS = @"^(0|[0-9][0-9]?|100)$";
+    NSPredicate *Number = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",PHS];
+    return [Number evaluateWithObject:number];
+}
+
+
 - (IBAction)save:(id)sender {
     if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle.length==0||_selectOppStateSelectButton.currentTitle.length==0) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -144,6 +153,16 @@
     }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if (!([self validateNumber:self.successProbability.text])){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"成功率只能是0-100的正整数！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if (self.saleOppDescription.text.length>200){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"销售机会简述最多输入两百个字！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
     }else{
@@ -176,8 +195,6 @@
 }
 
 - (IBAction)customerNameSelect:(id)sender {
-    _saleOppEntity=[[SaleOppEntity alloc] init];
-    [_saleOppEntity setCustomerNameStr:_customerNameStr.text];
     [_saleOppEntity setSaleOppSrc:_chooseOppSrcID];
     [_saleOppEntity setSaleOppSrcStr:_chooseOppSrc];
     [_saleOppEntity setSuccessProbability:_successProbability.text];
