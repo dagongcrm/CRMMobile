@@ -104,7 +104,7 @@
 - (void)setupScrollView{
     // 添加UISrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = CGRectMake(0, 60, self.view.width, 150);
+    scrollView.frame = CGRectMake(0, 62, self.view.width, 150);
     scrollView.bounces = NO;
     scrollView.delegate = self;
     
