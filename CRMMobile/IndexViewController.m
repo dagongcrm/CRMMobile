@@ -30,8 +30,6 @@
 @property (strong, nonatomic) NSMutableArray *visibleViewControllers;
 @end
 
-
-
 @implementation IndexViewController
 
 - (NSMutableArray *)reusableViewControllers
@@ -129,13 +127,19 @@
         CGRect frame  = CGRectMake(x, 0.0, self.navScrollView.frame.size.width, self.navScrollView.frame.size.height - 10.0);
         UILabel *title = [[UILabel alloc] initWithFrame:frame];
         if (i==0) {
+            self.pageControl.currentPage=0;
             title.text =@"今天";
+            
         }
         if (i==1) {
+            self.pageControl.currentPage=1;
             title.text =@"拜访计划";
+            
         }
         if (i==2) {
+            self.pageControl.currentPage=2;
             title.text =@"拜访记录";
+           
         }
         title.textAlignment = NSTextAlignmentCenter;
         title.textColor     = [UIColor whiteColor];

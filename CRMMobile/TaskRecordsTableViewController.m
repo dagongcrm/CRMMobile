@@ -44,13 +44,10 @@
     }
 }
 
-
 - (NSMutableArray *)fakeData
 {
-    
     NSLog(@"%@",self.refreshOrNot);
     if([self.refreshOrNot isEqualToString:@"YES"]){
-        
         NSUserDefaults *ud = [[NSUserDefaults alloc] init];
         NSDictionary *ds=[[ud objectForKey:@"taskTableDateSource"] mutableCopy];
         self.callRecordsID=[[ds objectForKey:@"callRecordsID"] mutableCopy],
@@ -69,7 +66,6 @@
         self.visitorAttributionStr=[[ds objectForKey:@"visitorAttributionStr"] mutableCopy],
         self.visitor=[[ds objectForKey:@"userName"] mutableCopy];
     }
-    
     if([self.refreshOrNot isEqualToString:@"NO"]){
         if (!_fakeData) {
             self.callRecordsID = [[NSMutableArray alloc]init];
@@ -89,11 +85,10 @@
             self.visitorAttribution = [[NSMutableArray alloc]init];
             self.visitorStr = [[NSMutableArray alloc]init];
             [self faker:@"1"];
-//            [self faker:@"2"];
+//          [self faker:@"2"];
         }
     }
-  
-    
+ 
     return _fakeData;
 }
 - (void)viewDidLoad {

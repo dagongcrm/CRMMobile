@@ -160,8 +160,8 @@
     NSString *result=_result.text;
     NSString *customerRequirements=_customerRequirements.text;
     NSString *customerChange=_customerChange.text;
-    NSString *visitorAttribution=_customerCallPlanEntity.visitorAttribution; //拜访人归属
-    NSString *visitor=_customerCallPlanEntity.baiFangRen;   //拜访人
+    NSString *visitorAttribution=_customerCallPlanEntity.visitorAttributionStr; //拜访人归属
+    NSString *visitor=_customerCallPlanEntity.baiFangRenStr;   //拜访人
     NSString *accessMethod=@"";//拜访方式
     
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {

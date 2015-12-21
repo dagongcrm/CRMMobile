@@ -303,22 +303,25 @@
     return self;
 }
 
-- (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    //NSUInteger s=nil;
-    if ([self.judge isEqualToString:@"1"]) {
-        return [_selectUser count];
-    }
-    return [_selectUserQiYe count];
-    
-}
+//- (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    //NSUInteger s=nil;
+//    if ([self.judge isEqualToString:@"1"]) {
+//        return [_selectUser count];
+//    }
+//    return [_selectUserQiYe count];
+//    
+//}
 
 
 //single choose
 //single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 25;
+    if ([self.judge isEqualToString:@"1"]) {
+        return [_selectUser count];
+    }
+    return [_selectUserQiYe count];
 }
 
 - (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -331,11 +334,11 @@
     }
     if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+      //  cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
     }
     else
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+       // cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     }
         if ([self.judge isEqualToString:@"1"]) {
             cell.textLabel.text = _selectUser[indexPath.row];
