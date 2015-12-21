@@ -166,7 +166,13 @@
                                   initWithTitle:@"温馨提示" message:@"成功率只能是0-100的正整数！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }else{
+    }else if (self.saleOppDescription.text.length>2){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"销售机会简述最多输入两百个字！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }
+    else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
