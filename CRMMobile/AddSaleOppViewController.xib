@@ -184,7 +184,7 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wq0-UC-Odh">
-                            <rect key="frame" x="117" y="277" width="197" height="54"/>
+                            <rect key="frame" x="109" y="281" width="201" height="54"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

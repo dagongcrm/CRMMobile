@@ -58,6 +58,7 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		1FF039CB1BFD643B0031BFE3 /* selectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */; };
+		394526571C27960C005DB938 /* phone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 394526561C27960C005DB938 /* phone-1.png */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -406,6 +407,7 @@
 		1FF039C71BFD643B0031BFE3 /* selectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectListTableViewController.h; sourceTree = "<group>"; };
 		1FF039C81BFD643B0031BFE3 /* selectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectListTableViewController.m; sourceTree = "<group>"; };
 		1FF039C91BFD643B0031BFE3 /* selectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectListTableViewController.xib; sourceTree = "<group>"; };
+		394526561C27960C005DB938 /* phone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-1.png"; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -960,6 +962,7 @@
 			isa = PBXGroup;
 			children = (
 				9604F4911C1AC8D90074B1A5 /* set-1.png */,
+				394526561C27960C005DB938 /* phone-1.png */,
 				9604F4951C1AC8D90074B1A5 /* set-2.png */,
 				9604F4921C1AC8D90074B1A5 /* set-3.png */,
 				9604F4941C1AC8D90074B1A5 /* txl-1.png */,
@@ -1949,6 +1952,7 @@
 				39F7971F1C05CC50000D9A20 /* AddCustomerContactController.xib in Resources */,
 				9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */,
 				B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */,
+				394526571C27960C005DB938 /* phone-1.png in Resources */,
 				B861A9231C239AFE00DF276D /* MBProgressHUD.bundle in Resources */,
 				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
 				B8EDAD761C19366300865E7C /* NoticeViewController.xib in Resources */,

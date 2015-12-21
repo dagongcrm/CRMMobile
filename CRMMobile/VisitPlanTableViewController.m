@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
 @property (strong, nonatomic) NSMutableArray *respondent;
 @property  NSInteger  index;
+
 @end
 
 @implementation VisitPlanTableViewController
@@ -67,6 +68,7 @@
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+
     [self setExtraCellLineHidden:self.tableView];
 }
 

@@ -107,115 +107,111 @@
         [alert show];
         NSLog(@"--------%@",error);
     }else{
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSArray *list = [weatherDic objectForKey:@"obj"];
-    NSString *teamname = @"";
-    NSString *customerID = @"";
-    NSDictionary *listdic = [[NSDictionary alloc] init];
-    
-    for (int i=0; i<[list count]; i++) {
-        NSArray *listi = [list objectAtIndex:i];
-        if(i==1){
-            if ([listi count] != 0) {
-                for (int i = 0; i<[listi count]; i++) {
-                    listdic = [listi objectAtIndex:i];
-                    [self.uid addObject:listdic];
-                    teamname = (NSString *)[listdic objectForKey:@"activityName"];//获取客户名称
-                    customerID=(NSString *)[listdic objectForKey:@"activityID"];//获取客户id
-                    NSString *activityDateStr = (NSString *)[listdic objectForKey:@"activityDateStr"];
-                    NSString *activityAddress = (NSString *)[listdic objectForKey:@"activityAddress"];
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSArray *list = [weatherDic objectForKey:@"obj"];
+        NSString *teamname = @"";
+        NSString *customerID = @"";
+        NSDictionary *listdic = [[NSDictionary alloc] init];
+        
+        for (int i=0; i<[list count]; i++) {
+            NSArray *listi = [list objectAtIndex:i];
+            if(i==1){
+                if ([listi count] != 0) {
+                    for (int i = 0; i<[listi count]; i++) {
+                        listdic = [listi objectAtIndex:i];
+                        [self.uid addObject:listdic];
+                        teamname = (NSString *)[listdic objectForKey:@"activityName"];//获取客户名称
+                        customerID=(NSString *)[listdic objectForKey:@"activityID"];//获取客户id
+                        NSString *activityDateStr = (NSString *)[listdic objectForKey:@"activityDateStr"];
+                        NSString *activityAddress = (NSString *)[listdic objectForKey:@"activityAddress"];
+                        
+                        float Cost = (float)[listdic [@"activityCost"]floatValue];
+                        NSString *activityCost = [NSString stringWithFormat:@"%0.2f",Cost];
+                        NSString *activityContent = (NSString *)[listdic objectForKey:@"activityContent"];
+                        NSString *responsibleDepartmentStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentStr"];
+                        NSString *responsibleDepartmentPersonStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentPersonStr"];
+                        NSString *activitySketch = (NSString *)[listdic objectForKey:@"activitySketch"];
+                        
+                        self.str = @"活动时间： ";
+                        [self.fakeData       addObject:teamname];
+                        [self.customerID     addObject:customerID];
+                        [self.detail         addObject:activityDateStr];
+                        [self.activityAddress       addObject:activityAddress];
+                        [self.activityCost          addObject:activityCost];
+                        [self.activityContent       addObject:activityContent];
+                        [self.responsibleDepartmentStr           addObject:responsibleDepartmentStr];
+                        [self.responsibleDepartmentPersonStr     addObject:responsibleDepartmentPersonStr];
+                        [self.activitySketch                     addObject:activitySketch];
+                    }
+                }
+            }
+            else if (i==2){
+                if(![listi isKindOfClass:[NSNull class]]){
+                    if([listi count]!=0){
+                        for (int i = 0; i<[listi count]; i++) {
+                            NSDictionary *listdic = [listi objectAtIndex:i];
+                            [self.uid addObject:listdic];
+                            NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];//获取客户名称
+                            NSString *customerID=(NSString *)[listdic objectForKey:@"bianHao"];//获取客户id
+                            NSString *yeWuZLMC = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
+                            NSString *hangYeFLMC = (NSString *)[listdic objectForKey:@"hangYeFLMC"];
+                            NSString *heTongJE = (NSString *)[listdic objectForKey:@"heTongJEStr"];
+                            NSString *genZongSFJEStr = (NSString *)[listdic objectForKey:@"genZongSFJEStr"];
+                            NSString *zhuChengXS = (NSString *)[listdic objectForKey:@"zhuChengXS"];
+                            NSString *userName = (NSString *)[listdic objectForKey:@"userName"];
+                            NSString *lianXiFS = (NSString *)[listdic objectForKey:@"lianXiFS"];
+                            NSString *renWuTJSJStr = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
+                            
+                            self.str = @"业务种类： ";
+                            if (teamname==nil||teamname==NULL) {
+                                teamname = @"";
+                            }
+                            if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
+                                genZongSFJEStr = @"";
+                            }
+                            if (customerID==nil||customerID==NULL) {
+                                customerID = @"";
+                            }
+                            if (hangYeFLMC==nil||hangYeFLMC==NULL) {
+                                hangYeFLMC = @"";
+                            }
+                            if (yeWuZLMC==nil||yeWuZLMC==NULL) {
+                                yeWuZLMC= @"";
+                            }
+                            if (zhuChengXS==nil||zhuChengXS==NULL) {
+                                zhuChengXS = @"";
+                            }
+                            if (heTongJE==nil||heTongJE==NULL) {
+                                heTongJE = @"";
+                            }
+                            if (lianXiFS==nil||lianXiFS==NULL) {
+                                lianXiFS= @"";
+                            }
+                            
+                            [self.fakeData       addObject:teamname];
+                            [self.customerID     addObject:customerID];
+                            [self.detail         addObject:yeWuZLMC];
+                            [self.renWuTJSJStr   addObject:renWuTJSJStr];
+                            [self.hangYeFLMC       addObject:hangYeFLMC];
+                            [self.heTongJE     addObject:heTongJE];
+                            if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
+                                genZongSFJEStr = @"";
+                            }
+                            [self.genZongSFJEStr         addObject:genZongSFJEStr];
+                            if (zhuChengXS==nil||zhuChengXS==NULL) {
+                                zhuChengXS = @"";
+                            }
+                            [self.zhuChengXS   addObject:zhuChengXS];
+                            [self.userName         addObject:userName];
+                            [self.lianXiFS   addObject:lianXiFS];
+                        }
+                    }
                     
-                    float Cost = (float)[listdic [@"activityCost"]floatValue];
-                    NSString *activityCost = [NSString stringWithFormat:@"%0.2f",Cost];
-                    NSString *activityContent = (NSString *)[listdic objectForKey:@"activityContent"];
-                    NSString *responsibleDepartmentStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentStr"];
-                    NSString *responsibleDepartmentPersonStr = (NSString *)[listdic objectForKey:@"responsibleDepartmentPersonStr"];
-                    NSString *activitySketch = (NSString *)[listdic objectForKey:@"activitySketch"];
-                
-                    self.str = @"活动时间： ";
-                    [self.fakeData       addObject:teamname];
-                    [self.customerID     addObject:customerID];
-                    [self.detail         addObject:activityDateStr];
-                    [self.activityAddress       addObject:activityAddress];
-                    [self.activityCost          addObject:activityCost];
-                    [self.activityContent       addObject:activityContent];
-                    [self.responsibleDepartmentStr           addObject:responsibleDepartmentStr];
-                    [self.responsibleDepartmentPersonStr     addObject:responsibleDepartmentPersonStr];
-                    [self.activitySketch                     addObject:activitySketch];
                 }
             }
         }
-        else if (i==2){
-            if(![listi isKindOfClass:[NSNull class]]){
-            if([listi count]!=0){
-                for (int i = 0; i<[listi count]; i++) {
-                    NSDictionary *listdic = [listi objectAtIndex:i];
-                    [self.uid addObject:listdic];
-                    NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];//获取客户名称
-                    NSString *customerID=(NSString *)[listdic objectForKey:@"bianHao"];//获取客户id
-                    NSString *yeWuZLMC = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
-                    NSString *hangYeFLMC = (NSString *)[listdic objectForKey:@"hangYeFLMC"];
-                    NSString *heTongJE = (NSString *)[listdic objectForKey:@"heTongJEStr"];
-                    NSString *genZongSFJEStr = (NSString *)[listdic objectForKey:@"genZongSFJEStr"];
-                    NSString *zhuChengXS = (NSString *)[listdic objectForKey:@"zhuChengXS"];
-                    NSString *userName = (NSString *)[listdic objectForKey:@"userName"];
-                    NSString *lianXiFS = (NSString *)[listdic objectForKey:@"lianXiFS"];
-                    NSString *renWuTJSJStr = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
-                    
-                    self.str = @"业务种类： ";
-                    if (teamname==nil||teamname==NULL) {
-                        teamname = @"";
-                    }
-                    if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
-                        genZongSFJEStr = @"";
-                    }
-                    if (customerID==nil||customerID==NULL) {
-                        customerID = @"";
-                    }
-                    if (hangYeFLMC==nil||hangYeFLMC==NULL) {
-                        hangYeFLMC = @"";
-                    }
-                    if (yeWuZLMC==nil||yeWuZLMC==NULL) {
-                        yeWuZLMC= @"";
-                    }
-                    if (zhuChengXS==nil||zhuChengXS==NULL) {
-                        zhuChengXS = @"";
-                    }
-                    if (heTongJE==nil||heTongJE==NULL) {
-                        heTongJE = @"";
-                    }
-                    if (lianXiFS==nil||lianXiFS==NULL) {
-                        lianXiFS= @"";
-                    }
-
-                    [self.fakeData       addObject:teamname];
-                    [self.customerID     addObject:customerID];
-                    [self.detail         addObject:yeWuZLMC];
-                    [self.renWuTJSJStr   addObject:renWuTJSJStr];
-                    [self.hangYeFLMC       addObject:hangYeFLMC];
-                    [self.heTongJE     addObject:heTongJE];
-                    if (genZongSFJEStr==nil||genZongSFJEStr==NULL) {
-                        genZongSFJEStr = @"";
-                    }
-                    [self.genZongSFJEStr         addObject:genZongSFJEStr];
-                    if (zhuChengXS==nil||zhuChengXS==NULL) {
-                        zhuChengXS = @"";
-                    }
-                    [self.zhuChengXS   addObject:zhuChengXS];
-                    [self.userName         addObject:userName];
-                    [self.lianXiFS   addObject:lianXiFS];
-                }
-               }else{
-                [self.fakeData  addObject: @"nullobject"];
-            }
-
-            }
-        }else{
-            [self.fakeData  addObject: @"nullobject"];
-        }
-    }
-
-    [self customerIDReturn:self.customerID];
+        
+        [self customerIDReturn:self.customerID];
     }
     return self.fakeData;
 }
@@ -238,17 +234,20 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    if([[self.fakeData objectAtIndex:0] isEqualToString:@"nullobject"])
-        {
-        return 0 ;
-        }
     
+//    if([[self.fakeData objectAtIndex:0] isEqualToString:@"nullobject"])
+//    {
+//        return 0 ;
+//    }
+    
+    if([self.fakeData isKindOfClass:[NSNull class]]){
+        return  0;
+    }
     return  [self.fakeData count];
     
     
@@ -304,7 +303,7 @@
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSLog(@"%@",self.detail[indexPath.row]);
+    //NSLog(@"%@",self.detail[indexPath.row]);
     NSString *testDetail =[self.detail[indexPath.row] length]==0?@" ":self.detail[indexPath.row];
     [cell.detailTextLabel setText:testDetail];
     [cell.imageView setImage:[UIImage imageNamed:@"business.png"]];
@@ -320,13 +319,13 @@
     [self customerIDuserName :self.fakeData :self.customerID];
     NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key = [nc allKeys];
-  
+    
     
     NSDictionary *nc1 =[self singleUserInfo1:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
     NSArray *key1 = [nc1 allKeys];
     
-//    NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-//    NSArray *key2 = [nc2 allKeys];
+    //    NSDictionary *nc2 =[self singleUserInfo2:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    //    NSArray *key2 = [nc2 allKeys];
     
     if (key != nil) {
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uCustomerId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
@@ -343,7 +342,7 @@
         NSString *zhuChengXS = (NSString *)[nc objectForKey:@"zhuChengXS"];
         NSString *userName = (NSString *)[nc objectForKey:@"userName_cn"];
         NSString *lianXiFS = (NSString *)[nc objectForKey:@"lianXiFS"];
- 
+        
         if (submitName==nil||submitName==NULL) {
             submitName = @"";
         }
@@ -413,7 +412,7 @@
             [udetail setLianXiFS:@" "];
         }
         
-         ReminderDetailViewController *uc =[[ReminderDetailViewController alloc] init];
+        ReminderDetailViewController *uc =[[ReminderDetailViewController alloc] init];
         [uc setAuditEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
         
@@ -481,9 +480,9 @@
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
     _uCustomerId = [[NSMutableDictionary alloc] init];
     for(int i=0;i<[utestname count];i++)
-        {
+    {
         [_uCustomerId setObject:[customerID objectAtIndex:i] forKey:[utestname objectAtIndex:i]];
-        }
+    }
 }
 
 -(NSDictionary *) singleUserInfo :(NSString *) submitIDIn{
@@ -492,9 +491,9 @@
         NSDictionary *listdic = [self.uid objectAtIndex:z];
         NSString     *submitID  = (NSString *)[listdic objectForKey:@"bianHao"];
         if([submitID isEqualToString: submitIDIn])
-            {
+        {
             return listdic;
-            }
+        }
     }
     return  nil;
 }
@@ -506,9 +505,9 @@
         
         NSString *submitID1 = (NSString *)[listdic objectForKey:@"activityID"];
         if([submitID1 isEqualToString: submitIDIn])
-            {
+        {
             return listdic;
-            }
+        }
     }
     return  nil;
 }
@@ -519,11 +518,12 @@
         NSDictionary *listdic = [self.uid objectAtIndex:z];
         NSString *submitID2 = (NSString *)[listdic objectForKey:@"customerCallPlanID"];
         if([submitID2 isEqualToString: submitIDIn])
-            {
+        {
             return listdic;
-            }
+        }
     }
     return  nil;
 }
 
 @end
+
