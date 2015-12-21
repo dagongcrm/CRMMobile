@@ -205,11 +205,13 @@
                     [self.userName         addObject:userName];
                     [self.lianXiFS   addObject:lianXiFS];
                 }
-             }else{
+               }else{
                 [self.fakeData  addObject: @"nullobject"];
             }
 
             }
+        }else{
+            [self.fakeData  addObject: @"nullobject"];
         }
     }
 

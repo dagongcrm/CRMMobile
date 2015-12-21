@@ -385,7 +385,7 @@
     [visitPlan setCustomerChange:customerChange];
     [visitPlan setVisitorAttributionStr:visitorAttributionStr];
     [visitPlan setVisitor:visitor];
-    [visitPlan setVisitorAttribution:visitorAttribution];
+  //  [visitPlan setVisitorAttribution:visitorAttribution];
 //    [visitPlan setVisitorStr:visitorStr];
     RecordsDetalViewController *uc =[[RecordsDetalViewController alloc] init];
     [uc setDailyEntity:visitPlan];
