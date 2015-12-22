@@ -283,12 +283,14 @@
         [udetail setVisitProfile:visitProfile];
         [udetail setVisitDate:visitDate];
         [udetail setResult:result];
+        [udetail setVisitor:baiFangRen];
         [udetail setCustomerRequirements:customerRequirements];
         [udetail setCustomerChange:customerChange];
         [udetail setVisitorAttribution:visitorAttribution];
         [udetail setVisitorAttributionStr:visitorAttributionStr];
         [udetail setBaiFangRen:baiFangRen];
         [udetail setBaiFangRenStr:baiFangRenStr];
+        
         
         CustomerCallPlanDetailViewController *uc =[[CustomerCallPlanDetailViewController alloc] init];
         [uc setCustomerCallPlanEntity:udetail];

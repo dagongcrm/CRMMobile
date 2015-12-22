@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VisitPlanTableViewController : UITableViewController
-
+@property (assign, nonatomic) NSInteger numberOfInstance;
+@property (assign, nonatomic) NSNumber *page;
 @end

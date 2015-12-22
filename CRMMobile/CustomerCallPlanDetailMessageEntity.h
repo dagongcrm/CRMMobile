@@ -27,6 +27,7 @@
 @property (strong,nonatomic) NSString *customerRequirements;
 @property (strong,nonatomic) NSString *customerChange;
 @property (strong,nonatomic) NSString *visitorAttribution;
+@property (strong,nonatomic) NSString *visitor;
 @property (strong,nonatomic) NSString *visitorAttributionStr;
 @property (strong,nonatomic) NSString *baiFangRen;
 @property (strong,nonatomic) NSString *baiFangRenStr;

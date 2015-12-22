@@ -26,6 +26,7 @@
 @synthesize visitProfile=_visitProfile;
 @synthesize visitDate=_visitDate;
 @synthesize result=_result;
+@synthesize visitor=_visitor;
 @synthesize customerRequirements=_customerRequirements;
 @synthesize customerChange=_customerChange;
 @synthesize visitorAttribution=_visitorAttribution;
