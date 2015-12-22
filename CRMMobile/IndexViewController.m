@@ -141,10 +141,12 @@
             title.text =@"拜访记录";
            
         }
+        
         title.textAlignment = NSTextAlignmentCenter;
         title.textColor     = [UIColor whiteColor];
         title.font          = [UIFont boldSystemFontOfSize:14.0];
         [self.navContentView addSubview:title];
+//        [self.pageControl addSubview:title];
         x += self.navScrollView.frame.size.width;
     }
     self.pageControl.numberOfPages = TOTAL_PAGES;
@@ -229,7 +231,6 @@
         self.navScrollView.contentOffset = CGPointMake(navX, 0.0);
     }
 }
-
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
