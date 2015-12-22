@@ -1255,6 +1255,7 @@
 				96F6946C1BFAD30200FC98FA /* customercontact */,
 				39FD7DB01BF0346000CCD3F9 /* saleOpp */,
 				9678AEFB1BEB71F800E5B50E /* CRMTableViewController.m */,
+				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				9678AEE21BEB70D400E5B50E /* crm */,
 				39E8767D1C03036E00BF6808 /* customerCallPlan */,
 			);
@@ -1716,7 +1717,6 @@
 			isa = PBXGroup;
 			children = (
 				3930D5C71C22CF5E00D3C25E /* MBProgressHUD */,
-				9678AEFA1BEB71F800E5B50E /* CRMTableViewController.h */,
 				39F798C91C05E4AE000D9A20 /* AppDelegate.h */,
 				B8EDAD591C19355600865E7C /* Main.storyboard */,
 				39F798CA1C05E4AE000D9A20 /* AppDelegate.m */,
