@@ -160,12 +160,15 @@
     NSString *result=_result.text;
     NSString *customerRequirements=_customerRequirements.text;
     NSString *customerChange=_customerChange.text;
-    NSString *visitorAttribution=_customerCallPlanEntity.visitorAttributionStr; //拜访人归属
-    NSString *visitor=_customerCallPlanEntity.baiFangRenStr;   //拜访人
+    NSString *visitorAttribution=_customerCallPlanEntity.visitorAttribution; //拜访人归属
+    NSString *visitor=_customerCallPlanEntity.baiFangRen;   //拜访人
     NSString *accessMethod=@"";//拜访方式
     
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethod = [self.selectBFFSIdForParam objectAtIndex:i];
+    }
+    if (accessMethod.length>0) {
+        _customerCallPlanEntity.accessMethod = accessMethod;
     }
     
     if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
@@ -187,7 +190,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,accessMethod,customerID,customerName];
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerCallPlanID=%@&visitDate=%@&theme=%@&respondentPhone=%@&respondent=%@&address=%@&visitProfile=%@&result=%@&customerRequirements=%@&customerChange=%@&visitorAttribution=%@&visitor=%@&accessMethod=%@&customerID=%@&customerName=%@",sid,customerCallPlanID,visitDate,theme,respondentPhone,respondent,address,visitProfile,result,customerRequirements,customerChange,visitorAttribution,visitor,_customerCallPlanEntity.accessMethod,customerID,customerName];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         if (error) {

@@ -605,7 +605,14 @@
     }
 }
 
-
+-(BOOL) validateTelphone:(NSString *)mobile
+{
+    NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7,8}";
+    
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    
+    return [phoneTest evaluateWithObject:mobile];
+}
 
 -(BOOL) validateMobile:(NSString *)mobile
 {
@@ -622,10 +629,6 @@
     NSPredicate *phoneNumber = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",PHS];
     return [phoneNumber evaluateWithObject:phone];
 }
-
-
-
-
 
 
 //修改保存
@@ -681,11 +684,11 @@
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"联系电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:p]||[self validatePhone:p])){
+    }else if (!([self validateMobile:p]||[self validatePhone:p]||[self validateTelphone:p])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-        
+         
     }
     else{
         

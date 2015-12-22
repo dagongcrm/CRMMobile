@@ -246,9 +246,9 @@
         NSString *result =(NSString *) [nc objectForKey:@"result"];  //拜访结果
         NSString *customerRequirements =(NSString *) [nc objectForKey:@"customerRequirements"];  //客户需求
         NSString *customerChange =(NSString *) [nc objectForKey:@"customerChange"];  //客户变故
-//        NSString *visitorAttribution =(NSString *) [nc objectForKey:@"visitorAttribution"];  //拜访人归属
+        NSString *visitorAttribution =(NSString *) [nc objectForKey:@"visitorAttribution"];  //拜访人归属
         NSString *visitorAttributionStr =(NSString *) [nc objectForKey:@"visitorAttributionStr"];  //拜访人归属显示
-//        NSString *baiFangRen =(NSString *) [nc objectForKey:@"visitor"];  //拜访人
+        NSString *baiFangRen =(NSString *) [nc objectForKey:@"visitor"];  //拜访人
         NSString *baiFangRenStr =(NSString *) [nc objectForKey:@"visitorStr"];  //拜访人显示
         
         CustomerCallPlanDetailMessageEntity *udetail =[[CustomerCallPlanDetailMessageEntity alloc] init];
@@ -268,9 +268,9 @@
         [udetail setResult:result];
         [udetail setCustomerRequirements:customerRequirements];
         [udetail setCustomerChange:customerChange];
-//        [udetail setVisitorAttribution:visitorAttribution];
+        [udetail setVisitorAttribution:visitorAttribution];
         [udetail setVisitorAttributionStr:visitorAttributionStr];
-//        [udetail setBaiFangRen:baiFangRen];
+        [udetail setBaiFangRen:baiFangRen];
         [udetail setBaiFangRenStr:baiFangRenStr];
         
         PlanDetalViewController *uc =[[PlanDetalViewController alloc] init];
