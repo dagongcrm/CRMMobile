@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *publishOrganizationStr;
 @property (weak, nonatomic) IBOutlet UITextField *publishScopeStr;
 @property (weak, nonatomic) IBOutlet UITextField *publishTimeStr;
-@property (weak, nonatomic) IBOutlet UITextField *attachment;
+//@property (weak, nonatomic) IBOutlet UITextField *attachment;
 
 @end
 
@@ -34,7 +34,7 @@
     self.publishOrganizationStr.text=_noticeEntity.publishOrganizationStr;
     self.publishScopeStr.text=_noticeEntity.publishScopeStr;
     self.publishTimeStr.text=_noticeEntity.publishTimeStr;
-    self.attachment.text=_noticeEntity.attachment;
+//    self.attachment.text=_noticeEntity.attachment;
 }
 
 - (void)didReceiveMemoryWarning {

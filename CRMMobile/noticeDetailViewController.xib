@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="noticeDetailViewController">
             <connections>
-                <outlet property="attachment" destination="8n9-NF-CPQ" id="dHy-BQ-aSd"/>
                 <outlet property="documentTitle" destination="AS0-OU-gRT" id="dxf-mx-usP"/>
                 <outlet property="publishContent" destination="5ae-c3-tVo" id="TV8-AS-OgI"/>
                 <outlet property="publishOrganizationStr" destination="tIB-GD-16J" id="nkU-9q-Wel"/>
@@ -75,17 +74,6 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3B-lU-Kal" userLabel="fbfw">
                             <rect key="frame" x="123" y="272" width="205" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 附      件:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMF-5t-jwf">
-                            <rect key="frame" x="24" y="445" width="110" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8n9-NF-CPQ" userLabel="fj">
-                            <rect key="frame" x="123" y="441" width="205" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
