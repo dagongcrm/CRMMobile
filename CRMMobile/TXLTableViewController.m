@@ -151,6 +151,10 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
+        NSString *contactState = (NSString *)[listDic objectForKey:@"contactState"];//1111
+        NSLog(@"11111111==>>%@",contactState);
+        if ([contactState isEqualToString:@"huoYue"]) {
+        
         [self.userName addObject:listDic];
         NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];//1
         NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];//2
@@ -184,6 +188,7 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
         [self.customerNameStrData addObject:customerNameStr];
         NSLog(@"33333333333%@",customerNameStr);
     }
+        }
          }
     return self.fakeData;
    

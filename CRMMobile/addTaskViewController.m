@@ -318,6 +318,7 @@
 //single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //NSUInteger s=nil;
     if ([self.judge isEqualToString:@"1"]) {
         return [_selectUser count];
     }
@@ -332,14 +333,14 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
-    {
-      //  cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-    }
-    else
-    {
-       // cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-    }
+//    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+//    {
+////        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    }
+//    else
+//    {
+////        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//    }
         if ([self.judge isEqualToString:@"1"]) {
             cell.textLabel.text = _selectUser[indexPath.row];
         }
@@ -353,7 +354,7 @@
 - (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     NSLog(@"deselect:%ld", (long)indexPath.row);
 }
 
@@ -361,7 +362,7 @@
 {
         self.selectedIndexPath = indexPath;
         UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
         NSLog(@"select:%ld", (long)indexPath.row);
         self.selectedIndexPath = indexPath;
         if ([self.judge isEqualToString:@"1"]) {
