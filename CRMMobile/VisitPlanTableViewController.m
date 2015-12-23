@@ -39,7 +39,7 @@
         self.visitDate = [[NSMutableArray alloc]init];
         self.respondent=[[NSMutableArray alloc]init];
         [self faker:@"1"];
-//        [self faker:@"2"];
+        //        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -68,7 +68,7 @@
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-
+    
     [self setExtraCellLineHidden:self.tableView];
 }
 
@@ -101,32 +101,32 @@
         [alert show];
         NSLog(@"--------%@",error);
     }else{
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSArray *list = [weatherDic objectForKey:@"obj"];
-    if(![list count] ==0)
-    {
-        self.tableView.footerRefreshingText=@"加载中";
-    }else
-    {
-        self.tableView.footerRefreshingText = @"没有更多数据";
-    }
-    for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        [self.uid addObject:listdic];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
-        NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
-        NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
-        NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
-        if(teamname.length==0){   //若客户名称问null，将其赋值
-            teamname=@"没有数据";
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSArray *list = [weatherDic objectForKey:@"obj"];
+        if(![list count] ==0)
+        {
+            self.tableView.footerRefreshingText=@"加载中";
+        }else
+        {
+            self.tableView.footerRefreshingText = @"没有更多数据";
         }
-        
-        [self.customerCallPlanID     addObject:customerCallPlanID];
-        [self.fakeData               addObject:teamname];
-        [self.visitDate              addObject:teamname2];
-        [self.respondent             addObject:teamname3];
-    }
-    //    [self customerIDReturn:self.customerCallPlanID];
+        for (int i = 0; i<[list count]; i++) {
+            NSDictionary *listdic = [list objectAtIndex:i];
+            [self.uid addObject:listdic];
+            NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
+            NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
+            NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
+            NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
+            if(teamname.length==0){   //若客户名称问null，将其赋值
+                teamname=@"没有数据";
+            }
+            
+            [self.customerCallPlanID     addObject:customerCallPlanID];
+            [self.fakeData               addObject:teamname];
+            [self.visitDate              addObject:teamname2];
+            [self.respondent             addObject:teamname3];
+        }
+        //    [self customerIDReturn:self.customerCallPlanID];
     }
     return self.fakeData;
 }
@@ -160,7 +160,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
     [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -170,7 +170,7 @@
     NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -196,7 +196,7 @@
     [self.fakeData removeAllObjects];
     self.index =1;
     [self faker:@"1"];
-
+    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -211,7 +211,7 @@
     }else{
         self.index++;
     }
-
+    
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
