@@ -361,7 +361,7 @@
 - (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
     if ([_select isEqualToString:@"HY"]){
         self.selectedIndexPath = indexPath;
         [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
@@ -393,7 +393,7 @@
 {
     self.selectedIndexPath = indexPath;
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
     if ([_select isEqualToString:@"HY"]){
         self.selectedIndexPath = indexPath;
         [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];

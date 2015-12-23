@@ -257,7 +257,11 @@
 //single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 25;
+    //NSUInteger s=nil;
+    if ([self.judge isEqualToString:@"1"]) {
+        return [_selectUser count];
+    }
+    return [_selectUserQiYe count];
 }
 
 - (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
