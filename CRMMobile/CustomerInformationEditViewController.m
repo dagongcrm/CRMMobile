@@ -282,14 +282,14 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
-    {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-    }
-    else
-    {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-    }
+//    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
+//    {
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    }
+//    else
+//    {
+//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+//    }
     if ([_select isEqualToString:@"HY"]){
         static NSString *identifier = @"identifier";
         UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
@@ -371,7 +371,7 @@
 {
     self.selectedIndexPath = indexPath;
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
     if ([_select isEqualToString:@"HY"]){
         self.selectedIndexPath = indexPath;
         [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
