@@ -18,13 +18,13 @@
 #import "CRMTableViewController.h"
 
 @interface saleLeadsTableViewController ()
-
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
 
 @end
 
 @implementation saleLeadsTableViewController
+@synthesize saleLead = _saleLead;
 - (NSMutableArray *)fakeData
 {
     if (!_entities) {
@@ -127,6 +127,9 @@
 - (IBAction)addSaleOpp:(id)sender
 {
     addSaleLeadsViewController *addSaleLeads = [[addSaleLeadsViewController alloc] init];
+    _saleLead = [saleLeads new];
+    [_saleLead setIndex:@"addSaleLeads"];
+    [addSaleLeads setSaleLeads:_saleLead];
     [self.navigationController pushViewController:addSaleLeads animated:YES];
 }
 - (void)setupRefresh

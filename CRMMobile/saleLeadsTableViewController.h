@@ -11,5 +11,5 @@
 
 
 @interface saleLeadsTableViewController : UITableViewController
-
+@property saleLeads *saleLead;
 @end

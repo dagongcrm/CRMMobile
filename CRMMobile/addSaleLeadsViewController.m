@@ -30,10 +30,11 @@
 @synthesize saleLeads = _saleLeads;
 @synthesize saleOppEntity=_saleOppEntity;
 - (IBAction)customerSelect:(id)sender {
-    _saleLeads=[[saleLeads alloc] init];
+//    _saleLeads=[[saleLeads alloc] init];
     [_saleLeads setCustomerNameStr:_customerName.text];
     [_saleLeads setSalesLeads:_leadsAdd.text];
-    [_saleLeads setIndex:@"addSaleLeads"];
+    NSLog(@"1231121212121====>%@",_saleLeads.index);
+//    [_saleLeads setIndex:@"addSaleLeads"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setSaleLeads:_saleLeads];
     [self.navigationController pushViewController:list animated:YES];
@@ -118,7 +119,7 @@
     NSLog(@"leadsAdd1leadsAdd1leadsAdd1%@",leadsAdd1);
 
     NSString *param=@"";
-    if (_saleLeads.index == @"addSaleLeads") {
+    if ([_saleLeads.index isEqualToString:@"addSaleLeads"]) {
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@",sid,customerName,customerNameStr,leadsAdd1];
     }else{
