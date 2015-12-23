@@ -22,6 +22,6 @@
 
 @synthesize index;
 
-@synthesize salesLeads;
+@synthesize salesLeads=_salesLeads;
 
 @end
