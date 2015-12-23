@@ -149,6 +149,34 @@ NSString *userName1;
         flowId1=@"FTL_T2013081300001.begin";
         fln_UserCode=userIDsession;
         
+        NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId1,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+            NSLog(@"--------%@",error);
+        }else{
+            NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+            
+            if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                if (APPDELEGATE.page!=@"") {
+                    taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
+                    [self.navigationController pushViewController:tvc animated:YES];
+                }else{
+                    auditTableViewController *mj = [[auditTableViewController alloc] init];
+                    [self.navigationController pushViewController:mj animated:YES];
+                }
+                
+                [alert show];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+            }
+        }
     }else{
         NSString *templateNode_ID;
         NSLog(@"%@",@"2");
@@ -193,34 +221,6 @@ NSString *userName1;
     }
     
     
-    NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId1,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-        [alert show];
-        NSLog(@"--------%@",error);
-    }else{
-        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        
-        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            if (APPDELEGATE.page!=@"") {
-                taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
-                [self.navigationController pushViewController:tvc animated:YES];
-            }else{
-                auditTableViewController *mj = [[auditTableViewController alloc] init];
-                [self.navigationController pushViewController:mj animated:YES];
-            }
-            
-            [alert show];
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            
-        }
-    }
 }
 
 - (IBAction)auditCommit:(id)sender {
