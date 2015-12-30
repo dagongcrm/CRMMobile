@@ -148,7 +148,7 @@
     
     // 在当前日期(去掉了时分秒)基础上加上差的天数
     NSDateComponents *firstDayComp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
-    //周一
+    //周日
     [firstDayComp setDay:day + firstDiff+1];
     NSDate *firstDayOfWeek= [calendar dateFromComponents:firstDayComp];
     //周二
@@ -171,24 +171,26 @@
     [lastDayComp setDay:day + lastDiff-1];
     NSDate *lastDayOfWeek= [calendar dateFromComponents:lastDayComp];
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    [formater setDateFormat:@"YYYY-MM-dd"];
-    _date1 = [formater stringFromDate:firstDayOfWeek];
-    _date2 = [formater stringFromDate:twoDayOfWeek];
-    _date3 = [formater stringFromDate:threeDayOfWeek];
-    _date4 = [formater stringFromDate:fourDayOfWeek];
-    _date5 = [formater stringFromDate:fiveDayOfWeek];
-    _date6 = [formater stringFromDate:sixDayOfWeek];
-    _date7 = [formater stringFromDate:lastDayOfWeek];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString * date111 = [dateFormatter stringFromDate:firstDayOfWeek];
+    NSLog(@"date111==>>%@",date111);
+    _date1 = [[dateFormatter stringFromDate:firstDayOfWeek] substringToIndex:10];
+    _date2 = [[dateFormatter stringFromDate:twoDayOfWeek] substringToIndex:10];
+    _date3 = [[dateFormatter stringFromDate:threeDayOfWeek] substringToIndex:10];
+    _date4 = [[dateFormatter stringFromDate:fourDayOfWeek] substringToIndex:10];
+    _date5 = [[dateFormatter stringFromDate:fiveDayOfWeek] substringToIndex:10];
+    _date6 = [[dateFormatter stringFromDate:sixDayOfWeek] substringToIndex:10];
+    _date7 = [[dateFormatter stringFromDate:lastDayOfWeek] substringToIndex:10];
     
-    NSLog(@"星期一%@",[formater stringFromDate:firstDayOfWeek]);
-    NSLog(@"当前 %@",[formater stringFromDate:now]);
-    NSLog(@"星期二%@",[formater stringFromDate:twoDayOfWeek]);
-    NSLog(@"星期三%@",[formater stringFromDate:threeDayOfWeek]);
-    NSLog(@"星期四%@",[formater stringFromDate:fourDayOfWeek]);
-    NSLog(@"星期五%@",[formater stringFromDate:fiveDayOfWeek]);
-    NSLog(@"星期六%@",[formater stringFromDate:sixDayOfWeek]);
-    NSLog(@"星期天%@",[formater stringFromDate:lastDayOfWeek]);
+    NSLog(@"星期一%@",[dateFormatter stringFromDate:firstDayOfWeek]);
+    NSLog(@"当前 %@",[dateFormatter stringFromDate:now]);
+    NSLog(@"星期二%@",[dateFormatter stringFromDate:twoDayOfWeek]);
+    NSLog(@"星期三%@",[dateFormatter stringFromDate:threeDayOfWeek]);
+    NSLog(@"星期四%@",[dateFormatter stringFromDate:fourDayOfWeek]);
+    NSLog(@"星期五%@",[dateFormatter stringFromDate:fiveDayOfWeek]);
+    NSLog(@"星期六%@",[dateFormatter stringFromDate:sixDayOfWeek]);
+    NSLog(@"星期天%@",[dateFormatter stringFromDate:lastDayOfWeek]);
     
     
     [self faker];
@@ -223,10 +225,11 @@
 //        [self.CustomerArr addObject:listDic];
         NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
         if([time isEqualToString:_date1]){
-            NSLog(@"date111%@",_date1);
             _index1++;
+            NSLog(@"date111%@",_date1);
         }else if([time isEqualToString:_date2]){
             _index2++;
+            NSLog(@"###########%@",time);
         }else if([time isEqualToString:_date3]){
             _index3++;
         }else if([time isEqualToString:_date4]){
@@ -246,6 +249,8 @@
 //        [self.contactData addObject:telePhone];
 //        [self.customerNameStrData addObject:customerNameStr];
 //        [self.contactIDData addObject:contactID];
+        NSLog(@"time--=>>%@",time);
+        NSLog(@"date3%@",_date3);
         NSLog(@"index1==>>%d",_index1);
         NSLog(@"index2==>>%d",_index2);
         NSLog(@"index3==>>%d",_index3);
