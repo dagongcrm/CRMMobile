@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 @interface LoginViewController : UIViewController
 @property (strong,nonatomic)  IBOutlet UITextField *accountField;
 @property (strong,nonatomic)  IBOutlet UITextField *passwdField;
+@property (nonatomic, strong) AMapLocationManager *locationManager;
 @end
