@@ -13,4 +13,6 @@
 @property (strong,nonatomic)  IBOutlet UITextField *accountField;
 @property (strong,nonatomic)  IBOutlet UITextField *passwdField;
 @property (nonatomic, strong) AMapLocationManager *locationManager;
+@property (nonatomic, strong) MAMapView *mapView;
+
 @end

@@ -8,29 +8,33 @@
 #import "OMGToast.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
+#import <AMapLocationKit/AMapLocationRegionObj.h>
 #define APIKey @"cdf41cce83fb64756ba13022997e5e74"//APIKey
 
 @interface LoginViewController () <MBProgressHUDDelegate> {
     MBProgressHUD *HUD;
     long long expectedLength;
     long long currentLength;
+    BOOL blog;
 }
 
 @property (strong,nonatomic) NSMutableArray *authorityList;
 @property (weak, nonatomic) IBOutlet UIImageView *loginImg;
-
+@property (nonatomic, strong) NSMutableArray *regions;
 @end
 
 
 @implementation LoginViewController
 @synthesize locationManager=_locationManager;
+@synthesize mapView = _mapView;
 @synthesize accountField;
 @synthesize passwdField;
 
-
+//ddd
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    blog = YES;
     UITapGestureRecognizer *tap =
     [[UITapGestureRecognizer alloc]   initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -141,12 +145,14 @@
     [AMapLocationServices sharedServices].apiKey = APIKey;
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate=self;
-    
+    //设置一个目标经纬度
+    CLLocationCoordinate2D coodinate = CLLocationCoordinate2DMake(39.967370, 116.643153);
+      __weak typeof(self) weakSelf = self;
+    [weakSelf addCircleReionForCoordinate:coodinate];
    }
 
 //定位功能
 -(void)Location{
-    
     //设置允许后台定位参数，保持不会被系统挂起
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     [self.locationManager setAllowsBackgroundLocationUpdates:YES];//iOS9(含)以上系统需设置
@@ -172,75 +178,87 @@
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location
 {
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
-    //业务处理
-        NSError *error;
-        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-        NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-        NSString *userId = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"userId"];
-       // NSLog(@"location:%@", location);
-        CGFloat longitude=location.coordinate.longitude;
-        CGFloat latitude=location.coordinate.latitude;
-        NSString *time=[self dateToString:location.timestamp];
-        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"locationAction!add.action?"]];
-    
-        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-        request.timeoutInterval=10.0;
-        request.HTTPMethod=@"POST";
-        NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&MOBILE_SID=%@",longitude,latitude,userId,time,sid];
-        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-            [alert show];
-            NSLog(@"--------%@",error);
-        }else{
-            NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-            if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-                [OMGToast showWithText:@"定位成功" bottomOffset:20 duration:0.5];
-            }else{
-                [OMGToast showWithText:@"定位数据发送失败" bottomOffset:20 duration:0.5];
-            }
-        }
+    if(blog==YES){
+        [self chuanzhi:location];
+    }else{
+        NSLog(@"在公司区域");
+    }
 }
 
-//在回调函数中，获取定位坐标，进行业务处理。
-//- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location
-//{
-//      NSLog(@"定位失败");
-//    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
-//    //业务处理
-//    NSError *error;
-//    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-//    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-//    NSString *userId = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"userId"];
-//    NSLog(@"location:%@", location);
-//    CGFloat longitude=location.coordinate.longitude;
-//    CGFloat latitude=location.coordinate.latitude;
-//    NSString *time=[self dateToString:location.timestamp];
-//    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"locationAction!add.action?"]];
-//    
-//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-//    request.timeoutInterval=10.0;
-//    request.HTTPMethod=@"POST";
-//    NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&MOBILE_SID=%@",longitude,latitude,userId,time,sid];
-//    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-//    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-//    if (error) {
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-//        [alert show];
-//        NSLog(@"--------%@",error);
-//    }else{
-//        
-//        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-//        
-//        if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-//            [OMGToast showWithText:@"定位成功" bottomOffset:20 duration:0.5];
-//        }else{
-//            [OMGToast showWithText:@"定位数据发送失败" bottomOffset:20 duration:0.5];
-//        }
-//    }
-//}
+//往后台传数据
+- (void)chuanzhi:(CLLocation *)location{
+        //业务处理
+            NSError *error;
+            AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+            NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+            NSString *userId = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"userId"];
+           // NSLog(@"location:%@", location);
+            CGFloat longitude=location.coordinate.longitude;
+            CGFloat latitude=location.coordinate.latitude;
+            NSString *time=[self dateToString:location.timestamp];
+            NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"locationAction!add.action?"]];
+    
+            NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+            request.timeoutInterval=10.0;
+            request.HTTPMethod=@"POST";
+            NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&MOBILE_SID=%@",longitude,latitude,userId,time,sid];
+            request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+            if (error) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+                [alert show];
+                NSLog(@"--------%@",error);
+            }else{
+                NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+                    [OMGToast showWithText:@"定位成功" bottomOffset:20 duration:0.5];
+                }else{
+                    [OMGToast showWithText:@"定位数据发送失败" bottomOffset:20 duration:0.5];
+                }
+            }
+}
+//地理围栏
+- (void)addCircleReionForCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    AMapLocationCircleRegion *cirRegion200 = [[AMapLocationCircleRegion alloc] initWithCenter:coordinate
+                                                                                       radius:200.0
+                                                                                   identifier:@"circleRegion200"];
+    
+    AMapLocationCircleRegion *cirRegion300 = [[AMapLocationCircleRegion alloc] initWithCenter:coordinate
+                                                                                       radius:300.0
+                                                                                   identifier:@"circleRegion300"];
+    
+    //添加地理围栏
+    [self.locationManager startMonitoringForRegion:cirRegion200];
+    [self.locationManager startMonitoringForRegion:cirRegion300];
+    
+    //保存地理围栏
+    [self.regions addObject:cirRegion200];
+    [self.regions addObject:cirRegion300];
+    
+    //添加Overlay
+    MACircle *circle200 = [MACircle circleWithCenterCoordinate:coordinate radius:200.0];
+    MACircle *circle300 = [MACircle circleWithCenterCoordinate:coordinate radius:300.0];
+    [self.mapView addOverlay:circle200];
+    [self.mapView addOverlay:circle300];
+    
+    [self.mapView setVisibleMapRect:circle300.boundingMapRect];
+}
+- (void)amapLocationManager:(AMapLocationManager *)manager didEnterRegion:(AMapLocationRegion *)region
+{
+    NSLog(@"进入公司区域:%@", region);
+    blog = NO;
+    [OMGToast showWithText:@"进入公司区域" bottomOffset:20 duration:0.5];
+    
+}
+
+- (void)amapLocationManager:(AMapLocationManager *)manager didExitRegion:(AMapLocationRegion *)region
+{
+    NSLog(@"走出公司区域:%@", region);
+    blog = YES;
+    [OMGToast showWithText:@"走出公司区域" bottomOffset:20 duration:0.5];
+}
 //权限判断
 -(NSDictionary *)authorityDic{
     NSString *authorityPath = [[NSBundle mainBundle]pathForResource:@"AuthorityDictionary.plist" ofType:nil];
