@@ -15,4 +15,5 @@
 @property (nonatomic, strong) AMapLocationManager *locationManager;
 @property (nonatomic, strong) MAMapView *mapView;
 
+
 @end

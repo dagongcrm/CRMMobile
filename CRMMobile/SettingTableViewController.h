@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LoginViewController.h"
 @interface SettingTableViewController : UITableViewController
-
+@property LoginViewController *login;
 @end

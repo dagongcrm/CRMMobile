@@ -4,6 +4,8 @@
 #import "HttpHelper.h"
 #import "GLReusableViewController.h"
 #import "MBProgressHUD+NJ.h"
+#import "getLocationUtil.h"
+#import "BaseUtil.h"
 //定位所需要的包
 #import "OMGToast.h"
 #import <MAMapKit/MAMapKit.h>
@@ -16,7 +18,8 @@
     long long expectedLength;
     long long currentLength;
     BOOL blog;
-}
+    float acc;
+    }
 
 @property (strong,nonatomic) NSMutableArray *authorityList;
 @property (weak, nonatomic) IBOutlet UIImageView *loginImg;
@@ -47,7 +50,6 @@
     //可以判断进来的设备的型号
     CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
     NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
-    NSLog(@"jjjdjdjdjdjdjdjjdjd");
     if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
         if (iosDeviceScreenSize.height==568) {
             //IPHONE5/5s/5c
@@ -68,6 +70,7 @@
              APPDELEGATE.deviceCode = @"4";
         }
     }
+ 
     //进行定位
    [self locationInit];
 }
@@ -123,7 +126,7 @@
             [ud setObject:accountField.text forKey:@"userName"];
             [ud setObject:passwdField.text  forKey:@"password"];
             [ud synchronize];
-            [self Location];
+             [self Location];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
             
@@ -139,6 +142,7 @@
             [alert show];
     }
 }
+
 //定位功能初始化
 -(void) locationInit{
     NSLog(@"地图初始化了");
@@ -146,78 +150,49 @@
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate=self;
     //设置一个目标经纬度
-    CLLocationCoordinate2D coodinate = CLLocationCoordinate2DMake(39.967370, 116.643153);
+    CLLocationCoordinate2D coodinate = CLLocationCoordinate2DMake(39.964818, 116.472973);
       __weak typeof(self) weakSelf = self;
     [weakSelf addCircleReionForCoordinate:coodinate];
    }
 
 //定位功能
 -(void)Location{
+    //给精度赋值
+    acc=[getLocationUtil getPositionAcc];
     //设置允许后台定位参数，保持不会被系统挂起
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     [self.locationManager setAllowsBackgroundLocationUpdates:YES];//iOS9(含)以上系统需设置
     //开始持续定位
     //设置定位精度
-    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+   [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     //定位频率,每隔多少米定位一次
-    CLLocationDistance distance=10.0;//十米定位一次
-//    _locationManager.distanceFilter=distance;
+    CLLocationDistance distance=acc;//十米定位一次
+     NSLog(@"abababababba-----%f",acc);
+    //    _locationManager.distanceFilter=distance;
     [self.locationManager setDistanceFilter:distance];
     //启动跟踪定位
     [self.locationManager startUpdatingLocation];
+     [OMGToast showWithText:@"开始定位" bottomOffset:20 duration:2];
    }
-
-//将NSDate 转换成 NSString(定位)
-- (NSString *)dateToString:(NSDate *)date{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *destDateString = [dateFormatter stringFromDate:date];
-    return destDateString;
-}
 
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location
 {
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
-    if(blog==YES){
-        [self chuanzhi:location];
-    }else{
-        NSLog(@"在公司区域");
+    if (location.horizontalAccuracy < 200 && location.horizontalAccuracy != -1){
+        if(blog==YES){
+//            [self chuanzhi:location];
+            [getLocationUtil chuanzhi:location];//往后台传值
+        }else{
+            NSLog(@"在公司区域");
+        }
+    } else {
+        [self.locationManager stopUpdatingLocation];	 //停止获取
+        [NSThread sleepForTimeInterval:10]; //阻塞10秒
+        [self.locationManager startUpdatingLocation];	//重新获取
     }
+    
 }
 
-//往后台传数据
-- (void)chuanzhi:(CLLocation *)location{
-        //业务处理
-            NSError *error;
-            AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-            NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-            NSString *userId = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"userId"];
-           // NSLog(@"location:%@", location);
-            CGFloat longitude=location.coordinate.longitude;
-            CGFloat latitude=location.coordinate.latitude;
-            NSString *time=[self dateToString:location.timestamp];
-            NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"locationAction!add.action?"]];
-    
-            NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-            request.timeoutInterval=10.0;
-            request.HTTPMethod=@"POST";
-            NSString *param=[NSString stringWithFormat:@"longitude=%f&latitude=%f&userID=%@&time=%@&MOBILE_SID=%@",longitude,latitude,userId,time,sid];
-            request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-            NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
-            if (error) {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-                [alert show];
-                NSLog(@"--------%@",error);
-            }else{
-                NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-                    [OMGToast showWithText:@"定位成功" bottomOffset:20 duration:0.5];
-                }else{
-                    [OMGToast showWithText:@"定位数据发送失败" bottomOffset:20 duration:0.5];
-                }
-            }
-}
 //地理围栏
 - (void)addCircleReionForCoordinate:(CLLocationCoordinate2D)coordinate
 {
@@ -291,6 +266,9 @@
     }
     return  auths;
 }
+
+
+
 
 
 -(NSString *) setroleauthority:(NSString *)authname  rolearrayforadd:(NSArray *)rolearraytoadd

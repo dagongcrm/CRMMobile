@@ -98,7 +98,8 @@
         [alertView show];
 
     }
-}
+ }
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -114,7 +115,12 @@
                 myDelegate.window.backgroundColor = [UIColor whiteColor];
                 [myDelegate.window makeKeyAndVisible];
 
+    }else if(buttonIndex == 1 && alertView.tag == 1015){
+        
+    }else if(buttonIndex == 1 && alertView.tag == 1016){
+    
     }
+    
 }
 
 //清理缓存

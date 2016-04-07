@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.15.6" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2011-06-12T15:19:14Z</time>
+    <bounds maxlat="39.92" maxlon="116.46" minlat="39.92" minlon="116.46"/>
+  </metadata>
+
+  <wpt lat="39.92" lon="116.46">
+    <ele>584.8432617</ele>
+    <name>北京</name>
+    <cmt>02-12-2003 11:18</cmt>
+    <desc>02-12-2003 11:18</desc>
+    <sym>Summit</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+  <wpt lat="39.964818" lon="116.472973">
+      <ele>584.8432617</ele>
+      <name>平谷</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="40.13" lon="117.1">
+      <ele>584.8432617</ele>
+      <name>平谷</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="40.37" lon="116.85">
+      <ele>584.8432617</ele>
+      <name>密云</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  <wpt lat="40.13" lon="116.65">
+      <ele>584.8432617</ele>
+      <name>顺义</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="39.92" lon="116.67">
+      <ele>584.8432617</ele>
+      <name>通县</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="40.32" lon="116.62">
+      <ele>584.8432617</ele>
+      <name>怀柔</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="39.73" lon="116.33">
+      <ele>584.8432617</ele>
+      <name>大兴</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="39.72" lon="115.98">
+      <ele>584.8432617</ele>
+      <name>房山</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="40.22" lon="116.2">
+      <ele>584.8432617</ele>
+      <name>昌平</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  
+  <wpt lat="40.47" lon="115.97">
+      <ele>584.8432617</ele>
+      <name>延庆</name>
+      <cmt>02-12-2003 11:18</cmt>
+      <desc>02-12-2003 11:18</desc>
+      <sym>Summit</sym>
+      <extensions>
+          <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+              <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+          </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+ 
+</gpx>
