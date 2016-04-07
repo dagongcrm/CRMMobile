@@ -20,13 +20,7 @@
 @synthesize locationManager=_locationManager;
 @synthesize mapView = _mapView;
 
-+(void) locationInit{
-    
-}
 
-+(void)Location{
-
-}
 //获取定位精度的参数
 +(float)getPositionAcc{
     NSError *error;
