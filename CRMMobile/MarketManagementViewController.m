@@ -38,8 +38,7 @@
     [super viewDidLoad];
     self.title=@"活动统计";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
-                                                         forBarMetrics:UIBarMetricsDefault];
+   
 
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 800);
     NSLog(@"1111111111111%f",SCREEN_WIDTH);

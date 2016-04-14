@@ -26,10 +26,8 @@
 @property (strong, nonatomic) NSMutableArray *time;
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
-
 @property (strong, nonatomic) NSMutableDictionary *uSubmitId;
 @property  NSInteger index;
-
 //@property (strong, nonatomic) NSMutableArray *yeWuZLBH;
 
 @end
@@ -44,7 +42,7 @@
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
         [self faker:@"1"];
-//        [self faker:@"2"];
+//      [self faker:@"2"];
         
     }
     return _fakeData;
@@ -53,7 +51,8 @@
     [super viewDidLoad];
     self.title=@"任务提交";
     [self setupRefresh];
-    [self leftButtonInit];
+//  [self leftButtonInit];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
 -(NSMutableArray *) faker: (NSString *) page{
@@ -88,10 +87,10 @@
         
         NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
         NSString *yeWuZLBH   = (NSString *)[listdic objectForKey:@"yeWuZLBH"];
-        [self.fakeData     addObject:teamname];
-        [self.time   addObject:time];
-        [self.dataing   addObject:userId];
-        [self.bianHao addObject:submitID];
+        [self.fakeData    addObject:teamname];
+        [self.time        addObject:time];
+        [self.dataing     addObject:userId];
+        [self.bianHao     addObject:submitID];
         //[self.yeWuZLBH addObject:yeWuZLBH];
     }
     [self submitIDReturn:self.bianHao];
@@ -152,22 +151,15 @@
 {
     return self.bianHao;
 }
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
+
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-        return [self.fakeData count];
+    return [self.fakeData count];
 }
 
 
@@ -183,46 +175,46 @@
     NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
     NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
     NSString *str =[testDetail stringByAppendingString:testDetail1];
-    NSLog(@"%@",str);
     [cell.detailTextLabel setText:str];
     [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
+
 - (IBAction)addFlow:(id)sender
 {
     addTaskViewController *la = [[addTaskViewController alloc] init];
       [self.navigationController pushViewController:la animated:YES];
 }
--(void) leftButtonInit{
-    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addFlow:)];
-    self.navigationItem.rightBarButtonItem = rightAdd;
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    
-}
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[WorkTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
+
+//-(void) leftButtonInit{
+//    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+//                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+//                                 target:self
+//                                 action:@selector(addFlow:)];
+//    self.navigationItem.rightBarButtonItem = rightAdd;
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                                                   target:nil action:nil];
+//    negativeSpacer.width = -5;
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    
+//}
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[WorkTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
 -(void) submitIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)submitID{
     _uSubmitId = [[NSMutableDictionary alloc] init];
     for(int i=0;i<[utestname count];i++)

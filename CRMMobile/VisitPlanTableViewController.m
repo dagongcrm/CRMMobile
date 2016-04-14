@@ -17,6 +17,7 @@
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
 #import "HttpHelper.h"
+#import "NStringUtil.h"
 
 @interface VisitPlanTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;  //拜访计划数组
@@ -115,11 +116,12 @@
             [self.uid addObject:listdic];
             NSString *teamname = (NSString *)[listdic objectForKey:@"customerNameStr"];//获取客户名称
             NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
-            NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
-            NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
+            NSString *teamname2 =[NStringUtil returnStringDepondOnStringLength:[listdic objectForKey:@"visitDate"]];
+            NSString *teamname3 =[NStringUtil returnStringDepondOnStringLength:[listdic objectForKey:@"respondent"]];
             if(teamname.length==0){   //若客户名称问null，将其赋值
                 teamname=@"没有数据";
             }
+           
             
             [self.customerCallPlanID     addObject:customerCallPlanID];
             [self.fakeData               addObject:teamname];

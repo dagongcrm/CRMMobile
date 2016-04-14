@@ -4,12 +4,12 @@
 //
 //  Created by 伍德友 on 16/4/7.
 //  Copyright (c) 2016年 dagong. All rights reserved.
-//
+///Users/gwb/Desktop/ioscrmDemo/CRMMobile/CRMMobile/LoginViewController.h
 
 #import "getLocationUtil.h"
 #import "AppDelegate.h"
 #import "config.h"
-#import "BaseUtil.h"
+#import "DateUtil.h"
 #import <MAMapKit/MAMapKit.h>
 #import "OMGToast.h"
 #import <AMapSearchKit/AMapSearchAPI.h>
@@ -48,7 +48,7 @@
     
     CGFloat longitude=location.coordinate.longitude;
     CGFloat latitude=location.coordinate.latitude;
-    NSString *time=[BaseUtil dateToString:location.timestamp];
+    NSString *time=[DateUtil dateToString:location.timestamp];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"locationAction!add.action?"]];
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];

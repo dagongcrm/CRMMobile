@@ -16,6 +16,7 @@
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "CustomerCallPlanDetailViewController.h"
 #import "AddCustomerCallPlanViewController.h"
+#import "NStringUtil.h"
 
 @interface CustomerCallPlanViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;  //拜访计划数组
@@ -132,14 +133,10 @@
         NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
         NSString *teamname2 = (NSString *)[listdic objectForKey:@"visitDate"];
         NSString *teamname3 = (NSString *)[listdic objectForKey:@"respondent"];
-        if(teamname.length==0){   //若客户名称问null，将其赋值
-            teamname=@"没有数据";
-        }
-        
         [self.customerCallPlanID     addObject:customerCallPlanID];
-        [self.fakeData     addObject:teamname];
-        [self.visitDate     addObject:teamname2];
-        [self.respondent    addObject:teamname3];
+        [self.fakeData      addObject:[NStringUtil returnStringDepondOnStringLength:teamname]];
+        [self.visitDate     addObject:[NStringUtil returnStringDepondOnStringLength:teamname2]];
+        [self.respondent    addObject:[NStringUtil returnStringDepondOnStringLength:teamname3]];
     }
     //    [self customerIDReturn:self.customerCallPlanID];
     }
@@ -147,10 +144,6 @@
 }
 
 
-//-(NSMutableArray *) customerIDReturn: (NSMutableArray *) uidArr
-//{
-//    return self.customerCallPlanID;
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

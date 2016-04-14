@@ -5,115 +5,82 @@
 #import "GLReusableViewController.h"
 #import "MBProgressHUD+NJ.h"
 #import "getLocationUtil.h"
-#import "BaseUtil.h"
-//定位所需要的包
+#import "DateUtil.h"
+#import "PhoneParameterUtil.h"
 #import "OMGToast.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapLocationKit/AMapLocationRegionObj.h>
-#define APIKey @"cdf41cce83fb64756ba13022997e5e74"//APIKey
+#define APIKey @"cdf41cce83fb64756ba13022997e5e74"
 
-@interface LoginViewController () <MBProgressHUDDelegate> {
+@interface LoginViewController () <MBProgressHUDDelegate,AMapLocationManagerDelegate> {
     MBProgressHUD *HUD;
     long long expectedLength;
     long long currentLength;
     BOOL blog;
     float acc;
-    }
-
+}
 @property (strong,nonatomic) NSMutableArray *authorityList;
-@property (weak, nonatomic) IBOutlet UIImageView *loginImg;
-@property (nonatomic, strong) NSMutableArray *regions;
+@property (weak,  nonatomic) IBOutlet UIImageView *loginImg;
+@property (strong,nonatomic) NSMutableArray *regions;
 @end
 
-
 @implementation LoginViewController
-@synthesize locationManager=_locationManager;
-@synthesize mapView = _mapView;
-@synthesize accountField;
-@synthesize passwdField;
 
-//ddd
+#pragma mark -lifeCycle
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     blog = YES;
-    UITapGestureRecognizer *tap =
-    [[UITapGestureRecognizer alloc]   initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-//     [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    accountField.placeholder    = @"用户名";
-    passwdField.placeholder     = @"密码";
-    passwdField.secureTextEntry = YES;
+    [super viewDidLoad];
+    [self setupUI];
     [self loadValue];
-    //可以判断进来的设备的型号
-    CGSize iosDeviceScreenSize = [UIScreen mainScreen].bounds.size;
-    NSLog(@"%f x %f",iosDeviceScreenSize.width,iosDeviceScreenSize.height);
-    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
-        if (iosDeviceScreenSize.height==568) {
-            //IPHONE5/5s/5c
-            NSLog(@"IPHONE5/5s/5c");
-            APPDELEGATE.deviceCode = @"5";
-        }else if(iosDeviceScreenSize.height==667){
-            //iphone6
-            NSLog(@"iphone 6");
-            APPDELEGATE.deviceCode = @"6";
-        }else if(iosDeviceScreenSize.height==736){
-            //iphone6plus
-            NSLog(@"iphone6plus");
-             APPDELEGATE.deviceCode = @"6p";
-            
-        }else{
-            //iphone 4等其他设备
-            NSLog(@"iphone 4等其他设备");
-             APPDELEGATE.deviceCode = @"4";
-        }
-    }
- 
-    //进行定位
-   [self locationInit];
+    [self setDeviceCode];
+    [self locationInit];
+}
+
+-(void) setDeviceCode{
+    NSString *deviceCode=[PhoneParameterUtil getPhoneModel];
+    APPDELEGATE.deviceCode=deviceCode;
+}
+
+-(void) setupUI{
+    UITapGestureRecognizer *tap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    //  [self.loginImg setImage:[UIImage imageNamed:@"login6p"]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.accountField.placeholder    = @"用户名";
+    self.passwdField.placeholder     = @"密码";
+    self.passwdField.secureTextEntry = YES;
 }
 
 -(void)dismissKeyboard {
-    [passwdField resignFirstResponder];
+    [self.passwdField resignFirstResponder];
 }
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
--(void)loadValue{
+- (void)loadValue{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     if([ud objectForKey:@"userName"]!=nil){
-        accountField.text = [ud objectForKey:@"userName"];
-        passwdField.text =  [ud objectForKey:@"password"];
+        self.accountField.text = [ud objectForKey:@"userName"];
+        self.passwdField.text =  [ud objectForKey:@"password"];
     }
 }
 
-
-//登录按钮事件
 - (IBAction)loginBtnClicked:(id)sender {
     [MBProgressHUD showMessage:@"加载中，请稍后" toView:self.view];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"muserAction!login.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=20.0;
+    request.timeoutInterval=5.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"loginName=%@&password=%@",accountField.text,passwdField.text];
+    NSString *param=[NSString stringWithFormat:@"loginName=%@&password=%@",self.accountField.text,self.passwdField.text];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     if(!error){
         NSDictionary *loginDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        APPDELEGATE.sessionInfo = loginDic;		
-        
+        APPDELEGATE.sessionInfo = loginDic;
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        if([[ud objectForKey:@"userName"] isEqualToString:accountField.text])
+        if([[ud objectForKey:@"userName"] isEqualToString:self.accountField.text])
         {
          APPDELEGATE.userChangeOrNot=@"nochange";
         }else{
@@ -123,8 +90,8 @@
         {
             APPDELEGATE.roleAuthority=[self authorityDic];
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-            [ud setObject:accountField.text forKey:@"userName"];
-            [ud setObject:passwdField.text  forKey:@"password"];
+            [ud setObject:self.accountField.text forKey:@"userName"];
+            [ud setObject:self.passwdField.text  forKey:@"password"];
             [ud synchronize];
              [self Location];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -142,6 +109,7 @@
             [alert show];
     }
 }
+
 
 //定位功能初始化
 -(void) locationInit{
@@ -220,6 +188,7 @@
     
     [self.mapView setVisibleMapRect:circle300.boundingMapRect];
 }
+
 - (void)amapLocationManager:(AMapLocationManager *)manager didEnterRegion:(AMapLocationRegion *)region
 {
     NSLog(@"进入公司区域:%@", region);
@@ -234,6 +203,7 @@
     blog = YES;
     [OMGToast showWithText:@"走出公司区域" bottomOffset:20 duration:0.5];
 }
+
 //权限判断
 -(NSDictionary *)authorityDic{
     NSString *authorityPath = [[NSBundle mainBundle]pathForResource:@"AuthorityDictionary.plist" ofType:nil];
@@ -266,9 +236,6 @@
     }
     return  auths;
 }
-
-
-
 
 
 -(NSString *) setroleauthority:(NSString *)authname  rolearrayforadd:(NSArray *)rolearraytoadd

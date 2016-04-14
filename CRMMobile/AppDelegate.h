@@ -10,20 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "options.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
-    NSDictionary  *sessionInfo;
-}
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property  NSString    *appUpdate;
 @property  NSString    *deviceCode;
-
-
-@property  (strong ,nonatomic) NSString  *controllerJudge;
-@property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) NSDictionary *sessionInfo;
-@property  NSInteger  index;
-@property  (strong ,nonatomic) options    *options;
-@property  NSInteger    *judge;
+@property  NSInteger   *judge;
 @property  NSString    *judgeSubmitID;
 @property  NSString    *accessMethod;
 @property  NSString    *submitName;
@@ -36,8 +26,13 @@
 @property  NSString    *genZongSFJE;
 @property  NSString    *lianxiFS;
 @property  NSString    *page;
-@property  (nonatomic,retain) NSMutableArray *indexPageForLoad;
-@property  (nonatomic,retain) NSDictionary   *roleAuthority;
-@property  (nonatomic,retain) NSString       *userChangeOrNot;
+@property  NSInteger   index;
+@property  (strong ,nonatomic) NSString       *controllerJudge;
+@property  (strong, nonatomic) UIWindow       *window;
+@property  (strong ,nonatomic) options        *options;
+@property  (nonatomic,retain)  NSDictionary   *sessionInfo;
+@property  (nonatomic,retain)  NSMutableArray *indexPageForLoad;
+@property  (nonatomic,retain)  NSDictionary   *roleAuthority;
+@property  (nonatomic,retain)  NSString       *userChangeOrNot;
 @end
 

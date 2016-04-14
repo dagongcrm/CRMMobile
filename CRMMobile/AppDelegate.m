@@ -8,22 +8,16 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "SDGridItemCacheTool.h"
 //#import <PgySDK/PgyManager.h>
 //#import <PgyUpdate/PgyUpdateManager.h>
 
 @implementation AppDelegate
-@synthesize sessionInfo;
-@synthesize index;
-@synthesize indexPageForLoad;
-@synthesize roleAuthority;
-@synthesize userChangeOrNot;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    //启动基本SDK
 //    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
 //    //启动更新检查SDK
 //    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
-    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [NSThread sleepForTimeInterval:1.0];
@@ -32,29 +26,21 @@
     self.window.rootViewController = loginViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    id itemsCache = [SDGridItemCacheTool itemsArray];
+    if (!itemsCache) {
+        NSArray *itemsArray =      @[@{@"客户档案"   : @"kehudangan"},
+                                     @{@"客户联系人" : @"kehulianxiren"},
+                                     @{@"拜访计划"   : @"baifangjihua"},
+                                     @{@"拜访纪录"   : @"baifangjilu"},
+                                     @{@"任务提交"   : @"renwutijiao"},
+                                     @{@"任务跟踪"   : @"renwugenzong"},
+                                     @{@"市场活动"   : @"shichanghuodong"},
+                                     @{@"活动统计"   : @"huodongtongji"},
+                                     @{@"工作日志"   : @"gongzuorizhi"},
+                                     @{@"更多"      : @"gengduo1"}
+                                     ];
+        [SDGridItemCacheTool saveItemsArray:itemsArray];    
+}
     return YES;
 }
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end

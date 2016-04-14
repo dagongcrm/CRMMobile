@@ -18,34 +18,21 @@
 
 
 @interface CustomerCallPlanDetailViewController ()
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-
-@property (weak, nonatomic) IBOutlet UITextView *mainContent;
-
-
-@property (weak, nonatomic) IBOutlet UITextField *customerName;
-
-
-@property (weak, nonatomic) IBOutlet UITextView *theme;
-
-@property (weak, nonatomic) IBOutlet UITextField *accessMethodStr;   //访问方式
-
-@property (weak, nonatomic) IBOutlet UITextField *respondentPhone;   //受访人电话
-
-@property (weak, nonatomic) IBOutlet UITextField *respondent;   //受访人员
-
-@property (weak, nonatomic) IBOutlet UITextView *address;
+@property (weak,   nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak,   nonatomic) IBOutlet UITextView *mainContent;
+@property (weak,   nonatomic) IBOutlet UITextField *customerName;
+@property (weak,   nonatomic) IBOutlet UITextView *theme;
+@property (weak,   nonatomic) IBOutlet UITextField *accessMethodStr;   //访问方式
+@property (weak,   nonatomic) IBOutlet UITextField *respondentPhone;   //受访人电话
+@property (weak,   nonatomic) IBOutlet UITextField *respondent;   //受访人员
+@property (weak,   nonatomic) IBOutlet UITextView *address;
 @property (strong, nonatomic) IBOutlet UITextView *visitProfile;
 @property (strong, nonatomic) IBOutlet UITextView *result;
 @property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
 @property (strong, nonatomic) IBOutlet UITextView *customerChange;
-
-@property (weak, nonatomic) IBOutlet UITextField *visitDate;   //拜访时间
-
-@property (weak, nonatomic) IBOutlet UITextField *visitorAttributionStr; //拜访人归属
-
-@property (weak, nonatomic) IBOutlet UITextField *baiFangRen;  //拜访人
+@property (weak,   nonatomic) IBOutlet UITextField *visitDate;   //拜访时间
+@property (weak,   nonatomic) IBOutlet UITextField *visitorAttributionStr; //拜访人归属
+@property (weak,   nonatomic) IBOutlet UITextField *baiFangRen;  //拜访人
 
 - (IBAction)addCallRecords:(id)sender;
 - (IBAction)edit:(id)sender;
