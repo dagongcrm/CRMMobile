@@ -75,7 +75,6 @@
 		39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */; };
 		39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */; };
 		39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */; };
-		39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F1F1721BE34F1700EA3133 /* libPods.a */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		39F797161C05CC50000D9A20 /* CustomerContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797081C05CC50000D9A20 /* CustomerContactListViewController.m */; };
 		39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797091C05CC50000D9A20 /* CustomerContactListViewController.xib */; };
@@ -427,7 +426,6 @@
 		39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
 		39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
 		39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
-		39F1F1721BE34F1700EA3133 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		39F797071C05CC50000D9A20 /* CustomerContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerContactListViewController.h; sourceTree = "<group>"; };
@@ -738,7 +736,6 @@
 		C0E4CD731CBCE2B100F7B2E0 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		C0E4CD781CBCE2CE00F7B2E0 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		C0E4CD791CBCE2CE00F7B2E0 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
-		C0E4CD7D1CBCECA900F7B2E0 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = ../AMapLocationKit.framework; sourceTree = "<group>"; };
 		C0E4CD8C1CBD066500F7B2E0 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		C0EB5C951CBDDE8A00AED5FD /* i01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i01.png; sourceTree = "<group>"; };
 		C0EB5C971CBDFB3300AED5FD /* kehudangan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kehudangan.png; sourceTree = "<group>"; };
@@ -791,7 +788,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E4CD8D1CBD066500F7B2E0 /* AMapLocationKit.framework in Frameworks */,
-				39F1F1731BE34F1700EA3133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,8 +1111,6 @@
 			isa = PBXGroup;
 			children = (
 				C0E4CD8C1CBD066500F7B2E0 /* AMapLocationKit.framework */,
-				C0E4CD7D1CBCECA900F7B2E0 /* AMapLocationKit.framework */,
-				39F1F1721BE34F1700EA3133 /* libPods.a */,
 				82C7E133320381C359BF81B5 /* libPods.a */,
 			);
 			name = Frameworks;
