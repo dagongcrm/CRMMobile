@@ -7,10 +7,7 @@
 //
 
 #import "selectEntity.h"
-
 @implementation selectEntity
-
-@synthesize strChoose= _strChoose ;
-@synthesize roleIdChoose= _roleIdChoose ;
-
+@synthesize strChoose= _strChoose;
+@synthesize roleIdChoose= _roleIdChoose;
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "CustomerInfermationDetailMessageEntity.h"
-
-
 @implementation CustomerInfermationDetailMessageEntity
 @synthesize customerID=_customerID;
 @synthesize customerName=_customerName;

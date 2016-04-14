@@ -16,26 +16,23 @@
 #import "UIImage+Tint.h"
 #import "CRMTableViewController.h"
 @interface CustomerInformationTableViewController ()
-
 @property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
 @property (strong, nonatomic) NSMutableArray *customerID;   //客户id数组
 @property (strong, nonatomic) NSMutableArray *industryIDStr;  //所属行业数组
-
 @property (strong, nonatomic) NSMutableArray *uid;
-@property  NSInteger index;
-@property (strong, nonatomic) NSMutableDictionary *uCustomerId;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
+@property (strong, nonatomic) NSMutableDictionary *uCustomerId;
+@property  NSInteger index;
 @end
 
 @implementation CustomerInformationTableViewController
-@synthesize CRMListData;
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
         self.fakeData   = [NSMutableArray array];
         self.customerID = [NSMutableArray array];
         [self faker:@"1"];
-//        [self faker:@"2"];
+//      [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -45,44 +42,44 @@
     [super viewDidLoad];
     self.title=@"客户档案管理";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self setupRefresh];    //上拉刷新下拉加在方法
+    [self setupRefresh];
     self.uid=[NSMutableArray array];
-    //添加图标
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
                                  action:@selector(addCustomerInfomation:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
     
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                                                   target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[CRMTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
+
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[CRMTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-   
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!datagrid.action?"]];
@@ -95,18 +92,13 @@
     if (error) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
-        NSLog(@"--------%@",error);
     }else{
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
-        if(![list count] ==0)
-        {
-            
-             self.tableView.footerRefreshingText=@"加载中";
-        }else
-        {
-           self.tableView.footerRefreshingText = @"没有更多数据";
+        if(![list count] ==0){
+            self.tableView.footerRefreshingText=@"加载中";
+        }else{
+            self.tableView.footerRefreshingText = @"没有更多数据";
         }
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
@@ -114,8 +106,6 @@
         NSString *teamname = (NSString *)[listdic objectForKey:@"customerName"];//获取客户名称
         NSString *customerID=(NSString *)[listdic objectForKey:@"customerID"];//获取客户id
         NSString *industryIDStr=(NSString *)[listdic objectForKey:@"industryIDStr"];  //所属行业
-        
-        
         [self.customerID     addObject:customerID];
         [self.fakeData     addObject:teamname];
         [self.industryIDStr addObject:industryIDStr];
@@ -129,11 +119,7 @@
 {
     return self.customerID;
 }
-/////
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 -(void)setExtraCellLineHidden: (UITableView *)tableView
 {
@@ -143,15 +129,13 @@
 }
 
 
-#pragma mark - Table view data source
+#pragma mark -Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return [self.fakeData count];
 }
 
@@ -200,7 +184,6 @@
         self.index++;
     }
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    NSLog(@"%@************",p);
     [self faker:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -260,10 +243,8 @@
     }else
     {
         NSDictionary *nc =[self singleCustomerInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
-        
         NSString *customerName  =(NSString *) [nc objectForKey:@"customerName"];
-         NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
-        
+        NSString *customerID  =(NSString *) [nc objectForKey:@"customerID"];
         CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
         [udetail setCustomerName:customerName];
         [udetail setCustomerID:customerID];
@@ -273,6 +254,7 @@
         
     }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
         return 50;
@@ -281,7 +263,6 @@
     }
 }
 
-// delcare id and index
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
     _uCustomerId = [[NSMutableDictionary alloc] init];
     for(int i=0;i<[utestname count];i++)
@@ -290,9 +271,7 @@
     }
 }
 
-// get a single user all message
 -(NSDictionary *) singleCustomerInfo :(NSString *) customerIDIn{
-    
     for (int z = 0; z<[self.uid count]; z++) {
         NSDictionary *listdic = [self.uid objectAtIndex:z];
         NSString     *customerID  = (NSString *)[listdic objectForKey:@"customerID"];
@@ -311,8 +290,5 @@
     [self.navigationController pushViewController: jumpController animated:true];
     
 }
-
-
-
 
 @end

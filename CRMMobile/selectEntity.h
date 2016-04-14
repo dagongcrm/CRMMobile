@@ -8,12 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface selectEntity : NSObject{
-    
-    
-}
-
+@interface selectEntity : NSObject
 @property ( nonatomic , retain ) NSString *strChoose;
 @property ( nonatomic , retain ) NSString *roleIdChoose;
-
 @end

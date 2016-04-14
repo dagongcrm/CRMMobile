@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomerInformationTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>{
-    NSArray *CRMListData;
-}
+@interface CustomerInformationTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain) NSArray *CRMListData;
-
 @end

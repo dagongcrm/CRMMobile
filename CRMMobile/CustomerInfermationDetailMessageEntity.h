@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomerInfermationDetailMessageEntity : NSObject{
-}
-
+@interface CustomerInfermationDetailMessageEntity : NSObject
 @property (strong,nonatomic) NSString *customerID;
 @property (strong,nonatomic) NSString *customerName;
 @property (strong,nonatomic) NSString *industryIDStr;
@@ -27,6 +25,4 @@
 @property (strong,nonatomic) NSString *receptionPersonnel;
 @property (strong,nonatomic) NSString *createTime;
 @property (strong,nonatomic) NSString *customerMasterPrincipal;
-
-
 @end
