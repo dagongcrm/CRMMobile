@@ -307,6 +307,8 @@
 		C0EC6C631CBCD891004AF08B /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EC6C621CBCD891004AF08B /* SDCycleScrollView.m */; };
 		C0EC6C661CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EC6C651CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.m */; };
 		C0FF4DBE1CBC854700F430A1 /* NStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4DBD1CBC854700F430A1 /* NStringUtil.m */; };
+		C0FFFD141CBF9AA300CF10CF /* daiban.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FFFD121CBF9AA300CF10CF /* daiban.png */; };
+		C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FFFD131CBF9AA300CF10CF /* xiaoxi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -779,6 +781,8 @@
 		C0EC6C651CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHomeGridViewListItemViewButton.m; sourceTree = "<group>"; };
 		C0FF4DBC1CBC854700F430A1 /* NStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NStringUtil.h; sourceTree = "<group>"; };
 		C0FF4DBD1CBC854700F430A1 /* NStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NStringUtil.m; sourceTree = "<group>"; };
+		C0FFFD121CBF9AA300CF10CF /* daiban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daiban.png; sourceTree = "<group>"; };
+		C0FFFD131CBF9AA300CF10CF /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		CD134ED4DFD99B2775F88026 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1676,6 +1680,8 @@
 		C0EB5C941CBDDD9E00AED5FD /* host */ = {
 			isa = PBXGroup;
 			children = (
+				C0FFFD121CBF9AA300CF10CF /* daiban.png */,
+				C0FFFD131CBF9AA300CF10CF /* xiaoxi.png */,
 				C0EB5CAB1CBE1A7C00AED5FD /* gengduo1.png */,
 				C0EB5CA91CBDFBF700AED5FD /* gengduo.png */,
 				C0EB5CA71CBDFBEF00AED5FD /* gongzuorizhi.png */,
@@ -1924,8 +1930,6 @@
 			children = (
 				C0E4CD781CBCE2CE00F7B2E0 /* NSData+SDDataCache.h */,
 				C0E4CD791CBCE2CE00F7B2E0 /* NSData+SDDataCache.m */,
-				C0EC6C471CBCD651004AF08B /* UIView+SDExtension.h */,
-				C0EC6C481CBCD651004AF08B /* UIView+SDExtension.m */,
 				B851F0DB1C1EDCB50047CF39 /* toast */,
 				C0E013161C0C2D88006BBF97 /* Http */,
 				96332E941BFF32B200BBEB85 /* Entity */,
@@ -2013,13 +2017,8 @@
 		C0EC6C4A1CBCD671004AF08B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0E4CD6B1CBCE29B00F7B2E0 /* PageControl */,
-				C0E4CD681CBCE0D800F7B2E0 /* SDCollectionViewCell.h */,
-				C0E4CD691CBCE0D800F7B2E0 /* SDCollectionViewCell.m */,
 				C0EC6C641CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.h */,
 				C0EC6C651CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.m */,
-				C0EC6C611CBCD891004AF08B /* SDCycleScrollView.h */,
-				C0EC6C621CBCD891004AF08B /* SDCycleScrollView.m */,
 				C0EC6C5E1CBCD869004AF08B /* SDAddItemGridView.h */,
 				C0EC6C5F1CBCD869004AF08B /* SDAddItemGridView.m */,
 				C0EC6C4B1CBCD682004AF08B /* SDHomeGridView.h */,
@@ -2042,6 +2041,7 @@
 		C0FF4DBB1CBC852200F430A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0FFFD111CBF7C5100CF10CF /* SDCycleScrollView */,
 				1FEF62071C16ABBF00E6F4BF /* PNChart */,
 				02085F961C1FC1B20086F765 /* SCLAlertView */,
 				96E312451BEB538F00A1A3FF /* MJRefresh */,
@@ -2049,6 +2049,20 @@
 				3930D5C71C22CF5E00D3C25E /* MBProgressHUD */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		C0FFFD111CBF7C5100CF10CF /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4CD6B1CBCE29B00F7B2E0 /* PageControl */,
+				C0EC6C471CBCD651004AF08B /* UIView+SDExtension.h */,
+				C0EC6C481CBCD651004AF08B /* UIView+SDExtension.m */,
+				C0E4CD681CBCE0D800F7B2E0 /* SDCollectionViewCell.h */,
+				C0E4CD691CBCE0D800F7B2E0 /* SDCollectionViewCell.m */,
+				C0EC6C611CBCD891004AF08B /* SDCycleScrollView.h */,
+				C0EC6C621CBCD891004AF08B /* SDCycleScrollView.m */,
+			);
+			name = SDCycleScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2172,6 +2186,7 @@
 				9604F49D1C1AC8D90074B1A5 /* op-2.png in Resources */,
 				C0EB5CA21CBDFBC100AED5FD /* renwutijiao.png in Resources */,
 				B8EDAD711C19366300865E7C /* noticeDetailViewController.xib in Resources */,
+				C0FFFD141CBF9AA300CF10CF /* daiban.png in Resources */,
 				39F7980C1C05D15A000D9A20 /* MonthTableViewController.xib in Resources */,
 				1FEF624A1C16AE0900E6F4BF /* MeMainTableViewController.xib in Resources */,
 				9604F49A1C1AC8D90074B1A5 /* op-3.png in Resources */,
@@ -2271,6 +2286,7 @@
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
+				C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				C0EB5CAA1CBDFBF700AED5FD /* gengduo.png in Resources */,

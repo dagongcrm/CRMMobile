@@ -102,6 +102,7 @@ NSString * const ID = @"cycleCell";
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     _flowLayout = flowLayout;
     
+    
     UICollectionView *mainView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:flowLayout];
     mainView.backgroundColor = [UIColor clearColor];
     mainView.pagingEnabled = YES;
@@ -110,7 +111,10 @@ NSString * const ID = @"cycleCell";
     [mainView registerClass:[SDCollectionViewCell class] forCellWithReuseIdentifier:ID];
     mainView.dataSource = self;
     mainView.delegate = self;
+    
+    
     [self addSubview:mainView];
+    
     _mainView = mainView;
 }
 
