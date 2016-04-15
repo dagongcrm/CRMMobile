@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-2906" y="712"/>
         </scene>
-        <!--消息-->
+        <!--通讯录-->
         <scene sceneID="fYv-MV-a3L">
             <objects>
-                <tableViewController id="5Ql-WS-nqv" customClass="NotificationTableViewController" sceneMemberID="viewController">
+                <tableViewController id="5Ql-WS-nqv" userLabel="通讯录" customClass="NotificationTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vSz-7x-uvV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,12 +72,31 @@
                             <outlet property="delegate" destination="5Ql-WS-nqv" id="t0n-Zv-Pk4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="消息" id="wS2-Jz-3LN"/>
+                    <navigationItem key="navigationItem" title="消息" id="wS2-Jz-3LN" userLabel="通讯录"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMC-FX-4kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-118" y="-138"/>
+        </scene>
+        <!--Market View Controller-->
+        <scene sceneID="kNj-OH-RnN">
+            <objects>
+                <viewController id="XgV-Pq-IjC" customClass="MarketViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LIO-Dk-o3h"/>
+                        <viewControllerLayoutGuide type="bottom" id="gpU-On-Wge"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yW5-on-1FT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ea4-ka-0Vp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nvd-PS-Ei2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368" y="657"/>
         </scene>
         <!--CRM-->
         <scene sceneID="h3U-nh-CIN">
@@ -110,7 +129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbj-tT-kWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="654"/>
+            <point key="canvasLocation" x="85.5" y="656.5"/>
         </scene>
         <!--办公-->
         <scene sceneID="3Tu-ad-GaB">
@@ -143,7 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moc-nV-qxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="1414"/>
+            <point key="canvasLocation" x="-132.5" y="1355.5"/>
         </scene>
         <!--办公-->
         <scene sceneID="r2l-PZ-Kv3">
@@ -164,11 +183,11 @@
             </objects>
             <point key="canvasLocation" x="-934" y="1414"/>
         </scene>
-        <!--CRM-->
+        <!--市场-->
         <scene sceneID="Et2-9j-RB2">
             <objects>
                 <navigationController id="l07-cw-yDb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CRM" image="crm" id="bii-Ay-VEJ"/>
+                    <tabBarItem key="tabBarItem" title="市场" image="crm" id="bii-Ay-VEJ" userLabel="市场"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RDb-e5-Tja">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -176,18 +195,18 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sAM-Lt-Djf" kind="relationship" relationship="rootViewController" id="mUN-i6-2yu"/>
+                        <segue destination="XgV-Pq-IjC" kind="relationship" relationship="rootViewController" id="dzi-lN-gmf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QQ-4S-7U6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-918.5" y="690.5"/>
         </scene>
-        <!--消息-->
+        <!--通讯录-->
         <scene sceneID="e39-qO-xnq">
             <objects>
-                <navigationController id="hVw-SK-LtX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" image="notice" id="Hm0-6z-R38"/>
+                <navigationController id="hVw-SK-LtX" userLabel="通讯录" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="通讯录" image="notice" id="Hm0-6z-R38" userLabel="通讯录"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="efx-yU-CQq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

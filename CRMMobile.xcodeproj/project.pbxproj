@@ -280,6 +280,8 @@
 		C0E4CD771CBCE2B100F7B2E0 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4CD731CBCE2B100F7B2E0 /* TAPageControl.m */; };
 		C0E4CD7A1CBCE2CE00F7B2E0 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4CD791CBCE2CE00F7B2E0 /* NSData+SDDataCache.m */; };
 		C0E4CD8D1CBD066500F7B2E0 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E4CD8C1CBD066500F7B2E0 /* AMapLocationKit.framework */; };
+		C0E7BB401CC0D9D100A51B66 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7BB3F1CC0D9D100A51B66 /* HMSegmentedControl.m */; };
+		C0E7BB431CC0DA7800A51B66 /* MarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7BB421CC0DA7800A51B66 /* MarketViewController.m */; };
 		C0EB5C961CBDDE8A00AED5FD /* i01.png in Resources */ = {isa = PBXBuildFile; fileRef = C0EB5C951CBDDE8A00AED5FD /* i01.png */; };
 		C0EB5C981CBDFB3300AED5FD /* kehudangan.png in Resources */ = {isa = PBXBuildFile; fileRef = C0EB5C971CBDFB3300AED5FD /* kehudangan.png */; };
 		C0EB5C9A1CBDFB7100AED5FD /* kehulianxiren.png in Resources */ = {isa = PBXBuildFile; fileRef = C0EB5C991CBDFB7100AED5FD /* kehulianxiren.png */; };
@@ -739,6 +741,10 @@
 		C0E4CD781CBCE2CE00F7B2E0 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		C0E4CD791CBCE2CE00F7B2E0 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		C0E4CD8C1CBD066500F7B2E0 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		C0E7BB3E1CC0D9D100A51B66 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		C0E7BB3F1CC0D9D100A51B66 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		C0E7BB411CC0DA7800A51B66 /* MarketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketViewController.h; sourceTree = "<group>"; };
+		C0E7BB421CC0DA7800A51B66 /* MarketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketViewController.m; sourceTree = "<group>"; };
 		C0EB5C951CBDDE8A00AED5FD /* i01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i01.png; sourceTree = "<group>"; };
 		C0EB5C971CBDFB3300AED5FD /* kehudangan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kehudangan.png; sourceTree = "<group>"; };
 		C0EB5C991CBDFB7100AED5FD /* kehulianxiren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kehulianxiren.png; sourceTree = "<group>"; };
@@ -992,7 +998,7 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		39E8765F1C02FF0B00BF6808 /* CRM */ = {
+		39E8765F1C02FF0B00BF6808 /* CRM-old */ = {
 			isa = PBXGroup;
 			children = (
 				1FEF62521C16AE9E00E6F4BF /* saleLeads */,
@@ -1003,7 +1009,7 @@
 				C0EB5CB11CBE2D5800AED5FD /* customerContact */,
 				C0EB5CB01CBE2D0A00AED5FD /* customerRecord */,
 			);
-			name = CRM;
+			name = "CRM-old";
 			sourceTree = "<group>";
 		};
 		39E8767D1C03036E00BF6808 /* customerCallPlan */ = {
@@ -1206,12 +1212,13 @@
 		9678AEE11BEB70CA00E5B50E /* CRMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				C0E7BB3C1CC0D95F00A51B66 /* Market */,
 				C0D569371BD9B74700860B33 /* Options */,
 				C0D569361BD9B73700860B33 /* Work */,
 				C0D569341BD9B71800860B33 /* Notification */,
 				C0EC6C3E1CBCD1BB004AF08B /* Home */,
 				C0EC6C3B1CBC9F65004AF08B /* Host */,
-				39E8765F1C02FF0B00BF6808 /* CRM */,
+				39E8765F1C02FF0B00BF6808 /* CRM-old */,
 			);
 			name = CRMAPP;
 			sourceTree = "<group>";
@@ -1625,6 +1632,32 @@
 				C0E4CD731CBCE2B100F7B2E0 /* TAPageControl.m */,
 			);
 			name = PageControl;
+			sourceTree = "<group>";
+		};
+		C0E7BB3C1CC0D95F00A51B66 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7BB441CC0E93800A51B66 /* Controller */,
+			);
+			name = Market;
+			sourceTree = "<group>";
+		};
+		C0E7BB3D1CC0D9BF00A51B66 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7BB3E1CC0D9D100A51B66 /* HMSegmentedControl.h */,
+				C0E7BB3F1CC0D9D100A51B66 /* HMSegmentedControl.m */,
+			);
+			name = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		C0E7BB441CC0E93800A51B66 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7BB411CC0DA7800A51B66 /* MarketViewController.h */,
+				C0E7BB421CC0DA7800A51B66 /* MarketViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		C0EB5C911CBDD5D100AED5FD /* Controller */ = {
@@ -2041,6 +2074,7 @@
 		C0FF4DBB1CBC852200F430A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0E7BB3D1CC0D9BF00A51B66 /* HMSegmentedControl */,
 				C0FFFD111CBF7C5100CF10CF /* SDCycleScrollView */,
 				1FEF62071C16ABBF00E6F4BF /* PNChart */,
 				02085F961C1FC1B20086F765 /* SCLAlertView */,
@@ -2464,6 +2498,7 @@
 				39F797EF1C05D138000D9A20 /* TaskReportDailyEntity.m in Sources */,
 				B8EDAD551C1933EC00865E7C /* CustomerCallPlanDetailViewController.m in Sources */,
 				C0E4CD751CBCE2B100F7B2E0 /* TAAnimatedDotView.m in Sources */,
+				C0E7BB401CC0D9D100A51B66 /* HMSegmentedControl.m in Sources */,
 				B8EDAD701C19366300865E7C /* noticeDetailViewController.m in Sources */,
 				1FEF622D1C16AD8D00E6F4BF /* OptionsTableViewController.m in Sources */,
 				1FEF62361C16AD9F00E6F4BF /* XGViewController.m in Sources */,
@@ -2483,6 +2518,7 @@
 				96E3125A1BEB53BA00A1A3FF /* MJRefreshConst.m in Sources */,
 				39F7985D1C05D32A000D9A20 /* VisitPlanNsObj.m in Sources */,
 				39F798801C05D365000D9A20 /* RecordsDetalViewController.m in Sources */,
+				C0E7BB431CC0DA7800A51B66 /* MarketViewController.m in Sources */,
 				39F797BB1C05D0E7000D9A20 /* auditTableViewController.m in Sources */,
 				1FEF62291C16AD8D00E6F4BF /* GuanyuViewController.m in Sources */,
 				39F797B31C05D0DF000D9A20 /* trackingTableViewController.m in Sources */,
