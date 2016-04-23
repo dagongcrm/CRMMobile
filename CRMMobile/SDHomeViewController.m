@@ -17,7 +17,7 @@
 #import "MarketManagementViewController.h"
 #import "TaskReportTableViewController.h"
 #import "SDCycleScrollView.h"
-
+#import "VisitPlanTableViewController.h"
 
 #define kHomeHeaderViewHeight 110
 
@@ -39,7 +39,7 @@
     self.navigationController.navigationBar.barTintColor = NAVBLUECOLOR;
     self.destionClassArray=@[[CustomerInformationTableViewController class],
                              [CustomercontactTableViewController class],
-                             [CustomerCallPlanDetailViewController class],
+                             [VisitPlanTableViewController class],
                              [TaskRecordsTableViewController class],
                              [SubmitTableViewController class],
                              [trackingTableViewController class],
