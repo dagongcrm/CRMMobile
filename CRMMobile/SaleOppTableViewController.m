@@ -14,7 +14,7 @@
 #import "SaleOppEntity.h"
 #import "DetailSaleOppViewController.h"
 #import "EntityHelper.h"
-
+#import "marketChanceCell.h"
 @interface SaleOppTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *entities;
@@ -61,6 +61,7 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
+        NSLog(@"listDD===>>%@",listDic);
         SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
         [self.entities addObject:saleOpp];
@@ -167,32 +168,78 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    static NSString *cellId = @"mycell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    }
+//    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+//
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
+//    if (detail ==nil) {
+//        detail=@"暂无";
+//    }
+//     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
+//    [cell.detailTextLabel setText:detailText];
+//    
+//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    static NSString *cellId = @"marketChance";
+    marketChanceCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell==nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"marketChanceCell" owner:self options:nil] lastObject];
     }
-    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    SaleOppEntity *saleOpp = [self.entities objectAtIndex:indexPath.row];
+    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.qiyeMc.text = saleOpp.customerNameStr;
+    cell.lianxiR.text = [@"联系人：" stringByAppendingString:saleOpp.contact];
+    NSString * succ = saleOpp.successProbability;
+    int intString = [succ intValue];
     
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-    if (detail ==nil) {
-        detail=@"暂无";
+    if (intString>=50) {
+         cell.successP.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
+         cell.successP.text = [saleOpp.successProbability stringByAppendingString:@"%"];
+        
+    }else{
+        if ([self isBlankString:saleOpp.successProbability]) {
+            cell.successP.text =@"暂无";
+        }else{
+         cell.successP.textColor = [UIColor redColor];
+         cell.successP.text = [saleOpp.successProbability stringByAppendingString:@"%"];
+        }
     }
-     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
-    [cell.detailTextLabel setText:detailText];
-    
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    if ([saleOpp.oppStateStr isEqualToString:@"活跃"]) {
+        cell.type.textColor = [UIColor redColor];
+          cell.type.text = saleOpp.oppStateStr;
+    }else{
+           cell.type.text = saleOpp.oppStateStr;
+    }
+  
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
+#pragma 判断字符串是否为空
+- (BOOL) isBlankString:(NSString *)string {
+    if (string == nil || string == NULL) {
+        return YES;
     }
+    if ([string isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+        return YES;
+    }
+    return NO;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
 }
 
 

@@ -12,6 +12,12 @@
 		02085FA01C1FC1D60086F765 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9A1C1FC1D60086F765 /* SCLButton.m */; };
 		02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */; };
 		02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */; };
+		020AE62E1CCDEC8E00B764CB /* marketChanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AE62C1CCDEC8E00B764CB /* marketChanceCell.m */; };
+		020AE62F1CCDEC8E00B764CB /* marketChanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020AE62D1CCDEC8E00B764CB /* marketChanceCell.xib */; };
+		020AE6331CCE1E8700B764CB /* taskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AE6311CCE1E8700B764CB /* taskCell.m */; };
+		020AE6341CCE1E8700B764CB /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020AE6321CCE1E8700B764CB /* taskCell.xib */; };
+		020AE6381CCE2D7800B764CB /* trackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AE6361CCE2D7800B764CB /* trackCell.m */; };
+		020AE6391CCE2D7800B764CB /* trackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020AE6371CCE2D7800B764CB /* trackCell.xib */; };
 		0210C0461CC9C2E9006DA64E /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0210C0451CC9C2E9006DA64E /* OptionsViewController.m */; };
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
@@ -343,6 +349,15 @@
 		02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
 		02085F9D1C1FC1D60086F765 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
 		02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		020AE62B1CCDEC8E00B764CB /* marketChanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marketChanceCell.h; sourceTree = "<group>"; };
+		020AE62C1CCDEC8E00B764CB /* marketChanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = marketChanceCell.m; sourceTree = "<group>"; };
+		020AE62D1CCDEC8E00B764CB /* marketChanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = marketChanceCell.xib; sourceTree = "<group>"; };
+		020AE6301CCE1E8700B764CB /* taskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskCell.h; sourceTree = "<group>"; };
+		020AE6311CCE1E8700B764CB /* taskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskCell.m; sourceTree = "<group>"; };
+		020AE6321CCE1E8700B764CB /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
+		020AE6351CCE2D7800B764CB /* trackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trackCell.h; sourceTree = "<group>"; };
+		020AE6361CCE2D7800B764CB /* trackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trackCell.m; sourceTree = "<group>"; };
+		020AE6371CCE2D7800B764CB /* trackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trackCell.xib; sourceTree = "<group>"; };
 		0210C0441CC9C2E9006DA64E /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		0210C0451CC9C2E9006DA64E /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		027B7C3D1C202F8200C02991 /* login6p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login6p.png; sourceTree = "<group>"; };
@@ -854,6 +869,21 @@
 			name = SCLAlertView;
 			sourceTree = "<group>";
 		};
+		020AE6291CCDEC2600B764CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				020AE62D1CCDEC8E00B764CB /* marketChanceCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		020AE62A1CCDEC3800B764CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		02F5BB621CC230D00034B8C6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +937,9 @@
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
+				020AE6351CCE2D7800B764CB /* trackCell.h */,
+				020AE6361CCE2D7800B764CB /* trackCell.m */,
+				020AE6371CCE2D7800B764CB /* trackCell.xib */,
 				39E729E11C0697A50050D77F /* editTaskViewController.h */,
 				39E729E21C0697A50050D77F /* editTaskViewController.m */,
 				39E729E31C0697A50050D77F /* editTaskViewController.xib */,
@@ -921,6 +954,9 @@
 				39E729EC1C0697A50050D77F /* options.h */,
 				39E729ED1C0697A50050D77F /* options.m */,
 				39E876A01C03087F00BF6808 /* Entity */,
+				020AE6301CCE1E8700B764CB /* taskCell.h */,
+				020AE6311CCE1E8700B764CB /* taskCell.m */,
+				020AE6321CCE1E8700B764CB /* taskCell.xib */,
 			);
 			name = submit;
 			sourceTree = "<group>";
@@ -1712,6 +1748,8 @@
 		C0E7BB3C1CC0D95F00A51B66 /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				020AE62A1CCDEC3800B764CB /* Model */,
+				020AE6291CCDEC2600B764CB /* View */,
 				C0E7BB441CC0E93800A51B66 /* Controller */,
 			);
 			name = Market;
@@ -1729,6 +1767,8 @@
 		C0E7BB441CC0E93800A51B66 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				020AE62B1CCDEC8E00B764CB /* marketChanceCell.h */,
+				020AE62C1CCDEC8E00B764CB /* marketChanceCell.m */,
 				C0E7BB411CC0DA7800A51B66 /* MarketViewController.h */,
 				C0E7BB421CC0DA7800A51B66 /* MarketViewController.m */,
 			);
@@ -2293,6 +2333,7 @@
 				1FEF628B1C16B40E00E6F4BF /* loginLogo1.jpg in Resources */,
 				9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */,
 				39F797FA1C05D147000D9A20 /* WeekTableViewController.xib in Resources */,
+				020AE6391CCE2D7800B764CB /* trackCell.xib in Resources */,
 				39F7973A1C05CCE4000D9A20 /* DetailSaleOppViewController.xib in Resources */,
 				9604F49D1C1AC8D90074B1A5 /* op-2.png in Resources */,
 				C0EB5CA21CBDFBC100AED5FD /* renwutijiao.png in Resources */,
@@ -2327,6 +2368,7 @@
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
 				39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */,
+				020AE62F1CCDEC8E00B764CB /* marketChanceCell.xib in Resources */,
 				96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */,
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
@@ -2367,6 +2409,7 @@
 				9604F4991C1AC8D90074B1A5 /* set-3.png in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
 				C0EB5C961CBDDE8A00AED5FD /* i01.png in Resources */,
+				020AE6341CCE1E8700B764CB /* taskCell.xib in Resources */,
 				9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */,
 				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
@@ -2499,6 +2542,8 @@
 				C0EC6C5D1CBCD7C4004AF08B /* SDBasicViewContoller.m in Sources */,
 				1FEF621E1C16AC3600E6F4BF /* PNChartLabel.m in Sources */,
 				39E729F31C0697A50050D77F /* submitTaskDetailViewController.m in Sources */,
+				020AE62E1CCDEC8E00B764CB /* marketChanceCell.m in Sources */,
+				020AE6331CCE1E8700B764CB /* taskCell.m in Sources */,
 				C0EC6C541CBCD69A004AF08B /* SDHomeGridItemModel.m in Sources */,
 				B8EDAD7B1C19366300865E7C /* taskReminderTableViewController.m in Sources */,
 				1FEF62501C16AE4900E6F4BF /* MeEntity.m in Sources */,
@@ -2547,6 +2592,7 @@
 				1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */,
 				1FEF623E1C16ADDA00E6F4BF /* MyViewController.m in Sources */,
 				1FEF62491C16AE0900E6F4BF /* MeMainTableViewController.m in Sources */,
+				020AE6381CCE2D7800B764CB /* trackCell.m in Sources */,
 				39F797BD1C05D0E7000D9A20 /* auditDetailViewController.m in Sources */,
 				B8EDAD751C19366300865E7C /* NoticeViewController.m in Sources */,
 				C0EC6C491CBCD651004AF08B /* UIView+SDExtension.m in Sources */,
