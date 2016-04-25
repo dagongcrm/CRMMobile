@@ -15,11 +15,13 @@
 #import "MJRefresh.h"
 #import "CostomerContactEntity.h"
 #import "AddCustomerContactController.h"
+#import "ContactTableViewCell.h"
 @interface CustomercontactTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;//用户联系人名称
 @property (nonatomic, strong) NSMutableArray *contactData;//联系方式
 @property (nonatomic, strong) NSMutableArray *customerNameStrData;//联系人公司名称
 @property (nonatomic, strong) NSMutableArray *phoneData;//电话数据
+@property (nonatomic, strong) NSMutableArray *positionData;//职务
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @property (strong, nonatomic) NSMutableDictionary *uNameId;//
@@ -34,8 +36,9 @@
         self.fakeData   = [NSMutableArray array];
         self.contactData = [[NSMutableArray alloc]init];
         self.customerNameStrData = [[NSMutableArray alloc]init];
-        self.phoneData = [[NSMutableArray alloc]init];
-        self.contactIDData =[[NSMutableArray alloc]init];
+        self.phoneData = [[NSMutableArray array]init];
+        self.contactIDData =[[NSMutableArray array]init];
+        self.positionData =[[NSMutableArray array]init];
         [self faker:@"1"];
 //        [self faker:@"2"];
     }
@@ -173,6 +176,8 @@
          NSString *informationAttributionStr = (NSString *)[listDic objectForKey:@"informationAttributionStr"];
 //        NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
         NSString *contactID =(NSString *)[listDic objectForKey:@"contactID"];
+        NSString *position = (NSString *)[listDic objectForKey:@"position"];
+        
         if (contactName==nil||contactName==NULL) {
             contactName=@"null";
         }
@@ -192,6 +197,7 @@
         [self.contactData addObject:telePhone];
         [self.customerNameStrData addObject:customerNameStr];
         [self.contactIDData addObject:contactID];
+        [self.positionData addObject:position];
     }
         
     }
@@ -210,19 +216,37 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    static NSString *cellId = @"mailCell";
+//    mailCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell==nil) {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"mailCell" owner:self options:nil]lastObject];
+//    }
+//    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+//    cell.lianxiR.text = self.fakeData[indexPath.row];
+//    cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+//    cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
+//    cell.phoneBtn.image = [UIImage imageNamed:@"phoneBtn.png"];
+//    return cell;
+    
+    static NSString *cellId = @"contact";
+    ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactTableViewCell" owner:self options:nil]lastObject];
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"txl-1"]];
-    cell.textLabel.text = self.fakeData[indexPath.row];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"客户名称:" stringByAppendingString:(NSString *)[self.customerNameStrData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.lianxiR.text = self.fakeData[indexPath.row];
+    cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+    cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
+    cell.position.text = [self.positionData objectAtIndex:indexPath.row];
+//    [cell.imageView setImage:[UIImage imageNamed:@"txl-1"]];
+//    cell.textLabel.text = self.fakeData[indexPath.row];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"客户名称:" stringByAppendingString:(NSString *)[self.customerNameStrData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -269,11 +293,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

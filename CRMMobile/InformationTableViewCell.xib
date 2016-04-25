@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="information" rowHeight="60" id="KGk-i7-Jjw" customClass="InformationTableViewCell">
+            <rect key="frame" x="0.0" y="-1" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOA-kS-EYP">
+                        <rect key="frame" x="0.0" y="0.0" width="59" height="59"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="2nb-kH-d3n"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="公司名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-IH-qwB">
+                        <rect key="frame" x="67" y="0.0" width="229" height="29"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="电话" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6T0-uT-Ukv">
+                        <rect key="frame" x="202" y="24" width="136" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5s-bW-JxW">
+                        <rect key="frame" x="67" y="43" width="229" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="T0g-fw-yjV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vo-tB-5nD">
+                        <rect key="frame" x="67" y="24" width="127" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="127" id="6e1-ER-XHE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="L5s-bW-JxW" firstAttribute="top" secondItem="DoB-IH-qwB" secondAttribute="bottom" constant="14" id="1G8-7E-av2"/>
+                    <constraint firstItem="DoB-IH-qwB" firstAttribute="top" secondItem="nOA-kS-EYP" secondAttribute="top" id="2ut-fH-ODj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DoB-IH-qwB" secondAttribute="trailing" constant="9" id="4ql-mi-KOT"/>
+                    <constraint firstItem="nOA-kS-EYP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A8q-7y-kwW"/>
+                    <constraint firstItem="nOA-kS-EYP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AQV-VU-T2G"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7Vo-tB-5nD" secondAttribute="bottom" constant="6" id="ETd-Zv-U5z"/>
+                    <constraint firstAttribute="bottom" secondItem="nOA-kS-EYP" secondAttribute="bottom" id="GX2-6x-ZoR"/>
+                    <constraint firstItem="7Vo-tB-5nD" firstAttribute="baseline" secondItem="6T0-uT-Ukv" secondAttribute="baseline" id="Jvl-i8-DPk"/>
+                    <constraint firstItem="DoB-IH-qwB" firstAttribute="leading" secondItem="nOA-kS-EYP" secondAttribute="trailing" constant="8" symbolic="YES" id="Pn8-IH-4tJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="L5s-bW-JxW" secondAttribute="bottom" constant="-13" id="Qcl-rg-vFI"/>
+                    <constraint firstItem="7Vo-tB-5nD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="Tv7-Bo-P0a"/>
+                    <constraint firstItem="DoB-IH-qwB" firstAttribute="leading" secondItem="7Vo-tB-5nD" secondAttribute="leading" id="ZS8-PH-009"/>
+                    <constraint firstItem="L5s-bW-JxW" firstAttribute="leading" secondItem="7Vo-tB-5nD" secondAttribute="leading" id="k6x-cK-87C"/>
+                    <constraint firstItem="6T0-uT-Ukv" firstAttribute="firstBaseline" secondItem="7Vo-tB-5nD" secondAttribute="firstBaseline" id="n6n-y7-eYb"/>
+                    <constraint firstItem="L5s-bW-JxW" firstAttribute="trailing" secondItem="DoB-IH-qwB" secondAttribute="trailing" id="p0A-CS-91S"/>
+                    <constraint firstItem="6T0-uT-Ukv" firstAttribute="leading" secondItem="7Vo-tB-5nD" secondAttribute="trailing" constant="8" symbolic="YES" id="vMZ-rn-ee0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6T0-uT-Ukv" secondAttribute="trailing" constant="-33" id="wrA-nP-S1N"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="address" destination="L5s-bW-JxW" id="2Fe-9g-4M2"/>
+                <outlet property="company" destination="DoB-IH-qwB" id="sAr-QQ-7h5"/>
+                <outlet property="industry" destination="7Vo-tB-5nD" id="Ygj-8i-ig2"/>
+                <outlet property="phone" destination="6T0-uT-Ukv" id="Nt0-e0-Rp2"/>
+                <outlet property="photo" destination="nOA-kS-EYP" id="6ml-eo-LzA"/>
+            </connections>
+            <point key="canvasLocation" x="303" y="260"/>
+        </tableViewCell>
+    </objects>
+</document>
