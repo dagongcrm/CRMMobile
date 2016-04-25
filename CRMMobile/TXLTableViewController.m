@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "MJRefresh.h"
 #import "SCLAlertView.h"
+#import "mailCell.h"
 @interface TXLTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -63,6 +64,10 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.title=@"通讯录";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+
     [self setupRefresh];
 //    //隐藏顶部的导航栏
 //    self.hidesBottomBarWhenPushed = true;    
@@ -204,33 +209,44 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    static NSString *cellId = @"mycell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    }
+////    NSLog(@"8888888%@",self.phoneData);
+//    
+//    [cell.imageView setImage:[UIImage imageNamed:@"txl-1"]];
+//    
+//    NSString *name =  self.fakeData[indexPath.row];
+//    NSString *phone = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+//    NSString *text1 =[[name stringByAppendingString:@" "]stringByAppendingString:phone];
+//    cell.textLabel.text =text1;
+//        [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail = [self.customerNameStrData objectAtIndex:indexPath.row];
+////    [cell.detailTextLabel setText:testDetail];
+//    NSString *phoneT= [@"通话记录:" stringByAppendingString:(NSString *)[self.phoneData objectAtIndex:indexPath.row]];
+//    NSString *Tdetail1 = [testDetail stringByAppendingString:@"\n"];
+//    NSString *Tdetail= [Tdetail1 stringByAppendingString:phoneT];
+//    [cell.detailTextLabel setNumberOfLines:3];//可以显示3行
+//    cell.detailTextLabel.text = [NSString stringWithFormat:Tdetail,indexPath.row + 1];// \n ，可以在这里实现换行
+    //-----------zidingyiliebiao
+    static NSString *cellId = @"mailCell";
+    mailCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell==nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"mailCell" owner:self options:nil]lastObject];
     }
-//    NSLog(@"8888888%@",self.phoneData);
-    
-    [cell.imageView setImage:[UIImage imageNamed:@"txl-1"]];
-    
-    NSString *name =  self.fakeData[indexPath.row];
-    NSString *phone = (NSString *)[self.contactData objectAtIndex:indexPath.row];
-    NSString *text1 =[[name stringByAppendingString:@" "]stringByAppendingString:phone];
-    cell.textLabel.text =text1;
-        [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail = [self.customerNameStrData objectAtIndex:indexPath.row];
-//    [cell.detailTextLabel setText:testDetail];
-    NSString *phoneT= [@"通话记录:" stringByAppendingString:(NSString *)[self.phoneData objectAtIndex:indexPath.row]];
-    NSString *Tdetail1 = [testDetail stringByAppendingString:@"\n"];
-    NSString *Tdetail= [Tdetail1 stringByAppendingString:phoneT];
-    [cell.detailTextLabel setNumberOfLines:3];//可以显示3行
-    cell.detailTextLabel.text = [NSString stringWithFormat:Tdetail,indexPath.row + 1];// \n ，可以在这里实现换行
+    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.lianxiR.text = self.fakeData[indexPath.row];
+    cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+    cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
+    cell.phoneBtn.image = [UIImage imageNamed:@"phoneBtn.png"];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 70;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

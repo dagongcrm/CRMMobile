@@ -351,6 +351,7 @@
 //        cell = [array objectAtIndex:0];
     }
 //    cell.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 100);
+    
     //添加测试数据
     cell.qiyeName.text = [self.fakeData objectAtIndex:indexPath.row];
     //    cell//    cell accessMethodStr
@@ -359,9 +360,11 @@
 //    NSString *str1 = @"走访";
 //    NSString *str2 = @"电话";
     if ([bfl isEqualToString:@"电话"]) {
+        cell.myImg.image = [UIImage imageNamed:@"zz.jpg"];
         cell.bfLeixing.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
         cell.bfLeixing.text = bfl;
     }else{
+        cell.myImg.image = [UIImage imageNamed:@"zouf.png"];
         cell.bfLeixing.textColor = [UIColor redColor];;
         cell.bfLeixing.text = bfl;
     }

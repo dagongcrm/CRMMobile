@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bfLeixing;
 @property (weak, nonatomic) IBOutlet UILabel *bfRen;
 @property (weak, nonatomic) IBOutlet UILabel *bfShijian;
+@property (weak, nonatomic) IBOutlet UIImageView *myImg;
 
 @end
