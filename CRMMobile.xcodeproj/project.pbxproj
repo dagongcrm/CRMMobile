@@ -13,11 +13,9 @@
 		02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */; };
 		02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */; };
 		0210C0461CC9C2E9006DA64E /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0210C0451CC9C2E9006DA64E /* OptionsViewController.m */; };
-		0210C0551CC9CE19006DA64E /* XBMeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0210C0531CC9CE19006DA64E /* XBMeHeaderView.m */; };
-		0210C0561CC9CE19006DA64E /* XBMeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0210C0541CC9CE19006DA64E /* XBMeHeaderView.xib */; };
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
-		02F0B6A21CCDA9E000C3CB6C /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F0B6A11CCDA9E000C3CB6C /* NSData+SDDataCache.m */; };
+		02F0B6A81CCDBA6000C3CB6C /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F0B6A71CCDBA6000C3CB6C /* NSData+SDDataCache.m */; };
 		02F4BCC41CCB9345006F797A /* zouf.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC21CCB9345006F797A /* zouf.png */; };
 		02F4BCC51CCB9345006F797A /* zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC31CCB9345006F797A /* zz.jpg */; };
 		02F4BCC91CCB97DA006F797A /* mailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC81CCB97DA006F797A /* mailCell.xib */; };
@@ -347,14 +345,11 @@
 		02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
 		0210C0441CC9C2E9006DA64E /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		0210C0451CC9C2E9006DA64E /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
-		0210C0521CC9CE19006DA64E /* XBMeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBMeHeaderView.h; path = "../../../XBSettingController-master/XBSettingControllerDemo/XBSettingControllerDemo/XBSettingController/View/XBMeHeaderView.h"; sourceTree = "<group>"; };
-		0210C0531CC9CE19006DA64E /* XBMeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XBMeHeaderView.m; path = "../../../XBSettingController-master/XBSettingControllerDemo/XBSettingControllerDemo/XBSettingController/View/XBMeHeaderView.m"; sourceTree = "<group>"; };
-		0210C0541CC9CE19006DA64E /* XBMeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XBMeHeaderView.xib; path = "../../../XBSettingController-master/XBSettingControllerDemo/XBSettingControllerDemo/XBSettingController/View/XBMeHeaderView.xib"; sourceTree = "<group>"; };
 		027B7C3D1C202F8200C02991 /* login6p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login6p.png; sourceTree = "<group>"; };
 		02EE51E31CB642C700B10695 /* getLocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getLocationUtil.h; sourceTree = "<group>"; };
 		02EE51E41CB642C700B10695 /* getLocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getLocationUtil.m; sourceTree = "<group>"; };
-		02F0B6A01CCDA9E000C3CB6C /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+SDDataCache.h"; path = "../../../../.Trash/NSData+SDDataCache.h"; sourceTree = "<group>"; };
-		02F0B6A11CCDA9E000C3CB6C /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+SDDataCache.m"; path = "../../../../.Trash/NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		02F0B6A61CCDBA6000C3CB6C /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		02F0B6A71CCDBA6000C3CB6C /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		02F4BCC21CCB9345006F797A /* zouf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zouf.png; path = "../../../../../../Volumes/VMware Shared Folders/Mac/zouf.png"; sourceTree = "<group>"; };
 		02F4BCC31CCB9345006F797A /* zz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = zz.jpg; path = "../../../../../../Volumes/VMware Shared Folders/Mac/zz.jpg"; sourceTree = "<group>"; };
 		02F4BCC81CCB97DA006F797A /* mailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mailCell.xib; sourceTree = "<group>"; };
@@ -1768,9 +1763,6 @@
 		C0EB5C921CBDD5DD00AED5FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0210C0521CC9CE19006DA64E /* XBMeHeaderView.h */,
-				0210C0531CC9CE19006DA64E /* XBMeHeaderView.m */,
-				0210C0541CC9CE19006DA64E /* XBMeHeaderView.xib */,
 				1FEF623A1C16ADDA00E6F4BF /* UIViewAdditions.h */,
 				1FEF623B1C16ADDA00E6F4BF /* UIViewAdditions.m */,
 				1FEF623C1C16ADDA00E6F4BF /* MZGuidePages.h */,
@@ -2046,8 +2038,8 @@
 		C0EC6C341CBC90F6004AF08B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				02F0B6A01CCDA9E000C3CB6C /* NSData+SDDataCache.h */,
-				02F0B6A11CCDA9E000C3CB6C /* NSData+SDDataCache.m */,
+				02F0B6A61CCDBA6000C3CB6C /* NSData+SDDataCache.h */,
+				02F0B6A71CCDBA6000C3CB6C /* NSData+SDDataCache.m */,
 				B851F0DB1C1EDCB50047CF39 /* toast */,
 				C0E013161C0C2D88006BBF97 /* Http */,
 				96332E941BFF32B200BBEB85 /* Entity */,
@@ -2279,7 +2271,6 @@
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
 				9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */,
-				0210C0561CC9CE19006DA64E /* XBMeHeaderView.xib in Resources */,
 				39F797E81C05D12F000D9A20 /* DailyViewController.xib in Resources */,
 				B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */,
 				B8EDAD5A1C19355600865E7C /* Main.storyboard in Resources */,
@@ -2493,7 +2484,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F0B6A21CCDA9E000C3CB6C /* NSData+SDDataCache.m in Sources */,
 				C0EC6C371CBC93D5004AF08B /* PhoneParameterUtil.m in Sources */,
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
@@ -2516,6 +2506,7 @@
 				39F798C61C05E2EF000D9A20 /* PlanButViewController.m in Sources */,
 				1FEF62401C16ADDA00E6F4BF /* MZGuidePages.m in Sources */,
 				B851F0DE1C1EDD340047CF39 /* OMGToast.m in Sources */,
+				02F0B6A81CCDBA6000C3CB6C /* NSData+SDDataCache.m in Sources */,
 				39F797391C05CCE4000D9A20 /* DetailSaleOppViewController.m in Sources */,
 				C0EC6C571CBCD75B004AF08B /* SDScanViewController.m in Sources */,
 				9604F4BE1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m in Sources */,
@@ -2602,7 +2593,6 @@
 				39E729F91C0697C80050D77F /* submitTaskEntity.m in Sources */,
 				B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */,
 				1FEF62471C16AE0900E6F4BF /* SettingTableViewController.m in Sources */,
-				0210C0551CC9CE19006DA64E /* XBMeHeaderView.m in Sources */,
 				39F798131C05D167000D9A20 /* TaskReportMonthEntity.m in Sources */,
 				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
 				1FEF62601C16AF1100E6F4BF /* saleLeads.m in Sources */,
