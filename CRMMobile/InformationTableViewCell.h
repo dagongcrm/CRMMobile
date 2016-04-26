@@ -1,7 +1,7 @@
 //
 //  InformationTableViewCell.h
 //  CRMMobile
-//
+//fhgfg
 //  Created by zhang on 16/4/25.
 //  Copyright (c) 2016年 dagong. All rights reserved.
 //
