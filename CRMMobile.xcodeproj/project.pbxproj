@@ -22,16 +22,21 @@
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
 		02F0B6A81CCDBA6000C3CB6C /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F0B6A71CCDBA6000C3CB6C /* NSData+SDDataCache.m */; };
-		02F4BCC41CCB9345006F797A /* zouf.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC21CCB9345006F797A /* zouf.png */; };
-		02F4BCC51CCB9345006F797A /* zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC31CCB9345006F797A /* zz.jpg */; };
 		02F4BCC91CCB97DA006F797A /* mailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCC81CCB97DA006F797A /* mailCell.xib */; };
 		02F4BCCC1CCB97F1006F797A /* mailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F4BCCB1CCB97F1006F797A /* mailCell.m */; };
-		02F4BCCE1CCB9CCD006F797A /* phoneBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCCD1CCB9CCD006F797A /* phoneBtn.png */; };
 		02F5BB611CC22C3E0034B8C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F5BB601CC22C3E0034B8C6 /* libPods.a */; };
 		02F5BB681CC2324F0034B8C6 /* MailListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BB671CC2324F0034B8C6 /* MailListTableViewController.m */; };
 		02F977661CC868D500088144 /* MTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F977651CC868D500088144 /* MTableViewCell.xib */; };
 		02F977691CC8693500088144 /* MTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F977681CC8693500088144 /* MTableViewCell.m */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
+		1FDBDDFD1CCEF5F9009AA958 /* zouf.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDDFB1CCEF5F9009AA958 /* zouf.png */; };
+		1FDBDDFE1CCEF5F9009AA958 /* zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDDFC1CCEF5F9009AA958 /* zz.jpg */; };
+		1FDBDE031CCEF70B009AA958 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBDE011CCEF70B009AA958 /* InformationTableViewCell.m */; };
+		1FDBDE041CCEF70B009AA958 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDE021CCEF70B009AA958 /* InformationTableViewCell.xib */; };
+		1FDBDE081CCEF7AC009AA958 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDE061CCEF7AC009AA958 /* ContactTableViewCell.xib */; };
+		1FDBDE0A1CCEF910009AA958 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBDE091CCEF910009AA958 /* ContactTableViewCell.m */; };
+		1FDBDE0F1CCF0F31009AA958 /* VisitPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBDE0D1CCF0F31009AA958 /* VisitPlanTableViewCell.m */; };
+		1FDBDE101CCF0F31009AA958 /* VisitPlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDE0E1CCF0F31009AA958 /* VisitPlanTableViewCell.xib */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */; };
 		1FEF620C1C16ABED00E6F4BF /* MarketManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF620A1C16ABED00E6F4BF /* MarketManagementViewController.xib */; };
@@ -365,12 +370,9 @@
 		02EE51E41CB642C700B10695 /* getLocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getLocationUtil.m; sourceTree = "<group>"; };
 		02F0B6A61CCDBA6000C3CB6C /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		02F0B6A71CCDBA6000C3CB6C /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
-		02F4BCC21CCB9345006F797A /* zouf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zouf.png; path = "../../../../../../Volumes/VMware Shared Folders/Mac/zouf.png"; sourceTree = "<group>"; };
-		02F4BCC31CCB9345006F797A /* zz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = zz.jpg; path = "../../../../../../Volumes/VMware Shared Folders/Mac/zz.jpg"; sourceTree = "<group>"; };
 		02F4BCC81CCB97DA006F797A /* mailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mailCell.xib; sourceTree = "<group>"; };
 		02F4BCCA1CCB97F1006F797A /* mailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mailCell.h; sourceTree = "<group>"; };
 		02F4BCCB1CCB97F1006F797A /* mailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mailCell.m; sourceTree = "<group>"; };
-		02F4BCCD1CCB9CCD006F797A /* phoneBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phoneBtn.png; path = "../../../../../../Volumes/VMware Shared Folders/Mac/phoneBtn.png"; sourceTree = "<group>"; };
 		02F5BB601CC22C3E0034B8C6 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		02F5BB661CC2324F0034B8C6 /* MailListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListTableViewController.h; sourceTree = "<group>"; };
 		02F5BB671CC2324F0034B8C6 /* MailListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListTableViewController.m; sourceTree = "<group>"; };
@@ -383,6 +385,18 @@
 		102A51D7D859922F2889B12A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
+		1FDBDDFB1CCEF5F9009AA958 /* zouf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zouf.png; sourceTree = "<group>"; };
+		1FDBDDFC1CCEF5F9009AA958 /* zz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zz.jpg; sourceTree = "<group>"; };
+		1FDBDE001CCEF70B009AA958 /* InformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
+		1FDBDE011CCEF70B009AA958 /* InformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
+		1FDBDE021CCEF70B009AA958 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		1FDBDE051CCEF7AC009AA958 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		1FDBDE061CCEF7AC009AA958 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		1FDBDE091CCEF910009AA958 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		1FDBDE0B1CCEF93B009AA958 /* CostomerContactEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CostomerContactEntity.h; path = ../../../../.Trash/CostomerContactEntity.h; sourceTree = "<group>"; };
+		1FDBDE0C1CCF0F31009AA958 /* VisitPlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitPlanTableViewCell.h; sourceTree = "<group>"; };
+		1FDBDE0D1CCF0F31009AA958 /* VisitPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitPlanTableViewCell.m; sourceTree = "<group>"; };
+		1FDBDE0E1CCF0F31009AA958 /* VisitPlanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitPlanTableViewCell.xib; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1FEF62081C16ABED00E6F4BF /* MarketManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketManagementViewController.h; sourceTree = "<group>"; };
@@ -934,6 +948,23 @@
 			name = TableViewForSeleteUser;
 			sourceTree = "<group>";
 		};
+		1FDBDDFF1CCEF6FC009AA958 /* contact */ = {
+			isa = PBXGroup;
+			children = (
+				1FDBDE0B1CCEF93B009AA958 /* CostomerContactEntity.h */,
+				1FDBDE091CCEF910009AA958 /* ContactTableViewCell.m */,
+				1FDBDE051CCEF7AC009AA958 /* ContactTableViewCell.h */,
+				1FDBDE061CCEF7AC009AA958 /* ContactTableViewCell.xib */,
+				1FDBDE001CCEF70B009AA958 /* InformationTableViewCell.h */,
+				1FDBDE011CCEF70B009AA958 /* InformationTableViewCell.m */,
+				1FDBDE021CCEF70B009AA958 /* InformationTableViewCell.xib */,
+				1FDBDE0C1CCF0F31009AA958 /* VisitPlanTableViewCell.h */,
+				1FDBDE0D1CCF0F31009AA958 /* VisitPlanTableViewCell.m */,
+				1FDBDE0E1CCF0F31009AA958 /* VisitPlanTableViewCell.xib */,
+			);
+			name = contact;
+			sourceTree = "<group>";
+		};
 		1FE529C61BE8A7A500149C10 /* submit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,9 +1101,8 @@
 		1FEF62901C16B54700E6F4BF /* option */ = {
 			isa = PBXGroup;
 			children = (
-				02F4BCCD1CCB9CCD006F797A /* phoneBtn.png */,
-				02F4BCC21CCB9345006F797A /* zouf.png */,
-				02F4BCC31CCB9345006F797A /* zz.jpg */,
+				1FDBDDFB1CCEF5F9009AA958 /* zouf.png */,
+				1FDBDDFC1CCEF5F9009AA958 /* zz.jpg */,
 				9604F4911C1AC8D90074B1A5 /* set-1.png */,
 				394526561C27960C005DB938 /* phone-1.png */,
 				9604F4951C1AC8D90074B1A5 /* set-2.png */,
@@ -1322,6 +1352,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				1FDBDDFF1CCEF6FC009AA958 /* contact */,
 				02F5BB631CC231130034B8C6 /* MailList */,
 				C0E7BB3C1CC0D95F00A51B66 /* Market */,
 				C0D569371BD9B74700860B33 /* Options */,
@@ -2322,6 +2353,7 @@
 				0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				9619C7151C1EC6BC000C4EEE /* gongsi.png in Resources */,
+				1FDBDE041CCEF70B009AA958 /* InformationTableViewCell.xib in Resources */,
 				96FAE25D1BEC73A900032BB3 /* HZQDatePickerView.xib in Resources */,
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
@@ -2351,6 +2383,7 @@
 				02F977661CC868D500088144 /* MTableViewCell.xib in Resources */,
 				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
 				C0EB5C9C1CBDFBAE00AED5FD /* baifangjihua.png in Resources */,
+				1FDBDDFE1CCEF5F9009AA958 /* zz.jpg in Resources */,
 				B8EDAD761C19366300865E7C /* NoticeViewController.xib in Resources */,
 				96A695BA1BF5DE8900ADAC98 /* Image.plist in Resources */,
 				39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */,
@@ -2385,7 +2418,6 @@
 				9604F47E1C1AC79A0074B1A5 /* crm-4.png in Resources */,
 				9604F4811C1AC79A0074B1A5 /* crm-2.png in Resources */,
 				96D58D041BFED22200159E09 /* arrow-left.png in Resources */,
-				02F4BCC51CCB9345006F797A /* zz.jpg in Resources */,
 				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				B8EDAD7C1C19366300865E7C /* taskReminderTableViewController.xib in Resources */,
@@ -2401,7 +2433,6 @@
 				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
 				C0EB5CA81CBDFBEF00AED5FD /* gongzuorizhi.png in Resources */,
 				C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */,
-				02F4BCCE1CCB9CCD006F797A /* phoneBtn.png in Resources */,
 				9604F4711C1AC6A90074B1A5 /* submit12.png in Resources */,
 				9604F49B1C1AC8D90074B1A5 /* txl-1.png in Resources */,
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
@@ -2440,8 +2471,10 @@
 				39F7980E1C05D15A000D9A20 /* ShowAndDeleteViewController.xib in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
 				39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */,
+				1FDBDE101CCF0F31009AA958 /* VisitPlanTableViewCell.xib in Resources */,
 				9604F4971C1AC8D90074B1A5 /* op-4.png in Resources */,
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
+				1FDBDE081CCEF7AC009AA958 /* ContactTableViewCell.xib in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
 				C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */,
@@ -2449,11 +2482,11 @@
 				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				C0EB5CAA1CBDFBF700AED5FD /* gengduo.png in Resources */,
 				9604F4891C1AC8280074B1A5 /* work-1.png in Resources */,
+				1FDBDDFD1CCEF5F9009AA958 /* zouf.png in Resources */,
 				1FEF62371C16AD9F00E6F4BF /* XGViewController.xib in Resources */,
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
 				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
-				02F4BCC41CCB9345006F797A /* zouf.png in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
 				9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */,
@@ -2527,6 +2560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDBDE0F1CCF0F31009AA958 /* VisitPlanTableViewCell.m in Sources */,
 				C0EC6C371CBC93D5004AF08B /* PhoneParameterUtil.m in Sources */,
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
@@ -2621,6 +2655,7 @@
 				B8EDAD721C19366300865E7C /* publicNoticeTableViewController.m in Sources */,
 				39F798541C05D314000D9A20 /* ReminderEntity.m in Sources */,
 				39F797341C05CCE4000D9A20 /* EditSaleOppViewController.m in Sources */,
+				1FDBDE031CCEF70B009AA958 /* InformationTableViewCell.m in Sources */,
 				39F797DC1C05D125000D9A20 /* TaskReportTableViewController.m in Sources */,
 				1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */,
 				39F797EF1C05D138000D9A20 /* TaskReportDailyEntity.m in Sources */,
@@ -2633,6 +2668,7 @@
 				1FEF62201C16AC3600E6F4BF /* PNLineChart.m in Sources */,
 				39F797381C05CCE4000D9A20 /* CustomerSelectTableViewController.m in Sources */,
 				C0E4CD741CBCE2B100F7B2E0 /* TAAbstractDotView.m in Sources */,
+				1FDBDE0A1CCEF910009AA958 /* ContactTableViewCell.m in Sources */,
 				C0EC6C631CBCD891004AF08B /* SDCycleScrollView.m in Sources */,
 				B8EDAD541C1933EC00865E7C /* CustomerCallPlanDetailMessageEntity.m in Sources */,
 				02F5BB681CC2324F0034B8C6 /* MailListTableViewController.m in Sources */,
