@@ -117,7 +117,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gpU-On-Wge"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yW5-on-1FT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nvd-PS-Ei2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-368" y="657"/>
+            <point key="canvasLocation" x="-401.5" y="656.5"/>
         </scene>
         <!--CRM-->
         <scene sceneID="h3U-nh-CIN">
@@ -224,7 +224,7 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sAM-Lt-Djf" kind="relationship" relationship="rootViewController" id="4Jv-3n-ruB"/>
+                        <segue destination="XgV-Pq-IjC" kind="relationship" relationship="rootViewController" id="3y4-DR-dHv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QQ-4S-7U6" userLabel="First Responder" sceneMemberID="firstResponder"/>
