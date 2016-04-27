@@ -286,7 +286,7 @@
 //    }else{
 //        return 60;
 //    }
-    return 60;
+    return 70;
 }
 
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
