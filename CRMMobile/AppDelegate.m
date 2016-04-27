@@ -18,6 +18,16 @@
 //    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
 //    //启动更新检查SDK
 //    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
+    
+    //设定Tabbar的点击后的颜色
+//    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:227.0/255.0 green:28.0/255.0 blue:31.0/255.0 alpha:1]];
+    //设定Tabbar的颜色
+//    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+//    请在代码中使用RGB颜色， 格式是：
+//    
+//colorWithRed:227.0/255.0 green:28.0/255.0 blue:31.0/255.0
+    
+    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [NSThread sleepForTimeInterval:1.0];

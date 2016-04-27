@@ -9,7 +9,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
@@ -25,13 +25,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2176" y="-1308"/>
+            <point key="canvasLocation" x="-4424" y="-2164"/>
         </scene>
         <!--首页-->
         <scene sceneID="I1x-1q-qmX">
             <objects>
                 <navigationController id="mZK-N3-ZNg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="shouye" id="hgg-pd-cIY"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="shouye-weixuan.png" id="hgg-pd-cIY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G9R-5k-WiN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -44,14 +44,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgK-QA-g0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2906" y="712"/>
+            <point key="canvasLocation" x="-4386.5" y="-88.5"/>
         </scene>
         <!--Mail List Table View Controller-->
         <scene sceneID="55v-Lr-gbt">
             <objects>
                 <tableViewController id="MUQ-e0-ZG4" customClass="MailListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u5k-pF-pzV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -73,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8U-Mi-F69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="-116"/>
+            <point key="canvasLocation" x="-982" y="1372"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="fYv-MV-a3L">
@@ -106,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMC-FX-4kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435.5" y="-187.5"/>
+            <point key="canvasLocation" x="-380.5" y="1564.5"/>
         </scene>
         <!--Market View Controller-->
         <scene sceneID="kNj-OH-RnN">
@@ -117,7 +117,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gpU-On-Wge"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yW5-on-1FT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nvd-PS-Ei2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401.5" y="656.5"/>
+            <point key="canvasLocation" x="-2305.5" y="1232.5"/>
         </scene>
         <!--CRM-->
         <scene sceneID="h3U-nh-CIN">
@@ -158,14 +158,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbj-tT-kWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-311.5" y="656.5"/>
+            <point key="canvasLocation" x="-1791.5" y="1216.5"/>
         </scene>
         <!--客户-->
         <scene sceneID="3Tu-ad-GaB">
             <objects>
                 <tableViewController id="IvM-HJ-tHp" customClass="WorkTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fkG-yW-qnZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,13 +191,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moc-nV-qxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132.5" y="1355.5"/>
+            <point key="canvasLocation" x="-3092.5" y="1243.5"/>
         </scene>
         <!--客户-->
         <scene sceneID="r2l-PZ-Kv3">
             <objects>
                 <navigationController id="eDv-rs-Bfu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="客户" image="work" id="ZSh-mZ-MHK"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="客户" image="kehu-weixuan.png" id="ZSh-mZ-MHK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V1O-5s-Ifv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -210,13 +210,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUs-B0-Cyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-934" y="1414"/>
+            <point key="canvasLocation" x="-3226.5" y="-26.5"/>
         </scene>
         <!--市场-->
         <scene sceneID="Et2-9j-RB2">
             <objects>
                 <navigationController id="l07-cw-yDb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="市场" image="crm" id="bii-Ay-VEJ" userLabel="市场"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="市场" image="shichang-weixuan.png" id="bii-Ay-VEJ" userLabel="市场"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RDb-e5-Tja">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -229,13 +229,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QQ-4S-7U6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-918.5" y="690.5"/>
+            <point key="canvasLocation" x="-2438.5" y="-1.5"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="e39-qO-xnq">
             <objects>
                 <navigationController id="hVw-SK-LtX" userLabel="通讯录" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="notice" id="Hm0-6z-R38" userLabel="通讯录"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="通讯录" image="tongxunlu-weixuan.png" id="Hm0-6z-R38" userLabel="通讯录"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="efx-yU-CQq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -248,13 +248,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUl-gl-Jib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="-138"/>
+            <point key="canvasLocation" x="-1554.5" y="-10.5"/>
         </scene>
         <!--我-->
         <scene sceneID="Fcb-gQ-2d0">
             <objects>
                 <navigationController id="2om-s8-PKb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="me" id="bHT-fA-oUy"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="我" image="wo-weixuan.png" id="bHT-fA-oUy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mSV-oQ-Xxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -267,7 +267,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVS-kc-z8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="-960"/>
+            <point key="canvasLocation" x="-910" y="-892"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="VNu-Ph-P2v">
@@ -278,7 +278,7 @@
                         <viewControllerLayoutGuide type="bottom" id="egl-Ls-IBD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TyQ-5n-gwu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIW-io-G2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2901.5" y="1700.5"/>
+            <point key="canvasLocation" x="-4341.5" y="1508.5"/>
         </scene>
         <!--Reusable View Controller-->
         <scene sceneID="u2Z-hq-BNc">
@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUP-E4-vmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1986.5" y="1881.5"/>
+            <point key="canvasLocation" x="-3678.5" y="1385.5"/>
         </scene>
         <!--Index View Controller-->
         <scene sceneID="kDX-6L-Fqv">
@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkV-Av-jQh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2182.5" y="737.5"/>
+            <point key="canvasLocation" x="-3942.5" y="-50.5"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="Bg1-zs-ODW">
@@ -426,7 +426,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cxz-8p-neT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oE7-Ix-2vx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYS-cX-Qfz" userLabel="换背景">
@@ -516,11 +516,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="crm" width="25" height="25"/>
         <image name="hhhh" width="100" height="100"/>
-        <image name="me" width="25" height="25"/>
-        <image name="notice" width="25" height="25"/>
-        <image name="shouye" width="25" height="25"/>
-        <image name="work" width="25" height="25"/>
+        <image name="kehu-weixuan.png" width="30" height="22"/>
+        <image name="shichang-weixuan.png" width="30" height="29"/>
+        <image name="shouye-weixuan.png" width="25" height="30"/>
+        <image name="tongxunlu-weixuan.png" width="30" height="30"/>
+        <image name="wo-weixuan.png" width="30" height="30"/>
     </resources>
 </document>

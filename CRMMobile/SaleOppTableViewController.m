@@ -153,6 +153,24 @@
     DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
     [detailSallOpp setSaleOppEntity:saleOppEntity];
     [self.navigationController pushViewController:detailSallOpp animated:YES];
+//    SaleDetailViewController *detailSale = [SaleDetailViewController new];
+//     [detailSale setSaleOppEntity:saleOppEntity];
+//     [self.navigationController pushViewController:detailSale animated:YES];
+//
+//    UIStoryboard *sb=[UIStoryboard storyboardWithName:@"saledetail" bundle:nil];
+//    [self presentViewController:[sb instantiateInitialViewController] animated:YES completion:nil];
+//    [self performSegueWithIdentifier:@"saledetail" sender:self];
+    
+    //根据 segue Identifier跳转界面
+//    [self performSegueWithIdentifier:@"GotoTwo" sender:self];
+    
+    //以modal 方式跳转
+//    [self presentModalViewController:detailSale animated:YES];
+    
+    //压进一个viewcontroller
+//    [self.navigationController pushViewController:nil animated:YES];
+
+    
 }
 
 

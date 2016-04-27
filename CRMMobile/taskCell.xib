@@ -15,13 +15,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlZ-Bi-f5c">
-                        <rect key="frame" x="4" y="8" width="55" height="55"/>
+                        <rect key="frame" x="8" y="8" width="55" height="55"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="OgQ-r3-A9y"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-5n-2GA">
-                        <rect key="frame" x="67" y="8" width="224" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-5n-2GA">
+                        <rect key="frame" x="70" y="8" width="224" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-C4-T7g">
-                        <rect key="frame" x="67" y="42" width="114" height="21"/>
+                        <rect key="frame" x="70" y="42" width="114" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="114" id="aeH-0V-hCe"/>
                         </constraints>
@@ -44,16 +44,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="RlZ-Bi-f5c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="0rY-f9-MRr"/>
-                    <constraint firstItem="RlZ-Bi-f5c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-11" id="22S-BT-foP"/>
+                    <constraint firstItem="RlZ-Bi-f5c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="22S-BT-foP"/>
                     <constraint firstItem="IdX-5n-2GA" firstAttribute="top" secondItem="RlZ-Bi-f5c" secondAttribute="top" id="3tv-Mf-LNi"/>
                     <constraint firstItem="J9s-C4-T7g" firstAttribute="leading" secondItem="IdX-5n-2GA" secondAttribute="leading" id="Hxf-8r-Z76"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="qoa-0C-Va2" secondAttribute="trailing" constant="2" id="PDM-WQ-OPW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qoa-0C-Va2" secondAttribute="trailing" constant="9" id="PDM-WQ-OPW"/>
                     <constraint firstItem="J9s-C4-T7g" firstAttribute="baseline" secondItem="qoa-0C-Va2" secondAttribute="baseline" id="R8Y-C9-aTP"/>
-                    <constraint firstItem="qoa-0C-Va2" firstAttribute="leading" secondItem="J9s-C4-T7g" secondAttribute="trailing" constant="8" symbolic="YES" id="VgC-ih-1sZ"/>
+                    <constraint firstItem="qoa-0C-Va2" firstAttribute="leading" secondItem="J9s-C4-T7g" secondAttribute="trailing" constant="5" id="VgC-ih-1sZ"/>
                     <constraint firstItem="J9s-C4-T7g" firstAttribute="top" secondItem="IdX-5n-2GA" secondAttribute="bottom" constant="13" id="ZdE-3g-YUA"/>
                     <constraint firstItem="RlZ-Bi-f5c" firstAttribute="bottom" secondItem="J9s-C4-T7g" secondAttribute="bottom" id="gaY-Qf-AFG"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="IdX-5n-2GA" secondAttribute="trailing" constant="14" id="t0i-9w-cbY"/>
-                    <constraint firstItem="IdX-5n-2GA" firstAttribute="leading" secondItem="RlZ-Bi-f5c" secondAttribute="trailing" constant="8" symbolic="YES" id="zTC-XV-riT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IdX-5n-2GA" secondAttribute="trailing" constant="18" id="t0i-9w-cbY"/>
+                    <constraint firstItem="IdX-5n-2GA" firstAttribute="leading" secondItem="RlZ-Bi-f5c" secondAttribute="trailing" constant="7" id="zTC-XV-riT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

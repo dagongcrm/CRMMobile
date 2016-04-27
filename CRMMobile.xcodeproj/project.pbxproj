@@ -29,6 +29,20 @@
 		02F4BCCE1CCB9CCD006F797A /* phoneBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F4BCCD1CCB9CCD006F797A /* phoneBtn.png */; };
 		02F5BB611CC22C3E0034B8C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F5BB601CC22C3E0034B8C6 /* libPods.a */; };
 		02F5BB681CC2324F0034B8C6 /* MailListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BB671CC2324F0034B8C6 /* MailListTableViewController.m */; };
+		02F617281CCEFB8F00338CF0 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F617231CCEFB8F00338CF0 /* ContactTableViewCell.m */; };
+		02F617291CCEFB8F00338CF0 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F617241CCEFB8F00338CF0 /* ContactTableViewCell.xib */; };
+		02F6172A1CCEFB8F00338CF0 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F617261CCEFB8F00338CF0 /* InformationTableViewCell.m */; };
+		02F6172B1CCEFB8F00338CF0 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F617271CCEFB8F00338CF0 /* InformationTableViewCell.xib */; };
+		02F617451CCF59FD00338CF0 /* kehu-weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F6173B1CCF59FD00338CF0 /* kehu-weixuan.png */; };
+		02F617461CCF59FD00338CF0 /* kehulianxiren.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F6173C1CCF59FD00338CF0 /* kehulianxiren.png */; };
+		02F617471CCF59FD00338CF0 /* shichang-weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F6173D1CCF59FD00338CF0 /* shichang-weixuan.png */; };
+		02F617481CCF59FD00338CF0 /* shichang-xuanzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F6173E1CCF59FD00338CF0 /* shichang-xuanzhong.png */; };
+		02F617491CCF59FD00338CF0 /* shouye-weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F6173F1CCF59FD00338CF0 /* shouye-weixuan.png */; };
+		02F6174A1CCF59FD00338CF0 /* shouye-xuanzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F617401CCF59FD00338CF0 /* shouye-xuanzhong.png */; };
+		02F6174B1CCF59FD00338CF0 /* tongxunlu-weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F617411CCF59FD00338CF0 /* tongxunlu-weixuan.png */; };
+		02F6174C1CCF59FD00338CF0 /* tongxunlu-xuanzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F617421CCF59FD00338CF0 /* tongxunlu-xuanzhong.png */; };
+		02F6174D1CCF59FD00338CF0 /* wo-weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F617431CCF59FD00338CF0 /* wo-weixuan.png */; };
+		02F6174E1CCF59FD00338CF0 /* wo-xuanzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F617441CCF59FD00338CF0 /* wo-xuanzhong.png */; };
 		02F977661CC868D500088144 /* MTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F977651CC868D500088144 /* MTableViewCell.xib */; };
 		02F977691CC8693500088144 /* MTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F977681CC8693500088144 /* MTableViewCell.m */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
@@ -377,6 +391,22 @@
 		02F5BB691CC23E900034B8C6 /* libSVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSVProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libSVProgressHUD.a"; sourceTree = "<group>"; };
 		02F5BB6B1CC23E9C0034B8C6 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "Pods/../build/Debug-iphoneos/libMasonry.a"; sourceTree = "<group>"; };
 		02F5BB6D1CC23EAC0034B8C6 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
+		02F617221CCEFB8F00338CF0 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		02F617231CCEFB8F00338CF0 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		02F617241CCEFB8F00338CF0 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		02F617251CCEFB8F00338CF0 /* InformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
+		02F617261CCEFB8F00338CF0 /* InformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
+		02F617271CCEFB8F00338CF0 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		02F6173B1CCF59FD00338CF0 /* kehu-weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kehu-weixuan.png"; path = "../../../i6切图/kehu-weixuan.png"; sourceTree = "<group>"; };
+		02F6173C1CCF59FD00338CF0 /* kehulianxiren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kehulianxiren.png; path = "../../../i6切图/kehulianxiren.png"; sourceTree = "<group>"; };
+		02F6173D1CCF59FD00338CF0 /* shichang-weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shichang-weixuan.png"; path = "../../../i6切图/shichang-weixuan.png"; sourceTree = "<group>"; };
+		02F6173E1CCF59FD00338CF0 /* shichang-xuanzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shichang-xuanzhong.png"; path = "../../../i6切图/shichang-xuanzhong.png"; sourceTree = "<group>"; };
+		02F6173F1CCF59FD00338CF0 /* shouye-weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shouye-weixuan.png"; path = "../../../i6切图/shouye-weixuan.png"; sourceTree = "<group>"; };
+		02F617401CCF59FD00338CF0 /* shouye-xuanzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shouye-xuanzhong.png"; path = "../../../i6切图/shouye-xuanzhong.png"; sourceTree = "<group>"; };
+		02F617411CCF59FD00338CF0 /* tongxunlu-weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tongxunlu-weixuan.png"; path = "../../../i6切图/tongxunlu-weixuan.png"; sourceTree = "<group>"; };
+		02F617421CCF59FD00338CF0 /* tongxunlu-xuanzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tongxunlu-xuanzhong.png"; path = "../../../i6切图/tongxunlu-xuanzhong.png"; sourceTree = "<group>"; };
+		02F617431CCF59FD00338CF0 /* wo-weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wo-weixuan.png"; path = "../../../i6切图/wo-weixuan.png"; sourceTree = "<group>"; };
+		02F617441CCF59FD00338CF0 /* wo-xuanzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wo-xuanzhong.png"; path = "../../../i6切图/wo-xuanzhong.png"; sourceTree = "<group>"; };
 		02F977651CC868D500088144 /* MTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTableViewCell.xib; sourceTree = "<group>"; };
 		02F977671CC8693500088144 /* MTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTableViewCell.h; sourceTree = "<group>"; };
 		02F977681CC8693500088144 /* MTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTableViewCell.m; sourceTree = "<group>"; };
@@ -923,6 +953,36 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		02F617211CCEFB3B00338CF0 /* contact */ = {
+			isa = PBXGroup;
+			children = (
+				02F617221CCEFB8F00338CF0 /* ContactTableViewCell.h */,
+				02F617231CCEFB8F00338CF0 /* ContactTableViewCell.m */,
+				02F617241CCEFB8F00338CF0 /* ContactTableViewCell.xib */,
+				02F617251CCEFB8F00338CF0 /* InformationTableViewCell.h */,
+				02F617261CCEFB8F00338CF0 /* InformationTableViewCell.m */,
+				02F617271CCEFB8F00338CF0 /* InformationTableViewCell.xib */,
+			);
+			name = contact;
+			sourceTree = "<group>";
+		};
+		02F6173A1CCF59CD00338CF0 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				02F6173B1CCF59FD00338CF0 /* kehu-weixuan.png */,
+				02F6173C1CCF59FD00338CF0 /* kehulianxiren.png */,
+				02F6173D1CCF59FD00338CF0 /* shichang-weixuan.png */,
+				02F6173E1CCF59FD00338CF0 /* shichang-xuanzhong.png */,
+				02F6173F1CCF59FD00338CF0 /* shouye-weixuan.png */,
+				02F617401CCF59FD00338CF0 /* shouye-xuanzhong.png */,
+				02F617411CCF59FD00338CF0 /* tongxunlu-weixuan.png */,
+				02F617421CCF59FD00338CF0 /* tongxunlu-xuanzhong.png */,
+				02F617431CCF59FD00338CF0 /* wo-weixuan.png */,
+				02F617441CCF59FD00338CF0 /* wo-xuanzhong.png */,
+			);
+			name = tabbar;
+			sourceTree = "<group>";
+		};
 		1F93AADF1BF1FFC60099C57E /* TableViewForSeleteUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1322,6 +1382,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				02F617211CCEFB3B00338CF0 /* contact */,
 				02F5BB631CC231130034B8C6 /* MailList */,
 				C0E7BB3C1CC0D95F00A51B66 /* Market */,
 				C0D569371BD9B74700860B33 /* Options */,
@@ -1541,6 +1602,7 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				02F6173A1CCF59CD00338CF0 /* tabbar */,
 				C0EB5C941CBDDD9E00AED5FD /* host */,
 				9604F4691C1A9A3A0074B1A5 /* notice */,
 				9604F45A1C1A9A160074B1A5 /* crm */,
@@ -2306,10 +2368,13 @@
 			files = (
 				39F797811C05CF58000D9A20 /* CustomerInformationTableViewController.xib in Resources */,
 				39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */,
+				02F6174B1CCF59FD00338CF0 /* tongxunlu-weixuan.png in Resources */,
 				9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */,
 				39F797191C05CC50000D9A20 /* CustomercontactInfoController.xib in Resources */,
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
+				02F6174D1CCF59FD00338CF0 /* wo-weixuan.png in Resources */,
+				02F617471CCF59FD00338CF0 /* shichang-weixuan.png in Resources */,
 				9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */,
 				39F797E81C05D12F000D9A20 /* DailyViewController.xib in Resources */,
 				B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */,
@@ -2329,6 +2394,7 @@
 				1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */,
 				027B7C3E1C202F8200C02991 /* login6p.png in Resources */,
 				9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */,
+				02F617451CCF59FD00338CF0 /* kehu-weixuan.png in Resources */,
 				39F7978A1C05CF58000D9A20 /* selectListTableViewController.xib in Resources */,
 				1FEF628B1C16B40E00E6F4BF /* loginLogo1.jpg in Resources */,
 				9604F48B1C1AC8280074B1A5 /* work-4.png in Resources */,
@@ -2373,11 +2439,13 @@
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
 				C0EB5C981CBDFB3300AED5FD /* kehudangan.png in Resources */,
+				02F6174C1CCF59FD00338CF0 /* tongxunlu-xuanzhong.png in Resources */,
 				39F797FC1C05D147000D9A20 /* AddWeekViewController.xib in Resources */,
 				39F798811C05D365000D9A20 /* RecordsDetalViewController.xib in Resources */,
 				39F798C71C05E2EF000D9A20 /* PlanButViewController.xib in Resources */,
 				96FF05771BF80C7F00EA5457 /* crm.png in Resources */,
 				B870281A1BD9E52500CD2FF2 /* taskReport.plist in Resources */,
+				02F6174E1CCF59FD00338CF0 /* wo-xuanzhong.png in Resources */,
 				9604F4AF1C1ACC3E0074B1A5 /* save.png in Resources */,
 				96E312581BEB53BA00A1A3FF /* arrow@2x.png in Resources */,
 				39F797BE1C05D0E7000D9A20 /* auditDetailViewController.xib in Resources */,
@@ -2397,6 +2465,7 @@
 				39F798101C05D15A000D9A20 /* AddMonthViewController.xib in Resources */,
 				B8EDAD771C19366300865E7C /* activityDetailViewController.xib in Resources */,
 				39F798C51C05E2EF000D9A20 /* CustomerTableViewController.xib in Resources */,
+				02F617461CCF59FD00338CF0 /* kehulianxiren.png in Resources */,
 				9604F4B51C1ACC3E0074B1A5 /* shenhe.png in Resources */,
 				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
 				C0EB5CA81CBDFBEF00AED5FD /* gongzuorizhi.png in Resources */,
@@ -2411,6 +2480,7 @@
 				C0EB5C961CBDDE8A00AED5FD /* i01.png in Resources */,
 				020AE6341CCE1E8700B764CB /* taskCell.xib in Resources */,
 				9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */,
+				02F617491CCF59FD00338CF0 /* shouye-weixuan.png in Resources */,
 				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
@@ -2422,6 +2492,7 @@
 				C0EB5CA41CBDFBD300AED5FD /* shichanghuodong.png in Resources */,
 				9604F4B21C1ACC3E0074B1A5 /* delete-s.png in Resources */,
 				9604F49C1C1AC8D90074B1A5 /* set-2.png in Resources */,
+				02F6174A1CCF59FD00338CF0 /* shouye-xuanzhong.png in Resources */,
 				39F797351C05CCE4000D9A20 /* EditSaleOppViewController.xib in Resources */,
 				C0D569451BD9C65100860B33 /* Options.plist in Resources */,
 				9604F4B41C1ACC3E0074B1A5 /* delete.png in Resources */,
@@ -2442,10 +2513,12 @@
 				39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */,
 				9604F4971C1AC8D90074B1A5 /* op-4.png in Resources */,
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
+				02F617291CCEFB8F00338CF0 /* ContactTableViewCell.xib in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
 				C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
+				02F617481CCF59FD00338CF0 /* shichang-xuanzhong.png in Resources */,
 				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				C0EB5CAA1CBDFBF700AED5FD /* gengduo.png in Resources */,
 				9604F4891C1AC8280074B1A5 /* work-1.png in Resources */,
@@ -2453,6 +2526,7 @@
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
 				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
+				02F6172B1CCEFB8F00338CF0 /* InformationTableViewCell.xib in Resources */,
 				02F4BCC41CCB9345006F797A /* zouf.png in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
@@ -2559,6 +2633,7 @@
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				C0EC6C3A1CBC9B7F004AF08B /* DateUtil.m in Sources */,
 				C0EC6C431CBCD2A4004AF08B /* SDGridItemCacheTool.m in Sources */,
+				02F617281CCEFB8F00338CF0 /* ContactTableViewCell.m in Sources */,
 				02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */,
 				96E312591BEB53BA00A1A3FF /* MJRefreshBaseView.m in Sources */,
 				02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */,
@@ -2593,6 +2668,7 @@
 				1FEF623E1C16ADDA00E6F4BF /* MyViewController.m in Sources */,
 				1FEF62491C16AE0900E6F4BF /* MeMainTableViewController.m in Sources */,
 				020AE6381CCE2D7800B764CB /* trackCell.m in Sources */,
+				02F6172A1CCEFB8F00338CF0 /* InformationTableViewCell.m in Sources */,
 				39F797BD1C05D0E7000D9A20 /* auditDetailViewController.m in Sources */,
 				B8EDAD751C19366300865E7C /* NoticeViewController.m in Sources */,
 				C0EC6C491CBCD651004AF08B /* UIView+SDExtension.m in Sources */,
