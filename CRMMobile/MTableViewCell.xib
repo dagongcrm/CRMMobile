@@ -35,7 +35,7 @@
                             <constraint firstAttribute="width" constant="50" id="tz9-ki-KJY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" red="0.90588235294117647" green="0.18546628844341062" blue="0.1301039630558706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.92549019610000005" green="0.36078431370000003" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Pz-0Cs" userLabel="企业名称">

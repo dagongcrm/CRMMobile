@@ -95,6 +95,7 @@
             [ud synchronize];
              [self Location];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//             self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:56.0/255.0 alpha:1];
             [self presentViewController:[storyboard instantiateInitialViewController] animated:YES completion:nil];
             
         }else
