@@ -187,7 +187,8 @@
     }
     cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
     cell.company.text = self.fakeData[indexPath.row];
-    cell.visitor.text = (NSString *)[self.visitorData objectAtIndex:indexPath.row];
+    NSString *baifangren=(NSString *)[self.visitorData objectAtIndex:indexPath.row];
+    cell.visitor.text = [@"拜访人：" stringByAppendingString:baifangren];
     cell.visitDate.text = [self.visitDate objectAtIndex:indexPath.row];
     //cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     

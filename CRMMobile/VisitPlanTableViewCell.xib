@@ -16,47 +16,47 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="客户名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-Om-Ach">
-                        <rect key="frame" x="82" y="8" width="230" height="21"/>
+                        <rect key="frame" x="70" y="9" width="230" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="拜访人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoJ-jR-k4I">
-                        <rect key="frame" x="82" y="39" width="86" height="21"/>
+                        <rect key="frame" x="70" y="39" width="111" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="86" id="62j-Mm-gfz"/>
-                            <constraint firstAttribute="height" constant="21" id="BvZ-se-YJa"/>
+                            <constraint firstAttribute="width" constant="111" id="0si-yi-wet"/>
+                            <constraint firstAttribute="height" constant="21" id="tcW-sB-MGH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="拜访时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-se-4r9">
-                        <rect key="frame" x="168" y="39" width="152" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08Z-tQ-hck">
-                        <rect key="frame" x="8" y="8" width="55" height="55"/>
+                        <rect key="frame" x="8" y="7" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="Aja-v2-9DR"/>
+                            <constraint firstAttribute="width" constant="55" id="AGa-JC-v3X"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="拜访时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-se-4r9">
+                        <rect key="frame" x="189" y="39" width="131" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="PdY-Om-Ach" secondAttribute="trailing" constant="-7" id="6cd-lx-7n4"/>
-                    <constraint firstItem="08Z-tQ-hck" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="8kY-ea-jVT"/>
-                    <constraint firstItem="FgT-se-4r9" firstAttribute="leading" secondItem="OoJ-jR-k4I" secondAttribute="trailing" id="EBL-OB-maB"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="08Z-tQ-hck" secondAttribute="bottom" constant="-2" id="IL7-Yv-oZ8"/>
-                    <constraint firstItem="08Z-tQ-hck" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="MJg-f1-HyV"/>
-                    <constraint firstItem="PdY-Om-Ach" firstAttribute="leading" secondItem="08Z-tQ-hck" secondAttribute="trailing" constant="19" id="YNj-tZ-Pdj"/>
-                    <constraint firstItem="OoJ-jR-k4I" firstAttribute="leading" secondItem="PdY-Om-Ach" secondAttribute="leading" id="esq-nJ-bHp"/>
-                    <constraint firstItem="OoJ-jR-k4I" firstAttribute="top" secondItem="PdY-Om-Ach" secondAttribute="bottom" constant="10" id="fct-68-dpe"/>
-                    <constraint firstAttribute="trailing" secondItem="FgT-se-4r9" secondAttribute="trailing" id="mXw-7J-qqz"/>
-                    <constraint firstItem="08Z-tQ-hck" firstAttribute="top" secondItem="PdY-Om-Ach" secondAttribute="top" id="omT-kG-pRf"/>
-                    <constraint firstItem="OoJ-jR-k4I" firstAttribute="firstBaseline" secondItem="FgT-se-4r9" secondAttribute="firstBaseline" id="sn0-3R-CJd"/>
-                    <constraint firstItem="OoJ-jR-k4I" firstAttribute="baseline" secondItem="FgT-se-4r9" secondAttribute="baseline" id="vef-ba-gCF"/>
+                    <constraint firstItem="OoJ-jR-k4I" firstAttribute="firstBaseline" secondItem="FgT-se-4r9" secondAttribute="firstBaseline" id="1B6-fN-nse"/>
+                    <constraint firstAttribute="trailing" secondItem="FgT-se-4r9" secondAttribute="trailing" id="6ra-NY-z8x"/>
+                    <constraint firstItem="FgT-se-4r9" firstAttribute="leading" secondItem="OoJ-jR-k4I" secondAttribute="trailing" constant="8" symbolic="YES" id="7er-ME-RmB"/>
+                    <constraint firstItem="PdY-Om-Ach" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="FAz-GD-Gui"/>
+                    <constraint firstItem="08Z-tQ-hck" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FEd-rg-dLa"/>
+                    <constraint firstItem="FgT-se-4r9" firstAttribute="baseline" secondItem="OoJ-jR-k4I" secondAttribute="baseline" id="MlK-dW-FAu"/>
+                    <constraint firstItem="08Z-tQ-hck" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="OL5-Zf-G6S"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PdY-Om-Ach" secondAttribute="trailing" constant="5" id="Yik-lt-ARZ"/>
+                    <constraint firstItem="PdY-Om-Ach" firstAttribute="leading" secondItem="08Z-tQ-hck" secondAttribute="trailing" constant="7" id="e5J-BG-5ov"/>
+                    <constraint firstItem="08Z-tQ-hck" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="ksq-Al-mvh"/>
+                    <constraint firstItem="FgT-se-4r9" firstAttribute="top" secondItem="PdY-Om-Ach" secondAttribute="bottom" constant="9" id="tCR-Bg-ZRg"/>
+                    <constraint firstItem="PdY-Om-Ach" firstAttribute="leading" secondItem="OoJ-jR-k4I" secondAttribute="leading" id="zA7-Fh-99J"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -65,7 +65,7 @@
                 <outlet property="visitDate" destination="FgT-se-4r9" id="eYx-Da-PWi"/>
                 <outlet property="visitor" destination="OoJ-jR-k4I" id="J2B-14-MpV"/>
             </connections>
-            <point key="canvasLocation" x="430" y="256.5"/>
+            <point key="canvasLocation" x="430" y="256"/>
         </tableViewCell>
     </objects>
 </document>

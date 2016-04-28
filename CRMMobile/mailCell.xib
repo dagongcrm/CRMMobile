@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ho2-hN-kKU">
-                        <rect key="frame" x="277" y="14" width="40" height="40"/>
+                        <rect key="frame" x="280" y="15" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="95U-v8-shT"/>
                         </constraints>

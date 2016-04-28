@@ -15,6 +15,7 @@
 #import "AddWeekViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
+#import "trackCell.h"
 @interface WeekTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -202,18 +203,12 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-    cell.textLabel.text = self.fakeData[indexPath.row];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    //换算多少周
+    static NSString * cellId = @"trackCell";
+    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+    }    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *weeks = [self.dateData objectAtIndex:indexPath.row];
@@ -226,7 +221,33 @@
     NSString *weekends = [NSString stringWithFormat:@"%lu",weekofyear];
     NSString *testDetail2= [[@"第" stringByAppendingString:weekends] stringByAppendingString:@"周"];
     NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
-    [cell.detailTextLabel setText:testDetail];
+    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
+    cell.mylbl2.text= testDetail;
+//    static NSString *cellId = @"mycell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    }
+//    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
+//    cell.textLabel.text = self.fakeData[indexPath.row];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    //换算多少周
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy-MM-dd"];
+//    NSString *weeks = [self.dateData objectAtIndex:indexPath.row];
+//    NSDate *date = [formatter dateFromString:weeks];
+//    NSCalendar *gregorian = [NSCalendar currentCalendar];
+//    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
+//    NSInteger weekofyear = [weekOfYearComponents weekOfYear];
+//    NSLog(@"weekofyear number = %lu" , weekofyear);
+//    NSString *testDetail1 =[@"    报告日期:" stringByAppendingString:weeks];
+//    NSString *weekends = [NSString stringWithFormat:@"%lu",weekofyear];
+//    NSString *testDetail2= [[@"第" stringByAppendingString:weekends] stringByAppendingString:@"周"];
+//    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
+//    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 
@@ -254,10 +275,11 @@
     [self.navigationController pushViewController:sd animated:YES];
     }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 @end
