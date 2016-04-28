@@ -46,28 +46,28 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="职务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-kq-W26" userLabel="职务">
-                        <rect key="frame" x="222" y="9" width="118" height="21"/>
+                        <rect key="frame" x="236" y="9" width="119" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d1m-BZ-GJA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="1yD-XI-2un"/>
                     <constraint firstItem="d1m-BZ-GJA" firstAttribute="leading" secondItem="FK5-eK-hnJ" secondAttribute="leading" id="2L0-ex-wSu"/>
-                    <constraint firstItem="d1m-BZ-GJA" firstAttribute="top" secondItem="P1W-kq-W26" secondAttribute="top" id="7Fu-QT-820"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Zf-XO-bb7" secondAttribute="trailing" constant="-7" id="AK8-UR-HkY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hcQ-hU-s3R" secondAttribute="bottom" constant="-2" id="ATV-O3-IKH"/>
                     <constraint firstItem="hcQ-hU-s3R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="B1e-Wz-5Cg"/>
                     <constraint firstItem="FK5-eK-hnJ" firstAttribute="top" secondItem="d1m-BZ-GJA" secondAttribute="bottom" id="I2O-gf-bih"/>
-                    <constraint firstItem="P1W-kq-W26" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Opb-L3-3UW"/>
+                    <constraint firstItem="P1W-kq-W26" firstAttribute="leading" secondItem="d1m-BZ-GJA" secondAttribute="trailing" constant="54" id="JqU-69-3kJ"/>
                     <constraint firstAttribute="bottom" secondItem="1Zf-XO-bb7" secondAttribute="bottom" id="QR7-YK-V3L"/>
                     <constraint firstItem="hcQ-hU-s3R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="TSK-lA-sVb"/>
-                    <constraint firstItem="d1m-BZ-GJA" firstAttribute="bottom" secondItem="P1W-kq-W26" secondAttribute="bottom" id="cxR-io-CqV"/>
-                    <constraint firstItem="P1W-kq-W26" firstAttribute="leading" secondItem="d1m-BZ-GJA" secondAttribute="trailing" constant="40" id="dgq-k8-Fi3"/>
+                    <constraint firstItem="P1W-kq-W26" firstAttribute="bottom" secondItem="d1m-BZ-GJA" secondAttribute="bottom" id="ZAi-uc-n2z"/>
+                    <constraint firstItem="1Zf-XO-bb7" firstAttribute="top" secondItem="P1W-kq-W26" secondAttribute="bottom" constant="18" id="amp-p8-zcl"/>
                     <constraint firstItem="d1m-BZ-GJA" firstAttribute="leading" secondItem="hcQ-hU-s3R" secondAttribute="trailing" constant="7" id="ek8-Bd-m1b"/>
                     <constraint firstItem="1Zf-XO-bb7" firstAttribute="leading" secondItem="FK5-eK-hnJ" secondAttribute="leading" id="ou7-yX-rTj"/>
-                    <constraint firstItem="1Zf-XO-bb7" firstAttribute="top" secondItem="P1W-kq-W26" secondAttribute="bottom" constant="18" id="pS4-df-iHc"/>
+                    <constraint firstItem="P1W-kq-W26" firstAttribute="top" secondItem="d1m-BZ-GJA" secondAttribute="top" id="tNk-CU-DvT"/>
+                    <constraint firstAttribute="trailing" secondItem="P1W-kq-W26" secondAttribute="trailing" id="vYa-wF-vLe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

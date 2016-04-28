@@ -207,7 +207,7 @@
     trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
-    }    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    }    cell.myImg.image = [UIImage imageNamed:@"周报1.png"];
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];

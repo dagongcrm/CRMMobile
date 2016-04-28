@@ -228,7 +228,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
     }
     NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
-    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.myImg.image = [UIImage imageNamed:@"日报1.png"];
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
     //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
     cell.mylbl2.text= testDetail;

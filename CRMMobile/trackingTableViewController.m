@@ -178,7 +178,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
     }
-    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.myImg.image = [UIImage imageNamed:@"任务跟踪1.png"];
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
 //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
     cell.mylbl2.text= [@"流程节点:" stringByAppendingString:self.dataing[indexPath.row]];

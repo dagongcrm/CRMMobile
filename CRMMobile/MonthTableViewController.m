@@ -227,7 +227,12 @@
     NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
     NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:testDetail];
-    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.myImg.image = [UIImage imageNamed:@"月报1.png"];
+//    CGSize itemSize = CGSizeMake(20, 20);
+//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+//    [cell.myImg.image drawInRect:imageRect];
+//    cell.myImg.image = UIGraphicsGetImageFromCurrentImageContext();
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
     //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
     cell.mylbl2.text= testDetail;

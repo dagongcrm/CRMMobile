@@ -185,7 +185,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"VisitPlanTableViewCell" owner:self options:nil]lastObject];
         //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.photo.image = [UIImage imageNamed:@"拜访计划1.png"];
     cell.company.text = self.fakeData[indexPath.row];
     NSString *baifangren=(NSString *)[self.visitorData objectAtIndex:indexPath.row];
     cell.visitor.text = [@"拜访人：" stringByAppendingString:baifangren];

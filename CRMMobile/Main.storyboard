@@ -517,10 +517,10 @@
     </scenes>
     <resources>
         <image name="hhhh" width="100" height="100"/>
-        <image name="kehu-weixuan.png" width="30" height="22"/>
-        <image name="shichang-weixuan.png" width="30" height="29"/>
-        <image name="shouye-weixuan.png" width="25" height="30"/>
-        <image name="tongxunlu-weixuan.png" width="30" height="30"/>
-        <image name="wo-weixuan.png" width="30" height="30"/>
+        <image name="kehu-weixuan.png" width="70" height="70"/>
+        <image name="shichang-weixuan.png" width="70" height="70"/>
+        <image name="shouye-weixuan.png" width="70" height="70"/>
+        <image name="tongxunlu-weixuan.png" width="70" height="70"/>
+        <image name="wo-weixuan.png" width="70" height="70"/>
     </resources>
 </document>

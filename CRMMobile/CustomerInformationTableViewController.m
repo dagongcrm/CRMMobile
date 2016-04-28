@@ -166,7 +166,15 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"InformationTableViewCell" owner:self options:nil]lastObject];
         //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.photo.image = [UIImage imageNamed:@"客户档案1.png"];
+    CGSize itemSize = CGSizeMake(20, 20);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.photo.image drawInRect:imageRect];
+    cell.photo.image = UIGraphicsGetImageFromCurrentImageContext();
+
+    
+    
     cell.company.text = self.fakeData[indexPath.row];
     cell.industry.text = [self.industryIDStr objectAtIndex:indexPath.row];
     cell.address.text = [self.addressData objectAtIndex:indexPath.row];

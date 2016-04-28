@@ -360,11 +360,11 @@
 //    NSString *str1 = @"走访";
 //    NSString *str2 = @"电话";
     if ([bfl isEqualToString:@"电话"]) {
-        cell.myImg.image = [UIImage imageNamed:@"zz.jpg"];
+        cell.myImg.image = [UIImage imageNamed:@"拜访记录1.png"];
         cell.bfLeixing.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
         cell.bfLeixing.text = bfl;
     }else{
-        cell.myImg.image = [UIImage imageNamed:@"zouf.png"];
+        cell.myImg.image = [UIImage imageNamed:@"拜访记录1.png"];
         cell.bfLeixing.textColor = [UIColor redColor];;
         cell.bfLeixing.text = bfl;
     }

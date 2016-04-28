@@ -49,6 +49,24 @@
 		1FDBDE0F1CCF0F31009AA958 /* VisitPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBDE0D1CCF0F31009AA958 /* VisitPlanTableViewCell.m */; };
 		1FDBDE101CCF0F31009AA958 /* VisitPlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBDE0E1CCF0F31009AA958 /* VisitPlanTableViewCell.xib */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
+		1FEDA10F1CD1BAD800F77186 /* 拜访计划.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1081CD1BAD800F77186 /* 拜访计划.png */; };
+		1FEDA1101CD1BAD800F77186 /* 拜访记录.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1091CD1BAD800F77186 /* 拜访记录.png */; };
+		1FEDA1111CD1BAD800F77186 /* 客户档案.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA10A1CD1BAD800F77186 /* 客户档案.png */; };
+		1FEDA1121CD1BAD800F77186 /* 任务审核.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA10B1CD1BAD800F77186 /* 任务审核.png */; };
+		1FEDA1131CD1BAD800F77186 /* 销售机会.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA10C1CD1BAD800F77186 /* 销售机会.png */; };
+		1FEDA1141CD1BAD800F77186 /* 销售线索.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA10D1CD1BAD800F77186 /* 销售线索.png */; };
+		1FEDA1151CD1BAD800F77186 /* 月报.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA10E1CD1BAD800F77186 /* 月报.png */; };
+		1FEDA1171CD1BAE300F77186 /* 任务跟踪.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1161CD1BAE300F77186 /* 任务跟踪.png */; };
+		1FEDA1191CD1BAEE00F77186 /* 周报.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1181CD1BAEE00F77186 /* 周报.png */; };
+		1FEDA11B1CD1BDD500F77186 /* 客户档案1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA11A1CD1BDD500F77186 /* 客户档案1.png */; };
+		1FEDA1241CD1F9BF00F77186 /* 拜访计划1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA11C1CD1F9BF00F77186 /* 拜访计划1.png */; };
+		1FEDA1251CD1F9BF00F77186 /* 拜访记录1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA11D1CD1F9BF00F77186 /* 拜访记录1.png */; };
+		1FEDA1261CD1F9BF00F77186 /* 任务跟踪1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA11E1CD1F9BF00F77186 /* 任务跟踪1.png */; };
+		1FEDA1271CD1F9BF00F77186 /* 任务审核1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA11F1CD1F9BF00F77186 /* 任务审核1.png */; };
+		1FEDA1281CD1F9BF00F77186 /* 任务提交1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1201CD1F9BF00F77186 /* 任务提交1.png */; };
+		1FEDA1291CD1F9BF00F77186 /* 日报1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1211CD1F9BF00F77186 /* 日报1.png */; };
+		1FEDA12A1CD1F9BF00F77186 /* 月报1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1221CD1F9BF00F77186 /* 月报1.png */; };
+		1FEDA12B1CD1F9BF00F77186 /* 周报1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEDA1231CD1F9BF00F77186 /* 周报1.png */; };
 		1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */; };
 		1FEF620C1C16ABED00E6F4BF /* MarketManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF620A1C16ABED00E6F4BF /* MarketManagementViewController.xib */; };
 		1FEF621B1C16AC3600E6F4BF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62101C16AC3600E6F4BF /* PNBar.m */; };
@@ -420,6 +438,24 @@
 		1FDBDE0E1CCF0F31009AA958 /* VisitPlanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitPlanTableViewCell.xib; sourceTree = "<group>"; };
 		1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		1FEDA1081CD1BAD800F77186 /* 拜访计划.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜访计划.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/拜访计划.png"; sourceTree = "<group>"; };
+		1FEDA1091CD1BAD800F77186 /* 拜访记录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜访记录.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/拜访记录.png"; sourceTree = "<group>"; };
+		1FEDA10A1CD1BAD800F77186 /* 客户档案.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "客户档案.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/客户档案.png"; sourceTree = "<group>"; };
+		1FEDA10B1CD1BAD800F77186 /* 任务审核.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "任务审核.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/任务审核.png"; sourceTree = "<group>"; };
+		1FEDA10C1CD1BAD800F77186 /* 销售机会.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "销售机会.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/销售机会.png"; sourceTree = "<group>"; };
+		1FEDA10D1CD1BAD800F77186 /* 销售线索.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "销售线索.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/销售线索.png"; sourceTree = "<group>"; };
+		1FEDA10E1CD1BAD800F77186 /* 月报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "月报.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/月报.png"; sourceTree = "<group>"; };
+		1FEDA1161CD1BAE300F77186 /* 任务跟踪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "任务跟踪.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/任务跟踪.png"; sourceTree = "<group>"; };
+		1FEDA1181CD1BAEE00F77186 /* 周报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "周报.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/周报.png"; sourceTree = "<group>"; };
+		1FEDA11A1CD1BDD500F77186 /* 客户档案1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "客户档案1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/客户档案1.png"; sourceTree = "<group>"; };
+		1FEDA11C1CD1F9BF00F77186 /* 拜访计划1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜访计划1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/拜访计划1.png"; sourceTree = "<group>"; };
+		1FEDA11D1CD1F9BF00F77186 /* 拜访记录1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜访记录1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/拜访记录1.png"; sourceTree = "<group>"; };
+		1FEDA11E1CD1F9BF00F77186 /* 任务跟踪1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "任务跟踪1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/任务跟踪1.png"; sourceTree = "<group>"; };
+		1FEDA11F1CD1F9BF00F77186 /* 任务审核1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "任务审核1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/任务审核1.png"; sourceTree = "<group>"; };
+		1FEDA1201CD1F9BF00F77186 /* 任务提交1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "任务提交1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/任务提交1.png"; sourceTree = "<group>"; };
+		1FEDA1211CD1F9BF00F77186 /* 日报1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "日报1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/日报1.png"; sourceTree = "<group>"; };
+		1FEDA1221CD1F9BF00F77186 /* 月报1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "月报1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/月报1.png"; sourceTree = "<group>"; };
+		1FEDA1231CD1F9BF00F77186 /* 周报1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "周报1.png"; path = "../../../../../../Volumes/VMware Shared Folders/mac/i6切图/周报1.png"; sourceTree = "<group>"; };
 		1FEF62081C16ABED00E6F4BF /* MarketManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketManagementViewController.h; sourceTree = "<group>"; };
 		1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketManagementViewController.m; sourceTree = "<group>"; };
 		1FEF620A1C16ABED00E6F4BF /* MarketManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketManagementViewController.xib; sourceTree = "<group>"; };
@@ -1337,10 +1373,28 @@
 		9604F45A1C1A9A160074B1A5 /* crm */ = {
 			isa = PBXGroup;
 			children = (
+				1FEDA11A1CD1BDD500F77186 /* 客户档案1.png */,
+				1FEDA1161CD1BAE300F77186 /* 任务跟踪.png */,
+				1FEDA11C1CD1F9BF00F77186 /* 拜访计划1.png */,
+				1FEDA11D1CD1F9BF00F77186 /* 拜访记录1.png */,
+				1FEDA11E1CD1F9BF00F77186 /* 任务跟踪1.png */,
+				1FEDA11F1CD1F9BF00F77186 /* 任务审核1.png */,
+				1FEDA1201CD1F9BF00F77186 /* 任务提交1.png */,
+				1FEDA1211CD1F9BF00F77186 /* 日报1.png */,
+				1FEDA1221CD1F9BF00F77186 /* 月报1.png */,
+				1FEDA1231CD1F9BF00F77186 /* 周报1.png */,
+				1FEDA1181CD1BAEE00F77186 /* 周报.png */,
 				9604F4761C1AC79A0074B1A5 /* crm-3.png */,
 				9604F4771C1AC79A0074B1A5 /* crm-4.png */,
 				9604F4781C1AC79A0074B1A5 /* crm-7.png */,
 				9604F4791C1AC79A0074B1A5 /* crm-1.png */,
+				1FEDA1081CD1BAD800F77186 /* 拜访计划.png */,
+				1FEDA1091CD1BAD800F77186 /* 拜访记录.png */,
+				1FEDA10A1CD1BAD800F77186 /* 客户档案.png */,
+				1FEDA10B1CD1BAD800F77186 /* 任务审核.png */,
+				1FEDA10C1CD1BAD800F77186 /* 销售机会.png */,
+				1FEDA10D1CD1BAD800F77186 /* 销售线索.png */,
+				1FEDA10E1CD1BAD800F77186 /* 月报.png */,
 				9604F47A1C1AC79A0074B1A5 /* crm-2.png */,
 				9604F47B1C1AC79A0074B1A5 /* crm-5.png */,
 				9604F47C1C1AC79A0074B1A5 /* crm-6.png */,
@@ -2377,6 +2431,7 @@
 				02F6174B1CCF59FD00338CF0 /* tongxunlu-weixuan.png in Resources */,
 				9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */,
 				39F797191C05CC50000D9A20 /* CustomercontactInfoController.xib in Resources */,
+				1FEDA12A1CD1F9BF00F77186 /* 月报1.png in Resources */,
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
 				02F6174D1CCF59FD00338CF0 /* wo-weixuan.png in Resources */,
@@ -2391,6 +2446,7 @@
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
 				9604F4BA1C1ACC3E0074B1A5 /* update-s.png in Resources */,
 				0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */,
+				1FEDA1251CD1F9BF00F77186 /* 拜访记录1.png in Resources */,
 				39F7984F1C05D30D000D9A20 /* ReminderDetailViewController.xib in Resources */,
 				9619C7151C1EC6BC000C4EEE /* gongsi.png in Resources */,
 				1FDBDE041CCEF70B009AA958 /* InformationTableViewCell.xib in Resources */,
@@ -2398,6 +2454,7 @@
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
 				9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */,
+				1FEDA1141CD1BAD800F77186 /* 销售线索.png in Resources */,
 				1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */,
 				027B7C3E1C202F8200C02991 /* login6p.png in Resources */,
 				9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */,
@@ -2439,6 +2496,7 @@
 				9604F4B81C1ACC3E0074B1A5 /* stop.png in Resources */,
 				9619C7101C1EB1D0000C4EEE /* goback-1.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
+				1FEDA1281CD1F9BF00F77186 /* 任务提交1.png in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
 				39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */,
@@ -2464,6 +2522,7 @@
 				B8EDAD531C1933EC00865E7C /* CustomerCallPlanViewController.xib in Resources */,
 				C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */,
 				B8EDAD7C1C19366300865E7C /* taskReminderTableViewController.xib in Resources */,
+				1FEDA1111CD1BAD800F77186 /* 客户档案.png in Resources */,
 				C0EB5CAC1CBE1A7C00AED5FD /* gengduo1.png in Resources */,
 				39F7971D1C05CC50000D9A20 /* EditCustomerContactController.xib in Resources */,
 				9604F4801C1AC79A0074B1A5 /* crm-1.png in Resources */,
@@ -2475,21 +2534,27 @@
 				02F617461CCF59FD00338CF0 /* kehulianxiren.png in Resources */,
 				9604F4B51C1ACC3E0074B1A5 /* shenhe.png in Resources */,
 				96F408741BF2C63800AA4AD5 /* back002.png in Resources */,
+				1FEDA1121CD1BAD800F77186 /* 任务审核.png in Resources */,
+				1FEDA1151CD1BAD800F77186 /* 月报.png in Resources */,
 				C0EB5CA81CBDFBEF00AED5FD /* gongzuorizhi.png in Resources */,
 				C0C484271C181B0800B142BC /* fs_main_login_normal.png in Resources */,
+				1FEDA11B1CD1BDD500F77186 /* 客户档案1.png in Resources */,
 				9604F4711C1AC6A90074B1A5 /* submit12.png in Resources */,
 				9604F49B1C1AC8D90074B1A5 /* txl-1.png in Resources */,
 				1FEF628A1C16B40E00E6F4BF /* login-1.jpg in Resources */,
 				39E729F11C0697A50050D77F /* addTaskViewController.xib in Resources */,
 				9604F4991C1AC8D90074B1A5 /* set-3.png in Resources */,
+				1FEDA1291CD1F9BF00F77186 /* 日报1.png in Resources */,
 				39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */,
 				C0EB5C961CBDDE8A00AED5FD /* i01.png in Resources */,
 				020AE6341CCE1E8700B764CB /* taskCell.xib in Resources */,
 				9604F4831C1AC79A0074B1A5 /* crm-6.png in Resources */,
 				02F617491CCF59FD00338CF0 /* shouye-weixuan.png in Resources */,
 				96ED78741C182F6900943200 /* AuthorityDictionary.plist in Resources */,
+				1FEDA1271CD1F9BF00F77186 /* 任务审核1.png in Resources */,
 				96F408721BF2C1D000AA4AD5 /* checkmark_icon_1x.png in Resources */,
 				39F7971B1C05CC50000D9A20 /* CustomercontactTableViewController.xib in Resources */,
+				1FEDA12B1CD1F9BF00F77186 /* 周报1.png in Resources */,
 				C0EB5C9E1CBDFBB500AED5FD /* baifangjilu.png in Resources */,
 				9604F48F1C1AC8810074B1A5 /* work-5.png in Resources */,
 				39F797EC1C05D12F000D9A20 /* AddDailyViewController.xib in Resources */,
@@ -2499,15 +2564,18 @@
 				9604F4B21C1ACC3E0074B1A5 /* delete-s.png in Resources */,
 				9604F49C1C1AC8D90074B1A5 /* set-2.png in Resources */,
 				02F6174A1CCF59FD00338CF0 /* shouye-xuanzhong.png in Resources */,
+				1FEDA1101CD1BAD800F77186 /* 拜访记录.png in Resources */,
 				39F797351C05CCE4000D9A20 /* EditSaleOppViewController.xib in Resources */,
 				C0D569451BD9C65100860B33 /* Options.plist in Resources */,
 				9604F4B41C1ACC3E0074B1A5 /* delete.png in Resources */,
 				9604F47F1C1AC79A0074B1A5 /* crm-7.png in Resources */,
 				39E729FA1C0697C80050D77F /* submitTaskEntity.xib in Resources */,
 				9604F4741C1AC71B0074B1A5 /* notice-1.png in Resources */,
+				1FEDA1171CD1BAE300F77186 /* 任务跟踪.png in Resources */,
 				9604F48D1C1AC8280074B1A5 /* work-2.png in Resources */,
 				1FEF62971C16B57000E6F4BF /* 11.JPG in Resources */,
 				9678AEFF1BEB731600E5B50E /* 222.png in Resources */,
+				1FEDA1241CD1F9BF00F77186 /* 拜访计划1.png in Resources */,
 				C0EB5CA61CBDFBDE00AED5FD /* huodongtongji.png in Resources */,
 				1FEF620C1C16ABED00E6F4BF /* MarketManagementViewController.xib in Resources */,
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
@@ -2533,10 +2601,14 @@
 				1FEF62371C16AD9F00E6F4BF /* XGViewController.xib in Resources */,
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
 				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
+				1FEDA1131CD1BAD800F77186 /* 销售机会.png in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
+				1FEDA10F1CD1BAD800F77186 /* 拜访计划.png in Resources */,
+				1FEDA1191CD1BAEE00F77186 /* 周报.png in Resources */,
 				9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */,
+				1FEDA1261CD1F9BF00F77186 /* 任务跟踪1.png in Resources */,
 				39F7987C1C05D35E000D9A20 /* TaskRecordsTableViewController.xib in Resources */,
 				39F7986C1C05D335000D9A20 /* EditPlanViewController.xib in Resources */,
 				1FEF628E1C16B42500E6F4BF /* submit-1.png in Resources */,
