@@ -244,7 +244,7 @@
                 <constraint firstItem="KS9-Oz-zbb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-6" id="kBm-fG-8T7"/>
                 <constraint firstAttribute="bottom" secondItem="KS9-Oz-zbb" secondAttribute="bottom" constant="-7" id="tFs-HW-2jK"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="176.5" y="264.5"/>
         </view>
     </objects>

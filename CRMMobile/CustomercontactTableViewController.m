@@ -235,7 +235,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactTableViewCell" owner:self options:nil]lastObject];
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.photo.image = [UIImage imageNamed:@"contact.png"];
     cell.lianxiR.text = self.fakeData[indexPath.row];
     cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
     cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];

@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQo-Cs-lmA">
-                    <rect key="frame" x="0.0" y="0.0" width="500" height="832"/>
+                    <rect key="frame" x="0.0" y="-200" width="500" height="832"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客 户 名 称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yL-qL-pYH">
                             <rect key="frame" x="44" y="44" width="120" height="21"/>
@@ -141,9 +141,9 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC2-W6-sgN">
-                            <rect key="frame" x="41" y="737" width="90" height="40"/>
+                            <rect key="frame" x="42" y="737" width="100" height="44"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="delete-si.png">
+                            <state key="normal" title="删除" backgroundImage="shancchu.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -152,9 +152,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-1m-kRS">
-                            <rect key="frame" x="248" y="737" width="90" height="40"/>
+                            <rect key="frame" x="248" y="737" width="100" height="44"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="update-s.png">
+                            <state key="normal" image="xiugai.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -163,7 +163,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPk-pk-jbl">
-                            <rect key="frame" x="145" y="737" width="90" height="40"/>
+                            <rect key="frame" x="150" y="737" width="90" height="40"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="停用" image="stop.png">
                                 <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,8 +182,8 @@
         </view>
     </objects>
     <resources>
-        <image name="delete-si.png" width="90" height="40"/>
+        <image name="shancchu.png" width="684" height="98"/>
         <image name="stop.png" width="90" height="40"/>
-        <image name="update-s.png" width="90" height="40"/>
+        <image name="xiugai.png" width="188" height="98"/>
     </resources>
 </document>

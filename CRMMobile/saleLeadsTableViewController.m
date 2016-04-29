@@ -80,6 +80,7 @@
     
     [super viewDidLoad];
     self.title=@"销售线索";
+    NAVCOLOR;
     [self fakeData];
     [self setupRefresh];    //上拉刷新下拉加在方法
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
@@ -189,7 +190,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"xiaosxs.png"]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

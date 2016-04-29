@@ -124,11 +124,12 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-BC-DYK">
-                            <rect key="frame" x="49" y="545" width="120" height="40"/>
+                            <rect key="frame" x="45" y="570" width="140" height="44"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="cancle-s.png">
-                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                            <state key="normal" title="取消" backgroundImage="huang.png">
+                                <color key="titleColor" red="1" green="0.98546580236580639" blue="0.96496698461072172" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="0.99867818813131315" green="0.99867818813131315" blue="0.99867818813131315" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="iRt-IJ-wil"/>
@@ -162,11 +163,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdH-7X-TSh">
-                            <rect key="frame" x="217" y="545" width="120" height="40"/>
+                            <rect key="frame" x="200" y="570" width="140" height="44"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="save-s.png">
+                            <state key="normal" title="保存" backgroundImage="lan.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="lFJ-JW-7cV"/>
@@ -180,7 +181,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cancle-s.png" width="120" height="40"/>
-        <image name="save-s.png" width="120" height="40"/>
+        <image name="huang.png" width="280" height="100"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

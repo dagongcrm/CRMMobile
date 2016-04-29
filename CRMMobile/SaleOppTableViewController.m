@@ -210,7 +210,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"marketChanceCell" owner:self options:nil] lastObject];
     }
     SaleOppEntity *saleOpp = [self.entities objectAtIndex:indexPath.row];
-    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.myImg.image = [UIImage imageNamed:@"xiaoshouJH.png"];
     cell.qiyeMc.text = saleOpp.customerNameStr;
     cell.lianxiR.text = [@"联系人：" stringByAppendingString:saleOpp.contact];
     NSString * succ = saleOpp.successProbability;

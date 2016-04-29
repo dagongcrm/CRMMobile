@@ -32,15 +32,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhC-ip-xhR">
-                            <rect key="frame" x="53" y="365" width="120" height="40"/>
-                            <state key="normal" image="cancle-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="h2e-oK-dfW"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-BY-TGi">
                             <rect key="frame" x="207" y="365" width="120" height="40"/>
                             <state key="normal" image="save-s.png">
@@ -70,6 +61,15 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhC-ip-xhR">
+                            <rect key="frame" x="53" y="365" width="140" height="60"/>
+                            <state key="normal" image="quxiao.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="h2e-oK-dfW"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -78,7 +78,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cancle-s.png" width="120" height="40"/>
+        <image name="quxiao.png" width="312" height="98"/>
         <image name="save-s.png" width="120" height="40"/>
     </resources>
 </document>

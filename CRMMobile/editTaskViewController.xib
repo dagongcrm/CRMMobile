@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXN-EQ-3Ac">
-                    <rect key="frame" x="0.0" y="0.0" width="500" height="700"/>
+                    <rect key="frame" x="0.0" y="-100" width="500" height="700"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="企业名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRk-lb-ype">
                             <rect key="frame" x="33" y="81" width="99" height="21"/>
@@ -79,8 +79,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4W-a9-aQh">
-                            <rect key="frame" x="44" y="578" width="120" height="40"/>
-                            <state key="normal" image="cancle-s.png">
+                            <rect key="frame" x="33" y="598" width="140" height="44"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <state key="normal" title="取消" backgroundImage="huang.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -152,8 +153,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYq-DA-y6I">
-                            <rect key="frame" x="214" y="578" width="120" height="40"/>
-                            <state key="normal" image="save-s.png">
+                            <rect key="frame" x="198" y="598" width="140" height="44"/>
+                            <state key="normal" title="保存" backgroundImage="lan.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -168,7 +169,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cancle-s.png" width="120" height="40"/>
-        <image name="save-s.png" width="120" height="40"/>
+        <image name="huang.png" width="280" height="100"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

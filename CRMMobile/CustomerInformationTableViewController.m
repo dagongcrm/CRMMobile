@@ -166,7 +166,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"InformationTableViewCell" owner:self options:nil]lastObject];
         //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    cell.photo.image = [UIImage imageNamed:@"客户档案1.png"];
+    cell.photo.image = [UIImage imageNamed:@"kehuDA.png"];
 //    CGSize itemSize = CGSizeMake(20, 20);
 //    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
 //    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);

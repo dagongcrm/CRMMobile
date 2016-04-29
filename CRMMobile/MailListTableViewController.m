@@ -187,7 +187,7 @@
     if (cell==nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"mailCell" owner:self options:nil]lastObject];
     }
-    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.photo.image = [UIImage imageNamed:@"txlphoto.png"];
     cell.lianxiR.text = self.fakeData[indexPath.row];
     cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
     cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
