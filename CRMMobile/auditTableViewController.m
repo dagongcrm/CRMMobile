@@ -14,7 +14,7 @@
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
 #import "WorkTableViewController.h"
-
+#import "taskCell.h"
 @interface auditTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *bianHao;
@@ -190,21 +190,33 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    APPDELEGATE.page = @"";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
-    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-    NSString *str =[testDetail stringByAppendingString:testDetail1];
-    [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+//    APPDELEGATE.page = @"";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
+//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
+//    NSString *str =[testDetail stringByAppendingString:testDetail1];
+//    [cell.detailTextLabel setText:str];
+//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    
+    static NSString * cellId = @"taskCell";
+    taskCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil]lastObject];
+    }
+    NSDictionary *cbr = [self.uid objectAtIndex:indexPath.row];
+    NSString *cbrName = (NSString *)[cbr objectForKey:@"userName_cn"];
+    cell.myImg.image = [UIImage imageNamed:@"任务审核1.png"];
+    cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
+    cell.mylbl2.text = cbrName;
+    cell.mylbl3.text = self.time [indexPath.row];
     return cell;
 
 }
@@ -329,11 +341,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 /*
 // Override to support conditional editing of the table view.

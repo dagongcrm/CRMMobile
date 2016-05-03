@@ -11,7 +11,7 @@
 #import "config.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
-
+#import "trackCell.h"
 @interface trackingTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *fakeData;
@@ -159,28 +159,39 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"任务阶段:" stringByAppendingString:self.dataing[indexPath.row]];
-    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-    NSString *str =[testDetail stringByAppendingString:testDetail1];
-    [cell.detailTextLabel setText:testDetail];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"任务阶段:" stringByAppendingString:self.dataing[indexPath.row]];
+//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
+//    NSString *str =[testDetail stringByAppendingString:testDetail1];
+//    [cell.detailTextLabel setText:testDetail];
+//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    static NSString * cellId = @"trackCell";
+    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+    }
+    cell.myImg.image = [UIImage imageNamed:@"任务跟踪1.png"];
+    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
+//    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
+    cell.mylbl2.text= [@"流程节点:" stringByAppendingString:self.dataing[indexPath.row]];
+//    cell.mylbl3.hidden = YES;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 

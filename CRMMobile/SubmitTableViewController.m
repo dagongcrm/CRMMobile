@@ -16,7 +16,7 @@
 #import "submitTaskDetailViewController.h"
 #import "selectEntity.h"
 #import "MJRefresh.h"
-
+#import "taskCell.h"
 @interface SubmitTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *bianHao;
@@ -51,7 +51,7 @@
     [super viewDidLoad];
     self.title=@"任务提交";
     [self setupRefresh];
-//  [self leftButtonInit];
+  [self leftButtonInit];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
@@ -164,19 +164,28 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
-    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-    NSString *str =[testDetail stringByAppendingString:testDetail1];
-    [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
+//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
+//    NSString *str =[testDetail stringByAppendingString:testDetail1];
+//    [cell.detailTextLabel setText:str];
+//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    static NSString * cellId = @"taskCell";
+    taskCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell==nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil]lastObject];
+    }
+    cell.myImg.image = [UIImage imageNamed:@"任务提交1.png"];
+    cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
+    cell.mylbl2.text = self.dataing[indexPath.row];
+    cell.mylbl3.text = self.time [indexPath.row];
     return cell;
 }
 
@@ -186,12 +195,12 @@
       [self.navigationController pushViewController:la animated:YES];
 }
 
-//-(void) leftButtonInit{
-//    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-//                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-//                                 target:self
-//                                 action:@selector(addFlow:)];
-//    self.navigationItem.rightBarButtonItem = rightAdd;
+-(void) leftButtonInit{
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addFlow:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
 //    button.frame = CGRectMake(0, 0, 20, 20);
@@ -203,8 +212,8 @@
 //                                                                                   target:nil action:nil];
 //    negativeSpacer.width = -5;
 //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    
-//}
+    
+}
 //- (void)ResView
 //{
 //    for (UIViewController *controller in self.navigationController.viewControllers)
@@ -298,55 +307,8 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
-}
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return 70;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

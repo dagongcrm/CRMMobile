@@ -18,6 +18,8 @@
 #import "MJRefresh.h"
 #import "HttpHelper.h"
 #import "NStringUtil.h"
+#import "VisitPlanTableViewCell.h"
+#import "AddCustomerCallPlanViewController.h"
 
 @interface VisitPlanTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;  //拜访计划数组
@@ -26,6 +28,7 @@
 @property (strong, nonatomic) NSMutableDictionary *uCustomerCallPlanID;
 @property (strong, nonatomic) NSMutableArray *visitDate;//拜访时间
 @property (strong, nonatomic) NSMutableArray *respondent;
+@property (strong, nonatomic) NSMutableArray *visitorData;//拜访人
 @property  NSInteger  index;
 
 @end
@@ -39,6 +42,7 @@
         self.customerCallPlanID = [NSMutableArray array];
         self.visitDate = [[NSMutableArray alloc]init];
         self.respondent=[[NSMutableArray alloc]init];
+        self.visitorData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
         //        [self faker:@"2"];
     }
@@ -50,11 +54,17 @@
     self.title=@"拜访计划";
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
-//    //设置导航栏返回
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = item;
-//    //设置返回键的颜色
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addUser:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
+//    [self setExtraCellLineHidden:self.tableView];
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
 //    button.frame = CGRectMake(0, 0, 20, 20);
@@ -67,24 +77,28 @@
 //                                                                                   target:nil action:nil];
 //    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
 //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    self.tableView.delegate=self;
-//    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     
     [self setExtraCellLineHidden:self.tableView];
 }
 
 
-- (void)ResView
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[IndexViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
+- (IBAction)addUser:(id)sender
 {
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[IndexViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
+    AddCustomerCallPlanViewController *addCustomer = [[AddCustomerCallPlanViewController alloc] init];
+    [self.navigationController pushViewController: addCustomer animated:true];
 }
-
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
@@ -118,6 +132,8 @@
             NSString *customerCallPlanID=(NSString *)[listdic objectForKey:@"customerCallPlanID"];//获取客户id
             NSString *teamname2 =[NStringUtil returnStringDepondOnStringLength:[listdic objectForKey:@"visitDate"]];
             NSString *teamname3 =[NStringUtil returnStringDepondOnStringLength:[listdic objectForKey:@"respondent"]];
+            
+            NSString *baiFangRenStr =[NStringUtil returnStringDepondOnStringLength:[listdic objectForKey:@"visitorStr"]];  //拜访人显示
             if(teamname.length==0){   //若客户名称问null，将其赋值
                 teamname=@"没有数据";
             }
@@ -127,6 +143,7 @@
             [self.fakeData               addObject:teamname];
             [self.visitDate              addObject:teamname2];
             [self.respondent             addObject:teamname3];
+            [self.visitorData            addObject:baiFangRenStr];
         }
         //    [self customerIDReturn:self.customerCallPlanID];
     }
@@ -158,29 +175,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-    NSString *testDetail1 =[@"受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
-    NSString *str =[testDetail stringByAppendingString:testDetail1];
-    NSLog(@"%@",str);
-    [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+//    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+//    NSString *testDetail1 =[@"受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
+//    NSString *str =[testDetail stringByAppendingString:testDetail1];
+//    NSLog(@"%@",str);
+//    [cell.detailTextLabel setText:str];
+//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    static NSString *cellId = @"visitplan";
+    VisitPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"VisitPlanTableViewCell" owner:self options:nil]lastObject];
+        //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    }
+    cell.photo.image = [UIImage imageNamed:@"拜访计划1.png"];
+    cell.company.text = self.fakeData[indexPath.row];
+    NSString *baifangren=(NSString *)[self.visitorData objectAtIndex:indexPath.row];
+    cell.visitor.text = [@"拜访人：" stringByAppendingString:baifangren];
+    cell.visitDate.text = [self.visitDate objectAtIndex:indexPath.row];
+    //cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 45;
-    }else{
-        return 55;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 45;
+//    }else{
+//        return 55;
+//    }
+    return 70;
 }
 //上拉刷新下拉加载
 - (void)setupRefresh

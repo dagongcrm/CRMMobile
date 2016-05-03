@@ -18,6 +18,7 @@
 
 @interface addTaskViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *Lable;
+@property (weak, nonatomic) IBOutlet UILabel *lbl;
 - (IBAction)segmentControl:(id)sender;
 
 - (IBAction)selectHY:(id)sender;
@@ -80,11 +81,11 @@
     if (x == 0) {
         self.GenZongSFJE.hidden = NO;
         self.Lable.hidden = NO;
+        self.lbl.hidden = NO;
     }else{
-        
         self.GenZongSFJE.hidden = YES;
         self.Lable.hidden = YES;
-        
+        self.lbl.hidden = YES;
     }
    
 }
@@ -161,7 +162,7 @@
 
 - (void)viewDidLoad {
     self.title=@"添加任务基本信息";
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 800);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
     NSLog(@"%@", title);
     _judge=@"";

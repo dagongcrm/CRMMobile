@@ -81,6 +81,7 @@
     self.tableView1=self.tableView;
     [super viewDidLoad];
     self.title=@"销售线索";
+    NAVCOLOR;
     [self fakeData];
     [self setupRefresh]; 
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
@@ -188,7 +189,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"xiaosxs.png"]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -199,11 +200,12 @@
     [self.navigationController pushViewController:detailSaleLeads animated:NO];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 

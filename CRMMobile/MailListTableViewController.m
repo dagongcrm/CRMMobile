@@ -9,6 +9,8 @@
 #import "MailListTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "SCLAlertView.h"
+#import "MJRefresh.h"
 #import "mailCell.h"
 @interface MailListTableViewController ()
 @property (nonatomic, strong) NSMutableArray *fakeData;//
@@ -28,7 +30,7 @@
 @property (nonatomic,strong) NSString *alertName;//联系人姓名
 @property (nonatomic,strong) NSString *alertQiye;//企业
 @property (nonatomic,strong) NSString *alertJilu;//上一次通话记录
-
+@property  NSInteger index;
 @end
 
 @implementation MailListTableViewController
@@ -52,6 +54,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.title = @"通讯录";
+    [self setupRefresh];
     [self setExtraCellLineHidden:self.tableView];
 
 }
@@ -61,6 +64,43 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
+}
+- (void)setupRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
+    //[self.tableView headerBeginRefreshing]; //自动刷新
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];//上拉加载更多
+    self.tableView.headerPullToRefreshText = @"下拉可以刷新了";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新了";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+}
+
+- (void)headerRereshing
+{
+    [self.fakeData removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    if(self.index==0){
+        self.index=2;
+    }else{
+        self.index++;
+    }
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
+    });
 }
 
 //获取数据
@@ -85,13 +125,13 @@
         NSArray *list = [contactDic objectForKey:@"obj"];
         NSLog(@"pagecountpagecountpagecountpagecount==>>%lu",(unsigned long)[list count]);
         
-//        if(![list count] ==0)
-//        {
-//            self.tableView.footerRefreshingText=@"加载中";
-//        }else
-//        {
-//            self.tableView.footerRefreshingText = @"没有更多数据";
-//        }
+        if(![list count] ==0)
+        {
+            self.tableView.footerRefreshingText=@"加载中";
+        }else
+        {
+            self.tableView.footerRefreshingText = @"没有更多数据";
+        }
         for (int i = 0;i<[list count];i++) {
             NSDictionary *listDic =[list objectAtIndex:i];
             NSString *contactState = (NSString *)[listDic objectForKey:@"contactState"];
@@ -147,15 +187,18 @@
     if (cell==nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"mailCell" owner:self options:nil]lastObject];
     }
-    cell.photo.image = [UIImage imageNamed:@"txl-1.png"];
+    cell.photo.image = [UIImage imageNamed:@"txlphoto.png"];
     cell.lianxiR.text = self.fakeData[indexPath.row];
     cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
     cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
     cell.phoneBtn.image = [UIImage imageNamed:@"phoneBtn.png"];
     return cell;
 }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.fakeData count];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 70;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -163,24 +206,14 @@
     self.phone= [self.contactData objectAtIndex:indexPath.row];
     self.contactID = [self.contactIDData objectAtIndex:indexPath.row];
     self.customerID = [self.customerIDData objectAtIndex:indexPath.row];
-    //NSLog(@"ggggggggggggg%@",self.phoneData);
-    //[self bodadianhua];
-    //    SettingViewController *fl= [[SettingViewController alloc] init];
-    //    [self.navigationController pushViewController:fl animated:NO];
-    //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.phoneData]];
-    //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://self.phoneData"]];
-    
-    //给弹框传值
+//    NSLog(@"ggggggggggggg%@",self.phoneData);
+//   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
+//    NSLog(@"我们一起拨打电话吧%@",self.phone);
+//
     _alertPhone = self.phone;
-    _alertName = self.contactName;
-    _alertQiye = [self.customerNameStrData objectAtIndex:indexPath.row];
-    _alertJilu = [self.phoneData objectAtIndex:indexPath.row];
-  
-//    [self showInfo];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
-    NSLog(@"我们一起拨打电话吧%@",self.phone);
-    
     [self  callLog];
+    [self callYou
+     ];
 }
 -(void)callLog{
     //    [self.tableView reloadData];//重新加载数据
@@ -200,22 +233,26 @@
     }else{
         
         NSDictionary *shipDIC  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        //    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
-        //        [self setupRefresh];
-        //    }
+   
         NSLog(@"通讯录拨打的记录--》%@", shipDIC);
         NSLog(@"self.contactName==>>%@",self.contactName);
         NSLog(@"self.phone==>>%@",self.phone);
         NSLog(@"self.contactID==>>%@",self.contactID);
         NSLog(@"self.customerID==>>%@",self.customerID);
-        
-        //    if ([[shipDIC objectForKey:@"success"] boolValue] == YES) {
-        //        [self setupRefresh];
-        // 
+      
     }
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fakeData count];
+-(void)callYou{
+    NSLog(@"你好，先生！有什么可以帮到你的？");
+    NSString *str = @"tel://";
+    NSString *telephone = [str stringByAppendingString:_alertPhone];
+    NSLog(@"你好，你的电话：%@",telephone);
+    UIWebView *callWebview =[[UIWebView alloc] init];
+    NSURL *telURL =[NSURL URLWithString:telephone];
+    // 貌似tel:// 或者 tel: 都行
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //记得添加到view上
+    [self.view addSubview:callWebview];
 }
+
 @end

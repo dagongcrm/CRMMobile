@@ -15,6 +15,7 @@
 #import "AddDailyViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
+#import "trackCell.h"
 
 @interface DailyTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
@@ -221,19 +222,30 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    static NSString * cellId = @"trackCell";
+    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
     }
-        [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-    cell.textLabel.text = self.fakeData[indexPath.row];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
-    [cell.detailTextLabel setText:testDetail];
+    cell.myImg.image = [UIImage imageNamed:@"日报1.png"];
+    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
+    //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
+    cell.mylbl2.text= testDetail;
+
+//    static NSString *cellId = @"mycell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    }
+//        [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
+//    cell.textLabel.text = self.fakeData[indexPath.row];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
+//    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 
@@ -260,11 +272,12 @@
         [self.navigationController pushViewController:uc animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 @end

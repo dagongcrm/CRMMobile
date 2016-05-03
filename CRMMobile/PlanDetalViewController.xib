@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sC-gG-WMc">
-                    <rect key="frame" x="0.0" y="0.0" width="500" height="1000"/>
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="1100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客户名称:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbH-1A-CQS">
                             <rect key="frame" x="38" y="29" width="92" height="21"/>
@@ -194,27 +194,18 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-lU-3Rx">
-                            <rect key="frame" x="27" y="1007" width="120" height="40"/>
-                            <state key="normal" image="delete-si.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="27" y="1007" width="100" height="44"/>
+                            <state key="normal" title="删除" backgroundImage="hong.png">
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="delete:" destination="-1" eventType="touchUpInside" id="RoE-qp-vZJ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByT-BU-0xv">
-                            <rect key="frame" x="145" y="1007" width="90" height="40"/>
-                            <state key="normal" image="bfan.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="addCallRecords:" destination="-1" eventType="touchUpInside" id="u0C-xB-k2d"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVF-bT-ZA0">
-                            <rect key="frame" x="230" y="1007" width="120" height="40"/>
-                            <state key="normal" image="update-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="238" y="1007" width="100" height="44"/>
+                            <state key="normal" title="修改" backgroundImage="huang.png">
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="edit:" destination="-1" eventType="touchUpInside" id="P03-Hs-7U0"/>
@@ -238,6 +229,14 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByT-BU-0xv">
+                            <rect key="frame" x="132" y="1007" width="100" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="确认拜访" backgroundImage="lan.png"/>
+                            <connections>
+                                <action selector="addCallRecords:" destination="-1" eventType="touchUpInside" id="u0C-xB-k2d"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -247,8 +246,8 @@
         </view>
     </objects>
     <resources>
-        <image name="bfan.png" width="90" height="40"/>
-        <image name="delete-si.png" width="90" height="40"/>
-        <image name="update-s.png" width="90" height="40"/>
+        <image name="hong.png" width="280" height="100"/>
+        <image name="huang.png" width="280" height="100"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

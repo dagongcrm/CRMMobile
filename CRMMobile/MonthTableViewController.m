@@ -15,6 +15,7 @@
 #import "AddMonthViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
+#import "trackCell.h"
 @interface MonthTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -202,36 +203,82 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    static NSString * cellId = @"trackCell";
+    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
     }
-    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-    cell.textLabel.text = self.fakeData[indexPath.row];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    //换算多少周
+    //换算多少月
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *months = [self.dateData objectAtIndex:indexPath.row];
+    NSMutableString *months = [self.dateData objectAtIndex:indexPath.row];
     NSDate *date = [formatter dateFromString:months];
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
-      int month = [dateComponent month];
-    
-//    NSCalendar *gregorian = [NSCalendar currentCalendar];
-//    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
-//    NSInteger monthofyear = [weekOfYearComponents weekOfYear];
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
+    int month = [dateComponent month];
+    if (month==0) {
+        NSRange range = [months rangeOfString:@"年"];//匹配得到的下标
+        NSRange range1 = [months rangeOfString:@"月"];//匹配得到的下标
+        NSRange range2 = [months rangeOfString:@"日"];
+        NSLog(@"rang:%@",NSStringFromRange(range));
+//        string = [string substringToIndex:7];//截取掉下标7之后的字符串
+        NSString * str = [months substringToIndex:range1.location];//截取范围类的字符串
+        NSLog(@"截取的值为：%@",str);
+       NSString *mon =  [str substringFromIndex:range.location+1];
+        NSLog(@"截取的值为：%@",mon);
+        month = [mon intValue];
+        
+    }
+    //    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    //    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
+    //    NSInteger monthofyear = [weekOfYearComponents weekOfYear];
     NSString *testDetail1 =[@"   报告日期:" stringByAppendingString:months];
     NSString *monthes = [NSString stringWithFormat:@"%d",month];
-     NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
+    NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
     NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
     [cell.detailTextLabel setText:testDetail];
+    cell.myImg.image = [UIImage imageNamed:@"月报1.png"];
+//    CGSize itemSize = CGSizeMake(20, 20);
+//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+//    [cell.myImg.image drawInRect:imageRect];
+//    cell.myImg.image = UIGraphicsGetImageFromCurrentImageContext();
+    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
+    //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
+    cell.mylbl2.text= testDetail;
+
+//    
+//    static NSString *cellId = @"mycell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+//    }
+//    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
+//    cell.textLabel.text = self.fakeData[indexPath.row];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+//    
+//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    //换算多少周
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy-MM-dd"];
+//    NSString *months = [self.dateData objectAtIndex:indexPath.row];
+//    NSDate *date = [formatter dateFromString:months];
+//    
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+//     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
+//      int month = [dateComponent month];
+//    
+////    NSCalendar *gregorian = [NSCalendar currentCalendar];
+////    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
+////    NSInteger monthofyear = [weekOfYearComponents weekOfYear];
+//    NSString *testDetail1 =[@"   报告日期:" stringByAppendingString:months];
+//    NSString *monthes = [NSString stringWithFormat:@"%d",month];
+//     NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
+//    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
+//    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 
@@ -261,11 +308,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 

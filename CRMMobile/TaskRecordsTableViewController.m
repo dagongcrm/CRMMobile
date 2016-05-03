@@ -9,6 +9,7 @@
 #import "ReminderTableViewController.h"
 #import "IndexViewController.h"
 #import "MTableViewCell.h"
+#import "NullString.h"
 @interface TaskRecordsTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -359,12 +360,12 @@
     
 //    NSString *str1 = @"走访";
 //    NSString *str2 = @"电话";
+      cell.myImg.image = [UIImage imageNamed:@"baifanJL.png"];
     if ([bfl isEqualToString:@"电话"]) {
-        cell.myImg.image = [UIImage imageNamed:@"zz.jpg"];
         cell.bfLeixing.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
         cell.bfLeixing.text = bfl;
     }else{
-        cell.myImg.image = [UIImage imageNamed:@"zouf.png"];
+//        cell.myImg.image = [UIImage imageNamed:@"拜访记录1.png"];
         cell.bfLeixing.textColor = [UIColor redColor];;
         cell.bfLeixing.text = bfl;
     }
@@ -380,16 +381,20 @@
 
 //    cell.bfLeixing.text = @"走访";
     NSString * bfr = [self.respondent objectAtIndex:indexPath.row];
-    if (bfr == nil) {
+    if ([NullString isBlankString:bfr]) {
         cell.bfRen.text =@"拜访人:暂无信息" ;
     }else{
         cell.bfRen.text = [@"拜访人:" stringByAppendingString:bfr];
     }
     NSString * bfs = [self.visitDate objectAtIndex:indexPath.row];
-    if (bfs == nil) {
+    if ([NullString isBlankString:bfs]) {
         cell.bfShijian.text =@"暂无信息" ;
     }else{
-          cell.bfShijian.text =bfs;
+        if(bfs.length>10){
+           cell.bfShijian.text = [bfs substringToIndex:10];
+        }else{
+              cell.bfShijian.text =bfs;
+        }
     }
 //    cell.bfShijian.text =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
 //    //测试图片

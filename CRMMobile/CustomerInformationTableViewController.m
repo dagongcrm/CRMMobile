@@ -15,6 +15,7 @@
 #import "AddCustomerInformationViewController.h"
 #import "UIImage+Tint.h"
 #import "CRMTableViewController.h"
+#import "InformationTableViewCell.h"
 @interface CustomerInformationTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
 @property (strong, nonatomic) NSMutableArray *customerID;   //客户id数组
@@ -22,6 +23,8 @@
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 @property (strong, nonatomic) NSMutableDictionary *uCustomerId;
+@property (strong, nonatomic) NSMutableArray *phoneData;//客户电话
+@property (strong, nonatomic) NSMutableArray *addressData;//客户地址
 @property  NSInteger index;
 @end
 
@@ -29,8 +32,11 @@
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
-        self.fakeData   = [NSMutableArray array];
-        self.customerID = [NSMutableArray array];
+        self.fakeData   = [[NSMutableArray array] init];
+        self.customerID = [[NSMutableArray array] init];
+        self.industryIDStr = [[NSMutableArray array] init];
+        self.phoneData = [[NSMutableArray array] init];
+        self.addressData = [[NSMutableArray array] init];
         [self faker:@"1"];
 //      [self faker:@"2"];
     }
@@ -106,9 +112,19 @@
         NSString *teamname = (NSString *)[listdic objectForKey:@"customerName"];//获取客户名称
         NSString *customerID=(NSString *)[listdic objectForKey:@"customerID"];//获取客户id
         NSString *industryIDStr=(NSString *)[listdic objectForKey:@"industryIDStr"];  //所属行业
+        NSString *address =(NSString *) [listdic objectForKey:@"customerAddress"];  //客户地址
+        NSString *phone =(NSString *) [listdic objectForKey:@"phone"];  //联系电话
+        if (address==nil||address==NULL) {
+            address=@"null";
+        }
+        if (phone==nil||phone==NULL) {
+            phone=@"null";
+        }
         [self.customerID     addObject:customerID];
         [self.fakeData     addObject:teamname];
         [self.industryIDStr addObject:industryIDStr];
+        [self.addressData addObject:address];
+        [self.phoneData addObject:phone];
     }
     [self customerIDReturn:self.customerID];
     }
@@ -143,13 +159,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];}
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi"]];
-    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    static NSString *cellId = @"information";
+    InformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"InformationTableViewCell" owner:self options:nil]lastObject];
+        //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    }
+    cell.photo.image = [UIImage imageNamed:@"kehuDA.png"];
+//    CGSize itemSize = CGSizeMake(20, 20);
+//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+//    [cell.photo.image drawInRect:imageRect];
+//    cell.photo.image = UIGraphicsGetImageFromCurrentImageContext();
+
+    
+    
+    cell.company.text = self.fakeData[indexPath.row];
+    cell.industry.text = [self.industryIDStr objectAtIndex:indexPath.row];
+    cell.address.text = [self.addressData objectAtIndex:indexPath.row];
+    cell.phone.text = (NSString *)[self.phoneData objectAtIndex:indexPath.row];
+//    cell.lianxiR.text = self.fakeData[indexPath.row];
+//    cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
+//    cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
+//    cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -256,11 +289,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-        return 50;
-    }else{
-        return 60;
-    }
+//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+//        return 50;
+//    }else{
+//        return 60;
+//    }
+    return 70;
 }
 
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{

@@ -130,29 +130,30 @@
                         <action selector="selectKHLB:" destination="-1" eventType="touchUpInside" id="cPW-66-reE"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-au-lUv">
-                    <rect key="frame" x="115" y="516" width="200" height="40"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="sub.png">
-                        <color key="titleColor" red="0.89429431969999995" green="1" blue="0.97931993839999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="add:" destination="-1" eventType="touchUpInside" id="wgM-8H-l7M"/>
-                    </connections>
-                </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-g6-NRg" userLabel="客户地址">
                     <rect key="frame" x="140" y="334" width="200" height="73"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-au-lUv">
+                    <rect key="frame" x="44" y="503" width="300" height="44"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
+                    <state key="normal" title="提交" backgroundImage="querenbaifang.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="add:" destination="-1" eventType="touchUpInside" id="wgM-8H-l7M"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>
-        <image name="sub.png" width="200" height="40"/>
+        <image name="querenbaifang.png" width="684" height="98"/>
     </resources>
 </document>

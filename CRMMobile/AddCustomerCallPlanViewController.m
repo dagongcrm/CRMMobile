@@ -14,7 +14,7 @@
 #import "ZSYPopoverListView.h"
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "CustomerContactListViewController.h"
-
+#import "VisitPlanTableViewController.h"
 @interface AddCustomerCallPlanViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
@@ -402,7 +402,7 @@
 {
     for (UIViewController *controller in self.navigationController.viewControllers)
     {
-        if ([controller isKindOfClass:[CustomerCallPlanViewController class]])
+        if ([controller isKindOfClass:[VisitPlanTableViewController class]])
         {
             [self.navigationController popToViewController:controller animated:YES];
         }
