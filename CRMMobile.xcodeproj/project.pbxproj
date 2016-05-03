@@ -332,7 +332,6 @@
 		C0F16CF71CD318140078A99B /* me_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F16CF51CD318140078A99B /* me_background.png */; };
 		C0F16CF81CD318140078A99B /* me_defaultpic.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F16CF61CD318140078A99B /* me_defaultpic.png */; };
 		C0F16CFA1CD33B980078A99B /* tongxunlu_xuanzhong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0F16CF91CD33B980078A99B /* tongxunlu_xuanzhong.jpg */; };
-		C0F47D6E1CCDB55200CCFEE1 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F47D6D1CCDB55200CCFEE1 /* NSData+SDDataCache.m */; };
 		C0F47D711CCE1A1800CCFEE1 /* lou.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F47D701CCE1A1800CCFEE1 /* lou.png */; };
 		C0FF4DBE1CBC854700F430A1 /* NStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4DBD1CBC854700F430A1 /* NStringUtil.m */; };
 		C0FFFD141CBF9AA300CF10CF /* daiban.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FFFD121CBF9AA300CF10CF /* daiban.png */; };
@@ -852,8 +851,6 @@
 		C0F16CF51CD318140078A99B /* me_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_background.png; sourceTree = "<group>"; };
 		C0F16CF61CD318140078A99B /* me_defaultpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_defaultpic.png; sourceTree = "<group>"; };
 		C0F16CF91CD33B980078A99B /* tongxunlu_xuanzhong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tongxunlu_xuanzhong.jpg; sourceTree = "<group>"; };
-		C0F47D6C1CCDB55200CCFEE1 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
-		C0F47D6D1CCDB55200CCFEE1 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		C0F47D701CCE1A1800CCFEE1 /* lou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lou.png; sourceTree = "<group>"; };
 		C0FF4DBC1CBC854700F430A1 /* NStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NStringUtil.h; sourceTree = "<group>"; };
 		C0FF4DBD1CBC854700F430A1 /* NStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NStringUtil.m; sourceTree = "<group>"; };
@@ -2145,8 +2142,6 @@
 				C0D3CD7C1BDF0E2C00C23FB3 /* PureLayout */,
 				02EE51E31CB642C700B10695 /* getLocationUtil.h */,
 				02EE51E41CB642C700B10695 /* getLocationUtil.m */,
-				C0F47D6C1CCDB55200CCFEE1 /* NSData+SDDataCache.h */,
-				C0F47D6D1CCDB55200CCFEE1 /* NSData+SDDataCache.m */,
 				C0FF4DBC1CBC854700F430A1 /* NStringUtil.h */,
 				C0FF4DBD1CBC854700F430A1 /* NStringUtil.m */,
 				1FE529CA1BE8A8D000149C10 /* UIImage+Tint.h */,
@@ -2653,7 +2648,6 @@
 				C0E432081CD0494F00056748 /* AFURLResponseSerialization.m in Sources */,
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
-				C0F47D6E1CCDB55200CCFEE1 /* NSData+SDDataCache.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
 				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
