@@ -59,7 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self valuation];
-    [self BackButton];
+//    [self BackButton];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
@@ -71,31 +71,31 @@
     //appear   appendviewDidLoad
 }
 
--(void)BackButton{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    
-}
-
-
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[SaleOppTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
+//-(void)BackButton{
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    
+//}
+//
+//
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[SaleOppTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
 
 //赋值方法
 - (void) valuation {
@@ -116,9 +116,9 @@
         [self.selectOppStateSelectButton setTitle:_saleOppEntity.oppStateStr forState:UIControlStateNormal];
     }
 }
-- (IBAction)cancel:(id)sender {
-    [self ResView];
-}
+//- (IBAction)cancel:(id)sender {
+//    [self ResView];
+//}
 
 -(BOOL) validateTelphone:(NSString *)mobile
 {
@@ -128,6 +128,7 @@
     
     return [phoneTest evaluateWithObject:mobile];
 }
+
 -(BOOL) validateMobile:(NSString *)mobile
 {
     //手机号以13， 15，18开头，八个 \d 数字字符
@@ -135,6 +136,7 @@
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     return [phoneTest evaluateWithObject:mobile];
 }
+
 -(BOOL) validatePhone:(NSString *)phone
 {
     //手机号以13， 15，18开头，八个 \d 数字字符
@@ -245,8 +247,6 @@
     [listView show];
 }
 
-
-
 //为销售机会赋值
 -(void) saleOppSrcSelectArray
 {
@@ -294,7 +294,6 @@
     _selectOppState= [nextFlowBFFSName copy];
     _selectOppStateId=[nextFlowBFFSId copy];
 }
-
 
 
 - (NSArray *)list:(NSString *)typeID{
@@ -453,12 +452,9 @@
     }else{
         return nil;
     }
-    
-    
-    
 }
 
-////点击添加选择的人员
+//点击添加选择的人员
 - (void)popoverListView:(ZSYPopoverListView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([_select isEqualToString:@"saleOppSrc"]){
@@ -473,6 +469,7 @@
         [self buttonInputLabel:tableView];
     }
 }
+
 //取消选择时的操作
 - (void)popoverListView:(ZSYPopoverListView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -529,15 +526,6 @@
             AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
             _chooseoppStateID=selectOppStateIdForParam;
         }
-        
     }
-    
-    
-    
-    
-    
 }
-
-
-
 @end

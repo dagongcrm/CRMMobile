@@ -10,309 +10,180 @@
 #import "PNChart.h"
 #import "config.h"
 #import "AppDelegate.h"
+#import "AFHTTPRequestOperationManager.h"
 @interface MarketManagementViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong,nonatomic) NSMutableArray *DateData;//日期
-@property (strong,nonatomic) NSString *date1;
-@property (strong,nonatomic) NSString *date2;
-@property (strong,nonatomic) NSString *date3;
-@property (strong,nonatomic) NSString *date4;
-@property (strong,nonatomic) NSString *date5;
-@property (strong,nonatomic) NSString *date6;
-@property (strong,nonatomic) NSString *date7;
-@property int index1;
-@property int index2;
-@property int index3;
-@property int index4;
-@property int index5;
-@property int index11;
-@property int index12;
-@property int index13;
-@property int index14;
-@property int index15;
+@property (strong,nonatomic) NSMutableArray *DateData;
 @end
 
 @implementation MarketManagementViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self  DateForIn];
+    [self  getDataForActivity];
+    [self  getDataForTel];
+}
+
+- (void)setUpActivityUI{
     self.title=@"活动统计";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-   
-
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 800);
-    NSLog(@"1111111111111%f",SCREEN_WIDTH);
-    _index1 = 0;
-     _index2 = 0;
-     _index3 = 0;
-     _index4 = 0;
-     _index5 = 0;
-    _index11 = 0;
-    _index12 = 0;
-    _index13 = 0;
-    _index14 = 0;
-    _index15 = 0;
-    [self DateForIn];
-    //Add LineChart
     UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
     lineChartLabel.text = @"拜访签到:活动次数";
     lineChartLabel.textColor = PNFreshGreen;
-    lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+    lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:18.0];
     lineChartLabel.textAlignment = NSTextAlignmentCenter;
-    
     PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 75.0, SCREEN_WIDTH, 200.0)];
     lineChart.backgroundColor = [UIColor clearColor];
-     NSString *d1 = [NSString stringWithFormat:@"%d",_index1];
-     NSString *d2 = [NSString stringWithFormat:@"%d",_index2];
-     NSString *d3 = [NSString stringWithFormat:@"%d",_index3];
-     NSString *d4 = [NSString stringWithFormat:@"%d",_index4];
-     NSString *d5 = [NSString stringWithFormat:@"%d",_index5];
-    NSLog(@"d1d1d1d1d1-----.%@",d1);
-    [lineChart setXLabels:@[[_date1 substringFromIndex:5],[_date2 substringFromIndex:5],[_date3 substringFromIndex:5],[_date4 substringFromIndex:5],[_date5 substringFromIndex:5]]];
+    NSString *d1 = [NSString stringWithFormat:@"%d",self.acitvityIndex1];
+    NSString *d2 = [NSString stringWithFormat:@"%d",self.acitvityIndex2];
+    NSString *d3 = [NSString stringWithFormat:@"%d",self.acitvityIndex3];
+    NSString *d4 = [NSString stringWithFormat:@"%d",self.acitvityIndex4];
+    NSString *d5 = [NSString stringWithFormat:@"%d",self.acitvityIndex5];
+    [lineChart setXLabels:@[[self.date1 substringFromIndex:5],[self.date2 substringFromIndex:5],[self.date3 substringFromIndex:5],[self.date4 substringFromIndex:5],[self.date5 substringFromIndex:5]]];
     [lineChart setYValues:@[d1,d2,d3,d4,d5]];
     [lineChart strokeChart];
     [self.scrollView addSubview:lineChartLabel];
     [self.scrollView addSubview:lineChart];
-    
+}
+
+-(void) setUpTelUI{
     UILabel * lineChartLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
     lineChartLabel1.text = @"电话:电话次数";
     lineChartLabel1.textColor = PNFreshGreen;
-    lineChartLabel1.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+    lineChartLabel1.font = [UIFont fontWithName:@"Avenir-Medium" size:18.0];
     lineChartLabel1.textAlignment = NSTextAlignmentCenter;
-    
     PNChart * lineChart1 = [[PNChart alloc] initWithFrame:CGRectMake(0, 335.0, SCREEN_WIDTH, 200.0)];
     lineChart1.backgroundColor = [UIColor clearColor];
-    NSString *d11 = [NSString stringWithFormat:@"%d",_index11];
-    NSString *d12 = [NSString stringWithFormat:@"%d",_index12];
-    NSString *d13 = [NSString stringWithFormat:@"%d",_index13];
-    NSString *d14 = [NSString stringWithFormat:@"%d",_index14];
-    NSString *d15 = [NSString stringWithFormat:@"%d",_index15];
-    NSLog(@"d1d1d1d1d1-----.%@",d11);
-    [lineChart1 setXLabels:@[[_date1 substringFromIndex:5],[_date2 substringFromIndex:5],[_date3 substringFromIndex:5],[_date4 substringFromIndex:5],[_date5 substringFromIndex:5]]];
+    NSString *d11 = [NSString stringWithFormat:@"%d",self.telIndex1];
+    NSString *d12 = [NSString stringWithFormat:@"%d",self.telIndex2];
+    NSString *d13 = [NSString stringWithFormat:@"%d",self.telIndex3];
+    NSString *d14 = [NSString stringWithFormat:@"%d",self.telIndex4];
+    NSString *d15 = [NSString stringWithFormat:@"%d",self.telIndex5];
+    [lineChart1 setXLabels:@[[self.date1 substringFromIndex:5],[self.date2 substringFromIndex:5],[self.date3 substringFromIndex:5],[self.date4 substringFromIndex:5],[self.date5 substringFromIndex:5]]];
     [lineChart1 setYValues:@[d11,d12,d13,d14,d15]];
     [lineChart1 strokeChart];
     [self.scrollView addSubview:lineChartLabel1];
     [self.scrollView addSubview:lineChart1];
-    
-    //Add BarChart    
-    
-//    UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
-//    barChartLabel.text = @"电话:电话次数";
-//    barChartLabel.textColor = PNFreshGreen;
-//    barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
-//    barChartLabel.textAlignment = NSTextAlignmentCenter;
-//    
-//    PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 335.0, SCREEN_WIDTH, 200.0)];
-//    barChart.backgroundColor = [UIColor clearColor];
-//    barChart.type = PNBarType;
-//    NSString *d11 = [NSString stringWithFormat:@"%d",_index11];
-//    NSString *d12 = [NSString stringWithFormat:@"%d",_index12];
-//    NSString *d13 = [NSString stringWithFormat:@"%d",_index13];
-//    NSString *d14 = [NSString stringWithFormat:@"%d",_index14];
-//    NSString *d15 = [NSString stringWithFormat:@"%d",_index5];
-//    [barChart setXLabels:@[_date1,_date2,_date3,_date4,_date5]];
-//    NSLog(@"date111%@",_date1);
-//    [barChart setYValues:@[d11,d12,d13,d14,d15]];
-//    [barChart strokeChart];
-//    [self.scrollView addSubview:barChartLabel];
-//    [self.scrollView addSubview:barChart];
-    
 }
-//date
+
 -(void)DateForIn{
-       NSDate *now = [NSDate date];
+    NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit|NSDayCalendarUnit
-                                         fromDate:now];
-    
-    // 得到星期几
-    // 1(星期天) 2(星期二) 3(星期三) 4(星期四) 5(星期五) 6(星期六) 7(星期天)
+    NSDateComponents *comp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit|NSDayCalendarUnit fromDate:now];
     NSInteger weekDay = [comp weekday];
-    // 得到几号
     NSInteger day = [comp day];
-    
-    NSLog(@"weekDay:%ld   day:%ld",weekDay,day);//5 3
-    
-    // 计算当前日期和这周的星期一和星期天差的天数
     long firstDiff,lastDiff;
     if (weekDay == 1) {
         firstDiff = 1;
         lastDiff = 0;
     }else{
-        firstDiff = [calendar firstWeekday] - weekDay;//当前时间和周一相差几天
+        firstDiff = [calendar firstWeekday] - weekDay;
         lastDiff = 9 - weekDay;
     }
-    //    firstDiff ＝ firstDiff ＋1;
-    NSLog(@"firstDiff:%ld   lastDiff:%ld",firstDiff,lastDiff);
-    
-    // 在当前日期(去掉了时分秒)基础上加上差的天数
     NSDateComponents *firstDayComp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
-    //周日
     [firstDayComp setDay:day + firstDiff+1];
     NSDate *firstDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周二
     [firstDayComp setDay:day + firstDiff+2];
     NSDate *twoDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周三
     [firstDayComp setDay:day + firstDiff+3];
     NSDate *threeDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周四
     [firstDayComp setDay:day + firstDiff+4];
     NSDate *fourDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周五
     [firstDayComp setDay:day + firstDiff+5];
     NSDate *fiveDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周六
     [firstDayComp setDay:day + firstDiff+6];
     NSDate *sixDayOfWeek= [calendar dateFromComponents:firstDayComp];
-    //周日
     NSDateComponents *lastDayComp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
     [lastDayComp setDay:day + lastDiff-1];
     NSDate *lastDayOfWeek= [calendar dateFromComponents:lastDayComp];
-    
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString * date111 = [dateFormatter stringFromDate:firstDayOfWeek];
-    NSLog(@"date111==>>%@",date111);
-    _date1 = [[dateFormatter stringFromDate:firstDayOfWeek] substringToIndex:10];
-    _date2 = [[dateFormatter stringFromDate:twoDayOfWeek] substringToIndex:10];
-    _date3 = [[dateFormatter stringFromDate:threeDayOfWeek] substringToIndex:10];
-    _date4 = [[dateFormatter stringFromDate:fourDayOfWeek] substringToIndex:10];
-    _date5 = [[dateFormatter stringFromDate:fiveDayOfWeek] substringToIndex:10];
-    _date6 = [[dateFormatter stringFromDate:sixDayOfWeek] substringToIndex:10];
-    _date7 = [[dateFormatter stringFromDate:lastDayOfWeek] substringToIndex:10];
-    
-    NSLog(@"星期一%@",[dateFormatter stringFromDate:firstDayOfWeek]);
-    NSLog(@"当前 %@",[dateFormatter stringFromDate:now]);
-    NSLog(@"星期二%@",[dateFormatter stringFromDate:twoDayOfWeek]);
-    NSLog(@"星期三%@",[dateFormatter stringFromDate:threeDayOfWeek]);
-    NSLog(@"星期四%@",[dateFormatter stringFromDate:fourDayOfWeek]);
-    NSLog(@"星期五%@",[dateFormatter stringFromDate:fiveDayOfWeek]);
-    NSLog(@"星期六%@",[dateFormatter stringFromDate:sixDayOfWeek]);
-    NSLog(@"星期天%@",[dateFormatter stringFromDate:lastDayOfWeek]);
-    
-    
-    [self faker];
-    [self faker11];
-}
-//获取数据1
--(NSMutableArray *)faker{
-    
-    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerCallRecordsAction!mDatagrid1.action?"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *order = @"desc";
-    NSString *sort = @"time";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@",sid,order,sort];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-        [alert show];
-        NSLog(@"--------%@",error);
-    }else{
-    NSDictionary *maketDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"maketDic字典里面的内容为--》%@", maketDic);
-    NSArray *list = [maketDic objectForKey:@"obj"];
-    NSLog(@"maketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDicmaketDic==>>%lu",[list count]);
-    for (int i = 0;i<[list count];i++) {
-        NSDictionary *listDic =[list objectAtIndex:i];
-//        [self.CustomerArr addObject:listDic];
-        NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
-        if([time isEqualToString:_date1]){
-            _index1++;
-            NSLog(@"date111%@",_date1);
-        }else if([time isEqualToString:_date2]){
-            _index2++;
-            NSLog(@"###########%@",time);
-        }else if([time isEqualToString:_date3]){
-            _index3++;
-        }else if([time isEqualToString:_date4]){
-            _index4++;
-        }else if([time isEqualToString:_date5]){
-            _index5++;
-        }
-//        NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
-//        NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
-//        //        NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
-//        NSString *contactID =(NSString *)[listDic objectForKey:@"contactID"];
-//        if (contactName.length==0) {
-//            contactName=@"暂无数据";
-//        }
-////    
-//        [self.fakeData addObject:contactName];
-//        [self.contactData addObject:telePhone];
-//        [self.customerNameStrData addObject:customerNameStr];
-//        [self.contactIDData addObject:contactID];
-        NSLog(@"time--=>>%@",time);
-        NSLog(@"date3%@",_date3);
-        NSLog(@"index1==>>%d",_index1);
-        NSLog(@"index2==>>%d",_index2);
-        NSLog(@"index3==>>%d",_index3);
-        NSLog(@"index4==>>%d",_index4);
-        NSLog(@"index5==>>%d",_index5);
-    }
-//    return self.fakeData;
-    }
-    return 0;
-}
-//获取数据2
--(NSMutableArray *)faker11{
-    
-    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"callLogAction!datagrid.action?"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@",sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-        [alert show];
-        NSLog(@"--------%@",error);
-    }else{
-    NSDictionary *callLogAction  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"callLogAction字典里面的内容为--》%@", callLogAction);
-    NSArray *list = [callLogAction objectForKey:@"obj"];    NSLog(@"callLogActioncallLogAction==>>%lu",[list count]);
-    for (int i = 0;i<[list count];i++) {
-        NSDictionary *listDic =[list objectAtIndex:i];
-        //        [self.CustomerArr addObject:listDic];
-        NSString *time = (NSString *)[listDic objectForKey:@"time"];
-        NSLog(@"time11===>%@",time);
-       NSString *timeStr = [time substringToIndex:10];//截取下标7之后的字符串
-        NSLog(@"time22===>%@",timeStr);
-        if([timeStr isEqualToString:_date1]){
-            _index11++;
-        }else if([timeStr isEqualToString:_date2]){
-            _index12++;
-        }else if([timeStr isEqualToString:_date3]){
-            _index13++;
-        }else if([timeStr isEqualToString:_date4]){
-            _index14++;
-        }else if([timeStr isEqualToString:_date5]){
-            _index15++;
-        }
-        NSLog(@"index11==>>%d",_index11);
-        NSLog(@"index12==>>%d",_index12);
-        NSLog(@"index13==>>%d",_index13);
-        NSLog(@"index14==>>%d",_index14);
-        NSLog(@"index15==>>%d",_index15);
-    }
-    //    return self.fakeData;
-    }
-    return 0;
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    self.date1 = [dateFormatter stringFromDate:firstDayOfWeek];
+    self.date2 = [dateFormatter stringFromDate:twoDayOfWeek]  ;
+    self.date3 = [dateFormatter stringFromDate:threeDayOfWeek];
+    self.date4 = [dateFormatter stringFromDate:fourDayOfWeek];
+    self.date5 = [dateFormatter stringFromDate:fiveDayOfWeek];
+    self.date6 = [dateFormatter stringFromDate:sixDayOfWeek];
+    self.date7 = [dateFormatter stringFromDate:lastDayOfWeek];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(void)getDataForActivity{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+    NSDictionary *parameters = @{@"MOBILE_SID":sid,
+                                 @"order":@"desc",
+                                 @"sort" :@"time"};
+    [manager POST:[SERVER_URL stringByAppendingString:@"mcustomerCallRecordsAction!mDatagrid1.action?"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([[responseObject objectForKey:@"success"] boolValue] == YES){
+            NSArray *list = [responseObject objectForKey:@"obj"];
+            for (int i = 0;i<[list count];i++) {
+                NSDictionary *listDic =[list objectAtIndex:i];
+                NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+                [formatter setDateFormat:@"yyyy年MM月dd日"];
+                NSDate *date=[formatter dateFromString:time];
+                [formatter setDateFormat:@"yyyy-MM-dd"];
+                NSString *timeString= [formatter stringFromDate:date];
+                time=timeString;
+                if([time isEqualToString:self.date1]){
+                    self.acitvityIndex1++;
+                }else if([time isEqualToString:self.date2]){
+                    self.acitvityIndex2++;
+                }else if([time isEqualToString:self.date3]){
+                    self.acitvityIndex3++;
+                }else if([time isEqualToString:self.date4]){
+                    self.acitvityIndex4++;
+                }else if([time isEqualToString:self.date5]){
+                    self.acitvityIndex5++;
+                }
+            }
+            NSString *data= [NSString stringWithFormat:@"%d",self.acitvityIndex1];
+            [self performSelectorOnMainThread:@selector(setUpActivityUI) withObject:data waitUntilDone:YES];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+    }];
 }
 
+-(void)getDataForTel{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+    NSDictionary *parameters = @{@"MOBILE_SID":sid};
+    [manager POST:[SERVER_URL stringByAppendingString:@"callLogAction!datagrid.action?"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([[responseObject objectForKey:@"success"] boolValue] == YES){
+            NSArray *list = [responseObject objectForKey:@"obj"];
+            for (int i = 0;i<[list count];i++) {
+                NSDictionary *listDic =[list objectAtIndex:i];
+                NSString *time = (NSString *)[listDic objectForKey:@"time"];
+                NSString *timeStr = [time substringToIndex:10];
+                if([timeStr isEqualToString:self.date1]){
+                    self.telIndex1++;
+                }else if([timeStr isEqualToString:self.date2]){
+                    self.telIndex2++;
+                }else if([timeStr isEqualToString:self.date3]){
+                    self.telIndex3++;
+                }else if([timeStr isEqualToString:self.date4]){
+                    self.telIndex4++;
+                }else if([timeStr isEqualToString:self.date5]){
+                    self.telIndex5++;
+                }
+            }
+            NSString *data= [NSString stringWithFormat:@"%d",self.telIndex1];
+            [self performSelectorOnMainThread:@selector(setUpTelUI) withObject:data waitUntilDone:YES];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+    }];
+}
 @end

@@ -78,18 +78,17 @@
 
 - (void)viewDidLoad {
     
+    self.tableView1=self.tableView;
     [super viewDidLoad];
     self.title=@"销售线索";
     [self fakeData];
-    [self setupRefresh];    //上拉刷新下拉加在方法
+    [self setupRefresh]; 
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
                                  action:@selector(addSaleOpp:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    //设置返回键的颜色
-    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);

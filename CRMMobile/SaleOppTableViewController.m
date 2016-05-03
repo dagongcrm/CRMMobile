@@ -16,13 +16,12 @@
 #import "EntityHelper.h"
 
 @interface SaleOppTableViewController ()
-
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
-
 @end
 
 @implementation SaleOppTableViewController
+
 - (NSMutableArray *)entities
 {
     if (!_entities) {
@@ -37,7 +36,7 @@
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleOpportunityAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
+    request.timeoutInterval=3.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
     NSString *sort = @"createTime";
@@ -47,7 +46,6 @@
     if (error) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
-        NSLog(@"--------%@",error);
     }else{
     NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSMutableArray *list = [json objectForKey:@"obj"];
@@ -69,20 +67,18 @@
     return self.entities;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupRefresh];
     self.title=@"销售机会";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
-
-   // [self fakeData];
-    [self setupRefresh];    //上拉刷新下拉加在方法
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                  target:self
@@ -91,7 +87,7 @@
     [self setExtraCellLineHidden:self.tableView];
 }
 
--(void)setExtraCellLineHidden: (UITableView *)tableView
+- (void)setExtraCellLineHidden: (UITableView *)tableView
 {
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
@@ -154,8 +150,6 @@
     [self.navigationController pushViewController:detailSallOpp animated:YES];
 }
 
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -167,26 +161,65 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"mycell";
+    static NSString *cellId = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil)
-    {
+    if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
     if (detail ==nil) {
         detail=@"暂无";
     }
-     NSString *detailText=[@"机会状态："  stringByAppendingString:detail];
-    [cell.detailTextLabel setText:detailText];
     
-    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    NSString *connecter =[[self.entities objectAtIndex:indexPath.row] contact];
+    if (connecter ==nil) {
+        connecter=@"暂无";
+    }
+    
+    NSString *oppSucces =[[self.entities objectAtIndex:indexPath.row] successProbability];
+    if (oppSucces ==nil) {
+        oppSucces=@"暂无";
+    }
+    
+    UIButton *inactonButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [inactonButton setTitle:@"不活跃" forState:UIControlStateNormal];
+    [inactonButton setTintColor:[UIColor grayColor]];
+    CGRect inframe = CGRectMake(0.0, 0.0, 50, 30);
+    inactonButton.frame=inframe;
+    
+    UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [actionButton setTitle:@"活跃" forState:UIControlStateNormal];
+    [actionButton setTintColor:[UIColor redColor]];
+    CGRect aframe = CGRectMake(0.0, 0.0, 30, 30);
+    actionButton.frame=aframe;
+   
+    NSString *oppSuccesText=[@"成功率:" stringByAppendingString:oppSucces];
+    NSString *SuccesText=[oppSuccesText stringByAppendingString:@"%"];
+    NSString *detailText=[@"联系人:"  stringByAppendingString:connecter];
+    NSString *detailTextWithSpace=[detailText stringByAppendingString:@"    "];
+    NSString *finalDetailText=[detailTextWithSpace stringByAppendingString:SuccesText];
+    NSMutableAttributedString *attributedStr01 = [[NSMutableAttributedString alloc] initWithString: finalDetailText];
+    NSRange range= [finalDetailText rangeOfString:@"率"];
+    if ([oppSucces intValue]>=60) {
+         cell.accessoryView=actionButton;
+        [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
+    }else{
+         cell.accessoryView=inactonButton;
+         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
+    }
+    cell.detailTextLabel.attributedText=attributedStr01;
+    [cell.imageView setImage:[UIImage imageNamed:@"lou.png"]];
+    CGSize itemSize = CGSizeMake(40, 40);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
         return 50;
@@ -194,6 +227,5 @@
         return 60;
     }
 }
-
 
 @end

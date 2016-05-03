@@ -115,58 +115,58 @@
 
 - (void)buttonLongPressed:(UILongPressGestureRecognizer *)longPressed
 {
-    SDHomeGridViewListItemView *pressedView = (SDHomeGridViewListItemView *)longPressed.view;
-    CGPoint point = [longPressed locationInView:self];
-    if (longPressed.state == UIGestureRecognizerStateBegan) {
-        _currentPressedView.hidenIcon = YES;
-        _currentPressedView = pressedView;
-        _currentPresssViewFrame = pressedView.frame;
-        longPressed.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
-        pressedView.hidenIcon = NO;
-        long index = [_itemsArray indexOfObject:longPressed.view];
-        [_itemsArray  removeObject:longPressed.view];
-        [_itemsArray  insertObject:_placeholderButton atIndex:index];
-        _lastPoint = point;
-        [self bringSubviewToFront:longPressed.view];
-    }
-    CGRect temp = longPressed.view.frame;
-    temp.origin.x += point.x - _lastPoint.x;
-    temp.origin.y += point.y - _lastPoint.y;
-    longPressed.view.frame = temp;
-    
-    _lastPoint = point;
-    
-    [_itemsArray enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
-        if (button == _moreItemButton) return;
-        if (CGRectContainsPoint(button.frame, point) && button != longPressed.view) {
-            [_itemsArray removeObject:_placeholderButton];
-            [_itemsArray insertObject:_placeholderButton atIndex:idx];
-            *stop = YES;
-            [UIView animateWithDuration:0.5 animations:^{
-                [self setupSubViewsFrame];
-            }];
-        }
-        
-    }];
-    
-    if (longPressed.state == UIGestureRecognizerStateEnded) {
-        long index = [_itemsArray indexOfObject:_placeholderButton];
-        [_itemsArray removeObject:_placeholderButton];
-        [_itemsArray insertObject:longPressed.view atIndex:index];
-        
-        [self sendSubviewToBack:longPressed.view];
-        // 保存数据
-        [self saveItemsSettingCache];
-        
-        [UIView animateWithDuration:0.4 animations:^{
-            longPressed.view.transform = CGAffineTransformIdentity;
-            [self setupSubViewsFrame];
-        } completion:^(BOOL finished) {
-            if (!CGRectEqualToRect(_currentPresssViewFrame, _currentPressedView.frame)) {
-                _currentPressedView.hidenIcon = YES;
-            }
-        }];
-    }
+//    SDHomeGridViewListItemView *pressedView = (SDHomeGridViewListItemView *)longPressed.view;
+//    CGPoint point = [longPressed locationInView:self];
+//    if (longPressed.state == UIGestureRecognizerStateBegan) {
+//        _currentPressedView.hidenIcon = YES;
+//        _currentPressedView = pressedView;
+//        _currentPresssViewFrame = pressedView.frame;
+//        longPressed.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+//        pressedView.hidenIcon = NO;
+//        long index = [_itemsArray indexOfObject:longPressed.view];
+//        [_itemsArray  removeObject:longPressed.view];
+//        [_itemsArray  insertObject:_placeholderButton atIndex:index];
+//        _lastPoint = point;
+//        [self bringSubviewToFront:longPressed.view];
+//    }
+//    CGRect temp = longPressed.view.frame;
+//    temp.origin.x += point.x - _lastPoint.x;
+//    temp.origin.y += point.y - _lastPoint.y;
+//    longPressed.view.frame = temp;
+//    
+//    _lastPoint = point;
+//    
+//    [_itemsArray enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
+//        if (button == _moreItemButton) return;
+//        if (CGRectContainsPoint(button.frame, point) && button != longPressed.view) {
+//            [_itemsArray removeObject:_placeholderButton];
+//            [_itemsArray insertObject:_placeholderButton atIndex:idx];
+//            *stop = YES;
+//            [UIView animateWithDuration:0.5 animations:^{
+//                [self setupSubViewsFrame];
+//            }];
+//        }
+//        
+//    }];
+//    
+//    if (longPressed.state == UIGestureRecognizerStateEnded) {
+//        long index = [_itemsArray indexOfObject:_placeholderButton];
+//        [_itemsArray removeObject:_placeholderButton];
+//        [_itemsArray insertObject:longPressed.view atIndex:index];
+//        
+//        [self sendSubviewToBack:longPressed.view];
+//        // 保存数据
+//        [self saveItemsSettingCache];
+//        
+//        [UIView animateWithDuration:0.4 animations:^{
+//            longPressed.view.transform = CGAffineTransformIdentity;
+//            [self setupSubViewsFrame];
+//        } completion:^(BOOL finished) {
+//            if (!CGRectEqualToRect(_currentPresssViewFrame, _currentPressedView.frame)) {
+//                _currentPressedView.hidenIcon = YES;
+//            }
+//        }];
+//    }
     
 }
 

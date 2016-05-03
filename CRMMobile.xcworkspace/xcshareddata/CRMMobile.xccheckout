@@ -10,8 +10,6 @@
 	<string>CRMMobile</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>DC6C089CD2884C56EDF57D66A085A6CA4F138C83</key>
-		<string>https://github.com/michanMC/MCStopTableView.git</string>
 		<key>EE5788CCBC693FEC68C192AA21FB6841CF208407</key>
 		<string>https://github.com/dagongcrm/CRMMobile.git</string>
 	</dict>
@@ -19,8 +17,6 @@
 	<string>CRMMobile.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DC6C089CD2884C56EDF57D66A085A6CA4F138C83</key>
-		<string>../../MCStopTableView</string>
 		<key>EE5788CCBC693FEC68C192AA21FB6841CF208407</key>
 		<string>..</string>
 	</dict>
@@ -39,14 +35,6 @@
 			<string>EE5788CCBC693FEC68C192AA21FB6841CF208407</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CRMMobile</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DC6C089CD2884C56EDF57D66A085A6CA4F138C83</string>
-			<key>IDESourceControlWCCName</key>
-			<string>MCStopTableView</string>
 		</dict>
 	</array>
 </dict>

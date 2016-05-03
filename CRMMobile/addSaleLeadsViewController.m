@@ -29,12 +29,10 @@
 @implementation addSaleLeadsViewController
 @synthesize saleLeads = _saleLeads;
 @synthesize saleOppEntity=_saleOppEntity;
+
 - (IBAction)customerSelect:(id)sender {
-//    _saleLeads=[[saleLeads alloc] init];
     [_saleLeads setCustomerNameStr:_customerName.text];
     [_saleLeads setSalesLeads:_leadsAdd.text];
-    NSLog(@"1231121212121====>%@",_saleLeads.index);
-//    [_saleLeads setIndex:@"addSaleLeads"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setSaleLeads:_saleLeads];
     [self.navigationController pushViewController:list animated:YES];
@@ -59,20 +57,20 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    //    self.tableView.delegate=self;
-    //    self.tableView.dataSource=self;
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                                                   target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    //    self.tableView.delegate=self;
+//    //    self.tableView.dataSource=self;
     
     }
 
@@ -81,16 +79,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[saleLeadsTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[saleLeadsTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
 /*
 #pragma mark - Navigation
 
@@ -154,7 +152,7 @@
     }
 }
 
-- (IBAction)cancel:(id)sender {
-    [self ResView];
-}
+//- (IBAction)cancel:(id)sender {
+//    [self ResView];
+//}
 @end

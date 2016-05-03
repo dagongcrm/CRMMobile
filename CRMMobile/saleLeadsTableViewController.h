@@ -12,4 +12,5 @@
 
 @interface saleLeadsTableViewController : UITableViewController
 @property saleLeads *saleLead;
+@property (strong ,nonatomic) UITableView *tableView1;
 @end
