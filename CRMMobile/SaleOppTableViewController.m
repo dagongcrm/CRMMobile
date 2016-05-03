@@ -14,7 +14,7 @@
 #import "SaleOppEntity.h"
 #import "DetailSaleOppViewController.h"
 #import "EntityHelper.h"
-#import "marketChanceCell.h"
+
 @interface SaleOppTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
@@ -59,7 +59,6 @@
     }
     for (int i = 0;i<[list count];i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
-        NSLog(@"listDD===>>%@",listDic);
         SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
         [self.entities addObject:saleOpp];
@@ -130,11 +129,14 @@
     }else{
         self.index++;
     }
-    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    [self faker:p];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-        [self.tableView footerEndRefreshing];
+    static NSString *cellId = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil){
+    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
+    if (detail ==nil) {
+        detail=@"暂无";
     });
 
 }
@@ -148,24 +150,6 @@
     SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
     DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
     [detailSallOpp setSaleOppEntity:saleOppEntity];
-    [self.navigationController pushViewController:detailSallOpp animated:YES];
-//    SaleDetailViewController *detailSale = [SaleDetailViewController new];
-//     [detailSale setSaleOppEntity:saleOppEntity];
-//     [self.navigationController pushViewController:detailSale animated:YES];
-//
-//    UIStoryboard *sb=[UIStoryboard storyboardWithName:@"saledetail" bundle:nil];
-//    [self presentViewController:[sb instantiateInitialViewController] animated:YES completion:nil];
-//    [self performSegueWithIdentifier:@"saledetail" sender:self];
-    
-    //根据 segue Identifier跳转界面
-//    [self performSegueWithIdentifier:@"GotoTwo" sender:self];
-    
-    //以modal 方式跳转
-//    [self presentModalViewController:detailSale animated:YES];
-    
-    //压进一个viewcontroller
-//    [self.navigationController pushViewController:nil animated:YES];
-
     
 }
 
@@ -175,22 +159,6 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.entities count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
-    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-    if (detail ==nil) {
-        detail=@"暂无";
-    }
     
     NSString *connecter =[[self.entities objectAtIndex:indexPath.row] contact];
     if (connecter ==nil) {
@@ -224,10 +192,10 @@
     if ([oppSucces intValue]>=60) {
          cell.accessoryView=actionButton;
         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
-    }else{
+    UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
          cell.accessoryView=inactonButton;
          [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
-    }
+    CGRect aframe = CGRectMake(0.0, 0.0, 30, 30);
     cell.detailTextLabel.attributedText=attributedStr01;
     [cell.imageView setImage:[UIImage imageNamed:@"lou.png"]];
     CGSize itemSize = CGSizeMake(40, 40);
@@ -236,11 +204,10 @@
     [cell.imageView.image drawInRect:imageRect];
     cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return cell;
-}
+    NSRange range= [finalDetailText rangeOfString:@"率"];
+    if ([oppSucces intValue]>=60) {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
         return 50;
     }else{
         return 60;
@@ -262,5 +229,6 @@
 //        return 60;
 //    }
 }
+
 
 @end
