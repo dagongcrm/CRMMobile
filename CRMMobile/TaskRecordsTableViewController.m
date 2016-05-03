@@ -9,7 +9,6 @@
 #import "ReminderTableViewController.h"
 #import "IndexViewController.h"
 #import "MTableViewCell.h"
-#import "NullString.h"
 @interface TaskRecordsTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -284,14 +283,14 @@
 ////设置每个分组下tableview的行数
 //-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 //{
-////   return [self.fakeData count];  
+////   return [self.fakeData count];
 //        return 1;
-//  
+//
 //}
 ////每个分组上边预留的空白高度
 //-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 //{
-//    
+//
 //    return 5;
 //}
 ////每个分组下边预留的空白高度
@@ -313,7 +312,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-        return 1;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -324,22 +323,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-//    NSString *testDetail1 =[@"拜访人:" stringByAppendingString:self.respondent [indexPath.row]];
-//    NSString *str =[testDetail stringByAppendingString:testDetail1];
-//    NSLog(@"%@",str);
-//    [cell.detailTextLabel setText:str];
-////    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-//    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    return cell;
+    //    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    //    if (cell == nil) {
+    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    //    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    //    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    //    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    //    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    //    NSString *testDetail1 =[@"拜访人:" stringByAppendingString:self.respondent [indexPath.row]];
+    //    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    //    NSLog(@"%@",str);
+    //    [cell.detailTextLabel setText:str];
+    ////    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    //    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    //    return cell;
     
     //指定cellIdentifier为自定义的cell
     static NSString *CellIdentifier = @"MTableViewCell";
@@ -348,57 +347,53 @@
     if (cell == nil) {
         //通过xib的名称加载自定义的cell
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MTableViewCell" owner:self options:nil] lastObject];
-//        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MTableViewCell" owner:self options:nil];//加载自定义cell的xib文件
-//        cell = [array objectAtIndex:0];
+        //        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MTableViewCell" owner:self options:nil];//加载自定义cell的xib文件
+        //        cell = [array objectAtIndex:0];
     }
-//    cell.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 100);
+    //    cell.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 100);
     
     //添加测试数据
     cell.qiyeName.text = [self.fakeData objectAtIndex:indexPath.row];
     //    cell//    cell accessMethodStr
     NSString *bfl = [self.accessMethodStr objectAtIndex:indexPath.row];
     
-//    NSString *str1 = @"走访";
-//    NSString *str2 = @"电话";
-      cell.myImg.image = [UIImage imageNamed:@"baifanJL.png"];
+    //    NSString *str1 = @"走访";
+    //    NSString *str2 = @"电话";
     if ([bfl isEqualToString:@"电话"]) {
+        cell.myImg.image = [UIImage imageNamed:@"zz.jpg"];
         cell.bfLeixing.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
         cell.bfLeixing.text = bfl;
     }else{
-//        cell.myImg.image = [UIImage imageNamed:@"拜访记录1.png"];
+        cell.myImg.image = [UIImage imageNamed:@"zouf.png"];
         cell.bfLeixing.textColor = [UIColor redColor];;
         cell.bfLeixing.text = bfl;
     }
     cell.bfLeixing.font = [UIFont systemFontOfSize:10];
-//    int res =  [bfl compare:str1 options:NSLiteralSearch];
-//    int res1 =  [bfl compare:str2 options:NSLiteralSearch];
-//    if(res==0){
+    //    int res =  [bfl compare:str1 options:NSLiteralSearch];
+    //    int res1 =  [bfl compare:str2 options:NSLiteralSearch];
+    //    if(res==0){
     
-//    }else  if (res1 == 0) {
-//        cell.bfLeixing.textColor = [UIColor greenColor];;
-//        cell.bfLeixing.text = bfl;
-//    }
-
-//    cell.bfLeixing.text = @"走访";
+    //    }else  if (res1 == 0) {
+    //        cell.bfLeixing.textColor = [UIColor greenColor];;
+    //        cell.bfLeixing.text = bfl;
+    //    }
+    
+    //    cell.bfLeixing.text = @"走访";
     NSString * bfr = [self.respondent objectAtIndex:indexPath.row];
-    if ([NullString isBlankString:bfr]) {
+    if (bfr == nil) {
         cell.bfRen.text =@"拜访人:暂无信息" ;
     }else{
         cell.bfRen.text = [@"拜访人:" stringByAppendingString:bfr];
     }
     NSString * bfs = [self.visitDate objectAtIndex:indexPath.row];
-    if ([NullString isBlankString:bfs]) {
+    if (bfs == nil) {
         cell.bfShijian.text =@"暂无信息" ;
     }else{
-        if(bfs.length>10){
-           cell.bfShijian.text = [bfs substringToIndex:10];
-        }else{
-              cell.bfShijian.text =bfs;
-        }
+        cell.bfShijian.text =bfs;
     }
-//    cell.bfShijian.text =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-//    //测试图片
-//    cell.iamge.image = [UIImage imageNamed:@"testImage.jpg"];
+    //    cell.bfShijian.text =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
+    //    //测试图片
+    //    cell.iamge.image = [UIImage imageNamed:@"testImage.jpg"];
     return cell;
 }
 
@@ -483,11 +478,11 @@
     [self.navigationController pushViewController:uc animated:NO];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 44;
-//    }else{
-//        return 55;
-//    }
+    //    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
+    //        return 44;
+    //    }else{
+    //        return 55;
+    //    }
     return 70;
 }
 //-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

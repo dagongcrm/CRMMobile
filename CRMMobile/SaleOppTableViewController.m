@@ -47,22 +47,22 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }else{
-    NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSMutableArray *list = [json objectForKey:@"obj"];
-    if([list count] ==0)
-    {
-        self.tableView.footerRefreshingText = @"没有更多数据";
-        self.index--;
-    }else
-    {
-        self.tableView.footerRefreshingText=@"加载中";
-    }
-    for (int i = 0;i<[list count];i++) {
-        NSDictionary *listDic =[list objectAtIndex:i];
-        SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
-        [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
-        [self.entities addObject:saleOpp];
-    }
+        NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSMutableArray *list = [json objectForKey:@"obj"];
+        if([list count] ==0)
+        {
+            self.tableView.footerRefreshingText = @"没有更多数据";
+            self.index--;
+        }else
+        {
+            self.tableView.footerRefreshingText=@"加载中";
+        }
+        for (int i = 0;i<[list count];i++) {
+            NSDictionary *listDic =[list objectAtIndex:i];
+            SaleOppEntity *saleOpp =[[SaleOppEntity alloc] init];
+            [EntityHelper dictionaryToEntity:listDic entity:saleOpp];
+            [self.entities addObject:saleOpp];
+        }
     }
     return self.entities;
 }
@@ -114,7 +114,7 @@
 - (void)headerRereshing
 {
     [self.entities removeAllObjects];
-     self.index =1;
+    self.index =1;
     [self faker:@"1"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -129,16 +129,13 @@
     }else{
         self.index++;
     }
-    static NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil){
-    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
-    if (detail ==nil) {
-        detail=@"暂无";
+    NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
+    [self faker:p];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+        [self.tableView footerEndRefreshing];
     });
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,7 +147,7 @@
     SaleOppEntity *saleOppEntity =[self.entities objectAtIndex:indexPath.row];
     DetailSaleOppViewController *detailSallOpp =[[DetailSaleOppViewController alloc] init];
     [detailSallOpp setSaleOppEntity:saleOppEntity];
-    
+    [self.navigationController pushViewController:detailSallOpp animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -159,6 +156,22 @@
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.entities count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellId = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    }
+    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
+    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    NSString *detail =[[self.entities objectAtIndex:indexPath.row] oppStateStr];
+    if (detail ==nil) {
+        detail=@"暂无";
+    }
     
     NSString *connecter =[[self.entities objectAtIndex:indexPath.row] contact];
     if (connecter ==nil) {
@@ -181,7 +194,7 @@
     [actionButton setTintColor:[UIColor redColor]];
     CGRect aframe = CGRectMake(0.0, 0.0, 30, 30);
     actionButton.frame=aframe;
-   
+    
     NSString *oppSuccesText=[@"成功率:" stringByAppendingString:oppSucces];
     NSString *SuccesText=[oppSuccesText stringByAppendingString:@"%"];
     NSString *detailText=[@"联系人:"  stringByAppendingString:connecter];
@@ -190,12 +203,12 @@
     NSMutableAttributedString *attributedStr01 = [[NSMutableAttributedString alloc] initWithString: finalDetailText];
     NSRange range= [finalDetailText rangeOfString:@"率"];
     if ([oppSucces intValue]>=60) {
-         cell.accessoryView=actionButton;
+        cell.accessoryView=actionButton;
         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
-    UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-         cell.accessoryView=inactonButton;
-         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
-    CGRect aframe = CGRectMake(0.0, 0.0, 30, 30);
+    }else{
+        cell.accessoryView=inactonButton;
+        [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
+    }
     cell.detailTextLabel.attributedText=attributedStr01;
     [cell.imageView setImage:[UIImage imageNamed:@"lou.png"]];
     CGSize itemSize = CGSizeMake(40, 40);
@@ -204,31 +217,15 @@
     [cell.imageView.image drawInRect:imageRect];
     cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    NSRange range= [finalDetailText rangeOfString:@"率"];
-    if ([oppSucces intValue]>=60) {
+    return cell;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
         return 50;
     }else{
         return 60;
     }
-    if ([string isKindOfClass:[NSNull class]]) {
-        return YES;
-    }
-    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
-        return YES;
-    }
-    return NO;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
-}
-
 
 @end
