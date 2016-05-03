@@ -196,18 +196,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-ve-soX">
-                            <rect key="frame" x="204" y="757" width="120" height="40"/>
-                            <state key="normal" image="save-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="184" y="757" width="140" height="44"/>
+                            <state key="normal" title="保存" backgroundImage="lan.png">
+                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="add:" destination="-1" eventType="touchUpInside" id="rLW-Ql-UjO"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFp-Fo-Een">
-                            <rect key="frame" x="38" y="757" width="120" height="40"/>
-                            <state key="normal" image="cancle-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="31" y="757" width="140" height="44"/>
+                            <state key="normal" title="取消" backgroundImage="huang.png">
+                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="TIJ-b5-OVZ"/>
@@ -222,7 +222,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cancle-s.png" width="120" height="40"/>
-        <image name="save-s.png" width="120" height="40"/>
+        <image name="huang.png" width="280" height="100"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

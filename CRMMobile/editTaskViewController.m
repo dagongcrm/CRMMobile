@@ -115,7 +115,7 @@
 
 - (void)viewDidLoad {
     self.title=@"修改任务基本信息";
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(375, 700);
     NSString * title = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
 //    NSLog(@"%@", title);
     [super viewDidLoad];

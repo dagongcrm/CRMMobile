@@ -211,14 +211,25 @@
     //换算多少月
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *months = [self.dateData objectAtIndex:indexPath.row];
+    NSMutableString *months = [self.dateData objectAtIndex:indexPath.row];
     NSDate *date = [formatter dateFromString:months];
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
     int month = [dateComponent month];
-    
+    if (month==0) {
+        NSRange range = [months rangeOfString:@"年"];//匹配得到的下标
+        NSRange range1 = [months rangeOfString:@"月"];//匹配得到的下标
+        NSRange range2 = [months rangeOfString:@"日"];
+        NSLog(@"rang:%@",NSStringFromRange(range));
+//        string = [string substringToIndex:7];//截取掉下标7之后的字符串
+        NSString * str = [months substringToIndex:range1.location];//截取范围类的字符串
+        NSLog(@"截取的值为：%@",str);
+       NSString *mon =  [str substringFromIndex:range.location+1];
+        NSLog(@"截取的值为：%@",mon);
+        month = [mon intValue];
+        
+    }
     //    NSCalendar *gregorian = [NSCalendar currentCalendar];
     //    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
     //    NSInteger monthofyear = [weekOfYearComponents weekOfYear];

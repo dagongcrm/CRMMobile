@@ -212,7 +212,7 @@
     }
     NSDictionary *cbr = [self.uid objectAtIndex:indexPath.row];
     NSString *cbrName = (NSString *)[cbr objectForKey:@"userName_cn"];
-    cell.myImg.image = [UIImage imageNamed:@"gongsi.png"];
+    cell.myImg.image = [UIImage imageNamed:@"任务审核1.png"];
     cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
     cell.mylbl2.text = cbrName;
     cell.mylbl3.text = self.time [indexPath.row];

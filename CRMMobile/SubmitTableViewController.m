@@ -51,7 +51,7 @@
     [super viewDidLoad];
     self.title=@"任务提交";
     [self setupRefresh];
-//  [self leftButtonInit];
+  [self leftButtonInit];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
@@ -195,12 +195,12 @@
       [self.navigationController pushViewController:la animated:YES];
 }
 
-//-(void) leftButtonInit{
-//    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
-//                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-//                                 target:self
-//                                 action:@selector(addFlow:)];
-//    self.navigationItem.rightBarButtonItem = rightAdd;
+-(void) leftButtonInit{
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addFlow:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
 //    button.frame = CGRectMake(0, 0, 20, 20);
@@ -212,8 +212,8 @@
 //                                                                                   target:nil action:nil];
 //    negativeSpacer.width = -5;
 //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    
-//}
+    
+}
 //- (void)ResView
 //{
 //    for (UIViewController *controller in self.navigationController.viewControllers)
@@ -307,56 +307,8 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
+
     return 70;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

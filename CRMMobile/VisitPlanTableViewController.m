@@ -19,6 +19,7 @@
 #import "HttpHelper.h"
 #import "NStringUtil.h"
 #import "VisitPlanTableViewCell.h"
+#import "AddCustomerCallPlanViewController.h"
 
 @interface VisitPlanTableViewController ()
 @property (strong, nonatomic) NSMutableArray *fakeData;  //拜访计划数组
@@ -53,11 +54,17 @@
     self.title=@"拜访计划";
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
-//    //设置导航栏返回
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = item;
-//    //设置返回键的颜色
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //设置导航栏返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    //设置返回键的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                 target:self
+                                 action:@selector(addUser:)];
+    self.navigationItem.rightBarButtonItem = rightAdd;
+//    [self setExtraCellLineHidden:self.tableView];
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
 //    button.frame = CGRectMake(0, 0, 20, 20);
@@ -70,24 +77,28 @@
 //                                                                                   target:nil action:nil];
 //    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
 //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    self.tableView.delegate=self;
-//    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     
     [self setExtraCellLineHidden:self.tableView];
 }
 
 
-- (void)ResView
+//- (void)ResView
+//{
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[IndexViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+//}
+- (IBAction)addUser:(id)sender
 {
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[IndexViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
+    AddCustomerCallPlanViewController *addCustomer = [[AddCustomerCallPlanViewController alloc] init];
+    [self.navigationController pushViewController: addCustomer animated:true];
 }
-
 //向后台发送请求查询数据
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
