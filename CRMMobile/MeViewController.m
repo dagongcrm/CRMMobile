@@ -15,7 +15,7 @@
 #import "MarketManagementViewController.h"
 #import "VisitPlanTableViewController.h"
 #import "XGViewController.h"
-#import "GuanyuViewController.h"
+#import "AboutOfView.h"
 #import "LianViewController.h"
 #import "AppDelegate.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
@@ -271,7 +271,7 @@ self.navigationController.navigationBarHidden = YES;
 #pragma 关于
 -(void) guanyu{
     self.navigationController.navigationBarHidden = NO;
-    [self.navigationController pushViewController:[[GuanyuViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[AboutOfView alloc] init] animated:YES];
     
 }
 @end

@@ -31,7 +31,7 @@
         <scene sceneID="I1x-1q-qmX">
             <objects>
                 <navigationController id="mZK-N3-ZNg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="shouye" id="hgg-pd-cIY"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="shouye1.png" id="hgg-pd-cIY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G9R-5k-WiN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -197,7 +197,7 @@
         <scene sceneID="r2l-PZ-Kv3">
             <objects>
                 <navigationController id="eDv-rs-Bfu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="客户" image="work" id="ZSh-mZ-MHK"/>
+                    <tabBarItem key="tabBarItem" title="客户" image="kehu.png" id="ZSh-mZ-MHK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V1O-5s-Ifv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -235,7 +235,7 @@
         <scene sceneID="Et2-9j-RB2">
             <objects>
                 <navigationController id="l07-cw-yDb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="市场" image="crm" id="bii-Ay-VEJ" userLabel="市场"/>
+                    <tabBarItem key="tabBarItem" title="市场" image="shichang.png" id="bii-Ay-VEJ" userLabel="市场"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RDb-e5-Tja">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -254,7 +254,7 @@
         <scene sceneID="e39-qO-xnq">
             <objects>
                 <navigationController id="hVw-SK-LtX" userLabel="通讯录" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="notice" id="Hm0-6z-R38" userLabel="通讯录"/>
+                    <tabBarItem key="tabBarItem" title="通讯录" image="tongxunlu" id="Hm0-6z-R38" userLabel="通讯录"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="efx-yU-CQq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -273,7 +273,7 @@
         <scene sceneID="Fcb-gQ-2d0">
             <objects>
                 <navigationController id="2om-s8-PKb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="me" id="bHT-fA-oUy"/>
+                    <tabBarItem key="tabBarItem" title="我" image="wo.png" id="bHT-fA-oUy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mSV-oQ-Xxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -554,11 +554,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="crm" width="25" height="25"/>
         <image name="hhhh" width="100" height="100"/>
-        <image name="me" width="25" height="25"/>
-        <image name="notice" width="25" height="25"/>
-        <image name="shouye" width="30" height="30"/>
-        <image name="work" width="25" height="25"/>
+        <image name="kehu.png" width="50" height="42"/>
+        <image name="shichang.png" width="30" height="29"/>
+        <image name="shouye1.png" width="25" height="30"/>
+        <image name="tongxunlu" width="30" height="30"/>
+        <image name="wo.png" width="30" height="30"/>
     </resources>
 </document>

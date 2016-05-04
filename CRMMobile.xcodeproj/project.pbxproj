@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020256F81CD9E941000A045F /* tongxunlu.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256F61CD9E941000A045F /* tongxunlu.png */; };
+		020256F91CD9E941000A045F /* wo.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256F71CD9E941000A045F /* wo.png */; };
+		020256FB1CD9E9EC000A045F /* shichang.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256FA1CD9E9EC000A045F /* shichang.png */; };
+		020256FD1CD9EA9E000A045F /* kehu.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256FC1CD9EA9E000A045F /* kehu.png */; };
+		020256FF1CD9ED38000A045F /* shouye1.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256FE1CD9ED38000A045F /* shouye1.png */; };
+		020257011CD9FB8F000A045F /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 020257001CD9FB8F000A045F /* appIcon.png */; };
 		0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0205F2411C2154440032AEC5 /* loginLogo2.jpg */; };
 		020709791CD8A2D6000A2011 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020709771CD8A2D6000A2011 /* InformationTableViewCell.m */; };
 		0207097A1CD8A2D6000A2011 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020709781CD8A2D6000A2011 /* InformationTableViewCell.xib */; };
@@ -45,6 +51,7 @@
 		02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */; };
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
+		02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */; };
 		02F420DE1CD8BD0200F3D442 /* taskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420DC1CD8BD0200F3D442 /* taskCell.m */; };
 		02F420DF1CD8BD0200F3D442 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F420DD1CD8BD0200F3D442 /* taskCell.xib */; };
 		02F420E31CD8BDF100F3D442 /* trackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420E11CD8BDF100F3D442 /* trackCell.m */; };
@@ -66,7 +73,6 @@
 		1FEF621F1C16AC3600E6F4BF /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62181C16AC3600E6F4BF /* PNColor.m */; };
 		1FEF62201C16AC3600E6F4BF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF621A1C16AC3600E6F4BF /* PNLineChart.m */; };
 		1FEF62291C16AD8D00E6F4BF /* GuanyuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62221C16AD8D00E6F4BF /* GuanyuViewController.m */; };
-		1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62231C16AD8D00E6F4BF /* GuanyuViewController.xib */; };
 		1FEF622B1C16AD8D00E6F4BF /* LianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62251C16AD8D00E6F4BF /* LianViewController.m */; };
 		1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62261C16AD8D00E6F4BF /* LianViewController.xib */; };
 		1FEF622D1C16AD8D00E6F4BF /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62281C16AD8D00E6F4BF /* OptionsTableViewController.m */; };
@@ -386,6 +392,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020256F61CD9E941000A045F /* tongxunlu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tongxunlu.png; sourceTree = "<group>"; };
+		020256F71CD9E941000A045F /* wo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wo.png; sourceTree = "<group>"; };
+		020256FA1CD9E9EC000A045F /* shichang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shichang.png; sourceTree = "<group>"; };
+		020256FC1CD9EA9E000A045F /* kehu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kehu.png; sourceTree = "<group>"; };
+		020256FE1CD9ED38000A045F /* shouye1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouye1.png; sourceTree = "<group>"; };
+		020257001CD9FB8F000A045F /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		0205F2411C2154440032AEC5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		020709761CD8A2D6000A2011 /* InformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
 		020709771CD8A2D6000A2011 /* InformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
@@ -434,6 +446,8 @@
 		027B7C3D1C202F8200C02991 /* login6p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login6p.png; sourceTree = "<group>"; };
 		02EE51E31CB642C700B10695 /* getLocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getLocationUtil.h; sourceTree = "<group>"; };
 		02EE51E41CB642C700B10695 /* getLocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getLocationUtil.m; sourceTree = "<group>"; };
+		02F05FDC1CD9DE0700B2E2E8 /* AboutOfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutOfView.h; sourceTree = "<group>"; };
+		02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutOfView.m; sourceTree = "<group>"; };
 		02F420DB1CD8BD0200F3D442 /* taskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskCell.h; sourceTree = "<group>"; };
 		02F420DC1CD8BD0200F3D442 /* taskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskCell.m; sourceTree = "<group>"; };
 		02F420DD1CD8BD0200F3D442 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
@@ -482,7 +496,6 @@
 		1FEF621A1C16AC3600E6F4BF /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		1FEF62211C16AD8D00E6F4BF /* GuanyuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuanyuViewController.h; sourceTree = "<group>"; };
 		1FEF62221C16AD8D00E6F4BF /* GuanyuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuanyuViewController.m; sourceTree = "<group>"; };
-		1FEF62231C16AD8D00E6F4BF /* GuanyuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuanyuViewController.xib; sourceTree = "<group>"; };
 		1FEF62241C16AD8D00E6F4BF /* LianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LianViewController.h; sourceTree = "<group>"; };
 		1FEF62251C16AD8D00E6F4BF /* LianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LianViewController.m; sourceTree = "<group>"; };
 		1FEF62261C16AD8D00E6F4BF /* LianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LianViewController.xib; sourceTree = "<group>"; };
@@ -1069,6 +1082,19 @@
 				020709771CD8A2D6000A2011 /* InformationTableViewCell.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		02F9D5A11CD9E49E00CF6050 /* newBar */ = {
+			isa = PBXGroup;
+			children = (
+				020257001CD9FB8F000A045F /* appIcon.png */,
+				020256FE1CD9ED38000A045F /* shouye1.png */,
+				020256FC1CD9EA9E000A045F /* kehu.png */,
+				020256FA1CD9E9EC000A045F /* shichang.png */,
+				020256F61CD9E941000A045F /* tongxunlu.png */,
+				020256F71CD9E941000A045F /* wo.png */,
+			);
+			name = newBar;
 			sourceTree = "<group>";
 		};
 		1F93AADF1BF1FFC60099C57E /* TableViewForSeleteUser */ = {
@@ -1732,6 +1758,7 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				02F9D5A11CD9E49E00CF6050 /* newBar */,
 				0207097B1CD8A38C000A2011 /* newImg */,
 				C0F16CF41CD317670078A99B /* me */,
 				C0F47D6F1CCE19F700CCFEE1 /* market */,
@@ -2012,6 +2039,8 @@
 				1FEF62251C16AD8D00E6F4BF /* LianViewController.m */,
 				1FEF62271C16AD8D00E6F4BF /* OptionsTableViewController.h */,
 				1FEF62281C16AD8D00E6F4BF /* OptionsTableViewController.m */,
+				02F05FDC1CD9DE0700B2E2E8 /* AboutOfView.h */,
+				02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2027,7 +2056,6 @@
 				1FEF62461C16AE0900E6F4BF /* MeMainTableViewController.xib */,
 				1FEF62301C16AD9F00E6F4BF /* TXLTableViewController.xib */,
 				1FEF62331C16AD9F00E6F4BF /* XGViewController.xib */,
-				1FEF62231C16AD8D00E6F4BF /* GuanyuViewController.xib */,
 				1FEF62261C16AD8D00E6F4BF /* LianViewController.xib */,
 			);
 			name = View;
@@ -2596,6 +2624,7 @@
 				B8EDAD511C1933EC00865E7C /* AddCustomerCallPlanViewController.xib in Resources */,
 				B8EDAD5A1C19355600865E7C /* Main.storyboard in Resources */,
 				1FEF62581C16AED200E6F4BF /* saleLeadsTableViewController.xib in Resources */,
+				020256FB1CD9E9EC000A045F /* shichang.png in Resources */,
 				39F7984A1C05D306000D9A20 /* ActivityViewController.xib in Resources */,
 				9604F47D1C1AC79A0074B1A5 /* crm-3.png in Resources */,
 				1FEF62991C16B57000E6F4BF /* 13.JPG in Resources */,
@@ -2607,9 +2636,9 @@
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
 				9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */,
-				1FEF622A1C16AD8D00E6F4BF /* GuanyuViewController.xib in Resources */,
 				027B7C3E1C202F8200C02991 /* login6p.png in Resources */,
 				9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */,
+				020256FD1CD9EA9E000A045F /* kehu.png in Resources */,
 				020709A21CD8A463000A2011 /* xiaoshouXS.png in Resources */,
 				0207099E1CD8A463000A2011 /* kehudangan.png in Resources */,
 				020709941CD8A463000A2011 /* 任务审核1.png in Resources */,
@@ -2625,6 +2654,7 @@
 				B8EDAD711C19366300865E7C /* noticeDetailViewController.xib in Resources */,
 				0207097A1CD8A2D6000A2011 /* InformationTableViewCell.xib in Resources */,
 				C0FFFD141CBF9AA300CF10CF /* daiban.png in Resources */,
+				020256FF1CD9ED38000A045F /* shouye1.png in Resources */,
 				39F7980C1C05D15A000D9A20 /* MonthTableViewController.xib in Resources */,
 				C0F16CEC1CD308610078A99B /* renwushenhe.png in Resources */,
 				0207099A1CD8A463000A2011 /* baifangjilu.png in Resources */,
@@ -2652,6 +2682,7 @@
 				02F4BCC91CCB97DA006F797A /* mailCell.xib in Resources */,
 				39F797881C05CF58000D9A20 /* CustomerInformationEditViewController.xib in Resources */,
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
+				020256F81CD9E941000A045F /* tongxunlu.png in Resources */,
 				1FEF62981C16B57000E6F4BF /* 12.JPG in Resources */,
 				39E729EF1C0697A50050D77F /* editTaskViewController.xib in Resources */,
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
@@ -2667,6 +2698,7 @@
 				020709B31CD8AB43000A2011 /* VisitPlanTableViewCell.xib in Resources */,
 				39F797841C05CF58000D9A20 /* CustomerInformationDetailViewController.xib in Resources */,
 				020709A01CD8A463000A2011 /* phoneBtn.png in Resources */,
+				020256F91CD9E941000A045F /* wo.png in Resources */,
 				96E312571BEB53BA00A1A3FF /* MJRefresh.bundle in Resources */,
 				39F797861C05CF58000D9A20 /* AddCustomerInformationViewController.xib in Resources */,
 				39F797DD1C05D125000D9A20 /* TaskReportTableViewController.xib in Resources */,
@@ -2762,6 +2794,7 @@
 				B8EDAD581C1933EC00865E7C /* CustomerCallPlanEditViewController.xib in Resources */,
 				9618AA531BFC82D1001A6D0D /* back.png in Resources */,
 				C0C484281C181B0800B142BC /* fs_main_login_selected.png in Resources */,
+				020257011CD9FB8F000A045F /* appIcon.png in Resources */,
 				39E729F41C0697A50050D77F /* submitTaskDetailViewController.xib in Resources */,
 				0207099B1CD8A463000A2011 /* baifanJL.png in Resources */,
 				9604F4B31C1ACC3E0074B1A5 /* delete-si.png in Resources */,
@@ -2840,6 +2873,7 @@
 			files = (
 				C0E432011CD0494F00056748 /* AFHTTPRequestOperation.m in Sources */,
 				C0EC6C371CBC93D5004AF08B /* PhoneParameterUtil.m in Sources */,
+				02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */,
 				C0E432081CD0494F00056748 /* AFURLResponseSerialization.m in Sources */,
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
