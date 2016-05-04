@@ -18,6 +18,7 @@
 #import "AboutOfView.h"
 #import "LianViewController.h"
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface MeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
@@ -73,6 +74,10 @@ self.navigationController.navigationBarHidden = YES;
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+230  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+270  thirdParam:SCREENWIDTH fourthParam:1];
     
+     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+280 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"退出登录" sixParam:nil sevenParam:@"tuichu"];
+    
+    [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+280  thirdParam:SCREENWIDTH fourthParam:1];
+    [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+330  thirdParam:SCREENWIDTH fourthParam:1];
     UIButton *photoButton =[[UIButton alloc] initWithFrame:CGRectMake(20, SCREENWIDTH*0.3/2, 100, 100)];
     [photoButton setImage:[UIImage imageNamed:@"me_defaultpic.png"] forState:UIControlStateNormal];
     SEL selector = NSSelectorFromString(@"getPhoto");
@@ -143,15 +148,22 @@ self.navigationController.navigationBarHidden = YES;
     [button setImage:[UIImage imageNamed:imgname] forState:UIControlStateHighlighted];
     button.imageEdgeInsets = UIEdgeInsetsMake(10, 15, 10, SCREENWIDTH-40);
     [button setTitle:name forState:UIControlStateNormal];
-    if(name.length==2){
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, -SCREENWIDTH+90, 0, 0);
-    }else{
-        
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, -SCREENWIDTH+125, 0, 0);
-    }
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
+    if(name.length==2){
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, -SCREENWIDTH+90, 0, 0);
+    }else{
+        if ([name isEqualToString:@"退出登录"]) {
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+            button.titleLabel.font = [UIFont systemFontOfSize:18];
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, -SCREENWIDTH+400, 0, 0);
+        }else{
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, -SCREENWIDTH+125, 0, 0);
+        }
+    }
+ 
     SEL selector = NSSelectorFromString(touchFuction);
     [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
@@ -272,6 +284,28 @@ self.navigationController.navigationBarHidden = YES;
 -(void) guanyu{
     self.navigationController.navigationBarHidden = NO;
     [self.navigationController pushViewController:[[AboutOfView alloc] init] animated:YES];
-    
+
+}
+
+#pragma 退出提示
+-(void) tuichu{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"是否退出登录？"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+#pragma 退出回调方法
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+        myDelegate.sessionInfo = nil;
+        LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        myDelegate.window.rootViewController = loginViewController;
+        myDelegate.window.backgroundColor = [UIColor whiteColor];
+        [myDelegate.window makeKeyAndVisible];
+    }
 }
 @end

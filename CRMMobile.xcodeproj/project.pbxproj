@@ -13,6 +13,7 @@
 		020256FD1CD9EA9E000A045F /* kehu.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256FC1CD9EA9E000A045F /* kehu.png */; };
 		020256FF1CD9ED38000A045F /* shouye1.png in Resources */ = {isa = PBXBuildFile; fileRef = 020256FE1CD9ED38000A045F /* shouye1.png */; };
 		020257011CD9FB8F000A045F /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 020257001CD9FB8F000A045F /* appIcon.png */; };
+		020257041CDA0EEF000A045F /* TaskReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020257031CDA0EEF000A045F /* TaskReportViewController.m */; };
 		0205F2421C2154440032AEC5 /* loginLogo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0205F2411C2154440032AEC5 /* loginLogo2.jpg */; };
 		020709791CD8A2D6000A2011 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020709771CD8A2D6000A2011 /* InformationTableViewCell.m */; };
 		0207097A1CD8A2D6000A2011 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020709781CD8A2D6000A2011 /* InformationTableViewCell.xib */; };
@@ -398,6 +399,8 @@
 		020256FC1CD9EA9E000A045F /* kehu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kehu.png; sourceTree = "<group>"; };
 		020256FE1CD9ED38000A045F /* shouye1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouye1.png; sourceTree = "<group>"; };
 		020257001CD9FB8F000A045F /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		020257021CDA0EEE000A045F /* TaskReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskReportViewController.h; sourceTree = "<group>"; };
+		020257031CDA0EEF000A045F /* TaskReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskReportViewController.m; sourceTree = "<group>"; };
 		0205F2411C2154440032AEC5 /* loginLogo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginLogo2.jpg; sourceTree = "<group>"; };
 		020709761CD8A2D6000A2011 /* InformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
 		020709771CD8A2D6000A2011 /* InformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
@@ -1699,6 +1702,8 @@
 		B87028131BD9E16600CD2FF2 /* taskReport */ = {
 			isa = PBXGroup;
 			children = (
+				020257021CDA0EEE000A045F /* TaskReportViewController.h */,
+				020257031CDA0EEF000A045F /* TaskReportViewController.m */,
 				39F797D91C05D125000D9A20 /* TaskReportTableViewController.h */,
 				39F797DA1C05D125000D9A20 /* TaskReportTableViewController.m */,
 				39F797DB1C05D125000D9A20 /* TaskReportTableViewController.xib */,
@@ -3020,6 +3025,7 @@
 				39F7980B1C05D15A000D9A20 /* MonthTableViewController.m in Sources */,
 				1FEF621D1C16AC3600E6F4BF /* PNChart.m in Sources */,
 				02F420E31CD8BDF100F3D442 /* trackCell.m in Sources */,
+				020257041CDA0EEF000A045F /* TaskReportViewController.m in Sources */,
 				B8EDAD861C1936E300865E7C /* ReminderTableViewController.m in Sources */,
 				020709B21CD8AB43000A2011 /* VisitPlanTableViewCell.m in Sources */,
 				39F797BC1C05D0E7000D9A20 /* auditEntity.m in Sources */,

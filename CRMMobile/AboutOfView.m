@@ -45,12 +45,12 @@
  
     [self makeDivdLine:0 secondParam:270 thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0 secondParam:320 thirdParam:SCREENWIDTH fourthParam:1];
-    [self makeLeftImageButton:0 secondParam:270 thirdParam:SCREENWIDTH fourthParam:50 fifthParam:@"开 发  者：大公信用软件有限公司" sixParam:nil
+    [self makeLeftImageButton:0 secondParam:270 thirdParam:SCREENWIDTH fourthParam:50 fifthParam:@"开发者：大公信用软件有限公司" sixParam:nil
                    sevenParam:nil];
     
     [self makeDivdLine:0 secondParam:340 thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0 secondParam:390 thirdParam:SCREENWIDTH fourthParam:1];
-    [self makeLeftImageButton:0 secondParam:340 thirdParam:SCREENWIDTH fourthParam:50 fifthParam:@"网     址：www.dagongsoftware.com" sixParam:nil
+    [self makeLeftImageButton:0 secondParam:340 thirdParam:SCREENWIDTH fourthParam:50 fifthParam:@"网址：www.dagongsoftware.com" sixParam:nil
                    sevenParam:nil];
 //    [self makeLeftImageButton:SCREENWIDTH/2 secondParam:100 thirdParam:SCREENWIDTH/2 fourthParam:50 fifthParam:@"客户联系人" sixParam:@"kehulianxiren.png" sevenParam:@"kehulianxiren"];
 //    [self makeDivdLine:SCREENWIDTH/2 secondParam:100 thirdParam:1 fourthParam:50];
