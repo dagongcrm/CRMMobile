@@ -19,6 +19,7 @@
 #import "SDCycleScrollView.h"
 #import "VisitPlanTableViewController.h"
 #import "HomeSearchViewController.h"
+#import "TaskReportViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define kHomeHeaderViewHeight 110
@@ -50,7 +51,7 @@
                              [trackingTableViewController class],
                              [SaleOppTableViewController class],
                              [MarketManagementViewController class],
-                             [TaskReportTableViewController class]];
+                             [TaskReportViewController class]];
     [self setUpScrollView];
 }
 
