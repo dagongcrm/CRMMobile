@@ -65,6 +65,7 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		394526571C27960C005DB938 /* phone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 394526561C27960C005DB938 /* phone-1.png */; };
+		39CCF2A21CD991D100D29074 /* HomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2A11CD991D100D29074 /* HomeSearchViewController.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -461,6 +462,8 @@
 		1FEF62951C16B57000E6F4BF /* 15.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.JPG; sourceTree = "<group>"; };
 		1FEF62961C16B57000E6F4BF /* 16.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.JPG; sourceTree = "<group>"; };
 		394526561C27960C005DB938 /* phone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-1.png"; sourceTree = "<group>"; };
+		39CCF2A01CD991D100D29074 /* HomeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewController.h; sourceTree = "<group>"; };
+		39CCF2A11CD991D100D29074 /* HomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewController.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -1147,6 +1150,39 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		39CCF29C1CD9912000D29074 /* HomeSearch */ = {
+			isa = PBXGroup;
+			children = (
+				39CCF29F1CD9914A00D29074 /* Controller */,
+				39CCF29E1CD9914100D29074 /* View */,
+				39CCF29D1CD9913200D29074 /* Model */,
+			);
+			name = HomeSearch;
+			sourceTree = "<group>";
+		};
+		39CCF29D1CD9913200D29074 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		39CCF29E1CD9914100D29074 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		39CCF29F1CD9914A00D29074 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39CCF2A01CD991D100D29074 /* HomeSearchViewController.h */,
+				39CCF2A11CD991D100D29074 /* HomeSearchViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		39E8765F1C02FF0B00BF6808 /* CRM-old */ = {
 			isa = PBXGroup;
 			children = (
@@ -1371,6 +1407,7 @@
 		9678AEE11BEB70CA00E5B50E /* CRMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				39CCF29C1CD9912000D29074 /* HomeSearch */,
 				C0F16CED1CD313E40078A99B /* Me */,
 				C000FD2B1CD1B6FF0046F5AA /* Customer */,
 				02F5BB631CC231130034B8C6 /* MailList */,
@@ -2704,6 +2741,7 @@
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
 				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
+				39CCF2A21CD991D100D29074 /* HomeSearchViewController.m in Sources */,
 				C0FF4DBE1CBC854700F430A1 /* NStringUtil.m in Sources */,
 				39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */,
 				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
