@@ -158,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbj-tT-kWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.5" y="656.5"/>
+            <point key="canvasLocation" x="100.5" y="600.5"/>
         </scene>
         <!--客户-->
         <scene sceneID="3Tu-ad-GaB">
@@ -554,10 +554,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="crm" width="25" height="25"/>
         <image name="hhhh" width="100" height="100"/>
         <image name="me" width="25" height="25"/>
         <image name="notice" width="25" height="25"/>
-        <image name="shouye" width="25" height="25"/>
+        <image name="shouye" width="30" height="30"/>
         <image name="work" width="25" height="25"/>
     </resources>
 </document>

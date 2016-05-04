@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fme-tA-KGC">
-                    <rect key="frame" x="0.0" y="8" width="500" height="551"/>
+                    <rect key="frame" x="0.0" y="-7" width="500" height="551"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客户名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S55-Qy-zb0">
                             <rect key="frame" x="28" y="48" width="90" height="21"/>
@@ -54,15 +54,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-WC-8qa">
-                            <rect key="frame" x="46" y="344" width="140" height="60"/>
-                            <state key="normal" image="shanchu.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="F6K-K1-al3"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="创建时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSw-sL-XnL">
                             <rect key="frame" x="28" y="217" width="90" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -70,12 +61,21 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-lO-DqZ">
-                            <rect key="frame" x="212" y="344" width="140" height="60"/>
-                            <state key="normal" image="xiugai.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="212" y="344" width="140" height="44"/>
+                            <state key="normal" title="修改" backgroundImage="huang.png">
+                                <color key="titleShadowColor" red="0.99867818809999997" green="0.99867818809999997" blue="0.99867818809999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="edit:" destination="-1" eventType="touchUpInside" id="KBs-F5-eBL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-WC-8qa">
+                            <rect key="frame" x="46" y="344" width="140" height="44"/>
+                            <state key="normal" title="删除" backgroundImage="hong.png">
+                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="delete:" destination="-1" eventType="touchUpInside" id="F6K-K1-al3"/>
                             </connections>
                         </button>
                     </subviews>
@@ -86,7 +86,7 @@
         </view>
     </objects>
     <resources>
-        <image name="shanchu.png" width="188" height="98"/>
-        <image name="xiugai.png" width="188" height="98"/>
+        <image name="hong.png" width="280" height="100"/>
+        <image name="huang.png" width="280" height="100"/>
     </resources>
 </document>

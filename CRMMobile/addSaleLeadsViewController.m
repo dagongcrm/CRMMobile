@@ -13,6 +13,7 @@
 #import "saleLeadsTableViewController.h"
 #import "AppDelegate.h"
 #import "config.h"
+#import "MarketViewController.h"
 
 @interface addSaleLeadsViewController ()
 //@property (weak, nonatomic) IBOutlet UITextField *saleLeads;
@@ -152,7 +153,16 @@
     }
 }
 
-//- (IBAction)cancel:(id)sender {
-//    [self ResView];
-//}
+- (IBAction)cancel:(id)sender {
+    NSLog(@"CRMjjjjj=========");
+//    MarketViewController *controller = [MarketViewController new];
+//     [self.navigationController pushViewController:controller animated:YES];
+//    for (UIViewController *controller in self.navigationController.viewControllers)
+//    {
+//        if ([controller isKindOfClass:[saleLeadsTableViewController class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+}
 @end

@@ -42,7 +42,7 @@
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
         [self faker:@"1"];
-//      [self faker:@"2"];
+        //      [self faker:@"2"];
         
     }
     return _fakeData;
@@ -51,13 +51,13 @@
     [super viewDidLoad];
     self.title=@"任务提交";
     [self setupRefresh];
-  [self leftButtonInit];
+    [self leftButtonInit];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-   
+    
     //self.yeWuZLBH=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -73,27 +73,27 @@
         [alert show];
         NSLog(@"--------%@",error);
     }else{
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
-    NSArray *list = [weatherDic objectForKey:@"obj"];
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSLog(@"%@",weatherDic);
+        NSArray *list = [weatherDic objectForKey:@"obj"];
         for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        NSLog(@"%@",listdic);
-        [self.uid addObject:listdic];
-        NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
-        NSLog(@"%@",teamname);
-        NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
-        
-        NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
-        NSString *yeWuZLBH   = (NSString *)[listdic objectForKey:@"yeWuZLBH"];
-        [self.fakeData    addObject:teamname];
-        [self.time        addObject:time];
-        [self.dataing     addObject:userId];
-        [self.bianHao     addObject:submitID];
-        //[self.yeWuZLBH addObject:yeWuZLBH];
-    }
-    [self submitIDReturn:self.bianHao];
+            NSDictionary *listdic = [list objectAtIndex:i];
+            NSLog(@"%@",listdic);
+            [self.uid addObject:listdic];
+            NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
+            NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
+            NSLog(@"%@",teamname);
+            NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
+            
+            NSString *time   = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
+            NSString *yeWuZLBH   = (NSString *)[listdic objectForKey:@"yeWuZLBH"];
+            [self.fakeData    addObject:teamname];
+            [self.time        addObject:time];
+            [self.dataing     addObject:userId];
+            [self.bianHao     addObject:submitID];
+            //[self.yeWuZLBH addObject:yeWuZLBH];
+        }
+        [self submitIDReturn:self.bianHao];
     }
     return self.fakeData;
 }
@@ -164,23 +164,23 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
-//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-//    NSString *str =[testDetail stringByAppendingString:testDetail1];
-//    [cell.detailTextLabel setText:str];
-//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
+    //    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    //    if (cell == nil) {
+    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
+    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
+    //    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
+    //    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+    //    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    //    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
+    //    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
+    //    NSString *str =[testDetail stringByAppendingString:testDetail1];
+    //    [cell.detailTextLabel setText:str];
+    //    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     static NSString * cellId = @"taskCell";
     taskCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil] lastObject];
     }
     cell.myImg.image = [UIImage imageNamed:@"任务提交1.png"];
     cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
@@ -192,7 +192,7 @@
 - (IBAction)addFlow:(id)sender
 {
     addTaskViewController *la = [[addTaskViewController alloc] init];
-      [self.navigationController pushViewController:la animated:YES];
+    [self.navigationController pushViewController:la animated:YES];
 }
 
 -(void) leftButtonInit{
@@ -201,17 +201,17 @@
                                  target:self
                                  action:@selector(addFlow:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
+    //    button.frame = CGRectMake(0, 0, 20, 20);
+    //    [button setImage:image forState:UIControlStateNormal];
+    //    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+    //    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    //    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    //    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+    //                                                                                   target:nil action:nil];
+    //    negativeSpacer.width = -5;
+    //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     
 }
 //- (void)ResView
@@ -307,7 +307,7 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     return 70;
 }
 

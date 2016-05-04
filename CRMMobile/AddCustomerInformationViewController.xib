@@ -137,10 +137,10 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-au-lUv">
-                    <rect key="frame" x="44" y="503" width="300" height="44"/>
+                    <rect key="frame" x="99" y="520" width="200" height="44"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
-                    <state key="normal" title="提交" backgroundImage="querenbaifang.png">
+                    <state key="normal" title="提交" backgroundImage="lan.png">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -154,6 +154,6 @@
         </view>
     </objects>
     <resources>
-        <image name="querenbaifang.png" width="684" height="98"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

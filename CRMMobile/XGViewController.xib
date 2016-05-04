@@ -9,6 +9,7 @@
                 <outlet property="txtNPass" destination="aKS-a1-1cr" id="W7U-3o-CZb"/>
                 <outlet property="txtOPass" destination="bzo-TN-lYp" id="etk-55-D2l"/>
                 <outlet property="txtUser" destination="Gky-lk-x9M" id="DKv-qK-wGc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="tm4-Fn-xOv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

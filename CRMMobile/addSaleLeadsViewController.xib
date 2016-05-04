@@ -33,9 +33,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-BY-TGi">
-                            <rect key="frame" x="207" y="365" width="120" height="40"/>
-                            <state key="normal" image="save-s.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="207" y="365" width="140" height="44"/>
+                            <state key="normal" title="保存" backgroundImage="lan.png">
+                                <color key="titleShadowColor" red="0.99867818809999997" green="0.99867818809999997" blue="0.99867818809999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="save:" destination="-1" eventType="touchUpInside" id="yKG-MK-YtK"/>
@@ -62,9 +62,9 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhC-ip-xhR">
-                            <rect key="frame" x="53" y="365" width="140" height="60"/>
-                            <state key="normal" image="quxiao.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="53" y="365" width="140" height="44"/>
+                            <state key="normal" title="取消" backgroundImage="huang.png">
+                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="h2e-oK-dfW"/>
@@ -78,7 +78,7 @@
         </view>
     </objects>
     <resources>
-        <image name="quxiao.png" width="312" height="98"/>
-        <image name="save-s.png" width="120" height="40"/>
+        <image name="huang.png" width="280" height="100"/>
+        <image name="lan.png" width="280" height="100"/>
     </resources>
 </document>

@@ -57,12 +57,12 @@
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
     
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    [button setImage:image forState:UIControlStateNormal];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+    button.frame = CGRectMake(0, 0, 20, 20);
+    [button setImage:image forState:UIControlStateNormal];
 //    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
 //    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 //    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
 //                                                                                   target:nil action:nil];
@@ -164,25 +164,12 @@
     if (cell == nil)
     {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"InformationTableViewCell" owner:self options:nil]lastObject];
-        //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     cell.photo.image = [UIImage imageNamed:@"kehuDA.png"];
-//    CGSize itemSize = CGSizeMake(20, 20);
-//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-//    [cell.photo.image drawInRect:imageRect];
-//    cell.photo.image = UIGraphicsGetImageFromCurrentImageContext();
-
-    
-    
     cell.company.text = self.fakeData[indexPath.row];
     cell.industry.text = [self.industryIDStr objectAtIndex:indexPath.row];
     cell.address.text = [self.addressData objectAtIndex:indexPath.row];
     cell.phone.text = (NSString *)[self.phoneData objectAtIndex:indexPath.row];
-//    cell.lianxiR.text = self.fakeData[indexPath.row];
-//    cell.phone.text = (NSString *)[self.contactData objectAtIndex:indexPath.row];
-//    cell.company.text = [self.customerNameStrData objectAtIndex:indexPath.row];
-//    cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -289,11 +276,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
+
     return 70;
 }
 

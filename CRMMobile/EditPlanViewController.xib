@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCj-h6-H30">
-                    <rect key="frame" x="0.0" y="-200" width="500" height="897"/>
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="820"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="客户名称:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-JC-WwW">
                             <rect key="frame" x="31" y="36" width="92" height="21"/>
@@ -196,7 +196,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsG-zC-Jch">
-                            <rect key="frame" x="184" y="778" width="140" height="44"/>
+                            <rect key="frame" x="184" y="764" width="140" height="44"/>
                             <state key="normal" title="保存" backgroundImage="lan.png">
                                 <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -205,7 +205,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5j-bt-FkT">
-                            <rect key="frame" x="31" y="778" width="140" height="44"/>
+                            <rect key="frame" x="31" y="764" width="140" height="44"/>
                             <state key="normal" title="取消" backgroundImage="huang.png">
                                 <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>

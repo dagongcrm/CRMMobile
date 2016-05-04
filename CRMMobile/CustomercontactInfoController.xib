@@ -140,17 +140,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC2-W6-sgN">
-                            <rect key="frame" x="42" y="737" width="100" height="44"/>
-                            <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="删除" backgroundImage="shancchu.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="deleteCustomer:" destination="-1" eventType="touchUpInside" id="GS0-gJ-DdF"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-1m-kRS">
                             <rect key="frame" x="248" y="737" width="100" height="44"/>
                             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,6 +162,17 @@
                                 <action selector="stopCustomer:" destination="-1" eventType="touchUpInside" id="DBY-OX-Y8X"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC2-W6-sgN">
+                            <rect key="frame" x="42" y="737" width="100" height="44"/>
+                            <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="删除" backgroundImage="hong.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.99366714020000002" green="0.99366714020000002" blue="0.99366714020000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteCustomer:" destination="-1" eventType="touchUpInside" id="GS0-gJ-DdF"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -182,8 +182,8 @@
         </view>
     </objects>
     <resources>
+        <image name="hong.png" width="280" height="100"/>
         <image name="huang.png" width="280" height="100"/>
         <image name="lan.png" width="280" height="100"/>
-        <image name="shancchu.png" width="684" height="98"/>
     </resources>
 </document>
