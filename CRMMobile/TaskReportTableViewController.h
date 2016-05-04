@@ -13,7 +13,7 @@
     NSMutableArray *timeArray;
     UIRefreshControl *refresh;
 }
-@property (nonatomic,retain) NSArray *taskReportListData;
+@property (nonatomic,retain)  NSArray *taskReportListData;
 @property (strong,nonatomic)  NSMutableArray *timeArray;
 @property (strong,nonatomic)  UIRefreshControl *refresh;
 @property (strong,nonatomic)  IBOutlet UITableView *tableview;

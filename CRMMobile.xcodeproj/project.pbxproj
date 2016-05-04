@@ -100,6 +100,7 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		394526571C27960C005DB938 /* phone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 394526561C27960C005DB938 /* phone-1.png */; };
+		39CCF2A61CD9E56100D29074 /* TaskReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2A51CD9E56100D29074 /* TaskReportViewController.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -531,6 +532,8 @@
 		1FEF62951C16B57000E6F4BF /* 15.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.JPG; sourceTree = "<group>"; };
 		1FEF62961C16B57000E6F4BF /* 16.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.JPG; sourceTree = "<group>"; };
 		394526561C27960C005DB938 /* phone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-1.png"; sourceTree = "<group>"; };
+		39CCF2A41CD9E56100D29074 /* TaskReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskReportViewController.h; sourceTree = "<group>"; };
+		39CCF2A51CD9E56100D29074 /* TaskReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskReportViewController.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -1251,6 +1254,15 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		39CCF2A31CD9E53300D29074 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39CCF2A41CD9E56100D29074 /* TaskReportViewController.h */,
+				39CCF2A51CD9E56100D29074 /* TaskReportViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		39E8765F1C02FF0B00BF6808 /* CRM-old */ = {
 			isa = PBXGroup;
 			children = (
@@ -1824,6 +1836,7 @@
 		C0D569361BD9B73700860B33 /* Work */ = {
 			isa = PBXGroup;
 			children = (
+				39CCF2A31CD9E53300D29074 /* Controller */,
 				39F797AE1C05D06F000D9A20 /* WorkTableViewController.h */,
 				39F797AF1C05D06F000D9A20 /* WorkTableViewController.m */,
 				1FE529D61BE8BA0E00149C10 /* tracking */,
@@ -2957,6 +2970,7 @@
 				39E729F91C0697C80050D77F /* submitTaskEntity.m in Sources */,
 				B8EDAD501C1933EC00865E7C /* AddCustomerCallPlanViewController.m in Sources */,
 				1FEF62471C16AE0900E6F4BF /* SettingTableViewController.m in Sources */,
+				39CCF2A61CD9E56100D29074 /* TaskReportViewController.m in Sources */,
 				39F798131C05D167000D9A20 /* TaskReportMonthEntity.m in Sources */,
 				39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */,
 				1FEF62601C16AF1100E6F4BF /* saleLeads.m in Sources */,

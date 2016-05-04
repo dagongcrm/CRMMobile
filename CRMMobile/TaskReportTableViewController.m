@@ -20,6 +20,7 @@
 @synthesize refresh;//刷新
 @synthesize tableview;//表
 @synthesize timeArray;//数组
+
 - (void)viewDidLoad {
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [super viewDidLoad];
@@ -31,20 +32,15 @@
     [self setExtraCellLineHidden:self.tableView];
     
 }
+
 -(void)setExtraCellLineHidden: (UITableView *)tableView
 {
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"Cell";
@@ -59,12 +55,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     return [self.taskReportListData count];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==0){
         DailyTableViewController *fltv = [[DailyTableViewController alloc] init];
