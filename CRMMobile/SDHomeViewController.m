@@ -20,6 +20,7 @@
 #import "VisitPlanTableViewController.h"
 #import "HomeSearchViewController.h"
 #import "TaskReportViewController.h"
+#import "SearchResultTableViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define kHomeHeaderViewHeight 110
@@ -80,7 +81,7 @@
     [self.searchBar setTranslucent:YES];
     [self.searchBar setBackgroundColor:[UIColor whiteColor]];
     self.searchBar.searchBarStyle=UISearchBarStyleMinimal;
-    [self.searchBar setPlaceholder:@"客户/活动/任务"];
+    [self.searchBar setPlaceholder:@"客户"];
     self.searchBar.delegate=self;
     [self.view addSubview:self.searchBar];
 }
@@ -198,7 +199,18 @@
 
 // 键盘中，搜索按钮被按下，执行的方法
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSLog(@"%@",@"3");
+    CGRect rectStatus =[[UIApplication sharedApplication] statusBarFrame];
+    CGRect rectNav = self.navigationController.navigationBar.frame;
+    CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
+    [self.searchBar resignFirstResponder];
+    
+    self.searchBar.showsCancelButton=NO;
+    self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH, 110-seachBarHeight);
+    self.searchButton.frame=CGRectMake(0, 0, 0, 0);
+    SearchResultTableViewController *searchResult=[[SearchResultTableViewController alloc] init];
+    searchResult.searchCondation=self.searchBar.text;
+    [self.navigationController pushViewController:searchResult animated:YES];
+    self.searchBar.text=@"";
     
 }
 
@@ -233,7 +245,18 @@
 }
 
 -(void) search{
-    NSLog(@"%@",@"123");
+    CGRect rectStatus =[[UIApplication sharedApplication] statusBarFrame];
+    CGRect rectNav = self.navigationController.navigationBar.frame;
+    CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
+    [self.searchBar resignFirstResponder];
+   
+    self.searchBar.showsCancelButton=NO;
+    self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH, 110-seachBarHeight);
+    self.searchButton.frame=CGRectMake(0, 0, 0, 0);
+    SearchResultTableViewController *searchResult=[[SearchResultTableViewController alloc] init];
+    searchResult.searchCondation=self.searchBar.text;
+    [self.navigationController pushViewController:searchResult animated:YES];
+     self.searchBar.text=@"";
 }
 
 - (void)controlAccessoryView:(float)alphaValue{
