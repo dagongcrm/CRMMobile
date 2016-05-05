@@ -52,6 +52,12 @@
     [self makeDivdLine:0 secondParam:390 thirdParam:SCREENWIDTH fourthParam:1];
     [self makeLeftImageButton:0 secondParam:340 thirdParam:SCREENWIDTH fourthParam:50 fifthParam:@"网址：www.dagongsoftware.com" sixParam:nil
                    sevenParam:nil];
+    
+    UILabel *label2=[[UILabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/4, 400, 200, 50)];
+    label2.text=@"Copyright@2015-2016";
+    label2.font = [UIFont fontWithName:@"Helvetica" size:18];
+    label2.textColor = [UIColor grayColor];
+    [self.view addSubview:label2];
 //    [self makeLeftImageButton:SCREENWIDTH/2 secondParam:100 thirdParam:SCREENWIDTH/2 fourthParam:50 fifthParam:@"客户联系人" sixParam:@"kehulianxiren.png" sevenParam:@"kehulianxiren"];
 //    [self makeDivdLine:SCREENWIDTH/2 secondParam:100 thirdParam:1 fourthParam:50];
 //    

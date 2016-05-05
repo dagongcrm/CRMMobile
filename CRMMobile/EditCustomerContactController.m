@@ -13,6 +13,8 @@
 #import "CustomercontactTableViewController.h"
 #import "CustomerContactListViewController.h"
 #import "UIImage+Tint.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface EditCustomerContactController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *khmc;//客户名称
@@ -58,7 +60,7 @@
                                                                                    target:nil action:nil];
     negativeSpacer.width = -5;//这个数值可以根据情况自由变化
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    self.scroll.contentSize = CGSizeMake(375, 900);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     self.khmc.text = _contactEntity.customerNameStr;
     self.lxrenxm.text = _contactEntity.contactName;
     self.lxrendh.text = _contactEntity.telePhone;

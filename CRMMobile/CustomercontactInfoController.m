@@ -11,6 +11,8 @@
 #import "config.h"
 #import "AppDelegate.h"
 #import "EditCustomerContactController.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface CustomercontactInfoController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *khmj;//客户名称
@@ -43,7 +45,7 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.scroll.contentSize = CGSizeMake(375, 1000);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     

@@ -12,6 +12,8 @@
 #import "CustomerContactListViewController.h"
 #import "CustomercontactTableViewController.h"
 #import "UIImage+Tint.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddCustomerContactController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
@@ -35,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"添加联系人信息";
-    self.scroll.contentSize = CGSizeMake(375, 900);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;

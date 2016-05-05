@@ -6,7 +6,8 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #define APIKey @"cdf41cce83fb64756ba13022997e5e74"
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #import "config.h"
 #import "AppDelegate.h"
 
@@ -48,7 +49,7 @@
     [super viewDidLoad];
     self.title=@"拜访计划详情";
     //调节scroll宽度和高度
-    self.scroll.contentSize=CGSizeMake(375, 1500);
+    self.scroll.contentSize=CGSizeMake(SCREENWIDTH, SCREENHEIGHT*2.5);
     
     //赋值
     [self valuation];

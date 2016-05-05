@@ -36,6 +36,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.title = @"工作日志";
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
+    //去除返回按钮的文本
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.view.backgroundColor   = [UIColor whiteColor];
     self.edgesForExtendedLayout =  UIRectEdgeNone;
 }
