@@ -34,5 +34,7 @@
 @property  (nonatomic,retain)  NSMutableArray *indexPageForLoad;
 @property  (nonatomic,retain)  NSDictionary   *roleAuthority;
 @property  (nonatomic,retain)  NSString       *userChangeOrNot;
+@property  (strong ,nonatomic) NSUserDefaults *appDefault;
+
 @end
 

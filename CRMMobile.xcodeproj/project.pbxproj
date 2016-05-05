@@ -328,6 +328,13 @@
 		C0D68C671BD8ED44009CEC23 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C651BD8ED44009CEC23 /* LoginViewController.xib */; };
 		C0E013151C0C2D57006BBF97 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013141C0C2D57006BBF97 /* HttpHelper.m */; };
 		C0E013191C0C2DCA006BBF97 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E013171C0C2DCA006BBF97 /* Reachability.m */; };
+		C0E3BC6D1CDB327600A21036 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E3BC6A1CDB327600A21036 /* EAIntroPage.m */; };
+		C0E3BC6E1CDB327600A21036 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E3BC6C1CDB327600A21036 /* EAIntroView.m */; };
+		C0E3BC711CDB330900A21036 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E3BC701CDB330900A21036 /* IntroViewController.m */; };
+		C0E3BC751CDB34EE00A21036 /* guide1.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E3BC731CDB34EE00A21036 /* guide1.png */; };
+		C0E3BC761CDB34EE00A21036 /* guide2.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E3BC741CDB34EE00A21036 /* guide2.png */; };
+		C0E3BC791CDB407500A21036 /* guide3.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E3BC771CDB407500A21036 /* guide3.png */; };
+		C0E3BC7A1CDB407500A21036 /* guide4.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E3BC781CDB407500A21036 /* guide4.png */; };
 		C0E432011CD0494F00056748 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E431EF1CD0494F00056748 /* AFHTTPRequestOperation.m */; };
 		C0E432021CD0494F00056748 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E431F11CD0494F00056748 /* AFHTTPRequestOperationManager.m */; };
 		C0E432031CD0494F00056748 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E431F31CD0494F00056748 /* AFHTTPSessionManager.m */; };
@@ -878,6 +885,16 @@
 		C0E013141C0C2D57006BBF97 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
 		C0E013171C0C2DCA006BBF97 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C0E013181C0C2DCA006BBF97 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C0E3BC691CDB327600A21036 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		C0E3BC6A1CDB327600A21036 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		C0E3BC6B1CDB327600A21036 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		C0E3BC6C1CDB327600A21036 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		C0E3BC6F1CDB330900A21036 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		C0E3BC701CDB330900A21036 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		C0E3BC731CDB34EE00A21036 /* guide1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide1.png; sourceTree = "<group>"; };
+		C0E3BC741CDB34EE00A21036 /* guide2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide2.png; sourceTree = "<group>"; };
+		C0E3BC771CDB407500A21036 /* guide3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide3.png; sourceTree = "<group>"; };
+		C0E3BC781CDB407500A21036 /* guide4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide4.png; sourceTree = "<group>"; };
 		C0E431EE1CD0494F00056748 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		C0E431EF1CD0494F00056748 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		C0E431F01CD0494F00056748 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1766,6 +1783,7 @@
 		C0D3CD391BDF0C8300C23FB3 /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				C0E3BC721CDB34B400A21036 /* guidePage */,
 				02F9D5A11CD9E49E00CF6050 /* newBar */,
 				0207097B1CD8A38C000A2011 /* newImg */,
 				C0F16CF41CD317670078A99B /* me */,
@@ -1957,6 +1975,28 @@
 				C0E013141C0C2D57006BBF97 /* HttpHelper.m */,
 			);
 			name = Http;
+			sourceTree = "<group>";
+		};
+		C0E3BC681CDB326300A21036 /* EAIntroView */ = {
+			isa = PBXGroup;
+			children = (
+				C0E3BC691CDB327600A21036 /* EAIntroPage.h */,
+				C0E3BC6A1CDB327600A21036 /* EAIntroPage.m */,
+				C0E3BC6B1CDB327600A21036 /* EAIntroView.h */,
+				C0E3BC6C1CDB327600A21036 /* EAIntroView.m */,
+			);
+			name = EAIntroView;
+			sourceTree = "<group>";
+		};
+		C0E3BC721CDB34B400A21036 /* guidePage */ = {
+			isa = PBXGroup;
+			children = (
+				C0E3BC771CDB407500A21036 /* guide3.png */,
+				C0E3BC781CDB407500A21036 /* guide4.png */,
+				C0E3BC731CDB34EE00A21036 /* guide1.png */,
+				C0E3BC741CDB34EE00A21036 /* guide2.png */,
+			);
+			name = guidePage;
 			sourceTree = "<group>";
 		};
 		C0E431ED1CD0493E00056748 /* AFN2.0 */ = {
@@ -2377,6 +2417,8 @@
 		C0EC6C3D1CBC9F74004AF08B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C0E3BC6F1CDB330900A21036 /* IntroViewController.h */,
+				C0E3BC701CDB330900A21036 /* IntroViewController.m */,
 				39F798C91C05E4AE000D9A20 /* AppDelegate.h */,
 				39F798CA1C05E4AE000D9A20 /* AppDelegate.m */,
 				C0D68C631BD8ED44009CEC23 /* LoginViewController.h */,
@@ -2506,6 +2548,7 @@
 		C0FF4DBB1CBC852200F430A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0E3BC681CDB326300A21036 /* EAIntroView */,
 				C0E431ED1CD0493E00056748 /* AFN2.0 */,
 				C0E7BB3D1CC0D9BF00A51B66 /* HMSegmentedControl */,
 				C0FFFD111CBF7C5100CF10CF /* SDCycleScrollView */,
@@ -2675,11 +2718,13 @@
 				9604F4BF1C1ADDA10074B1A5 /* detailSaleLeadsViewController.xib in Resources */,
 				B8EDAD8C1C1948D600865E7C /* VisitPlanTableViewController.xib in Resources */,
 				02F420DF1CD8BD0200F3D442 /* taskCell.xib in Resources */,
+				C0E3BC7A1CDB407500A21036 /* guide4.png in Resources */,
 				394526571C27960C005DB938 /* phone-1.png in Resources */,
 				B861A9231C239AFE00DF276D /* MBProgressHUD.bundle in Resources */,
 				020709A31CD8A463000A2011 /* xiaosxs.png in Resources */,
 				C01EA1971CD8956B009C3F5C /* shouye-weixuan.png in Resources */,
 				020709A11CD8A463000A2011 /* xiaoshouJH.png in Resources */,
+				C0E3BC791CDB407500A21036 /* guide3.png in Resources */,
 				C02E123F1CD353CC00E008B4 /* app_phone.png in Resources */,
 				02F977661CC868D500088144 /* MTableViewCell.xib in Resources */,
 				9604F4B71C1ACC3E0074B1A5 /* sub.png in Resources */,
@@ -2783,6 +2828,7 @@
 				39E1EDD91BE856F800580F12 /* location_no.png in Resources */,
 				9604F4821C1AC79A0074B1A5 /* crm-5.png in Resources */,
 				9604F48C1C1AC8280074B1A5 /* work-3.png in Resources */,
+				C0E3BC761CDB34EE00A21036 /* guide2.png in Resources */,
 				1FEF629A1C16B57000E6F4BF /* 14.JPG in Resources */,
 				39F7980E1C05D15A000D9A20 /* ShowAndDeleteViewController.xib in Resources */,
 				0207099C1CD8A463000A2011 /* callSh.png in Resources */,
@@ -2816,6 +2862,7 @@
 				9619C7111C1EB1D0000C4EEE /* pass-1.png in Resources */,
 				02F420E41CD8BDF100F3D442 /* trackCell.xib in Resources */,
 				020709991CD8A463000A2011 /* baifangjihua.png in Resources */,
+				C0E3BC751CDB34EE00A21036 /* guide1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2912,6 +2959,7 @@
 				9604F4BE1C1ADDA10074B1A5 /* detailSaleLeadsViewController.m in Sources */,
 				C0E432031CD0494F00056748 /* AFHTTPSessionManager.m in Sources */,
 				B8EDAD8B1C1948D600865E7C /* VisitPlanTableViewController.m in Sources */,
+				C0E3BC711CDB330900A21036 /* IntroViewController.m in Sources */,
 				39F7980F1C05D15A000D9A20 /* AddMonthViewController.m in Sources */,
 				C0EC6C3A1CBC9B7F004AF08B /* DateUtil.m in Sources */,
 				C0EC6C431CBCD2A4004AF08B /* SDGridItemCacheTool.m in Sources */,
@@ -2936,6 +2984,7 @@
 				39F798491C05D306000D9A20 /* ActivityViewController.m in Sources */,
 				96FAE25B1BEC73A900032BB3 /* UIColor+HexString.m in Sources */,
 				39F7984E1C05D30D000D9A20 /* ReminderDetailViewController.m in Sources */,
+				C0E3BC6D1CDB327600A21036 /* EAIntroPage.m in Sources */,
 				C0EC6C661CBCDBF0004AF08B /* SDHomeGridViewListItemViewButton.m in Sources */,
 				B8EDAD571C1933EC00865E7C /* CustomerCallPlanEditViewController.m in Sources */,
 				96E3125E1BEB53BA00A1A3FF /* UIView+MJExtension.m in Sources */,
@@ -3026,6 +3075,7 @@
 				1FEF621C1C16AC3600E6F4BF /* PNBarChart.m in Sources */,
 				39F7980D1C05D15A000D9A20 /* ShowAndDeleteViewController.m in Sources */,
 				39E729F21C0697A50050D77F /* SubmitTableViewController.m in Sources */,
+				C0E3BC6E1CDB327600A21036 /* EAIntroView.m in Sources */,
 				02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */,
 				39E729F51C0697A50050D77F /* options.m in Sources */,
 				39F7980B1C05D15A000D9A20 /* MonthTableViewController.m in Sources */,
