@@ -11,8 +11,8 @@
 #import "config.h"
 #import "CustomerInformationTableViewController.h"
 #import "CustomerInformationEditViewController.h"
-
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface CustomerInformationDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *CustomerNAME;
 @property (weak, nonatomic) IBOutlet UITextField *IndustryIDStr;
@@ -20,9 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *CustomerClassStr;
 @property (weak, nonatomic) IBOutlet UITextField *ProvinceStr;
 @property (weak, nonatomic) IBOutlet UITextField *ShiChangXQFL;
-//@property (weak, nonatomic) IBOutlet UITextView *ShiChangXQFL;
-
-//@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
 @property (weak, nonatomic) IBOutlet UITextView *CustomerAddress;
 
 
@@ -69,13 +66,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
         [self.navigationController pushViewController:mj animated:YES];
-        //        for (UIViewController *controller in self.navigationController.viewControllers)
-        //        {
-        //            if ([controller isKindOfClass:[CustomerInformationTableViewController class]])
-        //            {
-        //                [self.navigationController popToViewController:controller animated:YES];
-        //            }
-        //        }
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -97,7 +87,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"查看客户档案管理表";
-    self.scroll.contentSize=CGSizeMake(375,800);
+    self.scroll.contentSize=CGSizeMake(SCREENWIDTH,SCREENHEIGHT);
+    //去掉返回的文字
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     //赋值
     [self valuation];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();

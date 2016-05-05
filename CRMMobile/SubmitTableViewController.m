@@ -28,8 +28,6 @@
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 @property (strong, nonatomic) NSMutableDictionary *uSubmitId;
 @property  NSInteger index;
-//@property (strong, nonatomic) NSMutableArray *yeWuZLBH;
-
 @end
 
 @implementation SubmitTableViewController
@@ -42,8 +40,6 @@
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
         [self faker:@"1"];
-        //      [self faker:@"2"];
-        
     }
     return _fakeData;
 }
@@ -52,13 +48,13 @@
     self.title=@"任务提交";
     [self setupRefresh];
     [self leftButtonInit];
+    //去除返回按钮的文本
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
-    
-    //self.yeWuZLBH=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXTJDatagrid.action?"]];
@@ -91,7 +87,6 @@
             [self.time        addObject:time];
             [self.dataing     addObject:userId];
             [self.bianHao     addObject:submitID];
-            //[self.yeWuZLBH addObject:yeWuZLBH];
         }
         [self submitIDReturn:self.bianHao];
     }
@@ -137,8 +132,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+  }
 
 // hide the extraLine
 -(void)setExtraCellLineHidden: (UITableView *)tableView
@@ -164,19 +158,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    //    if (cell == nil) {
-    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-    //    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-    //    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    //    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    //    NSString *testDetail =[@"业务种类:" stringByAppendingString:self.dataing[indexPath.row]];
-    //    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-    //    NSString *str =[testDetail stringByAppendingString:testDetail1];
-    //    [cell.detailTextLabel setText:str];
-    //    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     static NSString * cellId = @"taskCell";
     taskCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
@@ -201,29 +182,7 @@
                                  target:self
                                  action:@selector(addFlow:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
-    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    UIImage *image = [[UIImage imageNamed:@"back002.png"] imageWithTintColor:[UIColor whiteColor]];
-    //    button.frame = CGRectMake(0, 0, 20, 20);
-    //    [button setImage:image forState:UIControlStateNormal];
-    //    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    //    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    //    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    //    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-    //                                                                                   target:nil action:nil];
-    //    negativeSpacer.width = -5;
-    //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    
 }
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[WorkTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
 -(void) submitIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)submitID{
     _uSubmitId = [[NSMutableDictionary alloc] init];
     for(int i=0;i<[utestname count];i++)

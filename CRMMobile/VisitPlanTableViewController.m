@@ -44,7 +44,6 @@
         self.respondent=[[NSMutableArray alloc]init];
         self.visitorData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        //        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -52,11 +51,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划";
-    [self setupRefresh];    //上拉刷新下拉加在方法
+    //上拉刷新下拉加在方法
+    [self setupRefresh];
     self.uid=[NSMutableArray array];
-    //设置导航栏返回
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
+    //去掉返回的文字
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     UIBarButtonItem *rightAdd = [[UIBarButtonItem alloc]
@@ -64,36 +63,11 @@
                                  target:self
                                  action:@selector(addUser:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
-//    [self setExtraCellLineHidden:self.tableView];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-    
     [self setExtraCellLineHidden:self.tableView];
 }
 
-
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[IndexViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
 - (IBAction)addUser:(id)sender
 {
     AddCustomerCallPlanViewController *addCustomer = [[AddCustomerCallPlanViewController alloc] init];
@@ -145,72 +119,42 @@
             [self.respondent             addObject:teamname3];
             [self.visitorData            addObject:baiFangRenStr];
         }
-        //    [self customerIDReturn:self.customerCallPlanID];
     }
     return self.fakeData;
 }
 
-
-//-(NSMutableArray *) customerIDReturn: (NSMutableArray *) uidArr
-//{
-//    return self.customerCallPlanID;
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+      return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [self.fakeData count];
+        return [self.fakeData count];
 }
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-//    //    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-//    NSString *testDetail1 =[@"受访人员:" stringByAppendingString:self.respondent [indexPath.row]];
-//    NSString *str =[testDetail stringByAppendingString:testDetail1];
-//    NSLog(@"%@",str);
-//    [cell.detailTextLabel setText:str];
-//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
     static NSString *cellId = @"visitplan";
     VisitPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"VisitPlanTableViewCell" owner:self options:nil]lastObject];
-        //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     cell.photo.image = [UIImage imageNamed:@"拜访计划1.png"];
     cell.company.text = self.fakeData[indexPath.row];
     NSString *baifangren=(NSString *)[self.visitorData objectAtIndex:indexPath.row];
     cell.visitor.text = [@"拜访人：" stringByAppendingString:baifangren];
     cell.visitDate.text = [self.visitDate objectAtIndex:indexPath.row];
-    //cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     
-    return cell;
+        return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 45;
-//    }else{
-//        return 55;
-//    }
     return 70;
 }
 //上拉刷新下拉加载

@@ -10,13 +10,13 @@
 #import "config.h"
 #import "CustomerInformationTableViewController.h"
 #import "MailListTableViewController.h"
-#import "TaskReportTableViewController.h"
+#import "TaskReportViewController.h"
 #import "SubmitTableViewController.h"
 #import "MarketManagementViewController.h"
 #import "VisitPlanTableViewController.h"
 #import "XGViewController.h"
 #import "AboutOfView.h"
-#import "LianViewController.h"
+#import "LianXiController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"个人中心";
     [self  setUpUI];
 }
 
@@ -39,6 +38,7 @@ self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)setUpUI{
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:248.0/255.0 blue:249.0/255.0 alpha:1.0];
     UIImageView *meImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT*0.3)];
     UIImage *image=[UIImage imageNamed:@"me_background.png"];
@@ -247,7 +247,7 @@ self.navigationController.navigationBarHidden = YES;
 #pragma 工作报告
 -(void) gongzuobaogao{
     self.navigationController.navigationBarHidden = NO;
-    [self.navigationController pushViewController:[[TaskReportTableViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[TaskReportViewController alloc] init] animated:YES];
     
 }
 #pragma 任务提交
@@ -277,7 +277,7 @@ self.navigationController.navigationBarHidden = YES;
 #pragma 联系我们
 -(void) lianxiwomen{
     self.navigationController.navigationBarHidden = NO;
-    [self.navigationController pushViewController:[[LianViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[LianXiController alloc] init] animated:YES];
     
 }
 #pragma 关于

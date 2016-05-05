@@ -11,6 +11,8 @@
 #import "CustomerInformationTableViewController.h"
 #import "config.h"
 #import "ZSYPopoverListView.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 
 @interface CustomerInformationEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *customerNAME;
@@ -736,7 +738,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"修改客户档案";
-    self.scroll.contentSize = CGSizeMake(375,800);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH,SCREENHEIGHT);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     [self.customerAddress.layer setBorderColor:color];

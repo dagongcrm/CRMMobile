@@ -16,9 +16,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFx-ix-3Ah">
-                        <rect key="frame" x="8" y="8" width="55" height="55"/>
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="8ON-yv-sS2"/>
+                            <constraint firstAttribute="width" constant="50" id="8ON-yv-sS2"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niL-Xt-jff">
@@ -55,16 +55,16 @@
                     <constraint firstItem="Ho2-hN-kKU" firstAttribute="centerY" secondItem="lJu-KM-v3G" secondAttribute="centerY" constant="2.5" id="3p2-FO-GX3"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Crp-A8-cyj" secondAttribute="bottom" id="7ww-ZH-qel"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ho2-hN-kKU" secondAttribute="trailing" constant="10" id="8k3-Jd-kPy"/>
-                    <constraint firstItem="niL-Xt-jff" firstAttribute="leading" secondItem="YFx-ix-3Ah" secondAttribute="trailing" constant="10" id="Am2-Yk-5oN"/>
+                    <constraint firstItem="niL-Xt-jff" firstAttribute="leading" secondItem="YFx-ix-3Ah" secondAttribute="trailing" constant="13" id="Am2-Yk-5oN"/>
                     <constraint firstItem="Crp-A8-cyj" firstAttribute="leading" secondItem="niL-Xt-jff" secondAttribute="leading" id="Q8Y-6r-1Lt"/>
                     <constraint firstItem="Ho2-hN-kKU" firstAttribute="top" secondItem="lJu-KM-v3G" secondAttribute="topMargin" constant="14" id="TMM-CT-Lkx"/>
                     <constraint firstItem="niL-Xt-jff" firstAttribute="top" secondItem="lJu-KM-v3G" secondAttribute="topMargin" constant="3" id="Wcb-tC-neJ"/>
-                    <constraint firstItem="YFx-ix-3Ah" firstAttribute="top" secondItem="lJu-KM-v3G" secondAttribute="topMargin" id="Wgo-6G-E6G"/>
+                    <constraint firstItem="YFx-ix-3Ah" firstAttribute="top" secondItem="lJu-KM-v3G" secondAttribute="topMargin" constant="2" id="Wgo-6G-E6G"/>
                     <constraint firstItem="Ho2-hN-kKU" firstAttribute="leading" secondItem="DOP-LY-EsO" secondAttribute="trailing" constant="2" id="aNQ-Md-qQb"/>
-                    <constraint firstItem="YFx-ix-3Ah" firstAttribute="leading" secondItem="lJu-KM-v3G" secondAttribute="leadingMargin" id="bFu-81-p3X"/>
+                    <constraint firstItem="YFx-ix-3Ah" firstAttribute="leading" secondItem="lJu-KM-v3G" secondAttribute="leadingMargin" constant="2" id="bFu-81-p3X"/>
                     <constraint firstItem="Ho2-hN-kKU" firstAttribute="leading" secondItem="Crp-A8-cyj" secondAttribute="trailing" constant="20" id="dMz-yC-jge"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="YFx-ix-3Ah" secondAttribute="bottom" constant="-2" id="g6z-Ho-ewT"/>
-                    <constraint firstItem="DOP-LY-EsO" firstAttribute="leading" secondItem="YFx-ix-3Ah" secondAttribute="trailing" constant="91" id="lG2-iI-rHb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YFx-ix-3Ah" secondAttribute="bottom" constant="1" id="g6z-Ho-ewT"/>
+                    <constraint firstItem="DOP-LY-EsO" firstAttribute="leading" secondItem="YFx-ix-3Ah" secondAttribute="trailing" constant="94" id="lG2-iI-rHb"/>
                     <constraint firstItem="DOP-LY-EsO" firstAttribute="baseline" secondItem="niL-Xt-jff" secondAttribute="firstBaseline" constant="1" id="vco-TA-62I"/>
                 </constraints>
             </tableViewCellContentView>

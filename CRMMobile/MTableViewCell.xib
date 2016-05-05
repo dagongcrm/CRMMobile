@@ -14,7 +14,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WuU-QY-tga" id="P50-r5-KdC">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEj-zV-9UC" userLabel="时间">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEj-zV-9UC" userLabel="时间">
                         <rect key="frame" x="216" y="38" width="100" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="bEZ-q3-y32"/>
@@ -23,13 +23,13 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIQ-dy-9cN">
-                        <rect key="frame" x="5" y="10" width="50" height="50"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIQ-dy-9cN">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Ssn-Kf-5sK"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9df-Dy-LNM" userLabel="拜访类型">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9df-Dy-LNM" userLabel="拜访类型">
                         <rect key="frame" x="266" y="10" width="50" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="tz9-ki-KJY"/>
@@ -38,13 +38,13 @@
                         <color key="textColor" red="0.90588235294117647" green="0.18546628844341062" blue="0.1301039630558706" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Pz-0Cs" userLabel="企业名称">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Pz-0Cs" userLabel="企业名称">
                         <rect key="frame" x="63" y="10" width="209" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B34-7B-B19" userLabel="拜访人">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B34-7B-B19" userLabel="拜访人">
                         <rect key="frame" x="63" y="38" width="122" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7i6-zp-Utb"/>
@@ -55,9 +55,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="ISw-Pz-0Cs" secondAttribute="trailing" constant="33" id="36E-ua-11n"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ISw-Pz-0Cs" secondAttribute="trailing" constant="40" id="36E-ua-11n"/>
                     <constraint firstItem="B34-7B-B19" firstAttribute="baseline" secondItem="gEj-zV-9UC" secondAttribute="baseline" id="3zj-Ds-Bx5"/>
-                    <constraint firstItem="ISw-Pz-0Cs" firstAttribute="leading" secondItem="pIQ-dy-9cN" secondAttribute="trailing" constant="8" symbolic="YES" id="4Bs-Xw-YEa"/>
+                    <constraint firstItem="ISw-Pz-0Cs" firstAttribute="leading" secondItem="pIQ-dy-9cN" secondAttribute="trailing" constant="3" id="4Bs-Xw-YEa"/>
                     <constraint firstItem="B34-7B-B19" firstAttribute="firstBaseline" secondItem="gEj-zV-9UC" secondAttribute="firstBaseline" id="Ad4-Dy-9Gg"/>
                     <constraint firstItem="pIQ-dy-9cN" firstAttribute="top" secondItem="ISw-Pz-0Cs" secondAttribute="top" id="Bad-tu-JK2"/>
                     <constraint firstItem="9df-Dy-LNM" firstAttribute="baseline" secondItem="ISw-Pz-0Cs" secondAttribute="baseline" id="HLi-hc-cwO"/>
@@ -65,10 +65,10 @@
                     <constraint firstItem="gEj-zV-9UC" firstAttribute="leading" secondItem="B34-7B-B19" secondAttribute="trailing" constant="31" id="WoX-qa-QSY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="pIQ-dy-9cN" secondAttribute="bottom" constant="1" id="Xq8-qh-pNT"/>
                     <constraint firstItem="pIQ-dy-9cN" firstAttribute="top" secondItem="P50-r5-KdC" secondAttribute="topMargin" constant="2" id="YJV-TI-XQ1"/>
-                    <constraint firstItem="pIQ-dy-9cN" firstAttribute="leading" secondItem="P50-r5-KdC" secondAttribute="leadingMargin" constant="-10" id="bkc-6x-P9D"/>
+                    <constraint firstItem="pIQ-dy-9cN" firstAttribute="leading" secondItem="P50-r5-KdC" secondAttribute="leadingMargin" constant="2" id="bkc-6x-P9D"/>
                     <constraint firstAttribute="bottomMargin" secondItem="B34-7B-B19" secondAttribute="bottom" constant="2" id="lZ6-4N-EGR"/>
                     <constraint firstItem="ISw-Pz-0Cs" firstAttribute="firstBaseline" secondItem="9df-Dy-LNM" secondAttribute="firstBaseline" id="mb1-GL-bHA"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="9df-Dy-LNM" secondAttribute="trailing" constant="-11" id="ymR-XD-r6s"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9df-Dy-LNM" secondAttribute="trailing" constant="-4" id="ymR-XD-r6s"/>
                     <constraint firstItem="ISw-Pz-0Cs" firstAttribute="leading" secondItem="B34-7B-B19" secondAttribute="leading" id="yzi-wf-GkM"/>
                     <constraint firstItem="B34-7B-B19" firstAttribute="top" secondItem="ISw-Pz-0Cs" secondAttribute="bottom" constant="7" id="zCa-da-iIQ"/>
                 </constraints>

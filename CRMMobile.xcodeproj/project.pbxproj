@@ -63,6 +63,10 @@
 		02F5BB681CC2324F0034B8C6 /* MailListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BB671CC2324F0034B8C6 /* MailListTableViewController.m */; };
 		02F977661CC868D500088144 /* MTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F977651CC868D500088144 /* MTableViewCell.xib */; };
 		02F977691CC8693500088144 /* MTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F977681CC8693500088144 /* MTableViewCell.m */; };
+		02FBAC9F1CDADA5100732A11 /* LianXiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBAC9D1CDADA5100732A11 /* LianXiController.m */; };
+		02FBACA01CDADA5100732A11 /* LianXiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FBAC9E1CDADA5100732A11 /* LianXiController.xib */; };
+		02FBACA41CDADB9D00732A11 /* lianxiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBACA21CDADB9D00732A11 /* lianxiCell.m */; };
+		02FBACA51CDADB9D00732A11 /* lianxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FBACA31CDADB9D00732A11 /* lianxiCell.xib */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
 		1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE529CB1BE8A8D000149C10 /* UIImage+Tint.m */; };
 		1FEF620B1C16ABED00E6F4BF /* MarketManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF62091C16ABED00E6F4BF /* MarketManagementViewController.m */; };
@@ -469,6 +473,12 @@
 		02F977651CC868D500088144 /* MTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTableViewCell.xib; sourceTree = "<group>"; };
 		02F977671CC8693500088144 /* MTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTableViewCell.h; sourceTree = "<group>"; };
 		02F977681CC8693500088144 /* MTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTableViewCell.m; sourceTree = "<group>"; };
+		02FBAC9C1CDADA5100732A11 /* LianXiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LianXiController.h; sourceTree = "<group>"; };
+		02FBAC9D1CDADA5100732A11 /* LianXiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LianXiController.m; sourceTree = "<group>"; };
+		02FBAC9E1CDADA5100732A11 /* LianXiController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LianXiController.xib; sourceTree = "<group>"; };
+		02FBACA11CDADB9D00732A11 /* lianxiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lianxiCell.h; sourceTree = "<group>"; };
+		02FBACA21CDADB9D00732A11 /* lianxiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lianxiCell.m; sourceTree = "<group>"; };
+		02FBACA31CDADB9D00732A11 /* lianxiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lianxiCell.xib; sourceTree = "<group>"; };
 		102A51D7D859922F2889B12A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1F93AAE01BF1FFF50099C57E /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
 		1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
@@ -2046,6 +2056,12 @@
 				1FEF62281C16AD8D00E6F4BF /* OptionsTableViewController.m */,
 				02F05FDC1CD9DE0700B2E2E8 /* AboutOfView.h */,
 				02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */,
+				02FBAC9C1CDADA5100732A11 /* LianXiController.h */,
+				02FBAC9D1CDADA5100732A11 /* LianXiController.m */,
+				02FBAC9E1CDADA5100732A11 /* LianXiController.xib */,
+				02FBACA11CDADB9D00732A11 /* lianxiCell.h */,
+				02FBACA21CDADB9D00732A11 /* lianxiCell.m */,
+				02FBACA31CDADB9D00732A11 /* lianxiCell.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2657,6 +2673,7 @@
 				9604F49D1C1AC8D90074B1A5 /* op-2.png in Resources */,
 				C0EB5CA21CBDFBC100AED5FD /* renwutijiao.png in Resources */,
 				B8EDAD711C19366300865E7C /* noticeDetailViewController.xib in Resources */,
+				02FBACA51CDADB9D00732A11 /* lianxiCell.xib in Resources */,
 				0207097A1CD8A2D6000A2011 /* InformationTableViewCell.xib in Resources */,
 				C0FFFD141CBF9AA300CF10CF /* daiban.png in Resources */,
 				020256FF1CD9ED38000A045F /* shouye1.png in Resources */,
@@ -2793,6 +2810,7 @@
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				C0EB5CAA1CBDFBF700AED5FD /* gengduo.png in Resources */,
+				02FBACA01CDADA5100732A11 /* LianXiController.xib in Resources */,
 				9604F4891C1AC8280074B1A5 /* work-1.png in Resources */,
 				1FEF62371C16AD9F00E6F4BF /* XGViewController.xib in Resources */,
 				C0B8D6951C06F2A20051367D /* business.png in Resources */,
@@ -2887,6 +2905,7 @@
 				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
 				C0FF4DBE1CBC854700F430A1 /* NStringUtil.m in Sources */,
 				39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */,
+				02FBAC9F1CDADA5100732A11 /* LianXiController.m in Sources */,
 				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
 				39F7978B1C05CF58000D9A20 /* selectEntity.m in Sources */,
 				1FEF62571C16AED200E6F4BF /* saleLeadsTableViewController.m in Sources */,
@@ -2951,6 +2970,7 @@
 				B861A9251C239AFE00DF276D /* MBProgressHUD+NJ.m in Sources */,
 				39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */,
 				1FEF623F1C16ADDA00E6F4BF /* UIViewAdditions.m in Sources */,
+				02FBACA41CDADB9D00732A11 /* lianxiCell.m in Sources */,
 				39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */,
 				1FEF62511C16AE4900E6F4BF /* MeUser.m in Sources */,
 				C0E4CD761CBCE2B100F7B2E0 /* TADotView.m in Sources */,

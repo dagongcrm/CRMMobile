@@ -43,6 +43,8 @@
     [self  setupMainView];
     self.navigationItem.title = @"首页";
     self.navigationController.navigationBar.barTintColor = NAVBLUECOLOR;
+    //去掉返回的文字
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     self.destionClassArray=@[[CustomerInformationTableViewController class],
                              [CustomercontactTableViewController class],
                              [VisitPlanTableViewController class],

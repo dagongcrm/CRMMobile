@@ -33,10 +33,7 @@
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
 
-        
         [self faker:@"1"];
-//        [self faker:@"2"];
-        
     }
     return _fakeData;
 }
@@ -45,11 +42,9 @@
     [super viewDidLoad];
     [self setupRefresh];
     self.title=@"任务跟踪";
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //去除返回按钮的文本
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 -(void) faker: (NSString *) page{
     NSError *error;
@@ -88,8 +83,6 @@
         [self.dataing   addObject:userId];
     }
     }
-    //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
-    //return self.fakeData;
 }
 - (void)setupRefresh
 {
@@ -131,7 +124,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  
 }
 
 // hide the extraLine
@@ -146,33 +139,16 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.fakeData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];}
-//    NSDictionary *item = [self.fakeData objectAtIndex:indexPath.row];
-//    [cell.textLabel setText:[self.fakeData objectAtIndex:indexPath.row]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"任务阶段:" stringByAppendingString:self.dataing[indexPath.row]];
-//    NSString *testDetail1 =[@"  提交时间:" stringByAppendingString:self.time [indexPath.row]];
-//    NSString *str =[testDetail stringByAppendingString:testDetail1];
-//    [cell.detailTextLabel setText:testDetail];
-//    [cell.imageView setImage:[UIImage imageNamed:@"gongsi.png"]];
-    //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+
     static NSString * cellId = @"trackCell";
     trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
@@ -180,63 +156,13 @@
     }
     cell.myImg.image = [UIImage imageNamed:@"任务跟踪1.png"];
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
-//    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
     cell.mylbl2.text= [@"流程节点:" stringByAppendingString:self.dataing[indexPath.row]];
-//    cell.mylbl3.hidden = YES;
+    
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
     return 70;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
