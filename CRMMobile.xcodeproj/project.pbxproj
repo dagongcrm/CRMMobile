@@ -107,6 +107,7 @@
 		1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62951C16B57000E6F4BF /* 15.JPG */; };
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		394526571C27960C005DB938 /* phone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 394526561C27960C005DB938 /* phone-1.png */; };
+		39CCF2A91CDAE0F000D29074 /* SearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -547,6 +548,8 @@
 		1FEF62951C16B57000E6F4BF /* 15.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.JPG; sourceTree = "<group>"; };
 		1FEF62961C16B57000E6F4BF /* 16.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.JPG; sourceTree = "<group>"; };
 		394526561C27960C005DB938 /* phone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-1.png"; sourceTree = "<group>"; };
+		39CCF2A71CDAE0F000D29074 /* SearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewController.h; sourceTree = "<group>"; };
+		39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewController.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -2404,6 +2407,8 @@
 				C0EC6C561CBCD75B004AF08B /* SDScanViewController.m */,
 				C0EC6C441CBCD2E4004AF08B /* SDHomeViewController.h */,
 				C0EC6C451CBCD2E4004AF08B /* SDHomeViewController.m */,
+				39CCF2A71CDAE0F000D29074 /* SearchResultTableViewController.h */,
+				39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2880,6 +2885,7 @@
 				C0EC6C371CBC93D5004AF08B /* PhoneParameterUtil.m in Sources */,
 				02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */,
 				C0E432081CD0494F00056748 /* AFURLResponseSerialization.m in Sources */,
+				39CCF2A91CDAE0F000D29074 /* SearchResultTableViewController.m in Sources */,
 				C0C484241C18199F00B142BC /* CRMTableViewController.m in Sources */,
 				39F797801C05CF58000D9A20 /* CustomerInformationTableViewController.m in Sources */,
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
