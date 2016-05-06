@@ -12,7 +12,8 @@
 #import "SubmitTableViewController.h"
 #import "config.h"
 #import "editTaskViewController.h"
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface submitTaskDetailViewController ()
 - (IBAction)delete:(id)sender;
 - (IBAction)edit:(id)sender;
@@ -39,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务基本信息";
-    self.scroll.contentSize = CGSizeMake(375, 1100);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     NSString *s= _submitTaskEntity.submitName;
     NSString *y= _submitTaskEntity.yeWuZL;
     self.qiYeMC1.text = _submitTaskEntity.submitName;

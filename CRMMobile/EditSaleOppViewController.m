@@ -86,6 +86,9 @@
     
 }
 
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
 
 - (void)ResView
 {
@@ -528,9 +531,7 @@
         }
         
     }
-    
-    
-    
+  
     
     
 }
