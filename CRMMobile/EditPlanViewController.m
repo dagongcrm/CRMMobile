@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "HZQDatePickerView.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface EditPlanViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -53,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划修改";
-    self.scroll.contentSize=CGSizeMake(375, 1000);
+    self.scroll.contentSize=CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.5);
     //赋值
     [self valuation];
 }

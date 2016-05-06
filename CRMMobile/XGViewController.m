@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"修改密码";
+    NAVCOLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     NSString *uname = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
     self.txtUser.text=uname;
     [self.txtUser setEnabled:NO];

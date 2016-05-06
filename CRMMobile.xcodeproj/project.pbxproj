@@ -61,6 +61,10 @@
 		02F4BCCC1CCB97F1006F797A /* mailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F4BCCB1CCB97F1006F797A /* mailCell.m */; };
 		02F5BB611CC22C3E0034B8C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F5BB601CC22C3E0034B8C6 /* libPods.a */; };
 		02F5BB681CC2324F0034B8C6 /* MailListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BB671CC2324F0034B8C6 /* MailListTableViewController.m */; };
+		02F651091CDC1C5800C355D7 /* LianXiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F651071CDC1C5800C355D7 /* LianXiController.m */; };
+		02F6510A1CDC1C5800C355D7 /* LianXiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F651081CDC1C5800C355D7 /* LianXiController.xib */; };
+		02F96ABD1CDC23810090895A /* lianxiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F96ABB1CDC23810090895A /* lianxiCell.m */; };
+		02F96ABE1CDC23810090895A /* lianxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F96ABC1CDC23810090895A /* lianxiCell.xib */; };
 		02F977661CC868D500088144 /* MTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F977651CC868D500088144 /* MTableViewCell.xib */; };
 		02F977691CC8693500088144 /* MTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F977681CC8693500088144 /* MTableViewCell.m */; };
 		1F93AAE21BF1FFF50099C57E /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93AAE11BF1FFF50099C57E /* ZSYPopoverListView.m */; };
@@ -474,6 +478,12 @@
 		02F5BB691CC23E900034B8C6 /* libSVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSVProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libSVProgressHUD.a"; sourceTree = "<group>"; };
 		02F5BB6B1CC23E9C0034B8C6 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "Pods/../build/Debug-iphoneos/libMasonry.a"; sourceTree = "<group>"; };
 		02F5BB6D1CC23EAC0034B8C6 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
+		02F651061CDC1C5800C355D7 /* LianXiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LianXiController.h; sourceTree = "<group>"; };
+		02F651071CDC1C5800C355D7 /* LianXiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LianXiController.m; sourceTree = "<group>"; };
+		02F651081CDC1C5800C355D7 /* LianXiController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LianXiController.xib; sourceTree = "<group>"; };
+		02F96ABA1CDC23810090895A /* lianxiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lianxiCell.h; sourceTree = "<group>"; };
+		02F96ABB1CDC23810090895A /* lianxiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lianxiCell.m; sourceTree = "<group>"; };
+		02F96ABC1CDC23810090895A /* lianxiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lianxiCell.xib; sourceTree = "<group>"; };
 		02F977651CC868D500088144 /* MTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTableViewCell.xib; sourceTree = "<group>"; };
 		02F977671CC8693500088144 /* MTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTableViewCell.h; sourceTree = "<group>"; };
 		02F977681CC8693500088144 /* MTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTableViewCell.m; sourceTree = "<group>"; };
@@ -1213,6 +1223,9 @@
 		1FEF624B1C16AE1E00E6F4BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				02F96ABA1CDC23810090895A /* lianxiCell.h */,
+				02F96ABB1CDC23810090895A /* lianxiCell.m */,
+				02F96ABC1CDC23810090895A /* lianxiCell.xib */,
 				1FEF624C1C16AE4900E6F4BF /* MeEntity.h */,
 				1FEF624D1C16AE4900E6F4BF /* MeEntity.m */,
 				1FEF624E1C16AE4900E6F4BF /* MeUser.h */,
@@ -2071,6 +2084,8 @@
 		C0EB5C911CBDD5D100AED5FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				02F651061CDC1C5800C355D7 /* LianXiController.h */,
+				02F651071CDC1C5800C355D7 /* LianXiController.m */,
 				1FEF62411C16AE0900E6F4BF /* SettingTableViewController.h */,
 				1FEF62421C16AE0900E6F4BF /* SettingTableViewController.m */,
 				1FEF62441C16AE0900E6F4BF /* MeMainTableViewController.h */,
@@ -2096,6 +2111,7 @@
 		C0EB5C921CBDD5DD00AED5FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02F651081CDC1C5800C355D7 /* LianXiController.xib */,
 				1FEF623A1C16ADDA00E6F4BF /* UIViewAdditions.h */,
 				1FEF623B1C16ADDA00E6F4BF /* UIViewAdditions.m */,
 				1FEF623C1C16ADDA00E6F4BF /* MZGuidePages.h */,
@@ -2689,6 +2705,7 @@
 				1FEF62481C16AE0900E6F4BF /* SettingTableViewController.xib in Resources */,
 				1FEF629B1C16B57000E6F4BF /* 15.JPG in Resources */,
 				9604F4751C1AC71B0074B1A5 /* notice-2.png in Resources */,
+				02F96ABE1CDC23810090895A /* lianxiCell.xib in Resources */,
 				027B7C3E1C202F8200C02991 /* login6p.png in Resources */,
 				9604F4981C1AC8D90074B1A5 /* set-1.png in Resources */,
 				020256FD1CD9EA9E000A045F /* kehu.png in Resources */,
@@ -2747,6 +2764,7 @@
 				9619C7101C1EB1D0000C4EEE /* goback-1.png in Resources */,
 				96ED77DF1C17FD4E00943200 /* setting.plist in Resources */,
 				0207099D1CD8A463000A2011 /* kehuDA.png in Resources */,
+				02F6510A1CDC1C5800C355D7 /* LianXiController.xib in Resources */,
 				1FEF62351C16AD9F00E6F4BF /* TXLTableViewController.xib in Resources */,
 				B8EDAD561C1933EC00865E7C /* CustomerCallPlanDetailViewController.xib in Resources */,
 				020709A51CD8A49F000A2011 /* hong.png in Resources */,
@@ -3007,6 +3025,7 @@
 				39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */,
 				1FEF623F1C16ADDA00E6F4BF /* UIViewAdditions.m in Sources */,
 				39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */,
+				02F651091CDC1C5800C355D7 /* LianXiController.m in Sources */,
 				1FEF62511C16AE4900E6F4BF /* MeUser.m in Sources */,
 				C0E4CD761CBCE2B100F7B2E0 /* TADotView.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
@@ -3083,6 +3102,7 @@
 				02F420E31CD8BDF100F3D442 /* trackCell.m in Sources */,
 				020257041CDA0EEF000A045F /* TaskReportViewController.m in Sources */,
 				B8EDAD861C1936E300865E7C /* ReminderTableViewController.m in Sources */,
+				02F96ABD1CDC23810090895A /* lianxiCell.m in Sources */,
 				020709B21CD8AB43000A2011 /* VisitPlanTableViewCell.m in Sources */,
 				39F797BC1C05D0E7000D9A20 /* auditEntity.m in Sources */,
 				02F977691CC8693500088144 /* MTableViewCell.m in Sources */,
