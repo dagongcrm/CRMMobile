@@ -18,7 +18,7 @@
 #import "InformationTableViewCell.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
-@interface SearchResultTableViewController ()
+@interface SearchResultTableViewController ()<UISearchBarDelegate>
 @property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
 @property (strong, nonatomic) NSMutableArray *customerID;   //客户id数组
 @property (strong, nonatomic) NSMutableArray *industryIDStr;  //所属行业数组
@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSMutableDictionary *uCustomerId;
 @property (strong, nonatomic) NSMutableArray *phoneData;//客户电话
 @property (strong, nonatomic) NSMutableArray *addressData;//客户地址
+@property (nonatomic, strong) UISearchBar    *searchBar;
+@property (strong,nonatomic) UITableView     *tableView;
 @property  NSInteger index;
 @end
 
@@ -39,16 +41,20 @@
         self.industryIDStr = [[NSMutableArray array] init];
         self.phoneData = [[NSMutableArray array] init];
         self.addressData = [[NSMutableArray array] init];
-        [self faker:@"1"];
-        //      [self faker:@"2"];
+        //[self faker:@"1"];
     }
     return _fakeData;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden=YES;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"客户档案管理";
+    [self  setUpUI];
+    self.title=@"客户档案";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self setupRefresh];
     self.uid=[NSMutableArray array];
@@ -58,33 +64,29 @@
                                  action:@selector(addCustomerInfomation:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
     button.frame = CGRectMake(0, 0, 20, 20);
     [button setImage:image forState:UIControlStateNormal];
-    //    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
-    //    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    //    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-    //                                                                                   target:nil action:nil];
-    //    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    //    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
 
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[CRMTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
+
+-(void) setUpUI{
+    CGRect rectStatus =[[UIApplication sharedApplication] statusBarFrame];
+    CGRect rectNav = self.navigationController.navigationBar.frame;
+    CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
+    self.searchBar= [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 110-seachBarHeight)];
+    [self.searchBar setTranslucent:YES];
+    [self.searchBar setBackgroundColor:[UIColor whiteColor]];
+    self.searchBar.searchBarStyle=UISearchBarStyleDefault;
+    [self.searchBar setPlaceholder:@"客户"];
+    self.searchBar.delegate=self;
+    [self.tableView setTableHeaderView:self.searchBar];
+    }
+
 
 -(NSMutableArray *) faker: (NSString *) page{
     NSError *error;
@@ -94,7 +96,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@&CustomerName=%@",page,sid,self.searchCondation];
+    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@&CustomerName=%@",page,sid,self.searchBar.text];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     if (error) {
@@ -107,9 +109,9 @@
             self.tableView.footerRefreshingText=@"加载中";
         }else{
             self.tableView.footerRefreshingText = @"没有更多数据";
-            UILabel *noDateView =[[UILabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/2-50, SCREENHEIGHT/2-150, 100, 100)];
-            noDateView.text=@"暂无数据";
-            [self.view addSubview:noDateView];
+//            UILabel *noDateView =[[UILabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/2-50, SCREENHEIGHT/2-150, 100, 100)];
+//            noDateView.text=@"暂无数据";
+//            [self.view addSubview:noDateView];
         }
         for (int i = 0; i<[list count]; i++) {
             NSDictionary *listdic = [list objectAtIndex:i];
@@ -263,8 +265,6 @@
         CustomerInformationDetailViewController *uc =[[CustomerInformationDetailViewController alloc] init];
         [uc setCustomerInformationEntity:udetail];
         [self.navigationController pushViewController:uc animated:YES];
-        
-        
     }else
     {
         NSDictionary *nc =[self singleCustomerInfo:(NSString *)[_uCustomerId objectForKey:[self.searchResultsData objectAtIndex:indexPath.row]]];
@@ -281,8 +281,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 70;
+            return 70;
 }
 
 -(void) customerIDuserName:(NSMutableArray *)utestname :(NSMutableArray *)customerID{
@@ -311,6 +310,17 @@
     AddCustomerInformationViewController *jumpController = [[AddCustomerInformationViewController alloc] init];
     [self.navigationController pushViewController: jumpController animated:true];
     
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self.fakeData removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    [searchBar resignFirstResponder];
+//    [self.tableView setFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENHEIGHT)];
 }
 
 @end

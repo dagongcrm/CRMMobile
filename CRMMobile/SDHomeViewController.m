@@ -33,6 +33,8 @@
 @property (nonatomic, strong) UISearchBar    *searchBar;
 @property (nonatomic, readwrite, retain) UIView *inputAccessoryView;
 @property (nonatomic, strong) UIButton       *searchButton;
+@property (nonatomic, strong) UIButton       *searchCoverButton;
+
 @end
 
 @implementation SDHomeViewController
@@ -44,7 +46,6 @@
     [self  setupMainView];
     self.navigationItem.title = @"首页";
     self.navigationController.navigationBar.barTintColor = NAVBLUECOLOR;
-    //去掉返回的文字
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     self.destionClassArray=@[[CustomerInformationTableViewController class],
                              [CustomercontactTableViewController class],
@@ -84,7 +85,17 @@
     [self.searchBar setPlaceholder:@"客户"];
     self.searchBar.delegate=self;
     [self.view addSubview:self.searchBar];
+    self.searchCoverButton= [[UIButton alloc]initWithFrame:CGRectMake(0, seachBarHeight, SCREENWIDTH, 110-seachBarHeight)];
+    [self.searchCoverButton addTarget:self action:@selector(searchJump) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.searchCoverButton];
 }
+
+
+
+-(void) searchJump{
+    [self.navigationController pushViewController:[[SearchResultTableViewController alloc] init] animated:YES];
+}
+
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
@@ -102,6 +113,7 @@
     [navDividingLine sizeToFit];
     [self.view addSubview:navDividingLine];
 }
+
 
 #pragma mark  -private actions
 - (void)setupHeader{
@@ -216,32 +228,32 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)hsearchBar
 {
-    CGRect rectStatus =[[UIApplication sharedApplication] statusBarFrame];
-    CGRect rectNav = self.navigationController.navigationBar.frame;
-    CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
-    self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH-50, 110-seachBarHeight);
-    self.searchButton =[[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-50, seachBarHeight, 50, 110-seachBarHeight)];
-    [self.searchButton setTitle:@"确定" forState:UIControlStateNormal];
-    [self.searchButton setBackgroundColor:[UIColor whiteColor]];
-    [self.searchButton setTitleColor:NAVBLUECOLOR forState:UIControlStateNormal];
-    SEL selector = NSSelectorFromString(@"search");
-    [self.searchButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    self.searchButton.titleLabel.font=[UIFont systemFontOfSize:18];
-    [self.view addSubview:self.searchButton];
-    self.searchBar.showsCancelButton=YES;
-
-    UIView *subView0 = self.searchBar.subviews[0]; // IOS7.0中searchBar组成复杂点
-    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
-        for (UIView *subView in subView0.subviews)
-        {
-            if ([subView isKindOfClass:[UIButton class]]) {
-                UIButton *cannelButton = (UIButton*)subView;
-                [cannelButton setTitle:@"取消"forState:UIControlStateNormal];
-                [cannelButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-                break;
-            }  
-        }
-    }
+    
+//    CGRect rectStatus =[[UIApplication sharedApplication] statusBarFrame];
+//    CGRect rectNav = self.navigationController.navigationBar.frame;
+//    CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
+//    self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH-50, 110-seachBarHeight);
+//    self.searchButton =[[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-50, seachBarHeight, 50, 110-seachBarHeight)];
+//    [self.searchButton setTitle:@"确定" forState:UIControlStateNormal];
+//    [self.searchButton setBackgroundColor:[UIColor whiteColor]];
+//    [self.searchButton setTitleColor:NAVBLUECOLOR forState:UIControlStateNormal];
+//    SEL selector = NSSelectorFromString(@"search");
+//    [self.searchButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+//    self.searchButton.titleLabel.font=[UIFont systemFontOfSize:18];
+//    [self.view addSubview:self.searchButton];
+//    self.searchBar.showsCancelButton=YES;
+//    UIView *subView0 = self.searchBar.subviews[0]; // IOS7.0中searchBar组成复杂点
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
+//        for (UIView *subView in subView0.subviews)
+//        {
+//            if ([subView isKindOfClass:[UIButton class]]) {
+//                UIButton *cannelButton = (UIButton*)subView;
+//                [cannelButton setTitle:@"取消"forState:UIControlStateNormal];
+//                [cannelButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//                break;
+//            }  
+//        }
+//    }
 }
 
 -(void) search{

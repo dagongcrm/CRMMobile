@@ -112,6 +112,8 @@
 		1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF62961C16B57000E6F4BF /* 16.JPG */; };
 		394526571C27960C005DB938 /* phone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 394526561C27960C005DB938 /* phone-1.png */; };
 		39CCF2A91CDAE0F000D29074 /* SearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */; };
+		39CCF2B71CDC532000D29074 /* SearchInMiddleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2B51CDC532000D29074 /* SearchInMiddleViewController.m */; };
+		39CCF2B81CDC532000D29074 /* SearchInMiddleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CCF2B61CDC532000D29074 /* SearchInMiddleViewController.xib */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -567,6 +569,9 @@
 		394526561C27960C005DB938 /* phone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-1.png"; sourceTree = "<group>"; };
 		39CCF2A71CDAE0F000D29074 /* SearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewController.h; sourceTree = "<group>"; };
 		39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewController.m; sourceTree = "<group>"; };
+		39CCF2B41CDC532000D29074 /* SearchInMiddleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchInMiddleViewController.h; sourceTree = "<group>"; };
+		39CCF2B51CDC532000D29074 /* SearchInMiddleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchInMiddleViewController.m; sourceTree = "<group>"; };
+		39CCF2B61CDC532000D29074 /* SearchInMiddleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchInMiddleViewController.xib; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -2467,6 +2472,9 @@
 				C0EC6C451CBCD2E4004AF08B /* SDHomeViewController.m */,
 				39CCF2A71CDAE0F000D29074 /* SearchResultTableViewController.h */,
 				39CCF2A81CDAE0F000D29074 /* SearchResultTableViewController.m */,
+				39CCF2B41CDC532000D29074 /* SearchInMiddleViewController.h */,
+				39CCF2B51CDC532000D29074 /* SearchInMiddleViewController.m */,
+				39CCF2B61CDC532000D29074 /* SearchInMiddleViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2686,6 +2694,7 @@
 				9619C70B1C1EB0C2000C4EEE /* cancle-s.png in Resources */,
 				39F797191C05CC50000D9A20 /* CustomercontactInfoController.xib in Resources */,
 				39F797EA1C05D12F000D9A20 /* DailyTableViewController.xib in Resources */,
+				39CCF2B81CDC532000D29074 /* SearchInMiddleViewController.xib in Resources */,
 				020709931CD8A463000A2011 /* 任务跟踪1.png in Resources */,
 				1FEF622C1C16AD8D00E6F4BF /* LianViewController.xib in Resources */,
 				9604F4AE1C1ACC3E0074B1A5 /* save-s.png in Resources */,
@@ -2956,6 +2965,7 @@
 				39F797821C05CF58000D9A20 /* CustomerInfermationDetailMessageEntity.m in Sources */,
 				39F797831C05CF58000D9A20 /* CustomerInformationDetailViewController.m in Sources */,
 				39F797851C05CF58000D9A20 /* AddCustomerInformationViewController.m in Sources */,
+				39CCF2B71CDC532000D29074 /* SearchInMiddleViewController.m in Sources */,
 				C0FF4DBE1CBC854700F430A1 /* NStringUtil.m in Sources */,
 				39F797871C05CF58000D9A20 /* CustomerInformationEditViewController.m in Sources */,
 				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
