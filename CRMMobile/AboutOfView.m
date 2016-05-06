@@ -22,6 +22,7 @@
     [self setUpUI];
 }
 - (void)setUpUI{
+     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:248.0/255.0 blue:249.0/255.0 alpha:1.0];
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
 //    UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(10, self.navigationController.navigationBar.frame.size.height+13, 100, 50)];

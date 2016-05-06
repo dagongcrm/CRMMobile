@@ -111,9 +111,13 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-    [self.navigationController pushViewController:mj animated:YES];
-    
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[SubmitTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
 }
 
 //- (IBAction)selectQiYe:(id)sender {

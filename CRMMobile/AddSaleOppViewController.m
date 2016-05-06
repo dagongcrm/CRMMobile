@@ -14,7 +14,8 @@
 #import "config.h"
 #import "ZSYPopoverListView.h"
 #import "UIImage+Tint.h"
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddSaleOppViewController ()
 
 @property (strong,nonatomic)  NSString    *select;//用于判断下拉选
@@ -61,7 +62,7 @@
     [self valuation];
 //    [self BackButton];
     self.title=@"添加销售机会";
-    self.scroll.contentSize = CGSizeMake(375, 700);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     [self.saleOppDescription.layer setBorderColor:color];
@@ -86,16 +87,16 @@
 //}
 //
 //
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[SaleOppTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
+- (void)ResView
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[SaleOppTableViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+}
 
 //赋值方法
 - (void) valuation {
@@ -116,9 +117,9 @@
         [self.selectOppStateSelectButton setTitle:_saleOppEntity.oppStateStr forState:UIControlStateNormal];
     }
 }
-//- (IBAction)cancel:(id)sender {
-//    [self ResView];
-//}
+- (IBAction)cancel:(id)sender {
+    [self ResView];
+}
 
 -(BOOL) validateTelphone:(NSString *)mobile
 {

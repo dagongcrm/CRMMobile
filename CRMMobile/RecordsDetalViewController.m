@@ -3,6 +3,8 @@
 #import "RecordsDetalViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface RecordsDetalViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UITextField *customerNameStr;
@@ -39,7 +41,7 @@
     self.title=@"拜访记录详情";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.scroll.contentSize = CGSizeMake(375, 1280);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.8);
     self.listData = [[NSMutableArray alloc]init];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
