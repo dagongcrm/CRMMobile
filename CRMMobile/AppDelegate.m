@@ -37,15 +37,14 @@
                                      @{@"拜访纪录"   : @"baifangjilu"},
                                      @{@"任务提交"   : @"renwutijiao"},
                                      @{@"任务跟踪"   : @"renwugenzong"},
-                                     @{@"市场活动"   : @"shichanghuodong"},
+                                     @{@"通知公告"   : @"shichanghuodong"},
                                      @{@"活动统计"   : @"huodongtongji"},
-                                     @{@"工作日志"   : @"gongzuorizhi"},
-                                     @{@"更多"      : @"gengduo1"}
+                                     @{@"工作日志"   : @"gongzuorizhi"}
                                      ];
         [SDGridItemCacheTool saveItemsArray:itemsArray];
     }
 
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//顶部的字体颜色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [self ifFirstLanuch];
     if ([APPDELEGATE.appDefault boolForKey:@"firstLaunch"]){

@@ -30,12 +30,12 @@
     [super viewDidLoad];
     self.title=@"通知";
     [self reloadData];
-    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:self.leftSwipe];
-    [self.view addGestureRecognizer:self.rightSwipe];
+//    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+//    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+//    [self.view addGestureRecognizer:self.leftSwipe];
+//    [self.view addGestureRecognizer:self.rightSwipe];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -125,14 +125,6 @@
     [cell.textLabel setText:[self.NotificationListData objectAtIndex:indexPath.row]];
     return cell;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

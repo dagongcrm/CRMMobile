@@ -1,30 +1,26 @@
 //
-//  TaskReportViewController.m
+//  NoticeSegViewController.m
 //  CRMMobile
 //
-//  Created by 刘国江 on 16/5/4.
+//  Created by 刘国江 on 16/5/9.
 //  Copyright © 2016年 dagong. All rights reserved.
 //
 
-#import "TaskReportViewController.h"
-#import "config.h"
+#import "NoticeSegViewController.h"
+#import "NoticeViewController.h"
+#import "publicNoticeTableViewController.h"
 #import "AppDelegate.h"
-#import "DailyTableViewController.h"
-#import "WeekTableViewController.h"
-#import "MonthTableViewController.h"
-#import "AddDailyViewController.h"
-#import "AddWeekViewController.h"
-#import "AddMonthViewController.h"
+#import "config.h"
+#import "NoticeTableViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 
-@interface TaskReportViewController ()
+@interface NoticeSegViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
-
 @end
 
-@implementation TaskReportViewController
+@implementation NoticeSegViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,47 +47,24 @@
 }
 
 - (void) setUpTableView{
-    DailyTableViewController  *todo = [[DailyTableViewController alloc] init];
+    NoticeTableViewController  *todo = [[NoticeTableViewController alloc] init];
     todo.view.autoresizingMask = UIViewAutoresizingNone;
     [self addChildViewController:todo];
     todo.view.frame = CGRectMake(0, 20, SCREENWIDTH, SCREENHEIGHT);
     [self.scrollView addSubview:todo.view];
     
-    WeekTableViewController  *sal = [[WeekTableViewController alloc] init];
+    publicNoticeTableViewController  *sal = [[publicNoticeTableViewController alloc] init];
     sal.view.autoresizingMask = UIViewAutoresizingNone;
     [self addChildViewController:sal];
     sal.view.frame = CGRectMake(SCREENWIDTH, 20, SCREENWIDTH, SCREENHEIGHT);
     [self.scrollView addSubview:sal.view];
-    
-    MonthTableViewController  *mon = [[MonthTableViewController alloc] init];
-    mon.view.autoresizingMask = UIViewAutoresizingNone;
-    [self addChildViewController:mon];
-    mon.view.frame = CGRectMake(SCREENWIDTH*2, 20, SCREENWIDTH, SCREENHEIGHT);
-    [self.scrollView addSubview:mon.view];
-    
-}
-
--(void)searchControllerForAdd{
-    if(self.segmentedControl.selectedSegmentIndex==0){
-        [self.navigationController pushViewController:[[AddDailyViewController alloc] init] animated:YES];
-    }
-    if(self.segmentedControl.selectedSegmentIndex==1){
-        
-        [self.navigationController pushViewController:[[AddWeekViewController alloc] init] animated:YES];
-    }
-    
-    if(self.segmentedControl.selectedSegmentIndex==2){
-        
-        [self.navigationController pushViewController:[[AddMonthViewController alloc] init] animated:YES];
-    }
-
 }
 
 
 - (void)setUpSegView{
     CGFloat viewWidth = CGRectGetWidth(self.view.frame);
     self.segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
-    self.segmentedControl.sectionTitles = @[@"工作日报", @"工作周报", @"工作月报"];
+    self.segmentedControl.sectionTitles = @[@"通知", @"公告"];
     self.segmentedControl.backgroundColor = [UIColor clearColor];
     self.segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
     self.segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1]};

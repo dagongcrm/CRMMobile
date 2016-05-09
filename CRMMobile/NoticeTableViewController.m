@@ -92,7 +92,7 @@
     }
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-         NSLog(@"%@","rre");
+         
 //        CGPoint labelPosition = CGPointMake(self.swipeLabel.frame.origin.x + 100.0, self.swipeLabel.frame.origin.y);
 //        self.swipeLabel.frame = CGRectMake( labelPosition.x , labelPosition.y , self.swipeLabel.frame.size.width, self.swipeLabel.frame.size.height);
 //        self.swipeLabel.text = @"尼玛的, 你在往右边跑啊....";
@@ -134,19 +134,7 @@
         noticeEntity *notice =[[noticeEntity alloc] init];
         [EntityHelper dictionaryToEntity:listDic entity:notice];
         [self.entities addObject:notice];
-        NSLog(@"%@",self.entities);
-
-//        NSDictionary *listdic = [list objectAtIndex:i];
-//        [self.uid addObject:listdic];
-//        NSString *teamname = (NSString *)[listdic objectForKey:@"publishContent"];
-//        NSLog(@"%@",teamname);
-//        NSString *userId   = (NSString *)[listdic objectForKey:@"publishTimeStr"];
-//        NSLog(@"%@",userId);
-//        [self.fakeData     addObject:teamname];
-//        [self.userIdData   addObject:userId];
-//        [self.dataing   addObject:userId];
     }
-    //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
     return self.entities;
 }
 
@@ -190,17 +178,10 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+
     return 1;
 }
 
@@ -216,11 +197,15 @@
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *str = @"fsfdsfd";
-    [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"work-5.png"]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//    [cell.imageView setImage:[UIImage imageNamed:@"app_item_notice.png"]];
+    cell.imageView.image=[UIImage imageNamed:@"app_item_notice.png"];
+    CGSize itemsize=CGSizeMake(30, 30);
+    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
+    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+   
     return cell;
     
 }
@@ -236,58 +221,6 @@
     [detail setNoticeEntity:notice];
     [self.navigationController pushViewController:detail animated:YES];
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -180,11 +180,13 @@
     }
     [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *str = @"fsfdsfd";
-    [cell.detailTextLabel setText:str];
-    [cell.imageView setImage:[UIImage imageNamed:@"work-5.png"]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    cell.imageView.image=[UIImage imageNamed:@"app_item_announcement.png"];
+    CGSize itemsize=CGSizeMake(30, 30);
+    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
+    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return cell;
 }
 

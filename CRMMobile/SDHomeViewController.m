@@ -21,6 +21,8 @@
 #import "HomeSearchViewController.h"
 #import "TaskReportViewController.h"
 #import "SearchResultTableViewController.h"
+#import "NotificationTableViewController.h"
+#import "NoticeSegViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define kHomeHeaderViewHeight 110
@@ -53,7 +55,7 @@
                              [TaskRecordsTableViewController class],
                              [SubmitTableViewController class],
                              [trackingTableViewController class],
-                             [SaleOppTableViewController class],
+                             [NoticeSegViewController class],
                              [MarketManagementViewController class],
                              [TaskReportViewController class]];
     [self setUpScrollView];
@@ -149,6 +151,18 @@
     UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc]initWithCustomView:rightButton2];
     NSArray* array = @[rightItem,rightItem3,rightItem2];
     self.navigationItem.rightBarButtonItems= array;
+
+    UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,20,20)];
+    [leftButton setImage:[UIImage imageNamed:@"app_activelog.png"]forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(searchprogram)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+    
+    UIBarButtonItem *leftLabelItem2=[[UIBarButtonItem alloc] initWithTitle:@"活动日志" style:UIBarButtonItemStylePlain target:self action:nil];
+    [leftLabelItem2 setTintColor:[UIColor whiteColor]];
+    
+    NSArray* leftarray = @[leftItem ,leftLabelItem2];
+    self.navigationItem.leftBarButtonItems= leftarray;
+    
     SDHomeGridView *mainView = [[SDHomeGridView alloc] init];
     mainView.gridViewDelegate = self;
     mainView.showsVerticalScrollIndicator = NO;
@@ -180,11 +194,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)homeGrideViewmoreItemButtonClicked:(SDHomeGridView *)gridView{
-    SDAddItemViewController *addVc = [[SDAddItemViewController alloc] init];
-    addVc.title = @"添加更多";
-    [self.navigationController pushViewController:addVc animated:YES];
-}
+- (void)homeGrideViewmoreItemButtonClicked:(SDHomeGridView *)gridView{}
 
 - (void)homeGrideViewDidChangeItems:(SDHomeGridView *)gridView{
     [self setupDataArray];
