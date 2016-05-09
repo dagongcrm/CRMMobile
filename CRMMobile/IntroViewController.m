@@ -15,31 +15,27 @@
 
 @implementation IntroViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    
     [self showBasicIntroWithBg];
-   
 }
 
 - (void)showBasicIntroWithBg {
     if(SCREENWIDTH>375){
-    EAIntroPage *page1 = [EAIntroPage page];
-    page1.bgImage=[UIImage imageNamed:@"guide3.jpg"];
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.bgImage=[UIImage imageNamed:@"guide4.jpg"];
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
-    [intro setDelegate:self];
-    [intro showInView:self.view animateDuration:0.0];
+        EAIntroPage *page1 = [EAIntroPage page];
+        page1.bgImage=[UIImage imageNamed:@"guide3.jpg"];
+        EAIntroPage *page2 = [EAIntroPage page];
+        page2.bgImage=[UIImage imageNamed:@"guide4.jpg"];
+        EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+        [intro setDelegate:self];
+        [intro showInView:self.view animateDuration:0.0];
     }else{
         EAIntroPage *page1 = [EAIntroPage page];
         page1.bgImage=[UIImage imageNamed:@"guide1.jpg"];
-        
         EAIntroPage *page2 = [EAIntroPage page];
         page2.bgImage=[UIImage imageNamed:@"guide2.jpg"];
         EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];

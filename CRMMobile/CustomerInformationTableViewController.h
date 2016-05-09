@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomerInformationTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic,retain) NSArray *CRMListData;
+@property (nonatomic,retain) NSArray *CRMListData; 
 @end

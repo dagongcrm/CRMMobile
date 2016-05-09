@@ -17,6 +17,7 @@
 #import "CRMTableViewController.h"
 #import "InformationTableViewCell.h"
 @interface CustomerInformationTableViewController ()
+
 @property (strong, nonatomic) NSMutableArray *fakeData;  //客户名称数组
 @property (strong, nonatomic) NSMutableArray *customerID;   //客户id数组
 @property (strong, nonatomic) NSMutableArray *industryIDStr;  //所属行业数组
@@ -43,6 +44,18 @@
     return _fakeData;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [self.fakeData removeAllObjects];
+    [self.customerID removeAllObjects];
+    [self.industryIDStr removeAllObjects];
+    [self.phoneData removeAllObjects];
+    [self.addressData removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +69,6 @@
                                  action:@selector(addCustomerInfomation:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
     [self setExtraCellLineHidden:self.tableView];
-    //去掉返回的文字
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
@@ -167,7 +179,6 @@
     [self.fakeData removeAllObjects];
     self.index =1;
     [self faker:@"1"];
-
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -214,7 +225,6 @@
         NSString *receptionPersonnel =(NSString *) [nc objectForKey:@"receptionPersonnel"];  //客户主维护人
         NSString *createTime =(NSString *) [nc objectForKey:@"creationDate"];  //创建时间
         NSString *customerMasterPrincipal =(NSString *) [nc objectForKey:@"customerMasterPrincipal"];
-        NSLog(@"createTime---------%@",createTime);
         CustomerInfermationDetailMessageEntity *udetail =[[CustomerInfermationDetailMessageEntity alloc] init];
         [udetail setCustomerID:customerID];
         [udetail setCustomerName:customerName];

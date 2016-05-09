@@ -39,9 +39,9 @@
     [alertView show];
 }
 
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
-    
     NSString *ci= _customerInformationEntity.customerID;
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -57,15 +57,15 @@
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
-            NSLog(@"--------%@",error);
         }else{
 
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+//        CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

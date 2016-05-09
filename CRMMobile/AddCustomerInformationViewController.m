@@ -114,11 +114,6 @@
     _selectSFId=[nextFlowSFId copy];
 }
 
-
-
-
-
-
 //选择所属行业按钮
 - (IBAction)selectHY:(id)sender {
     _select=@"HY";
@@ -135,6 +130,7 @@
 
     
 }
+
 //为所属行业赋值
 -(void) selectHYArray
 {
@@ -522,13 +518,6 @@
         NSLog(@"self.selectSFIdForParam%@",self.selectSFIdForParam);
         [self buttonInputLabel:tableView];
     }
-    
-    
-//    self.selectedIndexPath = indexPath;
-//    [self.selectHYForShow    addObject:[self.selectHY   objectAtIndex:indexPath.row]];
-//    [self.selectHYIdForParam addObject:[self.selectHYId objectAtIndex:indexPath.row]];
-//    NSLog(@"self.selectHYIdForParam%@",self.selectHYIdForParam);
-//    [self buttonInputLabel:tableView];
 }
 //取消选择时的操作
 - (void)popoverListView:(ZSYPopoverListView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -632,29 +621,8 @@
             _chooseSFID=selectSFIdForParam;
         }
     }
-    
-    
-//    NSString *string =@"";
-//    if([self.selectHYForShow count]==0){
-//        [tableView dismiss];
-//        [self.chooseHYButton setTitle:@"plese choose again" forState:UIControlStateNormal];
-//    }else{
-//        for (NSString *str in self.selectHYForShow)
-//        {
-//            string = [string stringByAppendingFormat:@"%@,",str];
-//        }
-//        NSString * title = [string substringWithRange:NSMakeRange(0,[string length] - 1)];
-//        [self.chooseHYButton setTitle:title forState:UIControlStateNormal];
-//        NSString *selectHYIdForParam =@"";
-//        for (NSString *ztr in self.selectHYIdForParam)
-//        {
-//            selectHYIdForParam = [selectHYIdForParam stringByAppendingFormat:@"%@,",ztr];
-//        }
-//        selectHYIdForParam = [selectHYIdForParam substringWithRange:NSMakeRange(0, [selectHYIdForParam length] - 1)];
-//        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-//        myDelegate.options.chooseHYIDs=selectHYIdForParam;
-//    }
 }
+
 -(BOOL) validateTelphone:(NSString *)mobile
 {
     NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7,8}";
@@ -724,10 +692,8 @@
     else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-   NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!add.action?"]];
-    
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerInformationAction!add.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -738,21 +704,14 @@
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
-            NSLog(@"--------%@",error);
         }else{
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"添加成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-         CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
-//        for (UIViewController *controller in self.navigationController.viewControllers)
-//        {
-//            if ([controller isKindOfClass:[CustomerInformationTableViewController class]])
-//            {
-//                [self.navigationController popToViewController:controller animated:YES];
-//            }
-//        }
+//         CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

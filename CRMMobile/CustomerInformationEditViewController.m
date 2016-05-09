@@ -284,14 +284,6 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-//    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
-//    {
-//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-//    }
-//    else
-//    {
-//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-//    }
     if ([_select isEqualToString:@"HY"]){
         static NSString *identifier = @"identifier";
         UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
@@ -716,15 +708,10 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
-        //        for (UIViewController *controller in self.navigationController.viewControllers)
-        //        {
-        //            if ([controller isKindOfClass:[CustomerInformationTableViewController class]])
-        //            {
-        //                [self.navigationController popToViewController:controller animated:YES];
-        //            }
-        //        }
+//        CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
