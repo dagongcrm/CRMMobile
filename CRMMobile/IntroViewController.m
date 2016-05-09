@@ -30,18 +30,18 @@
 - (void)showBasicIntroWithBg {
     if(SCREENWIDTH>375){
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.bgImage=[UIImage imageNamed:@"guide3.png"];
+    page1.bgImage=[UIImage imageNamed:@"guide3.jpg"];
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.bgImage=[UIImage imageNamed:@"guide4.png"];
+    page2.bgImage=[UIImage imageNamed:@"guide4.jpg"];
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
     [intro setDelegate:self];
     [intro showInView:self.view animateDuration:0.0];
     }else{
         EAIntroPage *page1 = [EAIntroPage page];
-        page1.bgImage=[UIImage imageNamed:@"guide1.png"];
+        page1.bgImage=[UIImage imageNamed:@"guide1.jpg"];
         
         EAIntroPage *page2 = [EAIntroPage page];
-        page2.bgImage=[UIImage imageNamed:@"guide2.png"];
+        page2.bgImage=[UIImage imageNamed:@"guide2.jpg"];
         EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
         [intro setDelegate:self];
         [intro showInView:self.view animateDuration:0.0];
