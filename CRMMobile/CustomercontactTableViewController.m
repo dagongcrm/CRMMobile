@@ -44,6 +44,22 @@
     }
     return _fakeData;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    self.fakeData   = [NSMutableArray array];
+    self.contactData = [[NSMutableArray alloc]init];
+    self.customerNameStrData = [[NSMutableArray alloc]init];
+    self.phoneData = [[NSMutableArray array]init];
+    self.contactIDData =[[NSMutableArray array]init];
+    self.positionData =[[NSMutableArray array]init];
+    self.index =1;
+    [self faker:@"1"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"联系人管理";

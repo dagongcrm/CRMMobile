@@ -192,8 +192,9 @@
             NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
             //NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
             if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
-                VisitPlanTableViewController *contant = [[VisitPlanTableViewController alloc]init];
-                [self.navigationController pushViewController:contant animated:YES];
+//                VisitPlanTableViewController *contant = [[VisitPlanTableViewController alloc]init];
+//                [self.navigationController pushViewController:contant animated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }
     }else if (alertView.tag==2){
@@ -223,8 +224,9 @@
             
             if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
-                [self.navigationController pushViewController:mj animated:YES];
+//                VisitPlanTableViewController *mj = [[VisitPlanTableViewController alloc] init];
+//                [self.navigationController pushViewController:mj animated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
                 [alert show];
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

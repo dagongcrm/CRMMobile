@@ -88,8 +88,9 @@
         NSDictionary *deleteInfo  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
         if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
-            SaleOppTableViewController *saleOppTable = [[SaleOppTableViewController alloc]init];
-            [self.navigationController pushViewController:saleOppTable animated:YES];
+//            SaleOppTableViewController *saleOppTable = [[SaleOppTableViewController alloc]init];
+//            [self.navigationController pushViewController:saleOppTable animated:YES];
+              [self.navigationController popViewControllerAnimated:YES];
         }
         }
     }

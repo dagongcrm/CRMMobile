@@ -14,8 +14,7 @@
 @interface DailyViewController ()
 @property (strong,nonatomic)NSMutableArray *wordIdData;
 @property (weak, nonatomic) IBOutlet UITextField *time;//riqi
-//@property (weak, nonatomic) IBOutlet UITextField *zongjie;//zongjie
-//@property (weak, nonatomic) IBOutlet UITextField *jihua;//jihua
+
 
 @property (weak, nonatomic) IBOutlet UITextView *zongjie;
 
@@ -92,8 +91,9 @@
                 NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                 NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
             if ([[dailyDic objectForKey:@"success"] boolValue] == YES) {
-                DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
-                [self.navigationController pushViewController:dailytv animated:YES];
+//                DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
+//                [self.navigationController pushViewController:dailytv animated:YES];
+                  [self.navigationController popViewControllerAnimated:YES];
                 }
             }
 }

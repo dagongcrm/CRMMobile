@@ -307,8 +307,9 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+//        CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+           [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

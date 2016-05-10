@@ -82,9 +82,9 @@
         NSDictionary *monthdelDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"monthdelDic字典里面的内容为--》%@", monthdelDic);
         if ([[monthdelDic objectForKey:@"success"] boolValue] == YES) {
-            MonthTableViewController *monthtc = [[MonthTableViewController alloc]init];
-            [self.navigationController pushViewController:monthtc animated:YES];
-            
+//            MonthTableViewController *monthtc = [[MonthTableViewController alloc]init];
+//            [self.navigationController pushViewController:monthtc animated:YES];
+              [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }

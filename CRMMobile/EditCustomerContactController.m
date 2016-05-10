@@ -182,8 +182,9 @@
         //        }
         if([[saveDic objectForKey:@"success"] boolValue] == YES){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-            [self.navigationController pushViewController:contant animated:YES];
+//            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
+//            [self.navigationController pushViewController:contant animated:YES];
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
             [alert show];
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

@@ -11,6 +11,8 @@
 #import "MonthTableViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddMonthViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *date;
 //@property (weak, nonatomic) IBOutlet UITextField *zongjie;
@@ -58,7 +60,7 @@
 }
 - (IBAction)choiceTime:(id)sender {
     _pikerView = [HZQDatePickerView instanceDatePickerView];
-//        _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+     _pikerView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     DateType type ;
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;
@@ -74,9 +76,6 @@
     
     [adcomps setYear:-1];
     
-    //      [adcomps setMonth:month];
-    //
-    //        [adcomps setDay:day];
     
     NSDate *newdate = [calendar dateByAddingComponents:adcomps toDate:[NSDate date] options:0];
     
@@ -90,8 +89,7 @@
 }
 
 - (IBAction)cancle:(id)sender {
-    MonthTableViewController *monthtv = [[MonthTableViewController alloc]init];
-    [self.navigationController pushViewController:monthtv animated:YES];
+     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)Submit:(id)sender {
@@ -117,8 +115,9 @@
     NSDictionary *AddDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"AddDic字典里面的内容为--》%@", AddDic);
     if ([[AddDic objectForKey:@"success"] boolValue] == YES) {
-        MonthTableViewController *monthtv = [[MonthTableViewController alloc]init];
-        [self.navigationController pushViewController:monthtv animated:YES];
+//        MonthTableViewController *monthtv = [[MonthTableViewController alloc]init];
+//        [self.navigationController pushViewController:monthtv animated:YES];
+          [self.navigationController popViewControllerAnimated:YES];
     }
     }
 }

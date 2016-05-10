@@ -67,10 +67,19 @@
     return self.entities;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [self.entities removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
+    
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

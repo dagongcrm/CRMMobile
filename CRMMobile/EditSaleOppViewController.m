@@ -60,7 +60,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self valuation];
-    [self BackButton];
+//    [self BackButton];
     self.title=@"修改销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
@@ -72,22 +72,22 @@
 }
 
 
--(void)BackButton{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    
-}
+//-(void)BackButton{
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
+//    button.frame = CGRectMake(0, 0, 20, 20);
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
+//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+//    
+//}
 
 - (IBAction)cancel:(id)sender {
-    [self ResView];
+      [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)ResView
@@ -197,8 +197,9 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+//        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         [alert show];
     }
 }

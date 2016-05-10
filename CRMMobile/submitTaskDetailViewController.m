@@ -40,6 +40,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务基本信息";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""                                                                     style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:nil];
+
     self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     NSString *s= _submitTaskEntity.submitName;
     NSString *y= _submitTaskEntity.yeWuZL;
@@ -66,17 +70,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 - (IBAction)delete:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc]
@@ -164,8 +157,9 @@
         NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"dailyDic字典里面的内容为--》%@", dailyDic);
         if ([[dailyDic objectForKey:@"success"] boolValue] == YES) {
-            SubmitTableViewController *dailytv = [[SubmitTableViewController alloc]init];
-            [self.navigationController pushViewController:dailytv animated:YES];
+//            SubmitTableViewController *dailytv = [[SubmitTableViewController alloc]init];
+//            [self.navigationController pushViewController:dailytv animated:YES];
+             [self.navigationController popViewControllerAnimated:YES];
         }
 }
     
@@ -208,8 +202,9 @@
             
                 if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-                    [self.navigationController pushViewController:mj animated:YES];
+//                    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+//                    [self.navigationController pushViewController:mj animated:YES];
+                     [self.navigationController popViewControllerAnimated:YES];
                     [alert show];
                 }else{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

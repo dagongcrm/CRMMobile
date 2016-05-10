@@ -12,7 +12,8 @@
 #import "config.h"
 #import "AppDelegate.h"
 #import "taskReminderTableViewController.h"
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface auditDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *qiYeMC;
@@ -44,10 +45,7 @@ NSString *userName1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务审核";
-    self.scroll.contentSize = CGSizeMake(375, 1000);
-    //    NSString *s= _auditEntity.lianXiFS;
-    //    NSString *y= _auditEntity.yeWuZL;
-    self.title=@"任务审核";
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.2);
     self.qiYeMC.text = _auditEntity.submitName;
     self.yeWuZL.text = _auditEntity.yeWuZL;
     self.suoShuHY.text = _auditEntity.hangYeFLMC;
@@ -321,13 +319,14 @@ NSString *userName1;
                 if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     
-                    if (APPDELEGATE.page!=@"") {
-                        taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
-                        [self.navigationController pushViewController:tvc animated:YES];
-                    }else{
-                        auditTableViewController *mj = [[auditTableViewController alloc] init];
-                        [self.navigationController pushViewController:mj animated:YES];
-                    }
+//                    if (APPDELEGATE.page!=@"") {
+//                        taskReminderTableViewController *tvc = [[taskReminderTableViewController alloc] init];
+//                        [self.navigationController pushViewController:tvc animated:YES];
+//                    }else{
+//                        auditTableViewController *mj = [[auditTableViewController alloc] init];
+//                        [self.navigationController pushViewController:mj animated:YES];
+                     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
+//                    }
                     
                     [alert show];
                 }else{

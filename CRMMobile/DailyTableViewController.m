@@ -48,6 +48,33 @@
     }
     return _fakeData;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [self.fakeData removeAllObjects];
+    
+    [self.dateData removeAllObjects];
+    
+    [self.dailyObject removeAllObjects];
+    
+    [self.workIdData removeAllObjects];
+    
+    [self.typeData removeAllObjects];
+    
+    [self.reportData removeAllObjects];
+    
+    self.index =1;
+    
+    [self faker:@"1"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];
@@ -198,19 +225,6 @@
     //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
     cell.mylbl2.text= testDetail;
 
-//    static NSString *cellId = @"mycell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-//    if (cell == nil)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-//    }
-//        [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-//    cell.textLabel.text = self.fakeData[indexPath.row];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
-//    [cell.detailTextLabel setText:testDetail];
     return cell;
 }
 
@@ -237,11 +251,7 @@
         [self.navigationController pushViewController:uc animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
+
     return 70;
 }
 

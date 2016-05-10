@@ -47,43 +47,42 @@
     }
     return _fakeData;
 }
-- (void)viewDidLoad {
+
+-(void) viewWillAppear:(BOOL)animated{
+    [self.fakeData removeAllObjects];
+    [self.bianHao removeAllObjects];
+    [self.dataing removeAllObjects];
+    [self.time removeAllObjects];
+    [self.uid removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
     
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务审核";
     [self setupRefresh];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""                                                                      style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:nil];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
 
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[WorkTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
 
 -(void) faker: (NSString *) page{
     NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
+    //"mJobSubmissionAction!renWuJBXXSHDatagrid.action
+    // + userNamr + "</font></h2>" + "<p><font color='#6C6C6C'>" + "业务种类：" + yeWuZLMC +" 提交时间：" + renWuTJSJStr+ "</font></p>" +
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;

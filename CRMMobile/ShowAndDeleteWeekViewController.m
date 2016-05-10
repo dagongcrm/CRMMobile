@@ -90,9 +90,9 @@
         NSDictionary *weekdelDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"weekdelDic字典里面的内容为--》%@", weekdelDic);
         if ([[weekdelDic objectForKey:@"success"] boolValue] == YES) {
-            WeekTableViewController *weektc = [[WeekTableViewController alloc]init];            
-            [self.navigationController pushViewController:weektc animated:YES];
-
+//            WeekTableViewController *weektc = [[WeekTableViewController alloc]init];            
+//            [self.navigationController pushViewController:weektc animated:YES];
+              [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }
