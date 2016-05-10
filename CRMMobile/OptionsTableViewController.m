@@ -170,7 +170,7 @@
 }
 
 
-#pragma mark 滚动代理。。pageControl方法
+#pragma mark --pageControl方法
 - (void)changePage:(UIPageControl *)page{
     [self.headScroll setContentOffset:CGPointMake(self.view.width * page.currentPage, 0) animated:YES];
 }
@@ -236,7 +236,7 @@
     NSString *imgFile = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"imageFile"];
     NSLog(@"%@",imgFile);
     if(imgFile!=nil||imgFile!=NULL){
-   NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
+    NSString *path = @"http://10.10.10.172:8080/dagongcrm/common/style/uploadImages/";
     NSString *path1 = [path stringByAppendingString:imgFile];
     NSString *imgpath = [path1 stringByAppendingString:@".jpg"];
     NSURL *url = [NSURL URLWithString:imgpath];

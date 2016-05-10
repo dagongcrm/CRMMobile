@@ -11,26 +11,10 @@
 #import "SDGridItemCacheTool.h"
 #import "config.h"
 #import "IntroViewController.h"
-//#import <PgySDK/PgyManager.h>
-//#import <PgyUpdate/PgyUpdateManager.h>
 
 @implementation AppDelegate
 @synthesize appDefault;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    //启动基本SDK
-//    [[PgyManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
-//    //启动更新检查SDK
-//    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"PGY_APP_ID"];
-    
-    //设定Tabbar的点击后的颜色
-//    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:227.0/255.0 green:28.0/255.0 blue:31.0/255.0 alpha:1]];
-    //设定Tabbar的颜色
-//    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
-//    请在代码中使用RGB颜色， 格式是：
-//    
-//colorWithRed:227.0/255.0 green:28.0/255.0 blue:31.0/255.0
-    id itemsCache = [SDGridItemCacheTool itemsArray];
-    if (!itemsCache) {
         NSArray *itemsArray =      @[@{@"客户档案"   : @"kehudangan"},
                                      @{@"客户联系人" : @"kehulianxiren"},
                                      @{@"拜访计划"   : @"baifangjihua"},
@@ -42,8 +26,6 @@
                                      @{@"工作日志"   : @"gongzuorizhi"}
                                      ];
         [SDGridItemCacheTool saveItemsArray:itemsArray];
-    }
-
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [self ifFirstLanuch];

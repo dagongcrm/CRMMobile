@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 #define APPDELEGATE  ((AppDelegate *)[[UIApplication sharedApplication] delegate])
-
 #define SERVER_URL   @"http://10.10.10.179:8080/dagongcrm/"
 //#define SERVER_URL   @"http://172.16.21.70:8080/dagongcrm/"
 //#define SERVER_URL   @"http://219.142.192.217:8080/dagongcrm/"

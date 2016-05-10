@@ -15,7 +15,7 @@
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-    CGFloat h = self.sd_height * 0.27;
+    CGFloat h = self.sd_height * 0.24;
     CGFloat w = self.sd_height * 0.3;
     CGFloat x = (self.sd_width - w) * 0.5;
     CGFloat y = self.sd_height * 0.3;

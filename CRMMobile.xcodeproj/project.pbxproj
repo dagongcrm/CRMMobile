@@ -116,6 +116,7 @@
 		39CCF2BD1CE03F7300D29074 /* NoticeSegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2BC1CE03F7200D29074 /* NoticeSegViewController.m */; };
 		39CCF2C01CE05E4000D29074 /* app_item_announcement.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCF2BE1CE05E4000D29074 /* app_item_announcement.png */; };
 		39CCF2C11CE05E4000D29074 /* app_item_notice.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCF2BF1CE05E4000D29074 /* app_item_notice.png */; };
+		39CCF2CC1CE18B9A00D29074 /* GetImgFromAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCF2CB1CE18B9A00D29074 /* GetImgFromAlbumViewController.m */; };
 		39E1EDD91BE856F800580F12 /* location_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD71BE856F800580F12 /* location_no.png */; };
 		39E1EDDA1BE856F800580F12 /* location_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E1EDD81BE856F800580F12 /* location_yes.png */; };
 		39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E729E21C0697A50050D77F /* editTaskViewController.m */; };
@@ -576,6 +577,8 @@
 		39CCF2BC1CE03F7200D29074 /* NoticeSegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeSegViewController.m; sourceTree = "<group>"; };
 		39CCF2BE1CE05E4000D29074 /* app_item_announcement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_item_announcement.png; sourceTree = "<group>"; };
 		39CCF2BF1CE05E4000D29074 /* app_item_notice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_item_notice.png; sourceTree = "<group>"; };
+		39CCF2CA1CE18B9A00D29074 /* GetImgFromAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetImgFromAlbumViewController.h; sourceTree = "<group>"; };
+		39CCF2CB1CE18B9A00D29074 /* GetImgFromAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetImgFromAlbumViewController.m; sourceTree = "<group>"; };
 		39E1EDD71BE856F800580F12 /* location_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_no.png; sourceTree = "<group>"; };
 		39E1EDD81BE856F800580F12 /* location_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_yes.png; sourceTree = "<group>"; };
 		39E729E11C0697A50050D77F /* editTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editTaskViewController.h; sourceTree = "<group>"; };
@@ -1322,6 +1325,59 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		39CCF2C21CE1825000D29074 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8EDAD611C19366300865E7C /* marketActivity.h */,
+				B8EDAD621C19366300865E7C /* marketActivity.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		39CCF2C31CE1825C00D29074 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8EDAD5D1C19366300865E7C /* noticeDetailViewController.xib */,
+				B8EDAD601C19366300865E7C /* publicNoticeTableViewController.xib */,
+				B8EDAD651C19366300865E7C /* NoticeViewController.xib */,
+				B8EDAD661C19366300865E7C /* activityDetailViewController.xib */,
+				B8EDAD6F1C19366300865E7C /* taskReminderTableViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		39CCF2C41CE1826300D29074 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8EDAD5B1C19366300865E7C /* noticeDetailViewController.h */,
+				B8EDAD5C1C19366300865E7C /* noticeDetailViewController.m */,
+				B8EDAD5E1C19366300865E7C /* publicNoticeTableViewController.h */,
+				B8EDAD5F1C19366300865E7C /* publicNoticeTableViewController.m */,
+				B8EDAD631C19366300865E7C /* NoticeViewController.h */,
+				B8EDAD641C19366300865E7C /* NoticeViewController.m */,
+				B8EDAD671C19366300865E7C /* activityDetailViewController.h */,
+				B8EDAD681C19366300865E7C /* activityDetailViewController.m */,
+				B8EDAD691C19366300865E7C /* NotificationTableViewController.h */,
+				B8EDAD6A1C19366300865E7C /* NotificationTableViewController.m */,
+				B8EDAD6B1C19366300865E7C /* NoticeTableViewController.h */,
+				B8EDAD6C1C19366300865E7C /* NoticeTableViewController.m */,
+				B8EDAD6D1C19366300865E7C /* taskReminderTableViewController.h */,
+				B8EDAD6E1C19366300865E7C /* taskReminderTableViewController.m */,
+				39CCF2BB1CE03F7200D29074 /* NoticeSegViewController.h */,
+				39CCF2BC1CE03F7200D29074 /* NoticeSegViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		39CCF2C51CE1838500D29074 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				39CCF2CA1CE18B9A00D29074 /* GetImgFromAlbumViewController.h */,
+				39CCF2CB1CE18B9A00D29074 /* GetImgFromAlbumViewController.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
 		39E8765F1C02FF0B00BF6808 /* CRM-old */ = {
 			isa = PBXGroup;
 			children = (
@@ -1870,29 +1926,9 @@
 		C0D569341BD9B71800860B33 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				B8EDAD5B1C19366300865E7C /* noticeDetailViewController.h */,
-				B8EDAD5C1C19366300865E7C /* noticeDetailViewController.m */,
-				B8EDAD5D1C19366300865E7C /* noticeDetailViewController.xib */,
-				B8EDAD5E1C19366300865E7C /* publicNoticeTableViewController.h */,
-				B8EDAD5F1C19366300865E7C /* publicNoticeTableViewController.m */,
-				B8EDAD601C19366300865E7C /* publicNoticeTableViewController.xib */,
-				B8EDAD611C19366300865E7C /* marketActivity.h */,
-				B8EDAD621C19366300865E7C /* marketActivity.m */,
-				B8EDAD631C19366300865E7C /* NoticeViewController.h */,
-				B8EDAD641C19366300865E7C /* NoticeViewController.m */,
-				B8EDAD651C19366300865E7C /* NoticeViewController.xib */,
-				B8EDAD661C19366300865E7C /* activityDetailViewController.xib */,
-				B8EDAD671C19366300865E7C /* activityDetailViewController.h */,
-				B8EDAD681C19366300865E7C /* activityDetailViewController.m */,
-				B8EDAD691C19366300865E7C /* NotificationTableViewController.h */,
-				B8EDAD6A1C19366300865E7C /* NotificationTableViewController.m */,
-				B8EDAD6B1C19366300865E7C /* NoticeTableViewController.h */,
-				B8EDAD6C1C19366300865E7C /* NoticeTableViewController.m */,
-				B8EDAD6D1C19366300865E7C /* taskReminderTableViewController.h */,
-				B8EDAD6E1C19366300865E7C /* taskReminderTableViewController.m */,
-				B8EDAD6F1C19366300865E7C /* taskReminderTableViewController.xib */,
-				39CCF2BB1CE03F7200D29074 /* NoticeSegViewController.h */,
-				39CCF2BC1CE03F7200D29074 /* NoticeSegViewController.m */,
+				39CCF2C41CE1826300D29074 /* Controller */,
+				39CCF2C31CE1825C00D29074 /* View */,
+				39CCF2C21CE1825000D29074 /* Model */,
 				1FEF62831C16AFF700E6F4BF /* Entity */,
 			);
 			name = Notification;
@@ -2521,6 +2557,7 @@
 		C0F16CED1CD313E40078A99B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				39CCF2C51CE1838500D29074 /* Tool */,
 				C0F16CF01CD313F50078A99B /* Controller */,
 				C0F16CEF1CD313F00078A99B /* View */,
 				C0F16CEE1CD313EA0078A99B /* Model */,
@@ -3124,6 +3161,7 @@
 				020709B21CD8AB43000A2011 /* VisitPlanTableViewCell.m in Sources */,
 				39F797BC1C05D0E7000D9A20 /* auditEntity.m in Sources */,
 				02F977691CC8693500088144 /* MTableViewCell.m in Sources */,
+				39CCF2CC1CE18B9A00D29074 /* GetImgFromAlbumViewController.m in Sources */,
 				39F7971E1C05CC50000D9A20 /* AddCustomerContactController.m in Sources */,
 				020709791CD8A2D6000A2011 /* InformationTableViewCell.m in Sources */,
 				96E3125D1BEB53BA00A1A3FF /* UIScrollView+MJRefresh.m in Sources */,

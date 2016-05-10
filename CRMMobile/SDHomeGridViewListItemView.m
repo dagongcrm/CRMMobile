@@ -90,16 +90,13 @@
 - (void)setIconImage:(UIImage *)iconImage
 {
     _iconImage = iconImage;
-    
     [_iconView setImage:iconImage forState:UIControlStateNormal];
 }
 
 #pragma mark - life circles
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     CGFloat margin = 10;
     _button.frame = self.bounds;
     _iconView.frame = CGRectMake(self.sd_width - _iconView.sd_width - margin, margin, 20, 20);

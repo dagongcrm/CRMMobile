@@ -109,7 +109,6 @@
     }else{
         _mainView.frame = CGRectMake(0, 170, self.view.sd_width, 360);
     }
-    
     UIView *navDividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,_mainView.sd_height+170,self.view.sd_width,1.05)];
     navDividingLine.backgroundColor = [UIColor colorWithRed:(221 / 255.0) green:(221 / 255.0) blue:(221 / 255.0) alpha:1];
     [navDividingLine sizeToFit];
@@ -201,7 +200,6 @@
 }
 
 #pragma mark - UISearchBarDelegate 协议
-
 // UISearchBar得到焦点并开始编辑时，执行该方法
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
     return YES;
@@ -225,7 +223,6 @@
     CGRect rectNav = self.navigationController.navigationBar.frame;
     CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
     [self.searchBar resignFirstResponder];
-    
     self.searchBar.showsCancelButton=NO;
     self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH, 110-seachBarHeight);
     self.searchButton.frame=CGRectMake(0, 0, 0, 0);
@@ -271,7 +268,6 @@
     CGRect rectNav = self.navigationController.navigationBar.frame;
     CGFloat seachBarHeight=rectStatus.size.height+rectNav.size.height;
     [self.searchBar resignFirstResponder];
-   
     self.searchBar.showsCancelButton=NO;
     self.searchBar.frame=CGRectMake(0, seachBarHeight, SCREENWIDTH, 110-seachBarHeight);
     self.searchButton.frame=CGRectMake(0, 0, 0, 0);

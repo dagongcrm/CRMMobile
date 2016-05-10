@@ -7,7 +7,5 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface auditTableViewController : UITableViewController
-
 @end

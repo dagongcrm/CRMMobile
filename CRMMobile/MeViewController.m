@@ -19,10 +19,12 @@
 #import "LianXiController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "GetImgFromAlbumViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface MeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 
+@property (strong,nonatomic) UIButton *photoButton;
 
 @end
 
@@ -34,7 +36,17 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
+    NSString *userName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"loginName"];
+    NSString *imgFileName=[userName stringByAppendingString:@"imageNew"];
+    NSString *dataPath = [NSHomeDirectory() stringByAppendingPathComponent:imgFileName];
+    NSData *data =[NSData dataWithContentsOfFile:dataPath];
+    if(data){
+        UIImage *image=[UIImage imageWithData:data];
+        [self.photoButton setImage:image forState:UIControlStateNormal];
+    }else{
+    [self.photoButton setImage:[UIImage imageNamed:@"me_defaultpic.png"] forState:UIControlStateNormal];
+    }
 }
 
 -(void)setUpUI{
@@ -51,17 +63,13 @@ self.navigationController.navigationBarHidden = YES;
     [self makeDivdLine:SCREENWIDTH*0.33333    secondParam:SCREENHEIGHT*0.3  thirdParam:1 fourthParam:80];
     [self makeDivdLine:SCREENWIDTH*0.33333+SCREENWIDTH*0.33333  secondParam:SCREENHEIGHT*0.3  thirdParam:1 fourthParam:80];
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+10 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"任务提交" sixParam:@"renwutijiao.png" sevenParam:@"renwutijiao"];
-    
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+50 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"活动统计" sixParam:@"huodongtongji.png" sevenParam:@"huodongtongji"];
-    
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+90 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"拜访计划" sixParam:@"baifangjihua.png" sevenParam:@"baifangjihua"];
-    
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+10  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+50  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+90  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+130  thirdParam:SCREENWIDTH fourthParam:1];
-    
-    
+
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+140 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"修改密码" sixParam:@"xiugaimima.png" sevenParam:@"xiugaimima"];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+140  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+180  thirdParam:SCREENWIDTH fourthParam:1];
@@ -78,16 +86,16 @@ self.navigationController.navigationBarHidden = YES;
     
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+280  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+330  thirdParam:SCREENWIDTH fourthParam:1];
-    UIButton *photoButton =[[UIButton alloc] initWithFrame:CGRectMake(20, SCREENWIDTH*0.3/2, 100, 100)];
-    [photoButton setImage:[UIImage imageNamed:@"me_defaultpic.png"] forState:UIControlStateNormal];
+    self.photoButton =[[UIButton alloc] initWithFrame:CGRectMake(20, SCREENWIDTH*0.3/2, 100, 100)];
+   
     SEL selector = NSSelectorFromString(@"getPhoto");
-    [photoButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    photoButton.layer.cornerRadius = 50;
-    photoButton.layer.borderWidth = 1.0;
-    photoButton.backgroundColor=[UIColor whiteColor];
-    photoButton.layer.borderColor =[UIColor clearColor].CGColor;
-    photoButton.clipsToBounds = TRUE;
-    [self.view addSubview:photoButton];
+    [self.photoButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    self.photoButton.layer.cornerRadius = 50;
+    self.photoButton.layer.borderWidth = 1.0;
+    self.photoButton.backgroundColor=[UIColor whiteColor];
+    self.photoButton.layer.borderColor =[UIColor clearColor].CGColor;
+    self.photoButton.clipsToBounds = TRUE;
+    [self.view addSubview:self.photoButton];
     //取出登陆信息
     NSDictionary *Diclogin = [[NSDictionary alloc]init];
     Diclogin= APPDELEGATE.sessionInfo;
@@ -121,14 +129,16 @@ self.navigationController.navigationBarHidden = YES;
     [self.view addSubview:navDividingLine];
 }
 
-
-
 -(void)makeUpImageButton:(CGFloat) x secondParam:(CGFloat) y thirdParam:(CGFloat) width fourthParam:(CGFloat) height fifthParam:(NSString *) name sixParam:(NSString*) imgname sevenParam:(NSString *)touchFuction{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];//button的类型
     button.frame = CGRectMake(x, y,width,height);//button的frame
     button.backgroundColor = [UIColor whiteColor];//button的背景颜色
     [button setImage:[UIImage imageNamed:imgname] forState:UIControlStateNormal];//给button添加image
-    button.imageEdgeInsets = UIEdgeInsetsMake(30,45,30,55);//设置image在button上的位置（上top，左left，下bottom，右right）这里可以写负值，对上写－5，那么image就象上移动5个像素
+    if(SCREENWIDTH>375){
+    button.imageEdgeInsets = UIEdgeInsetsMake(20,50,35,60);//设置image在button上的位置（上top，左left，下bottom，右right）这里可以写负值，对上写－5，那么image就象上移动5个像素
+    }else{
+        button.imageEdgeInsets = UIEdgeInsetsMake(30,45,30,55);
+    }
     [button setTitle:name forState:UIControlStateNormal];//设置button的title
     button.titleLabel.font = [UIFont systemFontOfSize:14];//title字体大小
     button.titleLabel.textAlignment = NSTextAlignmentCenter;//设置title的字体居中
@@ -172,10 +182,11 @@ self.navigationController.navigationBarHidden = YES;
 #pragma 相机的使用
 //点击修改图片
 - (void)getPhoto {
-    UIActionSheet *sheet;
-    sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
-    sheet.tag = 255;
-    [sheet showInView:self.view];
+//    UIActionSheet *sheet;
+//    sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
+//    sheet.tag = 255;
+//    [sheet showInView:self.view];
+    //[self.navigationController pushViewController:[[GetImgFromAlbumViewController alloc] init] animated:NO];
 }
 
 //点击调用相机
@@ -185,6 +196,7 @@ self.navigationController.navigationBarHidden = YES;
         NSUInteger sourceType = 0;
         if (buttonIndex == 0) {
             sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self.navigationController pushViewController:[[GetImgFromAlbumViewController alloc] init] animated:YES];
         } else {
             return;
         }
