@@ -25,21 +25,39 @@
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 @property (strong, nonatomic) NSMutableDictionary *uAuditId;
-@property  NSInteger index;
+@property (assign) NSInteger index;
 @end
 
 @implementation auditTableViewController
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
+        NSLog(@"----%@",@"asd");
         self.bianHao=[[NSMutableArray alloc] init];
         self.fakeData=[[NSMutableArray alloc] init];
         self.dataing=[[NSMutableArray alloc] init];
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
         [self getTableData:@"1"];
+//        [self getTableData:@"2"];
+        
     }
     return _fakeData;
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    NSLog(@"----%@",@"will");
+    [self.fakeData removeAllObjects];
+    [self.bianHao  removeAllObjects];
+    [self.dataing  removeAllObjects];
+    [self.time     removeAllObjects];
+    [self.uid      removeAllObjects];
+//    self.index =1;
+    [self getTableData:@"1"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
 }
 
 - (void)viewDidLoad {
@@ -58,13 +76,13 @@
 
 -(void) getTableData: (NSString *) page{
     NSError *error;
-    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
-    //"mJobSubmissionAction!renWuJBXXSHDatagrid.action
-    // + userNamr + "</font></h2>" + "<p><font color='#6C6C6C'>" + "业务种类：" + yeWuZLMC +" 提交时间：" + renWuTJSJStr+ "</font></p>" +
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
+    NSLog(@"!!!!!%@",page);
     NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
@@ -102,12 +120,11 @@
 }
 
 
-- (void)headerRereshing
-{
+- (void)headerRereshing{
     [self.fakeData removeAllObjects];
     self.index =1;
     [self getTableData:@"1"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
     });
@@ -122,7 +139,7 @@
     }
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
     [self getTableData:p];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
     });
