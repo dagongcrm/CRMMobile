@@ -41,7 +41,7 @@
     self.title=@"拜访记录详情";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.8);
+    self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.9);
     self.listData = [[NSMutableArray alloc]init];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});

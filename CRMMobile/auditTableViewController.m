@@ -58,8 +58,9 @@
 
 -(void) getTableData: (NSString *) page{
     NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"sid"];
+    //"mJobSubmissionAction!renWuJBXXSHDatagrid.action
+    // + userNamr + "</font></h2>" + "<p><font color='#6C6C6C'>" + "业务种类：" + yeWuZLMC +" 提交时间：" + renWuTJSJStr+ "</font></p>" +
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;

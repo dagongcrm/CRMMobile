@@ -120,36 +120,7 @@
     }
 }
 
-//- (IBAction)selectQiYe:(id)sender {
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    appDelegate.controllerJudge  = @"addUser";
-//    selectListTableViewController *role = [[selectListTableViewController alloc] init];
-//    [self.navigationController pushViewController: role animated:true];
-//    //    _judge=@"2";
-//    //    self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-//    //    self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-//    //    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    //    listView.titleName.text = @"企业选择";
-//    //    listView.backgroundColor=[UIColor blueColor];
-//    //    listView.datasource = self;
-//    //    listView.delegate = self;
-//    //    [listView show];
-//}
-//- (IBAction)selectHY:(id)sender {
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    appDelegate.controllerJudge  = @"addUser";
-//    selectListTableViewController *role = [[selectListTableViewController alloc] init];
-//    [self.navigationController pushViewController: role animated:true];
-//        _judge=@"2";
-//        self.selectUserForShowQiYe=[[NSMutableArray alloc] init];
-//        self.selectUserIdForParamQiYe=[[NSMutableArray alloc] init];
-//        ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//        listView.titleName.text = @"行业选择";
-//        listView.backgroundColor=[UIColor blueColor];
-//        listView.datasource = self;
-//        listView.delegate = self;
-//        [listView show];
-//}
+
 
 - (IBAction)selectKind:(id)sender {
     _judge=@"1";
@@ -171,7 +142,10 @@
     NSLog(@"%@", title);
     _judge=@"";
     [super viewDidLoad];
-    //self.nextArray  = self.nextArray;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""                                                                      style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:nil];
+
     NSString *roleTitle;
     if(_roleEntity.strChoose==nil)
     {
@@ -237,12 +211,7 @@
         [nextFlowUserName     addObject:teamname];
         [nextFlowUserId  addObject:submitID];
     }
-    //    for(NSDictionary *key in nextFlow)
-    //    {
-    //        NSLog(@"%@",key);
-    //        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
-    //        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
-    //    }
+  
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
     }
@@ -289,15 +258,7 @@
     _selectUserIdQiYe=[nextFlowUserIdQiYe copy];
     }
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -308,19 +269,6 @@
     return self;
 }
 
-//- (NSInteger)popoverListView:(ZSYPopoverListView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    //NSUInteger s=nil;
-//    if ([self.judge isEqualToString:@"1"]) {
-//        return [_selectUser count];
-//    }
-//    return [_selectUserQiYe count];
-//    
-//}
-
-
-//single choose
-//single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //NSUInteger s=nil;
@@ -387,80 +335,6 @@
 
 }
 
-//- (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return 25;
-//}
-//
-//- (UITableViewCell *)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *identifier = @"identifier";
-//    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
-//    if (nil == cell)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    }
-//    if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
-//    {
-//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-//    }
-//    else
-//    {
-//        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-//    }
-//    if ([self.judge isEqualToString:@"1"]) {
-//        cell.textLabel.text = _selectUser[indexPath.row];
-//    }
-//    
-//    if ([self.judge isEqualToString:@"2"]) {
-//        cell.textLabel.text = _selectUserQiYe[indexPath.row];
-//    }
-//
-//    return cell;
-//}
-//
-//- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
-//    NSLog(@"deselect:%ld", (long)indexPath.row);
-//    self.selectedIndexPath = indexPath;
-//    if ([self.judge isEqualToString:@"1"]) {
-//        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-//        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-//    }
-//    if ([self.judge isEqualToString:@"2"]) {
-//        [self.selectUserForShowQiYe    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-//        [self.selectUserIdForParamQiYe addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-//        
-//    }
-//    NSLog(@"%@",self.selectUserQiYe);
-//    NSLog(@"%@",self.selectUser);
-//    [self buttonInputLabel:tableView];
-//    
-//}
-//
-//- (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    self.selectedIndexPath = indexPath;
-//    UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-//    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
-//    NSLog(@"select:%ld", (long)indexPath.row);
-//    self.selectedIndexPath = indexPath;
-//    if ([self.judge isEqualToString:@"1"]) {
-//        [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
-//        [self.selectUserIdForParam addObject:[self.selectUserId objectAtIndex:indexPath.row]];
-//    }
-//    if ([self.judge isEqualToString:@"2"]) {
-//        [self.selectUserForShowQiYe    addObject:[self.selectUserQiYe objectAtIndex:indexPath.row]];
-//        [self.selectUserIdForParamQiYe addObject:[self.selectUserIdQiYe objectAtIndex:indexPath.row]];
-//        
-//    }
-//    [self buttonInputLabel:tableView];
-//}
-//
-//
-
 
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -485,10 +359,7 @@
 //点击添加选择的人员
 - (void)popoverListView:(ZSYPopoverListView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (self.selectedIndexPath) {
-//        UITableViewCell *unchechCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-//        unchechCell.accessoryType = UITableViewCellAccessoryNone;
-//    }
+
     self.selectedIndexPath = indexPath;
     if ([self.judge isEqualToString:@"1"]) {
         [self.selectUserForShow    addObject:[self.selectUser   objectAtIndex:indexPath.row]];
@@ -651,8 +522,9 @@
             NSLog(@"111111%@",weatherDic);
             if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-                [self.navigationController pushViewController:mj animated:YES];
+//                SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+//                [self.navigationController pushViewController:mj animated:YES];
+                 [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
                 [alert show];
                 
                 

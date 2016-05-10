@@ -115,7 +115,8 @@
     NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
          if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
              CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-             [self.navigationController pushViewController:contant animated:YES];
+//             [self.navigationController pushViewController:contant animated:YES];
+             [self.navigationController popViewControllerAnimated:YES];
          }
      }
     }else if(alertView.tag==2){
@@ -133,7 +134,8 @@
             NSLog(@"deleteInfo字典里面的内容为--》%@", deleteInfo);
             if ([[deleteInfo objectForKey:@"success"] boolValue] == YES) {
                 CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-                [self.navigationController pushViewController:contant animated:YES];
+//                [self.navigationController pushViewController:contant animated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }
     }

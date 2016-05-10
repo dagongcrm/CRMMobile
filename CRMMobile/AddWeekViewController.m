@@ -11,6 +11,8 @@
 #import "WeekTableViewController.h"
 #import "config.h"
 #import "AppDelegate.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddWeekViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *date;
 //@property (weak, nonatomic) IBOutlet UITextField *zongjie;
@@ -66,7 +68,7 @@
 }
 - (IBAction)choiceTime:(id)sender {
     _pikerView = [HZQDatePickerView instanceDatePickerView];
-    //    _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    _pikerView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     DateType type ;
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;
@@ -98,8 +100,9 @@
 }
 
 - (IBAction)cancle:(id)sender {
-    WeekTableViewController *weektv = [[WeekTableViewController alloc]init];
-    [self.navigationController pushViewController:weektv animated:YES];
+//    WeekTableViewController *weektv = [[WeekTableViewController alloc]init];
+//    [self.navigationController pushViewController:weektv animated:YES];
+      [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)Submit:(id)sender {
@@ -125,8 +128,9 @@
     NSDictionary *AddDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"AddDic字典里面的内容为--》%@", AddDic);
     if ([[AddDic objectForKey:@"success"] boolValue] == YES) {
-        WeekTableViewController *weektv = [[WeekTableViewController alloc]init];
-        [self.navigationController pushViewController:weektv animated:YES];
+//        WeekTableViewController *weektv = [[WeekTableViewController alloc]init];
+//        [self.navigationController pushViewController:weektv animated:YES];
+          [self.navigationController popViewControllerAnimated:YES];
     }
     }
 }

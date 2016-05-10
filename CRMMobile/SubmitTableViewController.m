@@ -43,6 +43,24 @@
     }
     return _fakeData;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    [self.fakeData removeAllObjects];
+    [self.bianHao removeAllObjects];
+    [self.dataing removeAllObjects];
+    [self.time removeAllObjects];
+    [self.uid removeAllObjects];
+    self.index =1;    
+    [self faker:@"1"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"任务提交";
@@ -72,6 +90,13 @@
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"%@",weatherDic);
         NSArray *list = [weatherDic objectForKey:@"obj"];
+        if(![list count] ==0)
+        {
+            self.tableView.footerRefreshingText=@"加载中";
+        }else
+        {
+            self.tableView.footerRefreshingText = @"没有更多数据";
+        }
         for (int i = 0; i<[list count]; i++) {
             NSDictionary *listdic = [list objectAtIndex:i];
             NSLog(@"%@",listdic);

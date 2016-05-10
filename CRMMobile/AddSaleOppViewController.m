@@ -118,7 +118,8 @@
     }
 }
 - (IBAction)cancel:(id)sender {
-    [self ResView];
+//    [self ResView];
+      [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(BOOL) validateTelphone:(NSString *)mobile
@@ -196,8 +197,9 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+//        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
+//        [self.navigationController pushViewController:mj animated:YES];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         [alert show];
     }
     }

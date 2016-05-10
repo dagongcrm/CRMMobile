@@ -53,7 +53,8 @@
     self.title=@"客户列表";
     [self setupRefresh];
     NSLog(@"123123123123123132%@",_addCustomerEntity.contactName);
- 
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
+
 //    [self faker:@"1"];
 }
 

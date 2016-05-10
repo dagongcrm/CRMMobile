@@ -11,7 +11,8 @@
 #import "HZQDatePickerView.h"
 #import "config.h"
 #import "AppDelegate.h"
-
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddDailyViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *time;
 //@property (weak, nonatomic) IBOutlet UITextField *jihua;
@@ -65,7 +66,7 @@
 - (IBAction)datepicker:(id)sender {
     NSLog(@"为什么躲在里面");
     _pikerView = [HZQDatePickerView instanceDatePickerView];
-//    _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    _pikerView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     DateType type ;
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;
@@ -96,8 +97,9 @@
 }
 //返回
 - (IBAction)cancle:(id)sender {
-    DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
-    [self.navigationController pushViewController:dailytv animated:YES];
+//    DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
+//    [self.navigationController pushViewController:dailytv animated:YES];
+      [self.navigationController popViewControllerAnimated:YES];
 }
 //保存
 - (IBAction)Add:(id)sender {
@@ -124,8 +126,10 @@
     NSDictionary *AddDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"AddDic字典里面的内容为--》%@", AddDic);
     if ([[AddDic objectForKey:@"success"] boolValue] == YES) {
-        DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
-        [self.navigationController pushViewController:dailytv animated:YES];    }
+//        DailyTableViewController *dailytv = [[DailyTableViewController alloc]init];
+//        [self.navigationController pushViewController:dailytv animated:YES];
+          [self.navigationController popViewControllerAnimated:YES];
+    }
     }
 }
 @end

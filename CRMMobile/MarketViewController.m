@@ -36,6 +36,8 @@
 - (void)setUpUI{
     [super viewDidLoad];
     self.title = @"市场";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain  target:self  action:nil];
+     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
     self.view.backgroundColor   = [UIColor whiteColor];
     self.edgesForExtendedLayout =  UIRectEdgeNone;

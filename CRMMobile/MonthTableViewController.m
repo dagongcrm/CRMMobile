@@ -44,6 +44,31 @@
     }
     return _fakeData;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [self.fakeData removeAllObjects];
+    
+    [self.dateData removeAllObjects];
+    
+    [self.workIdData removeAllObjects];
+    
+    [self.typeData removeAllObjects];
+    
+    [self.reportData removeAllObjects];
+    
+    self.index =1;
+    
+    [self faker:@"1"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRefresh];
