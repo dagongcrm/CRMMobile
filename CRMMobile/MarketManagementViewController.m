@@ -20,14 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self  setUpUI];
     [self  DateForIn];
     [self  getDataForActivity];
     [self  getDataForTel];
 }
 
-- (void)setUpActivityUI{
+-(void) setUpUI{
+    NAVCOLOR;
     self.title=@"活动统计";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
+
+- (void)setUpActivityUI{
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 800);
     UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
     lineChartLabel.text = @"拜访签到:活动次数";
@@ -143,11 +149,12 @@
             NSString *data= [NSString stringWithFormat:@"%d",self.acitvityIndex1];
             [self performSelectorOnMainThread:@selector(setUpActivityUI) withObject:data waitUntilDone:YES];
         }else{
+            [self setUpActivityUI];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请求错误" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }];
 }
@@ -178,11 +185,12 @@
             NSString *data= [NSString stringWithFormat:@"%d",self.telIndex1];
             [self performSelectorOnMainThread:@selector(setUpTelUI) withObject:data waitUntilDone:YES];
         }else{
+            [self setUpTelUI];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请求错误" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }];
 }

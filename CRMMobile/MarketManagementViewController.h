@@ -18,7 +18,6 @@
 @property (strong,nonatomic) NSString *date6;
 @property (strong,nonatomic) NSString *date7;
 
-
 @property (assign)int acitvityIndex1;
 @property (assign)int acitvityIndex2;
 @property (assign)int acitvityIndex3;

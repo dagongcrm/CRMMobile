@@ -22,10 +22,9 @@
 #import "GetImgFromAlbumViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
+
 @interface MeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
-
 @property (strong,nonatomic) UIButton *photoButton;
-
 @end
 
 @implementation MeViewController
@@ -42,14 +41,15 @@
     NSString *dataPath = [NSHomeDirectory() stringByAppendingPathComponent:imgFileName];
     NSData *data =[NSData dataWithContentsOfFile:dataPath];
     if(data){
-        UIImage *image=[UIImage imageWithData:data];
-        [self.photoButton setImage:image forState:UIControlStateNormal];
+    UIImage *image=[UIImage imageWithData:data];
+    [self.photoButton setImage:image forState:UIControlStateNormal];
     }else{
     [self.photoButton setImage:[UIImage imageNamed:@"me_defaultpic.png"] forState:UIControlStateNormal];
     }
 }
 
 -(void)setUpUI{
+    NAVCOLOR;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
     self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:248.0/255.0 blue:249.0/255.0 alpha:1.0];
     UIImageView *meImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT*0.3)];
@@ -74,7 +74,6 @@
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+140  thirdParam:SCREENWIDTH fourthParam:1];
     [self makeDivdLine:0  secondParam:SCREENHEIGHT*0.3+90+180  thirdParam:SCREENWIDTH fourthParam:1];
     
-    
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+190 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"联系我们" sixParam:@"app_phone.png" sevenParam:@"lianxiwomen"];
     [self makeLeftImageButton:0 secondParam:SCREENHEIGHT*0.3+90+230 thirdParam:SCREENWIDTH fourthParam:40 fifthParam:@"关于" sixParam:@"app_about.png" sevenParam:@"guanyu"];
     
@@ -96,12 +95,11 @@
     self.photoButton.layer.borderColor =[UIColor clearColor].CGColor;
     self.photoButton.clipsToBounds = TRUE;
     [self.view addSubview:self.photoButton];
-    //取出登陆信息
+    
     NSDictionary *Diclogin = [[NSDictionary alloc]init];
     Diclogin= APPDELEGATE.sessionInfo;
     NSString *loginName = [[Diclogin  objectForKey:@"obj"] objectForKey:@"loginName"];
     NSString *orgName   = [[Diclogin objectForKey:@"obj"]objectForKey:@"orgName"];
-    
     UILabel *nameLabel=[[UILabel alloc] initWithFrame:CGRectMake(150, SCREENWIDTH*0.3/2+20, 100, 30)];
     nameLabel.textColor=[UIColor whiteColor];
     nameLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
@@ -110,9 +108,8 @@
     jobLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     if ([loginName isEqualToString:@"admin"]) {
         nameLabel.text=@"超级管理员";
-       jobLabel.text=@"运营部";
+        jobLabel.text=@"运营部";
     }else{
-        //普通用户
         nameLabel.text=loginName;
         jobLabel.text=orgName;
     }
@@ -180,7 +177,6 @@
 }
 
 #pragma 相机的使用
-//点击修改图片
 - (void)getPhoto {
 //    UIActionSheet *sheet;
 //    sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片的来源" delegate:self cancelButtonTitle:@"取消"  destructiveButtonTitle:nil otherButtonTitles:@"相册", nil];
