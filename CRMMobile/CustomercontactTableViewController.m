@@ -57,7 +57,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
-    
 }
 
 - (void)viewDidLoad {
@@ -197,8 +196,8 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     static NSString *cellId = @"contact";
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
@@ -212,6 +211,7 @@
     cell.position.text = [self.positionData objectAtIndex:indexPath.row];
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self userIduserName:self.fakeData :self.contactIDData];
@@ -255,16 +255,16 @@
     [self.navigationController pushViewController:customerInfo animated:YES];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.fakeData count];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fakeData count];
-}
 // get a single user all message
 -(NSDictionary *) singleUserInfo :(NSString *) customerIdIn{
-    NSLog(@"wkwkwkwkkwkwkwwkk");
     for (int j = 0; j<[self.CustomerArr count]; j++) {
         NSDictionary *listdic = [self.CustomerArr objectAtIndex:j];
         NSString     *cid  = (NSString *)[listdic objectForKey:@"contactID"];
@@ -272,7 +272,6 @@
         {
             return listdic;
         }
-        NSLog(@"///////////////%@",listdic);
     }
     return  nil;
 }

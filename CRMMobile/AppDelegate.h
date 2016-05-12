@@ -34,6 +34,10 @@
 @property  (nonatomic,retain)  NSMutableArray *indexPageForLoad;
 @property  (nonatomic,retain)  NSDictionary   *roleAuthority;
 @property  (nonatomic,retain)  NSString       *userChangeOrNot;
+
+@property  (nonatomic,retain)  NSString       *customerForAddSaleLead;
+
+
 @property  (strong ,nonatomic) NSUserDefaults *appDefault;
 
 @end

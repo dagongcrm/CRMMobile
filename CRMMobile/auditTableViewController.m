@@ -15,8 +15,9 @@
 #import "MJRefresh.h"
 #import "WorkTableViewController.h"
 #import "taskCell.h"
-
-@interface auditTableViewController ()
+#import "AFHTTPRequestOperationManager.h"
+#import "MBProgressHUD+NJ.h"
+@interface auditTableViewController ()<MBProgressHUDDelegate>
 @property (strong, nonatomic) NSMutableArray *bianHao;
 @property (strong, nonatomic) NSMutableArray *fakeData;
 @property (strong, nonatomic) NSMutableArray *userIdData;
@@ -25,36 +26,103 @@
 @property (strong, nonatomic) NSMutableArray *uid;
 @property (strong, nonatomic) NSMutableArray *searchResultsData;
 @property (strong, nonatomic) NSMutableDictionary *uAuditId;
+@property (strong, nonatomic) MBProgressHUD  *progress;
+
 @property (assign) NSInteger index;
 @end
 
 @implementation auditTableViewController
-- (NSMutableArray *)fakeData
-{
-    if (!_fakeData) {
-        NSLog(@"----%@",@"asd");
+//
+//-(void) getTableData: (NSString *) page{
+//    NSError *error;
+//    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+//    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+//    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+//    request.timeoutInterval=10.0;
+//    request.HTTPMethod=@"POST";
+//    NSLog(@"!!!!!%@",page);
+//    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
+//    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+//    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+//    if (error) {
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+//        [alert show];
+//    }else{
+//        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//        NSLog(@"%@",weatherDic);
+//        NSArray *list = [weatherDic objectForKey:@"obj"];
+//        for (int i = 0; i<[list count]; i++) {
+//            NSDictionary *listdic = [list objectAtIndex:i];
+//            [self.uid addObject:listdic];
+//            NSString *bianHao  = (NSString *)[listdic objectForKey:@"bianHao"];
+//            NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
+//            NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
+//            NSString *time     = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
+//            [self.fakeData  addObject:teamname];
+//            [self.time      addObject:time];
+//            [self.dataing   addObject:userId];
+//            [self.bianHao   addObject:bianHao];
+//        }
+//    }
+//}
+
+-(void) getDataAsy:(NSString *)page {
+    self.progress.dimBackground=NO;
+    self.progress.labelText=@"加载中，请稍后";
+    [self.progress show:YES];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
+    NSDictionary *parameters = @{@"MOBILE_SID":sid,
+                                 @"page":page};
+    [manager POST:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([[responseObject objectForKey:@"success"] boolValue] == YES){
+            NSArray *list = [responseObject objectForKey:@"obj"];
+            for (int i = 0;i<[list count];i++) {
+                NSDictionary *listdic = [list objectAtIndex:i];
+                [self.uid addObject:listdic];
+                NSString *bianHao  = (NSString *)[listdic objectForKey:@"bianHao"];
+                NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
+                NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
+                NSString *time     = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
+                [self.fakeData  addObject:teamname];
+                [self.time      addObject:time];
+                [self.dataing   addObject:userId];
+                [self.bianHao   addObject:bianHao];
+            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [self.progress hide:YES];
+            });
+        }else{
+             [self.progress hide:YES];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+            [alert show];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         [self.progress hide:YES];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请求错误" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+    }];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    self.progress=[[MBProgressHUD alloc] initWithView:self.view];
+    self.progress.progress=0.4;
+    [self.view addSubview:self.progress];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.bianHao=[[NSMutableArray alloc] init];
         self.fakeData=[[NSMutableArray alloc] init];
         self.dataing=[[NSMutableArray alloc] init];
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
-        [self getTableData:@"1"];
-//        [self getTableData:@"2"];
-        
-    }
-    return _fakeData;
-}
-
--(void) viewWillAppear:(BOOL)animated{
-    NSLog(@"----%@",@"will");
-    [self.fakeData removeAllObjects];
-    [self.bianHao  removeAllObjects];
-    [self.dataing  removeAllObjects];
-    [self.time     removeAllObjects];
-    [self.uid      removeAllObjects];
-//    self.index =1;
-    [self getTableData:@"1"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.fakeData removeAllObjects];
+        [self.bianHao  removeAllObjects];
+        [self.dataing  removeAllObjects];
+        [self.time     removeAllObjects];
+        [self.uid      removeAllObjects];
+        [self getDataAsy:@"1"];
         [self.tableView reloadData];
     });
     
@@ -74,39 +142,7 @@
     self.tableView.dataSource=self;
 }
 
--(void) getTableData: (NSString *) page{
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSLog(@"!!!!!%@",page);
-    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
-        [alert show];
-    }else{
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
-    NSArray *list = [weatherDic objectForKey:@"obj"];
-    for (int i = 0; i<[list count]; i++) {
-        NSDictionary *listdic = [list objectAtIndex:i];
-        [self.uid addObject:listdic];
-        NSString *bianHao  = (NSString *)[listdic objectForKey:@"bianHao"];
-        NSString *teamname = (NSString *)[listdic objectForKey:@"qiYeMC"];
-        NSString *userId   = (NSString *)[listdic objectForKey:@"yeWuZLMC_cn"];
-        NSString *time     = (NSString *)[listdic objectForKey:@"renWuTJSJStr"];
-        [self.fakeData  addObject:teamname];
-        [self.time      addObject:time];
-        [self.dataing   addObject:userId];
-        [self.bianHao   addObject:bianHao];
-    }
-    }
-}
+
 
 - (void)setupRefresh
 {
@@ -123,7 +159,7 @@
 - (void)headerRereshing{
     [self.fakeData removeAllObjects];
     self.index =1;
-    [self getTableData:@"1"];
+    [self getDataAsy:@"1"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView headerEndRefreshing];
@@ -138,7 +174,7 @@
         self.index++;
     }
     NSString *p= [NSString stringWithFormat: @"%ld", (long)self.index];
-    [self getTableData:p];
+    [self getDataAsy:p];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self.tableView footerEndRefreshing];
