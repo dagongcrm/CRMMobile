@@ -229,8 +229,10 @@ NSString *userName1;
     NSString *roleId = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"roleIds"];
     if ([roleId isEqualToString:@"ROLE_2015030900001"]) {
         templateNode_ID=@"FTL_T2013081300001.003";
+        self.templateId=@"FTL_T2013081300001.003";
     }else{
         templateNode_ID=@"FTL_T2013081300001.005";
+        self.templateId=@"FTL_T2013081300001.005";
     }
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mWebFlowTemplateNodeAction!candidate.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
@@ -293,12 +295,12 @@ NSString *userName1;
             NSString *nextParticipants=@"";
             NSString *userID=@"";
             
-            flowId=@"FTL_T2013081300001.003";
-//            NSString *loginName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-            if ([loginName isEqualToString:@"ehongmin"]) {
-                flowId=@"FTL_T2013081300001.006";
-            }
-            
+            flowId=self.templateId;
+////            NSString *loginName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
+//            if ([loginName isEqualToString:@"zhaoyue"]) {
+//                flowId=@"FTL_T2013081300001.006";
+//            }
+//            
             
             
             
