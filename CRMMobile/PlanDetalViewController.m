@@ -149,12 +149,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
-
 - (IBAction)edit:(id)sender {
     EditPlanViewController *uc1 =[[EditPlanViewController alloc] init];
     [uc1 setCustomerCallPlanEntity:_customerCallPlanEntity];

@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 
-@property (weak, nonatomic) IBOutlet UITextView *address;
+@property (weak, nonatomic)   IBOutlet UITextView *address;
 @property (strong, nonatomic) IBOutlet UITextView *visitProfile;
 @property (strong, nonatomic) IBOutlet UITextView *result;
 @property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
@@ -43,7 +43,7 @@
 @property (strong,nonatomic)  NSArray           *selectBFFSId; //选择的 拜访方式ID
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSForShow; // 拜访方式
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSIdForParam;//拜访方式编号
-@property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
+@property (strong,nonatomic)  NSString          *accessMethodID;//选择的拜访方式ID 用于提交
 @property (strong, nonatomic) HZQDatePickerView *pikerView;
 @end
 
@@ -56,7 +56,7 @@
     [super viewDidLoad];
     self.title=@"拜访计划修改";
     self.scroll.contentSize=CGSizeMake(SCREENWIDTH, SCREENHEIGHT*1.5);
-    //赋值
+
     [self valuation];
 }
 
@@ -117,15 +117,11 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)addCustomer:(id)sender {
     [_customerCallPlanEntity setIndex:@"editCustomerCallPlan"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setCustomerCallPlanEntity:_customerCallPlanEntity];
-    
     [self.navigationController pushViewController:list animated:YES];
 }
 
@@ -190,8 +186,11 @@
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
+    }else if (respondent.length>35){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人员名称过长" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
     }else{
-    
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];

@@ -33,17 +33,11 @@
 - (void)setUpUI{
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.title = @"工作日志";
+    self.title = @"通知公告";
     [self.navigationController.navigationBar setBarTintColor:NAVBLUECOLOR];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.view.backgroundColor   = [UIColor whiteColor];
     self.edgesForExtendedLayout =  UIRectEdgeNone;
-    
-    UIButton *rightAddButton =[[UIButton alloc] initWithFrame:CGRectMake(0,0, 20, 20)];
-    [rightAddButton setImage:[UIImage imageNamed:@"app_add.png"] forState:UIControlStateNormal];
-    [rightAddButton addTarget:self action:@selector(searchControllerForAdd) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightAddItem=[[UIBarButtonItem alloc] initWithCustomView:rightAddButton];
-    self.navigationItem.rightBarButtonItem=rightAddItem;
 }
 
 - (void) setUpTableView{

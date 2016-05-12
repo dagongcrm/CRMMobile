@@ -47,23 +47,20 @@
     }
     return _fakeData;
 }
+
 -(void) viewWillAppear:(BOOL)animated{
-    
-    [self.fakeData removeAllObjects];
-    [self.customerCallPlanID removeAllObjects];
-    [self.visitDate removeAllObjects];
-    [self.respondent removeAllObjects];
-    [self.visitorData removeAllObjects];
-    self.index =1;
-    [self faker:@"1"];
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+        [self.fakeData removeAllObjects];
+        [self.customerCallPlanID removeAllObjects];
+        [self.visitDate removeAllObjects];
+        [self.respondent removeAllObjects];
+        [self.visitorData removeAllObjects];
+        self.index =1;
+        [self faker:@"1"];
         [self.tableView reloadData];
-        
     });
-    
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"拜访计划";
@@ -127,8 +124,6 @@
             if(teamname.length==0){   //若客户名称问null，将其赋值
                 teamname=@"没有数据";
             }
-           
-            
             [self.customerCallPlanID     addObject:customerCallPlanID];
             [self.fakeData               addObject:teamname];
             [self.visitDate              addObject:teamname2];
@@ -139,11 +134,6 @@
     return self.fakeData;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-   
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
       return 1;
 }
@@ -151,8 +141,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
         return [self.fakeData count];
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

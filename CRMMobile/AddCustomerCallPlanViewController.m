@@ -283,6 +283,10 @@
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
+    }else if (respondent.length>35){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人员名称过长" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
     }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
