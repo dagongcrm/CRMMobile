@@ -30,6 +30,7 @@
 @property (strong, nonatomic) NSMutableArray *uid1;
 @property (strong, nonatomic) NSMutableArray *userID;
 @property (strong, nonatomic) NSMutableArray *userNames;
+@property (nonatomic,copy) NSString *templateId;
 
 - (IBAction)quit:(id)sender;
 
@@ -240,12 +241,10 @@ NSString *userName1;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *dailyDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
     NSArray *list = [weatherDic objectForKey:@"obj"];
-    //    NSMutableArray *list = [weatherDic mutableCopy];
-    NSLog(@"11111111%@",list);
     self.userID = [NSMutableArray new];
     self.userNames = [NSMutableArray new];
+    
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         [self.uid addObject:listdic];
@@ -267,10 +266,7 @@ NSString *userName1;
     [sheet showInView:self.view];
     
 }
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    NSLog(@"mmmmmmklklklklkl%lu",buttonIndex);
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag == 255) {
         NSString * userID11 ;
         if (buttonIndex) {
@@ -279,7 +275,6 @@ NSString *userName1;
             NSError *error;
             AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
             NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-            
             NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mRenWuSH_DGGJAction!shenHeTG.action?a=1&shenHeRQZ=YongHu00000000000"]];
             NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
             request.timeoutInterval=10.0;
@@ -290,20 +285,21 @@ NSString *userName1;
             NSString *qiYeMC = _auditEntity.submitName;
             NSString *yeWuZLMC = _auditEntity.yeWuZL;
             NSString *ftn_ID = _auditEntity.ftn_ID;
-            NSLog(@"%@",qiYeBH);
-            NSLog(@"%@",qiYeMC);
-            NSLog(@"%@",yeWuZLBH);
-            NSLog(@"%@",yeWuZLMC);
-            NSLog(@"%@",ftn_ID);
+           
             AppDelegate *ad = [[UIApplication sharedApplication] delegate];
             NSString *loginName = [[ad.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
-            NSLog(@"%@",loginName);
             NSString *flowId=@"";
             NSString *fln_UserCode=userID11;
             NSString *nextParticipants=@"";
             NSString *userID=@"";
             
             flowId=@"FTL_T2013081300001.003";
+//            NSString *loginName = [[APPDELEGATE.sessionInfo objectForKey:@"obj"] objectForKey:@"loginName"];
+            if ([loginName isEqualToString:@"ehongmin"]) {
+                flowId=@"FTL_T2013081300001.006";
+            }
+            
+            
             
             
             NSString *param=[NSString stringWithFormat:@"userID=%@&nextParticipants=%@&templateNode_ID=%@&fln_UserCode=%@&ftn_ID=%@&renWuJBXXBH=%@&bianHao=%@&qiYeBH=%@&qiYeMC=%@&yeWuZLBH=%@&yeWuZLMC=%@&MOBILE_SID=%@",userID,nextParticipants,flowId,fln_UserCode,ftn_ID,qiYeBH,qiYeBH,qiYeBH,qiYeMC,yeWuZLBH,yeWuZLMC,sid];

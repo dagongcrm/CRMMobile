@@ -50,7 +50,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    if([APPDELEGATE.customerForAddSaleLead isEqualToString:@"fromSubmit"]||[APPDELEGATE.customerForAddSaleLead isEqualToString:@"fromEdit"]){
+    if([APPDELEGATE.customerForAddSaleLead isEqualToString:@"fromSubmit"]||[APPDELEGATE.customerForAddSaleLead isEqualToString:@"fromEdit"]||[APPDELEGATE.customerForAddSaleLead isEqualToString:@"fromAdd"]){
     APPDELEGATE.customerForAddSaleLead=@"";
     [self.fakeData removeAllObjects];
     [self.bianHao removeAllObjects];
