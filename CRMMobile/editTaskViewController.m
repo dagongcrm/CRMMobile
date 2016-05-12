@@ -526,6 +526,7 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
 //            [self.navigationController pushViewController:mj animated:YES];
+                APPDELEGATE.customerForAddSaleLead=@"fromEdit";
              [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
             [alert show];
         }else{

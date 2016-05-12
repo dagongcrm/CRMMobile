@@ -43,10 +43,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""                                                                     style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:nil];
-
     self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
-    NSString *s= _submitTaskEntity.submitName;
-    NSString *y= _submitTaskEntity.yeWuZL;
     self.qiYeMC1.text = _submitTaskEntity.submitName;
     self.yeWuZL.text = _submitTaskEntity.yeWuZL;
     self.suosuhy.text = _submitTaskEntity.hangYeFLMC;
@@ -202,10 +199,16 @@
             
                 if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
+                     [alert show];
+                    SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
 //                    [self.navigationController pushViewController:mj animated:YES];
+//                    [CATransaction begin];
+//                    [CATransaction setCompletionBlock:^{
+//                        [mj CAReload];
+//                     }];
+                    APPDELEGATE.customerForAddSaleLead=@"fromSubmit";
                      [self.navigationController popViewControllerAnimated:YES];
-                    [alert show];
+//                     [CATransaction commit];
                 }else{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
