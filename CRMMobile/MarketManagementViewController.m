@@ -18,12 +18,30 @@
 
 @implementation MarketManagementViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+-(void) viewWillAppear:(BOOL)animated{
+    for(UIView *view in self.scrollView.subviews){
+        [view removeFromSuperview];
+    }
+    self.acitvityIndex1=0;
+    self.acitvityIndex2=0;
+    self.acitvityIndex3=0;
+    self.acitvityIndex4=0;
+    self.acitvityIndex5=0;
+    self.telIndex1=0;
+    self.telIndex2=0;
+    self.telIndex3=0;
+    self.telIndex4=0;
+    self.telIndex5=0;
     [self  setUpUI];
     [self  DateForIn];
     [self  getDataForActivity];
     [self  getDataForTel];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
 }
 
 -(void) setUpUI{
@@ -128,12 +146,6 @@
             for (int i = 0;i<[list count];i++) {
                 NSDictionary *listDic =[list objectAtIndex:i];
                 NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
-                [formatter setDateFormat:@"yyyy年MM月dd日"];
-                NSDate *date=[formatter dateFromString:time];
-                [formatter setDateFormat:@"yyyy-MM-dd"];
-                NSString *timeString= [formatter stringFromDate:date];
-                time=timeString;
                 if([time isEqualToString:self.date1]){
                     self.acitvityIndex1++;
                 }else if([time isEqualToString:self.date2]){
