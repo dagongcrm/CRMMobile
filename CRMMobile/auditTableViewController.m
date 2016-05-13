@@ -256,8 +256,7 @@
     NSLog(@"%@",self.bianHao);
     
     if (tableView == self.tableView)
-    {
-        
+    {        
         NSDictionary *nc =[self singleUserInfo:(NSString *)[_uAuditId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
         NSLog(@"%@",nc);
         NSString *submitName  =(NSString *) [nc objectForKey:@"qiYeMC"];

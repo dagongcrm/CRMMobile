@@ -14,7 +14,6 @@
 #import "SaleOppEntity.h"
 #import "DetailSaleOppViewController.h"
 #import "EntityHelper.h"
-
 @interface SaleOppTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
@@ -194,16 +193,22 @@
         oppSucces=@"暂无";
     }
     
-    UIButton *inactonButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [inactonButton setTitle:@"不活跃" forState:UIControlStateNormal];
-    [inactonButton setTintColor:[UIColor grayColor]];
-    CGRect inframe = CGRectMake(0.0, 0.0, 50, 30);
-    inactonButton.frame=inframe;
+    UIButton *waitactonButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [waitactonButton setTitle:@"等待" forState:UIControlStateNormal];
+    [waitactonButton setTintColor:[UIColor grayColor]];
+    CGRect waitframe = CGRectMake(0.0, 0.0, 50, 30);
+    waitactonButton.frame=waitframe;
+    
+    UIButton *stopactonButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [stopactonButton setTitle:@"终止" forState:UIControlStateNormal];
+    [stopactonButton setTintColor:[UIColor grayColor]];
+    CGRect stopframe = CGRectMake(0.0, 0.0, 50, 30);
+    stopactonButton.frame=stopframe;
     
     UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [actionButton setTitle:@"活跃" forState:UIControlStateNormal];
     [actionButton setTintColor:[UIColor redColor]];
-    CGRect aframe = CGRectMake(0.0, 0.0, 30, 30);
+    CGRect aframe = CGRectMake(0.0, 0.0, 50, 30);
     actionButton.frame=aframe;
     
     NSString *oppSuccesText=[@"成功率:" stringByAppendingString:oppSucces];
@@ -214,12 +219,20 @@
     NSMutableAttributedString *attributedStr01 = [[NSMutableAttributedString alloc] initWithString: finalDetailText];
     NSRange range= [finalDetailText rangeOfString:@"率"];
     if ([oppSucces intValue]>=60) {
-        cell.accessoryView=actionButton;
+//        cell.accessoryView=actionButton;
         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
     }else{
-        cell.accessoryView=inactonButton;
+//        cell.accessoryView=inactonButton;
         [attributedStr01 addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange(range.location+2, finalDetailText.length-range.location-2)];
     }
+    if ([[[self.entities objectAtIndex:indexPath.row] oppStateStr] isEqualToString:@"活跃"]) {
+         cell.accessoryView=actionButton;
+    }else if ([[[self.entities objectAtIndex:indexPath.row] oppStateStr] isEqualToString:@"等待"]){
+         cell.accessoryView=waitactonButton;
+    }else if ([[[self.entities objectAtIndex:indexPath.row] oppStateStr] isEqualToString:@"终止"]){
+        cell.accessoryView=stopactonButton;
+    }
+
     cell.detailTextLabel.attributedText=attributedStr01;
     [cell.imageView setImage:[UIImage imageNamed:@"lou.png"]];
     CGSize itemSize = CGSizeMake(40, 40);

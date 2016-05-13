@@ -16,7 +16,6 @@
 #import "detailSaleLeadsViewController.h"
 #import "UIImage+Tint.h"
 #import "CRMTableViewController.h"
-
 @interface saleLeadsTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;

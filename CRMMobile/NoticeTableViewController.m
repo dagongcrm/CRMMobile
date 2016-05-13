@@ -14,7 +14,7 @@
 #import "noticeDetailViewController.h"
 #import "EntityHelper.h"
 #import "UIScrollView+MJRefresh.h"
-
+#import "trackCell.h"
 @interface NoticeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *entities;
@@ -190,23 +190,36 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    static NSString * cellId = @"trackCell";
+    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
     }
-    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
-    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    [cell.imageView setImage:[UIImage imageNamed:@"app_item_notice.png"]];
-    cell.imageView.image=[UIImage imageNamed:@"app_item_notice.png"];
-    CGSize itemsize=CGSizeMake(30, 30);
-    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
-    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
-    [cell.imageView.image drawInRect:imageRect];
-    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
    
+    cell.myImg.image = [UIImage imageNamed:@"app_item_notice.png"];
+    cell.mylbl1.text= [[self.entities objectAtIndex:indexPath.row] documentTitle];
+    cell.mylbl2.text= [[self.entities objectAtIndex:indexPath.row] publishContent];
+    
     return cell;
+
+    
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+//    }
+//    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
+//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
+////    [cell.imageView setImage:[UIImage imageNamed:@"app_item_notice.png"]];
+//    cell.imageView.image=[UIImage imageNamed:@"app_item_notice.png"];
+//    CGSize itemsize=CGSizeMake(30, 30);
+//    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
+//    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
+//    [cell.imageView.image drawInRect:imageRect];
+//    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//   
+//    return cell;
     
 }
 
@@ -222,5 +235,8 @@
     [self.navigationController pushViewController:detail animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
 
 @end

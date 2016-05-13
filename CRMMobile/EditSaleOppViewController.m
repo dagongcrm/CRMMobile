@@ -60,7 +60,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self valuation];
-//    [self BackButton];
     self.title=@"修改销售机会";
     self.scroll.contentSize = CGSizeMake(375, 700);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
@@ -70,21 +69,6 @@
     self.saleOppDescription.layer.cornerRadius = 6;
     self.saleOppDescription.layer.masksToBounds = YES;
 }
-
-
-//-(void)BackButton{
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    
-//}
 
 - (IBAction)cancel:(id)sender {
       [self.navigationController popViewControllerAnimated:YES];
@@ -184,7 +168,21 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&saleOppID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@&creater=%@&orgID=%@&createTime=%@",sid,_saleOppEntity.saleOppID,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID,_saleOppEntity.creater,_saleOppEntity.orgID,_saleOppEntity.createTime];
+
+//        RequestParams params = new RequestParams();
+//        params.put("saleOppID", saleOppID);
+//        params.put("customerName", customerID1);
+//        params.put("successProbability", successProbability);
+//        params.put("saleOppSrc", customerClass);
+//        params.put("saleOppDescription", saleOppDescription);
+//        params.put("oppState", oppStateClass);
+//        params.put("contact", contact);
+//        params.put("contactTel", contactTel);
+//        params.put("creater", createrStr);
+//        params.put("createTime", createTime);
+//        
+       
+    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&saleOppID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@&creater=%@&createTime=%@",sid,_saleOppEntity.saleOppID,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID,_saleOppEntity.creater,_saleOppEntity.createTime];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         if (error) {
@@ -194,12 +192,10 @@
         }else{
 
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
+      NSLog(@"----weatherDic----%@",weatherDic);
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
-//        [self.navigationController pushViewController:mj animated:YES];
-         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
+         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]  animated:YES];
         [alert show];
     }
 }

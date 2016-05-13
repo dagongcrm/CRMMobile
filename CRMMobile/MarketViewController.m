@@ -17,12 +17,15 @@
 #import "MarketManagementViewController.h"
 #import "AddSaleOppViewController.h"
 #import "addSaleLeadsViewController.h"
+#import "saleLeads.h"
+#import "AddSaleOppViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 
 @interface MarketViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+@property saleLeads *saleLeads;
 @end
 
 @implementation MarketViewController
@@ -70,11 +73,16 @@
 
 -(void)searchControllerForAdd{
     if(self.segmentedControl.selectedSegmentIndex==0){
+//           [self.navigationController pushViewController:[[TestARViewController alloc] init] animated:YES];
         [self.navigationController pushViewController:[[AddSaleOppViewController alloc] init] animated:YES];
     }
     if(self.segmentedControl.selectedSegmentIndex==1){
-        
-        [self.navigationController pushViewController:[[addSaleLeadsViewController alloc] init] animated:YES];
+        self.saleLeads = [[saleLeads alloc] init];
+        [self.saleLeads setIndex:@"addSaleLeads"];
+        addSaleLeadsViewController *AddSaleLeads = [[addSaleLeadsViewController alloc]init];
+        [AddSaleLeads setSaleLeads:self.saleLeads];
+        [self.navigationController pushViewController:AddSaleLeads animated:YES];
+//        [self.navigationController pushViewController:[[addSaleLeadsViewController alloc] init] animated:YES];
     }
 }
 

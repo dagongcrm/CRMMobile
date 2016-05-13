@@ -53,6 +53,8 @@
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
 		02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */; };
+		02F27A781CE45EF60000830B /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F27A761CE45EF60000830B /* AddSaleOppViewController.m */; };
+		02F27A791CE45EF60000830B /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F27A771CE45EF60000830B /* AddSaleOppViewController.xib */; };
 		02F420DE1CD8BD0200F3D442 /* taskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420DC1CD8BD0200F3D442 /* taskCell.m */; };
 		02F420DF1CD8BD0200F3D442 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F420DD1CD8BD0200F3D442 /* taskCell.xib */; };
 		02F420E31CD8BDF100F3D442 /* trackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420E11CD8BDF100F3D442 /* trackCell.m */; };
@@ -131,8 +133,6 @@
 		39E729FA1C0697C80050D77F /* submitTaskEntity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E729F81C0697C80050D77F /* submitTaskEntity.xib */; };
 		39E72A291C069B670050D77F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D68C4C1BD8EA20009CEC23 /* LaunchScreen.xib */; };
 		39E72A331C06A4AA0050D77F /* SaleOppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */; };
-		39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */; };
-		39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */; };
 		39F1F1B11BE38ADA00EA3133 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */; };
 		39F797161C05CC50000D9A20 /* CustomerContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F797081C05CC50000D9A20 /* CustomerContactListViewController.m */; };
 		39F797171C05CC50000D9A20 /* CustomerContactListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F797091C05CC50000D9A20 /* CustomerContactListViewController.xib */; };
@@ -468,6 +468,9 @@
 		02EE51E41CB642C700B10695 /* getLocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getLocationUtil.m; sourceTree = "<group>"; };
 		02F05FDC1CD9DE0700B2E2E8 /* AboutOfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutOfView.h; sourceTree = "<group>"; };
 		02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutOfView.m; sourceTree = "<group>"; };
+		02F27A751CE45EF60000830B /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
+		02F27A761CE45EF60000830B /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
+		02F27A771CE45EF60000830B /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
 		02F420DB1CD8BD0200F3D442 /* taskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskCell.h; sourceTree = "<group>"; };
 		02F420DC1CD8BD0200F3D442 /* taskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskCell.m; sourceTree = "<group>"; };
 		02F420DD1CD8BD0200F3D442 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
@@ -597,11 +600,8 @@
 		39E729F61C0697C80050D77F /* submitTaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitTaskEntity.h; sourceTree = "<group>"; };
 		39E729F71C0697C80050D77F /* submitTaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitTaskEntity.m; sourceTree = "<group>"; };
 		39E729F81C0697C80050D77F /* submitTaskEntity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitTaskEntity.xib; sourceTree = "<group>"; };
-		39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
 		39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaleOppTableViewController.h; sourceTree = "<group>"; };
 		39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaleOppTableViewController.m; sourceTree = "<group>"; };
-		39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
-		39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
 		39F1F1AE1BE38ADA00EA3133 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		39F1F1AF1BE38ADA00EA3133 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		39F797071C05CC50000D9A20 /* CustomerContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerContactListViewController.h; sourceTree = "<group>"; };
@@ -2322,7 +2322,7 @@
 		C0EB5CB61CBE324200AED5FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39E72A391C06A5E00050D77F /* AddSaleOppViewController.xib */,
+				02F27A771CE45EF60000830B /* AddSaleOppViewController.xib */,
 				39F7972A1C05CCE4000D9A20 /* EditSaleOppViewController.xib */,
 				39F797321C05CCE4000D9A20 /* DetailSaleOppViewController.xib */,
 			);
@@ -2332,8 +2332,6 @@
 		C0EB5CB71CBE324900AED5FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				39E72A381C06A5E00050D77F /* AddSaleOppViewController.m */,
-				39E72A301C06A4AA0050D77F /* AddSaleOppViewController.h */,
 				39E72A311C06A4AA0050D77F /* SaleOppTableViewController.h */,
 				39E72A321C06A4AA0050D77F /* SaleOppTableViewController.m */,
 				39F797281C05CCE4000D9A20 /* EditSaleOppViewController.h */,
@@ -2342,6 +2340,8 @@
 				39F7972F1C05CCE4000D9A20 /* CustomerSelectTableViewController.m */,
 				39F797301C05CCE4000D9A20 /* DetailSaleOppViewController.h */,
 				39F797311C05CCE4000D9A20 /* DetailSaleOppViewController.m */,
+				02F27A751CE45EF60000830B /* AddSaleOppViewController.h */,
+				02F27A761CE45EF60000830B /* AddSaleOppViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2906,13 +2906,13 @@
 				020709951CD8A463000A2011 /* 任务提交1.png in Resources */,
 				020709A71CD8A53A000A2011 /* huang.png in Resources */,
 				C0D68C4B1BD8EA20009CEC23 /* Images.xcassets in Resources */,
-				39E72A3B1C06A5E00050D77F /* AddSaleOppViewController.xib in Resources */,
 				9604F4971C1AC8D90074B1A5 /* op-4.png in Resources */,
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
 				C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
+				02F27A791CE45EF60000830B /* AddSaleOppViewController.xib in Resources */,
 				9604F4B61C1ACC3E0074B1A5 /* sub-s.png in Resources */,
 				C0EB5CAA1CBDFBF700AED5FD /* gengduo.png in Resources */,
 				39CCF2C11CE05E4000D29074 /* app_item_notice.png in Resources */,
@@ -3015,7 +3015,6 @@
 				39F797891C05CF58000D9A20 /* selectListTableViewController.m in Sources */,
 				39F7978B1C05CF58000D9A20 /* selectEntity.m in Sources */,
 				1FEF62571C16AED200E6F4BF /* saleLeadsTableViewController.m in Sources */,
-				39E72A3A1C06A5E00050D77F /* AddSaleOppViewController.m in Sources */,
 				C0EC6C5D1CBCD7C4004AF08B /* SDBasicViewContoller.m in Sources */,
 				1FEF621E1C16AC3600E6F4BF /* PNChartLabel.m in Sources */,
 				39E729F31C0697A50050D77F /* submitTaskDetailViewController.m in Sources */,
@@ -3069,6 +3068,7 @@
 				39F7986B1C05D335000D9A20 /* EditPlanViewController.m in Sources */,
 				1FE529CC1BE8A8D000149C10 /* UIImage+Tint.m in Sources */,
 				1FEF623E1C16ADDA00E6F4BF /* MyViewController.m in Sources */,
+				02F27A781CE45EF60000830B /* AddSaleOppViewController.m in Sources */,
 				39CCF2BD1CE03F7300D29074 /* NoticeSegViewController.m in Sources */,
 				C0E432041CD0494F00056748 /* AFNetworkReachabilityManager.m in Sources */,
 				1FEF62491C16AE0900E6F4BF /* MeMainTableViewController.m in Sources */,

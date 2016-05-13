@@ -41,7 +41,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"销售线索添加";
+    NSLog(@"------%@",_saleLeads.index);
+    if ([_saleLeads.index isEqualToString:@"editSaleLeads"]) {
+        self.title=@"销售线索修改";
+    }else{
+        self.title=@"销售线索添加";
+    }
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     
@@ -142,8 +147,7 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        saleLeadsTableViewController *mj = [[saleLeadsTableViewController alloc] init];
-        [self.navigationController pushViewController:mj animated:YES];
+         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]  animated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -154,15 +158,10 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    NSLog(@"CRMjjjjj=========");
-//    MarketViewController *controller = [MarketViewController new];
-//     [self.navigationController pushViewController:controller animated:YES];
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[saleLeadsTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
+    if ([_saleLeads.index isEqualToString:@"addSaleLeads"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else if([_saleLeads.index isEqualToString:@"editSaleLeads"]){
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
+    }
 }
 @end

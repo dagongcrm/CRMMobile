@@ -54,7 +54,7 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@",page,sid];
+    NSString *param=[NSString stringWithFormat:@"page=%@&MOBILE_SID=%@sort=%@order=%@",page,sid,@"",@""];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     if (error) {

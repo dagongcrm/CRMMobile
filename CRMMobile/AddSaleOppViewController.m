@@ -60,7 +60,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self valuation];
-//    [self BackButton];
+    //    [self BackButton];
     self.title=@"添加销售机会";
     self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
@@ -72,21 +72,6 @@
     //appear   appendviewDidLoad
 }
 
-//-(void)BackButton{
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    
-//}
-//
-//
 - (void)ResView
 {
     for (UIViewController *controller in self.navigationController.viewControllers)
@@ -118,8 +103,8 @@
     }
 }
 - (IBAction)cancel:(id)sender {
-//    [self ResView];
-      [self.navigationController popViewControllerAnimated:YES];
+    //    [self ResView];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(BOOL) validateTelphone:(NSString *)mobile
@@ -177,32 +162,32 @@
         
     }
     else{
-    NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleOpportunityAction!add.action?"]];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
-    request.timeoutInterval=10.0;
-    request.HTTPMethod=@"POST";
-    NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@",sid,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID];
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error;
+        AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+        NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
+        NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleOpportunityAction!add.action?"]];
+        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
+        request.timeoutInterval=10.0;
+        request.HTTPMethod=@"POST";
+        NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@",sid,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID];
+        request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
         NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"网络连接超时" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
             [alert show];
             NSLog(@"--------%@",error);
         }else{
-
-    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    
-    if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
-//        [self.navigationController pushViewController:mj animated:YES];
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
-        [alert show];
-    }
-    }
+            
+            NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+            
+            if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                //        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
+                //        [self.navigationController pushViewController:mj animated:YES];
+                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]  animated:YES];
+                [alert show];
+            }
+        }
     }
 }
 
@@ -234,7 +219,7 @@
     listView.datasource = self;
     listView.delegate = self;
     [listView show];
-
+    
 }
 - (IBAction)oppStateSelectButton:(id)sender {
     _select=@"oppState";
@@ -256,7 +241,7 @@
     NSError *error;
     NSMutableArray *nextFlowBFFSName=[[NSMutableArray alloc] init];
     NSMutableArray *nextFlowBFFSId=[[NSMutableArray alloc] init];
-//    _uid=[[NSMutableArray alloc] init];
+    //    _uid=[[NSMutableArray alloc] init];
     NSString *typeID = @"('xiaoShouJXLY')";
     NSArray *list = [self list:typeID];
     for (int i = 0; i<[list count]; i++) {
@@ -391,8 +376,8 @@
         [self.selectOppStateIdForParam removeObject:[self.selectSrcId objectAtIndex:indexPath.row]];
         [self buttonInputLabel:tableView];
     }
-
-
+    
+    
 }
 
 - (void)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

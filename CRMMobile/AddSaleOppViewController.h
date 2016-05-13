@@ -1,9 +1,9 @@
 //
-//  AddSaleOppViewController.h
+//  TestARViewController.h
 //  CRMMobile
 //
-//  Created by jam on 15/11/9.
-//  Copyright (c) 2015年 dagong. All rights reserved.
+//  Created by 伍德友 on 16/5/12.
+//  Copyright (c) 2016年 dagong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,4 +13,5 @@
 
 @interface AddSaleOppViewController : UIViewController<ZSYPopoverListDatasourceSingle, ZSYPopoverListDelegateSingle,ZSYPopoverListDatasource,ZSYPopoverListDelegate>
 @property (strong, nonatomic) SaleOppEntity *saleOppEntity;
+
 @end
