@@ -12,6 +12,8 @@
 #import "CustomerContactListViewController.h"
 #import "CustomercontactTableViewController.h"
 #import "UIImage+Tint.h"
+#import "NullString.h"
+
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddCustomerContactController ()
@@ -38,29 +40,12 @@
     [super viewDidLoad];
     self.title=@"添加联系人信息";
     self.scroll.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
-//    //设置导航栏返回
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self  action:nil];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    self.tableView.delegate=self;
-//    self.tableView.dataSource=self;
-
-    NSLog(@"mmmmmmmmmmmmm%@",_addCustomerEntity.customerID);
+    
     NSString *customerName= _context;
+    
     if (customerName.length==0) {
         self.khmc.text=@"";
         NSLog(@"1111111111");
@@ -71,7 +56,6 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     
-    
     [self.xsypj.layer setBorderColor:color];
     self.xsypj.layer.borderWidth = 1;
     self.xsypj.layer.cornerRadius = 6;
@@ -81,6 +65,7 @@
     NSString *c=_addCustomerEntity.department;
     NSString *d=_addCustomerEntity.position;
     NSString *e=_addCustomerEntity.evaluationOfTheSalesman;
+    
     if(a.length!=0){
     self.lxrenxm.text=_addCustomerEntity.contactName;
     }
@@ -151,18 +136,28 @@
     NSString *department=self.bumen.text;
     NSString *position=self.zhiwu.text;
     NSString *evaluationOfTheSalesman=self.xsypj.text;
-    NSString *customerName1 = [customerName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *contactName1 = [contactName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (customerName1.length==0) {
+
+    if ([NullString isBlankString:customerName]) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (contactName1.length==0){
+    }else if ([NullString isBlankString:contactName]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"联系人名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }
-    else if (telePhone.length!=0&&!([self validateMobile:self.lxrendh.text]||[self validatePhone:self.lxrendh.text]||[self validateTelphone:self.lxrendh.text])){
+    }else if ([NullString isBlankString:telePhone]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:department]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人部门不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:position]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人职务不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if (!([self validateMobile:self.lxrendh.text]||[self validatePhone:self.lxrendh.text]||[self validateTelphone:self.lxrendh.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
@@ -189,8 +184,6 @@
         NSDictionary *saveForAddDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSLog(@"saveForAddDic字典里面的内容为--》%@", saveForAddDic);
         if ([[saveForAddDic objectForKey:@"success"] boolValue] == YES) {
-//            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-//            [self.navigationController pushViewController:contant animated:YES];
              [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         }
     }

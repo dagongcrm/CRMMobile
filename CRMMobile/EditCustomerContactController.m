@@ -13,6 +13,7 @@
 #import "CustomercontactTableViewController.h"
 #import "CustomerContactListViewController.h"
 #import "UIImage+Tint.h"
+#import "NullString.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface EditCustomerContactController ()
@@ -144,12 +145,27 @@
     NSString *evalation2 = _contactEntity.evaluationOfTheSalesman;
     NSString *state2 = _stateSave;
     NSString *informationAttribution = _contactEntity.informationAttribution;
-    NSLog(@"evalation2evalation2evalation2%@",evalation2);
-    //    NSLog(@"state2state2state2state2%@",state2);
     NSString *evaluationOfTheSalesman=self.xsypj.text;
-    if (customerName.length==0||contactName.length==0||telePhone.length==0||department.length==0||position.length==0||evaluationOfTheSalesman.length==0) {
+    
+    if ([NullString isBlankString:customerName]) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:contactName]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:telePhone]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:department]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人部门不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if ([NullString isBlankString:position]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人职务不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
     }else if (!([self validateMobile:self.lxrendh.text]||[self validatePhone:self.lxrendh.text]||[self validateTelphone:self.lxrendh.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -157,7 +173,7 @@
         [alertView show];
         
     }else{
-        NSLog(@"mmmmmmmm//////%@",customerName);
+
         NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
         NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!edit.action?"]];
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
@@ -175,15 +191,8 @@
         }else{
 
         NSDictionary *saveDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"saveDic字典里面的内容为--》%@", saveDic);
-        //        if ([[saveDic objectForKey:@"success"] boolValue] == YES) {
-        //            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-        //            [self.navigationController pushViewController:contant animated:YES];
-        //        }
-        if([[saveDic objectForKey:@"success"] boolValue] == YES){
+               if([[saveDic objectForKey:@"success"] boolValue] == YES){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[saveDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            CustomercontactTableViewController *contant = [[CustomercontactTableViewController alloc]init];
-//            [self.navigationController pushViewController:contant animated:YES];
             [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
             [alert show];
         }else{
@@ -204,7 +213,6 @@
     NSString *state1 = _stateSave;
     NSLog(@"联系人状态%@",state1);
     NSLog(@"销售员评jia%@",evaluation);
-    //    NSString *contactID = _contactEntity.contactID;
     [_contactEntity setCustomerName:customerName1];
     [_contactEntity setContactName:contactName1];
     [_contactEntity setTelePhone:telePhone1];

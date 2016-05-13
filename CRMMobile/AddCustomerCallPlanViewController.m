@@ -15,6 +15,10 @@
 #import "CustomerCallPlanDetailMessageEntity.h"
 #import "CustomerContactListViewController.h"
 #import "VisitPlanTableViewController.h"
+#import "NullString.h"
+
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddCustomerCallPlanViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
@@ -87,7 +91,6 @@
     }
     
     _customerCallPlanEntity=[[CustomerCallPlanDetailMessageEntity alloc] init];
-    
     [_customerCallPlanEntity setTheme:theme];
     [_customerCallPlanEntity setAccessMethod:accessMethodID];
     [_customerCallPlanEntity setRespondentPhone:respondentPhone];
@@ -98,11 +101,9 @@
     [_customerCallPlanEntity setResult:result];
     [_customerCallPlanEntity setCustomerRequirements:customerRequirements];
     [_customerCallPlanEntity setCustomerChange:customerChange];
-    
     [_customerCallPlanEntity setIndex:@"addCustomerCallPlan"];
     CustomerContactListViewController *list = [[CustomerContactListViewController alloc]init];
     [list setCustomerCallPlanEntity:_customerCallPlanEntity];
-    
     [self.navigationController pushViewController:list animated:YES];
     
 }
@@ -276,7 +277,6 @@
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    
         
     }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -311,14 +311,11 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
-//        [self.navigationController pushViewController:mj animated:YES];
            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
         [alert show];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
     }
         }
   }
@@ -390,7 +387,7 @@
 
 - (IBAction)selectDate:(id)sender {
     _pikerView = [HZQDatePickerView instanceDatePickerView];
-    //        _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    _pikerView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     DateType type ;
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;
