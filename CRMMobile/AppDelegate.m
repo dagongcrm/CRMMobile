@@ -20,6 +20,7 @@
                                      @{@"拜访计划"   : @"baifangjihua"},
                                      @{@"拜访纪录"   : @"baifangjilu"},
                                      @{@"任务提交"   : @"renwutijiao"},
+                                     @{@"任务审核"   : @"renwushenhe"},
                                      @{@"任务跟踪"   : @"renwugenzong"},
                                      @{@"通知公告"   : @"shichanghuodong"},
                                      @{@"活动统计"   : @"huodongtongji"},

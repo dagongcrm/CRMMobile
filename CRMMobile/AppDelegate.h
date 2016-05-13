@@ -36,8 +36,7 @@
 @property  (nonatomic,retain)  NSString       *userChangeOrNot;
 
 @property  (nonatomic,retain)  NSString       *customerForAddSaleLead;
-
-
+@property  (nonatomic,retain)  NSString       *paramForaudit;
 @property  (strong ,nonatomic) NSUserDefaults *appDefault;
 
 @end

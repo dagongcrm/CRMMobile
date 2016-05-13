@@ -23,6 +23,7 @@
 #import "SearchResultTableViewController.h"
 #import "NotificationTableViewController.h"
 #import "NoticeSegViewController.h"
+#import "auditTableViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define kHomeHeaderViewHeight 110
@@ -61,6 +62,7 @@
                              [VisitPlanTableViewController class],
                              [TaskRecordsTableViewController class],
                              [SubmitTableViewController class],
+                             [auditTableViewController class],
                              [trackingTableViewController class],
                              [NoticeSegViewController class],
                              [MarketManagementViewController class],

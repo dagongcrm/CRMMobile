@@ -68,6 +68,9 @@
 //}
 
 -(void) getDataAsy:(NSString *)page {
+    self.progress=[[MBProgressHUD alloc] initWithView:self.view];
+    self.progress.progress=0.4;
+    [self.view addSubview:self.progress];
     self.progress.dimBackground=NO;
     self.progress.labelText=@"加载中，请稍后";
     [self.progress show:YES];
@@ -107,25 +110,35 @@
     }];
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    self.progress=[[MBProgressHUD alloc] initWithView:self.view];
-    self.progress.progress=0.4;
-    [self.view addSubview:self.progress];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+- (NSMutableArray *)fakeData
+{
+    if (!_fakeData) {
         self.bianHao=[[NSMutableArray alloc] init];
         self.fakeData=[[NSMutableArray alloc] init];
         self.dataing=[[NSMutableArray alloc] init];
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
+        [self getDataAsy:@"1"];
+        
+    }
+    return _fakeData;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    if([APPDELEGATE.paramForaudit isEqualToString:@"fromAuditDetail"]){
+        APPDELEGATE.paramForaudit=@"";
         [self.fakeData removeAllObjects];
         [self.bianHao  removeAllObjects];
         [self.dataing  removeAllObjects];
         [self.time     removeAllObjects];
         [self.uid      removeAllObjects];
-        [self getDataAsy:@"1"];
-        [self.tableView reloadData];
-    });
+        dispatch_async(dispatch_get_main_queue(),^{
+            [self getDataAsy:@"1"];
+            [self.tableView reloadData];
+        });
+    }
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -220,12 +233,15 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil]lastObject];
     }
+    if (![self.fakeData count]==0) {
+        
     NSDictionary *cbr = [self.uid objectAtIndex:indexPath.row];
     NSString *cbrName = (NSString *)[cbr objectForKey:@"userName_cn"];
     cell.myImg.image = [UIImage imageNamed:@"任务审核1.png"];
     cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
     cell.mylbl2.text = cbrName;
     cell.mylbl3.text = self.time [indexPath.row];
+    }
     return cell;
 
 }
