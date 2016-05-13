@@ -24,6 +24,9 @@
 #import "NotificationTableViewController.h"
 #import "NoticeSegViewController.h"
 #import "auditTableViewController.h"
+#import "AddDailyViewController.h"
+#import "publicNoticeTableViewController.h"
+#import "saleLeadsTableViewController.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define kHomeHeaderViewHeight 110
@@ -149,23 +152,23 @@
 - (void)setupMainView{
     UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,20,20)];
     [rightButton setImage:[UIImage imageNamed:@"daiban.png"]forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(searchprogram)forControlEvents:UIControlEventTouchUpInside];
+    [rightButton addTarget:self action:@selector(jumpAddDaily)forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     UIButton *rightButton3 = [[UIButton alloc]initWithFrame:CGRectMake(0,0,0,5)];
     UIBarButtonItem *rightItem3 = [[UIBarButtonItem alloc]initWithCustomView:rightButton3];
     UIButton *rightButton2 = [[UIButton alloc]initWithFrame:CGRectMake(0,10,20,20)];
     [rightButton2 setImage:[UIImage imageNamed:@"xiaoxi.png"]forState:UIControlStateNormal];
-    [rightButton2 addTarget:self action:@selector(searchprogram)forControlEvents:UIControlEventTouchUpInside];
+    [rightButton2 addTarget:self action:@selector(jumpGonggao)forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc]initWithCustomView:rightButton2];
     NSArray* array = @[rightItem,rightItem3,rightItem2];
     self.navigationItem.rightBarButtonItems= array;
 
     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,20,20)];
     [leftButton setImage:[UIImage imageNamed:@"app_activelog.png"]forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(searchprogram)forControlEvents:UIControlEventTouchUpInside];
+    [leftButton addTarget:self action:@selector(jumpXiaoShouXianSuo)forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
-    UIBarButtonItem *leftLabelItem2=[[UIBarButtonItem alloc] initWithTitle:@"活动日志" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *leftLabelItem2=[[UIBarButtonItem alloc] initWithTitle:@"销售线索" style:UIBarButtonItemStylePlain target:self action:nil];
     [leftLabelItem2 setTintColor:[UIColor whiteColor]];
     
     NSArray* leftarray = @[leftItem ,leftLabelItem2];
@@ -179,6 +182,25 @@
     [self.view addSubview:mainView];
     _mainView = mainView;
 }
+
+
+
+-(void) jumpAddDaily{
+    [self.navigationController pushViewController:[[AddDailyViewController alloc] init] animated:YES];
+    
+}
+
+-(void) jumpGonggao{
+    [self.navigationController pushViewController:[[publicNoticeTableViewController alloc] init] animated:YES];
+    
+}
+
+-(void) jumpXiaoShouXianSuo{
+    [self.navigationController pushViewController:[[saleLeadsTableViewController alloc] init] animated:YES];
+    
+}
+
+
 
 - (void)setupDataArray{
     NSArray *itemsArray = [SDGridItemCacheTool itemsArray];
