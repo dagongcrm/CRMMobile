@@ -15,7 +15,7 @@
 #import "AddDailyViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
-#import "trackCell.h"
+#import "reportCell.h"
 
 @interface DailyTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
@@ -28,6 +28,7 @@
 @property (strong,nonatomic) NSMutableArray *dailyObject;
 @property (strong,nonatomic) NSMutableArray *typeData;//type
 @property (strong,nonatomic) NSMutableArray *reportData;//report
+@property (strong,nonatomic) NSMutableArray *createData;//创建时间
 @property  NSInteger index;
 @property  UIViewController *uiview;
 
@@ -44,6 +45,7 @@
         self.workIdData = [[NSMutableArray alloc]init];//workid
         self.typeData = [[NSMutableArray alloc]init];//type
         self.reportData = [[NSMutableArray alloc]init];//report
+        self.createData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
     }
     return _fakeData;
@@ -63,6 +65,7 @@
     
     [self.reportData removeAllObjects];
     
+     [self.createData removeAllObjects];
     self.index =1;
     
     [self faker:@"1"];
@@ -159,7 +162,7 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"time";
+    NSString *sort = @"createTime";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&order=%@&sort=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
@@ -190,6 +193,7 @@
         NSString *workId = (NSString*)[listDic objectForKey:@"workStatementActionID"];
         NSString *type = (NSString *)[listDic objectForKey:@"type"];
         NSString *report = (NSString*)[listDic objectForKey:@"report"];
+        
         if(dailyreport.length==0){
         dailyreport=@"暂无数据";
         }else if(date.length==0){
@@ -204,6 +208,7 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
+        [self.createData addObject:(NSString*)[listDic objectForKey:@"createTime"]];
     }
     }
     return self.fakeData;
@@ -214,16 +219,17 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"trackCell";
-    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString * cellId = @"report";
+    reportCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"reportCell" owner:self options:nil]lastObject];
     }
-    NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
     cell.myImg.image = [UIImage imageNamed:@"日报1.png"];
-    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
-    //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
-    cell.mylbl2.text= testDetail;
+    cell.title.text= [self.fakeData objectAtIndex:indexPath.row];
+    NSString *createDetail =[@"创建日期:" stringByAppendingString:(NSString *)[self.createData objectAtIndex:indexPath.row]];
+    cell.content1.text = createDetail;
+     NSString *testDetail =[@"报告日期:" stringByAppendingString:(NSString *)[self.dateData objectAtIndex:indexPath.row]];
+    cell.content2.text= testDetail;
 
     return cell;
 }

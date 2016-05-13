@@ -15,7 +15,7 @@
 #import "AddMonthViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
-#import "trackCell.h"
+#import "reportCell.h"
 @interface MonthTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -26,6 +26,7 @@
 @property (strong,nonatomic) NSMutableArray *dateData;//shijian time
 @property (strong,nonatomic) NSMutableArray *typeData;//type
 @property (strong,nonatomic) NSMutableArray *reportData;//report
+@property (strong,nonatomic) NSMutableArray *createData;//创建时间
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
@@ -40,6 +41,7 @@
         self.workIdData = [[NSMutableArray alloc]init];//workid
         self.typeData = [[NSMutableArray alloc]init];//type
         self.reportData = [[NSMutableArray alloc]init];//report
+         self.createData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
     }
     return _fakeData;
@@ -56,7 +58,7 @@
     [self.typeData removeAllObjects];
     
     [self.reportData removeAllObjects];
-    
+    [self.createData removeAllObjects];
     self.index =1;
     
     [self faker:@"1"];
@@ -152,7 +154,7 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"time";
+    NSString *sort = @"createTime";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&page=%@&order=%@&sort=%@",sid,page,order,sort];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
@@ -187,6 +189,7 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
+        [self.createData addObject:(NSString*)[listDic objectForKey:@"createTime"]];
     }
     }
     return self.fakeData;
@@ -196,11 +199,14 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"trackCell";
-    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    static NSString * cellId = @"report";
+    reportCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"reportCell" owner:self options:nil]lastObject];
     }
+    cell.myImg.image = [UIImage imageNamed:@"月报1.png"];
+    cell.title.text= [self.fakeData objectAtIndex:indexPath.row];
     //换算多少月
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -215,63 +221,19 @@
         NSRange range1 = [months rangeOfString:@"月"];//匹配得到的下标
         NSRange range2 = [months rangeOfString:@"日"];
         NSLog(@"rang:%@",NSStringFromRange(range));
-//        string = [string substringToIndex:7];//截取掉下标7之后的字符串
         NSString * str = [months substringToIndex:range1.location];//截取范围类的字符串
         NSLog(@"截取的值为：%@",str);
-       NSString *mon =  [str substringFromIndex:range.location+1];
+        NSString *mon =  [str substringFromIndex:range.location+1];
         NSLog(@"截取的值为：%@",mon);
         month = [mon intValue];
-        
     }
-    //    NSCalendar *gregorian = [NSCalendar currentCalendar];
-    //    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
-    //    NSInteger monthofyear = [weekOfYearComponents weekOfYear];
-    NSString *testDetail1 =[@"   报告日期:" stringByAppendingString:months];
+    NSString *yearOf = [[months substringToIndex:4] stringByAppendingString:@"年"];
     NSString *monthes = [NSString stringWithFormat:@"%d",month];
-    NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
-    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
-    [cell.detailTextLabel setText:testDetail];
-    cell.myImg.image = [UIImage imageNamed:@"月报1.png"];
-//    CGSize itemSize = CGSizeMake(20, 20);
-//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-//    [cell.myImg.image drawInRect:imageRect];
-//    cell.myImg.image = UIGraphicsGetImageFromCurrentImageContext();
-    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
-    //    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
-    cell.mylbl2.text= testDetail;
-
-//    
-//    static NSString *cellId = @"mycell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-//    if (cell == nil)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-//    }
-//    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-//    cell.textLabel.text = self.fakeData[indexPath.row];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    //换算多少周
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"yyyy-MM-dd"];
-//    NSString *months = [self.dateData objectAtIndex:indexPath.row];
-//    NSDate *date = [formatter dateFromString:months];
-//    
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-//     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
-//      int month = [dateComponent month];
-//    
-////    NSCalendar *gregorian = [NSCalendar currentCalendar];
-////    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
-////    NSInteger monthofyear = [weekOfYearComponents weekOfYear];
-//    NSString *testDetail1 =[@"   报告日期:" stringByAppendingString:months];
-//    NSString *monthes = [NSString stringWithFormat:@"%d",month];
-//     NSString *testDetail2 =[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"];
-//    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
-//    [cell.detailTextLabel setText:testDetail];
+    NSString *reportDate =[yearOf stringByAppendingString:[[@"第" stringByAppendingString:monthes] stringByAppendingString:@"月"]];
+    NSString *createDetail =[@"创建日期:" stringByAppendingString:(NSString *)[self.createData objectAtIndex:indexPath.row]];
+    cell.content1.text = createDetail;
+    NSString *testDetail =[@"报告日期:" stringByAppendingString:reportDate];
+    cell.content2.text= testDetail;
     return cell;
 }
 

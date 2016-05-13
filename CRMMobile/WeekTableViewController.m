@@ -15,7 +15,7 @@
 #import "AddWeekViewController.h"
 #import "UIImage+Tint.h"
 #import "MJRefresh.h"
-#import "trackCell.h"
+#import "reportCell.h"
 @interface WeekTableViewController (){
     UISearchDisplayController *mySearchDisplayController;
 }
@@ -26,6 +26,7 @@
 @property (strong,nonatomic) NSMutableArray *dateData;//shijian time
 @property (strong,nonatomic) NSMutableArray *typeData;//type
 @property (strong,nonatomic) NSMutableArray *reportData;//report
+@property (strong,nonatomic) NSMutableArray *createData;//创建时间
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @end
@@ -40,7 +41,7 @@
         self.workIdData = [[NSMutableArray alloc]init];//workid
         self.typeData = [[NSMutableArray alloc]init];//type
         self.reportData = [[NSMutableArray alloc]init];//report
-        
+        self.createData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
     }
     return _fakeData;
@@ -57,7 +58,7 @@
     [self.typeData removeAllObjects];
     
     [self.reportData removeAllObjects];
-    
+     [self.createData removeAllObjects];
     self.index =1;
     
     [self faker:@"1"];
@@ -151,7 +152,7 @@
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
     NSString *order = @"desc";
-    NSString *sort = @"time";
+    NSString *sort = @"createTime";
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&order=%@&sort=%@&page=%@",sid,order,sort,page];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
@@ -185,6 +186,7 @@
         [self.workIdData addObject:workId];
         [self.typeData addObject:type];
         [self.reportData addObject:report];
+        [self.createData addObject:(NSString*)[listDic objectForKey:@"createTime"]];
     }
     }
     return self.fakeData;
@@ -194,12 +196,14 @@
     return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"trackCell";
-    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    static NSString * cellId = @"report";
+    reportCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
-    }    cell.myImg.image = [UIImage imageNamed:@"周报1.png"];
-    cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"reportCell" owner:self options:nil]lastObject];
+    }
+    cell.myImg.image = [UIImage imageNamed:@"周报1.png"];
+    cell.title.text= [self.fakeData objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *weeks = [self.dateData objectAtIndex:indexPath.row];
@@ -207,38 +211,12 @@
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
     NSInteger weekofyear = [weekOfYearComponents weekOfYear];
+    NSString *yearOf = [[weeks substringToIndex:4] stringByAppendingString:@"年"];
     NSLog(@"weekofyear number = %lu" , weekofyear);
-    NSString *testDetail1 =[@"    报告日期:" stringByAppendingString:weeks];
-    NSString *weekends = [NSString stringWithFormat:@"%lu",weekofyear];
-    NSString *testDetail2= [[@"第" stringByAppendingString:weekends] stringByAppendingString:@"周"];
-    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
-    cell.mylbl2.frame = CGRectMake(65, 65, 400, 5);
-    cell.mylbl2.text= testDetail;
-//    static NSString *cellId = @"mycell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-//    if (cell == nil)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-//    }
-//    [cell.imageView setImage:[UIImage imageNamed:@"work-5"]];
-//    cell.textLabel.text = self.fakeData[indexPath.row];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    
-//    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    //换算多少周
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"yyyy-MM-dd"];
-//    NSString *weeks = [self.dateData objectAtIndex:indexPath.row];
-//    NSDate *date = [formatter dateFromString:weeks];
-//    NSCalendar *gregorian = [NSCalendar currentCalendar];
-//    NSDateComponents *weekOfYearComponents = [gregorian components:NSWeekOfYearCalendarUnit fromDate:date];
-//    NSInteger weekofyear = [weekOfYearComponents weekOfYear];
-//    NSLog(@"weekofyear number = %lu" , weekofyear);
-//    NSString *testDetail1 =[@"    报告日期:" stringByAppendingString:weeks];
-//    NSString *weekends = [NSString stringWithFormat:@"%lu",weekofyear];
-//    NSString *testDetail2= [[@"第" stringByAppendingString:weekends] stringByAppendingString:@"周"];
-//    NSString *testDetail = [testDetail2 stringByAppendingString:testDetail1];
-//    [cell.detailTextLabel setText:testDetail];
+    NSString *createDetail =[@"创建日期:" stringByAppendingString:(NSString *)[self.createData objectAtIndex:indexPath.row]];
+    cell.content1.text = createDetail;
+    NSString *testDetail =[@"报告日期:" stringByAppendingString:[yearOf stringByAppendingString:[[@"第" stringByAppendingString:[NSString stringWithFormat:@"%lu",weekofyear]] stringByAppendingString:@"周"]]];
+    cell.content2.text= testDetail;
     return cell;
 }
 
@@ -246,9 +224,7 @@
     return [self.fakeData count];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    //    if (tableView == self.tableView)
-    //    {
+{
     NSString *dailyreport  =[self.fakeData objectAtIndex:indexPath.row];
     NSString *time =[self.dateData objectAtIndex:indexPath.row];
     NSString *jihua       =[self.typeData objectAtIndex:indexPath.row];;

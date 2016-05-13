@@ -55,6 +55,8 @@
 		02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */; };
 		02F27A781CE45EF60000830B /* AddSaleOppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F27A761CE45EF60000830B /* AddSaleOppViewController.m */; };
 		02F27A791CE45EF60000830B /* AddSaleOppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F27A771CE45EF60000830B /* AddSaleOppViewController.xib */; };
+		02F27A7D1CE565990000830B /* reportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F27A7B1CE565990000830B /* reportCell.m */; };
+		02F27A7E1CE565990000830B /* reportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F27A7C1CE565990000830B /* reportCell.xib */; };
 		02F420DE1CD8BD0200F3D442 /* taskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420DC1CD8BD0200F3D442 /* taskCell.m */; };
 		02F420DF1CD8BD0200F3D442 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F420DD1CD8BD0200F3D442 /* taskCell.xib */; };
 		02F420E31CD8BDF100F3D442 /* trackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F420E11CD8BDF100F3D442 /* trackCell.m */; };
@@ -471,6 +473,9 @@
 		02F27A751CE45EF60000830B /* AddSaleOppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSaleOppViewController.h; sourceTree = "<group>"; };
 		02F27A761CE45EF60000830B /* AddSaleOppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSaleOppViewController.m; sourceTree = "<group>"; };
 		02F27A771CE45EF60000830B /* AddSaleOppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSaleOppViewController.xib; sourceTree = "<group>"; };
+		02F27A7A1CE565990000830B /* reportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reportCell.h; sourceTree = "<group>"; };
+		02F27A7B1CE565990000830B /* reportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reportCell.m; sourceTree = "<group>"; };
+		02F27A7C1CE565990000830B /* reportCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reportCell.xib; sourceTree = "<group>"; };
 		02F420DB1CD8BD0200F3D442 /* taskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskCell.h; sourceTree = "<group>"; };
 		02F420DC1CD8BD0200F3D442 /* taskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskCell.m; sourceTree = "<group>"; };
 		02F420DD1CD8BD0200F3D442 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
@@ -1800,6 +1805,9 @@
 		B87028131BD9E16600CD2FF2 /* taskReport */ = {
 			isa = PBXGroup;
 			children = (
+				02F27A7A1CE565990000830B /* reportCell.h */,
+				02F27A7B1CE565990000830B /* reportCell.m */,
+				02F27A7C1CE565990000830B /* reportCell.xib */,
 				020257021CDA0EEE000A045F /* TaskReportViewController.h */,
 				020257031CDA0EEF000A045F /* TaskReportViewController.m */,
 				39F797D91C05D125000D9A20 /* TaskReportTableViewController.h */,
@@ -2807,6 +2815,7 @@
 				C0D569321BD9B69100860B33 /* Notification.plist in Resources */,
 				020256F81CD9E941000A045F /* tongxunlu.png in Resources */,
 				1FEF62981C16B57000E6F4BF /* 12.JPG in Resources */,
+				02F27A7E1CE565990000830B /* reportCell.xib in Resources */,
 				39E729EF1C0697A50050D77F /* editTaskViewController.xib in Resources */,
 				1FEF629C1C16B57000E6F4BF /* 16.JPG in Resources */,
 				C0EB5CA11CBDFBC100AED5FD /* renwugenzong.png in Resources */,
@@ -3081,6 +3090,7 @@
 				1FEF623F1C16ADDA00E6F4BF /* UIViewAdditions.m in Sources */,
 				39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */,
 				02F651091CDC1C5800C355D7 /* LianXiController.m in Sources */,
+				02F27A7D1CE565990000830B /* reportCell.m in Sources */,
 				1FEF62511C16AE4900E6F4BF /* MeUser.m in Sources */,
 				C0E4CD761CBCE2B100F7B2E0 /* TADotView.m in Sources */,
 				C0D68C3D1BD8EA20009CEC23 /* main.m in Sources */,
