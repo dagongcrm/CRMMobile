@@ -125,7 +125,6 @@
         [self getDataAsy:@"1"];
         [self.tableView reloadData];
     });
-    
 }
 
 - (void)viewDidLoad {

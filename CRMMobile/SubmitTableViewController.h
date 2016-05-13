@@ -10,4 +10,5 @@
 
 @interface SubmitTableViewController : UITableViewController
 
+-(void) CAReload;
 @end
