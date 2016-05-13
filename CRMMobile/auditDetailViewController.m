@@ -324,6 +324,7 @@ NSString *userName1;
 //                        auditTableViewController *mj = [[auditTableViewController alloc] init];
 //                        [self.navigationController pushViewController:mj animated:YES];
                      [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
+                    APPDELEGATE.paramForaudit=@"fromAuditDetail";
 //                    }
                     
                     [alert show];

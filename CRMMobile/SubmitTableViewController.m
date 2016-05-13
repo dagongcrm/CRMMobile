@@ -254,10 +254,12 @@
     if (cell==nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"taskCell" owner:self options:nil] lastObject];
     }
+    if(![self.fakeData count]==0){
     cell.myImg.image = [UIImage imageNamed:@"任务提交1.png"];
     cell.mylbl1.text = [self.fakeData objectAtIndex:indexPath.row];
     cell.mylbl2.text = self.dataing[indexPath.row];
     cell.mylbl3.text = self.time [indexPath.row];
+    }
     return cell;
 }
 
