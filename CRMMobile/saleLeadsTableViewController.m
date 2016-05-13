@@ -29,7 +29,6 @@
     if (!_entities) {
         self.entities = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-//        [self faker:@"2"];
     }
     return _entities;
 }
@@ -40,7 +39,6 @@
     [self faker:@"1"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
         [self.tableView reloadData];
         
     });
@@ -100,33 +98,11 @@
                                  target:self
                                  action:@selector(addSaleOpp:)];
     self.navigationItem.rightBarButtonItem = rightAdd;
+    //去除返回按钮的文本
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self setExtraCellLineHidden:self.tableView];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-    button.frame = CGRectMake(0, 0, 20, 20);
-    
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                   target:nil action:nil];
-    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
     }
-
-- (void)ResView
-{
-    for (UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if ([controller isKindOfClass:[CRMTableViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-}
 
 -(void)setExtraCellLineHidden: (UITableView *)tableView
 {
@@ -211,14 +187,7 @@
     [self.navigationController pushViewController:detailSaleLeads animated:NO];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if ([APPDELEGATE.deviceCode isEqualToString:@"5"]) {
-//        return 50;
-//    }else{
-//        return 60;
-//    }
     return 70;
 }
-
-
 
 @end

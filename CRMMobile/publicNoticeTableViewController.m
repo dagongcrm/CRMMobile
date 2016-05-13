@@ -54,11 +54,10 @@
     [self setupRefresh];
     self.entities = [[NSMutableArray alloc]init];
     [self faker:@"1"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"公告";
+    //去除返回按钮的文本
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self setExtraCellLineHidden:self.tableView];
 }
 // hide the extraLine隐藏分割线
@@ -184,22 +183,6 @@
     cell.mylbl2.text= [[self.entities objectAtIndex:indexPath.row] publishContent];
     
     return cell;
-    
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-//    cell.imageView.image=[UIImage imageNamed:@"app_item_announcement.png"];
-//    CGSize itemsize=CGSizeMake(30, 30);
-//    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
-//    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
-//    [cell.imageView.image drawInRect:imageRect];
-//    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

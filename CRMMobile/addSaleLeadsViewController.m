@@ -14,9 +14,9 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "MarketViewController.h"
+#import "NullString.h"
 
 @interface addSaleLeadsViewController ()
-//@property (weak, nonatomic) IBOutlet UITextField *saleLeads;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *customerName;
@@ -50,7 +50,6 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){0.1,0,0,0.1});
     
-    
     [self.leadsAdd.layer setBorderColor:color];
     self.leadsAdd.layer.borderWidth = 1;
     self.leadsAdd.layer.cornerRadius = 6;
@@ -63,51 +62,15 @@
     self.navigationItem.backBarButtonItem = item;
     //设置返回键的颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image = [[UIImage imageNamed:@"back002"] imageWithTintColor:[UIColor whiteColor]];
-//    button.frame = CGRectMake(0, 0, 20, 20);
-//    
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(ResView) forControlEvents:UIControlEventTouchUpInside];
-//    button.titleLabel.font = [UIFont systemFontOfSize:16];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-//                                                                                   target:nil action:nil];
-//    negativeSpacer.width = -5;//这个数值可以根据情况自由变化
-//    self.navigationItem.leftBarButtonItems = @[negativeSpacer,rightItem];
-//    //    self.tableView.delegate=self;
-//    //    self.tableView.dataSource=self;
-    
     }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-//- (void)ResView
-//{
-//    for (UIViewController *controller in self.navigationController.viewControllers)
-//    {
-//        if ([controller isKindOfClass:[saleLeadsTableViewController class]])
-//        {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
-//}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 //手机号码验证
-
 - (IBAction)save:(id)sender {
-    
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -123,12 +86,26 @@
     NSLog(@"leadsAdd1leadsAdd1leadsAdd1%@",leadsAdd1);
 
     NSString *param=@"";
+    
+    
     if ([_saleLeads.index isEqualToString:@"addSaleLeads"]) {
+        if ([NullString isBlankString:customerNameStr]) {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                        [alertView show];
+        }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@",sid,customerName,customerNameStr,leadsAdd1];
+        }
     }else{
+        if ([NullString isBlankString:customerNameStr]) {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@&userID=%@",sid,customerName,customerNameStr,leadsAdd1,saleClubID,creatingTime,userID];
+        }
     }
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
