@@ -12,6 +12,7 @@
 #import "SCLAlertView.h"
 #import "MJRefresh.h"
 #import "mailCell.h"
+#import "NullString.h"
 @interface MailListTableViewController ()
 @property (nonatomic, strong) NSMutableArray *fakeData;//
 @property (nonatomic, strong) NSMutableArray *contactData;//联系方式2
@@ -44,9 +45,27 @@
         self.contactIDData = [[NSMutableArray alloc]init];
         self.customerIDData = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-        
     }
     return _fakeData;
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [self.fakeData removeAllObjects];
+    [self.contactData removeAllObjects];
+    [self.customerNameStrData removeAllObjects];
+    [self.phoneData removeAllObjects];
+    [self.contactIDData removeAllObjects];
+    [self.customerIDData removeAllObjects];
+    self.index =1;
+    [self faker:@"1"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView reloadData];
+        
+    });
+    
 }
 
 - (void)viewDidLoad {
@@ -65,6 +84,7 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
+
 - (void)setupRefresh
 {
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];//下拉刷新
@@ -107,7 +127,7 @@
 -(NSMutableArray *)faker:(NSString *)page{
     NSLog(@"page==>%@",page);
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!datagrid.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!datagrid1.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -123,8 +143,7 @@
     }else{
         NSDictionary *contactDic  = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
         NSArray *list = [contactDic objectForKey:@"obj"];
-        NSLog(@"pagecountpagecountpagecountpagecount==>>%lu",(unsigned long)[list count]);
-        
+        NSLog(@"pagecount==>>%lu",(unsigned long)[list count]);
         if(![list count] ==0)
         {
             self.tableView.footerRefreshingText=@"加载中";
@@ -133,41 +152,41 @@
             self.tableView.footerRefreshingText = @"没有更多数据";
         }
         for (int i = 0;i<[list count];i++) {
-            NSDictionary *listDic =[list objectAtIndex:i];
-            NSString *contactState = (NSString *)[listDic objectForKey:@"contactState"];
-            if ([contactState isEqualToString:@"huoYue"]) {
+                NSDictionary *listDic =[list objectAtIndex:i];
                 [self.userName addObject:listDic];
-                NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];//1
-                NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];//2
-                NSString *callphone = (NSString *)[listDic objectForKey:@"cellPhone"];//2-
-                NSString *contactID = (NSString *)[listDic objectForKey:@"contactID"];//3
-                NSString *customerID = (NSString *)[listDic objectForKey:@"customerID"];//4
+                NSString *teamname = (NSString *)[listDic objectForKey:@"contactName"];
+                NSString *telePhone = (NSString *)[listDic objectForKey:@"telePhone"];
+                NSString *callphone = (NSString *)[listDic objectForKey:@"cellPhone"];
+                NSString *contactID = (NSString *)[listDic objectForKey:@"contactID"];
+                NSString *customerID = (NSString *)[listDic objectForKey:@"customerID"];
                 NSString *customerNameStr = (NSString *)[listDic objectForKey:@"customerNameStr"];
                 NSString *phoneTime = (NSString *)[listDic objectForKey:@"phoneTime"];
-                if (phoneTime  == nil || phoneTime == NULL) {
+            
+                if ([NullString isBlankString:phoneTime]) {
                     [self.phoneData addObject:@"暂无通话记录"];
-                }else{
-                    [self.phoneData addObject:phoneTime];
                 }
-                if (teamname==nil||teamname==NULL) {
+            
+                if ([NullString isBlankString:teamname]) {
                     teamname=@"暂无该联系人姓名";
                 }
-                if (telePhone==nil||telePhone==NULL) {
+                if ([NullString isBlankString:telePhone]) {
                     telePhone=@"暂无该联系人电话";
                 }
-                if (customerNameStr==nil||customerNameStr==NULL) {
+            
+                if ([NullString isBlankString:customerNameStr]) {
                     customerNameStr=@"暂无企业信息";
                 }
-                if (contactID==nil||contactID==NULL) {
+                if ([NullString isBlankString:contactID]) {
                     contactID=@"null";
                 }
+            
                 [self.fakeData addObject:teamname];//1
                 [self.contactData addObject:telePhone];//2
                 [self.contactIDData addObject:contactID];//3
                 [self.customerIDData addObject:customerID];//4
                 [self.customerNameStrData addObject:customerNameStr];
+            
             }
-        }
     }
     return self.fakeData;
 }
@@ -181,6 +200,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"mailCell";
     mailCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -206,14 +226,9 @@
     self.phone= [self.contactData objectAtIndex:indexPath.row];
     self.contactID = [self.contactIDData objectAtIndex:indexPath.row];
     self.customerID = [self.customerIDData objectAtIndex:indexPath.row];
-//    NSLog(@"ggggggggggggg%@",self.phoneData);
-//   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://10086"]];
-//    NSLog(@"我们一起拨打电话吧%@",self.phone);
-//
     _alertPhone = self.phone;
     [self  callLog];
-    [self callYou
-     ];
+    [self callYou];
 }
 -(void)callLog{
     //    [self.tableView reloadData];//重新加载数据

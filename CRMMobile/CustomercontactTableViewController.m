@@ -126,8 +126,7 @@
     [super didReceiveMemoryWarning];
 }
 
--(NSMutableArray *) faker: (NSString *) page{
-   
+-(NSMutableArray *) faker: (NSString *) page{   
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mcustomerContactAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];

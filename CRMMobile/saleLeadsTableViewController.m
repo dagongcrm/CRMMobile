@@ -16,6 +16,7 @@
 #import "detailSaleLeadsViewController.h"
 #import "UIImage+Tint.h"
 #import "CRMTableViewController.h"
+#import "saleLeadsCell.h"
 @interface saleLeadsTableViewController ()
 @property (strong, nonatomic) NSMutableArray *entities;
 @property  NSInteger index;
@@ -24,6 +25,7 @@
 
 @implementation saleLeadsTableViewController
 @synthesize saleLead = _saleLead;
+
 - (NSMutableArray *)fakeData
 {
     if (!_entities) {
@@ -32,6 +34,7 @@
     }
     return _entities;
 }
+
 -(void) viewWillAppear:(BOOL)animated{
     
     [self.entities removeAllObjects];
@@ -170,15 +173,21 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    static NSString * cellId = @"saleLead";
+    saleLeadsCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"saleLeadsCell" owner:self options:nil]lastObject];
     }
-    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] customerNameStr]];
-    [cell.imageView setImage:[UIImage imageNamed:@"xiaosxs.png"]];
+    
+    cell.myImg.image = [UIImage imageNamed:@"xiaosxs.png"];
+    cell.lbl1.text= [[self.entities objectAtIndex:indexPath.row] customerNameStr];
+    cell.lbl2.text= [@"销售线索：" stringByAppendingString:[[self.entities objectAtIndex:indexPath.row] salesLeads]];
+    
     return cell;
+    
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     saleLeads *saleLeadsEntity =[self.entities objectAtIndex:indexPath.row];

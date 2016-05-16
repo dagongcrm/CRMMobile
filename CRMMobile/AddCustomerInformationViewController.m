@@ -12,22 +12,15 @@
 #import "config.h"
 #import "options.h"
 #import "ZSYPopoverListView.h"
-
-
+#import "NullString.h"
 
 @interface AddCustomerInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *customerName;
 //@property (weak, nonatomic) IBOutlet UITextField *CustomerAddress;
-
 @property (weak, nonatomic) IBOutlet UITextView *CustomerAddress;
-
-
-
 @property (weak, nonatomic) IBOutlet UITextField *Phone;
-
 //用于判断下拉选
 @property (strong,nonatomic)  NSString    *select; // 所属行业
-
 //选择 所属行业
 @property (strong,nonatomic)  NSMutableArray    *selectHYForShow; // 所属行业
 @property (strong,nonatomic)  NSMutableArray    *selectHYIdForParam;//所属行业编号
@@ -37,7 +30,8 @@
 @property (nonatomic, retain) NSIndexPath       *selectedIndexPath;
 @property (weak, nonatomic) IBOutlet UIButton *chooseHYButton;
 @property (strong,nonatomic) NSString  *chooseHYID;//选择的 行业ID 用于提交
-
+@property (strong,nonatomic) NSString  *hangYID;
+@property (strong,nonatomic) NSString  *hangYContent;
 //选择 企业类型
 @property (weak, nonatomic) IBOutlet UIButton *chooseQYLXButton;
 @property (strong,nonatomic)  NSMutableArray    *selectQYLXForShow; // 企业类型
@@ -45,8 +39,6 @@
 @property (strong,nonatomic)  NSArray           *selectQYLX;  //选择的 企业类型名称
 @property (strong,nonatomic)  NSArray           *selectQYLXId; //选择的 企业类型ID
 @property (strong,nonatomic) NSString  *chooseQYLXID;//选择的 行业ID 用于提交
-
-
 //选择客户类别
 @property (weak, nonatomic) IBOutlet UIButton *chooseKHLBButton;
 @property (strong,nonatomic)  NSMutableArray    *selectKHLBForShow; // 客户类别
@@ -54,8 +46,6 @@
 @property (strong,nonatomic)  NSArray           *selectKHLB;  //选择的 客户别累名称
 @property (strong,nonatomic)  NSArray           *selectKHLBId; //选择的 客户类别ID
 @property (strong,nonatomic) NSString  *chooseKHLBID;//选择的 客户类别ID 用于提交
-
-
 //选择省份
 @property (weak, nonatomic) IBOutlet UIButton *chooseSFButton;
 @property (strong,nonatomic)  NSMutableArray    *selectSFForShow; // 省份
@@ -63,11 +53,6 @@
 @property (strong,nonatomic)  NSArray           *selectSF;  //选择的 省份名称
 @property (strong,nonatomic)  NSArray           *selectSFId; //选择的 省份ID
 @property (strong,nonatomic) NSString  *chooseSFID;//选择的 省份ID 用于提交
-
-
-
-
-
 @end
 
 @implementation AddCustomerInformationViewController
@@ -79,7 +64,6 @@
 - (IBAction)selectSF:(id)sender {
     _select=@"SF";
     [self selectSFArray];
-    
     self.selectSFForShow=[[NSMutableArray alloc] init];
     self.selectSFIdForParam=[[NSMutableArray alloc] init];
     ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 300)];
@@ -89,7 +73,7 @@
     listView.delegate = self;
     [listView show];
 }
-//为 省份赋值
+//为省份赋值
 -(void) selectSFArray
 {
     NSError *error;
@@ -98,7 +82,6 @@
     _uid=[[NSMutableArray alloc] init];
     NSString *typeID = @"('shengFen')";
     NSArray *list = [self list:typeID];
-    
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         NSLog(@"%@",listdic);
@@ -106,7 +89,6 @@
         NSLog(@"%@",submitID);
         NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
         NSLog(@"%@",teamname);
-        
         [nextFlowSFName     addObject:teamname];
         [nextFlowSFId  addObject:submitID];
     }
@@ -118,7 +100,6 @@
 - (IBAction)selectHY:(id)sender {
     _select=@"HY";
     [self selectHYArray];
-    
     self.selectHYForShow=[[NSMutableArray alloc] init];
     self.selectHYIdForParam=[[NSMutableArray alloc] init];
     ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
@@ -127,8 +108,6 @@
     listView.datasource = self;
     listView.delegate = self;
     [listView show];
-
-    
 }
 
 //为所属行业赋值
@@ -144,12 +123,12 @@
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         NSLog(@"%@",listdic);
-//        [self.uid addObject:listdic];
         NSString *submitID = (NSString *)[listdic objectForKey:@"bianHao"];
         NSLog(@"%@",submitID);
+        self.hangYID = submitID;
         NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
         NSLog(@"%@",teamname);
-        
+        self.hangYContent = teamname;
         [nextFlowHYName     addObject:teamname];
         [nextFlowHYId  addObject:submitID];
     }
@@ -161,7 +140,6 @@
 - (IBAction)selectQYLX:(id)sender {
     _select=@"QYLX";
     [self selectQYLXArray];
-    
     self.selectQYLXForShow=[[NSMutableArray alloc] init];
     self.selectQYLXIdForParam=[[NSMutableArray alloc] init];
     ZSYPopoverListViewSingle *listView = [[ZSYPopoverListViewSingle alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
@@ -180,11 +158,9 @@
     _uid=[[NSMutableArray alloc] init];
     NSString *typeID = @"('qiYeLX')";
     NSArray *list = [self list:typeID];
-    
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listdic = [list objectAtIndex:i];
         NSLog(@"%@",listdic);
-        //        [self.uid addObject:listdic];
         NSString *submitID = (NSString *)[listdic objectForKey:@"detailID"];
         NSLog(@"%@",submitID);
         NSString *teamname = (NSString *)[listdic objectForKey:@"detailName"];
@@ -238,12 +214,7 @@
 
 - (NSArray *)list:(NSString *)typeID{
     NSError *error;
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    //    NSString *ftn_HandleResult=myDelegate.options.ftn_HandleResult;
-    //    NSString *flo_ID=myDelegate.options.flo_ID;
-    //    NSString *templateNodeID =myDelegate.options.templateNodeID;
-    //    NSString *chooseHYIDs = myDelegate.options.chooseHYIDs;
+    NSString *sid = [[APPDELEGATE.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
     NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mdictionaryDetailAction!datagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
@@ -254,7 +225,6 @@
     NSDictionary *nextFlow = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSLog(@"%@",nextFlow);
     NSArray *list = [nextFlow objectForKey:@"obj"];
-    
     return list;
 }
 
@@ -272,9 +242,7 @@
     }else{
         return nil;
     }
-//    return [_selectHY count];
 }
-
 
 //single choose
 - (NSInteger)popoverListViewSingle:(ZSYPopoverListViewSingle *)tableView numberOfRowsInSection:(NSInteger)section
@@ -423,13 +391,8 @@
         NSLog(@"self.selectSFIdForParam%@",self.selectSFIdForParam);
         [self buttonInputLabel:tableView];
     }
-    
 
 }
-
-
-
-
 
 - (UITableViewCell *)popoverListView:(ZSYPopoverListView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -476,16 +439,6 @@
     }else{
         return nil;
     }
-
-//    static NSString *identifier = @"identifier";
-//    UITableViewCell *cell = [tableView dequeueReusablePopoverCellWithIdentifier:identifier];
-//    if (nil == cell)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    }
-//    cell.selected = YES;
-//    cell.textLabel.text = _selectHY[indexPath.row];
-//    return cell;
 }
 
 //点击添加选择的人员
@@ -522,7 +475,6 @@
 //取消选择时的操作
 - (void)popoverListView:(ZSYPopoverListView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     
     self.selectedIndexPath = indexPath;
     [self.selectHYForShow    removeObject:[self.selectHY   objectAtIndex:indexPath.row]];
@@ -650,9 +602,13 @@
 
 //添加
 - (IBAction)add:(id)sender {
-       NSString *hy=@"";   //所属行业
+    NSString *hy=@"";   //所属行业
+    NSString *hangY=@"";
     for (int i=0; i<[self.selectHYForShow count]; i++) {
         hy = [self.selectHYForShow objectAtIndex:i];
+        hangY = [self.selectHYIdForParam objectAtIndex:i];
+        NSLog(@"-------->%@",hy);
+        NSLog(@"+++++++>%@",hangY);
     }
     NSString *qylx=@"";   //所属行业
     for (int i=0; i<[self.selectQYLXIdForParam count]; i++) {
@@ -669,17 +625,37 @@
     NSString *cn=[_customerName text];
     NSString *ca=[_CustomerAddress text];
     NSString *p=[_Phone text];
+    
     //验证
-    if (_customerName.text.length==0) {
+    if ([NullString isBlankString:self.customerName.text]) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-
-    }else if(_CustomerAddress.text.length==0){
+    }else if([NullString isBlankString:hy]||[NullString isBlankString:hangY]){
+        [self.chooseHYButton setTitle:@"请选择" forState:UIControlStateNormal];
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"行业名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:qylx]){
+        [self.chooseQYLXButton setTitle:@"请选择" forState:UIControlStateNormal];
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"企业类型不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString: khlb]){
+        [self.chooseKHLBButton setTitle:@"请选择" forState:UIControlStateNormal];
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"客户类别不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:sf]){
+        [self.chooseSFButton setTitle:@"请选择" forState:UIControlStateNormal];
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"省份不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:self.CustomerAddress.text]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"客户地址不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if(_Phone.text.length==0){
+    }else if([NullString isBlankString:self.Phone.text]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"联系电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
@@ -687,9 +663,8 @@
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-
-    }
-    else{
+    }else{
+        
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -709,8 +684,6 @@
     
     if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"添加成功！"]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//         CustomerInformationTableViewController *mj = [[CustomerInformationTableViewController alloc] init];
-//        [self.navigationController pushViewController:mj animated:YES];
         [self.navigationController popViewControllerAnimated:YES];
         [alert show];
     }else{
@@ -723,11 +696,7 @@
 }
 
 - (void)viewDidLoad {
-    
     //为下拉选 赋值
-//    [self selectHYArray];
-//    [self selectQYLXArray];
-    
     self.nextArray  = self.nextArray;
     selectPicker.delegate   = self;
     selectPicker.dataSource = self;
@@ -740,12 +709,10 @@
     self.CustomerAddress.layer.borderWidth = 1;
     self.CustomerAddress.layer.cornerRadius = 6;
     self.CustomerAddress.layer.masksToBounds = YES;
-
-   
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 @end

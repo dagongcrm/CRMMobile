@@ -13,7 +13,7 @@
 #import "SubmitTableViewController.h"
 #import "submitTaskEntity.h"
 #import "selectListTableViewController.h"
-
+#import "NullString.h"
 @interface editTaskViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *qiYeMC;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -89,12 +89,6 @@
     appDelegate.controllerJudge  = @"editUser";
     selectListTableViewController *role = [[selectListTableViewController alloc] init];
     [self.navigationController pushViewController: role animated:true];
-//    ZSYPopoverListView *listView = [[ZSYPopoverListView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    listView.titleName.text = @"企业选择";
-//    listView.backgroundColor=[UIColor blueColor];
-//    listView.datasource = self;
-//    listView.delegate = self;
-//    [listView show];
 }
 
 
@@ -178,12 +172,7 @@
         [nextFlowUserName     addObject:teamname];
         [nextFlowUserId  addObject:submitID];
     }
-    //    for(NSDictionary *key in nextFlow)
-    //    {
-    //        NSLog(@"%@",key);
-    //        [nextFlowUserName   addObject:(NSString *)[key objectForKey:@"qiYeMC"]];
-    //        [nextFlowUserId     addObject:(NSString *)[key objectForKey:@"bianHao"]];
-    //    }
+
     _selectUser= [nextFlowUserName copy];
     _selectUserId=[nextFlowUserId copy];
     }
@@ -231,15 +220,7 @@
     }
     
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -458,20 +439,31 @@
 }
 
 - (IBAction)save:(id)sender {
-    if ([self validateMobile:self.LianXiFS.text]||[self validatePhone:self.LianXiFS.text]||[self validateTelphone:self.LianXiFS.text]) {
+   
+        if([NullString isBlankString:self.HeTongJE.text]){
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"合同金额的不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }else if([NullString isBlankString:self.LianXiFS.text]){
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"联系方式的不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }else if (!([self validateMobile:self.LianXiFS.text]||[self validatePhone:self.LianXiFS.text]||[self validateTelphone:self.LianXiFS.text])) {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"温馨提示" message:@"联系方式的格式错误！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }else{
+            
         NSError *error;
-        
         AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
         NSString *workId = myDelegate.judgeSubmitID;
         NSLog(@"%@",workId);
         NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-        //NSURL *URL=[NSURL URLWithString:@"http://172.16.21.49:8080/dagongcrm/mJobSubmissionAction!add.action?"];
         NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!edit.action?"]];
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
         request.timeoutInterval=10.0;
         request.HTTPMethod=@"POST";
         NSString *qiYeBH1  = [_roleEntity.roleIdChoose substringWithRange:NSMakeRange(0, [_roleEntity.roleIdChoose length] - 1)];
-        
         NSString *yeWuZLBH=@"";
         NSString *qiYeMC = [_roleEntity.strChoose substringWithRange:NSMakeRange(0, [_roleEntity.strChoose length] - 1)];
         NSString *yeWuZLMC=@"";
@@ -479,12 +471,9 @@
         NSString *hangYeBH = @"";
         for(int i=0;i<[self.selectUserForShow count];i++){
             yeWuZLBH= [self.selectUserIdForParam objectAtIndex:i];
-            //        qiYeBH = [self.selectUserIdForParamQiYe objectAtIndex:i];
-            //        qiYeMC = [self.selectUserForShowQiYe objectAtIndex:i];
             yeWuZLMC = [self.selectUserForShow objectAtIndex:i];
             
         }
-        
         if (yeWuZLBH == @"") {
             AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
             yeWuZLBH = appDelegate.yeWuZLBH;
@@ -492,9 +481,7 @@
         }
         for(int i=0;i<[self.selectUserForShowQiYe count];i++){
             hangYeBH= [self.selectUserIdForParamQiYe objectAtIndex:i];
-            
             hangYeFLMC = [self.selectUserForShowQiYe objectAtIndex:i];
-            
         }
         if (hangYeBH == @"") {
             AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -524,8 +511,6 @@
         
         if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            SubmitTableViewController *mj = [[SubmitTableViewController alloc] init];
-//            [self.navigationController pushViewController:mj animated:YES];
                 APPDELEGATE.customerForAddSaleLead=@"fromEdit";
              [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]  animated:YES];
             [alert show];
@@ -535,11 +520,6 @@
             
         }
         }
-
-    }else{
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"联系方式格式错误！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
     }
     }
 

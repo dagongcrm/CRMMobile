@@ -50,6 +50,8 @@
 		02085FA01C1FC1D60086F765 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9A1C1FC1D60086F765 /* SCLButton.m */; };
 		02085FA11C1FC1D60086F765 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9C1C1FC1D60086F765 /* SCLAlertViewResponder.m */; };
 		02085FA21C1FC1D60086F765 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */; };
+		020AE8CA1CE9AEBD004B6A05 /* saleLeadsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AE8C81CE9AEBD004B6A05 /* saleLeadsCell.m */; };
+		020AE8CB1CE9AEBE004B6A05 /* saleLeadsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020AE8C91CE9AEBD004B6A05 /* saleLeadsCell.xib */; };
 		027B7C3E1C202F8200C02991 /* login6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 027B7C3D1C202F8200C02991 /* login6p.png */; };
 		02EE51E51CB642C700B10695 /* getLocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EE51E41CB642C700B10695 /* getLocationUtil.m */; };
 		02F05FDE1CD9DE0700B2E2E8 /* AboutOfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F05FDD1CD9DE0700B2E2E8 /* AboutOfView.m */; };
@@ -465,6 +467,9 @@
 		02085F9D1C1FC1D60086F765 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
 		02085F9E1C1FC1D60086F765 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
 		020AE62D1CCDEC8E00B764CB /* marketChanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = marketChanceCell.xib; sourceTree = "<group>"; };
+		020AE8C71CE9AEBD004B6A05 /* saleLeadsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saleLeadsCell.h; sourceTree = "<group>"; };
+		020AE8C81CE9AEBD004B6A05 /* saleLeadsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saleLeadsCell.m; sourceTree = "<group>"; };
+		020AE8C91CE9AEBD004B6A05 /* saleLeadsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = saleLeadsCell.xib; sourceTree = "<group>"; };
 		027B7C3D1C202F8200C02991 /* login6p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login6p.png; sourceTree = "<group>"; };
 		02EE51E31CB642C700B10695 /* getLocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getLocationUtil.h; sourceTree = "<group>"; };
 		02EE51E41CB642C700B10695 /* getLocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getLocationUtil.m; sourceTree = "<group>"; };
@@ -2429,6 +2434,9 @@
 		C0EB5CBF1CBE353A00AED5FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				020AE8C71CE9AEBD004B6A05 /* saleLeadsCell.h */,
+				020AE8C81CE9AEBD004B6A05 /* saleLeadsCell.m */,
+				020AE8C91CE9AEBD004B6A05 /* saleLeadsCell.xib */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2919,6 +2927,7 @@
 				B8EDAD871C1936E300865E7C /* ReminderTableViewController.xib in Resources */,
 				1FEF628F1C16B42500E6F4BF /* submit11.png in Resources */,
 				1FEF625D1C16AEFE00E6F4BF /* addSaleLeadsViewController.xib in Resources */,
+				020AE8CB1CE9AEBE004B6A05 /* saleLeadsCell.xib in Resources */,
 				C0FFFD151CBF9AA300CF10CF /* xiaoxi.png in Resources */,
 				C0D569311BD9B69100860B33 /* CRM.plist in Resources */,
 				02F27A791CE45EF60000830B /* AddSaleOppViewController.xib in Resources */,
@@ -3089,6 +3098,7 @@
 				39E729EE1C0697A50050D77F /* editTaskViewController.m in Sources */,
 				1FEF623F1C16ADDA00E6F4BF /* UIViewAdditions.m in Sources */,
 				39F797B01C05D06F000D9A20 /* WorkTableViewController.m in Sources */,
+				020AE8CA1CE9AEBD004B6A05 /* saleLeadsCell.m in Sources */,
 				02F651091CDC1C5800C355D7 /* LianXiController.m in Sources */,
 				02F27A7D1CE565990000830B /* reportCell.m in Sources */,
 				1FEF62511C16AE4900E6F4BF /* MeUser.m in Sources */,

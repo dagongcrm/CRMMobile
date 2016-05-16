@@ -21,34 +21,21 @@
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddCustomerCallPlanViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-
-
 @property (weak, nonatomic) IBOutlet UITextView *theme;
-
-
 @property (weak, nonatomic) IBOutlet UITextField *visitDate;  //拜访时间
-
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;  //受访人电话
-
 @property (weak, nonatomic) IBOutlet UITextView *address;
-
 @property (weak, nonatomic) IBOutlet UITextField *respondent;
 @property (strong, nonatomic) IBOutlet UITextView *visitProfile;
-
 @property (strong, nonatomic) IBOutlet UITextView *result;
 @property (strong, nonatomic) IBOutlet UITextView *customerRequirements;
 @property (strong, nonatomic) IBOutlet UITextView *customerChange;
-
 @property (weak, nonatomic) IBOutlet UITextField *khmc;
 - (IBAction)selectDate:(id)sender;
 - (IBAction)cancel:(id)sender;
 
 @property (strong,nonatomic) NSString  *accessMethodID;//选择的拜访方式ID 用于提交
-
-
 @property (strong, nonatomic) HZQDatePickerView *pikerView;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *accessMethod;   //访问方式
 
 //下拉选
@@ -58,9 +45,6 @@
 @property (strong,nonatomic)  NSArray           *selectBFFSId; //选择的 拜访方式ID
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSForShow; // 拜访方式
 @property (strong,nonatomic)  NSMutableArray    *selectBFFSIdForParam;//拜访方式编号
-
-
-
 @end
 
 @implementation AddCustomerCallPlanViewController
@@ -76,7 +60,6 @@
     NSString *theme=_theme.text;
     NSString *visitDate=_visitDate.text;
     NSString *respondentPhone=_respondentPhone.text;
-   
     
     NSString *respondent=_respondent.text;
     NSString *address=_address.text;
@@ -272,21 +255,42 @@
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-  
-    if (theme.length==0||visitDate.length==0||accessMethodID.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+  //theme.length==0||visitDate.length==0||accessMethodID.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0
+    if ([NullString isBlankString:theme]) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"空户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
+    }else if ([NullString isBlankString:theme]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"主题名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:visitDate]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"拜访时间不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:respondentPhone]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:address]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人地址不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:customerRequirements]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"客户需求不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if (!([self validateMobile:respondentPhone]||[self validatePhone:respondentPhone]||[self validateTelphone:respondentPhone])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }else if (respondent.length>35){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"受访人员名称过长" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
     }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];

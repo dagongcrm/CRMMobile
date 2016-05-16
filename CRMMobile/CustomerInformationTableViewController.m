@@ -157,8 +157,8 @@
     }
     cell.photo.image = [UIImage imageNamed:@"kehuDA.png"];
     cell.company.text = self.fakeData[indexPath.row];
-    cell.industry.text = [self.industryIDStr objectAtIndex:indexPath.row];
-    cell.address.text = [self.addressData objectAtIndex:indexPath.row];
+    cell.industry.text = [@"所属行业：" stringByAppendingString:[self.industryIDStr objectAtIndex:indexPath.row]];
+    cell.address.text = [@"地址：" stringByAppendingString:[self.addressData objectAtIndex:indexPath.row]];
     cell.phone.text = (NSString *)[self.phoneData objectAtIndex:indexPath.row];
     return cell;
 }
