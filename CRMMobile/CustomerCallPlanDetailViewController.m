@@ -111,7 +111,6 @@
             request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
             NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
             NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-            
             if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 CustomerCallPlanViewController *mj = [[CustomerCallPlanViewController alloc] init];
@@ -125,8 +124,6 @@
         }
     }
 }
-
-
 
 
 -(void) updateLocation:(NSString *) customerID:(CLLocation *)location:(NSError *)error{
