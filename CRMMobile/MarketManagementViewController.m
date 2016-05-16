@@ -145,7 +145,7 @@
             NSArray *list = [responseObject objectForKey:@"obj"];
             for (int i = 0;i<[list count];i++) {
                 NSDictionary *listDic =[list objectAtIndex:i];
-                NSString *time = (NSString *)[listDic objectForKey:@"visitDate"];
+                NSString *time = (NSString *)[listDic objectForKey:@"timeStr"];
                 if([time isEqualToString:self.date1]){
                     self.acitvityIndex1++;
                 }else if([time isEqualToString:self.date2]){
