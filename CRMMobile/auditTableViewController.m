@@ -74,14 +74,18 @@
     self.progress.dimBackground=NO;
     self.progress.labelText=@"加载中，请稍后";
     [self.progress show:YES];
-
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSString *sid = [[APPDELEGATE.sessionInfo objectForKey:@"obj"]objectForKey:@"sid"];
     NSDictionary *parameters = @{@"MOBILE_SID":sid,
                                  @"page":page};
     [manager POST:[SERVER_URL stringByAppendingString:@"mJobSubmissionAction!renWuJBXXSHDatagrid.action?"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if([[responseObject objectForKey:@"success"] boolValue] == YES){
-            NSArray *list = [responseObject objectForKey:@"obj"];
+        NSString *result =  [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+        [self removeUnescapedCharacter:result];
+        NSDictionary *rececive = [NSJSONSerialization JSONObjectWithData:[[self removeUnescapedCharacter:result] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+        if([[rececive objectForKey:@"success"] boolValue] == YES){
+            NSArray *list = [rececive objectForKey:@"obj"];
             for (int i = 0;i<[list count];i++) {
                 NSDictionary *listdic = [list objectAtIndex:i];
                 [self.uid addObject:listdic];
@@ -104,11 +108,43 @@
             [alert show];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
          [self.progress hide:YES];
+        NSLog(@"%@",error);
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请求错误" message:@"请检查网络，重新加载!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
     }];
 }
+
+
+-(NSString *)removeUnescapedCharacter:(NSString *)inputStr
+{
+    
+    NSCharacterSet *controlChars = [NSCharacterSet controlCharacterSet];
+    
+    NSRange range = [inputStr rangeOfCharacterFromSet:controlChars];
+    
+    if (range.location != NSNotFound)
+    {
+        
+        NSMutableString *mutable = [NSMutableString stringWithString:inputStr];
+        
+        while (range.location != NSNotFound)
+        {
+            
+            [mutable deleteCharactersInRange:range];
+            
+            range = [mutable rangeOfCharacterFromSet:controlChars];
+            
+        }
+        
+        return mutable;
+        
+    }
+    
+    return inputStr;
+}
+
 
 - (NSMutableArray *)fakeData
 {
@@ -119,7 +155,6 @@
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
         [self getDataAsy:@"1"];
-        
     }
     return _fakeData;
 }
