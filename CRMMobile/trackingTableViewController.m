@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *dataing;
 @property (strong, nonatomic) NSMutableArray *time;
 @property (strong, nonatomic) NSMutableArray *uid;
-
+@property (strong, nonatomic) NSMutableArray *ftnHS;
 @property  NSInteger index;
 
 @end
@@ -32,7 +32,7 @@
         self.dataing=[[NSMutableArray alloc] init];
         self.time=[[NSMutableArray alloc] init];
         self.uid=[[NSMutableArray alloc] init];
-
+        self.ftnHS=[[NSMutableArray alloc] init];
         [self faker:@"1"];
     }
     return _fakeData;
@@ -78,9 +78,11 @@
         NSString *userId   = (NSString *)[listdic objectForKey:@"ftn_Name_cn"];
         NSLog(@"%@",userId);
         NSString *time   = (NSString *)[listdic objectForKey:@"ftn_Name_cn"];
+        NSString *ftnhs   = (NSString *)[listdic objectForKey:@"timeConsuming"];
         [self.fakeData     addObject:teamname];
         [self.time   addObject:time];
         [self.dataing   addObject:userId];
+        [self.ftnHS addObject:ftnhs];
     }
     }
 }
@@ -156,8 +158,8 @@
     }
     cell.myImg.image = [UIImage imageNamed:@"任务跟踪1.png"];
     cell.mylbl1.text= [self.fakeData objectAtIndex:indexPath.row];
+    cell.mylbl3.text= [@"节点耗时:" stringByAppendingString:self.ftnHS[indexPath.row]];
     cell.mylbl2.text= [@"流程节点:" stringByAppendingString:self.dataing[indexPath.row]];
-    
     return cell;
 }
 

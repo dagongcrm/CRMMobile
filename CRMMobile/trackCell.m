@@ -12,10 +12,8 @@
 @synthesize myImg;
 @synthesize mylbl1;
 @synthesize mylbl2;
-//@synthesize mylbl3;
-//- (void)awakeFromNib {
-//    // Initialization code
-//}
+@synthesize mylbl3;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

@@ -298,9 +298,6 @@
             cell.bfShijian.text =bfs;
         }
     }
-    //    cell.bfShijian.text =[@"拜访时间:" stringByAppendingString:self.visitDate[indexPath.row]];
-    //    //测试图片
-    //    cell.iamge.image = [UIImage imageNamed:@"testImage.jpg"];
     return cell;
 }
 
