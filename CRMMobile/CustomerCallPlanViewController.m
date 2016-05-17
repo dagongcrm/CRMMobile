@@ -39,7 +39,6 @@
         self.visitDate = [[NSMutableArray alloc]init];
         self.respondent=[[NSMutableArray alloc]init];
         [self faker:@"1"];
-//        [self faker:@"2"];
     }
     return _fakeData;
 }
@@ -51,9 +50,6 @@
     self.title=@"拜访计划";
     [self setupRefresh];    //上拉刷新下拉加在方法
     self.uid=[NSMutableArray array];
-    
-    //添加图标
-//    [self addPage];
     
     //设置导航栏返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];

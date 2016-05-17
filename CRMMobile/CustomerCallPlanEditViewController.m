@@ -14,6 +14,8 @@
 #import "CustomerContactListViewController.h"
 #import "HZQDatePickerView.h"
 #import "NullString.h"
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface CustomerCallPlanEditViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -223,7 +225,7 @@
     NSString *customerID=_customerCallPlanEntity.customerID;
     NSLog(@"-----------------------------%@",customerID);
     NSString *customerName=_customerCallPlanEntity.customerNameStr;
-    NSLog(@"-----------------------------%@",customerName);
+    NSLog(@"-------------RRRRR----------------%@",customerName);
     NSString *visitDate=_visitDate.text;
     NSString *theme=_theme.text;
     NSString *respondentPhone=_respondentPhone.text;
@@ -320,13 +322,11 @@
     self.theme.layer.borderWidth = 1;
     self.theme.layer.cornerRadius = 6;
     self.theme.layer.masksToBounds = YES;
-//    self.theme.editable = NO;
     
     [self.address.layer setBorderColor:color];
     self.address.layer.borderWidth = 1;
     self.address.layer.cornerRadius = 6;
     self.address.layer.masksToBounds = YES;
-//    self.address.editable = NO;
     
     [self.customerChange.layer setBorderColor:color];
     self.customerChange.layer.borderWidth = 1;
@@ -362,19 +362,17 @@
    
     if(_customerCallPlanEntity.accessMethodStr.length!=0){
         _accessMethodID=_customerCallPlanEntity.accessMethodStr;
-        //        _accessMethodID=_customerCallPlanEntity.accessMethod;
         [self.accessMethod setTitle:_customerCallPlanEntity.accessMethodStr forState:UIControlStateNormal];
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)selectate:(id)sender {
     _pikerView = [HZQDatePickerView instanceDatePickerView];
-    //        _pikerView.frame = CGRectMake(0, 0, ScreenRectWidth, ScreenRectHeight + 20);
+    _pikerView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     DateType type ;
     [_pikerView setBackgroundColor:[UIColor clearColor]];
     _pikerView.delegate = self;

@@ -48,6 +48,7 @@
         [self.window makeKeyAndVisible];
         
         }
+    //异常处理
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     return YES;
 }

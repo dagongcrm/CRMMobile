@@ -22,17 +22,21 @@
 @property (nonatomic, strong) NSMutableArray *customerNameStrData;//联系人公司名称
 @property (nonatomic, strong) NSMutableArray *phoneData;//电话数据
 @property (nonatomic, strong) NSMutableArray *positionData;//职务
+@property (nonatomic, strong) NSDictionary *nc;
 @property  NSInteger index;
 @property  UIViewController *uiview;
 @property (strong, nonatomic) NSMutableDictionary *uNameId;//
 @property (strong, nonatomic) NSMutableArray *CustomerArr; // keep all message
 @property (strong,nonatomic) NSMutableArray *contactIDData;//联系人id
+@property (strong,nonatomic) CostomerContactEntity *contact;
 @end
 
 @implementation CustomercontactTableViewController
 - (NSMutableArray *)fakeData
 {
     if (!_fakeData) {
+        _contact =[[CostomerContactEntity alloc] init];
+        _nc = [[NSDictionary alloc] init];
         self.fakeData   = [NSMutableArray array];
         self.contactData = [[NSMutableArray alloc]init];
         self.customerNameStrData = [[NSMutableArray alloc]init];
@@ -40,18 +44,19 @@
         self.contactIDData =[[NSMutableArray array]init];
         self.positionData =[[NSMutableArray array]init];
         [self faker:@"1"];
-//        [self faker:@"2"];
     }
     return _fakeData;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    self.fakeData   = [NSMutableArray array];
-    self.contactData = [[NSMutableArray alloc]init];
-    self.customerNameStrData = [[NSMutableArray alloc]init];
-    self.phoneData = [[NSMutableArray array]init];
-    self.contactIDData =[[NSMutableArray array]init];
-    self.positionData =[[NSMutableArray array]init];
+    _contact =[[CostomerContactEntity alloc] init];
+    [self.CustomerArr removeAllObjects];
+    [self.fakeData removeAllObjects];
+    [self.contactData removeAllObjects];
+    [self.customerNameStrData removeAllObjects];
+    [self.phoneData removeAllObjects];
+    [self.contactIDData removeAllObjects];
+    [self.positionData removeAllObjects];
     self.index =1;
     [self faker:@"1"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -215,42 +220,42 @@
 {
     [self userIduserName:self.fakeData :self.contactIDData];
     
-    NSDictionary *nc =[self singleUserInfo:(NSString *)[_uNameId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
-    NSLog(@"ncncncncncncncncncnc//////%@",nc);
-    NSString *customerNameStr  =(NSString *) [nc objectForKey:@"customerNameStr"];//客户名称
-    NSString *contactName =(NSString *) [nc objectForKey:@"contactName"];//客户联系人
-    NSString *telePhone =(NSString *) [nc objectForKey:@"telePhone"];//电话
-    NSString *department =(NSString *) [nc objectForKey:@"department"];//部门
-    NSString *position   =(NSString *) [nc objectForKey:@"position"];
-    NSString *evaluationOfTheSalesman    =(NSString *) [nc objectForKey:@"evaluationOfTheSalesman"];
-    NSString *informationAttributionStr    =(NSString *) [nc objectForKey:@"informationAttributionStr"];
-    NSString *informationAttribution    =(NSString *) [nc objectForKey:@"informationAttribution"];
-    NSString *guishuRStr   =(NSString *) [nc objectForKey:@"guishuRStr"];
-    NSString *guishuR   =(NSString *) [nc objectForKey:@"guishuR"];
-    NSString *contactState    =(NSString *) [nc objectForKey:@"contactStateStr"];
-     NSString *contactState1    =(NSString *) [nc objectForKey:@"contactState"];
-    NSString *tianjiaSJ    =(NSString *) [nc objectForKey:@"tianjiaSJ"];
-    NSString *contactID =(NSString *) [nc objectForKey:@"contactID"];
-    NSString *customerID = (NSString *) [nc objectForKey:@"customerID"];
+    _nc =[self singleUserInfo:(NSString *)[_uNameId objectForKey:[self.fakeData objectAtIndex:indexPath.row]]];
+    NSLog(@"ncncncncncncncncncnc//////%@",_nc);
+    NSString *customerNameStr  =(NSString *) [_nc objectForKey:@"customerNameStr"];//客户名称
+    NSString *contactName =(NSString *) [_nc objectForKey:@"contactName"];//客户联系人
+    NSString *telePhone =(NSString *) [_nc objectForKey:@"telePhone"];//电话
+    NSString *department =(NSString *) [_nc objectForKey:@"department"];//部门
+    NSString *position   =(NSString *) [_nc objectForKey:@"position"];
+    NSString *evaluationOfTheSalesman    =(NSString *) [_nc objectForKey:@"evaluationOfTheSalesman"];
+    NSString *informationAttributionStr    =(NSString *) [_nc objectForKey:@"informationAttributionStr"];
+    NSString *informationAttribution    =(NSString *) [_nc objectForKey:@"informationAttribution"];
+    NSString *guishuRStr   =(NSString *) [_nc objectForKey:@"guishuRStr"];
+    NSString *guishuR   =(NSString *) [_nc objectForKey:@"guishuR"];
+    NSString *contactState    =(NSString *) [_nc objectForKey:@"contactStateStr"];
+     NSString *contactState1    =(NSString *) [_nc objectForKey:@"contactState"];
+    NSString *tianjiaSJ    =(NSString *) [_nc objectForKey:@"tianjiaSJ"];
+    NSString *contactID =(NSString *) [_nc objectForKey:@"contactID"];
+    NSString *customerID = (NSString *) [_nc objectForKey:@"customerID"];
     NSLog(@"tianjiaSJtianjiaSJ%@",tianjiaSJ);
-    CostomerContactEntity *contact =[[CostomerContactEntity alloc] init];
-    [contact setCustomerNameStr:customerNameStr];
-    [contact setContactName:contactName];
-    [contact setTelePhone:telePhone];
-    [contact setDepartment:department];
-    [contact setPosition:position];
-    [contact setEvaluationOfTheSalesman:evaluationOfTheSalesman];
-    [contact setInformationAttributionStr:informationAttributionStr];
-    [contact setInformationAttribution:informationAttribution];
-    [contact setGuishuRStr:guishuRStr];
-    [contact setGuishuR:guishuR];
-    [contact setContactState:contactState];
-    [contact setContactState1:contactState1];
-    [contact setTianjiaSJ:tianjiaSJ];
-    [contact setContactID:contactID];
-    [contact setCustomerID:customerID];
+   
+    [_contact setCustomerNameStr:customerNameStr];
+    [_contact setContactName:contactName];
+    [_contact setTelePhone:telePhone];
+    [_contact setDepartment:department];
+    [_contact setPosition:position];
+    [_contact setEvaluationOfTheSalesman:evaluationOfTheSalesman];
+    [_contact setInformationAttributionStr:informationAttributionStr];
+    [_contact setInformationAttribution:informationAttribution];
+    [_contact setGuishuRStr:guishuRStr];
+    [_contact setGuishuR:guishuR];
+    [_contact setContactState:contactState];
+    [_contact setContactState1:contactState1];
+    [_contact setTianjiaSJ:tianjiaSJ];
+    [_contact setContactID:contactID];
+    [_contact setCustomerID:customerID];
     CustomercontactInfoController *customerInfo = [[CustomercontactInfoController alloc]init];
-    [customerInfo setContactEntity:contact];
+    [customerInfo setContactEntity:_contact];
     [self.navigationController pushViewController:customerInfo animated:YES];
 }
 

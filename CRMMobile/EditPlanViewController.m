@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "config.h"
 #import "HZQDatePickerView.h"
+#import "NullString.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface EditPlanViewController ()
@@ -154,7 +155,7 @@
     NSString *customerCallPlanID=_customerCallPlanEntity.customerCallPlanID;
     
     NSString *customerID=_customerCallPlanEntity.customerID;
-    NSLog(@"-----------------------------%@",customerID);
+    NSLog(@"---------------rrrrrr--------------%@",customerID);
     NSString *customerName=_customerCallPlanEntity.customerNameStr;
     NSLog(@"-----------------------------%@",customerName);
     NSString *visitDate=_visitDate.text;
@@ -176,21 +177,79 @@
     if (accessMethod.length>0) {
         _customerCallPlanEntity.accessMethod = accessMethod;
     }
+//    
+//    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//        
+//    }else if (respondent.length>35){
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"受访人员名称过长" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//    }else{
     
-    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+    if ([NullString isBlankString:customerName]) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
+        
+    }else if ([NullString isBlankString:theme]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"主题名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:visitDate]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"拜访时间不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:_customerCallPlanEntity.accessMethod]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"访问方式不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:respondentPhone]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:respondent]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人员不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:address]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人地址不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:visitProfile]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"拜访概要不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:result]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"达成结果不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:customerRequirements]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"客户需求不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if (!([self validateMobile:respondentPhone]||[self validatePhone:respondentPhone]||[self validateTelphone:respondentPhone])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }else if (respondent.length>35){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"受访人员名称过长" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
     }else{
+        
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];

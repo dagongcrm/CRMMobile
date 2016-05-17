@@ -255,9 +255,9 @@
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
  
-    if ([NullString isBlankString:theme]) {
+    if ([NullString isBlankString:customerID]) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"空户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
     }else if ([NullString isBlankString:theme]){
@@ -290,14 +290,19 @@
                                   initWithTitle:@"温馨提示" message:@"受访人地址不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }else if ([NullString isBlankString:customerRequirements]){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"客户需求不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-        
     }else if ([NullString isBlankString:visitProfile]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"拜访概要不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:result]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"达成结果不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:customerRequirements]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"客户需求不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
     }else if (!([self validateMobile:respondentPhone]||[self validatePhone:respondentPhone]||[self validateTelphone:respondentPhone])){

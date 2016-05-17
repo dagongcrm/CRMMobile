@@ -1889,6 +1889,7 @@
 				39F1F1B31BE3A24000EA3133 /* GPS */,
 			);
 			name = Img;
+			path = CRMMobile;
 			sourceTree = "<group>";
 		};
 		C0D3CD7C1BDF0E2C00C23FB3 /* PureLayout */ = {
@@ -1976,6 +1977,7 @@
 				C0D68C391BD8EA20009CEC23 /* CRMMobile */,
 				C0D68C561BD8EA20009CEC23 /* CRMMobileTests */,
 				C0D68C381BD8EA20009CEC23 /* Products */,
+				C0D3CD391BDF0C8300C23FB3 /* Img */,
 				8C96982F4FCEE9CAD7640CD8 /* Pods */,
 				697B9FD2210A177A0B37E0B0 /* Frameworks */,
 			);
@@ -2190,7 +2192,6 @@
 				9678AEE11BEB70CA00E5B50E /* CRMAPP */,
 				C0D5692C1BD9B65100860B33 /* Date */,
 				C0D68C681BD8ED84009CEC23 /* Config */,
-				C0D3CD391BDF0C8300C23FB3 /* Img */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
