@@ -14,6 +14,7 @@
 #import "config.h"
 #import "ZSYPopoverListView.h"
 #import "UIImage+Tint.h"
+#import "NullString.h"
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddSaleOppViewController ()
@@ -141,15 +142,19 @@
 }
 
 - (IBAction)save:(id)sender {
-    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle==nil||_saleOppSrcSelect.currentTitle==NULL||_selectOppStateSelectButton.currentTitle==nil||_selectOppStateSelectButton.currentTitle==NULL) {
+
+    if([NullString isBlankString:self.customerNameStr.text]){
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text]||[self validateTelphone:self.contactTel.text])){
+    }else if([NullString isBlankString:_chooseOppSrcID]){
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"销售机会来源不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-        
+    }else if([NullString isBlankString:self.successProbability.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"成功率不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
     }else if (!([self validateNumber:self.successProbability.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"成功率只能是0-100的正整数！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
@@ -160,8 +165,28 @@
                                   initWithTitle:@"温馨提示" message:@"销售机会简述最多输入两百个字！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
-    }
-    else{
+    }else if([NullString isBlankString:self.saleOppDescription.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"销售机会简述不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:_chooseoppStateID]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"机会状态不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:self.contact.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:self.contactTel.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text]||[self validateTelphone:self.contactTel.text])){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else{
         NSError *error;
         AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
         NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
@@ -182,8 +207,6 @@
             
             if([[weatherDic objectForKeyedSubscript:@"msg"] isEqualToString:@"操作成功！"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[weatherDic objectForKeyedSubscript:@"msg"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                //        SaleOppTableViewController *mj = [[SaleOppTableViewController alloc] init];
-                //        [self.navigationController pushViewController:mj animated:YES];
                 [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]  animated:YES];
                 [alert show];
             }

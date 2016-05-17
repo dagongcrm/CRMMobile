@@ -13,7 +13,7 @@
 #import "EntityHelper.h"
 #import "noticeDetailViewController.h"
 #import "UIScrollView+MJRefresh.h"
-#import "trackCell.h"
+#import "saleLeadsCell.h"
 @interface publicNoticeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *entities;
@@ -44,7 +44,6 @@
     if (!_entities) {
         self.entities = [[NSMutableArray alloc]init];
         [self faker:@"1"];
-//        [self faker:@"2"];
     }
     return _entities;
 }
@@ -75,7 +74,7 @@
     self.dataing=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mnoticeManageAction!threeDatagrid1.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mnoticeManageAction!threeDatagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -94,14 +93,7 @@
                        @"Argentina.png",@"Nigeria.png",@"England.png",@"USA.png",
                        @"Germany.png",@"Australia.png",@"Holland.png",@"Denmark.png",
                        @"Brazil.png",@"NorthKorea.png",@"Spain.png",@"Switzerland.png",nil];
-    //    if([list count] ==0)
-    //    {
-    //        self.tableView.footerRefreshingText = @"没有更多数据";
-    //
-    //    }else
-    //    {
-    //        self.tableView.footerRefreshingText=@"加载中";
-    //    }
+    
     for (int i = 0; i<[list count]; i++) {
         NSDictionary *listDic =[list objectAtIndex:i];
         noticeEntity *notice =[[noticeEntity alloc] init];
@@ -111,7 +103,6 @@
 
     }
     }
-    //[self userIdReturn:self.userIdDahttp://172.16.21.42:8080/dagongcrm/ta];
     return self.entities;
 }
 
@@ -156,31 +147,24 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellId = @"trackCell";
-    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString * cellId = @"saleLead";
+    saleLeadsCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"saleLeadsCell" owner:self options:nil]lastObject];
     }
     
     cell.myImg.image = [UIImage imageNamed:@"app_item_announcement.png"];
-    cell.mylbl1.text= [[self.entities objectAtIndex:indexPath.row] documentTitle];
-    cell.mylbl2.text= [[self.entities objectAtIndex:indexPath.row] publishContent];
+    cell.lbl1.text= [[self.entities objectAtIndex:indexPath.row] documentTitle];
+    cell.lbl2.text= [@"内容：" stringByAppendingString:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     
     return cell;
 }

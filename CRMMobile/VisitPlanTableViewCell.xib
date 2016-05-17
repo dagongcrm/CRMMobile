@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,17 +13,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-Om-Ach">
                         <rect key="frame" x="70" y="9" width="230" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拜访人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoJ-jR-k4I">
                         <rect key="frame" x="70" y="39" width="111" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="0si-yi-wet"/>
                             <constraint firstAttribute="height" constant="21" id="tcW-sB-MGH"/>
@@ -33,17 +36,20 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="08Z-tQ-hck">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="AGa-JC-v3X"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拜访时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-se-4r9">
                         <rect key="frame" x="189" y="39" width="131" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="OoJ-jR-k4I" firstAttribute="firstBaseline" secondItem="FgT-se-4r9" secondAttribute="firstBaseline" id="1B6-fN-nse"/>
                     <constraint firstAttribute="trailing" secondItem="FgT-se-4r9" secondAttribute="trailing" id="6ra-NY-z8x"/>
@@ -59,13 +65,14 @@
                     <constraint firstItem="PdY-Om-Ach" firstAttribute="leading" secondItem="OoJ-jR-k4I" secondAttribute="leading" id="zA7-Fh-99J"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="company" destination="PdY-Om-Ach" id="kag-tO-jJm"/>
                 <outlet property="photo" destination="08Z-tQ-hck" id="2Nj-wf-Iri"/>
                 <outlet property="visitDate" destination="FgT-se-4r9" id="eYx-Da-PWi"/>
                 <outlet property="visitor" destination="OoJ-jR-k4I" id="J2B-14-MpV"/>
             </connections>
-            <point key="canvasLocation" x="430" y="256"/>
+            <point key="canvasLocation" x="259" y="125"/>
         </tableViewCell>
     </objects>
 </document>

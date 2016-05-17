@@ -14,7 +14,7 @@
 #import "config.h"
 #import "ZSYPopoverListView.h"
 #import "UIImage+Tint.h"
-
+#import "NullString.h"
 @interface EditSaleOppViewController ()
 
 @property (strong,nonatomic)  NSString    *select;//用于判断下拉选
@@ -141,15 +141,18 @@
 
 
 - (IBAction)save:(id)sender {
-    if (_customerNameStr.text.length==0||_successProbability.text.length==0||_saleOppDescription.text.length==0||_contact.text.length==0||_contactTel.text.length==0||_saleOppSrcSelect.currentTitle.length==0||_selectOppStateSelectButton.currentTitle.length==0) {
+    if([NullString isBlankString:self.customerNameStr.text]){
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text]||[self validateTelphone:self.contactTel.text])){
+    }else if([NullString isBlankString:_chooseOppSrcID]){
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"销售机会来源不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-        
+    }else if([NullString isBlankString:self.successProbability.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"成功率不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
     }else if (!([self validateNumber:self.successProbability.text])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"成功率只能是0-100的正整数！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
@@ -160,6 +163,27 @@
                                   initWithTitle:@"温馨提示" message:@"销售机会简述最多输入两百个字！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
+    }else if([NullString isBlankString:self.saleOppDescription.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"销售机会简述不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:_chooseoppStateID]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"机会状态不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:self.contact.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if([NullString isBlankString:self.contactTel.text]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"联系人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+    }else if (!([self validateMobile:self.contactTel.text]||[self validatePhone:self.contactTel.text]||[self validateTelphone:self.contactTel.text])){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
     }else{
     NSError *error;
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
@@ -168,19 +192,6 @@
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
-
-//        RequestParams params = new RequestParams();
-//        params.put("saleOppID", saleOppID);
-//        params.put("customerName", customerID1);
-//        params.put("successProbability", successProbability);
-//        params.put("saleOppSrc", customerClass);
-//        params.put("saleOppDescription", saleOppDescription);
-//        params.put("oppState", oppStateClass);
-//        params.put("contact", contact);
-//        params.put("contactTel", contactTel);
-//        params.put("creater", createrStr);
-//        params.put("createTime", createTime);
-//        
        
     NSString *param=[NSString stringWithFormat:@"MOBILE_SID=%@&saleOppID=%@&customerName=%@&successProbability=%@&saleOppDescription=%@&contact=%@&contactTel=%@&saleOppSrc=%@&oppState=%@&creater=%@&createTime=%@",sid,_saleOppEntity.saleOppID,_saleOppEntity.customerName,_successProbability.text,_saleOppDescription.text,_contact.text,_contactTel.text,_chooseOppSrcID,_chooseoppStateID,_saleOppEntity.creater,_saleOppEntity.createTime];
     request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];

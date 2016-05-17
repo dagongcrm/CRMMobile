@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,10 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WuU-QY-tga" id="P50-r5-KdC">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEj-zV-9UC" userLabel="时间">
                         <rect key="frame" x="216" y="38" width="100" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="bEZ-q3-y32"/>
                         </constraints>
@@ -25,12 +28,14 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIQ-dy-9cN">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Ssn-Kf-5sK"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9df-Dy-LNM" userLabel="拜访类型">
                         <rect key="frame" x="266" y="10" width="50" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="tz9-ki-KJY"/>
                         </constraints>
@@ -40,12 +45,14 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-Pz-0Cs" userLabel="企业名称">
                         <rect key="frame" x="63" y="10" width="209" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B34-7B-B19" userLabel="拜访人">
                         <rect key="frame" x="63" y="38" width="122" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7i6-zp-Utb"/>
                         </constraints>
@@ -54,6 +61,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="ISw-Pz-0Cs" secondAttribute="trailing" constant="40" id="36E-ua-11n"/>
                     <constraint firstItem="B34-7B-B19" firstAttribute="baseline" secondItem="gEj-zV-9UC" secondAttribute="baseline" id="3zj-Ds-Bx5"/>
@@ -73,6 +81,7 @@
                     <constraint firstItem="B34-7B-B19" firstAttribute="top" secondItem="ISw-Pz-0Cs" secondAttribute="bottom" constant="7" id="zCa-da-iIQ"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="bfLeixing" destination="9df-Dy-LNM" id="aBP-d7-Wds"/>
                 <outlet property="bfRen" destination="B34-7B-B19" id="Ofg-0j-2hu"/>

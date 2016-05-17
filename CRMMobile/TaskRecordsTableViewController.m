@@ -264,13 +264,10 @@
     if (cell == nil) {
         //通过xib的名称加载自定义的cell
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MTableViewCell" owner:self options:nil] lastObject];
-      
     }
     //添加测试数据
     cell.qiyeName.text = [self.fakeData objectAtIndex:indexPath.row];
-    //    cell//    cell accessMethodStr
     NSString *bfl = [self.accessMethodStr objectAtIndex:indexPath.row];
-
     cell.myImg.image = [UIImage imageNamed:@"baifanJL.png"];
     if ([bfl isEqualToString:@"电话"]) {
         cell.bfLeixing.textColor = [UIColor colorWithRed:0.f/255.f green:100.f/255.f blue:0.f/255.f alpha:1];
@@ -282,7 +279,7 @@
     }
     cell.bfLeixing.font = [UIFont systemFontOfSize:10];
    
-    NSString * bfr = [self.respondent objectAtIndex:indexPath.row];
+    NSString * bfr = [self.visitor objectAtIndex:indexPath.row];
     if ([NullString isBlankString:bfr]) {
         cell.bfRen.text =@"拜访人:暂无信息" ;
     }else{

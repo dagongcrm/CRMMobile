@@ -14,7 +14,7 @@
 #import "noticeDetailViewController.h"
 #import "EntityHelper.h"
 #import "UIScrollView+MJRefresh.h"
-#import "trackCell.h"
+#import "saleLeadsCell.h"
 @interface NoticeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *entities;
@@ -107,7 +107,7 @@
     self.dataing=[[NSMutableArray alloc] init];
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     NSString *sid = [[myDelegate.sessionInfo  objectForKey:@"obj"] objectForKey:@"sid"];
-    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mnoticeManageAction!threeDatagrid1.action?"]];
+    NSURL *URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"mnoticeManageAction!threeDatagrid.action?"]];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
     request.timeoutInterval=10.0;
     request.HTTPMethod=@"POST";
@@ -190,37 +190,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellId = @"trackCell";
-    trackCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString * cellId = @"saleLead";
+    saleLeadsCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"trackCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"saleLeadsCell" owner:self options:nil]lastObject];
     }
    
     cell.myImg.image = [UIImage imageNamed:@"app_item_notice.png"];
-    cell.mylbl1.text= [[self.entities objectAtIndex:indexPath.row] documentTitle];
-    cell.mylbl2.text= [[self.entities objectAtIndex:indexPath.row] publishContent];
+    cell.lbl1.text= [[self.entities objectAtIndex:indexPath.row] documentTitle];
+    cell.lbl2.text= [@"内容：" stringByAppendingString:[[self.entities objectAtIndex:indexPath.row] publishContent]];
     
     return cell;
-
-    
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    [cell.textLabel setText:[[self.entities objectAtIndex:indexPath.row] publishContent]];
-//    [cell.detailTextLabel setTextColor:[UIColor colorWithWhite:0.52 alpha:1.0]];
-////    [cell.imageView setImage:[UIImage imageNamed:@"app_item_notice.png"]];
-//    cell.imageView.image=[UIImage imageNamed:@"app_item_notice.png"];
-//    CGSize itemsize=CGSizeMake(30, 30);
-//    UIGraphicsBeginImageContextWithOptions(itemsize,NO,UIScreen.mainScreen.scale);
-//    CGRect imageRect=CGRectMake(0.0, 0.0, itemsize.width, itemsize.width);
-//    [cell.imageView.image drawInRect:imageRect];
-//    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//   
-//    return cell;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

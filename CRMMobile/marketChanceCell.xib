@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,23 +12,26 @@
             <rect key="frame" x="0.0" y="0.0" width="336" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mnk-W3-j8X">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="JDE-W1-C4Q"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-Yi-DhL">
                         <rect key="frame" x="76" y="8" width="196" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.3843137254901961" green="0.3843137254901961" blue="0.3843137254901961" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-ve-snf">
                         <rect key="frame" x="248" y="40" width="57" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="57" id="Z6M-Zy-2wT"/>
                         </constraints>
@@ -38,6 +41,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功率：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye3-YJ-hXY">
                         <rect key="frame" x="208" y="40" width="57" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="57" id="Jal-Iu-xDx"/>
                         </constraints>
@@ -47,6 +51,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kn-cD-6JZ">
                         <rect key="frame" x="285" y="24" width="50" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="nv0-cL-JkF"/>
                         </constraints>
@@ -56,6 +61,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-PQ-o8b">
                         <rect key="frame" x="76" y="40" width="130" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="L7t-7J-eZ1"/>
                         </constraints>
@@ -64,6 +70,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="8kn-cD-6JZ" firstAttribute="leading" secondItem="Ugh-Yi-DhL" secondAttribute="trailing" constant="13" id="0dn-g9-IQZ"/>
                     <constraint firstItem="8kn-cD-6JZ" firstAttribute="leading" secondItem="Ye3-YJ-hXY" secondAttribute="trailing" constant="20" id="FuD-dL-ECr"/>
@@ -85,6 +92,7 @@
                     <constraint firstItem="uu1-PQ-o8b" firstAttribute="baseline" secondItem="0Ty-ve-snf" secondAttribute="baseline" id="zoL-rc-ydz"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="lianxiR" destination="uu1-PQ-o8b" id="jEc-Rp-t8V"/>
                 <outlet property="myImg" destination="mnk-W3-j8X" id="tZv-MN-vxj"/>

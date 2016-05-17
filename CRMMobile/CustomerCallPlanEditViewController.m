@@ -13,6 +13,7 @@
 #import "ZSYPopoverListView.h"
 #import "CustomerContactListViewController.h"
 #import "HZQDatePickerView.h"
+#import "NullString.h"
 @interface CustomerCallPlanEditViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -26,7 +27,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UITextField *respondentPhone;    //受访人电话
-
 @property (weak, nonatomic) IBOutlet UITextField *respondent;    //受访人员
 @property (strong, nonatomic) IBOutlet UITextView *visitProfile;
 @property (strong, nonatomic) IBOutlet UITextView *result;
@@ -242,11 +242,27 @@
     if (accessMethod.length>0) {
         _customerCallPlanEntity.accessMethod = accessMethod;
     }
-    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+//    if (theme.length==0||visitDate.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0) {
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
+//        
+//    }else{
+    if ([NullString isBlankString:visitProfile]){
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"温馨提示" message:@"文本框输入框不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                  initWithTitle:@"温馨提示" message:@"拜访概要不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
-    }else if (!([self validateMobile:self.respondentPhone.text]||[self validatePhone:self.respondentPhone.text]||[self validateTelphone:self.respondentPhone.text])){
+        
+    }else if ([NullString isBlankString:visitProfile]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"拜访概要不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if (!([self validateMobile:respondentPhone]||[self validatePhone:respondentPhone]||[self validateTelphone:respondentPhone])){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"电话号码格式不正确！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];

@@ -16,7 +16,6 @@
 #import "CustomerContactListViewController.h"
 #import "VisitPlanTableViewController.h"
 #import "NullString.h"
-
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 @interface AddCustomerCallPlanViewController ()
@@ -255,7 +254,7 @@
     for (int i=0; i<[self.selectBFFSIdForParam count]; i++) {
         accessMethodID = [self.selectBFFSIdForParam objectAtIndex:i];
     }
-  //theme.length==0||visitDate.length==0||accessMethodID.length==0||respondentPhone.length==0||respondent.length==0||address.length==0||visitProfile.length==0||result.length==0||customerChange.length==0||customerRequirements.length==0
+ 
     if ([NullString isBlankString:theme]) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"空户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
@@ -271,9 +270,19 @@
                                   initWithTitle:@"温馨提示" message:@"拜访时间不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
+    }else if ([NullString isBlankString:accessMethodID]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"访问方式不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
     }else if ([NullString isBlankString:respondentPhone]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"受访人电话不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:respondent]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"受访人员不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
     }else if ([NullString isBlankString:address]){
@@ -284,6 +293,11 @@
     }else if ([NullString isBlankString:customerRequirements]){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"温馨提示" message:@"客户需求不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        
+    }else if ([NullString isBlankString:visitProfile]){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"拜访概要不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
         
     }else if (!([self validateMobile:respondentPhone]||[self validatePhone:respondentPhone]||[self validateTelphone:respondentPhone])){

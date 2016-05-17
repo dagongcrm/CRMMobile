@@ -86,26 +86,27 @@
     NSLog(@"leadsAdd1leadsAdd1leadsAdd1%@",leadsAdd1);
 
     NSString *param=@"";
-    
+    if ([NullString isBlankString:customerNameStr]) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    if ([NullString isBlankString:leadsAdd1]) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"温馨提示" message:@"销售线索不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
     
     if ([_saleLeads.index isEqualToString:@"addSaleLeads"]) {
-        if ([NullString isBlankString:customerNameStr]) {
-            UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-                        [alertView show];
-        }else{
+      
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!add.action?"]];
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@",sid,customerName,customerNameStr,leadsAdd1];
-        }
+       
     }else{
-        if ([NullString isBlankString:customerNameStr]) {
-            UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:@"温馨提示" message:@"客户名称不能为空！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-            [alertView show];
-        }else{
         URL=[NSURL URLWithString:[SERVER_URL stringByAppendingString:@"msaleClueAction!edit.action?"]];
         param=[NSString stringWithFormat:@"MOBILE_SID=%@&customerID=%@&customerNameStr=%@&salesLeads=%@&saleClueID=%@&creatingTime=%@&userID=%@",sid,customerName,customerNameStr,leadsAdd1,saleClubID,creatingTime,userID];
-        }
     }
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];
